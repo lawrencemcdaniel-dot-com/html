@@ -1,0 +1,526 @@
+0000.002 (0) Opened log file at time: Fri, 16 Mar 2018 17:54:57 +0000 on https://lareindex.com
+0000.008 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-14-147 4.9.85-37.55.amzn1.x86_64 #1 SMP Mon Mar 5 19:00:48 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 38.6M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.016 (0) Free space on disk containing Updraft's temporary directory: 92762.2 MB
+0000.023 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.028 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.044 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1521136440, seconds_ago=86457)
+0000.061 (0) Set semaphore last lock (fd) time to 2018-03-16 17:54:57
+0000.066 (0) Semaphore lock (fd) complete
+0000.083 (0) Backup run: resumption=0, nonce=692c5fc7add2, begun at=1521222897 (0s ago), job type=backup
+0000.091 (0) Scheduling a resumption (1) after 300 seconds (1521223197) in case this run gets aborted
+0000.110 (0) Checking if we have a zip executable available
+0000.114 (0) Testing: /usr/bin/zip
+0000.122 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.126 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.130 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.135 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.139 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.147 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.152 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.162 (0) Working binary zip found: /usr/bin/zip
+0000.170 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.175 (0) Creation of backups of directories: beginning
+0000.188 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.505 (0) Total entities for the zip file: 476 directories, 3884 files (0 skipped as non-modified), 49.1 MB
+0000.514 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.522 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.530 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.538 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.546 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.552 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.6 MB, 3884 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.066 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: size is now: 3.50 MB
+0001.078 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 600 files added (on-disk size: 3550.2 KB)
+0001.086 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 700 files added (on-disk size: 3550.2 KB)
+0001.094 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 800 files added (on-disk size: 3550.2 KB)
+0001.102 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 900 files added (on-disk size: 3550.2 KB)
+0001.110 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1000 files added (on-disk size: 3550.2 KB)
+0001.115 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.2 MB, 3884 files batched, 501 (1002) added so far); re-opening (prior size: 3550.2 KB)
+0001.261 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: size is now: 5.20 MB
+0001.278 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1100 files added (on-disk size: 5276.1 KB)
+0001.286 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1200 files added (on-disk size: 5276.1 KB)
+0001.294 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1300 files added (on-disk size: 5276.1 KB)
+0001.302 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1400 files added (on-disk size: 5276.1 KB)
+0001.310 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1500 files added (on-disk size: 5276.1 KB)
+0001.316 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.6 MB, 3884 files batched, 501 (1503) added so far); re-opening (prior size: 5276.1 KB)
+0001.663 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: size is now: 7.60 MB
+0001.675 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1600 files added (on-disk size: 7752.6 KB)
+0001.681 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1700 files added (on-disk size: 7752.6 KB)
+0001.688 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1800 files added (on-disk size: 7752.6 KB)
+0001.694 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 1900 files added (on-disk size: 7752.6 KB)
+0001.700 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2000 files added (on-disk size: 7752.6 KB)
+0001.704 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.9 MB, 3884 files batched, 501 (2004) added so far); re-opening (prior size: 7752.6 KB)
+0001.891 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2100 files added (on-disk size: 8862.3 KB)
+0001.897 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2200 files added (on-disk size: 8862.3 KB)
+0001.903 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2300 files added (on-disk size: 8862.3 KB)
+0001.910 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2400 files added (on-disk size: 8862.3 KB)
+0001.916 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2500 files added (on-disk size: 8862.3 KB)
+0001.920 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (16.1 MB, 3884 files batched, 501 (2505) added so far); re-opening (prior size: 8862.3 KB)
+0002.673 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: size is now: 13.50 MB
+0002.796 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2600 files added (on-disk size: 13774.5 KB)
+0002.822 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2700 files added (on-disk size: 13774.5 KB)
+0002.867 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2800 files added (on-disk size: 13774.5 KB)
+0002.874 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 2900 files added (on-disk size: 13774.5 KB)
+0002.882 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3000 files added (on-disk size: 13774.5 KB)
+0002.887 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 3884 files batched, 501 (3006) added so far); re-opening (prior size: 13774.5 KB)
+0003.178 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3100 files added (on-disk size: 15043.9 KB)
+0003.186 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3200 files added (on-disk size: 15043.9 KB)
+0003.195 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3300 files added (on-disk size: 15043.9 KB)
+0003.202 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3400 files added (on-disk size: 15043.9 KB)
+0003.211 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3500 files added (on-disk size: 15043.9 KB)
+0003.216 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.7 MB, 3884 files batched, 501 (3507) added so far); re-opening (prior size: 15043.9 KB)
+0003.377 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3600 files added (on-disk size: 15708.8 KB)
+0003.386 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3700 files added (on-disk size: 15708.8 KB)
+0003.394 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip.tmp: 3800 files added (on-disk size: 15708.8 KB)
+0003.824 (0) Created plugins zip (0) - 17292.2 KB in 3.6 s (4762.5 KB/s) (sha1: 01c459a5e2b0ba3195c5be253c9739038f0de540, sha256: 9208f961f465498c6008736c39ec842cc49c47dbfa23fddbbadc9d2922b9a065)
+0003.835 (0) Beginning creation of dump of themes (split every: 400 MB)
+0003.982 (0) Total entities for the zip file: 188 directories, 1497 files (0 skipped as non-modified), 76.4 MB
+0003.999 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0004.009 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0004.017 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0004.023 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25 MB, 1497 files batched, 373 (373) added so far); re-opening (prior size: 0 KB)
+0004.786 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: size is now: 6.10 MB
+0004.796 (0) A useful amount of data was added after this amount of zip processing: 1.3 s (normalised: 1.3 s, rate: 19260.8 KB/s)
+0004.804 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.3297550678253, normalised_time=1.3291229150961, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=118338490)
+0004.814 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 400 files added (on-disk size: 6216 KB)
+0004.820 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 500 files added (on-disk size: 6216 KB)
+0004.827 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 600 files added (on-disk size: 6216 KB)
+0004.834 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 700 files added (on-disk size: 6216 KB)
+0004.840 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 800 files added (on-disk size: 6216 KB)
+0004.846 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (23.6 MB, 1497 files batched, 501 (874) added so far); re-opening (prior size: 6216 KB)
+0005.291 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: size is now: 16.10 MB
+0005.301 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 900 files added (on-disk size: 16495.8 KB)
+0005.307 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 1000 files added (on-disk size: 16495.8 KB)
+0005.314 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 1100 files added (on-disk size: 16495.8 KB)
+0005.321 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 1200 files added (on-disk size: 16495.8 KB)
+0005.328 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 1300 files added (on-disk size: 16495.8 KB)
+0005.334 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (14.4 MB, 1497 files batched, 501 (1375) added so far); re-opening (prior size: 16495.8 KB)
+0005.697 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: size is now: 26.80 MB
+0005.707 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: 1400 files added (on-disk size: 27460.2 KB)
+0005.925 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip.tmp: size is now: 38.20 MB
+0006.410 (0) Created themes zip (0) - 39158.5 KB in 2.6 s (15233.2 KB/s) (sha1: 31b6f669fa647a3389f0542fd2d069187d481c38, sha256: 04e3c939e4edd1bc3df719b11ead2ef32afa5e34642d1d77ca672c88fc0e09f8)
+0006.420 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0006.424 (0) Looking for candidates to back up in: /var/www/html/lareindex.com/wp-content/uploads
+0006.428 (0) finding files: 2012: adding to list (1)
+0006.432 (0) finding files: 2018: adding to list (2)
+0006.437 (0) finding files: 2011: adding to list (3)
+0006.441 (0) finding files: 2009: adding to list (4)
+0006.444 (0) finding files: 2010: adding to list (5)
+0006.448 (0) finding files: dynamic_avia: adding to list (6)
+0006.453 (0) finding files: revslider: adding to list (7)
+0006.457 (0) finding files: 2014: adding to list (8)
+0006.461 (0) finding files: js_composer: adding to list (9)
+0006.465 (0) finding files: 2016: adding to list (10)
+0006.472 (0) finding files: 2013: adding to list (11)
+0006.476 (0) finding files: 2017: adding to list (12)
+0006.480 (0) finding files: wpcf7_captcha: adding to list (13)
+0006.485 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0006.615 (0) Total entities for the zip file: 123 directories, 3010 files (0 skipped as non-modified), 134.2 MB
+0006.623 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.629 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0006.636 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0006.642 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0006.662 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 500 files added (on-disk size: 0 KB)
+0006.667 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.8 MB, 3010 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0006.798 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: size is now: 13.50 MB
+0006.810 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 600 files added (on-disk size: 13853.5 KB)
+0006.817 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 700 files added (on-disk size: 13853.5 KB)
+0006.823 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 800 files added (on-disk size: 13853.5 KB)
+0006.830 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 900 files added (on-disk size: 13853.5 KB)
+0006.838 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1000 files added (on-disk size: 13853.5 KB)
+0006.843 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2 MB, 3010 files batched, 501 (1002) added so far); re-opening (prior size: 13853.5 KB)
+0007.021 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1100 files added (on-disk size: 14935.6 KB)
+0007.027 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1200 files added (on-disk size: 14935.6 KB)
+0007.034 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1300 files added (on-disk size: 14935.6 KB)
+0007.040 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1400 files added (on-disk size: 14935.6 KB)
+0007.047 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1500 files added (on-disk size: 14935.6 KB)
+0007.053 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.2 MB, 3010 files batched, 501 (1503) added so far); re-opening (prior size: 14935.6 KB)
+0007.133 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1600 files added (on-disk size: 15158.5 KB)
+0007.139 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1700 files added (on-disk size: 15158.5 KB)
+0007.146 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1800 files added (on-disk size: 15158.5 KB)
+0007.152 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 1900 files added (on-disk size: 15158.5 KB)
+0007.158 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2000 files added (on-disk size: 15158.5 KB)
+0007.164 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (29.5 MB, 3010 files batched, 501 (2004) added so far); re-opening (prior size: 15158.5 KB)
+0007.431 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: size is now: 44.40 MB
+0007.443 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2100 files added (on-disk size: 45461.5 KB)
+0007.449 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2200 files added (on-disk size: 45461.5 KB)
+0007.455 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2300 files added (on-disk size: 45461.5 KB)
+0007.461 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2400 files added (on-disk size: 45461.5 KB)
+0007.467 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2500 files added (on-disk size: 45461.5 KB)
+0007.472 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (54.2 MB, 3010 files batched, 501 (2505) added so far); re-opening (prior size: 45461.5 KB)
+0007.856 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: size is now: 97.50 MB
+0007.868 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2600 files added (on-disk size: 99869.6 KB)
+0007.874 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2700 files added (on-disk size: 99869.6 KB)
+0007.881 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2800 files added (on-disk size: 99869.6 KB)
+0007.887 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 2900 files added (on-disk size: 99869.6 KB)
+0007.894 (0) Zip: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: 3000 files added (on-disk size: 99869.6 KB)
+0007.898 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (34.5 MB, 3010 files batched, 501 (3006) added so far); re-opening (prior size: 99869.6 KB)
+0008.231 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip.tmp: size is now: 131.90 MB
+0009.896 (0) Created uploads zip (0) - 135134.5 KB in 3.4 s (39680 KB/s) (sha1: ac54037eeaa2a2d6481c33ce236c88bc1b0c0d88, sha256: 0f8b49be3bac514016bf47777dea8bf80ab09ea4b7cf88e10cca3681c421c698)
+0009.909 (0) Beginning backup of other directories found in the content directory (index: 0)
+0009.913 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0009.917 (0) Looking for candidates to back up in: /var/www/html/lareindex.com/wp-content
+0009.925 (0) finding files: wflogs: adding to list (1)
+0009.932 (0) finding files: index.php: adding to list (2)
+0009.936 (0) finding files: upgrade: skipping: excluded by options
+0009.943 (0) finding files: updraft: skipping: this is the updraft directory
+0009.947 (0) finding files: themes: skipping: this is the themes directory
+0009.952 (0) finding files: advanced-cache.php: adding to list (3)
+0009.956 (0) finding files: w3tc-config: adding to list (4)
+0009.960 (0) finding files: uploads: skipping: this is the uploads directory
+0009.964 (0) finding files: mu-plugins: adding to list (5)
+0009.972 (0) finding files: cache: skipping: excluded by options
+0009.981 (0) finding files: plugins: skipping: this is the plugins directory
+0009.993 (0) Total entities for the zip file: 3 directories, 10 files (0 skipped as non-modified), 0.8 MB
+0010.033 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-others.zip.tmp: size is now: 0.30 MB
+0010.060 (0) Created others zip (0) - 340.3 KB in 0.1 s (4630.6 KB/s) (sha1: e648ffd08394bfe784711461818c0f92f27bf20f, sha256: 976720422caf9968c4cc540df9ece439d4326332cf9902ffe71c30eda854ba9e)
+0010.088 (0) Saving backup status to database (elements: 8)
+0010.111 (0) Beginning creation of database dump (WordPress DB)
+0010.122 (0) Testing: /usr/bin/mysqldump
+0010.158 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1195 bytes total)
+0010.168 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0010.195 (0) Table wp_options: Total expected rows (approximate): 400
+0010.224 (0) Table wp_options: Total rows added: 396 in 0.02 seconds
+0010.233 (0) Table wp_options: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_options.table.gz - 35.9 KB)
+0010.258 (0) Table wp_users: Total expected rows (approximate): 2
+0010.270 (0) Table wp_users: Total rows added: 2 in 0.01 seconds
+0010.276 (0) Table wp_users: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_users.table.gz - 0.7 KB)
+0010.303 (0) Table wp_usermeta: Total expected rows (approximate): 68
+0010.316 (0) Table wp_usermeta: Total rows added: 68 in 0.01 seconds
+0010.325 (0) Table wp_usermeta: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_usermeta.table.gz - 2.7 KB)
+0010.347 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0010.356 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0010.361 (0) Table wp_commentmeta: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0010.379 (0) Table wp_comments: Total expected rows (approximate): 198
+0010.400 (0) Table wp_comments: Total rows added: 198 in 0.02 seconds
+0010.405 (0) Table wp_comments: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_comments.table.gz - 32.2 KB)
+0010.427 (0) Table wp_links: Total expected rows (approximate): 0
+0010.436 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0010.442 (0) Table wp_links: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_links.table.gz - 0.4 KB)
+0010.463 (0) Table wp_postmeta: Total expected rows (approximate): 2376
+0010.528 (0) Table wp_postmeta: Total rows added: 2376 in 0.06 seconds
+0010.533 (0) Table wp_postmeta: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_postmeta.table.gz - 92.5 KB)
+0010.565 (0) Table wp_posts: Total expected rows (approximate): 1061
+0010.813 (0) Table wp_posts: Total rows added: 1061 in 0.24 seconds
+0010.825 (0) Table wp_posts: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_posts.table.gz - 531.6 KB)
+0010.851 (0) Table wp_term_relationships: Total expected rows (approximate): 232
+0010.864 (0) Table wp_term_relationships: Total rows added: 232 in 0.01 seconds
+0010.873 (0) Table wp_term_relationships: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_term_relationships.table.gz - 1.1 KB)
+0010.899 (0) Table wp_term_taxonomy: Total expected rows (approximate): 49
+0010.912 (0) Table wp_term_taxonomy: Total rows added: 49 in 0.01 seconds
+0010.918 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_term_taxonomy.table.gz - 0.8 KB)
+0010.938 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0010.947 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0010.953 (0) Table wp_termmeta: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_termmeta.table.gz - 0.4 KB)
+0010.975 (0) Table wp_terms: Total expected rows (approximate): 49
+0010.988 (0) Table wp_terms: Total rows added: 49 in 0.01 seconds
+0010.996 (0) Table wp_terms: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_terms.table.gz - 1 KB)
+0011.015 (0) Table wp_layerslider: Total expected rows (approximate): 2
+0011.026 (0) Table wp_layerslider: Total rows added: 2 in 0.01 seconds
+0011.032 (0) Table wp_layerslider: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_layerslider.table.gz - 2.6 KB)
+0011.051 (0) Table wp_w3tc_cdn_queue: Total expected rows (approximate): 0
+0011.060 (0) Table wp_w3tc_cdn_queue: Total rows added: 0 in 0.00 seconds
+0011.069 (0) Table wp_w3tc_cdn_queue: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_w3tc_cdn_queue.table.gz - 0.4 KB)
+0011.091 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0011.100 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0011.104 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0011.131 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0011.141 (0) Table wp_wfBlockedCommentLog: Total rows added: 1 in 0.01 seconds
+0011.148 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlockedCommentLog.table.gz - 0.4 KB)
+0011.175 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 20
+0011.185 (0) Table wp_wfBlockedIPLog: Total rows added: 20 in 0.01 seconds
+0011.190 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlockedIPLog.table.gz - 0.6 KB)
+0011.211 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0011.220 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0011.225 (0) Table wp_wfBlocks: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0011.247 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0011.256 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0011.260 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0011.283 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0011.291 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0011.297 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0011.323 (0) Table wp_wfConfig: Total expected rows (approximate): 245
+0011.348 (0) Table wp_wfConfig: Total rows added: 245 in 0.02 seconds
+0011.357 (0) Table wp_wfConfig: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfConfig.table.gz - 242.5 KB)
+0011.383 (0) Table wp_wfCrawlers: Total expected rows (approximate): 77
+0011.396 (0) Table wp_wfCrawlers: Total rows added: 77 in 0.01 seconds
+0011.401 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfCrawlers.table.gz - 1.4 KB)
+0011.426 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0011.434 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0011.440 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0011.458 (0) Table wp_wfFileMods: Total expected rows (approximate): 5899
+0011.569 (0) Table wp_wfFileMods: Total rows added: 5899 in 0.10 seconds
+0011.581 (0) Table wp_wfFileMods: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfFileMods.table.gz - 456.3 KB)
+0011.601 (0) Table wp_wfHits: Total expected rows (approximate): 2333
+0011.670 (0) Table wp_wfHits: Total rows added: 2333 in 0.06 seconds
+0011.675 (0) Table wp_wfHits: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfHits.table.gz - 64.2 KB)
+0011.693 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0011.701 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0011.707 (0) Table wp_wfHoover: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0011.727 (0) Table wp_wfIssues: Total expected rows (approximate): 3
+0011.737 (0) Table wp_wfIssues: Total rows added: 3 in 0.01 seconds
+0011.744 (0) Table wp_wfIssues: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfIssues.table.gz - 1.8 KB)
+0011.770 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 5899
+0011.834 (0) Table wp_wfKnownFileList: Total rows added: 5899 in 0.06 seconds
+0011.841 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfKnownFileList.table.gz - 57.8 KB)
+0011.867 (0) Table wp_wfLeechers: Total expected rows (approximate): 741
+0011.879 (0) Table wp_wfLeechers: Total rows added: 741 in 0.01 seconds
+0011.885 (0) Table wp_wfLeechers: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLeechers.table.gz - 5.1 KB)
+0011.907 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0011.915 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0011.920 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0011.943 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0011.952 (0) Table wp_wfLocs: Total rows added: 0 in 0.01 seconds
+0011.958 (0) Table wp_wfLocs: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0011.981 (0) Table wp_wfLogins: Total expected rows (approximate): 477
+0012.003 (0) Table wp_wfLogins: Total rows added: 477 in 0.02 seconds
+0012.009 (0) Table wp_wfLogins: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLogins.table.gz - 11.9 KB)
+0012.032 (0) Table wp_wfNet404s: Total expected rows (approximate): 2
+0012.045 (0) Table wp_wfNet404s: Total rows added: 2 in 0.01 seconds
+0012.051 (0) Table wp_wfNet404s: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfNet404s.table.gz - 0.4 KB)
+0012.075 (0) Table wp_wfNotifications: Total expected rows (approximate): 55
+0012.089 (0) Table wp_wfNotifications: Total rows added: 55 in 0.01 seconds
+0012.094 (0) Table wp_wfNotifications: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfNotifications.table.gz - 4.1 KB)
+0012.119 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0012.128 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0012.137 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0012.163 (0) Table wp_wfReverseCache: Total expected rows (approximate): 23
+0012.176 (0) Table wp_wfReverseCache: Total rows added: 23 in 0.01 seconds
+0012.181 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfReverseCache.table.gz - 0.6 KB)
+0012.202 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0012.212 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0012.219 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0012.243 (0) Table wp_wfScanners: Total expected rows (approximate): 204
+0012.255 (0) Table wp_wfScanners: Total rows added: 204 in 0.01 seconds
+0012.260 (0) Table wp_wfScanners: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfScanners.table.gz - 1.8 KB)
+0012.281 (0) Table wp_wfStatus: Total expected rows (approximate): 973
+0012.310 (0) Table wp_wfStatus: Total rows added: 973 in 0.02 seconds
+0012.317 (0) Table wp_wfStatus: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfStatus.table.gz - 18.2 KB)
+0012.339 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0012.348 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0012.357 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0012.383 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0012.392 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0012.401 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0012.427 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 4
+0012.437 (0) Table wp_yoast_seo_links: Total rows added: 4 in 0.01 seconds
+0012.444 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_yoast_seo_links.table.gz - 0.6 KB)
+0012.475 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 17
+0012.485 (0) Table wp_yoast_seo_meta: Total rows added: 17 in 0.01 seconds
+0012.491 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0012.506 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_options.table.gz (1/43): adding to final database dump
+0012.519 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_users.table.gz (2/43): adding to final database dump
+0012.524 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_usermeta.table.gz (3/43): adding to final database dump
+0012.529 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_commentmeta.table.gz (4/43): adding to final database dump
+0012.533 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_comments.table.gz (5/43): adding to final database dump
+0012.544 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_links.table.gz (6/43): adding to final database dump
+0012.548 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_postmeta.table.gz (7/43): adding to final database dump
+0012.576 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_posts.table.gz (8/43): adding to final database dump
+0012.723 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_term_relationships.table.gz (9/43): adding to final database dump
+0012.731 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_term_taxonomy.table.gz (10/43): adding to final database dump
+0012.739 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_termmeta.table.gz (11/43): adding to final database dump
+0012.747 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_terms.table.gz (12/43): adding to final database dump
+0012.753 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_layerslider.table.gz (13/43): adding to final database dump
+0012.758 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_w3tc_cdn_queue.table.gz (14/43): adding to final database dump
+0012.763 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBadLeechers.table.gz (15/43): adding to final database dump
+0012.768 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlockedCommentLog.table.gz (16/43): adding to final database dump
+0012.773 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlockedIPLog.table.gz (17/43): adding to final database dump
+0012.779 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlocks.table.gz (18/43): adding to final database dump
+0012.784 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlocks7.table.gz (19/43): adding to final database dump
+0012.792 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfBlocksAdv.table.gz (20/43): adding to final database dump
+0012.797 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfConfig.table.gz (21/43): adding to final database dump
+0012.815 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfCrawlers.table.gz (22/43): adding to final database dump
+0012.821 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfFileChanges.table.gz (23/43): adding to final database dump
+0012.826 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfFileMods.table.gz (24/43): adding to final database dump
+0012.872 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfHits.table.gz (25/43): adding to final database dump
+0012.893 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfHoover.table.gz (26/43): adding to final database dump
+0012.900 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfIssues.table.gz (27/43): adding to final database dump
+0012.906 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfKnownFileList.table.gz (28/43): adding to final database dump
+0012.926 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLeechers.table.gz (29/43): adding to final database dump
+0012.931 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLockedOut.table.gz (30/43): adding to final database dump
+0012.936 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLocs.table.gz (31/43): adding to final database dump
+0012.940 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfLogins.table.gz (32/43): adding to final database dump
+0012.947 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfNet404s.table.gz (33/43): adding to final database dump
+0012.952 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfNotifications.table.gz (34/43): adding to final database dump
+0012.957 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfPendingIssues.table.gz (35/43): adding to final database dump
+0012.961 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfReverseCache.table.gz (36/43): adding to final database dump
+0012.965 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfSNIPCache.table.gz (37/43): adding to final database dump
+0012.970 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfScanners.table.gz (38/43): adding to final database dump
+0012.976 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfStatus.table.gz (39/43): adding to final database dump
+0012.987 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfThrottleLog.table.gz (40/43): adding to final database dump
+0012.992 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_wfVulnScanners.table.gz (41/43): adding to final database dump
+0012.997 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_yoast_seo_links.table.gz (42/43): adding to final database dump
+0013.001 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db-table-wp_yoast_seo_meta.table.gz (43/43): adding to final database dump
+0013.006 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db.gz: finished writing out complete database file (1544 KB)
+0013.052 (0) Total database tables backed up: 43 (backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db.gz, size: 1606220, sha256)
+0013.098 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0013.104 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0013.108 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0013.112 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-others.zip: others: This file has not yet been successfully uploaded: will queue
+0013.116 (0) backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db.gz: db: This file has not yet been successfully uploaded: will queue
+0013.120 (0) Saving backup history. Total backup size: 189 MB
+0013.144 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0013.164 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0013.168 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-1384139f0f6478464b6b12936fa8ce4f)
+0013.564 (0) S3 upload (): backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip (chunks: 4) -> s3://www.lareetf.com/backups/backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip
+0013.664 (0) S3 chunked upload: got multipart ID: _3IdPJcS1xXMoSzfIl.zLIPrwZycoIPFPfZC6rSiKb65DaDAoB2Xc7q6WIrQbzzfhXD57FFK4oFB56owYr8QkxMEALmCItipkOj9BBqIlgPdkWwE3RaKKVUkxARQZ7vs
+0015.012 (0) S3 chunked upload: 25 % uploaded (1, "dcc23917e3c873c2127742282ef5f584")
+0015.685 (0) S3 chunked upload: 50 % uploaded (2, "d1c07a1b14678c5bb36d348e77eb594e")
+0016.244 (0) S3 chunked upload: 75 % uploaded (3, "4b616f6c0a01f7e359b1d2a7eaf5795a")
+0016.576 (0) S3 chunked upload: 100 % uploaded (4, "08a855f5dee20bb23805b60e63998688")
+0016.595 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0016.813 (0) S3 upload (plugins0): re-assembly succeeded
+0016.831 (0) Recording as successfully uploaded: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip (7685b3ebc55de2bdbf13fd3f48261643)
+0016.858 (0) Deleting local file: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-plugins.zip: OK
+0016.864 (0) S3 upload (): backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip (chunks: 8) -> s3://www.lareetf.com/backups/backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip
+0016.957 (0) S3 chunked upload: got multipart ID: de2wrfli.p9TJ8VPCv5_YmFvsdb0f_kQV7jQJwqfaYlGVlxlGfwzRTrmw_nMW72xMzPNSq0qdCNGWj_3tcNCsBdv7crF3uM8XCp8DOGJTNDl_7hNB7wusOYdIwf0wKMP
+0017.481 (0) S3 chunked upload: 12.5 % uploaded (1, "6cdc6071d9acca01d8743f992ec0d46c")
+0017.995 (0) S3 chunked upload: 25 % uploaded (2, "8af85a70db5b8b81bc84518b4fae253d")
+0018.498 (0) S3 chunked upload: 37.5 % uploaded (3, "5b6fddc7b0e2af63d78278422464e8d7")
+0019.180 (0) S3 chunked upload: 50 % uploaded (4, "b08a0c547fa1489f9865da29e047ed0c")
+0019.741 (0) S3 chunked upload: 62.5 % uploaded (5, "3403867153f8530eee3cf6a6aec28fc4")
+0020.233 (0) S3 chunked upload: 75 % uploaded (6, "70c74cf002f5d807a09c43937bff6651")
+0020.713 (0) S3 chunked upload: 87.5 % uploaded (7, "7e427807fd5c9a8566c625e1c2df5466")
+0021.172 (0) S3 chunked upload: 100 % uploaded (8, "7372596ee6d71566786bef1939b6ad59")
+0021.196 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0021.617 (0) S3 upload (themes0): re-assembly succeeded
+0021.630 (0) Recording as successfully uploaded: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip (d37038503e8c596fbcfd0653511a3248)
+0021.657 (0) Deleting local file: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-themes.zip: OK
+0021.663 (0) S3 upload (): backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip (chunks: 27) -> s3://www.lareetf.com/backups/backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip
+0021.756 (0) S3 chunked upload: got multipart ID: cDd1yUydnCPXckKJUIGnwbLMKinOkw8i5EimjmO_jKib.XkLEDGFW3cyohjWR_OqnJ4HwXRTM_dYOKUfyWgug41IBBuRIt9IDMCoOQr8hDHRH06PIowJvE3EAMbrgNGy
+0022.332 (0) S3 chunked upload: 3.7 % uploaded (1, "103aa6d4065cc8fdb85e61154ee170a9")
+0022.824 (0) S3 chunked upload: 7.4 % uploaded (2, "77f0f2d54350e376c9943b990e70b997")
+0023.420 (0) S3 chunked upload: 11.1 % uploaded (3, "c524318e6e4182113cc6ed2a42bb2590")
+0023.873 (0) S3 chunked upload: 14.8 % uploaded (4, "0892a7d65126ce31cf2ba6c0eef82f32")
+0024.381 (0) S3 chunked upload: 18.5 % uploaded (5, "1a0ba33e5baa8b6f95f8f9f9ff78a4e7")
+0024.902 (0) S3 chunked upload: 22.2 % uploaded (6, "f7f6caa05709833980f68a93c3de0fb1")
+0025.437 (0) S3 chunked upload: 25.9 % uploaded (7, "cca791a4096127e9f8aa69e22a967bfa")
+0025.961 (0) S3 chunked upload: 29.6 % uploaded (8, "5fdd474c47e271aa4c7bb30af064634a")
+0026.441 (0) S3 chunked upload: 33.3 % uploaded (9, "1602ffac8fce25599f67a251cd5b3d89")
+0026.944 (0) S3 chunked upload: 37 % uploaded (10, "cf0e4e6bcaf9b3d4f23612e234815355")
+0027.463 (0) S3 chunked upload: 40.7 % uploaded (11, "dc03f3db32339d729a9727b41dc3dbdc")
+0028.189 (0) S3 chunked upload: 44.4 % uploaded (12, "8ab0a6fa3c2cf1a58b1654a5931c2a25")
+0028.733 (0) S3 chunked upload: 48.1 % uploaded (13, "79ea13f0d7b550c1346f4039124b67f9")
+0029.289 (0) S3 chunked upload: 51.9 % uploaded (14, "93195e543974dd138ec4572e682f7c18")
+0029.775 (0) S3 chunked upload: 55.6 % uploaded (15, "339bd251bbfcd50b11ea06c1e37f57e4")
+0031.297 (0) S3 chunked upload: 59.3 % uploaded (16, "c46627cde9a61c3f2da1373a4a13f15c")
+0032.061 (0) S3 chunked upload: 63 % uploaded (17, "f7cae0b3669b5b5f4fe0b8920f0b736d")
+0033.313 (0) S3 chunked upload: 66.7 % uploaded (18, "4b200df13358cd06009fff4fcf89abb3")
+0034.013 (0) S3 chunked upload: 70.4 % uploaded (19, "5dfe8fe7d3f2e7c5d2f9c5c647e9ff22")
+0034.510 (0) S3 chunked upload: 74.1 % uploaded (20, "953e16002cb2903057d4f46a3f099881")
+0034.975 (0) S3 chunked upload: 77.8 % uploaded (21, "d83426a2a9f743c53c792de7deeb4dbf")
+0035.520 (0) S3 chunked upload: 81.5 % uploaded (22, "2f4275ca42d1a80ab87cab4db1f75a3f")
+0036.001 (0) S3 chunked upload: 85.2 % uploaded (23, "cd2141f8199449c628f4be833faf4a92")
+0036.522 (0) S3 chunked upload: 88.9 % uploaded (24, "d8de9cc5bd5df74173621c289162385f")
+0037.135 (0) S3 chunked upload: 92.6 % uploaded (25, "b48df81b8c4f08b6a12ab02a13c39666")
+0037.785 (0) S3 chunked upload: 96.3 % uploaded (26, "2e61888f175bf1ac78c0fa03dd3ad5ef")
+0038.117 (0) S3 chunked upload: 100 % uploaded (27, "96e440adeb15d7b13c343ccaebda670c")
+0038.133 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0038.344 (0) S3 upload (uploads0): re-assembly succeeded
+0038.358 (0) Recording as successfully uploaded: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip (b2c5a9a509b4d762bd5b20a084102d91)
+0038.404 (0) Deleting local file: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-uploads.zip: OK
+0038.409 (0) S3 upload (): backup_2018-03-16-1754_lareindexcom_692c5fc7add2-others.zip (chunks: 1) -> s3://www.lareetf.com/backups/backup_2018-03-16-1754_lareindexcom_692c5fc7add2-others.zip
+0038.569 (0) S3 regular upload: success
+0038.589 (0) Recording as successfully uploaded: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-others.zip (c3268659cc2f64ef757be36580aeb785)
+0038.617 (0) Deleting local file: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-others.zip: OK
+0038.628 (0) S3 upload (): backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db.gz (chunks: 1) -> s3://www.lareetf.com/backups/backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db.gz
+0038.889 (0) S3 regular upload: success
+0038.917 (0) Recording as successfully uploaded: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db.gz (be01b3b46afac52cb109b11872356bb9)
+0038.945 (0) Deleting local file: backup_2018-03-16-1754_lareindexcom_692c5fc7add2-db.gz: OK
+0038.957 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=15, retain_db=15
+0038.966 (0) These backup set(s) were imported from a remote location, so will not be counted or pruned. Skipping: 1499524620, 1485960360, 1485874140, 1485789840, 1485705240, 1485619440, 1485529140, 1485443040, 1485359220, 1485269040, 1475847180
+0038.973 (0) Number of backup sets in history: 27; groups (db): 1
+0038.977 (0) Examining (for databases) backup set with group_id=0, nonce=692c5fc7add2, datestamp=1521222897 (Mar 16 2018 17:54:57)
+0038.989 (0) This backup set is the backup set just made, so will not be deleted.
+0038.989 (0) Examining (for databases) backup set with group_id=0, nonce=a6ffec4b5a32, datestamp=1521136440 (Mar 15 2018 17:54:00)
+0038.989 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.996 (0) Examining (for databases) backup set with group_id=0, nonce=b7846a9d6ee5, datestamp=1521050415 (Mar 14 2018 18:00:15)
+0038.996 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.996 (0) Examining (for databases) backup set with group_id=0, nonce=0d54b27d10c6, datestamp=1520964154 (Mar 13 2018 18:02:34)
+0038.996 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=ad40746b1a4b, datestamp=1520877630 (Mar 12 2018 18:00:30)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=3bc568fb10ad, datestamp=1520791069 (Mar 11 2018 17:57:49)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=77269572053f, datestamp=1520704941 (Mar 10 2018 18:02:21)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=68d7a4cc5472, datestamp=1520618539 (Mar 09 2018 18:02:19)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=d71e796fda52, datestamp=1520531617 (Mar 08 2018 17:53:37)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=9f1583b630eb, datestamp=1520445231 (Mar 07 2018 17:53:51)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=640f8baf5506, datestamp=1520358946 (Mar 06 2018 17:55:46)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=8110a0d4bf69, datestamp=1520272412 (Mar 05 2018 17:53:32)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=3534198136f8, datestamp=1520186087 (Mar 04 2018 17:54:47)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=a3f789272e07, datestamp=1520099612 (Mar 03 2018 17:53:32)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=b86715ec353d, datestamp=1520013514 (Mar 02 2018 17:58:34)
+0038.997 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0038.997 (0) Examining (for databases) backup set with group_id=0, nonce=3753be1e27fa, datestamp=1519926885 (Mar 01 2018 17:54:45)
+0038.997 (0) 1519926885: db: this set includes a database (backup_2018-03-01-1754_lareindexcom_3753be1e27fa-db.gz); db count is now 15
+0038.997 (0) 1519926885: db: over retain limit (15); will delete this database
+0038.997 (0) Delete file: backup_2018-03-01-1754_lareindexcom_3753be1e27fa-db.gz, service=s3
+0039.005 (0) S3: Delete remote: bucket=www.lareetf.com, URI=backups/backup_2018-03-01-1754_lareindexcom_3753be1e27fa-db.gz
+0039.109 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0039.117 (0) Number of backup sets in history: 27; groups (files): 1
+0039.125 (0) Examining (for files) backup set with nonce=692c5fc7add2, datestamp=1521222897 (Mar 16 2018 17:54:57)
+0039.125 (0) This backup set is the backup set just made, so will not be deleted.
+0039.133 (0) This backup set is the backup set just made, so will not be deleted.
+0039.133 (0) This backup set is the backup set just made, so will not be deleted.
+0039.133 (0) This backup set is the backup set just made, so will not be deleted.
+0039.133 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=a6ffec4b5a32, datestamp=1521136440 (Mar 15 2018 17:54:00)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=b7846a9d6ee5, datestamp=1521050415 (Mar 14 2018 18:00:15)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=0d54b27d10c6, datestamp=1520964154 (Mar 13 2018 18:02:34)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=ad40746b1a4b, datestamp=1520877630 (Mar 12 2018 18:00:30)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=3bc568fb10ad, datestamp=1520791069 (Mar 11 2018 17:57:49)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=77269572053f, datestamp=1520704941 (Mar 10 2018 18:02:21)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=68d7a4cc5472, datestamp=1520618539 (Mar 09 2018 18:02:19)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=d71e796fda52, datestamp=1520531617 (Mar 08 2018 17:53:37)
+0039.141 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.141 (0) Examining (for files) backup set with nonce=9f1583b630eb, datestamp=1520445231 (Mar 07 2018 17:53:51)
+0039.142 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.142 (0) Examining (for files) backup set with nonce=640f8baf5506, datestamp=1520358946 (Mar 06 2018 17:55:46)
+0039.142 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.142 (0) Examining (for files) backup set with nonce=8110a0d4bf69, datestamp=1520272412 (Mar 05 2018 17:53:32)
+0039.142 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.142 (0) Examining (for files) backup set with nonce=3534198136f8, datestamp=1520186087 (Mar 04 2018 17:54:47)
+0039.142 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.142 (0) Examining (for files) backup set with nonce=a3f789272e07, datestamp=1520099612 (Mar 03 2018 17:53:32)
+0039.142 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.142 (0) Examining (for files) backup set with nonce=b86715ec353d, datestamp=1520013514 (Mar 02 2018 17:58:34)
+0039.142 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0039.142 (0) Examining (for files) backup set with nonce=3753be1e27fa, datestamp=1519926885 (Mar 01 2018 17:54:45)
+0039.142 (0) plugins: over retain limit (15); will delete this file entity
+0039.142 (0) themes: over retain limit (15); will delete this file entity
+0039.142 (0) uploads: over retain limit (15); will delete this file entity
+0039.142 (0) others: over retain limit (15); will delete this file entity
+0039.142 (0) Delete file: backup_2018-03-01-1754_lareindexcom_3753be1e27fa-plugins.zip, service=s3
+0039.149 (0) Delete file: backup_2018-03-01-1754_lareindexcom_3753be1e27fa-themes.zip, service=s3
+0039.157 (0) Delete file: backup_2018-03-01-1754_lareindexcom_3753be1e27fa-uploads.zip, service=s3
+0039.165 (0) Delete file: backup_2018-03-01-1754_lareindexcom_3753be1e27fa-others.zip, service=s3
+0039.173 (0) S3: Delete remote: bucket=www.lareetf.com, URI=backups/backup_2018-03-01-1754_lareindexcom_3753be1e27fa-plugins.zip
+0039.275 (0) S3: Delete remote: bucket=www.lareetf.com, URI=backups/backup_2018-03-01-1754_lareindexcom_3753be1e27fa-themes.zip
+0039.406 (0) S3: Delete remote: bucket=www.lareetf.com, URI=backups/backup_2018-03-01-1754_lareindexcom_3753be1e27fa-uploads.zip
+0039.523 (0) S3: Delete remote: bucket=www.lareetf.com, URI=backups/backup_2018-03-01-1754_lareindexcom_3753be1e27fa-others.zip
+0039.634 (0) This backup set is now empty; will remove from history
+0039.641 (0) Deleting log file (log.3753be1e27fa.txt)
+0039.649 (0) Retain: saving new backup history (sets now: 26) and finishing retain operation
+0039.685 (0) Resume backup (692c5fc7add2, 0): finish run
+0039.709 (0) Decremented the semaphore (fd) by 1
+0039.724 (0) Semaphore (fd) unlocked
+0039.729 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0039.745 (0) Fetching RSS news feed
+0039.901 (0) Fetched RSS news feed; result is a: SimplePie
+0039.989 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: syste...
+0040.113 (0) The backup apparently succeeded and is now complete

@@ -1,0 +1,657 @@
+0000.000 (0) Opened log file at time: Mon, 05 Mar 2018 16:58:28 +0000 on http://www.tierrapartners.com
+0000.008 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-14-147 4.9.77-31.58.amzn1.x86_64 #1 SMP Thu Jan 18 22:15:23 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 44.5M | 22M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.015 (0) Free space on disk containing Updraft's temporary directory: 94165.6 MB
+0000.023 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.035 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.069 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1520183942, seconds_ago=85166)
+0000.099 (0) Set semaphore last lock (fd) time to 2018-03-05 16:58:28
+0000.105 (0) Semaphore lock (fd) complete
+0000.128 (0) Backup run: resumption=0, nonce=ff6fec0e771a, begun at=1520269108 (0s ago), job type=backup
+0000.140 (0) Scheduling a resumption (1) after 300 seconds (1520269408) in case this run gets aborted
+0000.165 (0) Checking if we have a zip executable available
+0000.172 (0) Testing: /usr/bin/zip
+0000.188 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.194 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.200 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.206 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.212 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.221 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.227 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.236 (0) Working binary zip found: /usr/bin/zip
+0000.249 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.256 (0) Creation of backups of directories: beginning
+0000.276 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.512 (0) Total entities for the zip file: 1575 directories, 11042 files (0 skipped as non-modified), 166.6 MB
+0000.522 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.530 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.539 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.549 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.557 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.564 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.6 MB, 11042 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.110 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: size is now: 3.70 MB
+0001.134 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 600 files added (on-disk size: 3785.9 KB)
+0001.141 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 700 files added (on-disk size: 3785.9 KB)
+0001.149 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 800 files added (on-disk size: 3785.9 KB)
+0001.156 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25.7 MB, 11042 files batched, 374 (875) added so far); re-opening (prior size: 3785.9 KB)
+0001.439 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: size is now: 27.30 MB
+0001.452 (0) A useful amount of data was added after this amount of zip processing: 0.8 s (normalised: 0.8 s, rate: 32935.6 KB/s)
+0001.464 (0) Performance is good - will increase the amount of data we attempt to batch (time=0.80013799667358, normalised_time=0.77727428315863, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=202356366)
+0001.476 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 900 files added (on-disk size: 27912.2 KB)
+0001.484 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1000 files added (on-disk size: 27912.2 KB)
+0001.492 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1100 files added (on-disk size: 27912.2 KB)
+0001.500 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1200 files added (on-disk size: 27912.2 KB)
+0001.509 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1300 files added (on-disk size: 27912.2 KB)
+0001.517 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.5 MB, 11042 files batched, 501 (1376) added so far); re-opening (prior size: 27912.2 KB)
+0001.920 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1400 files added (on-disk size: 32972.1 KB)
+0001.928 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1500 files added (on-disk size: 32972.1 KB)
+0001.937 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1600 files added (on-disk size: 32972.1 KB)
+0001.946 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1700 files added (on-disk size: 32972.1 KB)
+0001.958 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1800 files added (on-disk size: 32972.1 KB)
+0001.966 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.3 MB, 11042 files batched, 501 (1877) added so far); re-opening (prior size: 32972.1 KB)
+0002.300 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 1900 files added (on-disk size: 37830.3 KB)
+0002.308 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2000 files added (on-disk size: 37830.3 KB)
+0002.316 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2100 files added (on-disk size: 37830.3 KB)
+0002.324 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2200 files added (on-disk size: 37830.3 KB)
+0002.333 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2300 files added (on-disk size: 37830.3 KB)
+0002.340 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.9 MB, 11042 files batched, 501 (2378) added so far); re-opening (prior size: 37830.3 KB)
+0002.614 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2400 files added (on-disk size: 40988.3 KB)
+0002.622 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2500 files added (on-disk size: 40988.3 KB)
+0002.631 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2600 files added (on-disk size: 40988.3 KB)
+0002.639 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2700 files added (on-disk size: 40988.3 KB)
+0002.648 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2800 files added (on-disk size: 40988.3 KB)
+0002.658 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (16.6 MB, 11042 files batched, 501 (2879) added so far); re-opening (prior size: 40988.3 KB)
+0003.373 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 2900 files added (on-disk size: 45521.5 KB)
+0003.382 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3000 files added (on-disk size: 45521.5 KB)
+0003.391 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3100 files added (on-disk size: 45521.5 KB)
+0003.402 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3200 files added (on-disk size: 45521.5 KB)
+0003.412 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3300 files added (on-disk size: 45521.5 KB)
+0003.421 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.3 MB, 11042 files batched, 501 (3380) added so far); re-opening (prior size: 45521.5 KB)
+0003.599 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3400 files added (on-disk size: 46495.3 KB)
+0003.608 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3500 files added (on-disk size: 46495.3 KB)
+0003.616 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3600 files added (on-disk size: 46495.3 KB)
+0003.630 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3700 files added (on-disk size: 46495.3 KB)
+0003.638 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3800 files added (on-disk size: 46495.3 KB)
+0003.645 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.6 MB, 11042 files batched, 501 (3881) added so far); re-opening (prior size: 46495.3 KB)
+0003.946 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 3900 files added (on-disk size: 48504.9 KB)
+0003.954 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4000 files added (on-disk size: 48504.9 KB)
+0003.962 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4100 files added (on-disk size: 48504.9 KB)
+0003.970 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4200 files added (on-disk size: 48504.9 KB)
+0003.977 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4300 files added (on-disk size: 48504.9 KB)
+0003.985 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.9 MB, 11042 files batched, 501 (4382) added so far); re-opening (prior size: 48504.9 KB)
+0004.144 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4400 files added (on-disk size: 49087.5 KB)
+0004.152 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4500 files added (on-disk size: 49087.5 KB)
+0004.161 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4600 files added (on-disk size: 49087.5 KB)
+0004.179 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4700 files added (on-disk size: 49087.5 KB)
+0004.186 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4800 files added (on-disk size: 49087.5 KB)
+0004.193 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.7 MB, 11042 files batched, 501 (4883) added so far); re-opening (prior size: 49087.5 KB)
+0004.336 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 4900 files added (on-disk size: 49463.1 KB)
+0004.344 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5000 files added (on-disk size: 49463.1 KB)
+0004.352 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5100 files added (on-disk size: 49463.1 KB)
+0004.369 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5200 files added (on-disk size: 49463.1 KB)
+0004.377 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5300 files added (on-disk size: 49463.1 KB)
+0004.384 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 11042 files batched, 501 (5384) added so far); re-opening (prior size: 49463.1 KB)
+0004.506 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5400 files added (on-disk size: 52309.8 KB)
+0004.514 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5500 files added (on-disk size: 52309.8 KB)
+0004.522 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5600 files added (on-disk size: 52309.8 KB)
+0004.530 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5700 files added (on-disk size: 52309.8 KB)
+0004.538 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5800 files added (on-disk size: 52309.8 KB)
+0004.546 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.2 MB, 11042 files batched, 501 (5885) added so far); re-opening (prior size: 52309.8 KB)
+0004.911 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 5900 files added (on-disk size: 55637.1 KB)
+0004.919 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6000 files added (on-disk size: 55637.1 KB)
+0004.927 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6100 files added (on-disk size: 55637.1 KB)
+0004.934 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6200 files added (on-disk size: 55637.1 KB)
+0004.943 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6300 files added (on-disk size: 55637.1 KB)
+0004.950 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.1 MB, 11042 files batched, 501 (6386) added so far); re-opening (prior size: 55637.1 KB)
+0005.386 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6400 files added (on-disk size: 58373.1 KB)
+0005.397 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6500 files added (on-disk size: 58373.1 KB)
+0005.410 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6600 files added (on-disk size: 58373.1 KB)
+0005.419 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6700 files added (on-disk size: 58373.1 KB)
+0005.427 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6800 files added (on-disk size: 58373.1 KB)
+0005.440 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 11042 files batched, 501 (6887) added so far); re-opening (prior size: 58373.1 KB)
+0005.642 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 6900 files added (on-disk size: 59094.9 KB)
+0005.650 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7000 files added (on-disk size: 59094.9 KB)
+0005.661 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7100 files added (on-disk size: 59094.9 KB)
+0005.670 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7200 files added (on-disk size: 59094.9 KB)
+0005.678 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7300 files added (on-disk size: 59094.9 KB)
+0005.686 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 11042 files batched, 501 (7388) added so far); re-opening (prior size: 59094.9 KB)
+0006.000 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7400 files added (on-disk size: 60810.1 KB)
+0006.009 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7500 files added (on-disk size: 60810.1 KB)
+0006.017 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7600 files added (on-disk size: 60810.1 KB)
+0006.025 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7700 files added (on-disk size: 60810.1 KB)
+0006.033 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7800 files added (on-disk size: 60810.1 KB)
+0006.041 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.7 MB, 11042 files batched, 501 (7889) added so far); re-opening (prior size: 60810.1 KB)
+0006.761 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 7900 files added (on-disk size: 64922.7 KB)
+0006.769 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8000 files added (on-disk size: 64922.7 KB)
+0006.777 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8100 files added (on-disk size: 64922.7 KB)
+0006.786 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8200 files added (on-disk size: 64922.7 KB)
+0006.794 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8300 files added (on-disk size: 64922.7 KB)
+0006.802 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.1 MB, 11042 files batched, 501 (8390) added so far); re-opening (prior size: 64922.7 KB)
+0007.052 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8400 files added (on-disk size: 66050.6 KB)
+0007.061 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8500 files added (on-disk size: 66050.6 KB)
+0007.069 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8600 files added (on-disk size: 66050.6 KB)
+0007.077 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8700 files added (on-disk size: 66050.6 KB)
+0007.085 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8800 files added (on-disk size: 66050.6 KB)
+0007.093 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.9 MB, 11042 files batched, 501 (8891) added so far); re-opening (prior size: 66050.6 KB)
+0007.362 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 8900 files added (on-disk size: 67161.3 KB)
+0007.370 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9000 files added (on-disk size: 67161.3 KB)
+0007.378 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9100 files added (on-disk size: 67161.3 KB)
+0007.386 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9200 files added (on-disk size: 67161.3 KB)
+0007.397 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9300 files added (on-disk size: 67161.3 KB)
+0007.406 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (16.6 MB, 11042 files batched, 501 (9392) added so far); re-opening (prior size: 67161.3 KB)
+0008.242 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9400 files added (on-disk size: 72184 KB)
+0008.251 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9500 files added (on-disk size: 72184 KB)
+0008.259 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9600 files added (on-disk size: 72184 KB)
+0008.268 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9700 files added (on-disk size: 72184 KB)
+0008.277 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9800 files added (on-disk size: 72184 KB)
+0008.288 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.6 MB, 11042 files batched, 501 (9893) added so far); re-opening (prior size: 72184 KB)
+0008.577 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 9900 files added (on-disk size: 73344.4 KB)
+0008.587 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10000 files added (on-disk size: 73344.4 KB)
+0008.599 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10100 files added (on-disk size: 73344.4 KB)
+0008.608 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10200 files added (on-disk size: 73344.4 KB)
+0008.616 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10300 files added (on-disk size: 73344.4 KB)
+0008.624 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.8 MB, 11042 files batched, 501 (10394) added so far); re-opening (prior size: 73344.4 KB)
+0008.845 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10400 files added (on-disk size: 74014.3 KB)
+0008.857 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10500 files added (on-disk size: 74014.3 KB)
+0008.870 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10600 files added (on-disk size: 74014.3 KB)
+0008.883 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10700 files added (on-disk size: 74014.3 KB)
+0008.893 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10800 files added (on-disk size: 74014.3 KB)
+0008.902 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.9 MB, 11042 files batched, 501 (10895) added so far); re-opening (prior size: 74014.3 KB)
+0009.353 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 10900 files added (on-disk size: 76259.1 KB)
+0009.362 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip.tmp: 11000 files added (on-disk size: 76259.1 KB)
+0010.518 (0) Created plugins zip (0) - 77628.3 KB in 10.2 s (7584 KB/s) (sha1: 71da0b14f4fb108a4a4b9a8e79b50efe1a566efc, sha256: 31e1f1f9eed5b2e9277f74675eb2b98b294def3c2ae10ce7b7f58b9b49eece3f)
+0010.535 (0) Beginning creation of dump of themes (split every: 400 MB)
+0010.568 (0) Total entities for the zip file: 140 directories, 713 files (0 skipped as non-modified), 12.3 MB
+0010.576 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0010.584 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0010.592 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0010.600 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0010.608 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0010.614 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.9 MB, 713 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0010.847 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: size is now: 2.60 MB
+0010.863 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: 600 files added (on-disk size: 2685.4 KB)
+0010.874 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: 700 files added (on-disk size: 2685.4 KB)
+0010.951 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip.tmp: size is now: 7.50 MB
+0011.075 (0) Created themes zip (0) - 7647.3 KB in 0.5 s (14425.8 KB/s) (sha1: b8c950d809da9a7846b9383beab0fb217384de21, sha256: e073bd3b4676a22961e1475d1a3a94e2a3b081984ff6e36167c3f9f399ce637e)
+0011.089 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0011.095 (0) Looking for candidates to back up in: /var/www/html/tierrapartners.com/wp-content/uploads
+0011.101 (0) finding files: layerslider: adding to list (1)
+0011.107 (0) finding files: 2018: adding to list (2)
+0011.121 (0) finding files: revslider: adding to list (3)
+0011.128 (0) finding files: 2015: adding to list (4)
+0011.134 (0) finding files: js_composer: adding to list (5)
+0011.140 (0) finding files: 2016: adding to list (6)
+0011.146 (0) finding files: 2013: adding to list (7)
+0011.154 (0) finding files: la_icon_sets: adding to list (8)
+0011.160 (0) finding files: 2017: adding to list (9)
+0011.166 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0011.196 (0) Total entities for the zip file: 190 directories, 599 files (0 skipped as non-modified), 23.5 MB
+0011.204 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0011.212 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0011.220 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0011.227 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0011.236 (0) Zip: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip.tmp: 500 files added (on-disk size: 0 KB)
+0011.242 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.9 MB, 599 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0011.331 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip.tmp: size is now: 14.00 MB
+0011.581 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip.tmp: size is now: 21.70 MB
+0011.868 (0) Created uploads zip (0) - 22258.4 KB in 0.7 s (31997.4 KB/s) (sha1: d76c5d5f1c93e05fd86b1a310b2d7d2c5643f8a9, sha256: 9263aa3a48d3d951afab76235464cb63e2d54a4f9c281c0e0548c855f9b44f43)
+0011.886 (0) Beginning backup of other directories found in the content directory (index: 0)
+0011.893 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0011.899 (0) Looking for candidates to back up in: /var/www/html/tierrapartners.com/wp-content
+0011.905 (0) finding files: wflogs: adding to list (1)
+0011.911 (0) finding files: wp-cache-config.php: adding to list (2)
+0011.917 (0) finding files: index.php: adding to list (3)
+0011.923 (0) finding files: upgrade: skipping: excluded by options
+0011.929 (0) finding files: updraft: skipping: this is the updraft directory
+0011.935 (0) finding files: themes: skipping: this is the themes directory
+0011.941 (0) finding files: advanced-cache.php: adding to list (4)
+0011.947 (0) finding files: w3tc-config: adding to list (5)
+0011.956 (0) finding files: uploads: skipping: this is the uploads directory
+0011.962 (0) finding files: mu-plugins: adding to list (6)
+0011.968 (0) finding files: cache: skipping: excluded by options
+0011.974 (0) finding files: plugins: skipping: this is the plugins directory
+0011.989 (0) Total entities for the zip file: 3 directories, 11 files (0 skipped as non-modified), 1.2 MB
+0012.045 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-others.zip.tmp: size is now: 0.50 MB
+0012.080 (0) Created others zip (0) - 531.7 KB in 0.1 s (5335.2 KB/s) (sha1: 3c608646289cbfa5b81ffa39a474f327ebbb534b, sha256: 09c91673f85f8924a2e38aaa72f1641b0113961417c9e2f2e2cbf45c087260b9)
+0012.108 (0) Saving backup status to database (elements: 8)
+0012.144 (0) Beginning creation of database dump (WordPress DB)
+0012.162 (0) Testing: /usr/bin/mysqldump
+0012.246 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1200 bytes total)
+0012.259 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0012.299 (0) Table wp_options: Total expected rows (approximate): 751
+0012.353 (0) Table wp_options: Total rows added: 757 in 0.05 seconds
+0012.363 (0) Table wp_options: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_options.table.gz - 94.4 KB)
+0012.395 (0) Table wp_users: Total expected rows (approximate): 2
+0012.406 (0) Table wp_users: Total rows added: 2 in 0.01 seconds
+0012.414 (0) Table wp_users: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_users.table.gz - 0.7 KB)
+0012.441 (0) Table wp_usermeta: Total expected rows (approximate): 54
+0012.454 (0) Table wp_usermeta: Total rows added: 52 in 0.01 seconds
+0012.461 (0) Table wp_usermeta: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_usermeta.table.gz - 1.5 KB)
+0012.490 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0012.500 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0012.508 (0) Table wp_commentmeta: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0012.538 (0) Table wp_comments: Total expected rows (approximate): 96
+0012.555 (0) Table wp_comments: Total rows added: 115 in 0.01 seconds
+0012.562 (0) Table wp_comments: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_comments.table.gz - 15.4 KB)
+0012.590 (0) Table wp_links: Total expected rows (approximate): 0
+0012.600 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0012.608 (0) Table wp_links: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_links.table.gz - 0.4 KB)
+0012.635 (0) Table wp_postmeta: Total expected rows (approximate): 2563
+0012.797 (0) Table wp_postmeta: Total rows added: 3170 in 0.16 seconds
+0012.807 (0) Table wp_postmeta: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_postmeta.table.gz - 257.3 KB)
+0012.840 (0) Table wp_posts: Total expected rows (approximate): 371
+0012.905 (0) Table wp_posts: Total rows added: 475 in 0.06 seconds
+0012.911 (0) Table wp_posts: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_posts.table.gz - 117.4 KB)
+0012.937 (0) Table wp_term_relationships: Total expected rows (approximate): 107
+0012.949 (0) Table wp_term_relationships: Total rows added: 107 in 0.01 seconds
+0012.958 (0) Table wp_term_relationships: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_term_relationships.table.gz - 0.7 KB)
+0012.985 (0) Table wp_term_taxonomy: Total expected rows (approximate): 41
+0012.998 (0) Table wp_term_taxonomy: Total rows added: 41 in 0.01 seconds
+0013.005 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_term_taxonomy.table.gz - 0.7 KB)
+0013.031 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0013.041 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0013.050 (0) Table wp_termmeta: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_termmeta.table.gz - 0.4 KB)
+0013.079 (0) Table wp_terms: Total expected rows (approximate): 41
+0013.103 (0) Table wp_terms: Total rows added: 41 in 0.01 seconds
+0013.111 (0) Table wp_terms: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_terms.table.gz - 0.9 KB)
+0013.139 (0) Table wp_eg_grids: Total expected rows (approximate): 0
+0013.152 (0) Table wp_eg_grids: Total rows added: 1 in 0.01 seconds
+0013.159 (0) Table wp_eg_grids: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_grids.table.gz - 1.9 KB)
+0013.191 (0) Table wp_eg_item_elements: Total expected rows (approximate): 0
+0013.200 (0) Table wp_eg_item_elements: Total rows added: 0 in 0.00 seconds
+0013.212 (0) Table wp_eg_item_elements: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_item_elements.table.gz - 0.3 KB)
+0013.242 (0) Table wp_eg_item_skins: Total expected rows (approximate): 37
+0013.266 (0) Table wp_eg_item_skins: Total rows added: 50 in 0.02 seconds
+0013.273 (0) Table wp_eg_item_skins: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_item_skins.table.gz - 21.5 KB)
+0013.302 (0) Table wp_eg_navigation_skins: Total expected rows (approximate): 8
+0013.315 (0) Table wp_eg_navigation_skins: Total rows added: 8 in 0.01 seconds
+0013.325 (0) Table wp_eg_navigation_skins: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_navigation_skins.table.gz - 3.4 KB)
+0013.355 (0) Table wp_layerslider: Total expected rows (approximate): 3
+0013.370 (0) Table wp_layerslider: Total rows added: 3 in 0.01 seconds
+0013.379 (0) Table wp_layerslider: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_layerslider.table.gz - 9.2 KB)
+0013.407 (0) Table wp_revslider_css: Total expected rows (approximate): 111
+0013.424 (0) Table wp_revslider_css: Total rows added: 111 in 0.01 seconds
+0013.430 (0) Table wp_revslider_css: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_css.table.gz - 5 KB)
+0013.454 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0013.465 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0013.472 (0) Table wp_revslider_layer_animations: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0013.497 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0013.507 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0013.513 (0) Table wp_revslider_navigations: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0013.543 (0) Table wp_revslider_sliders: Total expected rows (approximate): 2
+0013.556 (0) Table wp_revslider_sliders: Total rows added: 2 in 0.01 seconds
+0013.575 (0) Table wp_revslider_sliders: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_sliders.table.gz - 3.7 KB)
+0013.598 (0) Table wp_revslider_slides: Total expected rows (approximate): 2
+0013.612 (0) Table wp_revslider_slides: Total rows added: 2 in 0.01 seconds
+0013.625 (0) Table wp_revslider_slides: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_slides.table.gz - 4.1 KB)
+0013.650 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0013.664 (0) Table wp_revslider_static_slides: Total rows added: 1 in 0.01 seconds
+0013.671 (0) Table wp_revslider_static_slides: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0013.699 (0) Table wp_tg_item_elements: Total expected rows (approximate): 0
+0013.708 (0) Table wp_tg_item_elements: Total rows added: 0 in 0.00 seconds
+0013.718 (0) Table wp_tg_item_elements: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_tg_item_elements.table.gz - 0.4 KB)
+0013.746 (0) Table wp_tg_item_skins: Total expected rows (approximate): 0
+0013.760 (0) Table wp_tg_item_skins: Total rows added: 0 in 0.00 seconds
+0013.767 (0) Table wp_tg_item_skins: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_tg_item_skins.table.gz - 0.4 KB)
+0013.790 (0) Table wp_w3tc_cdn_queue: Total expected rows (approximate): 517
+0013.808 (0) Table wp_w3tc_cdn_queue: Total rows added: 517 in 0.01 seconds
+0013.815 (0) Table wp_w3tc_cdn_queue: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_w3tc_cdn_queue.table.gz - 6.7 KB)
+0013.850 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0013.862 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0013.868 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0013.899 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 3
+0013.909 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0013.919 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0013.946 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 52
+0013.957 (0) Table wp_wfBlockedIPLog: Total rows added: 52 in 0.01 seconds
+0013.967 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlockedIPLog.table.gz - 0.8 KB)
+0014.001 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0014.012 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0014.019 (0) Table wp_wfBlocks: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0014.046 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0014.056 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0014.062 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0014.091 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0014.100 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0014.108 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0014.135 (0) Table wp_wfConfig: Total expected rows (approximate): 242
+0014.161 (0) Table wp_wfConfig: Total rows added: 242 in 0.02 seconds
+0014.172 (0) Table wp_wfConfig: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfConfig.table.gz - 241.9 KB)
+0014.198 (0) Table wp_wfCrawlers: Total expected rows (approximate): 44
+0014.211 (0) Table wp_wfCrawlers: Total rows added: 44 in 0.01 seconds
+0014.219 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfCrawlers.table.gz - 1 KB)
+0014.244 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0014.254 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0014.263 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0014.287 (0) Table wp_wfFileMods: Total expected rows (approximate): 8641
+0014.423 (0) Table wp_wfFileMods: binary mysqldump finished (writes: 36) in 0.13 seconds
+0014.431 (0) Table wp_wfFileMods: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfFileMods.table.gz - 665.6 KB)
+0014.455 (0) Table wp_wfHits: Total expected rows (approximate): 1989
+0014.503 (0) Table wp_wfHits: Total rows added: 1989 in 0.04 seconds
+0014.511 (0) Table wp_wfHits: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfHits.table.gz - 65 KB)
+0014.538 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0014.552 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0014.559 (0) Table wp_wfHoover: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0014.586 (0) Table wp_wfIssues: Total expected rows (approximate): 1
+0014.599 (0) Table wp_wfIssues: Total rows added: 1 in 0.01 seconds
+0014.608 (0) Table wp_wfIssues: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfIssues.table.gz - 1.1 KB)
+0014.639 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 8641
+0014.716 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.07 seconds
+0014.727 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfKnownFileList.table.gz - 83.6 KB)
+0014.759 (0) Table wp_wfLeechers: Total expected rows (approximate): 84
+0014.772 (0) Table wp_wfLeechers: Total rows added: 84 in 0.01 seconds
+0014.780 (0) Table wp_wfLeechers: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLeechers.table.gz - 1 KB)
+0014.807 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0014.816 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0014.823 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0014.858 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0014.870 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0014.877 (0) Table wp_wfLocs: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0014.903 (0) Table wp_wfLogins: Total expected rows (approximate): 755
+0014.924 (0) Table wp_wfLogins: Total rows added: 755 in 0.02 seconds
+0014.931 (0) Table wp_wfLogins: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLogins.table.gz - 16.8 KB)
+0014.959 (0) Table wp_wfNet404s: Total expected rows (approximate): 2
+0014.970 (0) Table wp_wfNet404s: Total rows added: 2 in 0.01 seconds
+0014.977 (0) Table wp_wfNet404s: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfNet404s.table.gz - 0.5 KB)
+0015.004 (0) Table wp_wfNotifications: Total expected rows (approximate): 53
+0015.016 (0) Table wp_wfNotifications: Total rows added: 53 in 0.01 seconds
+0015.027 (0) Table wp_wfNotifications: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfNotifications.table.gz - 4.1 KB)
+0015.051 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0015.061 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0015.068 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0015.095 (0) Table wp_wfReverseCache: Total expected rows (approximate): 2
+0015.107 (0) Table wp_wfReverseCache: Total rows added: 2 in 0.01 seconds
+0015.115 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0015.138 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0015.148 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0015.156 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0015.184 (0) Table wp_wfScanners: Total expected rows (approximate): 45
+0015.196 (0) Table wp_wfScanners: Total rows added: 45 in 0.01 seconds
+0015.203 (0) Table wp_wfScanners: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfScanners.table.gz - 0.8 KB)
+0015.231 (0) Table wp_wfStatus: Total expected rows (approximate): 973
+0015.250 (0) Table wp_wfStatus: Total rows added: 973 in 0.01 seconds
+0015.259 (0) Table wp_wfStatus: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfStatus.table.gz - 17.7 KB)
+0015.287 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0015.297 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0015.304 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0015.331 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0015.341 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0015.351 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0015.379 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 1
+0015.390 (0) Table wp_yoast_seo_links: Total rows added: 1 in 0.01 seconds
+0015.397 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_yoast_seo_links.table.gz - 0.5 KB)
+0015.422 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 15
+0015.434 (0) Table wp_yoast_seo_meta: Total rows added: 15 in 0.01 seconds
+0015.441 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0015.465 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_options.table.gz (1/55): adding to final database dump
+0015.489 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_users.table.gz (2/55): adding to final database dump
+0015.495 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_usermeta.table.gz (3/55): adding to final database dump
+0015.502 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_commentmeta.table.gz (4/55): adding to final database dump
+0015.508 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_comments.table.gz (5/55): adding to final database dump
+0015.516 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_links.table.gz (6/55): adding to final database dump
+0015.523 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_postmeta.table.gz (7/55): adding to final database dump
+0015.606 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_posts.table.gz (8/55): adding to final database dump
+0015.645 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_term_relationships.table.gz (9/55): adding to final database dump
+0015.652 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_term_taxonomy.table.gz (10/55): adding to final database dump
+0015.662 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_termmeta.table.gz (11/55): adding to final database dump
+0015.669 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_terms.table.gz (12/55): adding to final database dump
+0015.675 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_grids.table.gz (13/55): adding to final database dump
+0015.682 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_item_elements.table.gz (14/55): adding to final database dump
+0015.688 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_item_skins.table.gz (15/55): adding to final database dump
+0015.703 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_eg_navigation_skins.table.gz (16/55): adding to final database dump
+0015.710 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_layerslider.table.gz (17/55): adding to final database dump
+0015.719 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_css.table.gz (18/55): adding to final database dump
+0015.727 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_layer_animations.table.gz (19/55): adding to final database dump
+0015.733 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_navigations.table.gz (20/55): adding to final database dump
+0015.739 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_sliders.table.gz (21/55): adding to final database dump
+0015.746 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_slides.table.gz (22/55): adding to final database dump
+0015.752 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_revslider_static_slides.table.gz (23/55): adding to final database dump
+0015.759 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_tg_item_elements.table.gz (24/55): adding to final database dump
+0015.765 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_tg_item_skins.table.gz (25/55): adding to final database dump
+0015.771 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_w3tc_cdn_queue.table.gz (26/55): adding to final database dump
+0015.778 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBadLeechers.table.gz (27/55): adding to final database dump
+0015.784 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlockedCommentLog.table.gz (28/55): adding to final database dump
+0015.791 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlockedIPLog.table.gz (29/55): adding to final database dump
+0015.797 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlocks.table.gz (30/55): adding to final database dump
+0015.803 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlocks7.table.gz (31/55): adding to final database dump
+0015.809 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfBlocksAdv.table.gz (32/55): adding to final database dump
+0015.815 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfConfig.table.gz (33/55): adding to final database dump
+0015.834 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfCrawlers.table.gz (34/55): adding to final database dump
+0015.848 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfFileChanges.table.gz (35/55): adding to final database dump
+0015.856 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfFileMods.table.gz (36/55): adding to final database dump
+0015.918 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfHits.table.gz (37/55): adding to final database dump
+0015.937 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfHoover.table.gz (38/55): adding to final database dump
+0015.943 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfIssues.table.gz (39/55): adding to final database dump
+0015.949 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfKnownFileList.table.gz (40/55): adding to final database dump
+0015.971 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLeechers.table.gz (41/55): adding to final database dump
+0015.978 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLockedOut.table.gz (42/55): adding to final database dump
+0015.984 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLocs.table.gz (43/55): adding to final database dump
+0016.000 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfLogins.table.gz (44/55): adding to final database dump
+0016.010 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfNet404s.table.gz (45/55): adding to final database dump
+0016.015 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfNotifications.table.gz (46/55): adding to final database dump
+0016.023 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfPendingIssues.table.gz (47/55): adding to final database dump
+0016.029 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfReverseCache.table.gz (48/55): adding to final database dump
+0016.036 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfSNIPCache.table.gz (49/55): adding to final database dump
+0016.042 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfScanners.table.gz (50/55): adding to final database dump
+0016.048 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfStatus.table.gz (51/55): adding to final database dump
+0016.058 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfThrottleLog.table.gz (52/55): adding to final database dump
+0016.066 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_wfVulnScanners.table.gz (53/55): adding to final database dump
+0016.071 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_yoast_seo_links.table.gz (54/55): adding to final database dump
+0016.077 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db-table-wp_yoast_seo_meta.table.gz (55/55): adding to final database dump
+0016.083 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db.gz: finished writing out complete database file (1632 KB)
+0016.132 (0) Total database tables backed up: 55 (backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db.gz, size: 1683087, sha256)
+0016.202 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0016.208 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0016.214 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0016.220 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-others.zip: others: This file has not yet been successfully uploaded: will queue
+0016.226 (0) backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db.gz: db: This file has not yet been successfully uploaded: will queue
+0016.232 (0) Saving backup history. Total backup size: 107.1 MB
+0016.272 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0016.296 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0016.303 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-e9f6f67cccae2f3b1636dce51f536be3)
+0016.838 (0) S3 upload (): backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip (chunks: 16) -> s3://www.tierrapartners.com/backups/backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip
+0016.947 (0) S3 chunked upload: got multipart ID: rm_bnLrg.5o._t3aCtgxMhkdj_IPegWlT8ES_YytV8ajtdu97RUjKZ37PEqBQC_5J1DYYwT8xYOAUyOGyXGobaB7zXo.gGPuIM5RprmQIEKfKsq7_.24eC_RxOpo7w_r
+0018.460 (0) S3 chunked upload: 6.3 % uploaded (1, "d2708c0077c8cbbf0bc955bf4185789a")
+0019.075 (0) S3 chunked upload: 12.5 % uploaded (2, "233cf606ef2c503c79fa48c1a20bedc7")
+0019.644 (0) S3 chunked upload: 18.8 % uploaded (3, "cf9a7c3ca6ab3fab520a3a3042508f5f")
+0020.253 (0) S3 chunked upload: 25 % uploaded (4, "6d6e9aec51c273f3081f4fcad020ac5a")
+0020.787 (0) S3 chunked upload: 31.3 % uploaded (5, "6910a8c4fd0f43e102decac7f14cda5e")
+0021.320 (0) S3 chunked upload: 37.5 % uploaded (6, "2f51254e8386ac016af9a62d46a9f732")
+0021.900 (0) S3 chunked upload: 43.8 % uploaded (7, "f869385fbfdbfe9bc41cdb8e6e401e2c")
+0022.529 (0) S3 chunked upload: 50 % uploaded (8, "32d9393cf3f8d121a78b7895c282e068")
+0023.047 (0) S3 chunked upload: 56.3 % uploaded (9, "0071dbcc7ac28de0c2d83713c48315bb")
+0023.690 (0) S3 chunked upload: 62.5 % uploaded (10, "b417c3a2a1699bd82504d5a46ad0a1a7")
+0024.327 (0) S3 chunked upload: 68.8 % uploaded (11, "a9f0b621234f0279d87dbfe159838e75")
+0024.833 (0) S3 chunked upload: 75 % uploaded (12, "a236ef07295d184ae97a579bb2789890")
+0025.341 (0) S3 chunked upload: 81.3 % uploaded (13, "07fa3f47ec426060ec80015d7373684b")
+0025.954 (0) S3 chunked upload: 87.5 % uploaded (14, "a5489006547bc933c841edd2ffeba1a1")
+0026.577 (0) S3 chunked upload: 93.8 % uploaded (15, "47e7ce3535ae49527697f0d296625980")
+0026.785 (0) S3 chunked upload: 100 % uploaded (16, "4608e2340826bb0f69e945be5cd35096")
+0026.818 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0027.060 (0) S3 upload (plugins0): re-assembly succeeded
+0027.078 (0) Recording as successfully uploaded: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip (ed200437a2026b055cf372ba1c5c7287)
+0027.125 (0) Deleting local file: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-plugins.zip: OK
+0027.131 (0) S3 upload (): backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip (chunks: 2) -> s3://www.tierrapartners.com/backups/backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip
+0027.234 (0) S3 chunked upload: got multipart ID: Om1TFb.fW5LKlUuwVzzX0yKdvqSyyTb1ewnTt7uTeKi3xHjgPtLf4FFiCNr2cOeFst5lIYSlw5gJlzMckYMvai8DXNMWo2iXYwkwd9TZjio.EwELDkyL74AOzJn1UdMv
+0027.916 (0) S3 chunked upload: 50 % uploaded (1, "59ce6f19707060cac3e35290fef4a510")
+0028.401 (0) S3 chunked upload: 100 % uploaded (2, "f9796f6490b33f33c89d9746531d3ad4")
+0028.426 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0028.768 (0) S3 upload (themes0): re-assembly succeeded
+0028.786 (0) Recording as successfully uploaded: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip (5562547f668361d77e668ff81eedc68d)
+0028.810 (0) Deleting local file: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-themes.zip: OK
+0028.816 (0) S3 upload (): backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip (chunks: 5) -> s3://www.tierrapartners.com/backups/backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip
+0028.921 (0) S3 chunked upload: got multipart ID: z_erObdEoTzd.cR.99mesJ01TWN1qNl6CIMcYvo_a.OSq23c0OITuHN6nu2IsAkz42JOol5DxqqoYwxv6iUIwHF1Ahp_up5B8suO9pXmlLEfCEzB.ucKghP5lW1f5o6t
+0029.745 (0) S3 chunked upload: 20 % uploaded (1, "dc745050255913460fe93abfc5b9351e")
+0030.371 (0) S3 chunked upload: 40 % uploaded (2, "c598c35e1e0415ddf5e87ea8bcbcd7b7")
+0031.011 (0) S3 chunked upload: 60 % uploaded (3, "ae30f505e991cb9c77b588fa65b99c78")
+0031.881 (0) S3 chunked upload: 80 % uploaded (4, "9f3251db25757afdc844e72c93850354")
+0032.297 (0) S3 chunked upload: 100 % uploaded (5, "75d8b8d15fec0e4c07ec1ab14dbbced7")
+0032.324 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0032.525 (0) S3 upload (uploads0): re-assembly succeeded
+0032.545 (0) Recording as successfully uploaded: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip (d57a76424cee1d8883450573faec50a8)
+0032.573 (0) Deleting local file: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-uploads.zip: OK
+0032.579 (0) S3 upload (): backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-others.zip (chunks: 1) -> s3://www.tierrapartners.com/backups/backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-others.zip
+0032.774 (0) S3 regular upload: success
+0032.809 (0) Recording as successfully uploaded: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-others.zip (d87424d318ee81ba384d8da665445abe)
+0032.850 (0) Deleting local file: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-others.zip: OK
+0032.868 (0) S3 upload (): backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db.gz (chunks: 1) -> s3://www.tierrapartners.com/backups/backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db.gz
+0033.240 (0) S3 regular upload: success
+0033.264 (0) Recording as successfully uploaded: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db.gz (9b61cfc89ae004d098d6257e12d0a056)
+0033.300 (0) Deleting local file: backup_2018-03-05-1658_Tierra_Partners_ff6fec0e771a-db.gz: OK
+0033.319 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0033.342 (0) These backup set(s) were imported from a remote location, so will not be counted or pruned. Skipping: 1499524740, 1499456940, 1499369940, 1499284620, 1499198340, 1499109660, 1499025240, 1498939620, 1498852560, 1498764120, 1493840220, 1477855620, 1477855380, 1477768860
+0033.350 (0) Number of backup sets in history: 45; groups (db): 1
+0033.357 (0) Examining (for databases) backup set with group_id=0, nonce=ff6fec0e771a, datestamp=1520269108 (Mar 05 2018 16:58:28)
+0033.375 (0) This backup set is the backup set just made, so will not be deleted.
+0033.375 (0) Examining (for databases) backup set with group_id=0, nonce=5c972609e65f, datestamp=1520183942 (Mar 04 2018 17:19:02)
+0033.375 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.383 (0) Examining (for databases) backup set with group_id=0, nonce=555705db4cc9, datestamp=1520095891 (Mar 03 2018 16:51:31)
+0033.383 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.383 (0) Examining (for databases) backup set with group_id=0, nonce=75bee243604a, datestamp=1520009606 (Mar 02 2018 16:53:26)
+0033.383 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.383 (0) Examining (for databases) backup set with group_id=0, nonce=9b63c2501c0e, datestamp=1519924154 (Mar 01 2018 17:09:14)
+0033.383 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.383 (0) Examining (for databases) backup set with group_id=0, nonce=5b60455f158d, datestamp=1519836720 (Feb 28 2018 16:52:00)
+0033.383 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.383 (0) Examining (for databases) backup set with group_id=0, nonce=194d5bcb37ed, datestamp=1519752987 (Feb 27 2018 17:36:27)
+0033.383 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.383 (0) Examining (for databases) backup set with group_id=0, nonce=3f4b538d695e, datestamp=1519664249 (Feb 26 2018 16:57:29)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=e34973762a67, datestamp=1519578972 (Feb 25 2018 17:16:12)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=6d4694495f86, datestamp=1519491334 (Feb 24 2018 16:55:34)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=755b99c70f32, datestamp=1519404726 (Feb 23 2018 16:52:06)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=ef071c3f109a, datestamp=1519318959 (Feb 22 2018 17:02:39)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=182a51776b6a, datestamp=1519231933 (Feb 21 2018 16:52:13)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=9d4570f296a9, datestamp=1519150484 (Feb 20 2018 18:14:44)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=f56bd582502b, datestamp=1519059805 (Feb 19 2018 17:03:25)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=1d4a57ecae22, datestamp=1518972677 (Feb 18 2018 16:51:17)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=c04eb8b2ab9c, datestamp=1518886721 (Feb 17 2018 16:58:41)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=f162644b3ddf, datestamp=1518800132 (Feb 16 2018 16:55:32)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=09bcdb07b0fd, datestamp=1518714047 (Feb 15 2018 17:00:47)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=b2a0a48912ef, datestamp=1518627309 (Feb 14 2018 16:55:09)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=e04eb869d2e5, datestamp=1518541591 (Feb 13 2018 17:06:31)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=1c374bdbb4bf, datestamp=1518455788 (Feb 12 2018 17:16:28)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=65fbcc8f052d, datestamp=1518367887 (Feb 11 2018 16:51:27)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=a503dedabc58, datestamp=1518287685 (Feb 10 2018 18:34:45)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=4d9e5d2272c3, datestamp=1518195400 (Feb 09 2018 16:56:40)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.384 (0) Examining (for databases) backup set with group_id=0, nonce=53055e411c03, datestamp=1518109923 (Feb 08 2018 17:12:03)
+0033.384 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.385 (0) Examining (for databases) backup set with group_id=0, nonce=05cfc6bbd2e2, datestamp=1518022291 (Feb 07 2018 16:51:31)
+0033.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.385 (0) Examining (for databases) backup set with group_id=0, nonce=9283269cd66b, datestamp=1517936182 (Feb 06 2018 16:56:22)
+0033.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.385 (0) Examining (for databases) backup set with group_id=0, nonce=8575b1877f0a, datestamp=1517849543 (Feb 05 2018 16:52:23)
+0033.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.385 (0) Examining (for databases) backup set with group_id=0, nonce=9ab0fb42ce40, datestamp=1517764290 (Feb 04 2018 17:11:30)
+0033.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.385 (0) Examining (for databases) backup set with group_id=0, nonce=75489f1208ea, datestamp=1517679673 (Feb 03 2018 17:41:13)
+0033.385 (0) 1517679673: db: this set includes a database (backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-db.gz); db count is now 30
+0033.385 (0) 1517679673: db: over retain limit (30); will delete this database
+0033.385 (0) Delete file: backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-db.gz, service=s3
+0033.391 (0) S3: Delete remote: bucket=www.tierrapartners.com, URI=backups/backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-db.gz
+0033.507 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0033.513 (0) Number of backup sets in history: 45; groups (files): 1
+0033.520 (0) Examining (for files) backup set with nonce=ff6fec0e771a, datestamp=1520269108 (Mar 05 2018 16:58:28)
+0033.520 (0) This backup set is the backup set just made, so will not be deleted.
+0033.537 (0) This backup set is the backup set just made, so will not be deleted.
+0033.537 (0) This backup set is the backup set just made, so will not be deleted.
+0033.537 (0) This backup set is the backup set just made, so will not be deleted.
+0033.537 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=5c972609e65f, datestamp=1520183942 (Mar 04 2018 17:19:02)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=555705db4cc9, datestamp=1520095891 (Mar 03 2018 16:51:31)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=75bee243604a, datestamp=1520009606 (Mar 02 2018 16:53:26)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=9b63c2501c0e, datestamp=1519924154 (Mar 01 2018 17:09:14)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=5b60455f158d, datestamp=1519836720 (Feb 28 2018 16:52:00)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=194d5bcb37ed, datestamp=1519752987 (Feb 27 2018 17:36:27)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=3f4b538d695e, datestamp=1519664249 (Feb 26 2018 16:57:29)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=e34973762a67, datestamp=1519578972 (Feb 25 2018 17:16:12)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=6d4694495f86, datestamp=1519491334 (Feb 24 2018 16:55:34)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=755b99c70f32, datestamp=1519404726 (Feb 23 2018 16:52:06)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=ef071c3f109a, datestamp=1519318959 (Feb 22 2018 17:02:39)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=182a51776b6a, datestamp=1519231933 (Feb 21 2018 16:52:13)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=9d4570f296a9, datestamp=1519150484 (Feb 20 2018 18:14:44)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=f56bd582502b, datestamp=1519059805 (Feb 19 2018 17:03:25)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.544 (0) Examining (for files) backup set with nonce=1d4a57ecae22, datestamp=1518972677 (Feb 18 2018 16:51:17)
+0033.544 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=c04eb8b2ab9c, datestamp=1518886721 (Feb 17 2018 16:58:41)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=f162644b3ddf, datestamp=1518800132 (Feb 16 2018 16:55:32)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=09bcdb07b0fd, datestamp=1518714047 (Feb 15 2018 17:00:47)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=b2a0a48912ef, datestamp=1518627309 (Feb 14 2018 16:55:09)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=e04eb869d2e5, datestamp=1518541591 (Feb 13 2018 17:06:31)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=1c374bdbb4bf, datestamp=1518455788 (Feb 12 2018 17:16:28)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=65fbcc8f052d, datestamp=1518367887 (Feb 11 2018 16:51:27)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=a503dedabc58, datestamp=1518287685 (Feb 10 2018 18:34:45)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=4d9e5d2272c3, datestamp=1518195400 (Feb 09 2018 16:56:40)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=53055e411c03, datestamp=1518109923 (Feb 08 2018 17:12:03)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=05cfc6bbd2e2, datestamp=1518022291 (Feb 07 2018 16:51:31)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=9283269cd66b, datestamp=1517936182 (Feb 06 2018 16:56:22)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=8575b1877f0a, datestamp=1517849543 (Feb 05 2018 16:52:23)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=9ab0fb42ce40, datestamp=1517764290 (Feb 04 2018 17:11:30)
+0033.545 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0033.545 (0) Examining (for files) backup set with nonce=75489f1208ea, datestamp=1517679673 (Feb 03 2018 17:41:13)
+0033.545 (0) plugins: over retain limit (30); will delete this file entity
+0033.545 (0) themes: over retain limit (30); will delete this file entity
+0033.545 (0) uploads: over retain limit (30); will delete this file entity
+0033.545 (0) others: over retain limit (30); will delete this file entity
+0033.545 (0) Delete file: backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-plugins.zip, service=s3
+0033.551 (0) Delete file: backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-themes.zip, service=s3
+0033.558 (0) Delete file: backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-uploads.zip, service=s3
+0033.575 (0) Delete file: backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-others.zip, service=s3
+0033.677 (0) S3: Delete remote: bucket=www.tierrapartners.com, URI=backups/backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-plugins.zip
+0033.812 (0) S3: Delete remote: bucket=www.tierrapartners.com, URI=backups/backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-themes.zip
+0033.965 (0) S3: Delete remote: bucket=www.tierrapartners.com, URI=backups/backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-uploads.zip
+0034.097 (0) S3: Delete remote: bucket=www.tierrapartners.com, URI=backups/backup_2018-02-03-1741_Tierra_Partners_75489f1208ea-others.zip
+0034.218 (0) This backup set is now empty; will remove from history
+0034.225 (0) Deleting log file (log.75489f1208ea.txt)
+0034.231 (0) Retain: saving new backup history (sets now: 44) and finishing retain operation
+0034.288 (0) Resume backup (ff6fec0e771a, 0): finish run
+0034.319 (0) Decremented the semaphore (fd) by 1
+0034.332 (0) Semaphore (fd) unlocked
+0034.338 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0034.375 (0) Fetching RSS news feed
+0035.000 (0) Fetched RSS news feed; result is a: SimplePie
+0035.109 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: syste...
+0035.268 (0) The backup apparently succeeded and is now complete

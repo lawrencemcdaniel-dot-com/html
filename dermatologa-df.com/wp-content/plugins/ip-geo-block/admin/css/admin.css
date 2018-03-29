@@ -1,0 +1,556 @@
+/* This stylesheet is used to style the admin option form of the plugin. */
+dfn {
+    cursor: help;
+    border-bottom: 1px dotted #888;
+}
+
+/* style legend and fieldset as panel */
+fieldset, legend {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+fieldset {
+    min-width: 0;
+}
+legend {
+    display: block;
+    line-height: inherit;
+    width: 100%;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+}
+.panel {
+    border-color: gray;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    background: #f5f5f5;
+}
+.panel-heading {
+    float: left !important;
+    background: #fff;
+}
+.panel-default > .panel-heading {
+    border-color: inherit;
+}
+.panel-body {
+    width: 100%;
+    padding: 0 1em;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.panel-body:before,
+.panel-body:after {
+    content: " ";
+    display: table;
+}
+.panel-body:after {
+    clear: both;
+}
+
+/* style legend and fieldset */
+fieldset.ip-geo-block-field {
+/*  padding: 0 10px;*/
+    margin: 1em 0;
+}
+fieldset.ip-geo-block-field h2,
+fieldset.ip-geo-block-field h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 14px !important;
+}
+fieldset.ip-geo-block-field legend.panel-heading {
+    padding: 10px;
+}
+
+fieldset.ip-geo-block-field .ip-geo-block-dropup,
+fieldset.ip-geo-block-field .ip-geo-block-dropdown {
+    cursor: pointer;
+    position: relative;
+    padding-left: 1em;
+}
+fieldset.ip-geo-block-field .ip-geo-block-dropup:before,
+fieldset.ip-geo-block-field .ip-geo-block-dropdown:before {
+    content: '';
+    height: 0;
+    width: 0;
+    border: 0.4em solid transparent;
+    position: absolute;
+}
+fieldset.ip-geo-block-field .ip-geo-block-dropup:before {
+    border-left: 0.4em solid #555;
+    left: 3px;
+    top: 15%;
+}
+fieldset.ip-geo-block-field .ip-geo-block-dropdown:before {
+    border-top: 0.4em solid #555;
+    left: 0;
+    top: 35%;
+}
+fieldset.ip-geo-block-field ul.ip-geo-block-dropup:before {
+    top: 0.25em;
+}
+fieldset.ip-geo-block-field ul.ip-geo-block-dropdown:before {
+    top: 0.45em;
+}
+fieldset.ip-geo-block-field .form-table {
+    margin: 0;
+    width: 100%;
+}
+fieldset.ip-geo-block-field .ip-geo-block-desc {
+    color: #666;
+    font-size: 13px;
+/*  font-style: italic;*/
+}
+
+textarea.regular-text {
+    width: 25em;
+}
+
+ul.ip-geo-block-settings-folding {
+    margin: 0.5em 0;
+}
+ul.ip-geo-block-settings-folding ul {
+    margin-bottom: 0;
+}
+ul.ip-geo-block-settings-folding li:first-child {
+    margin-top: 0.5em;
+}
+.folding-disable {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.folding-inactive {
+    opacity: 0.5;
+    font-style:oblique !important;
+}
+
+ul.ip-geo-block-float li {
+    display: inline-block;
+    width: 18em;
+}
+
+ul#ip-geo-block-actions dfn {
+    border: none;
+}
+ul#ip-geo-block-actions span.dashicons {
+    font-size: 14px;
+}
+.ip-geo-block-checked {
+    list-style-type: disc;
+}
+
+.ip-geo-block-ip-addr {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.ip-geo-block-hide {
+    display: none;
+}
+
+.ip-geo-block-sup {
+    margin-left: 0.2em;
+    display: inline-block;
+}
+
+ul.ip-geo-block-note {
+    margin-top: 1em;
+    list-style: disc inside;
+}
+ul.ip-geo-block-list {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+ul.ip-geo-block-list label {
+    display: inline-block;
+}
+@media screen and (min-width:782px) {
+    ul.ip-geo-block-list .code {
+        width: 15em;
+    }
+}
+
+.ip-geo-block-loading {
+    background-size: 16px 16px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(data:image/gif;base64,R0lGODlhEAAQAPIGAAAAAMLCwkJCQpKSkmJiYoKCgv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJCgAGACwAAAAAEAAQAAADM2i63P4wyklrC0IEKgAQnAdOmGYFBLExwboQWcG2rlHEwTDQLUsUOd2mBxkUCgNKa+dIAAAh+QQJCgAGACwAAAIACgAOAAADLWgWIqHQCABEVLPe1R4MBOFFRFNsRUNsYDFewTC8iixvQ1EMyxjEvyBLODQkAAAh+QQJCgAGACwAAAAACgAOAAADLWi6IRJrCQCECoU0ag1xxeBARuEQ0UUU5DUM7fK+qTEUYR0EcM3Ev51uB7wAEwAh+QQJCgAGACwAAAAADgAKAAADLWi6URQrLiJEkSaM0eqrkLFtAVEEAgAIylAUQ5SuSqCFNZjhWG3zmB8wOJQkAAAh+QQJCgAGACwCAAAADgAKAAADK2hqMRMrLuekCnCU8gqBDCZ2glBcYkSUxIJJgQdaUVDOtAAAAr3oPN/llgAAIfkECQoABgAsBgAAAAoADgAAAytoEdauiz0Yx5BQFTvN2EMXWNgUFETZFIJQdERLiGgZtKohAIDQ7T0RrpEAACH5BAkKAAYALAYAAgAKAA4AAAMqaKoR+609Fie1K4zhZiibNRSg1XAQUXQPIQgE835voQgAIARqh+ummSUBACH5BAUKAAYALAIABgAOAAoAAAMsaLpsES2+F9mEddEgBFbBMGACAAiMOCrlGRBFWBQD2L0dYYjfUuQZEKynSAAAOw==);
+    height: 16px;
+    width: 16px;
+    margin-left: 1em;
+    margin-top: 0.2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ip-geo-block-border {
+    border-top: inherit;
+}
+
+.ip-geo-block-notice {
+    color: #dd3d36;
+}
+
+.ip-geo-block-title {
+    width: 100px;
+    display: inline-block;
+}
+
+.ip-geo-block-result {
+    color: #2786C2;
+    display: inline-block;
+}
+
+#ip-geo-block-map {
+    height: 400px;
+    margin: 1em auto;
+}
+
+/* google map infomation window */
+.gm-style-iw {
+    width: 18em;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%:
+}
+.gm-style-iw ul {
+    margin: 0.1em;
+}
+.gm-style-iw li {
+    margin: 0.2em;
+}
+
+ul.ip-geo-block-statistics-countries li {
+    width: 12em;
+    float: left;
+    text-align: right;
+    padding: 0.2em;
+}
+
+/* table */
+table.ip-geo-block-statistics-table {
+    float: right;
+}
+table.ip-geo-block-statistics-table th,
+table.ip-geo-block-statistics-table td {
+    width: 12em;
+    margin: 0;
+    padding: 0.2em;
+    text-align: right;
+    line-height: 1.5em;
+    word-wrap: break-word;
+}
+table.ip-geo-block-statistics-table tr:nth-child(even) {
+    background-color: #eee;
+}
+table.ip-geo-block-statistics-table tr:nth-child(odd) {
+}
+table.ip-geo-block-table {
+    margin: 1em 0;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+table.ip-geo-block-table td:first-child {
+    min-width: 4.3em;
+}
+
+/* for whois */
+@media screen and (max-width:782px) {
+    #ip-geo-block-whois .panel-body {
+        padding: 0 0.5em;
+    }
+}
+
+/* for footable */
+#ip-geo-block-4 #ip-geo-block-section-1 .panel-body,
+#ip-geo-block-4 #ip-geo-block-section-2 .panel-body,
+#ip-geo-block-4 #ip-geo-block-section-3 .panel-body,
+#ip-geo-block-4 #ip-geo-block-section-4 .panel-body,
+#ip-geo-block-4 #ip-geo-block-section-5 .panel-body {
+    padding: 0;
+    display: table-cell;
+/*  border-collapse: collapse; *//* Bug of IE10, IE11 */
+}
+.ip-geo-block-log {
+    width: 100% !important;
+    margin: 0.5em 0;
+}
+.ip-geo-block-log * {
+    font-size: 13px !important;
+    line-height: 1.5em;
+    vertical-align: middle;
+}
+.ip-geo-block-log .pagination ul {
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0.5em 0 0 0;
+    padding: 0;
+}
+.ip-geo-block-log .pagination ul > li {
+    display: inline;
+}
+.ip-geo-block-log .pagination ul > li:first-child > a,
+.ip-geo-block-log .pagination ul > li:first-child > span {
+    border-bottom-left-radius: 4px;
+    border-left-width: 1px;
+    border-top-left-radius: 4px;
+}
+.ip-geo-block-log .pagination ul > li:last-child > a,
+.ip-geo-block-log .pagination ul > li:last-child > span {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.ip-geo-block-log .pagination ul > .disabled > span,
+.ip-geo-block-log .pagination ul > .disabled > a,
+.ip-geo-block-log .pagination ul > .disabled > a:hover,
+.ip-geo-block-log .pagination ul > .disabled > a:focus {
+    background-color: transparent;
+    color: #999;
+    cursor: default;
+}
+.ip-geo-block-log .pagination ul > li > a,
+.ip-geo-block-log .pagination ul > li > span {
+    border-color: #ddd;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 20px;
+    padding: 4px;
+    width: 20px;
+    text-decoration: none;
+}
+.ip-geo-block-log .pagination ul > .active > a,
+.ip-geo-block-log .pagination ul > .active > span {
+    color: #999;
+    cursor: default;
+}
+.ip-geo-block-log .pagination ul > li > a:hover,
+.ip-geo-block-log .pagination ul > li > a:focus,
+.ip-geo-block-log .pagination ul > .active > a,
+.ip-geo-block-log .pagination ul > .active > span {
+    background-color: #f7f7f7;
+}
+.ip-geo-block-log .pagination-centered {
+    text-align: center;
+}
+.ip-geo-block-log.breakpoint > tbody > tr > td > span.footable-toggle {
+    font-size: 60% !important;
+    position: relative;
+    top: -1px;
+    left: 2px;
+}
+.ip-geo-block-log > thead > tr > th,
+.ip-geo-block-log > tbody > tr > td {
+    padding: 4px 0;
+    word-wrap: break-word;
+    width: 20%;
+}
+.ip-geo-block-log > thead > tr > th:first-child,
+.ip-geo-block-log > tbody > tr > td:first-child {
+    width: 25%;
+}
+.ip-geo-block-log > thead > tr > th:first-child + th,
+.ip-geo-block-log > tbody > tr > td:first-child + td {
+    width: 35%;
+}
+.ip-geo-block-log > thead > tr > th:nth-child(5),
+.ip-geo-block-log > tbody > tr > td:nth-child(5),
+.ip-geo-block-log > thead > tr > th:nth-child(5) + th,
+.ip-geo-block-log > tbody > tr > td:nth-child(5) + td {
+    width: 60%;
+    text-align: left;
+}
+@media screen and (min-width: 1024px) {
+    .ip-geo-block-log > thead > tr > th:nth-child(3),
+    .ip-geo-block-log > tbody > tr > td:nth-child(3),
+    .ip-geo-block-log > thead > tr > th:nth-child(3) + th,
+    .ip-geo-block-log > tbody > tr > td:nth-child(3) + td {
+        width: 10%;
+    }
+}
+.ip-geo-block-log > thead > tr > th > span.footable-sort-indicator {
+    color: #888;
+}
+.ip-geo-block-log > tbody > tr > td {
+    text-align: center;
+}
+.ip-geo-block-log > tbody > tr > td:first-child {
+    text-align: left;
+    padding-left: 0.5em;
+}
+.ip-geo-block-log .footable-row-detail-row,
+.ip-geo-block-log .footable-row-detail-name,
+.ip-geo-block-log .footable-row-detail-value {
+    display: block;
+}
+.ip-geo-block-log .footable-row-detail-value {
+    padding: 0 1em 4px 1em;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+input#ip_geo_block_settings_filter_logs {
+    width: 16em;
+    padding-top: 3px;
+}
+
+/* Scan the country code */
+#ip-geo-block-scan-code {
+    vertical-align: middle;
+}
+#ip-geo-block-code-list {
+    display: none;
+    margin-bottom: 0;
+}
+
+/* for google chart */
+#ip-geo-block-chart-countries {
+    height: 200px;
+}
+#ip-geo-block-chart-daily {
+    height: 240px;
+}
+#ip_geo_block_settings_validation_mimetype + label {
+    padding-top: 0.25em;
+}
+#ip_geo_block_settings_validation_mimetype + label + ul {
+    margin-top: 0.7em;
+}
+#ip_geo_block_settings_validation_plugins,
+#ip_geo_block_settings_validation_themes {
+    margin-top: 0.7em;
+}
+#ip_geo_block_settings_create_user {
+    margin-bottom: 0.5em;
+}
+#ip-geo-block-toggle-sections,
+#ip-geo-block-back-to-top a {
+    box-shadow: none;
+}
+#ip-geo-block-wp-info textarea {
+    margin-top: 0.5em;
+    overflow: auto;
+    width: 100%;
+    word-wrap: normal;
+    word-break: normal;
+    white-space: pre;
+}
+#ip-geo-block-preferred {
+    color: #fff;
+    background: #00838f !important;
+    border-color: #00707a !important;
+    text-shadow: none; /* for WordPress 3.7.21 */
+}
+#ip-geo-block-preferred:hover {
+    background-color: #00919e !important;
+    border-color: #00525a !important;
+}
+
+span.ip-geo-block-title-link {
+    font-size: 13px;
+}
+/*span.ip-geo-block-title-link a {
+    box-shadow: none;
+}*/
+
+dfn ~ .ip-geo-block-cycle,
+dfn ~ .ip-geo-block-lock,
+dfn ~ .ip-geo-block-unlock {
+    margin-left: 0.75em;
+}
+.ip-geo-block-cycle,
+.ip-geo-block-lock,
+.ip-geo-block-unlock {
+    cursor: pointer;
+    box-shadow: none;
+    text-decoration: none;
+}
+.ip-geo-block-cycle:active,
+.ip-geo-block-lock:active,
+.ip-geo-block-unlock:active {
+    position: relative;
+    top: 1px;
+}
+.ip-geo-block-cycle span,
+.ip-geo-block-lock span,
+.ip-geo-block-unlock span {
+    height: 16px;
+    width: 16px;
+    margin: 0;
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 16px 16px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.ip-geo-block-cycle span {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAh1BMVEUAda2otLp+rsSHprWHr8IBd7EpfKRGhaNajqeUqrRymKuKoq5yo7prlKgAcqoVe6w8gqQmgq5Tj6wIdqsVdKIshrEMea1Uhp+Anqw0hawDdq4gfKhljqE7hqoLdKYbgbM4jLQygKUGeK8CdawQd6gVeKcad6NKkrSerrZAj7UAc6sAc6rc3NySrVGQAAAALXRSTlP//////////////////////////////////////////////////////////wCl7wv9AAACOklEQVR4Ae2W15rzKgxF9xTZzhTX9B7S/gN6/9ebYqzzGZsw/S7LV3FZgCSIwD/kQ8FVcBU8xatZUczy8luC/ABNOn0DSHEsvyZ4PgLatNCYR3efFxyhTQ8g+qQgJxgv2JefERzJXATRh4LHOUwAHD4S7OGEztRJaN86hAUxtaNWDUf/bRdDBbQMWVDAO8jn89WUhag1MeyCAh6hHofyrliLgZKggDMYgzF3eVAwFq0uCZq5KY0TezjIHDDzC0qqmkwe2ctGDOQVLMkgu+F3/rGXwb4xIPcJ6P3JgkM8wFjmfcFAWfeKQywaAz33BJVuHsUcAt09gVbuLDThAJkdR687ggLmf4gDJLIGV7BydtB8yn3u+fbtuj/LS7G9wZAd1AKK+yxJ1x+aBmibTtgCcEHGHsh0wdbOgNLek4L7lI5BigY8nWuZUQ3qGEXes9JzOKGJztPaGtLslu3lIXJirdxCWkASHGDTMqg7V1DKPplygDG61YJukLHjEErGSXqCSos6xNSOgzP3BDmsQBcchNwkoV8oiNnPA78zIefUgCdJeGIfE7LmFWXsFTCFdzTJ/RlfEMRiSGnFXXbkC7AIeqcKDu4ynseozeouKJiSEYBDwkJyIC1nRUjgblkNWp/e/1vXc2gjoAoLksYgjrrFMi0oDgjEEIDij1scBXMJSH6DAj6RNl7o8MkuLak8Co15/Pk+MRmT0xilQJV/sdWNKg2kTaeroudvNNsDjmejYjSL+e6v2/2r4Cp4BXNajr0H7hRfAAAAAElFTkSuQmCC);
+}
+.ip-geo-block-lock span {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAYFBMVEXc3Ny3y9Zzq8dRmb7M1dlXnsIFdK0AcawAcqwphrYAcKvZ29wAb6oJd680jrqlw9MBcqxmo8MUfbJLl75eoMI7kbzX2ttqp8VSmL1YnL8NeK+Tu89DlL1ImMEOebBNmL4OkqMoAAAAAXRSTlMAQObYZgAAAPlJREFUeAG9kAWyhTAQBIPOsCzufv9TPnf4Ll0CSbpmxXwNy3Yc23rz2fV8kPA99433AIQIiGDTCD0lojiOQPXCDSFJIbF16CMWItkQMkF+inZzSLYhFKLl+a9UKTZaqJTZJYtarZuo40chrv9CqJTN+behVi+Cm7RdDgRld6AMgLxrE/dxBz0BEjwBEmD/uIsWPAOAF9A+CE56ufSryr8oqfOYcBbQJ8YkES7COkFOYzTypqCDOTDo2wljaEw4vp1APYyWKd8WMBozylvCpcvmXeHQ5fCegHia4s1FgZcIVeVFeFx1M4MvYG4eBHdYWufC+addBtf8E3vdjBNhWnVQqAAAAABJRU5ErkJggg==);
+}
+.ip-geo-block-unlock span {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAYFBMVEXc3NyzydRzq8dRmb7I09hYnsEFdK0AcawAcqzP1toqhrYAcKvZ29wAb6oMeK8zjbqrxtQBcazBz9Zko8MVfbLF0thMmL07kbtpp8WjwtJSmL1YnL+Tu89DlL1JmMEPebBFV++UAAAAAXRSTlMAQObYZgAAAONJREFUeAG9kAWChDAMAIMmJaTFXf7/ynXflvMbnE5j8DU8Pwh8D1yEUYxEGEchWFEJEjEflESBhTQSQm2MRpIotQhZTmgKgMIg5ZlFKBmrGg7UFXJpEQKW8qIKN7YeikJdBJI2BTtXwfyx0L3XoPphvBEliNU49OoxqEa6g4cTST/OYshvi3hV8+FxSNfluG3jqxG8C6h7gF6jU+AODnTsFGSCA5O4I8wpQDq7I5CUAKWQW+AZYOYtoQPoGDeECWDaioBmWQxeBduoWURso+5WpBdw7R4ENTVDcGE435tJwT+xB+vMEnZRNB0YAAAAAElFTkSuQmCC);
+}
+
+/* https://developer.wordpress.org/resource/dashicons/ for WordPress 3.8
+.ip-geo-block-cycle span:before {
+    background: none;
+    content: "\f463";
+    display: inline-block;
+    font: normal 16px/20px dashicons;
+    speak: none;
+    height: 1em;
+    width: 1em;
+    text-align: center;
+    vertical-align: text-top;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}*/
+#ip-geo-block-back-to-top {
+    margin:0;
+    text-align:right;
+}
+
+/* embeded data for multisite */
+.ip-geo-block-multisite {
+    margin-bottom: 1em;
+}
+
+/* for statistics */
+ol.ip-geo-block-top-list {
+    display: inline-table;
+    list-style-position: outside;
+    margin: 0 2em 0.5em 1.75em;
+}
+ol.ip-geo-block-top-list h4 {
+    margin: 1em 0;
+}
+ol.ip-geo-block-top-list li code {
+    background: none;
+}
+
+/* icon for top level menu */
+#toplevel_page_ip-geo-block .wp-menu-image img {
+    height: 18px;
+    width: 18px;
+}
+
+/* action for admin post */
+.ip-geo-block-admin-post {
+    color: #c43322;
+    margin-left: 0.25em;
+}

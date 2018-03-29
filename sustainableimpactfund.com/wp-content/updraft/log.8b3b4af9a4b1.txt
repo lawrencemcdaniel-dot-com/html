@@ -1,0 +1,556 @@
+0000.000 (0) Opened log file at time: Tue, 19 Sep 2017 19:38:19 +0000 on http://fundx.lawrencemcdaniel.com
+0000.003 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.13.7 WP: 4.8.1 PHP: 5.6.31 (apache2handler, Linux ip-172-31-15-31 4.9.32-15.41.amzn1.x86_64 #1 SMP Thu Jun 22 06:20:54 UTC 2017 x86_64) MySQL: 5.5.56 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.1k-fips PHP/5.6.31 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 47.5M | 48.5M) multisite: N openssl: OpenSSL 1.0.1k-fips 8 Jan 2015 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.004 (0) Free space on disk containing Updraft's temporary directory: 43758 MB
+0000.007 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.010 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.016 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1505770711, seconds_ago=79188)
+0000.022 (0) Set semaphore last lock (fd) time to 2017-09-19 19:38:19
+0000.023 (0) Semaphore lock (fd) complete
+0000.028 (0) Backup run: resumption=0, nonce=8b3b4af9a4b1, begun at=1505849899 (0s ago), job type=backup
+0000.032 (0) Scheduling a resumption (1) after 300 seconds (1505850199) in case this run gets aborted
+0000.059 (0) Checking if we have a zip executable available
+0000.062 (0) Testing: /usr/bin/zip
+0000.069 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.072 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.074 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.075 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.078 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.083 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.086 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.094 (0) Working binary zip found: /usr/bin/zip
+0000.098 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.099 (0) Creation of backups of directories: beginning
+0000.106 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.226 (0) Total entities for the zip file: 915 directories, 7477 files (0 skipped as non-modified), 94.6 MB
+0000.231 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.236 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.240 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.244 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.248 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.260 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13 MB, 7477 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.811 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: size is now: 3.50 MB
+0000.817 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 600 files added (on-disk size: 3539.7 KB)
+0000.822 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 700 files added (on-disk size: 3539.7 KB)
+0000.826 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 800 files added (on-disk size: 3539.7 KB)
+0000.830 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 900 files added (on-disk size: 3539.7 KB)
+0000.834 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1000 files added (on-disk size: 3539.7 KB)
+0000.837 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.3 MB, 7477 files batched, 501 (1002) added so far); re-opening (prior size: 3539.7 KB)
+0001.013 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: size is now: 9.30 MB
+0001.031 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1100 files added (on-disk size: 9563.7 KB)
+0001.036 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1200 files added (on-disk size: 9563.7 KB)
+0001.040 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1300 files added (on-disk size: 9563.7 KB)
+0001.045 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1400 files added (on-disk size: 9563.7 KB)
+0001.049 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1500 files added (on-disk size: 9563.7 KB)
+0001.051 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.2 MB, 7477 files batched, 501 (1503) added so far); re-opening (prior size: 9563.7 KB)
+0001.137 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: size is now: 11.90 MB
+0001.146 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1600 files added (on-disk size: 12221.7 KB)
+0001.150 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1700 files added (on-disk size: 12221.7 KB)
+0001.154 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1800 files added (on-disk size: 12221.7 KB)
+0001.158 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 1900 files added (on-disk size: 12221.7 KB)
+0001.163 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2000 files added (on-disk size: 12221.7 KB)
+0001.165 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.5 MB, 7477 files batched, 501 (2004) added so far); re-opening (prior size: 12221.7 KB)
+0001.267 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2100 files added (on-disk size: 12826.5 KB)
+0001.271 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2200 files added (on-disk size: 12826.5 KB)
+0001.276 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2300 files added (on-disk size: 12826.5 KB)
+0001.280 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2400 files added (on-disk size: 12826.5 KB)
+0001.284 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2500 files added (on-disk size: 12826.5 KB)
+0001.287 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.3 MB, 7477 files batched, 501 (2505) added so far); re-opening (prior size: 12826.5 KB)
+0001.425 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2600 files added (on-disk size: 13618.7 KB)
+0001.429 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2700 files added (on-disk size: 13618.7 KB)
+0001.434 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2800 files added (on-disk size: 13618.7 KB)
+0001.438 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 2900 files added (on-disk size: 13618.7 KB)
+0001.458 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3000 files added (on-disk size: 13618.7 KB)
+0001.460 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.5 MB, 7477 files batched, 501 (3006) added so far); re-opening (prior size: 13618.7 KB)
+0001.869 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: size is now: 16.20 MB
+0001.894 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3100 files added (on-disk size: 16558.1 KB)
+0001.898 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3200 files added (on-disk size: 16558.1 KB)
+0001.902 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3300 files added (on-disk size: 16558.1 KB)
+0001.906 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3400 files added (on-disk size: 16558.1 KB)
+0001.911 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3500 files added (on-disk size: 16558.1 KB)
+0001.913 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.1 MB, 7477 files batched, 501 (3507) added so far); re-opening (prior size: 16558.1 KB)
+0002.085 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3600 files added (on-disk size: 17926.4 KB)
+0002.108 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3700 files added (on-disk size: 17926.4 KB)
+0002.117 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3800 files added (on-disk size: 17926.4 KB)
+0002.131 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 3900 files added (on-disk size: 17926.4 KB)
+0002.137 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4000 files added (on-disk size: 17926.4 KB)
+0002.142 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.5 MB, 7477 files batched, 501 (4008) added so far); re-opening (prior size: 17926.4 KB)
+0002.321 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4100 files added (on-disk size: 18728 KB)
+0002.326 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4200 files added (on-disk size: 18728 KB)
+0002.330 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4300 files added (on-disk size: 18728 KB)
+0002.334 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4400 files added (on-disk size: 18728 KB)
+0002.338 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4500 files added (on-disk size: 18728 KB)
+0002.340 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (16 MB, 7477 files batched, 501 (4509) added so far); re-opening (prior size: 18728 KB)
+0003.101 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: size is now: 23.50 MB
+0003.109 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4600 files added (on-disk size: 24027.7 KB)
+0003.112 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4700 files added (on-disk size: 24027.7 KB)
+0003.116 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4800 files added (on-disk size: 24027.7 KB)
+0003.120 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 4900 files added (on-disk size: 24027.7 KB)
+0003.124 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5000 files added (on-disk size: 24027.7 KB)
+0003.127 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8 MB, 7477 files batched, 501 (5010) added so far); re-opening (prior size: 24027.7 KB)
+0003.594 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5100 files added (on-disk size: 27487.9 KB)
+0003.607 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5200 files added (on-disk size: 27487.9 KB)
+0003.620 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5300 files added (on-disk size: 27487.9 KB)
+0003.624 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5400 files added (on-disk size: 27487.9 KB)
+0003.628 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5500 files added (on-disk size: 27487.9 KB)
+0003.630 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 7477 files batched, 501 (5511) added so far); re-opening (prior size: 27487.9 KB)
+0003.855 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5600 files added (on-disk size: 29863.6 KB)
+0003.859 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5700 files added (on-disk size: 29863.6 KB)
+0003.863 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5800 files added (on-disk size: 29863.6 KB)
+0003.867 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 5900 files added (on-disk size: 29863.6 KB)
+0003.871 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6000 files added (on-disk size: 29863.6 KB)
+0003.874 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 7477 files batched, 501 (6012) added so far); re-opening (prior size: 29863.6 KB)
+0004.102 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6100 files added (on-disk size: 31165.9 KB)
+0004.107 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6200 files added (on-disk size: 31165.9 KB)
+0004.111 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6300 files added (on-disk size: 31165.9 KB)
+0004.115 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6400 files added (on-disk size: 31165.9 KB)
+0004.119 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6500 files added (on-disk size: 31165.9 KB)
+0004.122 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.9 MB, 7477 files batched, 501 (6513) added so far); re-opening (prior size: 31165.9 KB)
+0004.623 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6600 files added (on-disk size: 34376.1 KB)
+0004.627 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6700 files added (on-disk size: 34376.1 KB)
+0004.631 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6800 files added (on-disk size: 34376.1 KB)
+0004.635 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 6900 files added (on-disk size: 34376.1 KB)
+0004.639 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 7000 files added (on-disk size: 34376.1 KB)
+0004.642 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.8 MB, 7477 files batched, 501 (7014) added so far); re-opening (prior size: 34376.1 KB)
+0004.991 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 7100 files added (on-disk size: 36242.7 KB)
+0004.996 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 7200 files added (on-disk size: 36242.7 KB)
+0005.009 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 7300 files added (on-disk size: 36242.7 KB)
+0005.022 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip.tmp: 7400 files added (on-disk size: 36242.7 KB)
+0005.896 (0) Created plugins zip (0) - 37175.7 KB in 5.8 s (6422.7 KB/s) (sha1: 4ec77fe6baa8ce87ca4bd8d3dc02b82b85ba4f92, sha256: 0de1d1bafd22c79ae7e62e1791e2e194f72fc306f8302903f1810664ddd84293)
+0005.903 (0) Beginning creation of dump of themes (split every: 400 MB)
+0005.933 (0) Total entities for the zip file: 146 directories, 777 files (0 skipped as non-modified), 11.1 MB
+0005.939 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0005.946 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0005.966 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0005.980 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0005.986 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0005.994 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.9 MB, 777 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0006.219 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: size is now: 5.10 MB
+0006.228 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: 600 files added (on-disk size: 5171.7 KB)
+0006.232 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: 700 files added (on-disk size: 5171.7 KB)
+0006.319 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip.tmp: size is now: 6.90 MB
+0006.409 (0) Created themes zip (0) - 7110.6 KB in 0.5 s (14172.4 KB/s) (sha1: fba274eae71a50b09f906cd8741493f1722d8a3e, sha256: be6c869bff2927163112c54478a272a4af8578fbae2908a18c0590bc162fb30d)
+0006.415 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0006.424 (0) Looking for candidates to back up in: /var/www/html/fundx/wp-content/uploads
+0006.426 (0) finding files: revslider: adding to list (1)
+0006.427 (0) finding files: 2017: adding to list (2)
+0006.428 (0) finding files: 2015: adding to list (3)
+0006.430 (0) finding files: js_composer: adding to list (4)
+0006.432 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0006.442 (0) Total entities for the zip file: 110 directories, 269 files (0 skipped as non-modified), 14.7 MB
+0006.447 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.451 (0) Zip: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0006.538 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip.tmp: size is now: 14.70 MB
+0006.712 (0) Created uploads zip (0) - 15023.3 KB in 0.3 s (54031.3 KB/s) (sha1: 3bf4bb5433e73dfa54d3a2f83cd3a6597ab42b5b, sha256: 6cd7f965b5a7fe277f6b76c534dc2c4fc8d38eaa9ae7424ac1ffa7b9b0ec8fb6)
+0006.718 (0) Beginning backup of other directories found in the content directory (index: 0)
+0006.720 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0006.722 (0) Looking for candidates to back up in: /var/www/html/fundx/wp-content
+0006.732 (0) finding files: index.php: adding to list (1)
+0006.735 (0) finding files: uploads: skipping: this is the uploads directory
+0006.736 (0) finding files: cache: skipping: excluded by options
+0006.739 (0) finding files: themes: skipping: this is the themes directory
+0006.740 (0) finding files: plugins: skipping: this is the plugins directory
+0006.750 (0) finding files: upgrade: skipping: excluded by options
+0006.752 (0) finding files: wflogs: adding to list (2)
+0006.755 (0) finding files: w3tc-config: adding to list (3)
+0006.756 (0) finding files: updraft: skipping: this is the updraft directory
+0006.758 (0) finding files: ip-geo-api: adding to list (4)
+0006.763 (0) Total entities for the zip file: 5 directories, 22 files (0 skipped as non-modified), 9.5 MB
+0007.298 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-others.zip.tmp: size is now: 3.20 MB
+0007.344 (0) Created others zip (0) - 3257.2 KB in 0.6 s (5577 KB/s) (sha1: 7dafc41d758066ca152030a4efd6c33e00d393a1, sha256: b4ccd8e038638eb69bfe0ba7cd2bb16819edc44a2adacc47d89b2d870bb5e268)
+0007.354 (0) Saving backup status to database (elements: 8)
+0007.364 (0) Beginning creation of database dump (WordPress DB)
+0007.368 (0) Testing: /usr/bin/mysqldump
+0007.389 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1202 bytes total)
+0007.399 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0007.410 (0) Table wp_options: Total expected rows (approximate): 464
+0007.482 (0) Table wp_options: Total rows added: 650 in 0.07 seconds
+0007.492 (0) Table wp_options: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_options.table.gz - 282.8 KB)
+0007.508 (0) Table wp_users: Total expected rows (approximate): 2
+0007.511 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0007.512 (0) Table wp_users: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_users.table.gz - 0.7 KB)
+0007.520 (0) Table wp_usermeta: Total expected rows (approximate): 51
+0007.523 (0) Table wp_usermeta: Total rows added: 51 in 0.00 seconds
+0007.526 (0) Table wp_usermeta: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_usermeta.table.gz - 1.9 KB)
+0007.532 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0007.535 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0007.561 (0) Table wp_commentmeta: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0007.568 (0) Table wp_comments: Total expected rows (approximate): 0
+0007.572 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0007.574 (0) Table wp_comments: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_comments.table.gz - 0.5 KB)
+0007.580 (0) Table wp_links: Total expected rows (approximate): 0
+0007.583 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0007.586 (0) Table wp_links: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_links.table.gz - 0.4 KB)
+0007.603 (0) Table wp_postmeta: Total expected rows (approximate): 3515
+0007.978 (0) Table wp_postmeta: Total rows added: 3623 in 0.36 seconds
+0007.982 (0) Table wp_postmeta: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_postmeta.table.gz - 390.9 KB)
+0007.992 (0) Table wp_posts: Total expected rows (approximate): 491
+0008.152 (0) Table wp_posts: Total rows added: 844 in 0.16 seconds
+0008.157 (0) Table wp_posts: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_posts.table.gz - 157.6 KB)
+0008.165 (0) Table wp_term_relationships: Total expected rows (approximate): 38
+0008.169 (0) Table wp_term_relationships: Total rows added: 38 in 0.00 seconds
+0008.171 (0) Table wp_term_relationships: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_term_relationships.table.gz - 0.5 KB)
+0008.181 (0) Table wp_term_taxonomy: Total expected rows (approximate): 8
+0008.184 (0) Table wp_term_taxonomy: Total rows added: 8 in 0.00 seconds
+0008.187 (0) Table wp_term_taxonomy: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_term_taxonomy.table.gz - 0.5 KB)
+0008.195 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0008.197 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0008.200 (0) Table wp_termmeta: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_termmeta.table.gz - 0.4 KB)
+0008.207 (0) Table wp_terms: Total expected rows (approximate): 8
+0008.209 (0) Table wp_terms: Total rows added: 8 in 0.00 seconds
+0008.212 (0) Table wp_terms: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_terms.table.gz - 0.5 KB)
+0008.223 (0) Table wp_ip_geo_block_cache: Total expected rows (approximate): 0
+0008.227 (0) Table wp_ip_geo_block_cache: Total rows added: 0 in 0.00 seconds
+0008.228 (0) Table wp_ip_geo_block_cache: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_ip_geo_block_cache.table.gz - 0.4 KB)
+0008.236 (0) Table wp_ip_geo_block_logs: Total expected rows (approximate): 59
+0008.250 (0) Table wp_ip_geo_block_logs: Total rows added: 61 in 0.00 seconds
+0008.253 (0) Table wp_ip_geo_block_logs: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_ip_geo_block_logs.table.gz - 1.5 KB)
+0008.272 (0) Table wp_ip_geo_block_stat: Total expected rows (approximate): 1
+0008.275 (0) Table wp_ip_geo_block_stat: Total rows added: 1 in 0.00 seconds
+0008.276 (0) Table wp_ip_geo_block_stat: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_ip_geo_block_stat.table.gz - 0.7 KB)
+0008.284 (0) Table wp_revslider_css: Total expected rows (approximate): 94
+0008.292 (0) Table wp_revslider_css: Total rows added: 111 in 0.00 seconds
+0008.295 (0) Table wp_revslider_css: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_css.table.gz - 5 KB)
+0008.303 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0008.305 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0008.308 (0) Table wp_revslider_layer_animations: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0008.315 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0008.319 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0008.320 (0) Table wp_revslider_navigations: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0008.327 (0) Table wp_revslider_sliders: Total expected rows (approximate): 3
+0008.332 (0) Table wp_revslider_sliders: Total rows added: 4 in 0.00 seconds
+0008.335 (0) Table wp_revslider_sliders: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_sliders.table.gz - 4.2 KB)
+0008.341 (0) Table wp_revslider_slides: Total expected rows (approximate): 3
+0008.346 (0) Table wp_revslider_slides: Total rows added: 4 in 0.00 seconds
+0008.356 (0) Table wp_revslider_slides: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_slides.table.gz - 8.5 KB)
+0008.374 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0008.378 (0) Table wp_revslider_static_slides: Total rows added: 0 in 0.00 seconds
+0008.380 (0) Table wp_revslider_static_slides: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_static_slides.table.gz - 0.3 KB)
+0008.388 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0008.391 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0008.392 (0) Table wp_wfBadLeechers: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0008.399 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0008.403 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0008.404 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0008.411 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 1
+0008.413 (0) Table wp_wfBlockedIPLog: Total rows added: 1 in 0.00 seconds
+0008.416 (0) Table wp_wfBlockedIPLog: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlockedIPLog.table.gz - 0.4 KB)
+0008.423 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0008.425 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0008.428 (0) Table wp_wfBlocks: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0008.435 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0008.437 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0008.439 (0) Table wp_wfBlocksAdv: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0008.447 (0) Table wp_wfConfig: Total expected rows (approximate): 115
+0008.462 (0) Table wp_wfConfig: Total rows added: 193 in 0.01 seconds
+0008.466 (0) Table wp_wfConfig: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfConfig.table.gz - 233.2 KB)
+0008.483 (0) Table wp_wfCrawlers: Total expected rows (approximate): 0
+0008.485 (0) Table wp_wfCrawlers: Total rows added: 0 in 0.00 seconds
+0008.488 (0) Table wp_wfCrawlers: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfCrawlers.table.gz - 0.3 KB)
+0008.519 (0) Table wp_wfFileMods: Total expected rows (approximate): 7619
+0008.747 (0) Table wp_wfFileMods: Total rows added: 6531 in 0.22 seconds
+0008.751 (0) Table wp_wfFileMods: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfFileMods.table.gz - 558.2 KB)
+0008.760 (0) Table wp_wfHits: Total expected rows (approximate): 1033
+0008.861 (0) Table wp_wfHits: Total rows added: 1256 in 0.10 seconds
+0008.865 (0) Table wp_wfHits: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfHits.table.gz - 43.1 KB)
+0008.872 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0008.875 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0008.879 (0) Table wp_wfHoover: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0008.894 (0) Table wp_wfIssues: Total expected rows (approximate): 1
+0008.898 (0) Table wp_wfIssues: Total rows added: 1 in 0.00 seconds
+0008.901 (0) Table wp_wfIssues: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfIssues.table.gz - 0.7 KB)
+0008.917 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 6226
+0008.988 (0) Table wp_wfKnownFileList: Total rows added: 6531 in 0.07 seconds
+0008.991 (0) Table wp_wfKnownFileList: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfKnownFileList.table.gz - 64 KB)
+0009.009 (0) Table wp_wfLeechers: Total expected rows (approximate): 16
+0009.012 (0) Table wp_wfLeechers: Total rows added: 16 in 0.00 seconds
+0009.022 (0) Table wp_wfLeechers: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLeechers.table.gz - 0.5 KB)
+0009.030 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0009.032 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0009.035 (0) Table wp_wfLockedOut: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0009.040 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0009.044 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0009.046 (0) Table wp_wfLocs: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0009.052 (0) Table wp_wfLogins: Total expected rows (approximate): 208
+0009.061 (0) Table wp_wfLogins: Total rows added: 179 in 0.01 seconds
+0009.064 (0) Table wp_wfLogins: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLogins.table.gz - 3.7 KB)
+0009.071 (0) Table wp_wfNet404s: Total expected rows (approximate): 0
+0009.073 (0) Table wp_wfNet404s: Total rows added: 0 in 0.00 seconds
+0009.075 (0) Table wp_wfNet404s: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfNet404s.table.gz - 0.3 KB)
+0009.081 (0) Table wp_wfNotifications: Total expected rows (approximate): 33
+0009.085 (0) Table wp_wfNotifications: Total rows added: 33 in 0.00 seconds
+0009.088 (0) Table wp_wfNotifications: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfNotifications.table.gz - 2.4 KB)
+0009.096 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0009.099 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0009.100 (0) Table wp_wfPendingIssues: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0009.118 (0) Table wp_wfReverseCache: Total expected rows (approximate): 0
+0009.129 (0) Table wp_wfReverseCache: Total rows added: 0 in 0.00 seconds
+0009.131 (0) Table wp_wfReverseCache: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfReverseCache.table.gz - 0.3 KB)
+0009.138 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0009.140 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0009.143 (0) Table wp_wfSNIPCache: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0009.148 (0) Table wp_wfScanners: Total expected rows (approximate): 1
+0009.152 (0) Table wp_wfScanners: Total rows added: 1 in 0.00 seconds
+0009.154 (0) Table wp_wfScanners: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfScanners.table.gz - 0.3 KB)
+0009.185 (0) Table wp_wfStatus: Total expected rows (approximate): 983
+0009.205 (0) Table wp_wfStatus: Total rows added: 987 in 0.02 seconds
+0009.209 (0) Table wp_wfStatus: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfStatus.table.gz - 16.4 KB)
+0009.227 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0009.237 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0009.239 (0) Table wp_wfThrottleLog: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0009.246 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0009.248 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0009.251 (0) Table wp_wfVulnScanners: finishing file (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0009.257 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_options.table.gz (1/46): adding to final database dump
+0009.318 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_users.table.gz (2/46): adding to final database dump
+0009.329 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_usermeta.table.gz (3/46): adding to final database dump
+0009.333 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_commentmeta.table.gz (4/46): adding to final database dump
+0009.335 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_comments.table.gz (5/46): adding to final database dump
+0009.346 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_links.table.gz (6/46): adding to final database dump
+0009.349 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_postmeta.table.gz (7/46): adding to final database dump
+0009.500 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_posts.table.gz (8/46): adding to final database dump
+0009.573 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_term_relationships.table.gz (9/46): adding to final database dump
+0009.575 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_term_taxonomy.table.gz (10/46): adding to final database dump
+0009.578 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_termmeta.table.gz (11/46): adding to final database dump
+0009.579 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_terms.table.gz (12/46): adding to final database dump
+0009.580 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_ip_geo_block_cache.table.gz (13/46): adding to final database dump
+0009.583 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_ip_geo_block_logs.table.gz (14/46): adding to final database dump
+0009.585 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_ip_geo_block_stat.table.gz (15/46): adding to final database dump
+0009.588 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_css.table.gz (16/46): adding to final database dump
+0009.592 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_layer_animations.table.gz (17/46): adding to final database dump
+0009.594 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_navigations.table.gz (18/46): adding to final database dump
+0009.595 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_sliders.table.gz (19/46): adding to final database dump
+0009.598 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_slides.table.gz (20/46): adding to final database dump
+0009.603 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_revslider_static_slides.table.gz (21/46): adding to final database dump
+0009.605 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBadLeechers.table.gz (22/46): adding to final database dump
+0009.608 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlockedCommentLog.table.gz (23/46): adding to final database dump
+0009.610 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlockedIPLog.table.gz (24/46): adding to final database dump
+0009.611 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlocks.table.gz (25/46): adding to final database dump
+0009.613 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfBlocksAdv.table.gz (26/46): adding to final database dump
+0009.615 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfConfig.table.gz (27/46): adding to final database dump
+0009.629 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfCrawlers.table.gz (28/46): adding to final database dump
+0009.631 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfFileMods.table.gz (29/46): adding to final database dump
+0009.708 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfHits.table.gz (30/46): adding to final database dump
+0009.726 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfHoover.table.gz (31/46): adding to final database dump
+0009.728 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfIssues.table.gz (32/46): adding to final database dump
+0009.731 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfKnownFileList.table.gz (33/46): adding to final database dump
+0009.768 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLeechers.table.gz (34/46): adding to final database dump
+0009.779 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLockedOut.table.gz (35/46): adding to final database dump
+0009.781 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLocs.table.gz (36/46): adding to final database dump
+0009.784 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfLogins.table.gz (37/46): adding to final database dump
+0009.789 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfNet404s.table.gz (38/46): adding to final database dump
+0009.792 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfNotifications.table.gz (39/46): adding to final database dump
+0009.795 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfPendingIssues.table.gz (40/46): adding to final database dump
+0009.796 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfReverseCache.table.gz (41/46): adding to final database dump
+0009.799 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfSNIPCache.table.gz (42/46): adding to final database dump
+0009.800 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfScanners.table.gz (43/46): adding to final database dump
+0009.802 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfStatus.table.gz (44/46): adding to final database dump
+0009.810 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfThrottleLog.table.gz (45/46): adding to final database dump
+0009.812 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db-table-wp_wfVulnScanners.table.gz (46/46): adding to final database dump
+0009.815 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db.gz: finished writing out complete database file (1768 KB)
+0009.846 (0) Total database tables backed up: 46 (backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db.gz, size: 1820122, sha256)
+0009.869 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0009.872 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0009.874 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0009.875 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-others.zip: others: This file has not yet been successfully uploaded: will queue
+0009.876 (0) backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db.gz: db: This file has not yet been successfully uploaded: will queue
+0009.886 (0) Saving backup history. Total backup size: 62.8 MB
+0009.897 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0009.904 (0) Cloud backup selection (1/1): s3 (last)
+0009.906 (0) Beginning dispatch of backup to remote (s3)
+0010.310 (0) Set region: us-west-2
+0010.321 (0) S3 upload (us-west-2): backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip (chunks: 8) -> s3://fundx-wordpress/backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip
+0010.408 (0) S3 chunked upload: got multipart ID: ILa0_OQVFxN33K5ujoDlEiKksvD77KOk_rVrMo1A_T2CQnShy0XHO3HxHwjgdMtvTK2mwKs.GI5ascrc7UGN5RQWd4Ur3FI6IiccE6qeGxl4.XMvCBmh4Yy8Hk3E_rTL
+0010.981 (0) S3 chunked upload: 12.5 % uploaded (1, "d91ff71dbb78d794743b9ae412fbcae5")
+0011.898 (0) S3 chunked upload: 25 % uploaded (2, "e113eab5cdc2cf42399c839e6596c424")
+0012.376 (0) S3 chunked upload: 37.5 % uploaded (3, "713a45662a84c331899cb4df2515eb08")
+0012.622 (0) S3 chunked upload: 50 % uploaded (4, "861e4719b149c1a858ce4dea7ed946f0")
+0013.024 (0) S3 chunked upload: 62.5 % uploaded (5, "2abd19f68bb185a75398e40b42c48876")
+0013.275 (0) S3 chunked upload: 75 % uploaded (6, "59408c1445dfe968e41fc736683d6e3d")
+0013.670 (0) S3 chunked upload: 87.5 % uploaded (7, "fbbcaa9b88af84f678f383393b06055f")
+0013.969 (0) S3 chunked upload: 100 % uploaded (8, "3378db82a3c15ef990607131e85446c6")
+0013.975 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0014.081 (0) S3 upload (plugins0): re-assembly succeeded
+0014.086 (0) Recording as successfully uploaded: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip (907e45161b10a103f3be84120c53f5e4)
+0014.110 (0) Deleting local file: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-plugins.zip: OK
+0014.114 (0) S3 upload (us-west-2): backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip (chunks: 2) -> s3://fundx-wordpress/backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip
+0014.125 (0) S3 chunked upload: got multipart ID: XPGVXCdEqiQEHhVT6s5SeCzd7MojebGMziiJauNUUHbhZFBp_ixMs3lCjwmAAfenfcO4PiU9GCHvZT_9Xn5PjBFC7IrDkjki1ch6g02.U.Q71upP4XbuBtG1WHVb7iGI
+0014.677 (0) S3 chunked upload: 50 % uploaded (1, "dab8591a26424d81dd4f26ebc8adb1c3")
+0014.759 (0) S3 chunked upload: 100 % uploaded (2, "4e33ba606648b7b54ac3023d3830c631")
+0014.767 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0014.822 (0) S3 upload (themes0): re-assembly succeeded
+0014.832 (0) Recording as successfully uploaded: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip (268b3e50586a0dcce6517c47fbed3e0e)
+0014.840 (0) Deleting local file: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-themes.zip: OK
+0014.843 (0) S3 upload (us-west-2): backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip (chunks: 3) -> s3://fundx-wordpress/backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip
+0014.852 (0) S3 chunked upload: got multipart ID: Cm.wztYs_GiNzP9pki0HXJNVoS7qlDR2EJ19xnWgl0jLKXjQwyVcHMlOCWmoX_Dce5qWsauUziSMuTTmO06BuHgjR1NysNJdCRRUUIQFfbie_jfa7sAPvt1kSVGnd72q
+0015.105 (0) S3 chunked upload: 33.3 % uploaded (1, "7e0d68aa4f459e42bdf41f2fb67e64c5")
+0015.398 (0) S3 chunked upload: 66.7 % uploaded (2, "3dea0b46f469afbef517b01e7ea10530")
+0015.667 (0) S3 chunked upload: 100 % uploaded (3, "444e440bad25682ed1ec2a813c442d60")
+0015.675 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0015.756 (0) S3 upload (uploads0): re-assembly succeeded
+0015.761 (0) Recording as successfully uploaded: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip (77d234e4c95b97985fd2fa52fca3d996)
+0015.770 (0) Deleting local file: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-uploads.zip: OK
+0015.772 (0) S3 upload (us-west-2): backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-others.zip (chunks: 1) -> s3://fundx-wordpress/backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-others.zip
+0015.966 (0) S3 regular upload: success
+0015.971 (0) Recording as successfully uploaded: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-others.zip (76de347dff02592212c3d5b6021251e4)
+0015.977 (0) Deleting local file: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-others.zip: OK
+0015.979 (0) S3 upload (us-west-2): backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db.gz (chunks: 1) -> s3://fundx-wordpress/backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db.gz
+0016.266 (0) S3 regular upload: success
+0016.271 (0) Recording as successfully uploaded: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db.gz (0bcf36e1ecac15a5ce0e56f373aea12c)
+0016.301 (0) Deleting local file: backup_2017-09-19-1938_FundX_Sustainable_Impact_Fund_S_8b3b4af9a4b1-db.gz: OK
+0016.306 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0016.308 (0) Number of backup sets in history: 31; groups (db): 1
+0016.310 (0) Examining (for databases) backup set with group_id=0, nonce=8b3b4af9a4b1, datestamp=1505849899 (Sep 19 2017 19:38:19)
+0016.311 (0) This backup set is the backup set just made, so will not be deleted.
+0016.311 (0) Examining (for databases) backup set with group_id=0, nonce=1b4cd90642dc, datestamp=1505770711 (Sep 18 2017 21:38:31)
+0016.311 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.312 (0) Examining (for databases) backup set with group_id=0, nonce=1fcbb17e3b9e, datestamp=1505741831 (Sep 18 2017 13:37:11)
+0016.312 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.312 (0) Examining (for databases) backup set with group_id=0, nonce=4e9e527b6c66, datestamp=1505656634 (Sep 17 2017 13:57:14)
+0016.312 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.312 (0) Examining (for databases) backup set with group_id=0, nonce=9dcde42c499b, datestamp=1505567010 (Sep 16 2017 13:03:30)
+0016.312 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.313 (0) Examining (for databases) backup set with group_id=0, nonce=e54904af133d, datestamp=1505422619 (Sep 14 2017 20:56:59)
+0016.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.313 (0) Examining (for databases) backup set with group_id=0, nonce=ab19da97bf20, datestamp=1505329967 (Sep 13 2017 19:12:47)
+0016.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.313 (0) Examining (for databases) backup set with group_id=0, nonce=a26aaf5b9590, datestamp=1505305974 (Sep 13 2017 12:32:54)
+0016.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.313 (0) Examining (for databases) backup set with group_id=0, nonce=24d74d000a16, datestamp=1505165169 (Sep 11 2017 21:26:09)
+0016.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.313 (0) Examining (for databases) backup set with group_id=0, nonce=a49883bc94fe, datestamp=1505157460 (Sep 11 2017 19:17:40)
+0016.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.313 (0) Examining (for databases) backup set with group_id=0, nonce=266721d884a9, datestamp=1505136600 (Sep 11 2017 13:30:00)
+0016.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.313 (0) Examining (for databases) backup set with group_id=0, nonce=63c4c563fb32, datestamp=1504905686 (Sep 08 2017 21:21:26)
+0016.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.314 (0) Examining (for databases) backup set with group_id=0, nonce=b4dfa9a9e7ab, datestamp=1504828617 (Sep 07 2017 23:56:57)
+0016.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.314 (0) Examining (for databases) backup set with group_id=0, nonce=0d1bc29e7078, datestamp=1504801251 (Sep 07 2017 16:20:51)
+0016.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.314 (0) Examining (for databases) backup set with group_id=0, nonce=ff745992a872, datestamp=1504653910 (Sep 05 2017 23:25:10)
+0016.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.314 (0) Examining (for databases) backup set with group_id=0, nonce=473f439bb6d2, datestamp=1504628836 (Sep 05 2017 16:27:16)
+0016.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.314 (0) Examining (for databases) backup set with group_id=0, nonce=a8f57b5cdf15, datestamp=1504562519 (Sep 04 2017 22:01:59)
+0016.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.314 (0) Examining (for databases) backup set with group_id=0, nonce=ae686f42091b, datestamp=1504522515 (Sep 04 2017 10:55:15)
+0016.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.314 (0) Examining (for databases) backup set with group_id=0, nonce=97ab3cef6d1c, datestamp=1504384661 (Sep 02 2017 20:37:41)
+0016.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.315 (0) Examining (for databases) backup set with group_id=0, nonce=72b316cb1a7a, datestamp=1504293604 (Sep 01 2017 19:20:04)
+0016.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.315 (0) Examining (for databases) backup set with group_id=0, nonce=3fffaec3b932, datestamp=1504207036 (Aug 31 2017 19:17:16)
+0016.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.315 (0) Examining (for databases) backup set with group_id=0, nonce=79c6b8540f77, datestamp=1504136238 (Aug 30 2017 23:37:18)
+0016.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.315 (0) Examining (for databases) backup set with group_id=0, nonce=68ed1a9446e6, datestamp=1504051665 (Aug 30 2017 00:07:45)
+0016.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.315 (0) Examining (for databases) backup set with group_id=0, nonce=f223f3c7d584, datestamp=1503947582 (Aug 28 2017 19:13:02)
+0016.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.315 (0) Examining (for databases) backup set with group_id=0, nonce=46f354d158c3, datestamp=1503918574 (Aug 28 2017 11:09:34)
+0016.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.315 (0) Examining (for databases) backup set with group_id=0, nonce=d97096d973ef, datestamp=1503841446 (Aug 27 2017 13:44:06)
+0016.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.316 (0) Examining (for databases) backup set with group_id=0, nonce=b2e51780585e, datestamp=1503751796 (Aug 26 2017 12:49:56)
+0016.316 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.316 (0) Examining (for databases) backup set with group_id=0, nonce=1ebd682f9818, datestamp=1503611643 (Aug 24 2017 21:54:03)
+0016.316 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.316 (0) Examining (for databases) backup set with group_id=0, nonce=da163f154df1, datestamp=1503576945 (Aug 24 2017 12:15:45)
+0016.316 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.316 (0) Examining (for databases) backup set with group_id=0, nonce=a0e7d01704f5, datestamp=1503433787 (Aug 22 2017 20:29:47)
+0016.316 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.316 (0) Examining (for databases) backup set with group_id=0, nonce=8e89c48cf4b0, datestamp=1503398630 (Aug 22 2017 10:43:50)
+0016.316 (0) 1503398630: db: this set includes a database (backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-db.gz); db count is now 30
+0016.316 (0) 1503398630: db: over retain limit (30); will delete this database
+0016.316 (0) Delete file: backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-db.gz, service=s3
+0016.318 (0) S3: Delete remote: bucket=fundx-wordpress, URI=backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-db.gz
+0016.340 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0016.342 (0) Number of backup sets in history: 31; groups (files): 1
+0016.343 (0) Examining (for files) backup set with nonce=8b3b4af9a4b1, datestamp=1505849899 (Sep 19 2017 19:38:19)
+0016.344 (0) This backup set is the backup set just made, so will not be deleted.
+0016.346 (0) This backup set is the backup set just made, so will not be deleted.
+0016.346 (0) This backup set is the backup set just made, so will not be deleted.
+0016.346 (0) This backup set is the backup set just made, so will not be deleted.
+0016.346 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.347 (0) Examining (for files) backup set with nonce=1b4cd90642dc, datestamp=1505770711 (Sep 18 2017 21:38:31)
+0016.347 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.347 (0) Examining (for files) backup set with nonce=1fcbb17e3b9e, datestamp=1505741831 (Sep 18 2017 13:37:11)
+0016.347 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.347 (0) Examining (for files) backup set with nonce=4e9e527b6c66, datestamp=1505656634 (Sep 17 2017 13:57:14)
+0016.347 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=9dcde42c499b, datestamp=1505567010 (Sep 16 2017 13:03:30)
+0016.348 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=e54904af133d, datestamp=1505422619 (Sep 14 2017 20:56:59)
+0016.348 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=ab19da97bf20, datestamp=1505329967 (Sep 13 2017 19:12:47)
+0016.348 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=a26aaf5b9590, datestamp=1505305974 (Sep 13 2017 12:32:54)
+0016.348 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=24d74d000a16, datestamp=1505165169 (Sep 11 2017 21:26:09)
+0016.348 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=a49883bc94fe, datestamp=1505157460 (Sep 11 2017 19:17:40)
+0016.348 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=266721d884a9, datestamp=1505136600 (Sep 11 2017 13:30:00)
+0016.348 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.348 (0) Examining (for files) backup set with nonce=63c4c563fb32, datestamp=1504905686 (Sep 08 2017 21:21:26)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.349 (0) Examining (for files) backup set with nonce=b4dfa9a9e7ab, datestamp=1504828617 (Sep 07 2017 23:56:57)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.349 (0) Examining (for files) backup set with nonce=0d1bc29e7078, datestamp=1504801251 (Sep 07 2017 16:20:51)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.349 (0) Examining (for files) backup set with nonce=ff745992a872, datestamp=1504653910 (Sep 05 2017 23:25:10)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.349 (0) Examining (for files) backup set with nonce=473f439bb6d2, datestamp=1504628836 (Sep 05 2017 16:27:16)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.349 (0) Examining (for files) backup set with nonce=a8f57b5cdf15, datestamp=1504562519 (Sep 04 2017 22:01:59)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.349 (0) Examining (for files) backup set with nonce=ae686f42091b, datestamp=1504522515 (Sep 04 2017 10:55:15)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.349 (0) Examining (for files) backup set with nonce=97ab3cef6d1c, datestamp=1504384661 (Sep 02 2017 20:37:41)
+0016.349 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=72b316cb1a7a, datestamp=1504293604 (Sep 01 2017 19:20:04)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=3fffaec3b932, datestamp=1504207036 (Aug 31 2017 19:17:16)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=79c6b8540f77, datestamp=1504136238 (Aug 30 2017 23:37:18)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=68ed1a9446e6, datestamp=1504051665 (Aug 30 2017 00:07:45)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=f223f3c7d584, datestamp=1503947582 (Aug 28 2017 19:13:02)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=46f354d158c3, datestamp=1503918574 (Aug 28 2017 11:09:34)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=d97096d973ef, datestamp=1503841446 (Aug 27 2017 13:44:06)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.350 (0) Examining (for files) backup set with nonce=b2e51780585e, datestamp=1503751796 (Aug 26 2017 12:49:56)
+0016.350 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.351 (0) Examining (for files) backup set with nonce=1ebd682f9818, datestamp=1503611643 (Aug 24 2017 21:54:03)
+0016.351 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.351 (0) Examining (for files) backup set with nonce=da163f154df1, datestamp=1503576945 (Aug 24 2017 12:15:45)
+0016.351 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.351 (0) Examining (for files) backup set with nonce=a0e7d01704f5, datestamp=1503433787 (Aug 22 2017 20:29:47)
+0016.351 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0016.351 (0) Examining (for files) backup set with nonce=8e89c48cf4b0, datestamp=1503398630 (Aug 22 2017 10:43:50)
+0016.351 (0) plugins: over retain limit (30); will delete this file entity
+0016.351 (0) themes: over retain limit (30); will delete this file entity
+0016.351 (0) uploads: over retain limit (30); will delete this file entity
+0016.351 (0) others: over retain limit (30); will delete this file entity
+0016.351 (0) Delete file: backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-plugins.zip, service=s3
+0016.353 (0) Delete file: backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-themes.zip, service=s3
+0016.355 (0) Delete file: backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-uploads.zip, service=s3
+0016.358 (0) Delete file: backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-others.zip, service=s3
+0016.359 (0) S3: Delete remote: bucket=fundx-wordpress, URI=backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-plugins.zip
+0016.392 (0) S3: Delete remote: bucket=fundx-wordpress, URI=backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-themes.zip
+0016.407 (0) S3: Delete remote: bucket=fundx-wordpress, URI=backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-uploads.zip
+0016.424 (0) S3: Delete remote: bucket=fundx-wordpress, URI=backup_2017-08-22-1043_FundX_Sustainable_Impact_Fund_S_8e89c48cf4b0-others.zip
+0016.448 (0) This backup set is now empty; will remove from history
+0016.450 (0) Deleting log file (log.8e89c48cf4b0.txt)
+0016.451 (0) Retain: saving new backup history (sets now: 30) and finishing retain operation
+0016.462 (0) Resume backup (8b3b4af9a4b1, 0): finish run
+0016.467 (0) Decremented the semaphore (fd) by 1
+0016.477 (0) Semaphore (fd) unlocked
+0016.479 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0016.485 (0) Fetching RSS news feed
+0016.667 (0) Fetched RSS news feed; result is a: SimplePie
+0016.760 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: lpm00...
+0016.782 (0) The backup apparently succeeded and is now complete

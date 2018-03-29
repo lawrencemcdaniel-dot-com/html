@@ -1,0 +1,641 @@
+0000.000 (0) Opened log file at time: Mon, 03 Jul 2017 15:30:45 +0000 on http://www.dermatologa-df.com
+0000.003 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.13.4 WP: 4.8 PHP: 5.6.30 (apache2handler, Linux ip-172-31-14-174 4.9.27-14.31.amzn1.x86_64 #1 SMP Wed May 10 01:58:40 UTC 2017 x86_64) MySQL: 5.5.56 WPLANG: en_US Server: Apache/2.4.25 (Amazon) PHP/5.6.30 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 73.5M | 74.5M) multisite: N openssl: OpenSSL 1.0.1k-fips 8 Jan 2015 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.004 (0) Free space on disk containing Updraft's temporary directory: 2963 MB
+0000.006 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.024 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.043 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1499010305, seconds_ago=85540)
+0000.049 (0) Set semaphore last lock (fd) time to 2017-07-03 15:30:45
+0000.051 (0) Semaphore lock (fd) complete
+0000.056 (0) Backup run: resumption=0, nonce=0c1f21982f4d, begun at=1499095845 (0s ago), job type=backup
+0000.059 (0) Scheduling a resumption (1) after 300 seconds (1499096145) in case this run gets aborted
+0000.069 (0) Checking if we have a zip executable available
+0000.071 (0) Testing: /usr/bin/zip
+0000.077 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.080 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.081 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.084 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.085 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.091 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.094 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.101 (0) Working binary zip found: /usr/bin/zip
+0000.105 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.107 (0) Creation of backups of directories: beginning
+0000.112 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.262 (0) Total entities for the zip file: 1321 directories, 10001 files (0 skipped as non-modified), 134.1 MB
+0000.272 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.276 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.279 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.283 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.287 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.289 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.1 MB, 10001 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.697 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: size is now: 8.60 MB
+0000.721 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 600 files added (on-disk size: 8854.9 KB)
+0000.726 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 700 files added (on-disk size: 8854.9 KB)
+0000.730 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 800 files added (on-disk size: 8854.9 KB)
+0000.734 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 900 files added (on-disk size: 8854.9 KB)
+0000.738 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1000 files added (on-disk size: 8854.9 KB)
+0000.740 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.9 MB, 10001 files batched, 501 (1002) added so far); re-opening (prior size: 8854.9 KB)
+0000.942 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: size is now: 12.00 MB
+0000.951 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1100 files added (on-disk size: 12264.3 KB)
+0000.956 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1200 files added (on-disk size: 12264.3 KB)
+0000.960 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1300 files added (on-disk size: 12264.3 KB)
+0000.963 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1400 files added (on-disk size: 12264.3 KB)
+0000.967 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1500 files added (on-disk size: 12264.3 KB)
+0000.970 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8 MB, 10001 files batched, 501 (1503) added so far); re-opening (prior size: 12264.3 KB)
+0001.201 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: size is now: 17.70 MB
+0001.209 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1600 files added (on-disk size: 18087.6 KB)
+0001.213 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1700 files added (on-disk size: 18087.6 KB)
+0001.217 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1800 files added (on-disk size: 18087.6 KB)
+0001.221 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 1900 files added (on-disk size: 18087.6 KB)
+0001.225 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2000 files added (on-disk size: 18087.6 KB)
+0001.227 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.3 MB, 10001 files batched, 501 (2004) added so far); re-opening (prior size: 18087.6 KB)
+0001.449 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: size is now: 21.70 MB
+0001.459 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2100 files added (on-disk size: 22261.7 KB)
+0001.465 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2200 files added (on-disk size: 22261.7 KB)
+0001.471 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2300 files added (on-disk size: 22261.7 KB)
+0001.477 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2400 files added (on-disk size: 22261.7 KB)
+0001.481 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2500 files added (on-disk size: 22261.7 KB)
+0001.484 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 10001 files batched, 501 (2505) added so far); re-opening (prior size: 22261.7 KB)
+0001.639 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2600 files added (on-disk size: 24905.1 KB)
+0001.643 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2700 files added (on-disk size: 24905.1 KB)
+0001.647 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2800 files added (on-disk size: 24905.1 KB)
+0001.651 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 2900 files added (on-disk size: 24905.1 KB)
+0001.655 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3000 files added (on-disk size: 24905.1 KB)
+0001.658 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.2 MB, 10001 files batched, 501 (3006) added so far); re-opening (prior size: 24905.1 KB)
+0001.768 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3100 files added (on-disk size: 25142.2 KB)
+0001.772 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3200 files added (on-disk size: 25142.2 KB)
+0001.776 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3300 files added (on-disk size: 25142.2 KB)
+0001.780 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3400 files added (on-disk size: 25142.2 KB)
+0001.784 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3500 files added (on-disk size: 25142.2 KB)
+0001.786 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.7 MB, 10001 files batched, 501 (3507) added so far); re-opening (prior size: 25142.2 KB)
+0001.962 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3600 files added (on-disk size: 26131 KB)
+0001.983 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3700 files added (on-disk size: 26131 KB)
+0001.987 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3800 files added (on-disk size: 26131 KB)
+0001.991 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 3900 files added (on-disk size: 26131 KB)
+0001.995 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4000 files added (on-disk size: 26131 KB)
+0001.997 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.2 MB, 10001 files batched, 501 (4008) added so far); re-opening (prior size: 26131 KB)
+0002.352 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4100 files added (on-disk size: 28987.7 KB)
+0002.356 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4200 files added (on-disk size: 28987.7 KB)
+0002.359 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4300 files added (on-disk size: 28987.7 KB)
+0002.363 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4400 files added (on-disk size: 28987.7 KB)
+0002.367 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4500 files added (on-disk size: 28987.7 KB)
+0002.369 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 10001 files batched, 501 (4509) added so far); re-opening (prior size: 28987.7 KB)
+0002.527 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4600 files added (on-disk size: 30180.6 KB)
+0002.531 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4700 files added (on-disk size: 30180.6 KB)
+0002.534 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4800 files added (on-disk size: 30180.6 KB)
+0002.538 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 4900 files added (on-disk size: 30180.6 KB)
+0002.558 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5000 files added (on-disk size: 30180.6 KB)
+0002.560 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (18.7 MB, 10001 files batched, 501 (5010) added so far); re-opening (prior size: 30180.6 KB)
+0003.370 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5100 files added (on-disk size: 35210.2 KB)
+0003.374 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5200 files added (on-disk size: 35210.2 KB)
+0003.378 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5300 files added (on-disk size: 35210.2 KB)
+0003.382 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5400 files added (on-disk size: 35210.2 KB)
+0003.386 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5500 files added (on-disk size: 35210.2 KB)
+0003.388 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.3 MB, 10001 files batched, 501 (5511) added so far); re-opening (prior size: 35210.2 KB)
+0003.635 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5600 files added (on-disk size: 37263.9 KB)
+0003.639 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5700 files added (on-disk size: 37263.9 KB)
+0003.642 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5800 files added (on-disk size: 37263.9 KB)
+0003.646 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 5900 files added (on-disk size: 37263.9 KB)
+0003.650 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6000 files added (on-disk size: 37263.9 KB)
+0003.653 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.8 MB, 10001 files batched, 501 (6012) added so far); re-opening (prior size: 37263.9 KB)
+0003.974 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6100 files added (on-disk size: 39477.4 KB)
+0003.978 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6200 files added (on-disk size: 39477.4 KB)
+0003.982 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6300 files added (on-disk size: 39477.4 KB)
+0003.986 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6400 files added (on-disk size: 39477.4 KB)
+0003.991 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6500 files added (on-disk size: 39477.4 KB)
+0003.993 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.8 MB, 10001 files batched, 501 (6513) added so far); re-opening (prior size: 39477.4 KB)
+0004.152 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6600 files added (on-disk size: 40227.5 KB)
+0004.172 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6700 files added (on-disk size: 40227.5 KB)
+0004.176 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6800 files added (on-disk size: 40227.5 KB)
+0004.180 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 6900 files added (on-disk size: 40227.5 KB)
+0004.195 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7000 files added (on-disk size: 40227.5 KB)
+0004.198 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.7 MB, 10001 files batched, 501 (7014) added so far); re-opening (prior size: 40227.5 KB)
+0004.925 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7100 files added (on-disk size: 44218 KB)
+0004.930 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7200 files added (on-disk size: 44218 KB)
+0004.934 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7300 files added (on-disk size: 44218 KB)
+0004.938 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7400 files added (on-disk size: 44218 KB)
+0004.942 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7500 files added (on-disk size: 44218 KB)
+0004.944 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.9 MB, 10001 files batched, 501 (7515) added so far); re-opening (prior size: 44218 KB)
+0005.478 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7600 files added (on-disk size: 50357.3 KB)
+0005.482 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7700 files added (on-disk size: 50357.3 KB)
+0005.486 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7800 files added (on-disk size: 50357.3 KB)
+0005.490 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 7900 files added (on-disk size: 50357.3 KB)
+0005.494 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8000 files added (on-disk size: 50357.3 KB)
+0005.497 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.6 MB, 10001 files batched, 501 (8016) added so far); re-opening (prior size: 50357.3 KB)
+0005.677 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8100 files added (on-disk size: 52875.4 KB)
+0005.681 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8200 files added (on-disk size: 52875.4 KB)
+0005.685 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8300 files added (on-disk size: 52875.4 KB)
+0005.689 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8400 files added (on-disk size: 52875.4 KB)
+0005.693 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8500 files added (on-disk size: 52875.4 KB)
+0005.696 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.6 MB, 10001 files batched, 501 (8517) added so far); re-opening (prior size: 52875.4 KB)
+0005.929 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8600 files added (on-disk size: 54022.3 KB)
+0005.933 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8700 files added (on-disk size: 54022.3 KB)
+0005.938 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8800 files added (on-disk size: 54022.3 KB)
+0005.942 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 8900 files added (on-disk size: 54022.3 KB)
+0005.946 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9000 files added (on-disk size: 54022.3 KB)
+0005.949 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9 MB, 10001 files batched, 501 (9018) added so far); re-opening (prior size: 54022.3 KB)
+0006.475 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9100 files added (on-disk size: 57215.9 KB)
+0006.480 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9200 files added (on-disk size: 57215.9 KB)
+0006.484 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9300 files added (on-disk size: 57215.9 KB)
+0006.488 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9400 files added (on-disk size: 57215.9 KB)
+0006.492 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9500 files added (on-disk size: 57215.9 KB)
+0006.495 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.3 MB, 10001 files batched, 501 (9519) added so far); re-opening (prior size: 57215.9 KB)
+0006.830 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9600 files added (on-disk size: 58779.6 KB)
+0006.835 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9700 files added (on-disk size: 58779.6 KB)
+0006.839 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9800 files added (on-disk size: 58779.6 KB)
+0006.843 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 9900 files added (on-disk size: 58779.6 KB)
+0006.847 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip.tmp: 10000 files added (on-disk size: 58779.6 KB)
+0007.742 (0) Created plugins zip (0) - 59786.8 KB in 7.6 s (7837.7 KB/s) (sha1: 97af9af491078fb617351e68e333595dc45fa783, sha256: cd7c6f7f8baccbf2d4deb8a9c639bbf8c2aacf138ba9ea91d05c3f3b3984c0a5)
+0007.747 (0) Beginning creation of dump of themes (split every: 400 MB)
+0007.763 (0) Total entities for the zip file: 89 directories, 821 files (0 skipped as non-modified), 20.6 MB
+0007.767 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0007.783 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.787 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0007.791 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0007.795 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0007.797 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.5 MB, 821 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.970 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: size is now: 3.30 MB
+0007.978 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 600 files added (on-disk size: 3358.7 KB)
+0007.983 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 700 files added (on-disk size: 3358.7 KB)
+0007.987 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: 800 files added (on-disk size: 3358.7 KB)
+0008.132 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip.tmp: size is now: 15.40 MB
+0008.317 (0) Created themes zip (0) - 15721.1 KB in 0.6 s (27648.3 KB/s) (sha1: 3837a4254475da9da3e76b669b260cc63c7f8f5d, sha256: 53173fada61c100399e23749c6a99a25f4a28ce64dbc5a78eb0e382df2a1bdec)
+0008.323 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0008.324 (0) Looking for candidates to back up in: /var/www/html/dermatologa-df.com/wp-content/uploads
+0008.325 (0) finding files: revslider: adding to list (1)
+0008.327 (0) finding files: 2017: adding to list (2)
+0008.341 (0) finding files: sass: adding to list (3)
+0008.344 (0) finding files: GeoIP.dat: adding to list (4)
+0008.345 (0) finding files: 2016: adding to list (5)
+0008.347 (0) finding files: wc-logs: adding to list (6)
+0008.348 (0) finding files: GeoIPv6.dat: adding to list (7)
+0008.349 (0) finding files: js_composer: adding to list (8)
+0008.351 (0) finding files: wordpress-popular-posts: adding to list (9)
+0008.352 (0) finding files: woocommerce_uploads: adding to list (10)
+0008.353 (0) finding files: ip-geo-api: adding to list (11)
+0008.356 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0008.368 (0) Total entities for the zip file: 139 directories, 447 files (0 skipped as non-modified), 24.1 MB
+0008.372 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0008.375 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0008.379 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0008.383 (0) Zip: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0009.210 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip.tmp: size is now: 16.80 MB
+0009.408 (0) Created uploads zip (0) - 17203 KB in 1.1 s (16364.4 KB/s) (sha1: 367fa4dbe81ea0d0110cc6edd135e451bbfd7dd9, sha256: e32bf75ec9905f35936ae44d22d135dc46180cb55df936cf672bd8701b2e8e1d)
+0009.413 (0) Beginning backup of other directories found in the content directory (index: 0)
+0009.415 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0009.416 (0) Looking for candidates to back up in: /var/www/html/dermatologa-df.com/wp-content
+0009.417 (0) finding files: advanced-cache.php: adding to list (1)
+0009.420 (0) finding files: index.php: adding to list (2)
+0009.421 (0) finding files: uploads: skipping: this is the uploads directory
+0009.423 (0) finding files: cache: skipping: excluded by options
+0009.424 (0) finding files: themes: skipping: this is the themes directory
+0009.425 (0) finding files: plugins: skipping: this is the plugins directory
+0009.427 (0) finding files: languages: adding to list (3)
+0009.428 (0) finding files: upgrade: skipping: excluded by options
+0009.429 (0) finding files: wflogs: adding to list (4)
+0009.431 (0) finding files: w3tc-config: adding to list (5)
+0009.432 (0) finding files: updraft: skipping: this is the updraft directory
+0009.435 (0) finding files: ip-geo-api: adding to list (6)
+0009.440 (0) Total entities for the zip file: 8 directories, 43 files (0 skipped as non-modified), 12.4 MB
+0010.127 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-others.zip.tmp: size is now: 3.90 MB
+0010.204 (0) Created others zip (0) - 3980.4 KB in 0.8 s (5184.2 KB/s) (sha1: 555a592bc77f3116bf2bc014a1f9e9b6c501d251, sha256: ed512c4fc222bd59f8e05c9ab2fb761527a5f2f31169b6be6fbacccf59b2b169)
+0010.212 (0) Saving backup status to database (elements: 8)
+0010.220 (0) Beginning creation of database dump (WordPress DB)
+0010.224 (0) Testing: /usr/bin/mysqldump
+0010.235 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1183 bytes total)
+0010.250 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0010.279 (0) Table wp_options: Total expected rows (approximate): 4486
+0010.352 (0) Table wp_options: Total rows added: 944 in 0.07 seconds
+0010.362 (0) Table wp_options: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_options.table.gz - 223.6 KB)
+0010.388 (0) Table wp_users: Total expected rows (approximate): 2
+0010.390 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0010.393 (0) Table wp_users: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_users.table.gz - 0.6 KB)
+0010.400 (0) Table wp_usermeta: Total expected rows (approximate): 102
+0010.405 (0) Table wp_usermeta: Total rows added: 102 in 0.00 seconds
+0010.408 (0) Table wp_usermeta: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_usermeta.table.gz - 3.4 KB)
+0010.415 (0) Table wp_commentmeta: Total expected rows (approximate): 13
+0010.418 (0) Table wp_commentmeta: Total rows added: 13 in 0.00 seconds
+0010.420 (0) Table wp_commentmeta: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_commentmeta.table.gz - 0.5 KB)
+0010.426 (0) Table wp_comments: Total expected rows (approximate): 7
+0010.430 (0) Table wp_comments: Total rows added: 7 in 0.00 seconds
+0010.433 (0) Table wp_comments: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_comments.table.gz - 1.6 KB)
+0010.480 (0) Table wp_links: Total expected rows (approximate): 0
+0010.482 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0010.501 (0) Table wp_links: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_links.table.gz - 0.4 KB)
+0010.511 (0) Table wp_postmeta: Total expected rows (approximate): 3004
+0010.569 (0) Table wp_postmeta: Total rows added: 3597 in 0.06 seconds
+0010.586 (0) Table wp_postmeta: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_postmeta.table.gz - 37.3 KB)
+0010.593 (0) Table wp_posts: Total expected rows (approximate): 786
+0010.790 (0) Table wp_posts: Total rows added: 930 in 0.19 seconds
+0010.793 (0) Table wp_posts: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_posts.table.gz - 285.7 KB)
+0010.814 (0) Table wp_term_relationships: Total expected rows (approximate): 1105
+0010.824 (0) Table wp_term_relationships: Total rows added: 1017 in 0.01 seconds
+0010.843 (0) Table wp_term_relationships: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_term_relationships.table.gz - 3 KB)
+0010.849 (0) Table wp_term_taxonomy: Total expected rows (approximate): 51
+0010.854 (0) Table wp_term_taxonomy: Total rows added: 51 in 0.00 seconds
+0010.856 (0) Table wp_term_taxonomy: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_term_taxonomy.table.gz - 1 KB)
+0010.862 (0) Table wp_termmeta: Total expected rows (approximate): 62
+0010.866 (0) Table wp_termmeta: Total rows added: 62 in 0.00 seconds
+0010.868 (0) Table wp_termmeta: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_termmeta.table.gz - 0.7 KB)
+0010.875 (0) Table wp_terms: Total expected rows (approximate): 51
+0010.878 (0) Table wp_terms: Total rows added: 51 in 0.00 seconds
+0010.881 (0) Table wp_terms: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_terms.table.gz - 1.2 KB)
+0010.888 (0) Table wp_woocommerce_order_itemmeta: Total expected rows (approximate): 0
+0010.890 (0) Table wp_woocommerce_order_itemmeta: Total rows added: 0 in 0.00 seconds
+0010.892 (0) Table wp_woocommerce_order_itemmeta: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_order_itemmeta.table.gz - 0.4 KB)
+0010.898 (0) Table wp_woocommerce_payment_tokenmeta: Total expected rows (approximate): 0
+0010.901 (0) Table wp_woocommerce_payment_tokenmeta: Total rows added: 0 in 0.00 seconds
+0010.904 (0) Table wp_woocommerce_payment_tokenmeta: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_payment_tokenmeta.table.gz - 0.4 KB)
+0010.926 (0) Table wp_ip_geo_block_cache: Total expected rows (approximate): 467
+0010.940 (0) Table wp_ip_geo_block_cache: Total rows added: 410 in 0.01 seconds
+0010.958 (0) Table wp_ip_geo_block_cache: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_ip_geo_block_cache.table.gz - 11 KB)
+0010.966 (0) Table wp_ip_geo_block_logs: Total expected rows (approximate): 402
+0010.982 (0) Table wp_ip_geo_block_logs: Total rows added: 335 in 0.01 seconds
+0010.984 (0) Table wp_ip_geo_block_logs: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_ip_geo_block_logs.table.gz - 8.9 KB)
+0010.991 (0) Table wp_ip_geo_block_stat: Total expected rows (approximate): 1
+0010.993 (0) Table wp_ip_geo_block_stat: Total rows added: 1 in 0.00 seconds
+0010.996 (0) Table wp_ip_geo_block_stat: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_ip_geo_block_stat.table.gz - 1.5 KB)
+0011.002 (0) Table wp_layerslider: Total expected rows (approximate): 0
+0011.005 (0) Table wp_layerslider: Total rows added: 0 in 0.00 seconds
+0011.008 (0) Table wp_layerslider: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_layerslider.table.gz - 0.4 KB)
+0011.014 (0) Table wp_popularpostsdata: Total expected rows (approximate): 142
+0011.019 (0) Table wp_popularpostsdata: Total rows added: 142 in 0.00 seconds
+0011.034 (0) Table wp_popularpostsdata: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_popularpostsdata.table.gz - 2.7 KB)
+0011.043 (0) Table wp_popularpostssummary: Total expected rows (approximate): 3224
+0011.098 (0) Table wp_popularpostssummary: Total rows added: 3164 in 0.05 seconds
+0011.101 (0) Table wp_popularpostssummary: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_popularpostssummary.table.gz - 32.9 KB)
+0011.108 (0) Table wp_revslider_css: Total expected rows (approximate): 123
+0011.114 (0) Table wp_revslider_css: Total rows added: 113 in 0.00 seconds
+0011.116 (0) Table wp_revslider_css: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_css.table.gz - 5 KB)
+0011.123 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0011.125 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0011.128 (0) Table wp_revslider_layer_animations: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0011.148 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0011.150 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0011.152 (0) Table wp_revslider_navigations: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0011.159 (0) Table wp_revslider_sliders: Total expected rows (approximate): 1
+0011.162 (0) Table wp_revslider_sliders: Total rows added: 2 in 0.00 seconds
+0011.164 (0) Table wp_revslider_sliders: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_sliders.table.gz - 3.3 KB)
+0011.187 (0) Table wp_revslider_slides: Total expected rows (approximate): 5
+0011.194 (0) Table wp_revslider_slides: Total rows added: 5 in 0.00 seconds
+0011.196 (0) Table wp_revslider_slides: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_slides.table.gz - 11.1 KB)
+0011.203 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 1
+0011.205 (0) Table wp_revslider_static_slides: Total rows added: 1 in 0.00 seconds
+0011.208 (0) Table wp_revslider_static_slides: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0011.262 (0) Table wp_w3tc_cdn_queue: Total expected rows (approximate): 0
+0011.265 (0) Table wp_w3tc_cdn_queue: Total rows added: 0 in 0.00 seconds
+0011.267 (0) Table wp_w3tc_cdn_queue: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_w3tc_cdn_queue.table.gz - 0.4 KB)
+0011.273 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0011.276 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0011.277 (0) Table wp_wfBadLeechers: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0011.301 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 743
+0011.318 (0) Table wp_wfBlockedIPLog: Total rows added: 711 in 0.01 seconds
+0011.320 (0) Table wp_wfBlockedIPLog: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBlockedIPLog.table.gz - 6.7 KB)
+0011.326 (0) Table wp_wfBlocks: Total expected rows (approximate): 4
+0011.329 (0) Table wp_wfBlocks: Total rows added: 4 in 0.00 seconds
+0011.332 (0) Table wp_wfBlocks: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBlocks.table.gz - 0.5 KB)
+0011.338 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0011.341 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0011.343 (0) Table wp_wfBlocksAdv: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0011.349 (0) Table wp_wfConfig: Total expected rows (approximate): 698
+0011.366 (0) Table wp_wfConfig: Total rows added: 187 in 0.02 seconds
+0011.371 (0) Table wp_wfConfig: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfConfig.table.gz - 238.4 KB)
+0011.378 (0) Table wp_wfCrawlers: Total expected rows (approximate): 30
+0011.382 (0) Table wp_wfCrawlers: Total rows added: 30 in 0.00 seconds
+0011.384 (0) Table wp_wfCrawlers: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfCrawlers.table.gz - 0.9 KB)
+0011.390 (0) Table wp_wfFileMods: Total expected rows (approximate): 12353
+0011.563 (0) Table wp_wfFileMods: binary mysqldump finished (writes: 37) in 0.17 seconds
+0011.566 (0) Table wp_wfFileMods: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfFileMods.table.gz - 1113.9 KB)
+0011.574 (0) Table wp_wfHits: Total expected rows (approximate): 2013
+0011.671 (0) Table wp_wfHits: Total rows added: 2124 in 0.09 seconds
+0011.674 (0) Table wp_wfHits: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfHits.table.gz - 47 KB)
+0011.681 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0011.684 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0011.687 (0) Table wp_wfHoover: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0011.705 (0) Table wp_wfIssues: Total expected rows (approximate): 6
+0011.709 (0) Table wp_wfIssues: Total rows added: 6 in 0.00 seconds
+0011.712 (0) Table wp_wfIssues: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfIssues.table.gz - 2.4 KB)
+0011.718 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 12102
+0011.770 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.05 seconds
+0011.773 (0) Table wp_wfKnownFileList: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfKnownFileList.table.gz - 121.8 KB)
+0011.781 (0) Table wp_wfLeechers: Total expected rows (approximate): 192
+0011.786 (0) Table wp_wfLeechers: Total rows added: 192 in 0.00 seconds
+0011.789 (0) Table wp_wfLeechers: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLeechers.table.gz - 1.7 KB)
+0011.796 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0011.798 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0011.800 (0) Table wp_wfLockedOut: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0011.824 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0011.826 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0011.828 (0) Table wp_wfLocs: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0011.836 (0) Table wp_wfLogins: Total expected rows (approximate): 920
+0011.868 (0) Table wp_wfLogins: Total rows added: 944 in 0.03 seconds
+0011.877 (0) Table wp_wfLogins: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLogins.table.gz - 21.3 KB)
+0011.885 (0) Table wp_wfNet404s: Total expected rows (approximate): 0
+0011.888 (0) Table wp_wfNet404s: Total rows added: 0 in 0.00 seconds
+0011.889 (0) Table wp_wfNet404s: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfNet404s.table.gz - 0.3 KB)
+0011.896 (0) Table wp_wfNotifications: Total expected rows (approximate): 38
+0011.899 (0) Table wp_wfNotifications: Total rows added: 38 in 0.00 seconds
+0011.902 (0) Table wp_wfNotifications: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfNotifications.table.gz - 3.1 KB)
+0011.909 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 2
+0011.912 (0) Table wp_wfPendingIssues: Total rows added: 2 in 0.00 seconds
+0011.915 (0) Table wp_wfPendingIssues: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfPendingIssues.table.gz - 1.1 KB)
+0011.934 (0) Table wp_wfReverseCache: Total expected rows (approximate): 6
+0011.937 (0) Table wp_wfReverseCache: Total rows added: 6 in 0.00 seconds
+0011.940 (0) Table wp_wfReverseCache: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0011.946 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 1
+0011.949 (0) Table wp_wfSNIPCache: Total rows added: 1 in 0.00 seconds
+0011.951 (0) Table wp_wfSNIPCache: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0011.957 (0) Table wp_wfScanners: Total expected rows (approximate): 203
+0011.962 (0) Table wp_wfScanners: Total rows added: 203 in 0.00 seconds
+0011.965 (0) Table wp_wfScanners: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfScanners.table.gz - 1.9 KB)
+0011.973 (0) Table wp_wfStatus: Total expected rows (approximate): 1918
+0012.049 (0) Table wp_wfStatus: Total rows added: 1784 in 0.06 seconds
+0012.052 (0) Table wp_wfStatus: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfStatus.table.gz - 30.9 KB)
+0012.058 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 514
+0012.068 (0) Table wp_wfThrottleLog: Total rows added: 426 in 0.01 seconds
+0012.071 (0) Table wp_wfThrottleLog: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfThrottleLog.table.gz - 6.9 KB)
+0012.077 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0012.081 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0012.083 (0) Table wp_wfVulnScanners: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0012.089 (0) Table wp_woocommerce_api_keys: Total expected rows (approximate): 0
+0012.109 (0) Table wp_woocommerce_api_keys: Total rows added: 0 in 0.00 seconds
+0012.111 (0) Table wp_woocommerce_api_keys: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_api_keys.table.gz - 0.4 KB)
+0012.117 (0) Table wp_woocommerce_attribute_taxonomies: Total expected rows (approximate): 3
+0012.121 (0) Table wp_woocommerce_attribute_taxonomies: Total rows added: 3 in 0.00 seconds
+0012.123 (0) Table wp_woocommerce_attribute_taxonomies: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_attribute_taxonomies.table.gz - 0.5 KB)
+0012.129 (0) Table wp_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0012.132 (0) Table wp_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.00 seconds
+0012.133 (0) Table wp_woocommerce_downloadable_product_permissions: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_downloadable_product_permissions.table.gz - 0.5 KB)
+0012.153 (0) Table wp_woocommerce_log: Total expected rows (approximate): 0
+0012.156 (0) Table wp_woocommerce_log: Total rows added: 0 in 0.00 seconds
+0012.157 (0) Table wp_woocommerce_log: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_log.table.gz - 0.4 KB)
+0012.164 (0) Table wp_woocommerce_order_items: Total expected rows (approximate): 0
+0012.166 (0) Table wp_woocommerce_order_items: Total rows added: 0 in 0.00 seconds
+0012.168 (0) Table wp_woocommerce_order_items: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_order_items.table.gz - 0.4 KB)
+0012.175 (0) Table wp_woocommerce_payment_tokens: Total expected rows (approximate): 0
+0012.177 (0) Table wp_woocommerce_payment_tokens: Total rows added: 0 in 0.00 seconds
+0012.180 (0) Table wp_woocommerce_payment_tokens: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_payment_tokens.table.gz - 0.4 KB)
+0012.186 (0) Table wp_woocommerce_sessions: Total expected rows (approximate): 139
+0012.193 (0) Table wp_woocommerce_sessions: Total rows added: 130 in 0.00 seconds
+0012.196 (0) Table wp_woocommerce_sessions: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_sessions.table.gz - 6.2 KB)
+0012.202 (0) Table wp_woocommerce_shipping_zone_locations: Total expected rows (approximate): 0
+0012.205 (0) Table wp_woocommerce_shipping_zone_locations: Total rows added: 0 in 0.00 seconds
+0012.224 (0) Table wp_woocommerce_shipping_zone_locations: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_shipping_zone_locations.table.gz - 0.4 KB)
+0012.232 (0) Table wp_woocommerce_shipping_zone_methods: Total expected rows (approximate): 0
+0012.234 (0) Table wp_woocommerce_shipping_zone_methods: Total rows added: 0 in 0.00 seconds
+0012.237 (0) Table wp_woocommerce_shipping_zone_methods: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_shipping_zone_methods.table.gz - 0.4 KB)
+0012.244 (0) Table wp_woocommerce_shipping_zones: Total expected rows (approximate): 0
+0012.246 (0) Table wp_woocommerce_shipping_zones: Total rows added: 0 in 0.00 seconds
+0012.249 (0) Table wp_woocommerce_shipping_zones: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_shipping_zones.table.gz - 0.3 KB)
+0012.267 (0) Table wp_woocommerce_tax_rate_locations: Total expected rows (approximate): 0
+0012.270 (0) Table wp_woocommerce_tax_rate_locations: Total rows added: 0 in 0.00 seconds
+0012.273 (0) Table wp_woocommerce_tax_rate_locations: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_tax_rate_locations.table.gz - 0.4 KB)
+0012.280 (0) Table wp_woocommerce_tax_rates: Total expected rows (approximate): 0
+0012.282 (0) Table wp_woocommerce_tax_rates: Total rows added: 0 in 0.00 seconds
+0012.285 (0) Table wp_woocommerce_tax_rates: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_tax_rates.table.gz - 0.4 KB)
+0012.292 (0) Table wp_yith_wcwl: Total expected rows (approximate): 0
+0012.294 (0) Table wp_yith_wcwl: Total rows added: 0 in 0.00 seconds
+0012.296 (0) Table wp_yith_wcwl: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_yith_wcwl.table.gz - 0.3 KB)
+0012.342 (0) Table wp_yith_wcwl_lists: Total expected rows (approximate): 1
+0012.345 (0) Table wp_yith_wcwl_lists: Total rows added: 1 in 0.00 seconds
+0012.348 (0) Table wp_yith_wcwl_lists: finishing file (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_yith_wcwl_lists.table.gz - 0.4 KB)
+0012.353 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_options.table.gz (1/65): adding to final database dump
+0012.401 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_users.table.gz (2/65): adding to final database dump
+0012.403 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_usermeta.table.gz (3/65): adding to final database dump
+0012.406 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_commentmeta.table.gz (4/65): adding to final database dump
+0012.408 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_comments.table.gz (5/65): adding to final database dump
+0012.409 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_links.table.gz (6/65): adding to final database dump
+0012.411 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_postmeta.table.gz (7/65): adding to final database dump
+0012.434 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_posts.table.gz (8/65): adding to final database dump
+0012.532 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_term_relationships.table.gz (9/65): adding to final database dump
+0012.539 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_term_taxonomy.table.gz (10/65): adding to final database dump
+0012.542 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_termmeta.table.gz (11/65): adding to final database dump
+0012.544 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_terms.table.gz (12/65): adding to final database dump
+0012.546 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_order_itemmeta.table.gz (13/65): adding to final database dump
+0012.548 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_payment_tokenmeta.table.gz (14/65): adding to final database dump
+0012.563 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_ip_geo_block_cache.table.gz (15/65): adding to final database dump
+0012.569 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_ip_geo_block_logs.table.gz (16/65): adding to final database dump
+0012.575 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_ip_geo_block_stat.table.gz (17/65): adding to final database dump
+0012.578 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_layerslider.table.gz (18/65): adding to final database dump
+0012.580 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_popularpostsdata.table.gz (19/65): adding to final database dump
+0012.582 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_popularpostssummary.table.gz (20/65): adding to final database dump
+0012.605 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_css.table.gz (21/65): adding to final database dump
+0012.613 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_layer_animations.table.gz (22/65): adding to final database dump
+0012.616 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_navigations.table.gz (23/65): adding to final database dump
+0012.617 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_sliders.table.gz (24/65): adding to final database dump
+0012.620 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_slides.table.gz (25/65): adding to final database dump
+0012.625 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_revslider_static_slides.table.gz (26/65): adding to final database dump
+0012.627 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_w3tc_cdn_queue.table.gz (27/65): adding to final database dump
+0012.628 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBadLeechers.table.gz (28/65): adding to final database dump
+0012.631 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBlockedIPLog.table.gz (29/65): adding to final database dump
+0012.636 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBlocks.table.gz (30/65): adding to final database dump
+0012.638 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfBlocksAdv.table.gz (31/65): adding to final database dump
+0012.640 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfConfig.table.gz (32/65): adding to final database dump
+0012.654 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfCrawlers.table.gz (33/65): adding to final database dump
+0012.657 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfFileMods.table.gz (34/65): adding to final database dump
+0012.757 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfHits.table.gz (35/65): adding to final database dump
+0012.778 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfHoover.table.gz (36/65): adding to final database dump
+0012.792 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfIssues.table.gz (37/65): adding to final database dump
+0012.795 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfKnownFileList.table.gz (38/65): adding to final database dump
+0012.822 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLeechers.table.gz (39/65): adding to final database dump
+0012.829 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLockedOut.table.gz (40/65): adding to final database dump
+0012.831 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLocs.table.gz (41/65): adding to final database dump
+0012.832 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfLogins.table.gz (42/65): adding to final database dump
+0012.843 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfNet404s.table.gz (43/65): adding to final database dump
+0012.845 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfNotifications.table.gz (44/65): adding to final database dump
+0012.848 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfPendingIssues.table.gz (45/65): adding to final database dump
+0012.850 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfReverseCache.table.gz (46/65): adding to final database dump
+0012.852 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfSNIPCache.table.gz (47/65): adding to final database dump
+0012.853 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfScanners.table.gz (48/65): adding to final database dump
+0012.857 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfStatus.table.gz (49/65): adding to final database dump
+0012.870 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfThrottleLog.table.gz (50/65): adding to final database dump
+0012.876 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_wfVulnScanners.table.gz (51/65): adding to final database dump
+0012.878 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_api_keys.table.gz (52/65): adding to final database dump
+0012.881 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_attribute_taxonomies.table.gz (53/65): adding to final database dump
+0012.883 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_downloadable_product_permissions.table.gz (54/65): adding to final database dump
+0012.885 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_log.table.gz (55/65): adding to final database dump
+0012.887 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_order_items.table.gz (56/65): adding to final database dump
+0012.888 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_payment_tokens.table.gz (57/65): adding to final database dump
+0012.903 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_sessions.table.gz (58/65): adding to final database dump
+0012.908 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_shipping_zone_locations.table.gz (59/65): adding to final database dump
+0012.911 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_shipping_zone_methods.table.gz (60/65): adding to final database dump
+0012.913 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_shipping_zones.table.gz (61/65): adding to final database dump
+0012.915 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_tax_rate_locations.table.gz (62/65): adding to final database dump
+0012.917 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_woocommerce_tax_rates.table.gz (63/65): adding to final database dump
+0012.919 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_yith_wcwl.table.gz (64/65): adding to final database dump
+0012.920 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db-table-wp_yith_wcwl_lists.table.gz (65/65): adding to final database dump
+0012.921 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db.gz: finished writing out complete database file (2240 KB)
+0012.988 (0) Total database tables backed up: 65 (backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db.gz, size: 2295901, sha256)
+0013.026 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0013.029 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0013.031 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0013.032 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-others.zip: others: This file has not yet been successfully uploaded: will queue
+0013.033 (0) backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db.gz: db: This file has not yet been successfully uploaded: will queue
+0013.056 (0) Saving backup history. Total backup size: 96.6 MB
+0013.064 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0013.069 (0) Cloud backup selection (1/1): s3 (last)
+0013.071 (0) Beginning dispatch of backup to remote (s3)
+0013.470 (0) Set region: us-west-2
+0013.478 (0) S3 upload (us-west-2): backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip (chunks: 12) -> s3://dermatologa-df.com/backups/backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip
+0013.519 (0) S3 chunked upload: got multipart ID: R9H8e7Fei3JJAWjH65x.Crnn3ypwdX.0WPCpnmj_VWE9Vrxkny7cCzYZO9XX_0nnp3SMNodb82xGyeT0WHVTQP35PcrAnClUzoJ1O6aLAdmEwXMvLatgSw.7Ea5aQP.o
+0013.970 (0) S3 chunked upload: 8.3 % uploaded (1, "2748126d0cd86c6908576c0a56491d05")
+0014.281 (0) S3 chunked upload: 16.7 % uploaded (2, "cf354df4eae72cc7c5c064420ac3e179")
+0014.663 (0) S3 chunked upload: 25 % uploaded (3, "16502babf8d93246fb3d0cc97be276ba")
+0015.200 (0) S3 chunked upload: 33.3 % uploaded (4, "0475d82a01d2c42fe0680e1eba93e2fb")
+0015.389 (0) S3 chunked upload: 41.7 % uploaded (5, "ef39c31560c6f03f3d9cf093fe35b501")
+0015.564 (0) S3 chunked upload: 50 % uploaded (6, "6766c0738fa9607fb5b615e9fda5eebf")
+0015.815 (0) S3 chunked upload: 58.3 % uploaded (7, "dbbb1c272e48b8ded865447e08bfcfb5")
+0016.100 (0) S3 chunked upload: 66.7 % uploaded (8, "ba428eaed1e89b8a1f483e43f8ad44be")
+0016.482 (0) S3 chunked upload: 75 % uploaded (9, "a34819b6bb7092a07c7c213caf9bb77f")
+0016.718 (0) S3 chunked upload: 83.3 % uploaded (10, "50d0a0e2d3728ae8526322d3ab6ac8fa")
+0016.926 (0) S3 chunked upload: 91.7 % uploaded (11, "5f48b970f48b16e7074d950031ba195f")
+0017.271 (0) S3 chunked upload: 100 % uploaded (12, "cbc5d8f33ff7a8dd5296b8ace160eec5")
+0017.280 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0017.353 (0) S3 upload (plugins0): re-assembly succeeded
+0017.357 (0) Recording as successfully uploaded: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip (f759d40fd4e0aeb4381038301ec61e8f)
+0017.374 (0) Deleting local file: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-plugins.zip: OK
+0017.387 (0) S3 upload (us-west-2): backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip (chunks: 4) -> s3://dermatologa-df.com/backups/backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip
+0017.397 (0) S3 chunked upload: got multipart ID: sJ_Tscj_BOEP0LuDmBQQBBSDIro5Z0NP8YERtRNZYY5RX5IED3WTcX6e3bt7SklR4zkueRYSTMEPKalUrDa2hFHViYxX9Cd55uJP6NQx3y5i8nE8OvkW9mwzALM4gaux
+0017.574 (0) S3 chunked upload: 25 % uploaded (1, "f5bf342b7dc128b0da57de21a6dee94e")
+0018.348 (0) S3 chunked upload: 50 % uploaded (2, "b4b5627398329b7c677c7fdb12a55d38")
+0018.614 (0) S3 chunked upload: 75 % uploaded (3, "d0ee5e6f5f0eb49eef4c8c0895170243")
+0018.683 (0) S3 chunked upload: 100 % uploaded (4, "fda173f63d12c5abf9e9e839324a9b66")
+0018.701 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0018.763 (0) S3 upload (themes0): re-assembly succeeded
+0018.771 (0) Recording as successfully uploaded: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip (31f3d69a7a5a0a1ba672058c1c0dcc27)
+0018.779 (0) Deleting local file: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-themes.zip: OK
+0018.781 (0) S3 upload (us-west-2): backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip (chunks: 4) -> s3://dermatologa-df.com/backups/backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip
+0018.789 (0) S3 chunked upload: got multipart ID: gXH0KV.8FmRjz6KNNOoM3n58z2eaWt.MgTJQnSMf9ajKrUeZlCyTmfRB9XlEEvyY33NJzbeoQ5SOIdxoRdwAi.jUuYYdP1r41XduYct0rqjYSCfRK0VLRe8TB2o67ucw
+0018.965 (0) S3 chunked upload: 25 % uploaded (1, "d713c1c85a83722d907493f26b4e222b")
+0019.197 (0) S3 chunked upload: 50 % uploaded (2, "071711db0a14bc9f498cb59c7792459b")
+0019.416 (0) S3 chunked upload: 75 % uploaded (3, "5f33b4b39538e306d603d7086e8ef0ef")
+0019.534 (0) S3 chunked upload: 100 % uploaded (4, "3993cef5575b0deaf92b7ce96c11186d")
+0019.552 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0019.615 (0) S3 upload (uploads0): re-assembly succeeded
+0019.620 (0) Recording as successfully uploaded: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip (eaacaacb0d9b0dfc0274d9856c820094)
+0019.629 (0) Deleting local file: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-uploads.zip: OK
+0019.631 (0) S3 upload (us-west-2): backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-others.zip (chunks: 1) -> s3://dermatologa-df.com/backups/backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-others.zip
+0019.792 (0) S3 regular upload: success
+0019.805 (0) Recording as successfully uploaded: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-others.zip (96626b9da975e5c9fd5a9ef875675c0f)
+0019.812 (0) Deleting local file: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-others.zip: OK
+0019.815 (0) S3 upload (us-west-2): backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db.gz (chunks: 1) -> s3://dermatologa-df.com/backups/backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db.gz
+0019.894 (0) S3 regular upload: success
+0019.899 (0) Recording as successfully uploaded: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db.gz (d48c3d452263802321d5c6dbe83c8175)
+0019.921 (0) Deleting local file: backup_2017-07-03-1030_Dermatologa_y_Belleza_DF_0c1f21982f4d-db.gz: OK
+0019.925 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=20, retain_db=20
+0019.928 (0) Number of backup sets in history: 21; groups (db): 1
+0019.929 (0) Examining (for databases) backup set with group_id=0, nonce=0c1f21982f4d, datestamp=1499095845 (Jul 03 2017 15:30:45)
+0019.932 (0) This backup set is the backup set just made, so will not be deleted.
+0019.933 (0) Examining (for databases) backup set with group_id=0, nonce=181e854d61ad, datestamp=1499010305 (Jul 02 2017 15:45:05)
+0019.935 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.936 (0) Examining (for databases) backup set with group_id=0, nonce=783afd4d5333, datestamp=1498923321 (Jul 01 2017 15:35:21)
+0019.937 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.939 (0) Examining (for databases) backup set with group_id=0, nonce=8f8299d08611, datestamp=1498836396 (Jun 30 2017 15:26:36)
+0019.940 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.941 (0) Examining (for databases) backup set with group_id=0, nonce=0c307bb7b35a, datestamp=1498750297 (Jun 29 2017 15:31:37)
+0019.944 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.945 (0) Examining (for databases) backup set with group_id=0, nonce=d8400d949e8f, datestamp=1498663594 (Jun 28 2017 15:26:34)
+0019.947 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.948 (0) Examining (for databases) backup set with group_id=0, nonce=bea73a7eb374, datestamp=1498577306 (Jun 27 2017 15:28:26)
+0019.949 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.951 (0) Examining (for databases) backup set with group_id=0, nonce=0b78cc709fc5, datestamp=1498491191 (Jun 26 2017 15:33:11)
+0019.952 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.954 (0) Examining (for databases) backup set with group_id=0, nonce=cd410665c90d, datestamp=1498405406 (Jun 25 2017 15:43:26)
+0019.956 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.957 (0) Examining (for databases) backup set with group_id=0, nonce=2df82975b416, datestamp=1498318137 (Jun 24 2017 15:28:57)
+0019.959 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.960 (0) Examining (for databases) backup set with group_id=0, nonce=2edfd3056252, datestamp=1498231736 (Jun 23 2017 15:28:56)
+0019.961 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.963 (0) Examining (for databases) backup set with group_id=0, nonce=6d77b6f46797, datestamp=1498145502 (Jun 22 2017 15:31:42)
+0019.964 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.965 (0) Examining (for databases) backup set with group_id=0, nonce=2cfafbbf7c18, datestamp=1498058828 (Jun 21 2017 15:27:08)
+0019.967 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.969 (0) Examining (for databases) backup set with group_id=0, nonce=605e5f23d911, datestamp=1497972548 (Jun 20 2017 15:29:08)
+0019.971 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.972 (0) Examining (for databases) backup set with group_id=0, nonce=6e663a73084c, datestamp=1497886006 (Jun 19 2017 15:26:46)
+0019.973 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.975 (0) Examining (for databases) backup set with group_id=0, nonce=d5cc6f953fa9, datestamp=1497800069 (Jun 18 2017 15:34:29)
+0019.976 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.979 (0) Examining (for databases) backup set with group_id=0, nonce=cb3b4b7e33c9, datestamp=1497713264 (Jun 17 2017 15:27:44)
+0019.980 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.981 (0) Examining (for databases) backup set with group_id=0, nonce=81c15f161ea6, datestamp=1497626815 (Jun 16 2017 15:26:55)
+0019.983 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.984 (0) Examining (for databases) backup set with group_id=0, nonce=48cbb17bbcc6, datestamp=1497540508 (Jun 15 2017 15:28:28)
+0019.998 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.039 (0) Examining (for databases) backup set with group_id=0, nonce=0a7ce301b150, datestamp=1497454007 (Jun 14 2017 15:26:47)
+0020.042 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.047 (0) Examining (for databases) backup set with group_id=0, nonce=f6d366dfc714, datestamp=1497368732 (Jun 13 2017 15:45:32)
+0020.054 (0) 1497368732: db: this set includes a database (backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-db.gz); db count is now 20
+0020.057 (0) 1497368732: db: over retain limit (20); will delete this database
+0020.059 (0) Delete file: backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-db.gz, service=s3
+0020.060 (0) S3: Delete remote: bucket=dermatologa-df.com, URI=backups/backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-db.gz
+0020.075 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0020.077 (0) Number of backup sets in history: 21; groups (files): 1
+0020.079 (0) Examining (for files) backup set with nonce=0c1f21982f4d, datestamp=1499095845 (Jul 03 2017 15:30:45)
+0020.080 (0) This backup set is the backup set just made, so will not be deleted.
+0020.081 (0) This backup set is the backup set just made, so will not be deleted.
+0020.081 (0) This backup set is the backup set just made, so will not be deleted.
+0020.082 (0) This backup set is the backup set just made, so will not be deleted.
+0020.082 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.084 (0) Examining (for files) backup set with nonce=181e854d61ad, datestamp=1499010305 (Jul 02 2017 15:45:05)
+0020.085 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.086 (0) Examining (for files) backup set with nonce=783afd4d5333, datestamp=1498923321 (Jul 01 2017 15:35:21)
+0020.087 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.089 (0) Examining (for files) backup set with nonce=8f8299d08611, datestamp=1498836396 (Jun 30 2017 15:26:36)
+0020.091 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.092 (0) Examining (for files) backup set with nonce=0c307bb7b35a, datestamp=1498750297 (Jun 29 2017 15:31:37)
+0020.093 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.095 (0) Examining (for files) backup set with nonce=d8400d949e8f, datestamp=1498663594 (Jun 28 2017 15:26:34)
+0020.097 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.110 (0) Examining (for files) backup set with nonce=bea73a7eb374, datestamp=1498577306 (Jun 27 2017 15:28:26)
+0020.112 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.114 (0) Examining (for files) backup set with nonce=0b78cc709fc5, datestamp=1498491191 (Jun 26 2017 15:33:11)
+0020.115 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.116 (0) Examining (for files) backup set with nonce=cd410665c90d, datestamp=1498405406 (Jun 25 2017 15:43:26)
+0020.117 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.119 (0) Examining (for files) backup set with nonce=2df82975b416, datestamp=1498318137 (Jun 24 2017 15:28:57)
+0020.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.123 (0) Examining (for files) backup set with nonce=2edfd3056252, datestamp=1498231736 (Jun 23 2017 15:28:56)
+0020.124 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.125 (0) Examining (for files) backup set with nonce=6d77b6f46797, datestamp=1498145502 (Jun 22 2017 15:31:42)
+0020.127 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.129 (0) Examining (for files) backup set with nonce=2cfafbbf7c18, datestamp=1498058828 (Jun 21 2017 15:27:08)
+0020.146 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.148 (0) Examining (for files) backup set with nonce=605e5f23d911, datestamp=1497972548 (Jun 20 2017 15:29:08)
+0020.150 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.152 (0) Examining (for files) backup set with nonce=6e663a73084c, datestamp=1497886006 (Jun 19 2017 15:26:46)
+0020.153 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.154 (0) Examining (for files) backup set with nonce=d5cc6f953fa9, datestamp=1497800069 (Jun 18 2017 15:34:29)
+0020.155 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.156 (0) Examining (for files) backup set with nonce=cb3b4b7e33c9, datestamp=1497713264 (Jun 17 2017 15:27:44)
+0020.159 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.160 (0) Examining (for files) backup set with nonce=81c15f161ea6, datestamp=1497626815 (Jun 16 2017 15:26:55)
+0020.161 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.163 (0) Examining (for files) backup set with nonce=48cbb17bbcc6, datestamp=1497540508 (Jun 15 2017 15:28:28)
+0020.165 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.167 (0) Examining (for files) backup set with nonce=0a7ce301b150, datestamp=1497454007 (Jun 14 2017 15:26:47)
+0020.168 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.169 (0) Examining (for files) backup set with nonce=f6d366dfc714, datestamp=1497368732 (Jun 13 2017 15:45:32)
+0020.172 (0) plugins: over retain limit (20); will delete this file entity
+0020.173 (0) themes: over retain limit (20); will delete this file entity
+0020.174 (0) uploads: over retain limit (20); will delete this file entity
+0020.175 (0) others: over retain limit (20); will delete this file entity
+0020.176 (0) Delete file: backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-plugins.zip, service=s3
+0020.177 (0) Delete file: backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-themes.zip, service=s3
+0020.179 (0) Delete file: backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-uploads.zip, service=s3
+0020.180 (0) Delete file: backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-others.zip, service=s3
+0020.181 (0) S3: Delete remote: bucket=dermatologa-df.com, URI=backups/backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-plugins.zip
+0020.334 (0) S3: Delete remote: bucket=dermatologa-df.com, URI=backups/backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-themes.zip
+0020.353 (0) S3: Delete remote: bucket=dermatologa-df.com, URI=backups/backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-uploads.zip
+0020.368 (0) S3: Delete remote: bucket=dermatologa-df.com, URI=backups/backup_2017-06-13-1045_Dermatologa_y_Belleza_DF_f6d366dfc714-others.zip
+0020.388 (0) This backup set is now empty; will remove from history
+0020.389 (0) Deleting log file (log.f6d366dfc714.txt)
+0020.392 (0) Retain: saving new backup history (sets now: 20) and finishing retain operation
+0020.402 (0) Resume backup (0c1f21982f4d, 0): finish run
+0020.407 (0) Decremented the semaphore (fd) by 1
+0020.409 (0) Semaphore (fd) unlocked
+0020.412 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0020.419 (0) Fetching RSS news feed
+0020.562 (0) Fetched RSS news feed; result is a: SimplePie
+0020.658 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: lpm00...
+0020.689 (0) The backup apparently succeeded and is now complete

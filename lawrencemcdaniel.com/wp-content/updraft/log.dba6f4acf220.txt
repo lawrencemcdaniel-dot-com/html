@@ -1,0 +1,87 @@
+0000.006 () Opened log file at time: Sat, 15 Jul 2017 19:49:03 +0000 on http://lawrencemcdaniel.com
+0000.006 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.13.4 WP: 4.8 PHP: 5.6.30 (apache2handler, Linux ip-172-31-15-31 4.9.32-15.41.amzn1.x86_64 #1 SMP Thu Jun 22 06:20:54 UTC 2017 x86_64) MySQL: 5.5.56 WPLANG: en_US Server: Apache/2.4.25 (Amazon) PHP/5.6.30 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 59.6M | 60.8M) multisite: N openssl: OpenSSL 1.0.1k-fips 8 Jan 2015 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.006 () Free space on disk containing Updraft's temporary directory: 44131.9 MB
+0000.009 () Restore job started. Entities to restore: db. Restore options: {"updraft_restorer_replacesiteurl":false,"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false}
+0000.025 () Entity: db
+0000.025 () restore_backup(backup_file=backup_2017-07-15-1846_Lawrence_McDaniel_00f699ea2233-db.gz, type=db, info=a:0:{}, last_one=1)
+0000.025 () Unpacking backup... (backup_2017-07-15-1846_Lawrence_McDaniel_00f699ea2233-db.gz, 2 Mb)
+0000.027 () Database successfully unpacked
+0000.027 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0000.027 () Using direct MySQL access; value of use_mysqli is: 1
+0000.033 () Tried to raise max_allowed_packet from 1 MB to 32 MB, but failed (Access denied; you need (at least one of) the SUPER privilege(s) for this operation, b:0;)
+0000.034 () Max packet size: 1 MB
+0000.034 () Entering maintenance mode
+0000.034 () Enabling Maintenance mode&#8230;
+0000.034 () Backup of: http://dev.lawrencemcdaniel.com
+0000.037 () Content URL: http://dev.lawrencemcdaniel.com/wp-content
+0000.037 () Uploads URL: http://dev.lawrencemcdaniel.com/wp-content/uploads
+0000.037 () Old table prefix: wp_
+0000.037 () Site information: multisite=0
+0000.039 () New table prefix: wp_
+0000.042 () Processing table (InnoDB): wp_options
+0000.148 () Restoring prior UD configuration (table: wp_options; keys: 89)
+0000.472 () PHP event: code E_NOTICE: Undefined index: settings (line 3483, wp-content/plugins/updraftplus/class-updraftplus.php)
+0000.472 () PHP event: code E_WARNING: Invalid argument supplied for foreach() (line 3483, wp-content/plugins/updraftplus/class-updraftplus.php)
+0000.477 () PHP event: code E_NOTICE: Undefined index: settings (line 3525, wp-content/plugins/updraftplus/class-updraftplus.php)
+0000.477 () PHP event: code E_WARNING: Invalid argument supplied for foreach() (line 3525, wp-content/plugins/updraftplus/class-updraftplus.php)
+0000.599 () Processing table (InnoDB): wp_users
+0000.610 () Processing table (InnoDB): wp_usermeta
+0000.623 () Processing table (InnoDB): wp_commentmeta
+0000.633 () Processing table (InnoDB): wp_comments
+0000.685 () Processing table (InnoDB): wp_links
+0000.694 () Processing table (InnoDB): wp_postmeta
+0000.833 () Processing table (InnoDB): wp_posts
+0001.077 () Database queries processed: 50 in 1.05 seconds
+0001.380 () Processing table (InnoDB): wp_term_relationships
+0001.406 () Processing table (InnoDB): wp_term_taxonomy
+0001.418 () Processing table (InnoDB): wp_termmeta
+0001.458 () Processing table (InnoDB): wp_terms
+0001.471 () Processing table (InnoDB): wp_ahm_download_stats
+0001.479 () Processing table (InnoDB): wp_ahm_emails
+0001.487 () Processing table (InnoDB): wp_ip_geo_block_cache
+0001.498 () Processing table (InnoDB): wp_ip_geo_block_logs
+0001.564 () Processing table (InnoDB): wp_ip_geo_block_stat
+0001.573 () Processing table (InnoDB): wp_layerslider
+0001.589 () Processing table (InnoDB): wp_revslider_css
+0001.606 () Processing table (InnoDB): wp_revslider_layer_animations
+0001.622 () Processing table (InnoDB): wp_revslider_navigations
+0001.629 () Processing table (InnoDB): wp_revslider_sliders
+0001.682 () Processing table (InnoDB): wp_revslider_slides
+0001.702 () Processing table (InnoDB): wp_revslider_static_slides
+0001.709 () Database queries processed: 100 in 1.68 seconds
+0001.715 () Processing table (InnoDB): wp_urls
+0002.009 () Processing table (InnoDB): wp_w3tc_cdn_queue
+0002.016 () Processing table (InnoDB): wp_wfBadLeechers
+0002.057 () Processing table (InnoDB): wp_wfBlockedIPLog
+0002.070 () Processing table (InnoDB): wp_wfBlocks
+0002.080 () Processing table (InnoDB): wp_wfBlocksAdv
+0002.088 () Processing table (InnoDB): wp_wfConfig
+0002.124 () Processing table (InnoDB): wp_wfCrawlers
+0002.136 () Processing table (InnoDB): wp_wfFileMods
+0002.140 () Database queries processed: 150 in 2.11 seconds
+0002.313 () Processing table (InnoDB): wp_wfHits
+0002.510 () Processing table (InnoDB): wp_wfHoover
+0002.519 () Processing table (InnoDB): wp_wfIssues
+0002.530 () Processing table (InnoDB): wp_wfKnownFileList
+0002.611 () Processing table (InnoDB): wp_wfLeechers
+0002.625 () Processing table (InnoDB): wp_wfLockedOut
+0002.634 () Processing table (InnoDB): wp_wfLocs
+0002.641 () Database queries processed: 200 in 2.61 seconds
+0002.643 () Processing table (InnoDB): wp_wfLogins
+0002.724 () Processing table (InnoDB): wp_wfNet404s
+0002.731 () Processing table (InnoDB): wp_wfNotifications
+0002.743 () Processing table (InnoDB): wp_wfPendingIssues
+0002.753 () Processing table (InnoDB): wp_wfReverseCache
+0002.762 () Processing table (InnoDB): wp_wfSNIPCache
+0002.770 () Processing table (InnoDB): wp_wfScanners
+0002.794 () Processing table (InnoDB): wp_wfStatus
+0002.978 () Processing table (InnoDB): wp_wfThrottleLog
+0002.991 () Processing table (InnoDB): wp_wfVulnScanners
+0002.999 () Processing table (InnoDB): wp_yoast_seo_links
+0003.039 () Processing table (InnoDB): wp_yoast_seo_meta
+0003.046 () Unlocking database and leaving maintenance mode
+0003.046 () Disabling Maintenance mode&#8230;
+0003.046 () Finished: lines processed: 236 in 3.02 seconds
+0003.047 () Cleaning up rubbish...
+0003.089 () Restore successful!
+0003.089 () Restore successful

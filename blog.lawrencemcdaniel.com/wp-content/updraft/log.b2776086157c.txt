@@ -1,0 +1,582 @@
+0000.000 (0) Opened log file at time: Tue, 20 Mar 2018 17:27:14 +0000 on https://blog.lawrencemcdaniel.com
+0000.064 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-14-147 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 50M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.128 (0) Free space on disk containing Updraft's temporary directory: 93302 MB
+0000.194 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.256 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.306 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1521479092, seconds_ago=87742)
+0000.353 (0) Set semaphore last lock (fd) time to 2018-03-20 17:27:14
+0000.375 (0) Semaphore lock (fd) complete
+0000.412 (0) Backup run: resumption=0, nonce=b2776086157c, begun at=1521566834 (0s ago), job type=backup
+0000.510 (0) Scheduling a resumption (1) after 300 seconds (1521567135) in case this run gets aborted
+0000.560 (0) Checking if we have a zip executable available
+0000.582 (0) Testing: /usr/bin/zip
+0000.609 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.631 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.652 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.673 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.736 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.763 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.784 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.815 (0) Working binary zip found: /usr/bin/zip
+0000.849 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.870 (0) Creation of backups of directories: beginning
+0000.908 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0001.024 (0) Total entities for the zip file: 786 directories, 5238 files (0 skipped as non-modified), 63.7 MB
+0001.090 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0001.157 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0001.221 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0001.286 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0001.308 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0001.340 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.3 MB, 5238 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.824 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: size is now: 3.50 MB
+0001.918 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 600 files added (on-disk size: 3546.4 KB)
+0001.986 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 700 files added (on-disk size: 3546.4 KB)
+0002.050 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 800 files added (on-disk size: 3546.4 KB)
+0002.118 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 900 files added (on-disk size: 3546.4 KB)
+0002.186 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1000 files added (on-disk size: 3546.4 KB)
+0002.248 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.1 MB, 5238 files batched, 501 (1002) added so far); re-opening (prior size: 3546.4 KB)
+0002.551 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: size is now: 5.50 MB
+0002.627 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1100 files added (on-disk size: 5627.5 KB)
+0002.694 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1200 files added (on-disk size: 5627.5 KB)
+0002.762 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1300 files added (on-disk size: 5627.5 KB)
+0002.826 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1400 files added (on-disk size: 5627.5 KB)
+0002.898 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1500 files added (on-disk size: 5627.5 KB)
+0002.919 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.2 MB, 5238 files batched, 501 (1503) added so far); re-opening (prior size: 5627.5 KB)
+0003.054 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: size is now: 7.30 MB
+0003.090 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1600 files added (on-disk size: 7488.2 KB)
+0003.154 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1700 files added (on-disk size: 7488.2 KB)
+0003.218 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1800 files added (on-disk size: 7488.2 KB)
+0003.241 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 1900 files added (on-disk size: 7488.2 KB)
+0003.264 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2000 files added (on-disk size: 7488.2 KB)
+0003.286 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.3 MB, 5238 files batched, 501 (2004) added so far); re-opening (prior size: 7488.2 KB)
+0003.631 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: size is now: 10.40 MB
+0003.714 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2100 files added (on-disk size: 10695 KB)
+0003.737 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2200 files added (on-disk size: 10695 KB)
+0003.760 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2300 files added (on-disk size: 10695 KB)
+0003.783 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2400 files added (on-disk size: 10695 KB)
+0003.806 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2500 files added (on-disk size: 10695 KB)
+0003.833 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3 MB, 5238 files batched, 501 (2505) added so far); re-opening (prior size: 10695 KB)
+0004.003 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2600 files added (on-disk size: 11815 KB)
+0004.070 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2700 files added (on-disk size: 11815 KB)
+0004.093 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2800 files added (on-disk size: 11815 KB)
+0004.158 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 2900 files added (on-disk size: 11815 KB)
+0004.181 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3000 files added (on-disk size: 11815 KB)
+0004.202 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9 MB, 5238 files batched, 501 (3006) added so far); re-opening (prior size: 11815 KB)
+0004.614 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: size is now: 14.30 MB
+0004.648 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3100 files added (on-disk size: 14629.1 KB)
+0004.671 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3200 files added (on-disk size: 14629.1 KB)
+0004.694 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3300 files added (on-disk size: 14629.1 KB)
+0004.718 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3400 files added (on-disk size: 14629.1 KB)
+0004.760 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3500 files added (on-disk size: 14629.1 KB)
+0004.860 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.9 MB, 5238 files batched, 501 (3507) added so far); re-opening (prior size: 14629.1 KB)
+0005.118 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3600 files added (on-disk size: 15822.3 KB)
+0005.141 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3700 files added (on-disk size: 15822.3 KB)
+0005.164 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3800 files added (on-disk size: 15822.3 KB)
+0005.188 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 3900 files added (on-disk size: 15822.3 KB)
+0005.254 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4000 files added (on-disk size: 15822.3 KB)
+0005.316 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.3 MB, 5238 files batched, 501 (4008) added so far); re-opening (prior size: 15822.3 KB)
+0005.470 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4100 files added (on-disk size: 16975.7 KB)
+0005.493 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4200 files added (on-disk size: 16975.7 KB)
+0005.516 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4300 files added (on-disk size: 16975.7 KB)
+0005.582 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4400 files added (on-disk size: 16975.7 KB)
+0005.605 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4500 files added (on-disk size: 16975.7 KB)
+0005.668 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17.1 MB, 5238 files batched, 501 (4509) added so far); re-opening (prior size: 16975.7 KB)
+0006.483 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: size is now: 21.30 MB
+0006.515 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4600 files added (on-disk size: 21838.3 KB)
+0006.538 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4700 files added (on-disk size: 21838.3 KB)
+0006.562 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4800 files added (on-disk size: 21838.3 KB)
+0006.589 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 4900 files added (on-disk size: 21838.3 KB)
+0006.612 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 5000 files added (on-disk size: 21838.3 KB)
+0006.634 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.6 MB, 5238 files batched, 501 (5010) added so far); re-opening (prior size: 21838.3 KB)
+0006.822 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 5100 files added (on-disk size: 22661.8 KB)
+0006.846 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip.tmp: 5200 files added (on-disk size: 22661.8 KB)
+0007.239 (0) Created plugins zip (0) - 22997.2 KB in 6.3 s (3647.2 KB/s) (sha1: 5a94471402ad7bd4b5009082531e18710dbe5d2a, sha256: 98c395d26a4f3e21d11095b3761e5d3e35593ca2a353d9506dd9cd72547f8611)
+0007.273 (0) Beginning creation of dump of themes (split every: 400 MB)
+0007.371 (0) Total entities for the zip file: 257 directories, 1663 files (0 skipped as non-modified), 20.9 MB
+0007.438 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0007.463 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.486 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0007.512 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0007.535 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0007.559 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.3 MB, 1663 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.791 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: size is now: 4.00 MB
+0007.869 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 600 files added (on-disk size: 4122.3 KB)
+0007.893 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 700 files added (on-disk size: 4122.3 KB)
+0007.958 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 800 files added (on-disk size: 4122.3 KB)
+0008.026 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 900 files added (on-disk size: 4122.3 KB)
+0008.049 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 1000 files added (on-disk size: 4122.3 KB)
+0008.112 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.5 MB, 1663 files batched, 501 (1002) added so far); re-opening (prior size: 4122.3 KB)
+0008.466 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: size is now: 6.90 MB
+0008.543 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 1100 files added (on-disk size: 7047.3 KB)
+0008.569 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 1200 files added (on-disk size: 7047.3 KB)
+0008.592 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 1300 files added (on-disk size: 7047.3 KB)
+0008.658 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 1400 files added (on-disk size: 7047.3 KB)
+0008.681 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 1500 files added (on-disk size: 7047.3 KB)
+0008.703 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.9 MB, 1663 files batched, 501 (1503) added so far); re-opening (prior size: 7047.3 KB)
+0008.936 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: size is now: 8.40 MB
+0008.975 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip.tmp: 1600 files added (on-disk size: 8578 KB)
+0009.229 (0) Created themes zip (0) - 9056.1 KB in 1.9 s (4786.4 KB/s) (sha1: 587577c9132bab2f7bdfb6b0abf058ccfd81ad61, sha256: ff4dc8fe2bfbf29f441bf21e7f6c7ac7907f1dddc06a273d540bc39d8b894769)
+0009.300 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0009.364 (0) Looking for candidates to back up in: /var/www/html/blog.lawrencemcdaniel.com/wp-content/uploads
+0009.428 (0) finding files: fbrfg: adding to list (1)
+0009.508 (0) finding files: fusion-builder-avada-pages: adding to list (2)
+0009.529 (0) finding files: .htaccess: adding to list (3)
+0009.552 (0) finding files: 2018: adding to list (4)
+0009.616 (0) finding files: backup: skipping: excluded by options (glob)
+0009.680 (0) finding files: fusion-styles: adding to list (5)
+0009.706 (0) finding files: fusion_slider_exports: adding to list (6)
+0009.729 (0) finding files: dynamic_avia: adding to list (7)
+0009.750 (0) finding files: revslider: adding to list (8)
+0009.772 (0) finding files: 2015: adding to list (9)
+0009.793 (0) finding files: 2017: adding to list (10)
+0009.815 (0) finding files: fusionredux: adding to list (11)
+0009.836 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0009.878 (0) Total entities for the zip file: 167 directories, 535 files (0 skipped as non-modified), 30.5 MB
+0009.907 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0009.929 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25.2 MB, 535 files batched, 164 (164) added so far); re-opening (prior size: 0 KB)
+0010.294 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip.tmp: size is now: 12.90 MB
+0010.368 (0) A useful amount of data was added after this amount of zip processing: 0.9 s (normalised: 0.9 s, rate: 27860.1 KB/s)
+0010.397 (0) Performance is good - will increase the amount of data we attempt to batch (time=0.92521500587463, normalised_time=0.91887833334097, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=171172171)
+0010.427 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip.tmp: 200 files added (on-disk size: 13187.2 KB)
+0010.449 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip.tmp: 300 files added (on-disk size: 13187.2 KB)
+0010.472 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip.tmp: 400 files added (on-disk size: 13187.2 KB)
+0010.497 (0) Zip: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip.tmp: 500 files added (on-disk size: 13187.2 KB)
+0010.581 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip.tmp: size is now: 18.10 MB
+0010.903 (0) Created uploads zip (0) - 18564.8 KB in 1 s (17803.5 KB/s) (sha1: 3b64027110a541f103932c09d301de01f16f9b65, sha256: bf59363cb11faf6f55fe746d48861eb680f422a7c802c44c1e03d59edd47dc57)
+0010.987 (0) Beginning backup of other directories found in the content directory (index: 0)
+0011.015 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0011.088 (0) Looking for candidates to back up in: /var/www/html/blog.lawrencemcdaniel.com/wp-content
+0011.152 (0) finding files: wflogs: adding to list (1)
+0011.216 (0) finding files: object-cache.php: adding to list (2)
+0011.280 (0) finding files: index.php: adding to list (3)
+0011.344 (0) finding files: upgrade: skipping: excluded by options
+0011.408 (0) finding files: updraft: skipping: this is the updraft directory
+0011.430 (0) finding files: themes: skipping: this is the themes directory
+0011.452 (0) finding files: advanced-cache.php: adding to list (4)
+0011.516 (0) finding files: w3tc-config: adding to list (5)
+0011.580 (0) finding files: uploads: skipping: this is the uploads directory
+0011.644 (0) finding files: cache: skipping: excluded by options
+0011.708 (0) finding files: wp-rocket-config: adding to list (6)
+0011.729 (0) finding files: plugins: skipping: this is the plugins directory
+0011.801 (0) Total entities for the zip file: 3 directories, 12 files (0 skipped as non-modified), 1.2 MB
+0011.917 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-others.zip.tmp: size is now: 0.50 MB
+0011.977 (0) Created others zip (0) - 534.8 KB in 0.2 s (2903.8 KB/s) (sha1: 6eaf91cb1c243a2120c22c5fca03b9520915f518, sha256: 2f9adf5b6f1e66cdf31644e9be8e37dc6668c137a4727e0f8b7e43d2a457e630)
+0012.073 (0) Saving backup status to database (elements: 8)
+0012.192 (0) Beginning creation of database dump (WordPress DB)
+0012.225 (0) Testing: /usr/bin/mysqldump
+0012.276 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1219 bytes total)
+0012.307 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0012.408 (0) Table wp_options: Total expected rows (approximate): 530
+0012.544 (0) Table wp_options: Total rows added: 538 in 0.11 seconds
+0012.571 (0) Table wp_options: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_options.table.gz - 395.4 KB)
+0012.615 (0) Table wp_users: Total expected rows (approximate): 0
+0012.641 (0) Table wp_users: Total rows added: 1 in 0.01 seconds
+0012.664 (0) Table wp_users: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_users.table.gz - 0.6 KB)
+0012.703 (0) Table wp_usermeta: Total expected rows (approximate): 32
+0012.732 (0) Table wp_usermeta: Total rows added: 33 in 0.01 seconds
+0012.758 (0) Table wp_usermeta: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_usermeta.table.gz - 2 KB)
+0012.847 (0) Table wp_commentmeta: Total expected rows (approximate): 40
+0012.876 (0) Table wp_commentmeta: Total rows added: 44 in 0.01 seconds
+0012.906 (0) Table wp_commentmeta: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_commentmeta.table.gz - 2.4 KB)
+0012.951 (0) Table wp_comments: Total expected rows (approximate): 15
+0012.987 (0) Table wp_comments: Total rows added: 15 in 0.02 seconds
+0013.056 (0) Table wp_comments: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_comments.table.gz - 2.4 KB)
+0013.151 (0) Table wp_links: Total expected rows (approximate): 0
+0013.176 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0013.240 (0) Table wp_links: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_links.table.gz - 0.4 KB)
+0013.327 (0) Table wp_postmeta: Total expected rows (approximate): 2374
+0013.381 (0) Table wp_postmeta: Total rows added: 2481 in 0.03 seconds
+0013.448 (0) Table wp_postmeta: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_postmeta.table.gz - 26.2 KB)
+0013.539 (0) Table wp_posts: Total expected rows (approximate): 172
+0013.603 (0) Table wp_posts: Total rows added: 187 in 0.04 seconds
+0013.668 (0) Table wp_posts: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_posts.table.gz - 95.5 KB)
+0013.719 (0) Table wp_term_relationships: Total expected rows (approximate): 40
+0013.786 (0) Table wp_term_relationships: Total rows added: 36 in 0.01 seconds
+0013.852 (0) Table wp_term_relationships: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_term_relationships.table.gz - 0.5 KB)
+0013.943 (0) Table wp_term_taxonomy: Total expected rows (approximate): 11
+0013.969 (0) Table wp_term_taxonomy: Total rows added: 13 in 0.01 seconds
+0014.036 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_term_taxonomy.table.gz - 0.5 KB)
+0014.087 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0014.112 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0014.176 (0) Table wp_termmeta: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_termmeta.table.gz - 0.4 KB)
+0014.223 (0) Table wp_terms: Total expected rows (approximate): 11
+0014.249 (0) Table wp_terms: Total rows added: 13 in 0.01 seconds
+0014.273 (0) Table wp_terms: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_terms.table.gz - 0.6 KB)
+0014.331 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0014.357 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0014.382 (0) Table wp_imagify_files: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0014.503 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0014.572 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0014.640 (0) Table wp_imagify_folders: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0014.735 (0) Table wp_layerslider: Total expected rows (approximate): 0
+0014.804 (0) Table wp_layerslider: Total rows added: 0 in 0.00 seconds
+0014.868 (0) Table wp_layerslider: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_layerslider.table.gz - 0.4 KB)
+0014.915 (0) Table wp_layerslider_revisions: Total expected rows (approximate): 0
+0014.941 (0) Table wp_layerslider_revisions: Total rows added: 0 in 0.01 seconds
+0014.966 (0) Table wp_layerslider_revisions: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_layerslider_revisions.table.gz - 0.3 KB)
+0015.056 (0) Table wp_loginsecurity_logs: Total expected rows (approximate): 0
+0015.096 (0) Table wp_loginsecurity_logs: Total rows added: 0 in 0.00 seconds
+0015.160 (0) Table wp_loginsecurity_logs: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_loginsecurity_logs.table.gz - 0.3 KB)
+0015.247 (0) Table wp_revslider_css: Total expected rows (approximate): 121
+0015.278 (0) Table wp_revslider_css: Total rows added: 121 in 0.01 seconds
+0015.340 (0) Table wp_revslider_css: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_css.table.gz - 5.2 KB)
+0015.386 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0015.412 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0015.433 (0) Table wp_revslider_layer_animations: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0015.499 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0015.525 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0015.592 (0) Table wp_revslider_navigations: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0015.642 (0) Table wp_revslider_sliders: Total expected rows (approximate): 0
+0015.668 (0) Table wp_revslider_sliders: Total rows added: 0 in 0.00 seconds
+0015.690 (0) Table wp_revslider_sliders: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_sliders.table.gz - 0.3 KB)
+0015.735 (0) Table wp_revslider_slides: Total expected rows (approximate): 0
+0015.760 (0) Table wp_revslider_slides: Total rows added: 0 in 0.00 seconds
+0015.782 (0) Table wp_revslider_slides: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_slides.table.gz - 0.3 KB)
+0015.831 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0015.856 (0) Table wp_revslider_static_slides: Total rows added: 0 in 0.00 seconds
+0015.879 (0) Table wp_revslider_static_slides: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_static_slides.table.gz - 0.3 KB)
+0015.923 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0015.948 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0016.012 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0016.057 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0016.084 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0016.152 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0016.247 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 0
+0016.278 (0) Table wp_wfBlockedIPLog: Total rows added: 1 in 0.01 seconds
+0016.306 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlockedIPLog.table.gz - 0.4 KB)
+0016.353 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0016.383 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0016.405 (0) Table wp_wfBlocks: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0016.451 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0016.477 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0016.499 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0016.543 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0016.568 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0016.590 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0016.635 (0) Table wp_wfConfig: Total expected rows (approximate): 227
+0016.676 (0) Table wp_wfConfig: Total rows added: 236 in 0.02 seconds
+0016.705 (0) Table wp_wfConfig: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfConfig.table.gz - 236.1 KB)
+0016.747 (0) Table wp_wfCrawlers: Total expected rows (approximate): 20
+0016.777 (0) Table wp_wfCrawlers: Total rows added: 20 in 0.01 seconds
+0016.802 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfCrawlers.table.gz - 0.7 KB)
+0016.851 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0016.876 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0016.898 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0016.943 (0) Table wp_wfFileMods: Total expected rows (approximate): 6431
+0017.162 (0) Table wp_wfFileMods: Total rows added: 7303 in 0.20 seconds
+0017.224 (0) Table wp_wfFileMods: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfFileMods.table.gz - 636.4 KB)
+0017.275 (0) Table wp_wfHits: Total expected rows (approximate): 1945
+0017.342 (0) Table wp_wfHits: Total rows added: 1962 in 0.05 seconds
+0017.409 (0) Table wp_wfHits: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfHits.table.gz - 44.3 KB)
+0017.455 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0017.481 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0017.508 (0) Table wp_wfHoover: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0017.555 (0) Table wp_wfIssues: Total expected rows (approximate): 1
+0017.588 (0) Table wp_wfIssues: Total rows added: 1 in 0.01 seconds
+0017.609 (0) Table wp_wfIssues: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfIssues.table.gz - 1.2 KB)
+0017.655 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 7223
+0017.770 (0) Table wp_wfKnownFileList: Total rows added: 7303 in 0.09 seconds
+0017.794 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfKnownFileList.table.gz - 77.6 KB)
+0017.835 (0) Table wp_wfLeechers: Total expected rows (approximate): 221
+0017.865 (0) Table wp_wfLeechers: Total rows added: 221 in 0.01 seconds
+0017.889 (0) Table wp_wfLeechers: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLeechers.table.gz - 1.8 KB)
+0017.979 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0018.005 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0018.072 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0018.187 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0018.256 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0018.282 (0) Table wp_wfLocs: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0018.371 (0) Table wp_wfLogins: Total expected rows (approximate): 174
+0018.403 (0) Table wp_wfLogins: Total rows added: 313 in 0.01 seconds
+0018.468 (0) Table wp_wfLogins: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLogins.table.gz - 5.6 KB)
+0018.511 (0) Table wp_wfNet404s: Total expected rows (approximate): 1
+0018.537 (0) Table wp_wfNet404s: Total rows added: 1 in 0.01 seconds
+0018.559 (0) Table wp_wfNet404s: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfNet404s.table.gz - 0.4 KB)
+0018.651 (0) Table wp_wfNotifications: Total expected rows (approximate): 4
+0018.680 (0) Table wp_wfNotifications: Total rows added: 11 in 0.01 seconds
+0018.752 (0) Table wp_wfNotifications: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfNotifications.table.gz - 0.7 KB)
+0018.799 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0018.827 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0018.892 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0018.938 (0) Table wp_wfReverseCache: Total expected rows (approximate): 0
+0018.965 (0) Table wp_wfReverseCache: Total rows added: 1 in 0.01 seconds
+0019.032 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0019.086 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0019.118 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0019.180 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0019.267 (0) Table wp_wfScanners: Total expected rows (approximate): 27
+0019.293 (0) Table wp_wfScanners: Total rows added: 27 in 0.01 seconds
+0019.318 (0) Table wp_wfScanners: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfScanners.table.gz - 0.6 KB)
+0019.403 (0) Table wp_wfStatus: Total expected rows (approximate): 1327
+0019.448 (0) Table wp_wfStatus: Total rows added: 1362 in 0.02 seconds
+0019.474 (0) Table wp_wfStatus: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfStatus.table.gz - 23.4 KB)
+0019.519 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0019.544 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0019.608 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0019.695 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0019.720 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0019.784 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0019.831 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 272
+0019.859 (0) Table wp_yoast_seo_links: Total rows added: 275 in 0.01 seconds
+0019.882 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_yoast_seo_links.table.gz - 4 KB)
+0019.967 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 747
+0020.006 (0) Table wp_yoast_seo_meta: Total rows added: 782 in 0.01 seconds
+0020.030 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_yoast_seo_meta.table.gz - 2.3 KB)
+0020.072 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_options.table.gz (1/52): adding to final database dump
+0020.162 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_users.table.gz (2/52): adding to final database dump
+0020.224 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_usermeta.table.gz (3/52): adding to final database dump
+0020.288 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_commentmeta.table.gz (4/52): adding to final database dump
+0020.353 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_comments.table.gz (5/52): adding to final database dump
+0020.375 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_links.table.gz (6/52): adding to final database dump
+0020.436 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_postmeta.table.gz (7/52): adding to final database dump
+0020.466 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_posts.table.gz (8/52): adding to final database dump
+0020.547 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_term_relationships.table.gz (9/52): adding to final database dump
+0020.612 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_term_taxonomy.table.gz (10/52): adding to final database dump
+0020.634 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_termmeta.table.gz (11/52): adding to final database dump
+0020.656 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_terms.table.gz (12/52): adding to final database dump
+0020.720 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_imagify_files.table.gz (13/52): adding to final database dump
+0020.742 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_imagify_folders.table.gz (14/52): adding to final database dump
+0020.804 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_layerslider.table.gz (15/52): adding to final database dump
+0020.868 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_layerslider_revisions.table.gz (16/52): adding to final database dump
+0020.932 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_loginsecurity_logs.table.gz (17/52): adding to final database dump
+0020.959 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_css.table.gz (18/52): adding to final database dump
+0021.026 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_layer_animations.table.gz (19/52): adding to final database dump
+0021.088 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_navigations.table.gz (20/52): adding to final database dump
+0021.152 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_sliders.table.gz (21/52): adding to final database dump
+0021.176 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_slides.table.gz (22/52): adding to final database dump
+0021.240 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_revslider_static_slides.table.gz (23/52): adding to final database dump
+0021.304 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBadLeechers.table.gz (24/52): adding to final database dump
+0021.325 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlockedCommentLog.table.gz (25/52): adding to final database dump
+0021.388 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlockedIPLog.table.gz (26/52): adding to final database dump
+0021.409 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlocks.table.gz (27/52): adding to final database dump
+0021.472 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlocks7.table.gz (28/52): adding to final database dump
+0021.536 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfBlocksAdv.table.gz (29/52): adding to final database dump
+0021.557 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfConfig.table.gz (30/52): adding to final database dump
+0021.632 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfCrawlers.table.gz (31/52): adding to final database dump
+0021.696 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfFileChanges.table.gz (32/52): adding to final database dump
+0021.760 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfFileMods.table.gz (33/52): adding to final database dump
+0021.889 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfHits.table.gz (34/52): adding to final database dump
+0021.922 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfHoover.table.gz (35/52): adding to final database dump
+0021.943 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfIssues.table.gz (36/52): adding to final database dump
+0021.964 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfKnownFileList.table.gz (37/52): adding to final database dump
+0022.009 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLeechers.table.gz (38/52): adding to final database dump
+0022.031 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLockedOut.table.gz (39/52): adding to final database dump
+0022.096 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLocs.table.gz (40/52): adding to final database dump
+0022.128 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfLogins.table.gz (41/52): adding to final database dump
+0022.153 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfNet404s.table.gz (42/52): adding to final database dump
+0022.177 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfNotifications.table.gz (43/52): adding to final database dump
+0022.199 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfPendingIssues.table.gz (44/52): adding to final database dump
+0022.221 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfReverseCache.table.gz (45/52): adding to final database dump
+0022.243 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfSNIPCache.table.gz (46/52): adding to final database dump
+0022.264 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfScanners.table.gz (47/52): adding to final database dump
+0022.286 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfStatus.table.gz (48/52): adding to final database dump
+0022.315 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfThrottleLog.table.gz (49/52): adding to final database dump
+0022.380 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_wfVulnScanners.table.gz (50/52): adding to final database dump
+0022.444 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_yoast_seo_links.table.gz (51/52): adding to final database dump
+0022.467 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db-table-wp_yoast_seo_meta.table.gz (52/52): adding to final database dump
+0022.489 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db.gz: finished writing out complete database file (1536 KB)
+0022.573 (0) Total database tables backed up: 52 (backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db.gz, size: 1603367, sha256)
+0022.701 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0022.723 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0022.744 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0022.766 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-others.zip: others: This file has not yet been successfully uploaded: will queue
+0022.832 (0) backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db.gz: db: This file has not yet been successfully uploaded: will queue
+0022.853 (0) Saving backup history. Total backup size: 51.5 MB
+0022.917 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0022.965 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0022.988 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-34c852f48c83520466461ea69df63f13)
+0023.421 (0) Set region: us-west-2
+0023.442 (0) S3 upload (us-west-2): backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip (chunks: 5) -> s3://blog.lawrencemcdaniel.com/backup/backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip
+0023.508 (0) S3 chunked upload: got multipart ID: 91OX1R9ljlInTTmdfTYiU_1ZnsfbmXETyCsgeVNAL7YsGzc0tcveRWwIqttsvszTHBRR167y55QeV2aGbiL_bm8tjvYN.oZqcYLgQCZ5.LiKVoFgAahLedNKxzr1oeES
+0023.853 (0) S3 chunked upload: 20 % uploaded (1, "d67ae39023263e50281f079c6bf57dbc")
+0024.228 (0) S3 chunked upload: 40 % uploaded (2, "d4a77a96d7ebb0bbde6b747abea5a365")
+0024.572 (0) S3 chunked upload: 60 % uploaded (3, "1c6a90837877bded003334dc60a109d0")
+0024.857 (0) S3 chunked upload: 80 % uploaded (4, "d3f049eec55bad8b0975c1428d945d9d")
+0025.237 (0) S3 chunked upload: 100 % uploaded (5, "598ef5366944495c8a6cb6cadc6a3f5c")
+0025.285 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0025.435 (0) S3 upload (plugins0): re-assembly succeeded
+0025.513 (0) Recording as successfully uploaded: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip (c1edbc043163def0dbefef8749660637)
+0025.573 (0) Deleting local file: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-plugins.zip: OK
+0025.594 (0) S3 upload (us-west-2): backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip (chunks: 2) -> s3://blog.lawrencemcdaniel.com/backup/backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip
+0025.623 (0) S3 chunked upload: got multipart ID: pQyGxTdSzlu2bCGIXUQew0I3YWQzBT1Ake3cTQN7ZFLg_KcDYvkcTZW42wyGv4VJMV.DTvevoH9W5aOsSoNCqTuauI8QgTHGEdsWFNvRLZhofNPxNtE.jnlrCTCwtV5S
+0026.005 (0) S3 chunked upload: 50 % uploaded (1, "4df0679308745b78dff65efd7f700a4b")
+0026.429 (0) S3 chunked upload: 100 % uploaded (2, "92c19812d6a0adcafad5bc8f35eb6632")
+0026.470 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0026.594 (0) S3 upload (themes0): re-assembly succeeded
+0026.669 (0) Recording as successfully uploaded: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip (920105fb09207975230d7efcfcb1a0fc)
+0026.714 (0) Deleting local file: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-themes.zip: OK
+0026.735 (0) S3 upload (us-west-2): backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip (chunks: 4) -> s3://blog.lawrencemcdaniel.com/backup/backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip
+0026.764 (0) S3 chunked upload: got multipart ID: zGGabbbrfYyM53O1IRINiLdCFbGVNqpYSNpTWVqyt.hwWN3_AXo6FKj5rl45UsdGbKx.nQTmBFlA0DiiJBlTM.fkeApLlvmJE1FMndE6wBDgsBmunpGQeywUlwj2XhWJ
+0027.106 (0) S3 chunked upload: 25 % uploaded (1, "83dfe895be9fbac352ef1fcf788ec3af")
+0027.447 (0) S3 chunked upload: 50 % uploaded (2, "00e445df5064bff9796858029c288221")
+0027.929 (0) S3 chunked upload: 75 % uploaded (3, "5f06093c4b028aab363ef6e2d9cfe8db")
+0028.149 (0) S3 chunked upload: 100 % uploaded (4, "b07ca9de0d0f844011e78433c21c072c")
+0028.201 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0028.305 (0) S3 upload (uploads0): re-assembly succeeded
+0028.339 (0) Recording as successfully uploaded: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip (4bbedc823a8218d8697186a5123e5e53)
+0028.392 (0) Deleting local file: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-uploads.zip: OK
+0028.413 (0) S3 upload (us-west-2): backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-others.zip (chunks: 1) -> s3://blog.lawrencemcdaniel.com/backup/backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-others.zip
+0028.559 (0) S3 regular upload: success
+0028.633 (0) Recording as successfully uploaded: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-others.zip (2d5d67101f3b4287ff54748d4922c974)
+0028.677 (0) Deleting local file: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-others.zip: OK
+0028.698 (0) S3 upload (us-west-2): backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db.gz (chunks: 1) -> s3://blog.lawrencemcdaniel.com/backup/backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db.gz
+0028.821 (0) S3 regular upload: success
+0028.857 (0) Recording as successfully uploaded: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db.gz (deac45303341a45e31e9ddfb9e42f0aa)
+0028.913 (0) Deleting local file: backup_2018-03-20-1127_Lawrence_McDaniel_b2776086157c-db.gz: OK
+0028.945 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0028.972 (0) Number of backup sets in history: 31; groups (db): 1
+0029.036 (0) Examining (for databases) backup set with group_id=0, nonce=b2776086157c, datestamp=1521566834 (Mar 20 2018 17:27:14)
+0029.100 (0) This backup set is the backup set just made, so will not be deleted.
+0029.100 (0) Examining (for databases) backup set with group_id=0, nonce=fd022e0f57f9, datestamp=1521479092 (Mar 19 2018 17:04:52)
+0029.100 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.121 (0) Examining (for databases) backup set with group_id=0, nonce=e273c7305775, datestamp=1521393073 (Mar 18 2018 17:11:13)
+0029.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.121 (0) Examining (for databases) backup set with group_id=0, nonce=16ab15dfcb01, datestamp=1521305985 (Mar 17 2018 16:59:45)
+0029.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.122 (0) Examining (for databases) backup set with group_id=0, nonce=a45a8a6998aa, datestamp=1521219510 (Mar 16 2018 16:58:30)
+0029.122 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.122 (0) Examining (for databases) backup set with group_id=0, nonce=539826f3a6f5, datestamp=1521133618 (Mar 15 2018 17:06:58)
+0029.122 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.122 (0) Examining (for databases) backup set with group_id=0, nonce=ea45c515c99a, datestamp=1521046748 (Mar 14 2018 16:59:08)
+0029.122 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.122 (0) Examining (for databases) backup set with group_id=0, nonce=13a19f14e342, datestamp=1520960892 (Mar 13 2018 17:08:12)
+0029.122 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.122 (0) Examining (for databases) backup set with group_id=0, nonce=ec3914bca0eb, datestamp=1520873857 (Mar 12 2018 16:57:37)
+0029.122 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.123 (0) Examining (for databases) backup set with group_id=0, nonce=ff898bc4ff75, datestamp=1520787422 (Mar 11 2018 16:57:02)
+0029.123 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.123 (0) Examining (for databases) backup set with group_id=0, nonce=85d873289c88, datestamp=1520701651 (Mar 10 2018 17:07:31)
+0029.123 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.123 (0) Examining (for databases) backup set with group_id=0, nonce=cb9659c48dcb, datestamp=1520614851 (Mar 09 2018 17:00:51)
+0029.123 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.123 (0) Examining (for databases) backup set with group_id=0, nonce=7924f80b8807, datestamp=1520529455 (Mar 08 2018 17:17:35)
+0029.123 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.123 (0) Examining (for databases) backup set with group_id=0, nonce=da3148a094e3, datestamp=1520443410 (Mar 07 2018 17:23:30)
+0029.123 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.123 (0) Examining (for databases) backup set with group_id=0, nonce=ae227f02d730, datestamp=1520357091 (Mar 06 2018 17:24:51)
+0029.124 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.124 (0) Examining (for databases) backup set with group_id=0, nonce=8da4cf46e1c7, datestamp=1520272648 (Mar 05 2018 17:57:28)
+0029.124 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.124 (0) Examining (for databases) backup set with group_id=0, nonce=b71045368265, datestamp=1520185659 (Mar 04 2018 17:47:39)
+0029.124 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.124 (0) Examining (for databases) backup set with group_id=0, nonce=1ad2dd88e32a, datestamp=1520101650 (Mar 03 2018 18:27:30)
+0029.124 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.124 (0) Examining (for databases) backup set with group_id=0, nonce=01e0b69684b9, datestamp=1520010849 (Mar 02 2018 17:14:09)
+0029.124 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.124 (0) Examining (for databases) backup set with group_id=0, nonce=2aa37faa3211, datestamp=1519923431 (Mar 01 2018 16:57:11)
+0029.124 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.125 (0) Examining (for databases) backup set with group_id=0, nonce=7f6bbc98f913, datestamp=1519872783 (Mar 01 2018 02:53:03)
+0029.125 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.125 (0) Examining (for databases) backup set with group_id=0, nonce=e04cb636a0d1, datestamp=1519840655 (Feb 28 2018 17:57:35)
+0029.125 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.125 (0) Examining (for databases) backup set with group_id=0, nonce=072475d603c0, datestamp=1519756017 (Feb 27 2018 18:26:57)
+0029.125 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.125 (0) Examining (for databases) backup set with group_id=0, nonce=fd129756e307, datestamp=1519668251 (Feb 26 2018 18:04:11)
+0029.125 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.125 (0) Examining (for databases) backup set with group_id=0, nonce=32d7889a8a43, datestamp=1519581890 (Feb 25 2018 18:04:50)
+0029.125 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.126 (0) Examining (for databases) backup set with group_id=0, nonce=3d04fa9b3ee6, datestamp=1519492305 (Feb 24 2018 17:11:45)
+0029.126 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.126 (0) Examining (for databases) backup set with group_id=0, nonce=3d2ce794a43b, datestamp=1519407590 (Feb 23 2018 17:39:50)
+0029.126 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.126 (0) Examining (for databases) backup set with group_id=0, nonce=1a8c1c48c69a, datestamp=1519318812 (Feb 22 2018 17:00:12)
+0029.126 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.126 (0) Examining (for databases) backup set with group_id=0, nonce=192d28f63070, datestamp=1519232165 (Feb 21 2018 16:56:05)
+0029.126 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.126 (0) Examining (for databases) backup set with group_id=0, nonce=68f863953ece, datestamp=1519147088 (Feb 20 2018 17:18:08)
+0029.126 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.127 (0) Examining (for databases) backup set with group_id=0, nonce=17e8a992326e, datestamp=1519059837 (Feb 19 2018 17:03:57)
+0029.127 (0) 1519059837: db: this set includes a database (backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-db.gz); db count is now 30
+0029.127 (0) 1519059837: db: over retain limit (30); will delete this database
+0029.127 (0) Delete file: backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-db.gz, service=s3
+0029.148 (0) S3: Delete remote: bucket=blog.lawrencemcdaniel.com, URI=backup/backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-db.gz
+0029.189 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0029.211 (0) Number of backup sets in history: 31; groups (files): 1
+0029.276 (0) Examining (for files) backup set with nonce=b2776086157c, datestamp=1521566834 (Mar 20 2018 17:27:14)
+0029.276 (0) This backup set is the backup set just made, so will not be deleted.
+0029.297 (0) This backup set is the backup set just made, so will not be deleted.
+0029.297 (0) This backup set is the backup set just made, so will not be deleted.
+0029.297 (0) This backup set is the backup set just made, so will not be deleted.
+0029.298 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.360 (0) Examining (for files) backup set with nonce=fd022e0f57f9, datestamp=1521479092 (Mar 19 2018 17:04:52)
+0029.360 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.360 (0) Examining (for files) backup set with nonce=e273c7305775, datestamp=1521393073 (Mar 18 2018 17:11:13)
+0029.360 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.360 (0) Examining (for files) backup set with nonce=16ab15dfcb01, datestamp=1521305985 (Mar 17 2018 16:59:45)
+0029.360 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.361 (0) Examining (for files) backup set with nonce=a45a8a6998aa, datestamp=1521219510 (Mar 16 2018 16:58:30)
+0029.361 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.361 (0) Examining (for files) backup set with nonce=539826f3a6f5, datestamp=1521133618 (Mar 15 2018 17:06:58)
+0029.361 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.361 (0) Examining (for files) backup set with nonce=ea45c515c99a, datestamp=1521046748 (Mar 14 2018 16:59:08)
+0029.361 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.361 (0) Examining (for files) backup set with nonce=13a19f14e342, datestamp=1520960892 (Mar 13 2018 17:08:12)
+0029.361 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.361 (0) Examining (for files) backup set with nonce=ec3914bca0eb, datestamp=1520873857 (Mar 12 2018 16:57:37)
+0029.361 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.362 (0) Examining (for files) backup set with nonce=ff898bc4ff75, datestamp=1520787422 (Mar 11 2018 16:57:02)
+0029.362 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.362 (0) Examining (for files) backup set with nonce=85d873289c88, datestamp=1520701651 (Mar 10 2018 17:07:31)
+0029.362 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.362 (0) Examining (for files) backup set with nonce=cb9659c48dcb, datestamp=1520614851 (Mar 09 2018 17:00:51)
+0029.362 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.362 (0) Examining (for files) backup set with nonce=7924f80b8807, datestamp=1520529455 (Mar 08 2018 17:17:35)
+0029.362 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.362 (0) Examining (for files) backup set with nonce=da3148a094e3, datestamp=1520443410 (Mar 07 2018 17:23:30)
+0029.362 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.363 (0) Examining (for files) backup set with nonce=ae227f02d730, datestamp=1520357091 (Mar 06 2018 17:24:51)
+0029.363 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.363 (0) Examining (for files) backup set with nonce=8da4cf46e1c7, datestamp=1520272648 (Mar 05 2018 17:57:28)
+0029.363 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.363 (0) Examining (for files) backup set with nonce=b71045368265, datestamp=1520185659 (Mar 04 2018 17:47:39)
+0029.363 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.363 (0) Examining (for files) backup set with nonce=1ad2dd88e32a, datestamp=1520101650 (Mar 03 2018 18:27:30)
+0029.363 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.363 (0) Examining (for files) backup set with nonce=01e0b69684b9, datestamp=1520010849 (Mar 02 2018 17:14:09)
+0029.363 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.364 (0) Examining (for files) backup set with nonce=2aa37faa3211, datestamp=1519923431 (Mar 01 2018 16:57:11)
+0029.364 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.364 (0) Examining (for files) backup set with nonce=7f6bbc98f913, datestamp=1519872783 (Mar 01 2018 02:53:03)
+0029.364 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.364 (0) Examining (for files) backup set with nonce=e04cb636a0d1, datestamp=1519840655 (Feb 28 2018 17:57:35)
+0029.364 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.364 (0) Examining (for files) backup set with nonce=072475d603c0, datestamp=1519756017 (Feb 27 2018 18:26:57)
+0029.364 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.364 (0) Examining (for files) backup set with nonce=fd129756e307, datestamp=1519668251 (Feb 26 2018 18:04:11)
+0029.364 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.364 (0) Examining (for files) backup set with nonce=32d7889a8a43, datestamp=1519581890 (Feb 25 2018 18:04:50)
+0029.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.365 (0) Examining (for files) backup set with nonce=3d04fa9b3ee6, datestamp=1519492305 (Feb 24 2018 17:11:45)
+0029.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.365 (0) Examining (for files) backup set with nonce=3d2ce794a43b, datestamp=1519407590 (Feb 23 2018 17:39:50)
+0029.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.365 (0) Examining (for files) backup set with nonce=1a8c1c48c69a, datestamp=1519318812 (Feb 22 2018 17:00:12)
+0029.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.365 (0) Examining (for files) backup set with nonce=192d28f63070, datestamp=1519232165 (Feb 21 2018 16:56:05)
+0029.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.365 (0) Examining (for files) backup set with nonce=68f863953ece, datestamp=1519147088 (Feb 20 2018 17:18:08)
+0029.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0029.366 (0) Examining (for files) backup set with nonce=17e8a992326e, datestamp=1519059837 (Feb 19 2018 17:03:57)
+0029.366 (0) plugins: over retain limit (30); will delete this file entity
+0029.366 (0) themes: over retain limit (30); will delete this file entity
+0029.366 (0) uploads: over retain limit (30); will delete this file entity
+0029.366 (0) others: over retain limit (30); will delete this file entity
+0029.366 (0) Delete file: backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-plugins.zip, service=s3
+0029.428 (0) Delete file: backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-themes.zip, service=s3
+0029.449 (0) Delete file: backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-uploads.zip, service=s3
+0029.512 (0) Delete file: backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-others.zip, service=s3
+0029.576 (0) S3: Delete remote: bucket=blog.lawrencemcdaniel.com, URI=backup/backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-plugins.zip
+0029.678 (0) S3: Delete remote: bucket=blog.lawrencemcdaniel.com, URI=backup/backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-themes.zip
+0029.755 (0) S3: Delete remote: bucket=blog.lawrencemcdaniel.com, URI=backup/backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-uploads.zip
+0029.875 (0) S3: Delete remote: bucket=blog.lawrencemcdaniel.com, URI=backup/backup_2018-02-19-1103_Lawrence_McDaniel_17e8a992326e-others.zip
+0029.913 (0) This backup set is now empty; will remove from history
+0029.934 (0) Deleting log file (log.17e8a992326e.txt)
+0029.956 (0) Retain: saving new backup history (sets now: 30) and finishing retain operation
+0030.035 (0) Resume backup (b2776086157c, 0): finish run
+0030.085 (0) Decremented the semaphore (fd) by 1
+0030.112 (0) Semaphore (fd) unlocked
+0030.176 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0030.232 (0) Fetching RSS news feed
+0030.393 (0) Fetched RSS news feed; result is a: SimplePie
+0030.439 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: lpm00...
+0030.575 (0) The backup apparently succeeded and is now complete

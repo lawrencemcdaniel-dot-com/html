@@ -1,0 +1,84 @@
+0000.004 () Opened log file at time: Tue, 26 Sep 2017 20:30:16 +0000 on http://fundx.lawrencemcdaniel.com
+0000.004 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.13.9 WP: 4.8.2 PHP: 5.6.31 (apache2handler, Linux ip-172-31-15-31 4.9.32-15.41.amzn1.x86_64 #1 SMP Thu Jun 22 06:20:54 UTC 2017 x86_64) MySQL: 5.5.56 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.1k-fips PHP/5.6.31 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 60.2M | 61.5M) multisite: N openssl: OpenSSL 1.0.1k-fips 8 Jan 2015 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.004 () Free space on disk containing Updraft's temporary directory: 44103.2 MB
+0000.007 () Restore job started. Entities to restore: db. Restore options: {"updraft_restorer_replacesiteurl":false,"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false}
+0000.018 () Requested file from remote service: s3: backup_2017-09-26-1952_FundX_Sustainable_Impact_Fund_S_1cfd2369ec4a-db.gz
+0000.396 () Set region: us-west-2
+0000.430 () Set region: us-west-2
+0000.614 () File is already completely downloaded (2050201/2050201)
+0000.625 () Entity: db
+0000.625 () restore_backup(backup_file=backup_2017-09-26-1952_FundX_Sustainable_Impact_Fund_S_1cfd2369ec4a-db.gz, type=db, info=a:0:{}, last_one=1)
+0000.625 () Unpacking backup... (backup_2017-09-26-1952_FundX_Sustainable_Impact_Fund_S_1cfd2369ec4a-db.gz, 2 Mb)
+0000.627 () Database successfully unpacked
+0000.627 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0000.627 () Using direct MySQL access; value of use_mysqli is: 1
+0000.635 () Tried to raise max_allowed_packet from 1 MB to 32 MB, but failed (Access denied; you need (at least one of) the SUPER privilege(s) for this operation, b:0;)
+0000.635 () Max packet size: 1 MB
+0000.635 () Entering maintenance mode
+0000.635 () Enabling Maintenance mode&#8230;
+0000.636 () Backup of: http://fundx.lawrencemcdaniel.com
+0000.636 () Content URL: http://fundx.lawrencemcdaniel.com/wp-content
+0000.636 () Uploads URL: http://fundx.lawrencemcdaniel.com/wp-content/uploads
+0000.636 () Old table prefix: wp_
+0000.636 () Site information: multisite=0
+0000.638 () New table prefix: wp_
+0000.647 () Processing table (InnoDB): wp_options
+0000.778 () Restoring prior UD configuration (table: wp_options; keys: 3)
+0000.793 () Processing table (InnoDB): wp_users
+0000.803 () Processing table (InnoDB): wp_usermeta
+0000.816 () Processing table (InnoDB): wp_commentmeta
+0000.825 () Processing table (InnoDB): wp_comments
+0000.838 () Processing table (InnoDB): wp_links
+0000.846 () Processing table (InnoDB): wp_postmeta
+0001.531 () Database queries processed: 50 in 0.90 seconds
+0001.538 () Processing table (InnoDB): wp_posts
+0002.008 () Processing table (InnoDB): wp_term_relationships
+0002.021 () Processing table (InnoDB): wp_term_taxonomy
+0002.031 () Processing table (InnoDB): wp_termmeta
+0002.040 () Processing table (InnoDB): wp_terms
+0002.060 () Processing table (InnoDB): wp_eg_grids
+0002.090 () Processing table (InnoDB): wp_eg_item_elements
+0002.100 () Processing table (InnoDB): wp_eg_item_skins
+0002.133 () Processing table (InnoDB): wp_eg_navigation_skins
+0002.145 () Processing table (InnoDB): wp_ip_geo_block_cache
+0002.165 () Processing table (InnoDB): wp_ip_geo_block_logs
+0002.181 () Processing table (InnoDB): wp_ip_geo_block_stat
+0002.206 () Database queries processed: 100 in 1.58 seconds
+0002.211 () Processing table (InnoDB): wp_revslider_css
+0002.232 () Processing table (InnoDB): wp_revslider_layer_animations
+0002.240 () Processing table (InnoDB): wp_revslider_navigations
+0002.248 () Processing table (InnoDB): wp_revslider_sliders
+0002.259 () Processing table (InnoDB): wp_revslider_slides
+0002.288 () Processing table (InnoDB): wp_revslider_static_slides
+0002.295 () Processing table (InnoDB): wp_wfBadLeechers
+0002.303 () Processing table (InnoDB): wp_wfBlockedCommentLog
+0002.309 () Processing table (InnoDB): wp_wfBlockedIPLog
+0002.319 () Processing table (InnoDB): wp_wfBlocks
+0002.327 () Processing table (InnoDB): wp_wfBlocksAdv
+0002.357 () Processing table (InnoDB): wp_wfConfig
+0002.392 () Processing table (InnoDB): wp_wfCrawlers
+0002.401 () Processing table (InnoDB): wp_wfFileMods
+0003.076 () Processing table (InnoDB): wp_wfHits
+0003.329 () Processing table (InnoDB): wp_wfHoover
+0003.336 () Database queries processed: 150 in 2.71 seconds
+0003.337 () Processing table (InnoDB): wp_wfIssues
+0003.356 () Processing table (InnoDB): wp_wfKnownFileList
+0003.901 () Processing table (InnoDB): wp_wfLeechers
+0003.936 () Processing table (InnoDB): wp_wfLockedOut
+0003.944 () Processing table (InnoDB): wp_wfLocs
+0003.952 () Processing table (InnoDB): wp_wfLogins
+0003.979 () Processing table (InnoDB): wp_wfNet404s
+0003.985 () Processing table (InnoDB): wp_wfNotifications
+0004.005 () Processing table (InnoDB): wp_wfPendingIssues
+0004.013 () Processing table (InnoDB): wp_wfReverseCache
+0004.021 () Processing table (InnoDB): wp_wfSNIPCache
+0004.029 () Processing table (InnoDB): wp_wfScanners
+0004.041 () Processing table (InnoDB): wp_wfStatus
+0004.157 () Processing table (InnoDB): wp_wfThrottleLog
+0004.165 () Processing table (InnoDB): wp_wfVulnScanners
+0004.170 () Unlocking database and leaving maintenance mode
+0004.170 () Disabling Maintenance mode&#8230;
+0004.170 () Finished: lines processed: 194 in 3.54 seconds
+0004.170 () Cleaning up rubbish...
+0004.213 () Restore successful!
+0004.213 () Restore successful

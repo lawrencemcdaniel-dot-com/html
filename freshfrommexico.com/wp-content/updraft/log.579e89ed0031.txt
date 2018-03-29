@@ -1,0 +1,653 @@
+0000.000 (0) Opened log file at time: Mon, 19 Mar 2018 20:54:53 +0000 on https://www.freshfrommexico.com
+0000.020 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-14-147 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 58.2M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.028 (0) Free space on disk containing Updraft's temporary directory: 93308.3 MB
+0000.036 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.053 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.072 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1521406539, seconds_ago=86354)
+0000.117 (0) Set semaphore last lock (fd) time to 2018-03-19 20:54:53
+0000.124 (0) Semaphore lock (fd) complete
+0000.158 (0) Backup run: resumption=0, nonce=579e89ed0031, begun at=1521492893 (0s ago), job type=backup
+0000.182 (0) Scheduling a resumption (1) after 300 seconds (1521493193) in case this run gets aborted
+0000.224 (0) Checking if we have a zip executable available
+0000.231 (0) Testing: /usr/bin/zip
+0000.252 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.258 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.265 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.282 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.296 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.310 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.323 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.334 (0) Working binary zip found: /usr/bin/zip
+0000.358 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.364 (0) Creation of backups of directories: beginning
+0000.395 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.521 (0) Total entities for the zip file: 1236 directories, 7374 files (0 skipped as non-modified), 102.7 MB
+0000.531 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.539 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.560 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.567 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.575 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.593 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.6 MB, 7374 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.217 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: size is now: 4.20 MB
+0001.243 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 600 files added (on-disk size: 4260 KB)
+0001.251 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 700 files added (on-disk size: 4260 KB)
+0001.270 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 800 files added (on-disk size: 4260 KB)
+0001.278 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 900 files added (on-disk size: 4260 KB)
+0001.285 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1000 files added (on-disk size: 4260 KB)
+0001.302 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.6 MB, 7374 files batched, 501 (1002) added so far); re-opening (prior size: 4260 KB)
+0001.806 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: size is now: 6.00 MB
+0001.834 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1100 files added (on-disk size: 6125 KB)
+0001.841 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1200 files added (on-disk size: 6125 KB)
+0001.857 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1300 files added (on-disk size: 6125 KB)
+0001.864 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1400 files added (on-disk size: 6125 KB)
+0001.872 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1500 files added (on-disk size: 6125 KB)
+0001.892 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.7 MB, 7374 files batched, 501 (1503) added so far); re-opening (prior size: 6125 KB)
+0002.317 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: size is now: 9.20 MB
+0002.338 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1600 files added (on-disk size: 9449.9 KB)
+0002.345 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1700 files added (on-disk size: 9449.9 KB)
+0002.363 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1800 files added (on-disk size: 9449.9 KB)
+0002.371 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 1900 files added (on-disk size: 9449.9 KB)
+0002.381 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2000 files added (on-disk size: 9449.9 KB)
+0002.387 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 7374 files batched, 501 (2004) added so far); re-opening (prior size: 9449.9 KB)
+0002.791 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: size is now: 12.90 MB
+0002.814 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2100 files added (on-disk size: 13243.1 KB)
+0002.822 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2200 files added (on-disk size: 13243.1 KB)
+0002.830 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2300 files added (on-disk size: 13243.1 KB)
+0002.838 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2400 files added (on-disk size: 13243.1 KB)
+0002.847 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2500 files added (on-disk size: 13243.1 KB)
+0002.853 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17.3 MB, 7374 files batched, 501 (2505) added so far); re-opening (prior size: 13243.1 KB)
+0003.856 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: size is now: 17.30 MB
+0003.882 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2600 files added (on-disk size: 17740.4 KB)
+0003.901 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2700 files added (on-disk size: 17740.4 KB)
+0003.909 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2800 files added (on-disk size: 17740.4 KB)
+0003.918 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 2900 files added (on-disk size: 17740.4 KB)
+0003.936 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3000 files added (on-disk size: 17740.4 KB)
+0003.943 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7 MB, 7374 files batched, 501 (3006) added so far); re-opening (prior size: 17740.4 KB)
+0004.553 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3100 files added (on-disk size: 20474.5 KB)
+0004.561 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3200 files added (on-disk size: 20474.5 KB)
+0004.568 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3300 files added (on-disk size: 20474.5 KB)
+0004.587 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3400 files added (on-disk size: 20474.5 KB)
+0004.595 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3500 files added (on-disk size: 20474.5 KB)
+0004.601 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 7374 files batched, 501 (3507) added so far); re-opening (prior size: 20474.5 KB)
+0005.017 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3600 files added (on-disk size: 22284.3 KB)
+0005.034 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3700 files added (on-disk size: 22284.3 KB)
+0005.042 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3800 files added (on-disk size: 22284.3 KB)
+0005.050 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 3900 files added (on-disk size: 22284.3 KB)
+0005.068 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4000 files added (on-disk size: 22284.3 KB)
+0005.075 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.7 MB, 7374 files batched, 501 (4008) added so far); re-opening (prior size: 22284.3 KB)
+0005.550 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4100 files added (on-disk size: 25266.5 KB)
+0005.558 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4200 files added (on-disk size: 25266.5 KB)
+0005.566 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4300 files added (on-disk size: 25266.5 KB)
+0005.581 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4400 files added (on-disk size: 25266.5 KB)
+0005.589 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4500 files added (on-disk size: 25266.5 KB)
+0005.595 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.7 MB, 7374 files batched, 501 (4509) added so far); re-opening (prior size: 25266.5 KB)
+0006.156 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4600 files added (on-disk size: 27511 KB)
+0006.164 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4700 files added (on-disk size: 27511 KB)
+0006.182 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4800 files added (on-disk size: 27511 KB)
+0006.190 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 4900 files added (on-disk size: 27511 KB)
+0006.198 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5000 files added (on-disk size: 27511 KB)
+0006.215 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 7374 files batched, 501 (5010) added so far); re-opening (prior size: 27511 KB)
+0006.759 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5100 files added (on-disk size: 29063.5 KB)
+0006.884 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5200 files added (on-disk size: 29063.5 KB)
+0007.041 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5300 files added (on-disk size: 29063.5 KB)
+0007.096 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5400 files added (on-disk size: 29063.5 KB)
+0007.132 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5500 files added (on-disk size: 29063.5 KB)
+0007.174 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4 MB, 7374 files batched, 501 (5511) added so far); re-opening (prior size: 29063.5 KB)
+0007.596 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5600 files added (on-disk size: 30361 KB)
+0007.604 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5700 files added (on-disk size: 30361 KB)
+0007.613 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5800 files added (on-disk size: 30361 KB)
+0007.621 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 5900 files added (on-disk size: 30361 KB)
+0007.634 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6000 files added (on-disk size: 30361 KB)
+0007.642 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (14.6 MB, 7374 files batched, 501 (6012) added so far); re-opening (prior size: 30361 KB)
+0008.938 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6100 files added (on-disk size: 34888.5 KB)
+0008.947 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6200 files added (on-disk size: 34888.5 KB)
+0008.966 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6300 files added (on-disk size: 34888.5 KB)
+0008.975 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6400 files added (on-disk size: 34888.5 KB)
+0008.995 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6500 files added (on-disk size: 34888.5 KB)
+0009.003 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.5 MB, 7374 files batched, 501 (6513) added so far); re-opening (prior size: 34888.5 KB)
+0009.584 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6600 files added (on-disk size: 36439.6 KB)
+0009.604 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6700 files added (on-disk size: 36439.6 KB)
+0009.612 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6800 files added (on-disk size: 36439.6 KB)
+0009.620 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 6900 files added (on-disk size: 36439.6 KB)
+0009.639 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 7000 files added (on-disk size: 36439.6 KB)
+0009.646 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.4 MB, 7374 files batched, 501 (7014) added so far); re-opening (prior size: 36439.6 KB)
+0010.029 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 7100 files added (on-disk size: 37023.3 KB)
+0010.036 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 7200 files added (on-disk size: 37023.3 KB)
+0010.044 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip.tmp: 7300 files added (on-disk size: 37023.3 KB)
+0010.870 (0) Created plugins zip (0) - 41318.5 KB in 10.5 s (3947.3 KB/s) (sha1: b428cf278f65aa23716565153610461a40f2d868, sha256: ff1e99a14faed2d6692dba175a45d9bbcccce42244cb6ea5c7662805f43dc391)
+0010.885 (0) Beginning creation of dump of themes (split every: 400 MB)
+0010.919 (0) Total entities for the zip file: 234 directories, 1525 files (0 skipped as non-modified), 18.1 MB
+0010.928 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0010.936 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0010.944 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0010.951 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0010.959 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0010.965 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.6 MB, 1525 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0011.291 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: size is now: 2.80 MB
+0011.308 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 600 files added (on-disk size: 2818.2 KB)
+0011.316 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 700 files added (on-disk size: 2818.2 KB)
+0011.323 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 800 files added (on-disk size: 2818.2 KB)
+0011.331 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 900 files added (on-disk size: 2818.2 KB)
+0011.339 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 1000 files added (on-disk size: 2818.2 KB)
+0011.345 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.1 MB, 1525 files batched, 501 (1002) added so far); re-opening (prior size: 2818.2 KB)
+0012.008 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: size is now: 6.30 MB
+0012.031 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 1100 files added (on-disk size: 6447.6 KB)
+0012.039 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 1200 files added (on-disk size: 6447.6 KB)
+0012.048 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 1300 files added (on-disk size: 6447.6 KB)
+0012.056 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 1400 files added (on-disk size: 6447.6 KB)
+0012.063 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip.tmp: 1500 files added (on-disk size: 6447.6 KB)
+0012.070 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 1525 files batched, 501 (1503) added so far); re-opening (prior size: 6447.6 KB)
+0012.554 (0) Created themes zip (0) - 7573.5 KB in 1.7 s (4554.4 KB/s) (sha1: 2920d0652675999077e3cd54c0fda5026e7630b5, sha256: c666c5dc433b344ccfd43615f6e5cbdaa433e1be3482cebcc8cbe5f61f14393d)
+0012.568 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0012.574 (0) Looking for candidates to back up in: /var/www/html/freshfrommexico.com/wp-content/uploads
+0012.581 (0) finding files: fusion-builder-avada-pages: adding to list (1)
+0012.588 (0) finding files: 2012: adding to list (2)
+0012.594 (0) finding files: 2018: adding to list (3)
+0012.601 (0) finding files: backup: skipping: excluded by options (glob)
+0012.607 (0) finding files: fusion-styles: adding to list (4)
+0012.613 (0) finding files: fusion_slider_exports: adding to list (5)
+0012.620 (0) finding files: fusion-scripts: adding to list (6)
+0012.627 (0) finding files: ip-geo-api: adding to list (7)
+0012.633 (0) finding files: 2015: adding to list (8)
+0012.639 (0) finding files: 2014: adding to list (9)
+0012.645 (0) finding files: 2016: adding to list (10)
+0012.652 (0) finding files: 2013: adding to list (11)
+0012.658 (0) finding files: 2017: adding to list (12)
+0012.665 (0) finding files: mdocs: adding to list (13)
+0012.671 (0) finding files: fusionredux: adding to list (14)
+0012.678 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0012.704 (0) Total entities for the zip file: 87 directories, 1106 files (0 skipped as non-modified), 314.3 MB
+0012.721 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25.4 MB, 1106 files batched, 98 (98) added so far); re-opening (prior size: 0 KB)
+0013.262 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: size is now: 5.60 MB
+0013.277 (0) A useful amount of data was added after this amount of zip processing: 1.6 s (normalised: 1.5 s, rate: 16544.5 KB/s)
+0013.291 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.5708539485931, normalised_time=1.5473457374524, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=101649163)
+0013.306 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 100 files added (on-disk size: 5764.1 KB)
+0013.315 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 200 files added (on-disk size: 5764.1 KB)
+0013.323 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 96.9 MB added on this batch (97.1 MB, 1106 files batched, 179 (277) added so far); re-opening (prior size: 5764.1 KB)
+0015.803 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: size is now: 17.30 MB
+0015.828 (0) A useful amount of data was added after this amount of zip processing: 3.1 s (normalised: 3.1 s, rate: 31854.7 KB/s)
+0015.841 (0) Performance is good - will increase the amount of data we attempt to batch (time=3.1219210624695, normalised_time=3.1162353346872, max_time=-1, data points known=0, old_max_bytes=101649163, new_max_bytes=195715314)
+0015.857 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 300 files added (on-disk size: 17705.2 KB)
+0015.864 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 400 files added (on-disk size: 17705.2 KB)
+0015.872 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 500 files added (on-disk size: 17705.2 KB)
+0015.880 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 600 files added (on-disk size: 17705.2 KB)
+0015.887 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 700 files added (on-disk size: 17705.2 KB)
+0015.895 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (112.2 MB, 1106 files batched, 501 (778) added so far); re-opening (prior size: 17705.2 KB)
+0019.229 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: size is now: 52.20 MB
+0019.250 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 800 files added (on-disk size: 53434.9 KB)
+0019.259 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 900 files added (on-disk size: 53434.9 KB)
+0019.267 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 1000 files added (on-disk size: 53434.9 KB)
+0019.275 (0) Zip: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: 1100 files added (on-disk size: 53434.9 KB)
+0020.635 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip.tmp: size is now: 130.90 MB
+0022.144 (0) Created uploads zip (0) - 134003.5 KB in 9.5 s (14165.6 KB/s) (sha1: 4bb4e5ef727f86f4a98eeb37ce5544b50cf5c822, sha256: 83fe1da1b1e8289e663a666c3e2e8afc0eca867688f70ee2bb06201b41e97aee)
+0022.158 (0) Beginning backup of other directories found in the content directory (index: 0)
+0022.164 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0022.171 (0) Looking for candidates to back up in: /var/www/html/freshfrommexico.com/wp-content
+0022.178 (0) finding files: wflogs: adding to list (1)
+0022.184 (0) finding files: index.php: adding to list (2)
+0022.190 (0) finding files: upgrade: skipping: excluded by options
+0022.197 (0) finding files: updraft: skipping: this is the updraft directory
+0022.204 (0) finding files: themes: skipping: this is the themes directory
+0022.210 (0) finding files: advanced-cache.php: adding to list (3)
+0022.216 (0) finding files: ip-geo-api: adding to list (4)
+0022.222 (0) finding files: w3tc-config: adding to list (5)
+0022.228 (0) finding files: uploads: skipping: this is the uploads directory
+0022.234 (0) finding files: cache: skipping: excluded by options
+0022.240 (0) finding files: wp-rocket-config: adding to list (6)
+0022.246 (0) finding files: plugins: skipping: this is the plugins directory
+0022.268 (0) Total entities for the zip file: 6 directories, 24 files (0 skipped as non-modified), 9.6 MB
+0022.832 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-others.zip.tmp: size is now: 3.20 MB
+0022.916 (0) Created others zip (0) - 3326.9 KB in 0.7 s (5074.3 KB/s) (sha1: 04747936172d11fcf9fe5a3daa96cd78a252722b, sha256: 154cbce5a54f1e603b4b85ba7b7bced1b0ca2bedc65035bfc0eeca3c81f0b592)
+0022.951 (0) Saving backup status to database (elements: 8)
+0022.993 (0) Beginning creation of database dump (WordPress DB)
+0023.009 (0) Testing: /usr/bin/mysqldump
+0023.027 (0) Binary mysqldump: error (code: 2)
+0023.067 (0) Table wp_options: Total expected rows (approximate): 584
+0023.194 (0) Table wp_options: Total rows added: 594 in 0.12 seconds
+0023.202 (0) Table wp_options: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_options.table.gz - 365.8 KB)
+0023.231 (0) Table wp_users: Total expected rows (approximate): 12
+0023.243 (0) Table wp_users: Total rows added: 12 in 0.01 seconds
+0023.250 (0) Table wp_users: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_users.table.gz - 1.3 KB)
+0023.278 (0) Table wp_usermeta: Total expected rows (approximate): 314
+0023.292 (0) Table wp_usermeta: Total rows added: 314 in 0.01 seconds
+0023.302 (0) Table wp_usermeta: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_usermeta.table.gz - 5.5 KB)
+0023.332 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0023.343 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0023.350 (0) Table wp_commentmeta: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0023.396 (0) Table wp_comments: Total expected rows (approximate): 0
+0023.416 (0) Table wp_comments: Total rows added: 0 in 0.01 seconds
+0023.431 (0) Table wp_comments: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_comments.table.gz - 0.5 KB)
+0023.475 (0) Table wp_links: Total expected rows (approximate): 0
+0023.485 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0023.495 (0) Table wp_links: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_links.table.gz - 0.4 KB)
+0023.522 (0) Table wp_postmeta: Total expected rows (approximate): 21687
+0024.088 (0) Table wp_postmeta: Total rows added: 23035 in 0.56 seconds
+0024.103 (0) Table wp_postmeta: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_postmeta.table.gz - 207.3 KB)
+0024.139 (0) Table wp_posts: Total expected rows (approximate): 948
+0024.215 (0) Table wp_posts: Total rows added: 958 in 0.07 seconds
+0024.224 (0) Table wp_posts: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_posts.table.gz - 138.7 KB)
+0024.256 (0) Table wp_signups: Total expected rows (approximate): 0
+0024.269 (0) Table wp_signups: Total rows added: 1 in 0.01 seconds
+0024.279 (0) Table wp_signups: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_signups.table.gz - 0.6 KB)
+0024.306 (0) Table wp_term_relationships: Total expected rows (approximate): 1001
+0024.326 (0) Table wp_term_relationships: Total rows added: 1024 in 0.01 seconds
+0024.337 (0) Table wp_term_relationships: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_term_relationships.table.gz - 3.3 KB)
+0024.366 (0) Table wp_term_taxonomy: Total expected rows (approximate): 198
+0024.382 (0) Table wp_term_taxonomy: Total rows added: 206 in 0.01 seconds
+0024.389 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_term_taxonomy.table.gz - 2.1 KB)
+0024.425 (0) Table wp_termmeta: Total expected rows (approximate): 2
+0024.442 (0) Table wp_termmeta: Total rows added: 2 in 0.01 seconds
+0024.451 (0) Table wp_termmeta: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_termmeta.table.gz - 0.4 KB)
+0024.483 (0) Table wp_terms: Total expected rows (approximate): 198
+0024.498 (0) Table wp_terms: Total rows added: 206 in 0.01 seconds
+0024.507 (0) Table wp_terms: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_terms.table.gz - 3.1 KB)
+0024.535 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0024.546 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0024.555 (0) Table wp_imagify_files: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0024.582 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0024.593 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0024.601 (0) Table wp_imagify_folders: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0024.631 (0) Table wp_ip_geo_block_cache: Total expected rows (approximate): 2
+0024.643 (0) Table wp_ip_geo_block_cache: Total rows added: 2 in 0.01 seconds
+0024.653 (0) Table wp_ip_geo_block_cache: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_ip_geo_block_cache.table.gz - 0.5 KB)
+0024.691 (0) Table wp_ip_geo_block_logs: Total expected rows (approximate): 2
+0024.705 (0) Table wp_ip_geo_block_logs: Total rows added: 2 in 0.01 seconds
+0024.723 (0) Table wp_ip_geo_block_logs: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_ip_geo_block_logs.table.gz - 0.8 KB)
+0024.762 (0) Table wp_ip_geo_block_stat: Total expected rows (approximate): 0
+0024.778 (0) Table wp_ip_geo_block_stat: Total rows added: 1 in 0.01 seconds
+0024.787 (0) Table wp_ip_geo_block_stat: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_ip_geo_block_stat.table.gz - 0.6 KB)
+0024.822 (0) Table wp_pmpro_membership_levelmeta: Total expected rows (approximate): 0
+0024.832 (0) Table wp_pmpro_membership_levelmeta: Total rows added: 0 in 0.00 seconds
+0024.843 (0) Table wp_pmpro_membership_levelmeta: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_pmpro_membership_levelmeta.table.gz - 0.3 KB)
+0024.870 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0024.884 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0024.897 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0024.926 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0024.936 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0024.949 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0024.979 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 14
+0024.990 (0) Table wp_wfBlockedIPLog: Total rows added: 12 in 0.01 seconds
+0024.997 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlockedIPLog.table.gz - 0.5 KB)
+0025.027 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0025.037 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0025.047 (0) Table wp_wfBlocks: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0025.083 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0025.093 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0025.103 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0025.131 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0025.142 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0025.151 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0025.191 (0) Table wp_wfConfig: Total expected rows (approximate): 239
+0025.216 (0) Table wp_wfConfig: Total rows added: 239 in 0.02 seconds
+0025.227 (0) Table wp_wfConfig: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfConfig.table.gz - 236.3 KB)
+0025.255 (0) Table wp_wfCrawlers: Total expected rows (approximate): 56
+0025.272 (0) Table wp_wfCrawlers: Total rows added: 56 in 0.01 seconds
+0025.283 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfCrawlers.table.gz - 1.2 KB)
+0025.311 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0025.321 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0025.330 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0025.359 (0) Table wp_wfFileMods: Total expected rows (approximate): 9070
+0025.662 (0) Table wp_wfFileMods: Total rows added: 10458 in 0.30 seconds
+0025.669 (0) Table wp_wfFileMods: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfFileMods.table.gz - 917.4 KB)
+0025.695 (0) Table wp_wfHits: Total expected rows (approximate): 2489
+0025.782 (0) Table wp_wfHits: Total rows added: 2473 in 0.08 seconds
+0025.797 (0) Table wp_wfHits: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfHits.table.gz - 78.3 KB)
+0025.827 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0025.839 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0025.847 (0) Table wp_wfHoover: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0025.879 (0) Table wp_wfIssues: Total expected rows (approximate): 1
+0025.892 (0) Table wp_wfIssues: Total rows added: 1 in 0.01 seconds
+0025.903 (0) Table wp_wfIssues: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfIssues.table.gz - 1.1 KB)
+0025.932 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 10726
+0026.196 (0) Table wp_wfKnownFileList: Total rows added: 10458 in 0.26 seconds
+0026.203 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfKnownFileList.table.gz - 106.9 KB)
+0026.235 (0) Table wp_wfLeechers: Total expected rows (approximate): 1045
+0026.255 (0) Table wp_wfLeechers: Total rows added: 1045 in 0.01 seconds
+0026.263 (0) Table wp_wfLeechers: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLeechers.table.gz - 6.1 KB)
+0026.303 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0026.314 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0026.323 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0026.359 (0) Table wp_wfLocs: Total expected rows (approximate): 1
+0026.370 (0) Table wp_wfLocs: Total rows added: 2 in 0.01 seconds
+0026.380 (0) Table wp_wfLocs: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLocs.table.gz - 0.5 KB)
+0026.404 (0) Table wp_wfLogins: Total expected rows (approximate): 631
+0026.436 (0) Table wp_wfLogins: Total rows added: 879 in 0.03 seconds
+0026.447 (0) Table wp_wfLogins: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLogins.table.gz - 16 KB)
+0026.478 (0) Table wp_wfNet404s: Total expected rows (approximate): 1
+0026.490 (0) Table wp_wfNet404s: Total rows added: 1 in 0.01 seconds
+0026.499 (0) Table wp_wfNet404s: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfNet404s.table.gz - 0.4 KB)
+0026.531 (0) Table wp_wfNotifications: Total expected rows (approximate): 49
+0026.556 (0) Table wp_wfNotifications: Total rows added: 64 in 0.01 seconds
+0026.573 (0) Table wp_wfNotifications: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfNotifications.table.gz - 2.9 KB)
+0026.615 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 2
+0026.632 (0) Table wp_wfPendingIssues: Total rows added: 2 in 0.01 seconds
+0026.640 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfPendingIssues.table.gz - 1.1 KB)
+0026.671 (0) Table wp_wfReverseCache: Total expected rows (approximate): 11
+0026.684 (0) Table wp_wfReverseCache: Total rows added: 12 in 0.01 seconds
+0026.695 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfReverseCache.table.gz - 0.6 KB)
+0026.755 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0026.766 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0026.775 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0026.803 (0) Table wp_wfScanners: Total expected rows (approximate): 197
+0026.825 (0) Table wp_wfScanners: Total rows added: 197 in 0.01 seconds
+0026.835 (0) Table wp_wfScanners: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfScanners.table.gz - 1.9 KB)
+0026.863 (0) Table wp_wfStatus: Total expected rows (approximate): 951
+0026.889 (0) Table wp_wfStatus: Total rows added: 951 in 0.02 seconds
+0026.900 (0) Table wp_wfStatus: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfStatus.table.gz - 16.1 KB)
+0026.938 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0026.949 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0026.963 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0026.995 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0027.008 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.01 seconds
+0027.023 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0027.051 (0) Table wp_wpbdp_fees: Total expected rows (approximate): 2
+0027.063 (0) Table wp_wpbdp_fees: Total rows added: 2 in 0.01 seconds
+0027.072 (0) Table wp_wpbdp_fees: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_fees.table.gz - 0.5 KB)
+0027.115 (0) Table wp_wpbdp_form_fields: Total expected rows (approximate): 11
+0027.131 (0) Table wp_wpbdp_form_fields: Total rows added: 11 in 0.01 seconds
+0027.139 (0) Table wp_wpbdp_form_fields: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_form_fields.table.gz - 0.8 KB)
+0027.166 (0) Table wp_wpbdp_listing_fees: Total expected rows (approximate): 0
+0027.180 (0) Table wp_wpbdp_listing_fees: Total rows added: 1 in 0.01 seconds
+0027.191 (0) Table wp_wpbdp_listing_fees: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_listing_fees.table.gz - 0.5 KB)
+0027.219 (0) Table wp_wpbdp_payments: Total expected rows (approximate): 0
+0027.232 (0) Table wp_wpbdp_payments: Total rows added: 1 in 0.01 seconds
+0027.239 (0) Table wp_wpbdp_payments: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_payments.table.gz - 0.5 KB)
+0027.271 (0) Table wp_wpbdp_payments_items: Total expected rows (approximate): 0
+0027.286 (0) Table wp_wpbdp_payments_items: Total rows added: 1 in 0.01 seconds
+0027.295 (0) Table wp_wpbdp_payments_items: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_payments_items.table.gz - 0.5 KB)
+0027.323 (0) Table wp_wpbdp_submit_state: Total expected rows (approximate): 0
+0027.333 (0) Table wp_wpbdp_submit_state: Total rows added: 0 in 0.00 seconds
+0027.347 (0) Table wp_wpbdp_submit_state: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_submit_state.table.gz - 0.3 KB)
+0027.379 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 0
+0027.391 (0) Table wp_yoast_seo_links: Total rows added: 1 in 0.01 seconds
+0027.398 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_yoast_seo_links.table.gz - 0.5 KB)
+0027.423 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 2
+0027.435 (0) Table wp_yoast_seo_meta: Total rows added: 2 in 0.01 seconds
+0027.442 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0027.473 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_options.table.gz (1/54): adding to final database dump
+0027.549 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_users.table.gz (2/54): adding to final database dump
+0027.571 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_usermeta.table.gz (3/54): adding to final database dump
+0027.585 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_commentmeta.table.gz (4/54): adding to final database dump
+0027.600 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_comments.table.gz (5/54): adding to final database dump
+0027.613 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_links.table.gz (6/54): adding to final database dump
+0027.631 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_postmeta.table.gz (7/54): adding to final database dump
+0027.742 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_posts.table.gz (8/54): adding to final database dump
+0027.793 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_signups.table.gz (9/54): adding to final database dump
+0027.801 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_term_relationships.table.gz (10/54): adding to final database dump
+0027.810 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_term_taxonomy.table.gz (11/54): adding to final database dump
+0027.818 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_termmeta.table.gz (12/54): adding to final database dump
+0027.826 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_terms.table.gz (13/54): adding to final database dump
+0027.833 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_imagify_files.table.gz (14/54): adding to final database dump
+0027.841 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_imagify_folders.table.gz (15/54): adding to final database dump
+0027.849 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_ip_geo_block_cache.table.gz (16/54): adding to final database dump
+0027.855 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_ip_geo_block_logs.table.gz (17/54): adding to final database dump
+0027.863 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_ip_geo_block_stat.table.gz (18/54): adding to final database dump
+0027.870 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_pmpro_membership_levelmeta.table.gz (19/54): adding to final database dump
+0027.878 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBadLeechers.table.gz (20/54): adding to final database dump
+0027.887 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlockedCommentLog.table.gz (21/54): adding to final database dump
+0027.893 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlockedIPLog.table.gz (22/54): adding to final database dump
+0027.900 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlocks.table.gz (23/54): adding to final database dump
+0027.907 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlocks7.table.gz (24/54): adding to final database dump
+0027.914 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfBlocksAdv.table.gz (25/54): adding to final database dump
+0027.924 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfConfig.table.gz (26/54): adding to final database dump
+0027.948 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfCrawlers.table.gz (27/54): adding to final database dump
+0027.956 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfFileChanges.table.gz (28/54): adding to final database dump
+0027.963 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfFileMods.table.gz (29/54): adding to final database dump
+0028.099 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfHits.table.gz (30/54): adding to final database dump
+0028.140 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfHoover.table.gz (31/54): adding to final database dump
+0028.146 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfIssues.table.gz (32/54): adding to final database dump
+0028.153 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfKnownFileList.table.gz (33/54): adding to final database dump
+0028.191 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLeechers.table.gz (34/54): adding to final database dump
+0028.201 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLockedOut.table.gz (35/54): adding to final database dump
+0028.207 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLocs.table.gz (36/54): adding to final database dump
+0028.215 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfLogins.table.gz (37/54): adding to final database dump
+0028.227 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfNet404s.table.gz (38/54): adding to final database dump
+0028.367 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfNotifications.table.gz (39/54): adding to final database dump
+0028.494 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfPendingIssues.table.gz (40/54): adding to final database dump
+0028.516 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfReverseCache.table.gz (41/54): adding to final database dump
+0028.523 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfSNIPCache.table.gz (42/54): adding to final database dump
+0028.529 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfScanners.table.gz (43/54): adding to final database dump
+0028.536 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfStatus.table.gz (44/54): adding to final database dump
+0028.546 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfThrottleLog.table.gz (45/54): adding to final database dump
+0028.565 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wfVulnScanners.table.gz (46/54): adding to final database dump
+0028.574 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_fees.table.gz (47/54): adding to final database dump
+0028.592 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_form_fields.table.gz (48/54): adding to final database dump
+0028.600 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_listing_fees.table.gz (49/54): adding to final database dump
+0028.612 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_payments.table.gz (50/54): adding to final database dump
+0028.635 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_payments_items.table.gz (51/54): adding to final database dump
+0028.661 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_wpbdp_submit_state.table.gz (52/54): adding to final database dump
+0028.675 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_yoast_seo_links.table.gz (53/54): adding to final database dump
+0028.682 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db-table-wp_yoast_seo_meta.table.gz (54/54): adding to final database dump
+0028.692 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db.gz: finished writing out complete database file (2112 KB)
+0028.765 (0) Total database tables backed up: 54 (backup_2018-03-19-2054_FPAA_579e89ed0031-db.gz, size: 2169300, sha256)
+0028.848 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0028.855 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0028.862 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0028.868 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-others.zip: others: This file has not yet been successfully uploaded: will queue
+0028.874 (0) backup_2018-03-19-2054_FPAA_579e89ed0031-db.gz: db: This file has not yet been successfully uploaded: will queue
+0028.881 (0) Saving backup history. Total backup size: 183.9 MB
+0028.916 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0028.941 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0028.950 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-52585a68d46620adbb2d1112c2702698)
+0029.339 (0) Set region: us-west-1
+0029.346 (0) S3 upload (us-west-1): backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip (chunks: 9) -> s3://fpaa.com/backups/backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip
+0029.496 (0) S3 chunked upload: got multipart ID: JuEPhjr3OF8juSVZzerLXjMcCe7bVM.bx9qBONGe1MAeCg1KmD8eZt.nbbedVpxLv7TQ.08qEz3FOSOKO7ENqQRWO91lP7hk7FXuegRBBxr2gEFXBz3BgFEwHb3PgIXJ
+0030.118 (0) S3 chunked upload: 11.1 % uploaded (1, "692305d2d5ac134af787812e95efe9ce")
+0030.613 (0) S3 chunked upload: 22.2 % uploaded (2, "4424a3784991eb109d7150cdfc29e0d0")
+0031.050 (0) S3 chunked upload: 33.3 % uploaded (3, "cbc13a61518fa3000b1adfbc694cb3ed")
+0031.561 (0) S3 chunked upload: 44.4 % uploaded (4, "4f445e2ab9e6edde7952069caab85f53")
+0031.971 (0) S3 chunked upload: 55.6 % uploaded (5, "cd2a29f77258981c9eaf2f3aeed8f32e")
+0032.369 (0) S3 chunked upload: 66.7 % uploaded (6, "ca7751a972d258599d3e20cb00487619")
+0032.822 (0) S3 chunked upload: 77.8 % uploaded (7, "fc60832af093f4bd60ba75038d97d57d")
+0033.191 (0) S3 chunked upload: 88.9 % uploaded (8, "21cff899f6c7915eb3b26affaf57ce50")
+0033.376 (0) S3 chunked upload: 100 % uploaded (9, "47a85947942338f80ef5bdfc1a9d8ecc")
+0033.413 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0033.573 (0) S3 upload (plugins0): re-assembly succeeded
+0033.597 (0) Recording as successfully uploaded: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip (52e82ccb4caa56aafcd9d35d5dbb2c6f)
+0033.652 (0) Deleting local file: backup_2018-03-19-2054_FPAA_579e89ed0031-plugins.zip: OK
+0033.660 (0) S3 upload (us-west-1): backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip (chunks: 2) -> s3://fpaa.com/backups/backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip
+0033.701 (0) S3 chunked upload: got multipart ID: DsQf92bSubCWmqF6q_vgZG59PrxMc9AzC7vbm3LvpVINNgC.HncbbbrAv.7D37WOuEFba9U.ZMIdZtNp1W_j2m6KLDWizfn1pXMw.HcfxJ6PBheiFySlceleJcqYElum
+0034.036 (0) S3 chunked upload: 50 % uploaded (1, "9cf8e7b00d360f0ca623388e3aeb4ff3")
+0034.293 (0) S3 chunked upload: 100 % uploaded (2, "b83685ecb022d6b6a99cc7b7eb7be18c")
+0034.322 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0034.427 (0) S3 upload (themes0): re-assembly succeeded
+0034.444 (0) Recording as successfully uploaded: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip (efdd49a39140b4a8de05550703b05431)
+0034.477 (0) Deleting local file: backup_2018-03-19-2054_FPAA_579e89ed0031-themes.zip: OK
+0034.483 (0) S3 upload (us-west-1): backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip (chunks: 27) -> s3://fpaa.com/backups/backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip
+0034.522 (0) S3 chunked upload: got multipart ID: kLkjf2Mac9W9Pm1cczGqiJgBmL_Wdn7y_I6id5mq_1X5DdC1.QZCbaeBRMizGZfuck4NoeWHJZoe0WoSEjNqHcOdSKc5z8UDZgzHqGYU7.fSOhGDcAjWOp0I.mtA_E3R
+0034.924 (0) S3 chunked upload: 3.7 % uploaded (1, "363d50fcace9e3b4e792d7142d112888")
+0035.259 (0) S3 chunked upload: 7.4 % uploaded (2, "900646d8050b029171deb4f368871910")
+0035.641 (0) S3 chunked upload: 11.1 % uploaded (3, "fa607ebf552b279d0922abb57bb8b8af")
+0036.180 (0) S3 chunked upload: 14.8 % uploaded (4, "70c05ca0dc3b2d17679e20d306ef6818")
+0036.589 (0) S3 chunked upload: 18.5 % uploaded (5, "b71da2d00bcfd313246b23576df0e059")
+0036.999 (0) S3 chunked upload: 22.2 % uploaded (6, "bbe1b741424840f2741ab4b4aa186b54")
+0037.405 (0) S3 chunked upload: 25.9 % uploaded (7, "8593143720b1a565711dcc824349439d")
+0037.767 (0) S3 chunked upload: 29.6 % uploaded (8, "80f31365c8056cd16bb267f914e9fbd8")
+0038.153 (0) S3 chunked upload: 33.3 % uploaded (9, "7f350268e0e4806c7cf0fc5043eeaa0c")
+0038.685 (0) S3 chunked upload: 37 % uploaded (10, "b2063564b0a84183ff2da99ef5d3bbd2")
+0039.089 (0) S3 chunked upload: 40.7 % uploaded (11, "a7f32f36d14b4130f16824da3aa7d0a0")
+0039.477 (0) S3 chunked upload: 44.4 % uploaded (12, "352a77209183e6abd7f57f617ff16d44")
+0039.833 (0) S3 chunked upload: 48.1 % uploaded (13, "81f401038bdc8fdeb78387ac095017dc")
+0040.181 (0) S3 chunked upload: 51.9 % uploaded (14, "6dc112536f183a60c276bae75fc29a05")
+0040.561 (0) S3 chunked upload: 55.6 % uploaded (15, "16327ebc996d7b3263a1971c229502eb")
+0041.027 (0) S3 chunked upload: 59.3 % uploaded (16, "b902fc6e23d2cb4a73dd13b85fe1a3af")
+0041.449 (0) S3 chunked upload: 63 % uploaded (17, "cec18b63c266937c8aaeaa9a43275231")
+0041.876 (0) S3 chunked upload: 66.7 % uploaded (18, "ec7037f8a77522da7ed7794e77809dc9")
+0042.449 (0) S3 chunked upload: 70.4 % uploaded (19, "961dca6eaab4e7dba1624a8c18712824")
+0042.805 (0) S3 chunked upload: 74.1 % uploaded (20, "4e7fe14c5e16b7346357e06e67997c2c")
+0043.196 (0) S3 chunked upload: 77.8 % uploaded (21, "1f1d6eb9a10ec29232be5470dfd8f6ac")
+0043.604 (0) S3 chunked upload: 81.5 % uploaded (22, "ab9444df7b8ca9f145c5151da688bec7")
+0044.031 (0) S3 chunked upload: 85.2 % uploaded (23, "e533fd307c12c3cd7acc3a294b7dcde3")
+0044.427 (0) S3 chunked upload: 88.9 % uploaded (24, "493995ecc50e816e3931047d84deafc9")
+0044.817 (0) S3 chunked upload: 92.6 % uploaded (25, "fc0726b0c6ce262bf1ea7206c1e63862")
+0045.237 (0) S3 chunked upload: 96.3 % uploaded (26, "3b1d5b6b4cfe0ed7f5d35d22e4e0eecb")
+0045.415 (0) S3 chunked upload: 100 % uploaded (27, "0ed9a8f26f0438fe7dd4e601af167549")
+0045.445 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0045.595 (0) S3 upload (uploads0): re-assembly succeeded
+0045.621 (0) Recording as successfully uploaded: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip (13c916aa1b82d8d29d37e886a0323df8)
+0045.682 (0) Deleting local file: backup_2018-03-19-2054_FPAA_579e89ed0031-uploads.zip: OK
+0045.688 (0) S3 upload (us-west-1): backup_2018-03-19-2054_FPAA_579e89ed0031-others.zip (chunks: 1) -> s3://fpaa.com/backups/backup_2018-03-19-2054_FPAA_579e89ed0031-others.zip
+0045.992 (0) S3 regular upload: success
+0046.015 (0) Recording as successfully uploaded: backup_2018-03-19-2054_FPAA_579e89ed0031-others.zip (b2c89696f81ce2bc6e2fc5c76e3a589b)
+0046.045 (0) Deleting local file: backup_2018-03-19-2054_FPAA_579e89ed0031-others.zip: OK
+0046.052 (0) S3 upload (us-west-1): backup_2018-03-19-2054_FPAA_579e89ed0031-db.gz (chunks: 1) -> s3://fpaa.com/backups/backup_2018-03-19-2054_FPAA_579e89ed0031-db.gz
+0046.224 (0) S3 regular upload: success
+0046.245 (0) Recording as successfully uploaded: backup_2018-03-19-2054_FPAA_579e89ed0031-db.gz (c5a8b641e1734a8ad286ad879766291b)
+0046.273 (0) Deleting local file: backup_2018-03-19-2054_FPAA_579e89ed0031-db.gz: OK
+0046.292 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0046.303 (0) Number of backup sets in history: 31; groups (db): 1
+0046.309 (0) Examining (for databases) backup set with group_id=0, nonce=579e89ed0031, datestamp=1521492893 (Mar 19 2018 20:54:53)
+0046.315 (0) This backup set is the backup set just made, so will not be deleted.
+0046.315 (0) Examining (for databases) backup set with group_id=0, nonce=16dc2199c365, datestamp=1521406539 (Mar 18 2018 20:55:39)
+0046.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.321 (0) Examining (for databases) backup set with group_id=0, nonce=8f86763c64f1, datestamp=1521320161 (Mar 17 2018 20:56:01)
+0046.321 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.321 (0) Examining (for databases) backup set with group_id=0, nonce=c5e35a431643, datestamp=1521233660 (Mar 16 2018 20:54:20)
+0046.321 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.321 (0) Examining (for databases) backup set with group_id=0, nonce=67617877f052, datestamp=1521147224 (Mar 15 2018 20:53:44)
+0046.321 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.321 (0) Examining (for databases) backup set with group_id=0, nonce=fda61165fe89, datestamp=1521061032 (Mar 14 2018 20:57:12)
+0046.322 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.322 (0) Examining (for databases) backup set with group_id=0, nonce=d004a5316dce, datestamp=1520974506 (Mar 13 2018 20:55:06)
+0046.322 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.322 (0) Examining (for databases) backup set with group_id=0, nonce=502a60161211, datestamp=1520888010 (Mar 12 2018 20:53:30)
+0046.322 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.322 (0) Examining (for databases) backup set with group_id=0, nonce=f15487588553, datestamp=1520801614 (Mar 11 2018 20:53:34)
+0046.322 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.322 (0) Examining (for databases) backup set with group_id=0, nonce=7d1e22fab67b, datestamp=1520715220 (Mar 10 2018 20:53:40)
+0046.322 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.322 (0) Examining (for databases) backup set with group_id=0, nonce=8c29ebbf92c3, datestamp=1520628813 (Mar 09 2018 20:53:33)
+0046.322 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.322 (0) Examining (for databases) backup set with group_id=0, nonce=da7c30407c47, datestamp=1520542449 (Mar 08 2018 20:54:09)
+0046.322 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.323 (0) Examining (for databases) backup set with group_id=0, nonce=3315580229ad, datestamp=1520456184 (Mar 07 2018 20:56:24)
+0046.323 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.323 (0) Examining (for databases) backup set with group_id=0, nonce=901a665a74de, datestamp=1520369646 (Mar 06 2018 20:54:06)
+0046.323 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.323 (0) Examining (for databases) backup set with group_id=0, nonce=da7fa97a0f53, datestamp=1520283218 (Mar 05 2018 20:53:38)
+0046.323 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.323 (0) Examining (for databases) backup set with group_id=0, nonce=617af35caa2f, datestamp=1520196883 (Mar 04 2018 20:54:43)
+0046.323 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.323 (0) Examining (for databases) backup set with group_id=0, nonce=9aef25f7dbe5, datestamp=1520110409 (Mar 03 2018 20:53:29)
+0046.323 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.323 (0) Examining (for databases) backup set with group_id=0, nonce=08eec7aaffa9, datestamp=1520024030 (Mar 02 2018 20:53:50)
+0046.323 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.324 (0) Examining (for databases) backup set with group_id=0, nonce=615b040e141c, datestamp=1519937719 (Mar 01 2018 20:55:19)
+0046.324 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.324 (0) Examining (for databases) backup set with group_id=0, nonce=c87313f45289, datestamp=1519851246 (Feb 28 2018 20:54:06)
+0046.324 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.324 (0) Examining (for databases) backup set with group_id=0, nonce=1352322d4ee0, datestamp=1519764968 (Feb 27 2018 20:56:08)
+0046.324 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.324 (0) Examining (for databases) backup set with group_id=0, nonce=7f3a93c1d311, datestamp=1519678575 (Feb 26 2018 20:56:15)
+0046.324 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.324 (0) Examining (for databases) backup set with group_id=0, nonce=e31906d77a07, datestamp=1519592013 (Feb 25 2018 20:53:33)
+0046.324 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.324 (0) Examining (for databases) backup set with group_id=0, nonce=0db4bd8c4301, datestamp=1519506028 (Feb 24 2018 21:00:28)
+0046.324 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.325 (0) Examining (for databases) backup set with group_id=0, nonce=501d3d6f1a61, datestamp=1519419296 (Feb 23 2018 20:54:56)
+0046.325 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.325 (0) Examining (for databases) backup set with group_id=0, nonce=3e488fc2d44c, datestamp=1519332818 (Feb 22 2018 20:53:38)
+0046.325 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.325 (0) Examining (for databases) backup set with group_id=0, nonce=c9fb7304f593, datestamp=1519246416 (Feb 21 2018 20:53:36)
+0046.325 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.325 (0) Examining (for databases) backup set with group_id=0, nonce=2ee96be4e453, datestamp=1519160045 (Feb 20 2018 20:54:05)
+0046.325 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.325 (0) Examining (for databases) backup set with group_id=0, nonce=ac1a71f352f3, datestamp=1519073638 (Feb 19 2018 20:53:58)
+0046.325 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.325 (0) Examining (for databases) backup set with group_id=0, nonce=f2875f3e5e7b, datestamp=1518987464 (Feb 18 2018 20:57:44)
+0046.325 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.326 (0) Examining (for databases) backup set with group_id=0, nonce=61fc6f3a4f5b, datestamp=1518900837 (Feb 17 2018 20:53:57)
+0046.326 (0) 1518900837: db: this set includes a database (backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-db.gz); db count is now 30
+0046.326 (0) 1518900837: db: over retain limit (30); will delete this database
+0046.326 (0) Delete file: backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-db.gz, service=s3
+0046.333 (0) S3: Delete remote: bucket=fpaa.com, URI=backups/backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-db.gz
+0046.389 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0046.395 (0) Number of backup sets in history: 31; groups (files): 1
+0046.400 (0) Examining (for files) backup set with nonce=579e89ed0031, datestamp=1521492893 (Mar 19 2018 20:54:53)
+0046.401 (0) This backup set is the backup set just made, so will not be deleted.
+0046.407 (0) This backup set is the backup set just made, so will not be deleted.
+0046.407 (0) This backup set is the backup set just made, so will not be deleted.
+0046.407 (0) This backup set is the backup set just made, so will not be deleted.
+0046.407 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.413 (0) Examining (for files) backup set with nonce=16dc2199c365, datestamp=1521406539 (Mar 18 2018 20:55:39)
+0046.413 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.413 (0) Examining (for files) backup set with nonce=8f86763c64f1, datestamp=1521320161 (Mar 17 2018 20:56:01)
+0046.413 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.414 (0) Examining (for files) backup set with nonce=c5e35a431643, datestamp=1521233660 (Mar 16 2018 20:54:20)
+0046.414 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.414 (0) Examining (for files) backup set with nonce=67617877f052, datestamp=1521147224 (Mar 15 2018 20:53:44)
+0046.414 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.414 (0) Examining (for files) backup set with nonce=fda61165fe89, datestamp=1521061032 (Mar 14 2018 20:57:12)
+0046.414 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.414 (0) Examining (for files) backup set with nonce=d004a5316dce, datestamp=1520974506 (Mar 13 2018 20:55:06)
+0046.414 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.414 (0) Examining (for files) backup set with nonce=502a60161211, datestamp=1520888010 (Mar 12 2018 20:53:30)
+0046.414 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.414 (0) Examining (for files) backup set with nonce=f15487588553, datestamp=1520801614 (Mar 11 2018 20:53:34)
+0046.414 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.415 (0) Examining (for files) backup set with nonce=7d1e22fab67b, datestamp=1520715220 (Mar 10 2018 20:53:40)
+0046.415 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.415 (0) Examining (for files) backup set with nonce=8c29ebbf92c3, datestamp=1520628813 (Mar 09 2018 20:53:33)
+0046.415 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.415 (0) Examining (for files) backup set with nonce=da7c30407c47, datestamp=1520542449 (Mar 08 2018 20:54:09)
+0046.415 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.415 (0) Examining (for files) backup set with nonce=3315580229ad, datestamp=1520456184 (Mar 07 2018 20:56:24)
+0046.415 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.415 (0) Examining (for files) backup set with nonce=901a665a74de, datestamp=1520369646 (Mar 06 2018 20:54:06)
+0046.415 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.415 (0) Examining (for files) backup set with nonce=da7fa97a0f53, datestamp=1520283218 (Mar 05 2018 20:53:38)
+0046.416 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.416 (0) Examining (for files) backup set with nonce=617af35caa2f, datestamp=1520196883 (Mar 04 2018 20:54:43)
+0046.416 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.416 (0) Examining (for files) backup set with nonce=9aef25f7dbe5, datestamp=1520110409 (Mar 03 2018 20:53:29)
+0046.416 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.416 (0) Examining (for files) backup set with nonce=08eec7aaffa9, datestamp=1520024030 (Mar 02 2018 20:53:50)
+0046.416 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.416 (0) Examining (for files) backup set with nonce=615b040e141c, datestamp=1519937719 (Mar 01 2018 20:55:19)
+0046.416 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.416 (0) Examining (for files) backup set with nonce=c87313f45289, datestamp=1519851246 (Feb 28 2018 20:54:06)
+0046.416 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.416 (0) Examining (for files) backup set with nonce=1352322d4ee0, datestamp=1519764968 (Feb 27 2018 20:56:08)
+0046.417 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.417 (0) Examining (for files) backup set with nonce=7f3a93c1d311, datestamp=1519678575 (Feb 26 2018 20:56:15)
+0046.417 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.417 (0) Examining (for files) backup set with nonce=e31906d77a07, datestamp=1519592013 (Feb 25 2018 20:53:33)
+0046.417 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.417 (0) Examining (for files) backup set with nonce=0db4bd8c4301, datestamp=1519506028 (Feb 24 2018 21:00:28)
+0046.417 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.417 (0) Examining (for files) backup set with nonce=501d3d6f1a61, datestamp=1519419296 (Feb 23 2018 20:54:56)
+0046.417 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.417 (0) Examining (for files) backup set with nonce=3e488fc2d44c, datestamp=1519332818 (Feb 22 2018 20:53:38)
+0046.417 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.417 (0) Examining (for files) backup set with nonce=c9fb7304f593, datestamp=1519246416 (Feb 21 2018 20:53:36)
+0046.418 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.418 (0) Examining (for files) backup set with nonce=2ee96be4e453, datestamp=1519160045 (Feb 20 2018 20:54:05)
+0046.418 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.418 (0) Examining (for files) backup set with nonce=ac1a71f352f3, datestamp=1519073638 (Feb 19 2018 20:53:58)
+0046.418 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.418 (0) Examining (for files) backup set with nonce=f2875f3e5e7b, datestamp=1518987464 (Feb 18 2018 20:57:44)
+0046.418 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0046.418 (0) Examining (for files) backup set with nonce=61fc6f3a4f5b, datestamp=1518900837 (Feb 17 2018 20:53:57)
+0046.418 (0) plugins: over retain limit (30); will delete this file entity
+0046.418 (0) themes: over retain limit (30); will delete this file entity
+0046.418 (0) uploads: over retain limit (30); will delete this file entity
+0046.418 (0) others: over retain limit (30); will delete this file entity
+0046.418 (0) Delete file: backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-plugins.zip, service=s3
+0046.424 (0) Delete file: backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-themes.zip, service=s3
+0046.430 (0) Delete file: backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-uploads.zip, service=s3
+0046.436 (0) Delete file: backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-others.zip, service=s3
+0046.443 (0) S3: Delete remote: bucket=fpaa.com, URI=backups/backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-plugins.zip
+0046.504 (0) S3: Delete remote: bucket=fpaa.com, URI=backups/backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-themes.zip
+0046.554 (0) S3: Delete remote: bucket=fpaa.com, URI=backups/backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-uploads.zip
+0046.615 (0) S3: Delete remote: bucket=fpaa.com, URI=backups/backup_2018-02-17-2053_FPAA_61fc6f3a4f5b-others.zip
+0046.671 (0) This backup set is now empty; will remove from history
+0046.677 (0) Deleting log file (log.61fc6f3a4f5b.txt)
+0046.683 (0) Retain: saving new backup history (sets now: 30) and finishing retain operation
+0046.737 (0) Resume backup (579e89ed0031, 0): finish run
+0046.754 (0) Decremented the semaphore (fd) by 1
+0046.767 (0) Semaphore (fd) unlocked
+0046.773 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0046.800 (0) Fetching RSS news feed
+0047.337 (0) Fetched RSS news feed; result is a: SimplePie
+0047.372 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: syste...
+0047.529 (0) The backup apparently succeeded and is now complete

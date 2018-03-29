@@ -1,0 +1,606 @@
+0000.000 (0) Opened log file at time: Mon, 26 Feb 2018 20:06:00 +0000 on https://clients.lawrencemcdaniel.com
+0000.008 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-14-147 4.9.77-31.58.amzn1.x86_64 #1 SMP Thu Jan 18 22:15:23 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 80.1M | 82M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.014 (0) Free space on disk containing Updraft's temporary directory: 94164.8 MB
+0000.022 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.028 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.047 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1519589148, seconds_ago=86412)
+0000.070 (0) Set semaphore last lock (fd) time to 2018-02-26 20:06:00
+0000.077 (0) Semaphore lock (fd) complete
+0000.102 (0) Backup run: resumption=0, nonce=9d0f4db882d7, begun at=1519675560 (0s ago), job type=backup
+0000.114 (0) Scheduling a resumption (1) after 300 seconds (1519675860) in case this run gets aborted
+0000.136 (0) Checking if we have a zip executable available
+0000.142 (0) Testing: /usr/bin/zip
+0000.152 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.158 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.164 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.170 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.176 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.186 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.198 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.209 (0) Working binary zip found: /usr/bin/zip
+0000.223 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.229 (0) Creation of backups of directories: beginning
+0000.249 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.449 (0) Total entities for the zip file: 1136 directories, 8921 files (0 skipped as non-modified), 102.5 MB
+0000.460 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.468 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.480 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.488 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.497 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.503 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.6 MB, 8921 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.938 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: size is now: 4.10 MB
+0000.959 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 600 files added (on-disk size: 4218.7 KB)
+0000.969 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 700 files added (on-disk size: 4218.7 KB)
+0000.978 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 800 files added (on-disk size: 4218.7 KB)
+0000.987 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 900 files added (on-disk size: 4218.7 KB)
+0000.996 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1000 files added (on-disk size: 4218.7 KB)
+0001.002 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6 MB, 8921 files batched, 501 (1002) added so far); re-opening (prior size: 4218.7 KB)
+0001.346 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: size is now: 6.20 MB
+0001.374 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1100 files added (on-disk size: 6304.3 KB)
+0001.382 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1200 files added (on-disk size: 6304.3 KB)
+0001.390 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1300 files added (on-disk size: 6304.3 KB)
+0001.399 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1400 files added (on-disk size: 6304.3 KB)
+0001.407 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1500 files added (on-disk size: 6304.3 KB)
+0001.414 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.4 MB, 8921 files batched, 501 (1503) added so far); re-opening (prior size: 6304.3 KB)
+0001.773 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: size is now: 9.00 MB
+0001.789 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1600 files added (on-disk size: 9220.8 KB)
+0001.798 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1700 files added (on-disk size: 9220.8 KB)
+0001.807 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1800 files added (on-disk size: 9220.8 KB)
+0001.815 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 1900 files added (on-disk size: 9220.8 KB)
+0001.824 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2000 files added (on-disk size: 9220.8 KB)
+0001.831 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5 MB, 8921 files batched, 501 (2004) added so far); re-opening (prior size: 9220.8 KB)
+0002.069 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2100 files added (on-disk size: 10901.4 KB)
+0002.078 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2200 files added (on-disk size: 10901.4 KB)
+0002.086 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2300 files added (on-disk size: 10901.4 KB)
+0002.095 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2400 files added (on-disk size: 10901.4 KB)
+0002.105 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2500 files added (on-disk size: 10901.4 KB)
+0002.112 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.8 MB, 8921 files batched, 501 (2505) added so far); re-opening (prior size: 10901.4 KB)
+0002.307 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2600 files added (on-disk size: 12266.5 KB)
+0002.316 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2700 files added (on-disk size: 12266.5 KB)
+0002.324 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2800 files added (on-disk size: 12266.5 KB)
+0002.334 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 2900 files added (on-disk size: 12266.5 KB)
+0002.344 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3000 files added (on-disk size: 12266.5 KB)
+0002.350 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.6 MB, 8921 files batched, 501 (3006) added so far); re-opening (prior size: 12266.5 KB)
+0002.648 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: size is now: 14.50 MB
+0002.668 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3100 files added (on-disk size: 14814.7 KB)
+0002.677 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3200 files added (on-disk size: 14814.7 KB)
+0002.687 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3300 files added (on-disk size: 14814.7 KB)
+0002.697 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3400 files added (on-disk size: 14814.7 KB)
+0002.705 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3500 files added (on-disk size: 14814.7 KB)
+0002.712 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.3 MB, 8921 files batched, 501 (3507) added so far); re-opening (prior size: 14814.7 KB)
+0002.811 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3600 files added (on-disk size: 15117.1 KB)
+0002.821 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3700 files added (on-disk size: 15117.1 KB)
+0002.830 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3800 files added (on-disk size: 15117.1 KB)
+0002.839 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 3900 files added (on-disk size: 15117.1 KB)
+0002.848 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4000 files added (on-disk size: 15117.1 KB)
+0002.855 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.6 MB, 8921 files batched, 501 (4008) added so far); re-opening (prior size: 15117.1 KB)
+0002.962 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4100 files added (on-disk size: 15492.3 KB)
+0002.972 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4200 files added (on-disk size: 15492.3 KB)
+0002.981 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4300 files added (on-disk size: 15492.3 KB)
+0002.989 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4400 files added (on-disk size: 15492.3 KB)
+0002.999 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4500 files added (on-disk size: 15492.3 KB)
+0003.006 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.7 MB, 8921 files batched, 501 (4509) added so far); re-opening (prior size: 15492.3 KB)
+0003.102 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: size is now: 18.80 MB
+0003.134 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4600 files added (on-disk size: 19271.8 KB)
+0003.148 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4700 files added (on-disk size: 19271.8 KB)
+0003.157 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4800 files added (on-disk size: 19271.8 KB)
+0003.166 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 4900 files added (on-disk size: 19271.8 KB)
+0003.180 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5000 files added (on-disk size: 19271.8 KB)
+0003.186 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.7 MB, 8921 files batched, 501 (5010) added so far); re-opening (prior size: 19271.8 KB)
+0003.528 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5100 files added (on-disk size: 21840.6 KB)
+0003.537 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5200 files added (on-disk size: 21840.6 KB)
+0003.546 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5300 files added (on-disk size: 21840.6 KB)
+0003.555 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5400 files added (on-disk size: 21840.6 KB)
+0003.564 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5500 files added (on-disk size: 21840.6 KB)
+0003.570 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7 MB, 8921 files batched, 501 (5511) added so far); re-opening (prior size: 21840.6 KB)
+0003.922 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5600 files added (on-disk size: 24042.2 KB)
+0003.930 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5700 files added (on-disk size: 24042.2 KB)
+0003.939 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5800 files added (on-disk size: 24042.2 KB)
+0003.948 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 5900 files added (on-disk size: 24042.2 KB)
+0003.957 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6000 files added (on-disk size: 24042.2 KB)
+0003.964 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.1 MB, 8921 files batched, 501 (6012) added so far); re-opening (prior size: 24042.2 KB)
+0004.255 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6100 files added (on-disk size: 26424.5 KB)
+0004.263 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6200 files added (on-disk size: 26424.5 KB)
+0004.271 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6300 files added (on-disk size: 26424.5 KB)
+0004.279 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6400 files added (on-disk size: 26424.5 KB)
+0004.287 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6500 files added (on-disk size: 26424.5 KB)
+0004.295 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 8921 files batched, 501 (6513) added so far); re-opening (prior size: 26424.5 KB)
+0004.511 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6600 files added (on-disk size: 27771.5 KB)
+0004.520 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6700 files added (on-disk size: 27771.5 KB)
+0004.529 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6800 files added (on-disk size: 27771.5 KB)
+0004.538 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 6900 files added (on-disk size: 27771.5 KB)
+0004.548 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7000 files added (on-disk size: 27771.5 KB)
+0004.555 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.8 MB, 8921 files batched, 501 (7014) added so far); re-opening (prior size: 27771.5 KB)
+0005.012 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7100 files added (on-disk size: 30663.6 KB)
+0005.022 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7200 files added (on-disk size: 30663.6 KB)
+0005.031 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7300 files added (on-disk size: 30663.6 KB)
+0005.041 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7400 files added (on-disk size: 30663.6 KB)
+0005.050 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7500 files added (on-disk size: 30663.6 KB)
+0005.057 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.7 MB, 8921 files batched, 501 (7515) added so far); re-opening (prior size: 30663.6 KB)
+0005.349 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7600 files added (on-disk size: 32133.6 KB)
+0005.357 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7700 files added (on-disk size: 32133.6 KB)
+0005.365 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7800 files added (on-disk size: 32133.6 KB)
+0005.373 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 7900 files added (on-disk size: 32133.6 KB)
+0005.381 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8000 files added (on-disk size: 32133.6 KB)
+0005.388 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17.3 MB, 8921 files batched, 501 (8016) added so far); re-opening (prior size: 32133.6 KB)
+0006.218 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8100 files added (on-disk size: 37275.8 KB)
+0006.227 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8200 files added (on-disk size: 37275.8 KB)
+0006.236 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8300 files added (on-disk size: 37275.8 KB)
+0006.245 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8400 files added (on-disk size: 37275.8 KB)
+0006.254 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8500 files added (on-disk size: 37275.8 KB)
+0006.263 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.1 MB, 8921 files batched, 501 (8517) added so far); re-opening (prior size: 37275.8 KB)
+0006.482 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8600 files added (on-disk size: 38273.4 KB)
+0006.490 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8700 files added (on-disk size: 38273.4 KB)
+0006.500 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8800 files added (on-disk size: 38273.4 KB)
+0006.508 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip.tmp: 8900 files added (on-disk size: 38273.4 KB)
+0007.127 (0) Created plugins zip (0) - 38843 KB in 6.9 s (5652.7 KB/s) (sha1: 75fc8dbc503046acc87ad24c13b400dbf9869943, sha256: 0e4375092f35d33372a7b82dc8e96a8e72c83097529be00f0030a397ff9db1bd)
+0007.143 (0) Beginning creation of dump of themes (split every: 400 MB)
+0007.203 (0) Total entities for the zip file: 269 directories, 1720 files (0 skipped as non-modified), 21.8 MB
+0007.211 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0007.220 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.229 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0007.238 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0007.246 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0007.253 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.1 MB, 1720 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.467 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: size is now: 5.10 MB
+0007.484 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 600 files added (on-disk size: 5233 KB)
+0007.492 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 700 files added (on-disk size: 5233 KB)
+0007.501 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 800 files added (on-disk size: 5233 KB)
+0007.510 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 900 files added (on-disk size: 5233 KB)
+0007.519 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1000 files added (on-disk size: 5233 KB)
+0007.525 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.1 MB, 1720 files batched, 501 (1002) added so far); re-opening (prior size: 5233 KB)
+0007.807 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: size is now: 7.90 MB
+0007.826 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1100 files added (on-disk size: 8067.4 KB)
+0007.836 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1200 files added (on-disk size: 8067.4 KB)
+0007.846 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1300 files added (on-disk size: 8067.4 KB)
+0007.858 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1400 files added (on-disk size: 8067.4 KB)
+0007.867 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1500 files added (on-disk size: 8067.4 KB)
+0007.875 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.9 MB, 1720 files batched, 501 (1503) added so far); re-opening (prior size: 8067.4 KB)
+0008.122 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1600 files added (on-disk size: 9628.4 KB)
+0008.140 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip.tmp: 1700 files added (on-disk size: 9628.4 KB)
+0008.403 (0) Created themes zip (0) - 10240.6 KB in 1.3 s (8176.2 KB/s) (sha1: 4d3e9e48f4dc91945580dab84a4dff784afb32b0, sha256: a8417dbd603f8daf79a9821a2fef8135b9ef4a3f4f5f1100f5c18c5cb3eb51c0)
+0008.417 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0008.424 (0) Looking for candidates to back up in: /var/www/html/clients.lawrencemcdaniel.com/wp-content/uploads
+0008.430 (0) finding files: fusion-builder-avada-pages: adding to list (1)
+0008.437 (0) finding files: 2018: adding to list (2)
+0008.444 (0) finding files: fusion-styles: adding to list (3)
+0008.451 (0) finding files: taxjar-wc_tax_rates-02-14-2018-1518639364.csv: adding to list (4)
+0008.457 (0) finding files: fusion_slider_exports: adding to list (5)
+0008.464 (0) finding files: woocommerce_uploads: adding to list (6)
+0008.471 (0) finding files: fusion-scripts: adding to list (7)
+0008.479 (0) finding files: revslider: adding to list (8)
+0008.486 (0) finding files: 2015: adding to list (9)
+0008.493 (0) finding files: wc-logs: adding to list (10)
+0008.500 (0) finding files: fusionredux: adding to list (11)
+0008.507 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0008.537 (0) Total entities for the zip file: 163 directories, 538 files (0 skipped as non-modified), 40.4 MB
+0008.547 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0008.554 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25 MB, 538 files batched, 119 (119) added so far); re-opening (prior size: 0 KB)
+0008.911 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip.tmp: size is now: 11.70 MB
+0008.925 (0) A useful amount of data was added after this amount of zip processing: 1.3 s (normalised: 1.3 s, rate: 20172.2 KB/s)
+0008.939 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.2701098918915, normalised_time=1.2690712774206, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=123938192)
+0008.956 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip.tmp: 200 files added (on-disk size: 11950 KB)
+0008.965 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip.tmp: 300 files added (on-disk size: 11950 KB)
+0008.973 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip.tmp: 400 files added (on-disk size: 11950 KB)
+0008.982 (0) Zip: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip.tmp: 500 files added (on-disk size: 11950 KB)
+0009.300 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip.tmp: size is now: 18.70 MB
+0009.543 (0) Created uploads zip (0) - 19190.8 KB in 1 s (18663.6 KB/s) (sha1: b1590f99ac8427e4c3f37538dcd8b1690a35ed23, sha256: 6972e382f75aba1dbff6d207a6a457ccee9c5af2db2efd4204a9e0c730f1fb3a)
+0009.558 (0) Beginning backup of other directories found in the content directory (index: 0)
+0009.565 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0009.571 (0) Looking for candidates to back up in: /var/www/html/clients.lawrencemcdaniel.com/wp-content
+0009.577 (0) finding files: wflogs: adding to list (1)
+0009.584 (0) finding files: index.php: adding to list (2)
+0009.590 (0) finding files: upgrade: skipping: excluded by options
+0009.597 (0) finding files: updraft: skipping: this is the updraft directory
+0009.603 (0) finding files: themes: skipping: this is the themes directory
+0009.609 (0) finding files: uploads: skipping: this is the uploads directory
+0009.619 (0) finding files: plugins: skipping: this is the plugins directory
+0009.634 (0) Total entities for the zip file: 1 directories, 7 files (0 skipped as non-modified), 1.1 MB
+0009.691 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-others.zip.tmp: size is now: 0.50 MB
+0009.727 (0) Created others zip (0) - 523.6 KB in 0.1 s (5165.3 KB/s) (sha1: a570c3f62018827490a3db7d9a631e048b535dde, sha256: fe2ea58ba84a2bd7c6a48aa90ba3739bdd0aae24ba4798853d838a7fdc4d8d44)
+0009.776 (0) Saving backup status to database (elements: 8)
+0009.885 (0) Beginning creation of database dump (WordPress DB)
+0009.903 (0) Testing: /usr/bin/mysqldump
+0009.937 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1221 bytes total)
+0009.953 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0009.985 (0) Table wp_options: Total expected rows (approximate): 757
+0010.055 (0) Table wp_options: Total rows added: 769 in 0.06 seconds
+0010.066 (0) Table wp_options: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_options.table.gz - 150.5 KB)
+0010.093 (0) Table wp_users: Total expected rows (approximate): 3
+0010.105 (0) Table wp_users: Total rows added: 3 in 0.01 seconds
+0010.114 (0) Table wp_users: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_users.table.gz - 0.7 KB)
+0010.143 (0) Table wp_usermeta: Total expected rows (approximate): 113
+0010.155 (0) Table wp_usermeta: Total rows added: 112 in 0.01 seconds
+0010.163 (0) Table wp_usermeta: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_usermeta.table.gz - 3.3 KB)
+0010.189 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0010.199 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0010.206 (0) Table wp_commentmeta: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0010.233 (0) Table wp_comments: Total expected rows (approximate): 8
+0010.249 (0) Table wp_comments: Total rows added: 8 in 0.01 seconds
+0010.259 (0) Table wp_comments: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_comments.table.gz - 0.9 KB)
+0010.291 (0) Table wp_links: Total expected rows (approximate): 0
+0010.304 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0010.312 (0) Table wp_links: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_links.table.gz - 0.4 KB)
+0010.337 (0) Table wp_postmeta: Total expected rows (approximate): 3812
+0010.384 (0) Table wp_postmeta: Total rows added: 3774 in 0.04 seconds
+0010.391 (0) Table wp_postmeta: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_postmeta.table.gz - 33.9 KB)
+0010.417 (0) Table wp_posts: Total expected rows (approximate): 297
+0010.480 (0) Table wp_posts: Total rows added: 315 in 0.06 seconds
+0010.488 (0) Table wp_posts: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_posts.table.gz - 110.1 KB)
+0010.517 (0) Table wp_term_relationships: Total expected rows (approximate): 63
+0010.529 (0) Table wp_term_relationships: Total rows added: 71 in 0.01 seconds
+0010.542 (0) Table wp_term_relationships: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_term_relationships.table.gz - 0.6 KB)
+0010.565 (0) Table wp_term_taxonomy: Total expected rows (approximate): 38
+0010.576 (0) Table wp_term_taxonomy: Total rows added: 38 in 0.01 seconds
+0010.584 (0) Table wp_term_taxonomy: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_term_taxonomy.table.gz - 0.7 KB)
+0010.608 (0) Table wp_termmeta: Total expected rows (approximate): 16
+0010.622 (0) Table wp_termmeta: Total rows added: 16 in 0.01 seconds
+0010.630 (0) Table wp_termmeta: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_termmeta.table.gz - 0.8 KB)
+0010.660 (0) Table wp_terms: Total expected rows (approximate): 38
+0010.674 (0) Table wp_terms: Total rows added: 38 in 0.01 seconds
+0010.682 (0) Table wp_terms: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_terms.table.gz - 0.8 KB)
+0010.709 (0) Table wp_woocommerce_order_itemmeta: Total expected rows (approximate): 27
+0010.721 (0) Table wp_woocommerce_order_itemmeta: Total rows added: 27 in 0.01 seconds
+0010.730 (0) Table wp_woocommerce_order_itemmeta: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_order_itemmeta.table.gz - 0.6 KB)
+0010.755 (0) Table wp_woocommerce_payment_tokenmeta: Total expected rows (approximate): 4
+0010.767 (0) Table wp_woocommerce_payment_tokenmeta: Total rows added: 4 in 0.01 seconds
+0010.773 (0) Table wp_woocommerce_payment_tokenmeta: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_payment_tokenmeta.table.gz - 0.5 KB)
+0010.801 (0) Table wp_revslider_css: Total expected rows (approximate): 121
+0010.816 (0) Table wp_revslider_css: Total rows added: 121 in 0.01 seconds
+0010.824 (0) Table wp_revslider_css: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_css.table.gz - 5.2 KB)
+0010.853 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0010.870 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.01 seconds
+0010.881 (0) Table wp_revslider_layer_animations: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0010.909 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0010.921 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0010.928 (0) Table wp_revslider_navigations: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0010.953 (0) Table wp_revslider_sliders: Total expected rows (approximate): 3
+0010.967 (0) Table wp_revslider_sliders: Total rows added: 4 in 0.01 seconds
+0010.975 (0) Table wp_revslider_sliders: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_sliders.table.gz - 3.9 KB)
+0011.004 (0) Table wp_revslider_slides: Total expected rows (approximate): 6
+0011.021 (0) Table wp_revslider_slides: Total rows added: 6 in 0.01 seconds
+0011.029 (0) Table wp_revslider_slides: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_slides.table.gz - 9.2 KB)
+0011.054 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0011.066 (0) Table wp_revslider_static_slides: Total rows added: 1 in 0.01 seconds
+0011.073 (0) Table wp_revslider_static_slides: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0011.100 (0) Table wp_wc_download_log: Total expected rows (approximate): 0
+0011.110 (0) Table wp_wc_download_log: Total rows added: 0 in 0.00 seconds
+0011.118 (0) Table wp_wc_download_log: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wc_download_log.table.gz - 0.4 KB)
+0011.143 (0) Table wp_wc_webhooks: Total expected rows (approximate): 0
+0011.154 (0) Table wp_wc_webhooks: Total rows added: 0 in 0.00 seconds
+0011.162 (0) Table wp_wc_webhooks: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wc_webhooks.table.gz - 0.5 KB)
+0011.196 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0011.207 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0011.214 (0) Table wp_wfBadLeechers: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0011.239 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0011.250 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0011.258 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0011.282 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 0
+0011.293 (0) Table wp_wfBlockedIPLog: Total rows added: 0 in 0.00 seconds
+0011.300 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBlockedIPLog.table.gz - 0.3 KB)
+0011.325 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0011.336 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0011.342 (0) Table wp_wfBlocks7: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0011.366 (0) Table wp_wfConfig: Total expected rows (approximate): 225
+0011.391 (0) Table wp_wfConfig: Total rows added: 225 in 0.02 seconds
+0011.398 (0) Table wp_wfConfig: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfConfig.table.gz - 235.5 KB)
+0011.426 (0) Table wp_wfCrawlers: Total expected rows (approximate): 2
+0011.439 (0) Table wp_wfCrawlers: Total rows added: 2 in 0.01 seconds
+0011.446 (0) Table wp_wfCrawlers: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfCrawlers.table.gz - 0.5 KB)
+0011.473 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0011.483 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0011.492 (0) Table wp_wfFileChanges: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0011.519 (0) Table wp_wfFileMods: Total expected rows (approximate): 8340
+0011.678 (0) Table wp_wfFileMods: binary mysqldump finished (writes: 36) in 0.15 seconds
+0011.686 (0) Table wp_wfFileMods: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfFileMods.table.gz - 771.7 KB)
+0011.714 (0) Table wp_wfHits: Total expected rows (approximate): 1673
+0011.764 (0) Table wp_wfHits: Total rows added: 1693 in 0.04 seconds
+0011.774 (0) Table wp_wfHits: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfHits.table.gz - 25.7 KB)
+0011.799 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0011.810 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0011.817 (0) Table wp_wfHoover: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0011.848 (0) Table wp_wfIssues: Total expected rows (approximate): 2
+0011.862 (0) Table wp_wfIssues: Total rows added: 2 in 0.01 seconds
+0011.870 (0) Table wp_wfIssues: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfIssues.table.gz - 1.3 KB)
+0011.898 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 8898
+0012.001 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.10 seconds
+0012.010 (0) Table wp_wfKnownFileList: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfKnownFileList.table.gz - 87.9 KB)
+0012.045 (0) Table wp_wfLeechers: Total expected rows (approximate): 688
+0012.060 (0) Table wp_wfLeechers: Total rows added: 688 in 0.01 seconds
+0012.068 (0) Table wp_wfLeechers: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfLeechers.table.gz - 2.4 KB)
+0012.093 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0012.104 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0012.111 (0) Table wp_wfLocs: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0012.141 (0) Table wp_wfLogins: Total expected rows (approximate): 43
+0012.153 (0) Table wp_wfLogins: Total rows added: 53 in 0.01 seconds
+0012.160 (0) Table wp_wfLogins: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfLogins.table.gz - 1.5 KB)
+0012.186 (0) Table wp_wfNet404s: Total expected rows (approximate): 0
+0012.196 (0) Table wp_wfNet404s: Total rows added: 0 in 0.00 seconds
+0012.205 (0) Table wp_wfNet404s: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfNet404s.table.gz - 0.3 KB)
+0012.232 (0) Table wp_wfNotifications: Total expected rows (approximate): 7
+0012.250 (0) Table wp_wfNotifications: Total rows added: 7 in 0.01 seconds
+0012.263 (0) Table wp_wfNotifications: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfNotifications.table.gz - 0.6 KB)
+0012.302 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0012.313 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0012.320 (0) Table wp_wfPendingIssues: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0012.348 (0) Table wp_wfReverseCache: Total expected rows (approximate): 0
+0012.359 (0) Table wp_wfReverseCache: Total rows added: 0 in 0.00 seconds
+0012.367 (0) Table wp_wfReverseCache: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfReverseCache.table.gz - 0.3 KB)
+0012.391 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0012.401 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0012.411 (0) Table wp_wfSNIPCache: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0012.445 (0) Table wp_wfScanners: Total expected rows (approximate): 0
+0012.455 (0) Table wp_wfScanners: Total rows added: 0 in 0.00 seconds
+0012.464 (0) Table wp_wfScanners: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfScanners.table.gz - 0.3 KB)
+0012.489 (0) Table wp_wfStatus: Total expected rows (approximate): 953
+0012.512 (0) Table wp_wfStatus: Total rows added: 953 in 0.02 seconds
+0012.519 (0) Table wp_wfStatus: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfStatus.table.gz - 17.1 KB)
+0012.544 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0012.554 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0012.561 (0) Table wp_wfVulnScanners: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0012.602 (0) Table wp_woocommerce_api_keys: Total expected rows (approximate): 0
+0012.613 (0) Table wp_woocommerce_api_keys: Total rows added: 0 in 0.00 seconds
+0012.620 (0) Table wp_woocommerce_api_keys: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_api_keys.table.gz - 0.4 KB)
+0012.645 (0) Table wp_woocommerce_attribute_taxonomies: Total expected rows (approximate): 0
+0012.656 (0) Table wp_woocommerce_attribute_taxonomies: Total rows added: 0 in 0.00 seconds
+0012.668 (0) Table wp_woocommerce_attribute_taxonomies: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_attribute_taxonomies.table.gz - 0.4 KB)
+0012.697 (0) Table wp_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0012.708 (0) Table wp_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.00 seconds
+0012.717 (0) Table wp_woocommerce_downloadable_product_permissions: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_downloadable_product_permissions.table.gz - 0.5 KB)
+0012.747 (0) Table wp_woocommerce_log: Total expected rows (approximate): 0
+0012.763 (0) Table wp_woocommerce_log: Total rows added: 0 in 0.01 seconds
+0012.773 (0) Table wp_woocommerce_log: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_log.table.gz - 0.4 KB)
+0012.802 (0) Table wp_woocommerce_order_items: Total expected rows (approximate): 3
+0012.816 (0) Table wp_woocommerce_order_items: Total rows added: 3 in 0.01 seconds
+0012.823 (0) Table wp_woocommerce_order_items: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_order_items.table.gz - 0.4 KB)
+0012.849 (0) Table wp_woocommerce_payment_tokens: Total expected rows (approximate): 0
+0012.861 (0) Table wp_woocommerce_payment_tokens: Total rows added: 1 in 0.01 seconds
+0012.870 (0) Table wp_woocommerce_payment_tokens: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_payment_tokens.table.gz - 0.4 KB)
+0012.901 (0) Table wp_woocommerce_sessions: Total expected rows (approximate): 5
+0012.914 (0) Table wp_woocommerce_sessions: Total rows added: 5 in 0.01 seconds
+0012.920 (0) Table wp_woocommerce_sessions: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_sessions.table.gz - 1 KB)
+0012.946 (0) Table wp_woocommerce_shipping_zone_locations: Total expected rows (approximate): 0
+0012.957 (0) Table wp_woocommerce_shipping_zone_locations: Total rows added: 0 in 0.00 seconds
+0012.965 (0) Table wp_woocommerce_shipping_zone_locations: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_shipping_zone_locations.table.gz - 0.4 KB)
+0013.001 (0) Table wp_woocommerce_shipping_zone_methods: Total expected rows (approximate): 0
+0013.012 (0) Table wp_woocommerce_shipping_zone_methods: Total rows added: 0 in 0.00 seconds
+0013.021 (0) Table wp_woocommerce_shipping_zone_methods: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_shipping_zone_methods.table.gz - 0.4 KB)
+0013.044 (0) Table wp_woocommerce_shipping_zones: Total expected rows (approximate): 0
+0013.055 (0) Table wp_woocommerce_shipping_zones: Total rows added: 0 in 0.00 seconds
+0013.065 (0) Table wp_woocommerce_shipping_zones: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_shipping_zones.table.gz - 0.3 KB)
+0013.093 (0) Table wp_woocommerce_tax_rate_locations: Total expected rows (approximate): 4
+0013.106 (0) Table wp_woocommerce_tax_rate_locations: Total rows added: 4 in 0.01 seconds
+0013.112 (0) Table wp_woocommerce_tax_rate_locations: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_tax_rate_locations.table.gz - 0.5 KB)
+0013.139 (0) Table wp_woocommerce_tax_rates: Total expected rows (approximate): 2
+0013.151 (0) Table wp_woocommerce_tax_rates: Total rows added: 2 in 0.01 seconds
+0013.160 (0) Table wp_woocommerce_tax_rates: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_tax_rates.table.gz - 0.5 KB)
+0013.185 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 17
+0013.196 (0) Table wp_yoast_seo_links: Total rows added: 17 in 0.01 seconds
+0013.204 (0) Table wp_yoast_seo_links: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_yoast_seo_links.table.gz - 0.6 KB)
+0013.228 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 12
+0013.240 (0) Table wp_yoast_seo_meta: Total rows added: 13 in 0.01 seconds
+0013.248 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0013.276 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_options.table.gz (1/59): adding to final database dump
+0013.317 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_users.table.gz (2/59): adding to final database dump
+0013.328 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_usermeta.table.gz (3/59): adding to final database dump
+0013.335 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_commentmeta.table.gz (4/59): adding to final database dump
+0013.344 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_comments.table.gz (5/59): adding to final database dump
+0013.353 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_links.table.gz (6/59): adding to final database dump
+0013.359 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_postmeta.table.gz (7/59): adding to final database dump
+0013.375 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_posts.table.gz (8/59): adding to final database dump
+0013.409 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_term_relationships.table.gz (9/59): adding to final database dump
+0013.417 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_term_taxonomy.table.gz (10/59): adding to final database dump
+0013.424 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_termmeta.table.gz (11/59): adding to final database dump
+0013.432 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_terms.table.gz (12/59): adding to final database dump
+0013.439 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_order_itemmeta.table.gz (13/59): adding to final database dump
+0013.447 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_payment_tokenmeta.table.gz (14/59): adding to final database dump
+0013.454 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_css.table.gz (15/59): adding to final database dump
+0013.462 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_layer_animations.table.gz (16/59): adding to final database dump
+0013.470 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_navigations.table.gz (17/59): adding to final database dump
+0013.476 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_sliders.table.gz (18/59): adding to final database dump
+0013.484 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_slides.table.gz (19/59): adding to final database dump
+0013.494 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_revslider_static_slides.table.gz (20/59): adding to final database dump
+0013.501 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wc_download_log.table.gz (21/59): adding to final database dump
+0013.508 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wc_webhooks.table.gz (22/59): adding to final database dump
+0013.515 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBadLeechers.table.gz (23/59): adding to final database dump
+0013.522 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBlockedCommentLog.table.gz (24/59): adding to final database dump
+0013.529 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBlockedIPLog.table.gz (25/59): adding to final database dump
+0013.536 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfBlocks7.table.gz (26/59): adding to final database dump
+0013.543 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfConfig.table.gz (27/59): adding to final database dump
+0013.561 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfCrawlers.table.gz (28/59): adding to final database dump
+0013.567 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfFileChanges.table.gz (29/59): adding to final database dump
+0013.575 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfFileMods.table.gz (30/59): adding to final database dump
+0013.649 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfHits.table.gz (31/59): adding to final database dump
+0013.664 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfHoover.table.gz (32/59): adding to final database dump
+0013.673 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfIssues.table.gz (33/59): adding to final database dump
+0013.680 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfKnownFileList.table.gz (34/59): adding to final database dump
+0013.707 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfLeechers.table.gz (35/59): adding to final database dump
+0013.719 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfLocs.table.gz (36/59): adding to final database dump
+0013.727 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfLogins.table.gz (37/59): adding to final database dump
+0013.734 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfNet404s.table.gz (38/59): adding to final database dump
+0013.741 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfNotifications.table.gz (39/59): adding to final database dump
+0013.748 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfPendingIssues.table.gz (40/59): adding to final database dump
+0013.755 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfReverseCache.table.gz (41/59): adding to final database dump
+0013.763 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfSNIPCache.table.gz (42/59): adding to final database dump
+0013.770 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfScanners.table.gz (43/59): adding to final database dump
+0013.776 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfStatus.table.gz (44/59): adding to final database dump
+0013.785 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_wfVulnScanners.table.gz (45/59): adding to final database dump
+0013.792 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_api_keys.table.gz (46/59): adding to final database dump
+0013.804 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_attribute_taxonomies.table.gz (47/59): adding to final database dump
+0013.811 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_downloadable_product_permissions.table.gz (48/59): adding to final database dump
+0013.818 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_log.table.gz (49/59): adding to final database dump
+0013.824 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_order_items.table.gz (50/59): adding to final database dump
+0013.831 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_payment_tokens.table.gz (51/59): adding to final database dump
+0013.838 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_sessions.table.gz (52/59): adding to final database dump
+0013.845 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_shipping_zone_locations.table.gz (53/59): adding to final database dump
+0013.852 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_shipping_zone_methods.table.gz (54/59): adding to final database dump
+0013.858 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_shipping_zones.table.gz (55/59): adding to final database dump
+0013.865 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_tax_rate_locations.table.gz (56/59): adding to final database dump
+0013.872 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_woocommerce_tax_rates.table.gz (57/59): adding to final database dump
+0013.878 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_yoast_seo_links.table.gz (58/59): adding to final database dump
+0013.885 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db-table-wp_yoast_seo_meta.table.gz (59/59): adding to final database dump
+0013.892 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db.gz: finished writing out complete database file (1456 KB)
+0013.939 (0) Total database tables backed up: 59 (backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db.gz, size: 1504034, sha256)
+0014.010 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0014.016 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0014.023 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0014.030 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-others.zip: others: This file has not yet been successfully uploaded: will queue
+0014.037 (0) backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db.gz: db: This file has not yet been successfully uploaded: will queue
+0014.044 (0) Saving backup history. Total backup size: 68.6 MB
+0014.076 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0014.099 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0014.106 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-3f2ad20148b97f85476f677e9ffb57bb)
+0014.592 (0) Set region: us-west-2
+0014.599 (0) S3 upload (us-west-2): backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip (chunks: 8) -> s3://clients.lawrencemcdaniel.com/backups/backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip
+0017.346 (0) S3 chunked upload: got multipart ID: prxDB5zgzXhxLhuRDFZZHw1Wr0YsDQM1ODMAZEy37IScSogizw90.eX5cWV69Ck6ON9b2QHVxe5I18CW1DkVCGPvN6cb9WwcG6YdM_MprxpeS76UxBjHV.QQUqeCycTZ
+0017.755 (0) S3 chunked upload: 12.5 % uploaded (1, "e62b3f4b03739fc1ce08beee917a2a69")
+0017.987 (0) S3 chunked upload: 25 % uploaded (2, "b1e8ea64209182bd57aa521bd19d3ed2")
+0018.256 (0) S3 chunked upload: 37.5 % uploaded (3, "7dafbde5443c64e43afc1e9908efa9ce")
+0018.648 (0) S3 chunked upload: 50 % uploaded (4, "ea89dc2d32a41ab22e0b614c9f6c9724")
+0020.502 (0) S3 chunked upload: 62.5 % uploaded (5, "d494326e031deda3add239ac31c84eca")
+0020.871 (0) S3 chunked upload: 75 % uploaded (6, "dd3a461aab585c8fadda506bf4fe1281")
+0021.279 (0) S3 chunked upload: 87.5 % uploaded (7, "f118841ebcef92b97f466c05f6f25cab")
+0021.515 (0) S3 chunked upload: 100 % uploaded (8, "940ad89bd20161c248757adb0a05ecf8")
+0021.547 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0021.620 (0) S3 upload (plugins0): re-assembly succeeded
+0021.639 (0) Recording as successfully uploaded: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip (92e0dcd780e7a48f9a7dc95766753376)
+0021.695 (0) Deleting local file: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-plugins.zip: OK
+0021.702 (0) S3 upload (us-west-2): backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip (chunks: 3) -> s3://clients.lawrencemcdaniel.com/backups/backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip
+0021.717 (0) S3 chunked upload: got multipart ID: fJ6DCvHkKNj7y3leSRacFGt.W5CuF5acbMqTQivwah5zltHOj7Gxq55RpqX_d_AO847twFqRW98DfV7BnMhnfe63emQiTLEvRllYsKEPFJPCqaKWL64DKGM4fr9Bw90h
+0021.979 (0) S3 chunked upload: 33.3 % uploaded (1, "26a098db1f934003cacaf0f2f52d0595")
+0022.430 (0) S3 chunked upload: 66.7 % uploaded (2, "4e2f981aaa5489cbbbf936d086d66aeb")
+0022.485 (0) S3 chunked upload: 100 % uploaded (3, "2a351265e40ed62cf9ad4b0a599519bc")
+0022.513 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0022.586 (0) S3 upload (themes0): re-assembly succeeded
+0022.603 (0) Recording as successfully uploaded: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip (ca0838cdc132097d07fe12dea23de1ae)
+0022.629 (0) Deleting local file: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-themes.zip: OK
+0022.635 (0) S3 upload (us-west-2): backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip (chunks: 4) -> s3://clients.lawrencemcdaniel.com/backups/backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip
+0022.717 (0) S3 chunked upload: got multipart ID: ie_ZT6eVHZm9anJEiCUv212sQ.hinNvBS8_uCtnikmtT6ITeC9IcYkiIr0fsEWo1R6xs_Ov91DU1VaV.bI4BSB4bWiIqL2hvsN5bvM6HEGIAcWvL6jPqy627xd.xDLuZ
+0023.000 (0) S3 chunked upload: 25 % uploaded (1, "1f7a1fae2161a630584708bbf062dbca")
+0023.208 (0) S3 chunked upload: 50 % uploaded (2, "d5746ec9e32350d09d55eb97d1f743c1")
+0023.463 (0) S3 chunked upload: 75 % uploaded (3, "8fe9e02b582e1d9ae464bb199aff4d79")
+0023.807 (0) S3 chunked upload: 100 % uploaded (4, "f49007ebf5bc7da96b1e25806496632d")
+0023.835 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0024.042 (0) S3 upload (uploads0): re-assembly succeeded
+0024.060 (0) Recording as successfully uploaded: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip (21985c95706da8fb33cf6894a843b71f)
+0024.091 (0) Deleting local file: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-uploads.zip: OK
+0024.097 (0) S3 upload (us-west-2): backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-others.zip (chunks: 1) -> s3://clients.lawrencemcdaniel.com/backups/backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-others.zip
+0024.270 (0) S3 regular upload: success
+0024.289 (0) Recording as successfully uploaded: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-others.zip (b6ff3945839df651302e141f8b1d60ac)
+0024.312 (0) Deleting local file: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-others.zip: OK
+0024.318 (0) S3 upload (us-west-2): backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db.gz (chunks: 1) -> s3://clients.lawrencemcdaniel.com/backups/backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db.gz
+0024.498 (0) S3 regular upload: success
+0024.516 (0) Recording as successfully uploaded: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db.gz (777252ffff95ef480353ec1963a9f01c)
+0024.544 (0) Deleting local file: backup_2018-02-26-2006_Full_Stack_Web_Developer_9d0f4db882d7-db.gz: OK
+0024.561 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0024.572 (0) Number of backup sets in history: 24; groups (db): 1
+0024.578 (0) Examining (for databases) backup set with group_id=0, nonce=9d0f4db882d7, datestamp=1519675560 (Feb 26 2018 20:06:00)
+0024.583 (0) This backup set is the backup set just made, so will not be deleted.
+0024.583 (0) Examining (for databases) backup set with group_id=0, nonce=466ad9ab4fe5, datestamp=1519589148 (Feb 25 2018 20:05:48)
+0024.583 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=5e4877fe6fb3, datestamp=1519502752 (Feb 24 2018 20:05:52)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=16b816928ebe, datestamp=1519416347 (Feb 23 2018 20:05:47)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=c1d83c2aaafc, datestamp=1519329773 (Feb 22 2018 20:02:53)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=8d71c4312861, datestamp=1519243547 (Feb 21 2018 20:05:47)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=8cbd76460b6c, datestamp=1519157157 (Feb 20 2018 20:05:57)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=becec46577a1, datestamp=1519070730 (Feb 19 2018 20:05:30)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=1ec27d1eb679, datestamp=1518986805 (Feb 18 2018 20:46:45)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=2f8e4e301e8b, datestamp=1518984156 (Feb 18 2018 20:02:36)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=ee5b31d95453, datestamp=1518912835 (Feb 18 2018 00:13:55)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=305faa08350b, datestamp=1518906151 (Feb 17 2018 22:22:31)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=5f2861a52bf8, datestamp=1518897904 (Feb 17 2018 20:05:04)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=a7e491052c36, datestamp=1518894300 (Feb 17 2018 19:05:00)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=49a3c6063e3e, datestamp=1518888239 (Feb 17 2018 17:23:59)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=7b7a252bba4c, datestamp=1518828560 (Feb 17 2018 00:49:20)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=3737709f4d30, datestamp=1518822140 (Feb 16 2018 23:02:20)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=3ac7f6bc568f, datestamp=1518817042 (Feb 16 2018 21:37:22)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=4604f58d360e, datestamp=1518811328 (Feb 16 2018 20:02:08)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.590 (0) Examining (for databases) backup set with group_id=0, nonce=d622801aa914, datestamp=1518809552 (Feb 16 2018 19:32:32)
+0024.590 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.591 (0) Examining (for databases) backup set with group_id=0, nonce=ee6a06edd046, datestamp=1518725111 (Feb 15 2018 20:05:11)
+0024.591 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.591 (0) Examining (for databases) backup set with group_id=0, nonce=2bf800916942, datestamp=1518723994 (Feb 15 2018 19:46:34)
+0024.591 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.591 (0) Examining (for databases) backup set with group_id=0, nonce=51fd7a98e856, datestamp=1518699899 (Feb 15 2018 13:04:59)
+0024.591 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.591 (0) Examining (for databases) backup set with group_id=0, nonce=ae6befa1e850, datestamp=1518640369 (Feb 14 2018 20:32:49)
+0024.591 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.591 (0) Number of backup sets in history: 24; groups (files): 1
+0024.597 (0) Examining (for files) backup set with nonce=9d0f4db882d7, datestamp=1519675560 (Feb 26 2018 20:06:00)
+0024.597 (0) This backup set is the backup set just made, so will not be deleted.
+0024.603 (0) This backup set is the backup set just made, so will not be deleted.
+0024.603 (0) This backup set is the backup set just made, so will not be deleted.
+0024.603 (0) This backup set is the backup set just made, so will not be deleted.
+0024.603 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=466ad9ab4fe5, datestamp=1519589148 (Feb 25 2018 20:05:48)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=5e4877fe6fb3, datestamp=1519502752 (Feb 24 2018 20:05:52)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=16b816928ebe, datestamp=1519416347 (Feb 23 2018 20:05:47)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=c1d83c2aaafc, datestamp=1519329773 (Feb 22 2018 20:02:53)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=8d71c4312861, datestamp=1519243547 (Feb 21 2018 20:05:47)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=8cbd76460b6c, datestamp=1519157157 (Feb 20 2018 20:05:57)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=becec46577a1, datestamp=1519070730 (Feb 19 2018 20:05:30)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=1ec27d1eb679, datestamp=1518986805 (Feb 18 2018 20:46:45)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=2f8e4e301e8b, datestamp=1518984156 (Feb 18 2018 20:02:36)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.609 (0) Examining (for files) backup set with nonce=ee5b31d95453, datestamp=1518912835 (Feb 18 2018 00:13:55)
+0024.609 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=305faa08350b, datestamp=1518906151 (Feb 17 2018 22:22:31)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=5f2861a52bf8, datestamp=1518897904 (Feb 17 2018 20:05:04)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=a7e491052c36, datestamp=1518894300 (Feb 17 2018 19:05:00)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=49a3c6063e3e, datestamp=1518888239 (Feb 17 2018 17:23:59)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=7b7a252bba4c, datestamp=1518828560 (Feb 17 2018 00:49:20)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=3737709f4d30, datestamp=1518822140 (Feb 16 2018 23:02:20)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=3ac7f6bc568f, datestamp=1518817042 (Feb 16 2018 21:37:22)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=4604f58d360e, datestamp=1518811328 (Feb 16 2018 20:02:08)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=d622801aa914, datestamp=1518809552 (Feb 16 2018 19:32:32)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=ee6a06edd046, datestamp=1518725111 (Feb 15 2018 20:05:11)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=2bf800916942, datestamp=1518723994 (Feb 15 2018 19:46:34)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=51fd7a98e856, datestamp=1518699899 (Feb 15 2018 13:04:59)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Examining (for files) backup set with nonce=ae6befa1e850, datestamp=1518640369 (Feb 14 2018 20:32:49)
+0024.610 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0024.610 (0) Retain: saving new backup history (sets now: 24) and finishing retain operation
+0024.628 (0) Resume backup (9d0f4db882d7, 0): finish run
+0024.647 (0) Decremented the semaphore (fd) by 1
+0024.659 (0) Semaphore (fd) unlocked
+0024.667 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0024.693 (0) Fetching RSS news feed
+0024.901 (0) Fetched RSS news feed; result is a: SimplePie
+0024.943 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: lpm00...
+0025.011 (0) The backup apparently succeeded and is now complete

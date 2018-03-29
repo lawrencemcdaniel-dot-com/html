@@ -1,0 +1,135 @@
+0000.016 () Opened log file at time: Mon, 13 Nov 2017 17:53:53 +0000 on https://lawrencemcdaniel.com
+0000.016 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.13.12 WP: 4.8.3 PHP: 7.0.21 (apache2handler, Linux ip-172-31-14-147 4.9.58-18.55.amzn1.x86_64 #1 SMP Thu Nov 2 04:38:47 UTC 2017 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.21 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 42.9M | 4M) multisite: N openssl: OpenSSL 1.0.1k-fips 8 Jan 2015 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.016 () Free space on disk containing Updraft's temporary directory: 96042.9 MB
+0000.024 () Restore job started. Entities to restore: plugins, themes, uploads, others, db. Restore options: {"updraft_restorer_replacesiteurl":false,"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false}
+0000.044 () Requested file from remote service: s3: backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-db.gz
+0000.507 () Set region: us-west-2
+0000.542 () Set region: us-west-2
+0000.645 () File is already completely downloaded (1971272/1971272)
+0000.645 () Requested file from remote service: s3: backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-plugins.zip
+0001.078 () Set region: us-west-2
+0001.109 () Set region: us-west-2
+0001.208 () File is already completely downloaded (38914980/38914980)
+0001.209 () Requested file from remote service: s3: backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-themes.zip
+0001.624 () Set region: us-west-2
+0001.657 () Set region: us-west-2
+0001.755 () File is already completely downloaded (18117871/18117871)
+0001.755 () Requested file from remote service: s3: backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-uploads.zip
+0002.316 () Set region: us-west-2
+0002.354 () Set region: us-west-2
+0002.458 () File is already completely downloaded (57849477/57849477)
+0002.458 () Requested file from remote service: s3: backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-others.zip
+0002.854 () Set region: us-west-2
+0002.999 () Set region: us-west-2
+0003.097 () File is already completely downloaded (3497627/3497627)
+0003.122 () Entity: db
+0003.122 () restore_backup(backup_file=backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-db.gz, type=db, info=a:0:{}, last_one=)
+0003.122 () Unpacking backup... (backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-db.gz, 1.9 Mb)
+0003.124 () Database successfully unpacked
+0003.124 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0003.125 () Using direct MySQL access; value of use_mysqli is: 1
+0003.172 () Tried to raise max_allowed_packet from 4 MB to 32 MB, but failed (Access denied; you need (at least one of) the SUPER privilege(s) for this operation, b:0;)
+0003.173 () Max packet size: 4 MB
+0003.173 () Entering maintenance mode
+0003.173 () Enabling Maintenance mode&#8230;
+0003.174 () Backup of: https://lawrencemcdaniel.com
+0003.175 () Content URL: https://lawrencemcdaniel.com/wp-content
+0003.175 () Uploads URL: https://lawrencemcdaniel.com/wp-content/uploads
+0003.175 () Old table prefix: wp_
+0003.175 () Site information: multisite=0
+0003.183 () New table prefix: wp_
+0003.197 () Processing table (InnoDB): wp_options
+0003.767 () Restoring prior UD configuration (table: wp_options; keys: 3)
+0003.827 () Processing table (InnoDB): wp_users
+0003.888 () Processing table (InnoDB): wp_usermeta
+0003.955 () Processing table (InnoDB): wp_commentmeta
+0004.006 () Processing table (InnoDB): wp_comments
+0004.088 () Processing table (InnoDB): wp_links
+0004.142 () Processing table (InnoDB): wp_postmeta
+0006.267 () Processing table (InnoDB): wp_posts
+0007.443 () Processing table (InnoDB): wp_term_relationships
+0007.518 () Processing table (InnoDB): wp_term_taxonomy
+0007.575 () Database queries processed: 50 in 4.44 seconds
+0007.578 () Processing table (InnoDB): wp_termmeta
+0007.633 () Processing table (InnoDB): wp_terms
+0007.698 () Processing table (InnoDB): wp_ahm_download_stats
+0007.745 () Processing table (InnoDB): wp_ahm_emails
+0007.785 () Processing table (InnoDB): wp_ip_geo_block_cache
+0007.844 () Processing table (InnoDB): wp_ip_geo_block_logs
+0008.007 () Processing table (InnoDB): wp_ip_geo_block_stat
+0008.057 () Processing table (InnoDB): wp_layerslider
+0008.162 () Processing table (InnoDB): wp_revslider_css
+0008.250 () Processing table (InnoDB): wp_revslider_layer_animations
+0008.290 () Processing table (InnoDB): wp_revslider_navigations
+0008.331 () Processing table (InnoDB): wp_revslider_sliders
+0008.416 () Processing table (InnoDB): wp_revslider_slides
+0008.569 () Processing table (InnoDB): wp_revslider_static_slides
+0008.634 () Processing table (InnoDB): wp_urls
+0010.221 () Processing table (InnoDB): wp_w3tc_cdn_queue
+0010.267 () Database queries processed: 100 in 7.14 seconds
+0010.269 () Processing table (InnoDB): wp_wfBadLeechers
+0010.305 () Processing table (InnoDB): wp_wfBlockedCommentLog
+0010.345 () Processing table (InnoDB): wp_wfBlockedIPLog
+0010.397 () Processing table (InnoDB): wp_wfBlocks
+0010.449 () Processing table (InnoDB): wp_wfBlocksAdv
+0010.484 () Processing table (InnoDB): wp_wfConfig
+0010.634 () Processing table (InnoDB): wp_wfCrawlers
+0010.686 () Processing table (InnoDB): wp_wfFileMods
+0012.135 () Processing table (InnoDB): wp_wfHits
+0012.566 () Processing table (InnoDB): wp_wfHoover
+0012.607 () Processing table (InnoDB): wp_wfIssues
+0012.653 () Processing table (InnoDB): wp_wfKnownFileList
+0014.674 () Database queries processed: 150 in 11.54 seconds
+0014.690 () Processing table (InnoDB): wp_wfLeechers
+0014.781 () Processing table (InnoDB): wp_wfLockedOut
+0014.829 () Processing table (InnoDB): wp_wfLocs
+0014.876 () Processing table (InnoDB): wp_wfLogins
+0015.152 () Processing table (InnoDB): wp_wfNet404s
+0015.221 () Processing table (InnoDB): wp_wfNotifications
+0015.289 () Processing table (InnoDB): wp_wfPendingIssues
+0015.341 () Processing table (InnoDB): wp_wfReverseCache
+0015.405 () Processing table (InnoDB): wp_wfSNIPCache
+0015.474 () Processing table (InnoDB): wp_wfScanners
+0015.522 () Processing table (InnoDB): wp_wfStatus
+0015.865 () Processing table (InnoDB): wp_wfThrottleLog
+0015.937 () Processing table (InnoDB): wp_wfVulnScanners
+0015.974 () Processing table (InnoDB): wp_yoast_seo_links
+0016.069 () Processing table (InnoDB): wp_yoast_seo_meta
+0016.111 () Unlocking database and leaving maintenance mode
+0016.111 () Disabling Maintenance mode&#8230;
+0016.111 () Finished: lines processed: 194 in 12.98 seconds
+0016.112 () Cleaning up rubbish...
+0016.143 () Entity: plugins
+0016.143 () restore_backup(backup_file=backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:53:"/var/www/html/lawrencemcdaniel.com/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0016.143 () Unpacking backup... (backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-plugins.zip, 37.1 Mb)
+0016.939 () Moving old data: filesystem method / updraft_dir is potentially possible
+0016.939 () Moving old data: can potentially use wp_filesystem method / -old
+0016.939 () Moving old data out of the way...
+0017.277 () Top-level entities being moved: facebook-conversion-pixel, api-key-for-google-maps, rename-wp-login, official-statcounter-plugin-for-wordpress, .htaccess, iframely, wordfence, googleanalytics, index.php, ip-geo-block, ProfTeamExtensions, LayerSlider, wp-add-custom-css, revslider, envato-wordpress-toolkit-master, wordpress-seo, insert-headers-and-footers, js_composer, w3-total-cache, updraftplus, duplicate-page, better-search-replace
+0017.280 () Moving unpacked backup into place...
+0017.618 () Top-level entities being moved: facebook-conversion-pixel, api-key-for-google-maps, rename-wp-login, official-statcounter-plugin-for-wordpress, .htaccess, iframely, wordfence, googleanalytics, index.php, ip-geo-block, ProfTeamExtensions, LayerSlider, wp-add-custom-css, revslider, envato-wordpress-toolkit-master, wordpress-seo, insert-headers-and-footers, js_composer, w3-total-cache, updraftplus, duplicate-page, better-search-replace
+0017.621 () Cleaning up rubbish...
+0017.647 () Entity: themes
+0017.647 () restore_backup(backup_file=backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-themes.zip, type=themes, info=a:2:{s:4:"path";s:52:"/var/www/html/lawrencemcdaniel.com/wp-content/themes";s:11:"description";s:6:"Themes";}, last_one=)
+0017.647 () Unpacking backup... (backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-themes.zip, 17.3 Mb)
+0017.703 () Moving old data: filesystem method / updraft_dir is potentially possible
+0017.703 () Moving old data: can potentially use wp_filesystem method / -old
+0017.703 () Moving old data out of the way...
+0017.717 () Top-level entities being moved: .htaccess, index.php, twentyfifteen, twentysixteen, Identity-vcard, twentyfourteen
+0017.717 () Moving unpacked backup into place...
+0017.731 () Top-level entities being moved: .htaccess, index.php, twentyfifteen, twentysixteen, Identity-vcard, twentyfourteen
+0017.732 () Cleaning up rubbish...
+0017.744 () Entity: uploads
+0017.744 () restore_backup(backup_file=backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:53:"/var/www/html/lawrencemcdaniel.com/wp-content/uploads";s:11:"description";s:7:"Uploads";}, last_one=)
+0017.744 () Unpacking backup... (backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-uploads.zip, 55.2 Mb)
+0017.880 () Moving old data: filesystem method / updraft_dir is potentially possible
+0017.880 () Moving old data: can potentially use wp_filesystem method / -old
+0017.880 () Moving old data out of the way...
+0017.917 () Moving unpacked backup into place...
+0017.953 () Cleaning up rubbish...
+0017.964 () Entity: others
+0017.964 () restore_backup(backup_file=backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-others.zip, type=others, info=a:2:{s:4:"path";s:45:"/var/www/html/lawrencemcdaniel.com/wp-content";s:11:"description";s:6:"Others";}, last_one=1)
+0017.965 () Unpacking backup... (backup_2017-11-12-1703_Lawrence_McDaniel_Full_Stack_D_35f846bb603c-others.zip, 3.3 Mb)
+0018.022 () Cleaning up rubbish...
+0018.049 () Restore successful!
+0018.050 () Restore successful
