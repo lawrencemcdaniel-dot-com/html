@@ -1,0 +1,105 @@
+0000.006 () Opened log file at time: Fri, 10 Feb 2017 14:16:33 +0000 on http://edmex.org
+0000.006 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.12.32 WP: 4.7.2 PHP: 5.6.29 (apache2handler, Linux ip-172-31-30-194 4.4.44-39.55.amzn1.x86_64 #1 SMP Mon Jan 30 18:15:53 UTC 2017 x86_64) MySQL: 5.5.54 WPLANG: es_MX Server: Apache/2.4.25 (Amazon) PHP/5.6.29 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 27.5M | 28.3M) multisite: N openssl: OpenSSL 1.0.1k-fips 8 Jan 2015 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.006 () Free space on disk containing Updraft's temporary directory: 2559.8 MB
+0000.010 () Restore job started. Entities to restore: plugins, themes, uploads, others, db. Restore options: {"updraft_restorer_replacesiteurl":false,"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false}
+0000.028 () Entity: db
+0000.028 () restore_backup(backup_file=backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-db.gz, type=db, info=a:0:{}, last_one=)
+0000.028 () Unpacking backup... (backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-db.gz, 1.6 Mb)
+0000.030 () Database successfully unpacked
+0000.030 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0000.030 () Using direct MySQL access; value of use_mysqli is: 1
+0000.040 () Max packet size: 32 MB
+0000.040 () Entering maintenance mode
+0000.040 () Activando el modo mantenimiento&#8230;
+0000.040 () Backup of: http://edmex.org
+0000.041 () Content URL: http://edmex.org/wp-content
+0000.041 () Uploads URL: http://edmex.org/wp-content/uploads
+0000.041 () Old table prefix: wp_
+0000.041 () Site information: multisite=0
+0000.043 () New table prefix: wp_
+0000.047 () Processing table (InnoDB): wp_options
+0000.122 () Restoring prior UD configuration (table: wp_options; keys: 3)
+0000.137 () Processing table (InnoDB): wp_users
+0000.150 () Processing table (InnoDB): wp_usermeta
+0000.187 () Processing table (InnoDB): wp_commentmeta
+0000.198 () Processing table (InnoDB): wp_comments
+0000.214 () Processing table (InnoDB): wp_links
+0000.225 () Processing table (InnoDB): wp_postmeta
+0000.321 () Processing table (InnoDB): wp_posts
+0000.384 () Processing table (InnoDB): wp_term_relationships
+0000.398 () Processing table (InnoDB): wp_term_taxonomy
+0000.410 () Processing table (InnoDB): wp_termmeta
+0000.419 () Processing table (InnoDB): wp_terms
+0000.459 () Processing table (InnoDB): wp_inbound_events
+0000.481 () Processing table (InnoDB): wp_inbound_page_views
+0000.797 () Database queries processed: 50 in 0.77 seconds
+0000.798 () Processing table (InnoDB): wp_inbound_tracked_links
+0000.811 () Processing table (InnoDB): wp_ip_geo_block_cache
+0000.823 () Processing table (InnoDB): wp_ip_geo_block_logs
+0000.837 () Processing table (InnoDB): wp_ip_geo_block_stat
+0000.849 () Processing table (InnoDB): wp_snp_log
+0000.858 () Processing table (InnoDB): wp_snp_stats
+0000.920 () Processing table (InnoDB): wp_w3tc_cdn_queue
+0000.933 () Processing table (InnoDB): wp_wfBadLeechers
+0000.943 () Processing table (InnoDB): wp_wfBlockedIPLog
+0000.956 () Processing table (InnoDB): wp_wfBlocks
+0000.972 () Processing table (InnoDB): wp_wfBlocksAdv
+0000.983 () Processing table (InnoDB): wp_wfConfig
+0001.039 () Processing table (InnoDB): wp_wfCrawlers
+0001.078 () Processing table (InnoDB): wp_wfFileMods
+0001.923 () Processing table (InnoDB): wp_wfHits
+0001.933 () Database queries processed: 100 in 1.90 seconds
+0002.155 () Processing table (InnoDB): wp_wfHoover
+0002.166 () Processing table (InnoDB): wp_wfIssues
+0002.182 () Processing table (InnoDB): wp_wfKnownFileList
+0002.926 () Processing table (InnoDB): wp_wfLeechers
+0002.949 () Processing table (InnoDB): wp_wfLockedOut
+0002.962 () Processing table (InnoDB): wp_wfLocs
+0002.986 () Processing table (InnoDB): wp_wfLogins
+0003.012 () Processing table (InnoDB): wp_wfNet404s
+0003.025 () Processing table (InnoDB): wp_wfNotifications
+0003.040 () Processing table (InnoDB): wp_wfReverseCache
+0003.062 () Processing table (InnoDB): wp_wfSNIPCache
+0003.071 () Processing table (InnoDB): wp_wfScanners
+0003.091 () Processing table (InnoDB): wp_wfStatus
+0003.233 () Processing table (InnoDB): wp_wfThrottleLog
+0003.244 () Database queries processed: 150 in 3.21 seconds
+0003.245 () Processing table (InnoDB): wp_wfVulnScanners
+0003.254 () Unlocking database and leaving maintenance mode
+0003.254 () Desactivando el modo de mantenimiento&#8230;
+0003.254 () Finished: lines processed: 154 in 3.22 seconds
+0003.255 () Cleaning up rubbish...
+0003.268 () Entity: plugins
+0003.268 () restore_backup(backup_file=backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:42:"/var/www/html/edmex.org/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0003.268 () Unpacking backup... (backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-plugins.zip, 31.6 Mb)
+0004.050 () Moving old data: filesystem method / updraft_dir is potentially possible
+0004.050 () Moving old data: can potentially use wp_filesystem method / -old
+0004.050 () Moving old data out of the way...
+0004.155 () Top-level entities being moved: index.php, updraftplus, akismet, hello.php
+0004.158 () Moving unpacked backup into place...
+0004.642 () Top-level entities being moved: wordpress-seo, google-sitemap-generator, official-statcounter-plugin-for-wordpress, index.php, youtube-embed-plus, view-shortcodes, rename-wp-login, updraftplus, wordfence, cta, themeisle-companion, pirate-forms, fullworks-slack, googleanalytics, w3-total-cache, arscode-ninja-popups, wpgform, registration-form-widget, custom-favicon, ip-geo-block
+0004.655 () Cleaning up rubbish...
+0004.661 () Entity: themes
+0004.661 () restore_backup(backup_file=backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-themes.zip, type=themes, info=a:2:{s:4:"path";s:41:"/var/www/html/edmex.org/wp-content/themes";s:11:"description";s:6:"Themes";}, last_one=)
+0004.661 () Unpacking backup... (backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-themes.zip, 5.3 Mb)
+0004.724 () Moving old data: filesystem method / updraft_dir is potentially possible
+0004.724 () Moving old data: can potentially use wp_filesystem method / -old
+0004.724 () Moving old data out of the way...
+0004.738 () Top-level entities being moved: twentyfifteen, index.php, twentysixteen, twentyseventeen
+0004.738 () Moving unpacked backup into place...
+0004.781 () Top-level entities being moved: twentyfifteen, index.php, zerif-lite, twentysixteen, twentyfourteen
+0004.782 () Cleaning up rubbish...
+0004.789 () Entity: uploads
+0004.789 () restore_backup(backup_file=backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:42:"/var/www/html/edmex.org/wp-content/uploads";s:11:"description";s:7:"Uploads";}, last_one=)
+0004.789 () Unpacking backup... (backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-uploads.zip, 33.5 Mb)
+0004.928 () Moving old data: filesystem method / updraft_dir is potentially possible
+0004.929 () Moving old data: can potentially use wp_filesystem method / -old
+0004.929 () Moving old data out of the way...
+0004.929 () Moving unpacked backup into place...
+0004.987 () Cleaning up rubbish...
+0004.992 () Entity: others
+0004.992 () restore_backup(backup_file=backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-others.zip, type=others, info=a:2:{s:4:"path";s:34:"/var/www/html/edmex.org/wp-content";s:11:"description";s:6:"Others";}, last_one=1)
+0004.992 () Unpacking backup... (backup_2017-02-08-1821_edMexorg_94a4c8f4f4bb-others.zip, 3.4 Mb)
+0005.069 () Cleaning up rubbish...
+0005.079 () Restore successful!
+0005.079 () Restore successful

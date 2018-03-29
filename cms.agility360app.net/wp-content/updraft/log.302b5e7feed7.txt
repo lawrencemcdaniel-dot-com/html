@@ -1,0 +1,527 @@
+0000.002 (0) Opened log file at time: Tue, 27 Mar 2018 02:18:55 +0000 on https://cms.agility360app.net
+0000.019 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-26-142 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 36.6M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.036 (0) Free space on disk containing Updraft's temporary directory: 92409.9 MB
+0000.048 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.060 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.086 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1522021998, seconds_ago=95137)
+0000.114 (0) Set semaphore last lock (fd) time to 2018-03-27 02:18:55
+0000.124 (0) Semaphore lock (fd) complete
+0000.159 (0) Backup run: resumption=0, nonce=302b5e7feed7, begun at=1522117135 (0s ago), job type=backup
+0000.176 (0) Scheduling a resumption (1) after 300 seconds (1522117435) in case this run gets aborted
+0000.206 (0) Checking if we have a zip executable available
+0000.217 (0) Testing: /usr/bin/zip
+0000.232 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.242 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.252 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.261 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.270 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.284 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.294 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.314 (0) Working binary zip found: /usr/bin/zip
+0000.331 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.341 (0) Creation of backups of directories: beginning
+0000.366 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.698 (0) Total entities for the zip file: 646 directories, 4350 files (0 skipped as non-modified), 54.8 MB
+0000.711 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.723 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.734 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.745 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.757 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.767 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 4350 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.187 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: size is now: 2.00 MB
+0001.206 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 600 files added (on-disk size: 2043 KB)
+0001.217 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 700 files added (on-disk size: 2043 KB)
+0001.228 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 800 files added (on-disk size: 2043 KB)
+0001.239 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 900 files added (on-disk size: 2043 KB)
+0001.251 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1000 files added (on-disk size: 2043 KB)
+0001.261 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.5 MB, 4350 files batched, 501 (1002) added so far); re-opening (prior size: 2043 KB)
+0002.002 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: size is now: 5.30 MB
+0002.023 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1100 files added (on-disk size: 5396.8 KB)
+0002.034 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1200 files added (on-disk size: 5396.8 KB)
+0002.047 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1300 files added (on-disk size: 5396.8 KB)
+0002.061 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1400 files added (on-disk size: 5396.8 KB)
+0002.073 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1500 files added (on-disk size: 5396.8 KB)
+0002.090 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.2 MB, 4350 files batched, 501 (1503) added so far); re-opening (prior size: 5396.8 KB)
+0002.624 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: size is now: 7.40 MB
+0002.645 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1600 files added (on-disk size: 7602.7 KB)
+0002.656 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1700 files added (on-disk size: 7602.7 KB)
+0002.668 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1800 files added (on-disk size: 7602.7 KB)
+0002.679 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 1900 files added (on-disk size: 7602.7 KB)
+0002.690 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2000 files added (on-disk size: 7602.7 KB)
+0002.707 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.8 MB, 4350 files batched, 501 (2004) added so far); re-opening (prior size: 7602.7 KB)
+0003.234 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: size is now: 10.00 MB
+0003.253 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2100 files added (on-disk size: 10229.8 KB)
+0003.264 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2200 files added (on-disk size: 10229.8 KB)
+0003.275 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2300 files added (on-disk size: 10229.8 KB)
+0003.287 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2400 files added (on-disk size: 10229.8 KB)
+0003.299 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2500 files added (on-disk size: 10229.8 KB)
+0003.309 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.5 MB, 4350 files batched, 501 (2505) added so far); re-opening (prior size: 10229.8 KB)
+0003.696 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: size is now: 12.40 MB
+0003.723 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2600 files added (on-disk size: 12673.6 KB)
+0003.734 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2700 files added (on-disk size: 12673.6 KB)
+0003.745 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2800 files added (on-disk size: 12673.6 KB)
+0003.756 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 2900 files added (on-disk size: 12673.6 KB)
+0003.767 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3000 files added (on-disk size: 12673.6 KB)
+0003.778 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17 MB, 4350 files batched, 501 (3006) added so far); re-opening (prior size: 12673.6 KB)
+0004.933 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: size is now: 17.10 MB
+0005.066 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3100 files added (on-disk size: 17489.5 KB)
+0005.078 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3200 files added (on-disk size: 17489.5 KB)
+0005.096 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3300 files added (on-disk size: 17489.5 KB)
+0005.110 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3400 files added (on-disk size: 17489.5 KB)
+0005.125 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3500 files added (on-disk size: 17489.5 KB)
+0005.138 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.6 MB, 4350 files batched, 501 (3507) added so far); re-opening (prior size: 17489.5 KB)
+0005.628 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3600 files added (on-disk size: 18321 KB)
+0005.659 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3700 files added (on-disk size: 18321 KB)
+0005.688 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3800 files added (on-disk size: 18321 KB)
+0005.706 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 3900 files added (on-disk size: 18321 KB)
+0005.723 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 4000 files added (on-disk size: 18321 KB)
+0005.736 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.6 MB, 4350 files batched, 501 (4008) added so far); re-opening (prior size: 18321 KB)
+0006.118 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 4100 files added (on-disk size: 19443.3 KB)
+0006.132 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 4200 files added (on-disk size: 19443.3 KB)
+0006.144 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip.tmp: 4300 files added (on-disk size: 19443.3 KB)
+0006.633 (0) Created plugins zip (0) - 19907.5 KB in 6.3 s (3182.2 KB/s) (sha1: 3bb159738a2b55cb0fed5a3e3656cb9e592f9477, sha256: b0ddeb28f89fc9b25de34b1a4998138ba6cd6e4cfbcc7b57dd434ef5997523e8)
+0006.653 (0) Beginning creation of dump of themes (split every: 400 MB)
+0006.674 (0) Total entities for the zip file: 24 directories, 144 files (0 skipped as non-modified), 2.9 MB
+0006.686 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.857 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-themes.zip.tmp: size is now: 2.20 MB
+0006.916 (0) Created themes zip (0) - 2266.2 KB in 0.3 s (9016.8 KB/s) (sha1: 5869ab6b292df9b24b670f13354c83addf61ee09, sha256: aa41ac7b38050429cdc15cb0f0956ce8761cef766dca1964ec7a8fe3fac8297c)
+0006.939 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0006.949 (0) Looking for candidates to back up in: /var/www/html/cms.agility360app.net/wp-content/uploads
+0006.961 (0) finding files: 2018: adding to list (1)
+0006.972 (0) finding files: backup: skipping: excluded by options (glob)
+0006.984 (0) finding files: bug-library: adding to list (2)
+0006.994 (0) finding files: hugeit-slider: adding to list (3)
+0007.007 (0) finding files: 2017: adding to list (4)
+0007.017 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0007.038 (0) Total entities for the zip file: 12 directories, 30 files (0 skipped as non-modified), 65 MB
+0007.049 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (63.4 MB, 30 files batched, 11 (11) added so far); re-opening (prior size: 0 KB)
+0008.055 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-uploads.zip.tmp: size is now: 63.40 MB
+0008.073 (0) A useful amount of data was added after this amount of zip processing: 1.2 s (normalised: 0.5 s, rate: 52391.9 KB/s)
+0008.091 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.2399508953094, normalised_time=0.4886253668403, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=209715200)
+0008.998 (0) Created uploads zip (0) - 66517.4 KB in 2 s (33788.1 KB/s) (sha1: a176edf01727d3cf44afc44d84bf974aedc2119b, sha256: 3c1e7d02cc4b402fc067d3d459bf5581929444c2ecd8405a5f892ae4c016d09b)
+0009.016 (0) Beginning backup of other directories found in the content directory (index: 0)
+0009.027 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0009.040 (0) Looking for candidates to back up in: /var/www/html/cms.agility360app.net/wp-content
+0009.051 (0) finding files: wflogs: adding to list (1)
+0009.061 (0) finding files: object-cache.php: adding to list (2)
+0009.071 (0) finding files: index.php: adding to list (3)
+0009.083 (0) finding files: upgrade: skipping: excluded by options
+0009.093 (0) finding files: updraft: skipping: this is the updraft directory
+0009.103 (0) finding files: themes: skipping: this is the themes directory
+0009.113 (0) finding files: advanced-cache.php: adding to list (4)
+0009.125 (0) finding files: ip-geo-api: adding to list (5)
+0009.136 (0) finding files: w3tc-config: adding to list (6)
+0009.147 (0) finding files: uploads: skipping: this is the uploads directory
+0009.157 (0) finding files: cache: skipping: excluded by options
+0009.167 (0) finding files: wp-rocket-config: adding to list (7)
+0009.177 (0) finding files: plugins: skipping: this is the plugins directory
+0009.201 (0) Total entities for the zip file: 35 directories, 115 files (0 skipped as non-modified), 12.9 MB
+0009.214 (0) Zip: backup_2018-03-27-0218_CEA_302b5e7feed7-others.zip.tmp: 100 files added (on-disk size: 0 KB)
+0010.591 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-others.zip.tmp: size is now: 4.90 MB
+0010.761 (0) Created others zip (0) - 4993.4 KB in 1.6 s (3180.9 KB/s) (sha1: a72739c07ff0cb6525d84e6d7c1fa477cf10615b, sha256: 772a8652cfacdaab3adb6de9c9fa4942a30f37ceecd2b0aa32b3650ecf4cc389)
+0010.802 (0) Saving backup status to database (elements: 8)
+0010.847 (0) Beginning creation of database dump (WordPress DB)
+0010.871 (0) Testing: /usr/bin/mysqldump
+0010.935 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1214 bytes total)
+0010.951 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0010.990 (0) Table wp_options: Total expected rows (approximate): 397
+0011.073 (0) Table wp_options: Total rows added: 406 in 0.07 seconds
+0011.084 (0) Table wp_options: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_options.table.gz - 159 KB)
+0011.122 (0) Table wp_users: Total expected rows (approximate): 2
+0011.141 (0) Table wp_users: Total rows added: 2 in 0.01 seconds
+0011.156 (0) Table wp_users: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_users.table.gz - 0.6 KB)
+0011.195 (0) Table wp_usermeta: Total expected rows (approximate): 55
+0011.216 (0) Table wp_usermeta: Total rows added: 56 in 0.01 seconds
+0011.228 (0) Table wp_usermeta: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_usermeta.table.gz - 1.8 KB)
+0011.261 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0011.274 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0011.291 (0) Table wp_commentmeta: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0011.340 (0) Table wp_comments: Total expected rows (approximate): 0
+0011.354 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0011.364 (0) Table wp_comments: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_comments.table.gz - 0.5 KB)
+0011.391 (0) Table wp_links: Total expected rows (approximate): 0
+0011.408 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0011.418 (0) Table wp_links: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_links.table.gz - 0.4 KB)
+0011.446 (0) Table wp_postmeta: Total expected rows (approximate): 274
+0011.464 (0) Table wp_postmeta: Total rows added: 276 in 0.01 seconds
+0011.475 (0) Table wp_postmeta: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_postmeta.table.gz - 5.5 KB)
+0011.506 (0) Table wp_posts: Total expected rows (approximate): 57
+0011.528 (0) Table wp_posts: Total rows added: 57 in 0.01 seconds
+0011.540 (0) Table wp_posts: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_posts.table.gz - 24.6 KB)
+0011.568 (0) Table wp_term_relationships: Total expected rows (approximate): 21
+0011.583 (0) Table wp_term_relationships: Total rows added: 20 in 0.00 seconds
+0011.594 (0) Table wp_term_relationships: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0011.621 (0) Table wp_term_taxonomy: Total expected rows (approximate): 19
+0011.637 (0) Table wp_term_taxonomy: Total rows added: 19 in 0.01 seconds
+0011.647 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_term_taxonomy.table.gz - 0.6 KB)
+0011.681 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0011.697 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0011.710 (0) Table wp_termmeta: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_termmeta.table.gz - 0.4 KB)
+0011.744 (0) Table wp_terms: Total expected rows (approximate): 19
+0011.761 (0) Table wp_terms: Total rows added: 19 in 0.00 seconds
+0011.771 (0) Table wp_terms: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_terms.table.gz - 0.6 KB)
+0011.801 (0) Table wp_hugeit_slider_slide: Total expected rows (approximate): 3
+0011.818 (0) Table wp_hugeit_slider_slide: Total rows added: 3 in 0.01 seconds
+0011.833 (0) Table wp_hugeit_slider_slide: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_hugeit_slider_slide.table.gz - 0.7 KB)
+0011.863 (0) Table wp_hugeit_slider_slider: Total expected rows (approximate): 0
+0011.880 (0) Table wp_hugeit_slider_slider: Total rows added: 1 in 0.01 seconds
+0011.894 (0) Table wp_hugeit_slider_slider: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_hugeit_slider_slider.table.gz - 1 KB)
+0011.926 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0011.946 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0011.963 (0) Table wp_imagify_files: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0011.997 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0012.011 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0012.021 (0) Table wp_imagify_folders: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0012.052 (0) Table wp_ip_geo_block_cache: Total expected rows (approximate): 1
+0012.069 (0) Table wp_ip_geo_block_cache: Total rows added: 1 in 0.00 seconds
+0012.079 (0) Table wp_ip_geo_block_cache: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_ip_geo_block_cache.table.gz - 0.4 KB)
+0012.114 (0) Table wp_ip_geo_block_logs: Total expected rows (approximate): 13
+0012.130 (0) Table wp_ip_geo_block_logs: Total rows added: 20 in 0.01 seconds
+0012.144 (0) Table wp_ip_geo_block_logs: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_ip_geo_block_logs.table.gz - 1.9 KB)
+0012.174 (0) Table wp_ip_geo_block_stat: Total expected rows (approximate): 0
+0012.196 (0) Table wp_ip_geo_block_stat: Total rows added: 1 in 0.01 seconds
+0012.205 (0) Table wp_ip_geo_block_stat: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_ip_geo_block_stat.table.gz - 0.5 KB)
+0012.238 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0012.251 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0012.263 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0012.294 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0012.308 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0012.318 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0012.346 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 0
+0012.363 (0) Table wp_wfBlockedIPLog: Total rows added: 0 in 0.01 seconds
+0012.373 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlockedIPLog.table.gz - 0.3 KB)
+0012.402 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0012.419 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0012.430 (0) Table wp_wfBlocks: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0012.461 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0012.475 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0012.485 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0012.522 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0012.540 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0012.550 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0012.586 (0) Table wp_wfConfig: Total expected rows (approximate): 202
+0012.621 (0) Table wp_wfConfig: Total rows added: 233 in 0.02 seconds
+0012.633 (0) Table wp_wfConfig: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfConfig.table.gz - 235.6 KB)
+0012.665 (0) Table wp_wfCrawlers: Total expected rows (approximate): 1
+0012.681 (0) Table wp_wfCrawlers: Total rows added: 1 in 0.00 seconds
+0012.692 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfCrawlers.table.gz - 0.4 KB)
+0012.726 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0012.744 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.01 seconds
+0012.754 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0012.790 (0) Table wp_wfFileMods: Total expected rows (approximate): 299
+0012.810 (0) Table wp_wfFileMods: Total rows added: 299 in 0.01 seconds
+0012.824 (0) Table wp_wfFileMods: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfFileMods.table.gz - 23.9 KB)
+0012.860 (0) Table wp_wfHits: Total expected rows (approximate): 702
+0012.906 (0) Table wp_wfHits: Total rows added: 784 in 0.02 seconds
+0012.916 (0) Table wp_wfHits: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfHits.table.gz - 21.1 KB)
+0012.950 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0012.968 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0012.977 (0) Table wp_wfHoover: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0013.007 (0) Table wp_wfIssues: Total expected rows (approximate): 0
+0013.021 (0) Table wp_wfIssues: Total rows added: 0 in 0.00 seconds
+0013.031 (0) Table wp_wfIssues: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfIssues.table.gz - 0.4 KB)
+0013.066 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 5828
+0013.136 (0) Table wp_wfKnownFileList: Total rows added: 5828 in 0.06 seconds
+0013.146 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfKnownFileList.table.gz - 59.2 KB)
+0013.182 (0) Table wp_wfLeechers: Total expected rows (approximate): 5
+0013.199 (0) Table wp_wfLeechers: Total rows added: 5 in 0.00 seconds
+0013.209 (0) Table wp_wfLeechers: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLeechers.table.gz - 0.4 KB)
+0013.242 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0013.256 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0013.266 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0013.311 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0013.328 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0013.354 (0) Table wp_wfLocs: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0013.387 (0) Table wp_wfLogins: Total expected rows (approximate): 29
+0013.405 (0) Table wp_wfLogins: Total rows added: 48 in 0.01 seconds
+0013.420 (0) Table wp_wfLogins: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLogins.table.gz - 1.6 KB)
+0013.462 (0) Table wp_wfNet404s: Total expected rows (approximate): 1
+0013.486 (0) Table wp_wfNet404s: Total rows added: 1 in 0.00 seconds
+0013.508 (0) Table wp_wfNet404s: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfNet404s.table.gz - 0.4 KB)
+0013.546 (0) Table wp_wfNotifications: Total expected rows (approximate): 0
+0013.561 (0) Table wp_wfNotifications: Total rows added: 5 in 0.00 seconds
+0013.572 (0) Table wp_wfNotifications: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfNotifications.table.gz - 0.6 KB)
+0013.610 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0013.628 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0013.640 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0013.672 (0) Table wp_wfReverseCache: Total expected rows (approximate): 1
+0013.688 (0) Table wp_wfReverseCache: Total rows added: 0 in 0.01 seconds
+0013.698 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfReverseCache.table.gz - 0.3 KB)
+0013.735 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0013.753 (0) Table wp_wfSNIPCache: Total rows added: 1 in 0.01 seconds
+0013.764 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0013.794 (0) Table wp_wfScanners: Total expected rows (approximate): 5
+0013.809 (0) Table wp_wfScanners: Total rows added: 5 in 0.01 seconds
+0013.820 (0) Table wp_wfScanners: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfScanners.table.gz - 0.4 KB)
+0013.854 (0) Table wp_wfStatus: Total expected rows (approximate): 521
+0013.875 (0) Table wp_wfStatus: Total rows added: 548 in 0.01 seconds
+0013.887 (0) Table wp_wfStatus: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfStatus.table.gz - 9.1 KB)
+0013.926 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0013.940 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0013.951 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0013.994 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0014.008 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0014.018 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0014.058 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 0
+0014.076 (0) Table wp_yoast_seo_links: Total rows added: 0 in 0.00 seconds
+0014.088 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_yoast_seo_links.table.gz - 0.4 KB)
+0014.125 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 1
+0014.141 (0) Table wp_yoast_seo_meta: Total rows added: 5 in 0.00 seconds
+0014.154 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0014.189 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_options.table.gz (1/48): adding to final database dump
+0014.231 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_users.table.gz (2/48): adding to final database dump
+0014.246 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_usermeta.table.gz (3/48): adding to final database dump
+0014.261 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_commentmeta.table.gz (4/48): adding to final database dump
+0014.276 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_comments.table.gz (5/48): adding to final database dump
+0014.289 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_links.table.gz (6/48): adding to final database dump
+0014.300 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_postmeta.table.gz (7/48): adding to final database dump
+0014.314 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_posts.table.gz (8/48): adding to final database dump
+0014.344 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_term_relationships.table.gz (9/48): adding to final database dump
+0014.360 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_term_taxonomy.table.gz (10/48): adding to final database dump
+0014.374 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_termmeta.table.gz (11/48): adding to final database dump
+0014.388 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_terms.table.gz (12/48): adding to final database dump
+0014.398 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_hugeit_slider_slide.table.gz (13/48): adding to final database dump
+0014.413 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_hugeit_slider_slider.table.gz (14/48): adding to final database dump
+0014.424 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_imagify_files.table.gz (15/48): adding to final database dump
+0014.436 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_imagify_folders.table.gz (16/48): adding to final database dump
+0014.451 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_ip_geo_block_cache.table.gz (17/48): adding to final database dump
+0014.462 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_ip_geo_block_logs.table.gz (18/48): adding to final database dump
+0014.476 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_ip_geo_block_stat.table.gz (19/48): adding to final database dump
+0014.488 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBadLeechers.table.gz (20/48): adding to final database dump
+0014.504 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlockedCommentLog.table.gz (21/48): adding to final database dump
+0014.516 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlockedIPLog.table.gz (22/48): adding to final database dump
+0014.528 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlocks.table.gz (23/48): adding to final database dump
+0014.540 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlocks7.table.gz (24/48): adding to final database dump
+0014.554 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfBlocksAdv.table.gz (25/48): adding to final database dump
+0014.567 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfConfig.table.gz (26/48): adding to final database dump
+0014.593 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfCrawlers.table.gz (27/48): adding to final database dump
+0014.607 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfFileChanges.table.gz (28/48): adding to final database dump
+0014.620 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfFileMods.table.gz (29/48): adding to final database dump
+0014.641 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfHits.table.gz (30/48): adding to final database dump
+0014.658 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfHoover.table.gz (31/48): adding to final database dump
+0014.668 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfIssues.table.gz (32/48): adding to final database dump
+0014.678 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfKnownFileList.table.gz (33/48): adding to final database dump
+0014.714 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLeechers.table.gz (34/48): adding to final database dump
+0014.728 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLockedOut.table.gz (35/48): adding to final database dump
+0014.739 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLocs.table.gz (36/48): adding to final database dump
+0014.749 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfLogins.table.gz (37/48): adding to final database dump
+0014.761 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfNet404s.table.gz (38/48): adding to final database dump
+0014.773 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfNotifications.table.gz (39/48): adding to final database dump
+0014.785 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfPendingIssues.table.gz (40/48): adding to final database dump
+0014.797 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfReverseCache.table.gz (41/48): adding to final database dump
+0014.810 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfSNIPCache.table.gz (42/48): adding to final database dump
+0014.824 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfScanners.table.gz (43/48): adding to final database dump
+0014.837 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfStatus.table.gz (44/48): adding to final database dump
+0014.850 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfThrottleLog.table.gz (45/48): adding to final database dump
+0014.867 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_wfVulnScanners.table.gz (46/48): adding to final database dump
+0014.877 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_yoast_seo_links.table.gz (47/48): adding to final database dump
+0014.890 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db-table-wp_yoast_seo_meta.table.gz (48/48): adding to final database dump
+0014.904 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db.gz: finished writing out complete database file (528 KB)
+0014.964 (0) Total database tables backed up: 48 (backup_2018-03-27-0218_CEA_302b5e7feed7-db.gz, size: 562946, sha256)
+0015.115 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0015.128 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0015.140 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0015.152 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-others.zip: others: This file has not yet been successfully uploaded: will queue
+0015.170 (0) backup_2018-03-27-0218_CEA_302b5e7feed7-db.gz: db: This file has not yet been successfully uploaded: will queue
+0015.181 (0) Saving backup history. Total backup size: 92 MB
+0015.233 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0015.271 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0015.282 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-9636141d2d42ad9abd573fb2e1a19813)
+0015.663 (0) S3 upload (): backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip (chunks: 4) -> s3://cms.agility360app.net/backups/backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip
+0015.781 (0) S3 chunked upload: got multipart ID: zdsddhwwVTxMx2fLOqWf2A_DLryYmPn5nLf2expK6GPpXtSaMVwv4wg8p6DknIyxwmgW1gemF5HesOhD8Gc50jgZ.ZN34a6rspIw.MxEOc7s67JJcgRfP7hKRVMbruKN
+0017.872 (0) S3 chunked upload: 25 % uploaded (1, "e87552510eb18a919d8c5f1805c0a05d")
+0019.238 (0) S3 chunked upload: 50 % uploaded (2, "31833e033bf03ae6c8a571e813ee2482")
+0020.817 (0) S3 chunked upload: 75 % uploaded (3, "754c5bfa88ecf96bbc1e107b6b0ce384")
+0022.133 (0) S3 chunked upload: 100 % uploaded (4, "409ef65f445d6e42699fedba8aed1e09")
+0022.161 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0022.408 (0) S3 upload (plugins0): re-assembly succeeded
+0022.427 (0) Recording as successfully uploaded: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip (07a0e6a0f37a8a0f0d38ab408d618585)
+0022.473 (0) Deleting local file: backup_2018-03-27-0218_CEA_302b5e7feed7-plugins.zip: OK
+0022.487 (0) S3 upload (): backup_2018-03-27-0218_CEA_302b5e7feed7-themes.zip (chunks: 1) -> s3://cms.agility360app.net/backups/backup_2018-03-27-0218_CEA_302b5e7feed7-themes.zip
+0023.194 (0) S3 regular upload: success
+0023.218 (0) Recording as successfully uploaded: backup_2018-03-27-0218_CEA_302b5e7feed7-themes.zip (524a5eed92e342416d2b5ff682de3741)
+0023.245 (0) Deleting local file: backup_2018-03-27-0218_CEA_302b5e7feed7-themes.zip: OK
+0023.256 (0) S3 upload (): backup_2018-03-27-0218_CEA_302b5e7feed7-uploads.zip (chunks: 13) -> s3://cms.agility360app.net/backups/backup_2018-03-27-0218_CEA_302b5e7feed7-uploads.zip
+0023.359 (0) S3 chunked upload: got multipart ID: hWfy70T3.I6pFizqaoOP.8i_CDLQ9hIBDn5wm1jxczOTgrXBvhq2j_wmFfI1DrNV59xDTPnD6RY5fXUDmxYtR5R6TFQweizrGwkry4BVC7pWy67X296keGAYrsLaymph
+0024.738 (0) S3 chunked upload: 7.7 % uploaded (1, "7b25925449bbe8258fe1fc4bb24404e1")
+0026.417 (0) S3 chunked upload: 15.4 % uploaded (2, "18b095583845072b5d2f015a5fccd9b6")
+0027.921 (0) S3 chunked upload: 23.1 % uploaded (3, "d8e2f727a36eb0ab3d92390f1d5733a6")
+0029.365 (0) S3 chunked upload: 30.8 % uploaded (4, "179062a819bdf54cc5aa3c07911fc7b9")
+0030.840 (0) S3 chunked upload: 38.5 % uploaded (5, "2c6cc9d7f0cd67d7846d6d02e7068388")
+0032.298 (0) S3 chunked upload: 46.2 % uploaded (6, "150cac0c2b75716650699dd4de637a92")
+0033.757 (0) S3 chunked upload: 53.8 % uploaded (7, "efbb52dd62ff9e22b36bf311ccb01669")
+0035.106 (0) S3 chunked upload: 61.5 % uploaded (8, "af3a86dd7da67ca95d3a916835d878a2")
+0036.481 (0) S3 chunked upload: 69.2 % uploaded (9, "42d13303ff3a51fbb50e50a0437f8eae")
+0038.133 (0) S3 chunked upload: 76.9 % uploaded (10, "e51619dfdf7034164996ea5d838e825f")
+0039.585 (0) S3 chunked upload: 84.6 % uploaded (11, "fdbf1f94a6e9184f0a6ed48d1057e3d3")
+0040.917 (0) S3 chunked upload: 92.3 % uploaded (12, "3dc76bf6430dd18563ee8b8f11a8e8ed")
+0042.353 (0) S3 chunked upload: 100 % uploaded (13, "3b761fdab211b46a651ae9e3971bc322")
+0042.393 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0042.584 (0) S3 upload (uploads0): re-assembly succeeded
+0042.606 (0) Recording as successfully uploaded: backup_2018-03-27-0218_CEA_302b5e7feed7-uploads.zip (9a76c3a4d15ab9eeaf9faefb72d0eaf9)
+0042.647 (0) Deleting local file: backup_2018-03-27-0218_CEA_302b5e7feed7-uploads.zip: OK
+0042.659 (0) S3 upload (): backup_2018-03-27-0218_CEA_302b5e7feed7-others.zip (chunks: 1) -> s3://cms.agility360app.net/backups/backup_2018-03-27-0218_CEA_302b5e7feed7-others.zip
+0043.993 (0) S3 regular upload: success
+0044.017 (0) Recording as successfully uploaded: backup_2018-03-27-0218_CEA_302b5e7feed7-others.zip (2ca381e442009930cfff05d2e86a6104)
+0044.050 (0) Deleting local file: backup_2018-03-27-0218_CEA_302b5e7feed7-others.zip: OK
+0044.059 (0) S3 upload (): backup_2018-03-27-0218_CEA_302b5e7feed7-db.gz (chunks: 1) -> s3://cms.agility360app.net/backups/backup_2018-03-27-0218_CEA_302b5e7feed7-db.gz
+0044.321 (0) S3 regular upload: success
+0044.342 (0) Recording as successfully uploaded: backup_2018-03-27-0218_CEA_302b5e7feed7-db.gz (e0630bb799869839cf3d9f456354f359)
+0044.381 (0) Deleting local file: backup_2018-03-27-0218_CEA_302b5e7feed7-db.gz: OK
+0044.405 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0044.421 (0) Number of backup sets in history: 31; groups (db): 1
+0044.432 (0) Examining (for databases) backup set with group_id=0, nonce=302b5e7feed7, datestamp=1522117135 (Mar 27 2018 02:18:55)
+0044.443 (0) This backup set is the backup set just made, so will not be deleted.
+0044.443 (0) Examining (for databases) backup set with group_id=0, nonce=01f9da4c9a1c, datestamp=1522021997 (Mar 25 2018 23:53:17)
+0044.443 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.453 (0) Examining (for databases) backup set with group_id=0, nonce=91995dd629d1, datestamp=1521934117 (Mar 24 2018 23:28:37)
+0044.453 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.453 (0) Examining (for databases) backup set with group_id=0, nonce=cdf9703b9ea5, datestamp=1521839100 (Mar 23 2018 21:05:00)
+0044.453 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.453 (0) Examining (for databases) backup set with group_id=0, nonce=9764100673e1, datestamp=1521751208 (Mar 22 2018 20:40:08)
+0044.453 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.453 (0) Examining (for databases) backup set with group_id=0, nonce=0eb81f90e0d0, datestamp=1521673753 (Mar 21 2018 23:09:13)
+0044.453 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.454 (0) Examining (for databases) backup set with group_id=0, nonce=d91c3d0e0fff, datestamp=1521579501 (Mar 20 2018 20:58:21)
+0044.454 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.454 (0) Examining (for databases) backup set with group_id=0, nonce=06caeb3f4948, datestamp=1521504362 (Mar 20 2018 00:06:02)
+0044.454 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.454 (0) Examining (for databases) backup set with group_id=0, nonce=6bd54ad6a708, datestamp=1521406635 (Mar 18 2018 20:57:15)
+0044.454 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.454 (0) Examining (for databases) backup set with group_id=0, nonce=1639ebcbf532, datestamp=1521329780 (Mar 17 2018 23:36:20)
+0044.454 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.454 (0) Examining (for databases) backup set with group_id=0, nonce=9246f85f63da, datestamp=1521242190 (Mar 16 2018 23:16:30)
+0044.455 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.455 (0) Examining (for databases) backup set with group_id=0, nonce=778c747e14c9, datestamp=1521144610 (Mar 15 2018 20:10:10)
+0044.455 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.455 (0) Examining (for databases) backup set with group_id=0, nonce=e0af4e1fa98a, datestamp=1521058396 (Mar 14 2018 20:13:16)
+0044.455 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.455 (0) Examining (for databases) backup set with group_id=0, nonce=d532064c8e85, datestamp=1520972125 (Mar 13 2018 20:15:25)
+0044.455 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.455 (0) Examining (for databases) backup set with group_id=0, nonce=f17b34604910, datestamp=1520890805 (Mar 12 2018 21:40:05)
+0044.455 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.455 (0) Examining (for databases) backup set with group_id=0, nonce=366d6dad0435, datestamp=1520808153 (Mar 11 2018 22:42:33)
+0044.455 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.456 (0) Examining (for databases) backup set with group_id=0, nonce=b9a6059ad99d, datestamp=1520716397 (Mar 10 2018 21:13:17)
+0044.456 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.456 (0) Examining (for databases) backup set with group_id=0, nonce=cd57b70c2e50, datestamp=1520628750 (Mar 09 2018 20:52:30)
+0044.456 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.456 (0) Examining (for databases) backup set with group_id=0, nonce=0edace322d13, datestamp=1520539993 (Mar 08 2018 20:13:13)
+0044.456 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.456 (0) Examining (for databases) backup set with group_id=0, nonce=6589722092e3, datestamp=1520460151 (Mar 07 2018 22:02:31)
+0044.456 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.456 (0) Examining (for databases) backup set with group_id=0, nonce=c552883eb97d, datestamp=1520366957 (Mar 06 2018 20:09:17)
+0044.456 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.457 (0) Examining (for databases) backup set with group_id=0, nonce=e030aceb3ca3, datestamp=1520283373 (Mar 05 2018 20:56:13)
+0044.457 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.457 (0) Examining (for databases) backup set with group_id=0, nonce=1e7d315d42a0, datestamp=1520199239 (Mar 04 2018 21:33:59)
+0044.457 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.457 (0) Examining (for databases) backup set with group_id=0, nonce=b47f268a3070, datestamp=1520123457 (Mar 04 2018 00:30:57)
+0044.457 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.457 (0) Examining (for databases) backup set with group_id=0, nonce=f804ae6cd73d, datestamp=1520028960 (Mar 02 2018 22:16:00)
+0044.457 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.457 (0) Examining (for databases) backup set with group_id=0, nonce=dc53f5ce944d, datestamp=1519935281 (Mar 01 2018 20:14:41)
+0044.457 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.458 (0) Examining (for databases) backup set with group_id=0, nonce=4f95f935ce28, datestamp=1519853403 (Feb 28 2018 21:30:03)
+0044.458 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.458 (0) Examining (for databases) backup set with group_id=0, nonce=21f689233426, datestamp=1519769602 (Feb 27 2018 22:13:22)
+0044.458 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.458 (0) Examining (for databases) backup set with group_id=0, nonce=6f36882fb444, datestamp=1519697227 (Feb 27 2018 02:07:07)
+0044.458 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.458 (0) Examining (for databases) backup set with group_id=0, nonce=30c2108190d5, datestamp=1519620161 (Feb 26 2018 04:42:41)
+0044.458 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.458 (0) Examining (for databases) backup set with group_id=0, nonce=c9e74ce26bd2, datestamp=1519546783 (Feb 25 2018 08:19:43)
+0044.458 (0) 1519546783: db: this set includes a database (backup_2018-02-25-0819_CEA_c9e74ce26bd2-db.gz); db count is now 30
+0044.458 (0) 1519546783: db: over retain limit (30); will delete this database
+0044.459 (0) Delete file: backup_2018-02-25-0819_CEA_c9e74ce26bd2-db.gz, service=s3
+0044.468 (0) S3: Delete remote: bucket=cms.agility360app.net, URI=backups/backup_2018-02-25-0819_CEA_c9e74ce26bd2-db.gz
+0044.592 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0044.607 (0) Number of backup sets in history: 31; groups (files): 1
+0044.617 (0) Examining (for files) backup set with nonce=302b5e7feed7, datestamp=1522117135 (Mar 27 2018 02:18:55)
+0044.617 (0) This backup set is the backup set just made, so will not be deleted.
+0044.631 (0) This backup set is the backup set just made, so will not be deleted.
+0044.631 (0) This backup set is the backup set just made, so will not be deleted.
+0044.631 (0) This backup set is the backup set just made, so will not be deleted.
+0044.631 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.643 (0) Examining (for files) backup set with nonce=01f9da4c9a1c, datestamp=1522021997 (Mar 25 2018 23:53:17)
+0044.643 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.643 (0) Examining (for files) backup set with nonce=91995dd629d1, datestamp=1521934117 (Mar 24 2018 23:28:37)
+0044.643 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.643 (0) Examining (for files) backup set with nonce=cdf9703b9ea5, datestamp=1521839100 (Mar 23 2018 21:05:00)
+0044.643 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.643 (0) Examining (for files) backup set with nonce=9764100673e1, datestamp=1521751208 (Mar 22 2018 20:40:08)
+0044.644 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.644 (0) Examining (for files) backup set with nonce=0eb81f90e0d0, datestamp=1521673753 (Mar 21 2018 23:09:13)
+0044.644 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.644 (0) Examining (for files) backup set with nonce=d91c3d0e0fff, datestamp=1521579501 (Mar 20 2018 20:58:21)
+0044.644 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.644 (0) Examining (for files) backup set with nonce=06caeb3f4948, datestamp=1521504362 (Mar 20 2018 00:06:02)
+0044.644 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.644 (0) Examining (for files) backup set with nonce=6bd54ad6a708, datestamp=1521406635 (Mar 18 2018 20:57:15)
+0044.644 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.645 (0) Examining (for files) backup set with nonce=1639ebcbf532, datestamp=1521329780 (Mar 17 2018 23:36:20)
+0044.645 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.645 (0) Examining (for files) backup set with nonce=9246f85f63da, datestamp=1521242190 (Mar 16 2018 23:16:30)
+0044.645 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.645 (0) Examining (for files) backup set with nonce=778c747e14c9, datestamp=1521144610 (Mar 15 2018 20:10:10)
+0044.645 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.645 (0) Examining (for files) backup set with nonce=e0af4e1fa98a, datestamp=1521058396 (Mar 14 2018 20:13:16)
+0044.645 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.645 (0) Examining (for files) backup set with nonce=d532064c8e85, datestamp=1520972125 (Mar 13 2018 20:15:25)
+0044.645 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.646 (0) Examining (for files) backup set with nonce=f17b34604910, datestamp=1520890805 (Mar 12 2018 21:40:05)
+0044.646 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.646 (0) Examining (for files) backup set with nonce=366d6dad0435, datestamp=1520808153 (Mar 11 2018 22:42:33)
+0044.646 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.646 (0) Examining (for files) backup set with nonce=b9a6059ad99d, datestamp=1520716397 (Mar 10 2018 21:13:17)
+0044.646 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.646 (0) Examining (for files) backup set with nonce=cd57b70c2e50, datestamp=1520628750 (Mar 09 2018 20:52:30)
+0044.646 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.646 (0) Examining (for files) backup set with nonce=0edace322d13, datestamp=1520539993 (Mar 08 2018 20:13:13)
+0044.646 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.647 (0) Examining (for files) backup set with nonce=6589722092e3, datestamp=1520460151 (Mar 07 2018 22:02:31)
+0044.647 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.647 (0) Examining (for files) backup set with nonce=c552883eb97d, datestamp=1520366957 (Mar 06 2018 20:09:17)
+0044.647 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.647 (0) Examining (for files) backup set with nonce=e030aceb3ca3, datestamp=1520283373 (Mar 05 2018 20:56:13)
+0044.647 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.647 (0) Examining (for files) backup set with nonce=1e7d315d42a0, datestamp=1520199239 (Mar 04 2018 21:33:59)
+0044.647 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.647 (0) Examining (for files) backup set with nonce=b47f268a3070, datestamp=1520123457 (Mar 04 2018 00:30:57)
+0044.647 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.648 (0) Examining (for files) backup set with nonce=f804ae6cd73d, datestamp=1520028960 (Mar 02 2018 22:16:00)
+0044.648 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.648 (0) Examining (for files) backup set with nonce=dc53f5ce944d, datestamp=1519935281 (Mar 01 2018 20:14:41)
+0044.648 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.648 (0) Examining (for files) backup set with nonce=4f95f935ce28, datestamp=1519853403 (Feb 28 2018 21:30:03)
+0044.648 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.648 (0) Examining (for files) backup set with nonce=21f689233426, datestamp=1519769602 (Feb 27 2018 22:13:22)
+0044.648 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.648 (0) Examining (for files) backup set with nonce=6f36882fb444, datestamp=1519697227 (Feb 27 2018 02:07:07)
+0044.648 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.649 (0) Examining (for files) backup set with nonce=30c2108190d5, datestamp=1519620161 (Feb 26 2018 04:42:41)
+0044.649 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0044.649 (0) Examining (for files) backup set with nonce=c9e74ce26bd2, datestamp=1519546783 (Feb 25 2018 08:19:43)
+0044.649 (0) plugins: over retain limit (30); will delete this file entity
+0044.649 (0) themes: over retain limit (30); will delete this file entity
+0044.649 (0) uploads: over retain limit (30); will delete this file entity
+0044.649 (0) others: over retain limit (30); will delete this file entity
+0044.649 (0) Delete file: backup_2018-02-25-0819_CEA_c9e74ce26bd2-plugins.zip, service=s3
+0044.659 (0) Delete file: backup_2018-02-25-0819_CEA_c9e74ce26bd2-themes.zip, service=s3
+0044.671 (0) Delete file: backup_2018-02-25-0819_CEA_c9e74ce26bd2-uploads.zip, service=s3
+0044.681 (0) Delete file: backup_2018-02-25-0819_CEA_c9e74ce26bd2-others.zip, service=s3
+0044.695 (0) S3: Delete remote: bucket=cms.agility360app.net, URI=backups/backup_2018-02-25-0819_CEA_c9e74ce26bd2-plugins.zip
+0044.804 (0) S3: Delete remote: bucket=cms.agility360app.net, URI=backups/backup_2018-02-25-0819_CEA_c9e74ce26bd2-themes.zip
+0044.945 (0) S3: Delete remote: bucket=cms.agility360app.net, URI=backups/backup_2018-02-25-0819_CEA_c9e74ce26bd2-uploads.zip
+0045.106 (0) S3: Delete remote: bucket=cms.agility360app.net, URI=backups/backup_2018-02-25-0819_CEA_c9e74ce26bd2-others.zip
+0045.217 (0) This backup set is now empty; will remove from history
+0045.228 (0) Deleting log file (log.c9e74ce26bd2.txt)
+0045.239 (0) Retain: saving new backup history (sets now: 30) and finishing retain operation
+0045.285 (0) Resume backup (302b5e7feed7, 0): finish run
+0045.316 (0) Decremented the semaphore (fd) by 1
+0045.333 (0) Semaphore (fd) unlocked
+0045.345 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0045.385 (0) Fetching RSS news feed
+0045.540 (0) Fetched RSS news feed; result is a: SimplePie
+0045.564 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: aws.a...
+0045.656 (0) The backup apparently succeeded and is now complete

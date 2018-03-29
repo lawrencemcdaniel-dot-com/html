@@ -1,0 +1,690 @@
+0000.003 (0) Opened log file at time: Sat, 24 Mar 2018 14:36:58 +0000 on https://mightywizards.com
+0000.022 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-26-142 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: es_MX Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 42.4M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.030 (0) Free space on disk containing Updraft's temporary directory: 93281.3 MB
+0000.039 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.046 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.066 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1521814920, seconds_ago=87298)
+0000.097 (0) Set semaphore last lock (fd) time to 2018-03-24 14:36:58
+0000.106 (0) Semaphore lock (fd) complete
+0000.134 (0) Backup run: resumption=0, nonce=401ef2a4d443, begun at=1521902218 (0s ago), job type=backup
+0000.149 (0) Scheduling a resumption (1) after 300 seconds (1521902518) in case this run gets aborted
+0000.173 (0) Checking if we have a zip executable available
+0000.186 (0) Testing: /usr/bin/zip
+0000.204 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.214 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.230 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.238 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.245 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.257 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.272 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.289 (0) Working binary zip found: /usr/bin/zip
+0000.308 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.315 (0) Creation of backups of directories: beginning
+0000.340 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.740 (0) Total entities for the zip file: 710 directories, 6196 files (0 skipped as non-modified), 77.9 MB
+0000.752 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.763 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.779 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.795 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.806 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.814 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (11 MB, 6196 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.458 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: size is now: 4.90 MB
+0001.527 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 600 files added (on-disk size: 5061.3 KB)
+0001.696 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 700 files added (on-disk size: 5061.3 KB)
+0001.712 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 800 files added (on-disk size: 5061.3 KB)
+0001.722 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 900 files added (on-disk size: 5061.3 KB)
+0001.737 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1000 files added (on-disk size: 5061.3 KB)
+0001.745 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.7 MB, 6196 files batched, 501 (1002) added so far); re-opening (prior size: 5061.3 KB)
+0002.686 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: size is now: 8.50 MB
+0002.707 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1100 files added (on-disk size: 8732.7 KB)
+0002.719 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1200 files added (on-disk size: 8732.7 KB)
+0002.727 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1300 files added (on-disk size: 8732.7 KB)
+0002.739 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1400 files added (on-disk size: 8732.7 KB)
+0002.751 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1500 files added (on-disk size: 8732.7 KB)
+0002.758 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.9 MB, 6196 files batched, 501 (1503) added so far); re-opening (prior size: 8732.7 KB)
+0003.425 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: size is now: 11.90 MB
+0003.443 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1600 files added (on-disk size: 12193.6 KB)
+0003.452 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1700 files added (on-disk size: 12193.6 KB)
+0003.461 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1800 files added (on-disk size: 12193.6 KB)
+0003.483 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 1900 files added (on-disk size: 12193.6 KB)
+0003.495 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2000 files added (on-disk size: 12193.6 KB)
+0003.504 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.6 MB, 6196 files batched, 501 (2004) added so far); re-opening (prior size: 12193.6 KB)
+0004.110 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: size is now: 14.30 MB
+0004.131 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2100 files added (on-disk size: 14642.6 KB)
+0004.139 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2200 files added (on-disk size: 14642.6 KB)
+0004.147 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2300 files added (on-disk size: 14642.6 KB)
+0004.158 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2400 files added (on-disk size: 14642.6 KB)
+0004.168 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2500 files added (on-disk size: 14642.6 KB)
+0004.177 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.2 MB, 6196 files batched, 501 (2505) added so far); re-opening (prior size: 14642.6 KB)
+0004.500 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2600 files added (on-disk size: 14878.3 KB)
+0004.510 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2700 files added (on-disk size: 14878.3 KB)
+0004.518 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2800 files added (on-disk size: 14878.3 KB)
+0004.529 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 2900 files added (on-disk size: 14878.3 KB)
+0004.540 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3000 files added (on-disk size: 14878.3 KB)
+0004.547 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.6 MB, 6196 files batched, 501 (3006) added so far); re-opening (prior size: 14878.3 KB)
+0004.906 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3100 files added (on-disk size: 15253 KB)
+0004.915 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3200 files added (on-disk size: 15253 KB)
+0004.923 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3300 files added (on-disk size: 15253 KB)
+0004.933 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3400 files added (on-disk size: 15253 KB)
+0004.944 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3500 files added (on-disk size: 15253 KB)
+0004.953 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.6 MB, 6196 files batched, 501 (3507) added so far); re-opening (prior size: 15253 KB)
+0005.335 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: size is now: 18.80 MB
+0005.353 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3600 files added (on-disk size: 19217.9 KB)
+0005.363 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3700 files added (on-disk size: 19217.9 KB)
+0005.373 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3800 files added (on-disk size: 19217.9 KB)
+0005.381 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 3900 files added (on-disk size: 19217.9 KB)
+0005.393 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4000 files added (on-disk size: 19217.9 KB)
+0005.414 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.3 MB, 6196 files batched, 501 (4008) added so far); re-opening (prior size: 19217.9 KB)
+0006.050 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4100 files added (on-disk size: 21830.6 KB)
+0006.061 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4200 files added (on-disk size: 21830.6 KB)
+0006.070 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4300 files added (on-disk size: 21830.6 KB)
+0006.079 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4400 files added (on-disk size: 21830.6 KB)
+0006.089 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4500 files added (on-disk size: 21830.6 KB)
+0006.098 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.4 MB, 6196 files batched, 501 (4509) added so far); re-opening (prior size: 21830.6 KB)
+0006.672 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4600 files added (on-disk size: 24108.1 KB)
+0006.682 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4700 files added (on-disk size: 24108.1 KB)
+0006.690 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4800 files added (on-disk size: 24108.1 KB)
+0006.700 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 4900 files added (on-disk size: 24108.1 KB)
+0006.711 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5000 files added (on-disk size: 24108.1 KB)
+0006.720 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.6 MB, 6196 files batched, 501 (5010) added so far); re-opening (prior size: 24108.1 KB)
+0007.321 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5100 files added (on-disk size: 26116.1 KB)
+0007.329 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5200 files added (on-disk size: 26116.1 KB)
+0007.341 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5300 files added (on-disk size: 26116.1 KB)
+0007.350 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5400 files added (on-disk size: 26116.1 KB)
+0007.361 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5500 files added (on-disk size: 26116.1 KB)
+0007.370 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.9 MB, 6196 files batched, 501 (5511) added so far); re-opening (prior size: 26116.1 KB)
+0008.655 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5600 files added (on-disk size: 30125.6 KB)
+0008.667 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5700 files added (on-disk size: 30125.6 KB)
+0008.679 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5800 files added (on-disk size: 30125.6 KB)
+0008.687 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 5900 files added (on-disk size: 30125.6 KB)
+0008.695 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 6000 files added (on-disk size: 30125.6 KB)
+0008.704 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.6 MB, 6196 files batched, 501 (6012) added so far); re-opening (prior size: 30125.6 KB)
+0009.161 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip.tmp: 6100 files added (on-disk size: 30952 KB)
+0010.027 (0) Created plugins zip (0) - 31212.3 KB in 9.7 s (3227.2 KB/s) (sha1: 3fd7d5f874330cbedacb30134cb8afb7b73c54b8, sha256: 6bcf6ebe76b7d8a3130073d7ff7a0bd78a52ce40b1a56b74d8bf57dd2a4a54d8)
+0010.049 (0) Beginning creation of dump of themes (split every: 400 MB)
+0010.093 (0) Total entities for the zip file: 52 directories, 268 files (0 skipped as non-modified), 10.5 MB
+0010.101 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0010.113 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0010.676 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip.tmp: size is now: 8.60 MB
+0010.830 (0) Created themes zip (0) - 8831.6 KB in 0.8 s (11416.4 KB/s) (sha1: 907b01629492a91d6170cf00bafc925562683139, sha256: 908f781b2d1d0ba7564d582be524dccdd3a92d58f309c557aac64e3e275d2ad3)
+0010.850 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0010.858 (0) Looking for candidates to back up in: /var/www/html/wizards/wp-content/uploads
+0010.864 (0) finding files: section-ultima.jpg: adding to list (1)
+0010.878 (0) finding files: logo-white.png: adding to list (2)
+0010.885 (0) finding files: logo-footer.png: adding to list (3)
+0010.894 (0) finding files: pexels-photo-69212c.jpg: adding to list (4)
+0010.903 (0) finding files: ser4.png: adding to list (5)
+0010.911 (0) finding files: hipsterhandbook_1920.jpg: adding to list (6)
+0010.917 (0) finding files: 1BAnalysis.png: adding to list (7)
+0010.924 (0) finding files: banner-tricks.png: adding to list (8)
+0010.932 (0) finding files: logos.png: adding to list (9)
+0010.950 (0) finding files: section-bg-b.jpg: adding to list (10)
+0010.956 (0) finding files: test.png: adding to list (11)
+0010.965 (0) finding files: ser6.png: adding to list (12)
+0010.977 (0) finding files: vintage-jeans-zara-boyfriends.jpg: adding to list (13)
+0010.984 (0) finding files: promo-4.png: adding to list (14)
+0010.992 (0) finding files: textbannerIII.png: adding to list (15)
+0010.999 (0) finding files: titulo_clients.png: adding to list (16)
+0011.009 (0) finding files: holidays-by-numbers.png: adding to list (17)
+0011.016 (0) finding files: section-bg-17.jpg: adding to list (18)
+0011.028 (0) finding files: pexels-photo-567453.jpeg: adding to list (19)
+0011.035 (0) finding files: section-bg-a.jpg: adding to list (20)
+0011.042 (0) finding files: apps.png: adding to list (21)
+0011.048 (0) finding files: promo-gris.png: adding to list (22)
+0011.057 (0) finding files: uxdesign.png: adding to list (23)
+0011.068 (0) finding files: SecretPotionMWM3.jpg: adding to list (24)
+0011.085 (0) finding files: BannerII.jpg: adding to list (25)
+0011.092 (0) finding files: Our-tricks-description.png: adding to list (26)
+0011.100 (0) finding files: red-vintage-shoes-sportb.jpg: adding to list (27)
+0011.107 (0) finding files: paloma.png: adding to list (28)
+0011.114 (0) finding files: ser7.png: adding to list (29)
+0011.120 (0) finding files: promo-gris-old.png: adding to list (30)
+0011.127 (0) finding files: titulo_contact_us.png: adding to list (31)
+0011.134 (0) finding files: section-bg-analysis.jpg: adding to list (32)
+0011.140 (0) finding files: 6CServices.png: adding to list (33)
+0011.150 (0) finding files: icono5.png: adding to list (34)
+0011.160 (0) finding files: acordeon3.jpg: adding to list (35)
+0011.166 (0) finding files: logo.png: adding to list (36)
+0011.177 (0) finding files: slide4.png: adding to list (37)
+0011.184 (0) finding files: hipster-pattern-wallpaper-023.jpg: adding to list (38)
+0011.190 (0) finding files: slide5.png: adding to list (39)
+0011.198 (0) finding files: ser2.png: adding to list (40)
+0011.208 (0) finding files: 2DSource.png: adding to list (41)
+0011.218 (0) finding files: 5SDK.png: adding to list (42)
+0011.226 (0) finding files: 7AAnalytics.png: adding to list (43)
+0011.234 (0) finding files: Data-Science.png: adding to list (44)
+0011.254 (0) finding files: icono3.png: adding to list (45)
+0011.270 (0) finding files: pexels-photo-567452.jpeg: adding to list (46)
+0011.284 (0) finding files: mightywizards-facebook.png: adding to list (47)
+0011.294 (0) finding files: feet-hipster-longboard-skateboard.jpg: adding to list (48)
+0011.314 (0) finding files: business_analysis.png: adding to list (49)
+0011.321 (0) finding files: acordeon2.jpg: adding to list (50)
+0011.334 (0) finding files: micro_imagen.png: adding to list (51)
+0011.334 (0) finding files: revslider: adding to list (52)
+0011.334 (0) finding files: icono4.png: adding to list (53)
+0011.334 (0) finding files: acordeon1.jpg: adding to list (54)
+0011.334 (0) finding files: slide6.png: adding to list (55)
+0011.334 (0) finding files: BannerIII.jpg: adding to list (56)
+0011.334 (0) finding files: logo-white-old.png: adding to list (57)
+0011.334 (0) finding files: acordeon4.jpg: adding to list (58)
+0011.334 (0) finding files: icono1.png: adding to list (59)
+0011.334 (0) finding files: dataw.png: adding to list (60)
+0011.334 (0) finding files: section-bg-3.jpg: adding to list (61)
+0011.334 (0) finding files: slide2.png: adding to list (62)
+0011.334 (0) finding files: slide1.png: adding to list (63)
+0011.334 (0) finding files: section-bg-social.jpg: adding to list (64)
+0011.334 (0) finding files: IconoHipster4.jpg: adding to list (65)
+0011.334 (0) finding files: SDK.png: adding to list (66)
+0011.334 (0) finding files: ser8.png: adding to list (67)
+0011.334 (0) finding files: business_imagen.png: adding to list (68)
+0011.334 (0) finding files: BAnalysis.png: adding to list (69)
+0011.334 (0) finding files: BannerI.jpg: adding to list (70)
+0011.334 (0) finding files: 3DVisualization.png: adding to list (71)
+0011.334 (0) finding files: pexels-photo-529931.jpeg: adding to list (72)
+0011.334 (0) finding files: icono2.png: adding to list (73)
+0011.334 (0) finding files: post-linkedin.jpeg: adding to list (74)
+0011.334 (0) finding files: clouds.png: adding to list (75)
+0011.334 (0) finding files: ser1.png: adding to list (76)
+0011.334 (0) finding files: section-bg-17a.jpg: adding to list (77)
+0011.334 (0) finding files: section-bg-d.jpg: adding to list (78)
+0011.334 (0) finding files: dta-in-a-minute.jpeg: adding to list (79)
+0011.334 (0) finding files: logos-1.png: adding to list (80)
+0011.334 (0) finding files: section-bg-21.jpg: adding to list (81)
+0011.334 (0) finding files: ser3.png: adding to list (82)
+0011.334 (0) finding files: section-bg-C.jpg: adding to list (83)
+0011.334 (0) finding files: ser5.png: adding to list (84)
+0011.334 (0) finding files: evolution-of-the_hipster_191214.jpg: adding to list (85)
+0011.334 (0) finding files: 2017: adding to list (86)
+0011.334 (0) finding files: fashion-men-vintage-colorful.jpg: adding to list (87)
+0011.334 (0) finding files: textbannerIV.png: adding to list (88)
+0011.334 (0) finding files: VegasBannerWebsiteVI.jpg: adding to list (89)
+0011.334 (0) finding files: favicon.png: adding to list (90)
+0011.334 (0) finding files: promo-4-old.png: adding to list (91)
+0011.334 (0) finding files: section-bg-222.jpg: adding to list (92)
+0011.334 (0) finding files: titulo_whychoose.png: adding to list (93)
+0011.335 (0) finding files: slide3.png: adding to list (94)
+0011.335 (0) finding files: 4BITools.png: adding to list (95)
+0011.335 (0) finding files: DVisualization.png: adding to list (96)
+0011.335 (0) finding files: few-our-clients.png: adding to list (97)
+0011.335 (0) finding files: hip-dude.jpg: adding to list (98)
+0011.335 (0) finding files: promo-3.png: adding to list (99)
+0011.335 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0011.436 (0) Total entities for the zip file: 155 directories, 426 files (0 skipped as non-modified), 16.4 MB
+0011.446 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0011.455 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0011.463 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0011.476 (0) Zip: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0011.939 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip.tmp: size is now: 16.50 MB
+0012.327 (0) Created uploads zip (0) - 16883.4 KB in 1 s (17134.3 KB/s) (sha1: 41db3859e1a13dba154a95da5aed410cf6998156, sha256: 325aaa43ccbdd12c36534f7b229b687504cf1267f8af61a63484578707e816cd)
+0012.341 (0) Beginning backup of other directories found in the content directory (index: 0)
+0012.350 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0012.358 (0) Looking for candidates to back up in: /var/www/html/wizards/wp-content
+0012.365 (0) finding files: wflogs: adding to list (1)
+0012.374 (0) finding files: object-cache.php: adding to list (2)
+0012.382 (0) finding files: index.php: adding to list (3)
+0012.389 (0) finding files: upgrade: skipping: excluded by options
+0012.401 (0) finding files: updraft: skipping: this is the updraft directory
+0012.411 (0) finding files: themes: skipping: this is the themes directory
+0012.422 (0) finding files: uploads-old: adding to list (4)
+0012.431 (0) finding files: advanced-cache.php: adding to list (5)
+0012.442 (0) finding files: index.php-old: adding to list (6)
+0012.450 (0) finding files: w3tc-config-old: adding to list (7)
+0012.457 (0) finding files: w3tc-config: adding to list (8)
+0012.466 (0) finding files: languages: adding to list (9)
+0012.476 (0) finding files: uploads: skipping: this is the uploads directory
+0012.486 (0) finding files: advanced-cache.php-old: adding to list (10)
+0012.494 (0) finding files: languages-old: adding to list (11)
+0012.503 (0) finding files: wflogs-old: adding to list (12)
+0012.509 (0) finding files: plugins-old: adding to list (13)
+0012.518 (0) finding files: cache: skipping: excluded by options
+0012.525 (0) finding files: themes-old: adding to list (14)
+0012.532 (0) finding files: wp-rocket-config: adding to list (15)
+0012.546 (0) finding files: plugins: skipping: this is the plugins directory
+0012.568 (0) Total entities for the zip file: 14 directories, 54 files (0 skipped as non-modified), 5.7 MB
+0012.912 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-others.zip.tmp: size is now: 1.90 MB
+0012.982 (0) Created others zip (0) - 1965.8 KB in 0.4 s (4602.2 KB/s) (sha1: db301f94b1079603c97101b3833a7894538e9dec, sha256: a200a1d788a55a5d3b18fb44fbd66c6e68e0d26255195cc2fa5b6405deaa4be4)
+0013.030 (0) Saving backup status to database (elements: 8)
+0013.068 (0) Beginning creation of database dump (WordPress DB)
+0013.094 (0) Testing: /usr/bin/mysqldump
+0013.148 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1214 bytes total)
+0013.166 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0013.199 (0) Table wp_options: Total expected rows (approximate): 376
+0013.270 (0) Table wp_options: Total rows added: 379 in 0.06 seconds
+0013.282 (0) Table wp_options: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_options.table.gz - 182.5 KB)
+0013.315 (0) Table wp_users: Total expected rows (approximate): 6
+0013.331 (0) Table wp_users: Total rows added: 6 in 0.01 seconds
+0013.340 (0) Table wp_users: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_users.table.gz - 1 KB)
+0013.371 (0) Table wp_usermeta: Total expected rows (approximate): 159
+0013.386 (0) Table wp_usermeta: Total rows added: 159 in 0.01 seconds
+0013.392 (0) Table wp_usermeta: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_usermeta.table.gz - 4.3 KB)
+0013.423 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0013.432 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0013.441 (0) Table wp_commentmeta: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0013.480 (0) Table wp_comments: Total expected rows (approximate): 0
+0013.493 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0013.505 (0) Table wp_comments: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_comments.table.gz - 0.5 KB)
+0013.532 (0) Table wp_links: Total expected rows (approximate): 0
+0013.549 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0013.558 (0) Table wp_links: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_links.table.gz - 0.4 KB)
+0013.599 (0) Table wp_postmeta: Total expected rows (approximate): 875
+0013.623 (0) Table wp_postmeta: Total rows added: 952 in 0.01 seconds
+0013.630 (0) Table wp_postmeta: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_postmeta.table.gz - 11.8 KB)
+0013.661 (0) Table wp_posts: Total expected rows (approximate): 128
+0013.685 (0) Table wp_posts: Total rows added: 128 in 0.01 seconds
+0013.698 (0) Table wp_posts: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_posts.table.gz - 13.8 KB)
+0013.736 (0) Table wp_term_relationships: Total expected rows (approximate): 6
+0013.751 (0) Table wp_term_relationships: Total rows added: 6 in 0.01 seconds
+0013.759 (0) Table wp_term_relationships: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0013.800 (0) Table wp_term_taxonomy: Total expected rows (approximate): 8
+0013.814 (0) Table wp_term_taxonomy: Total rows added: 8 in 0.00 seconds
+0013.821 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_term_taxonomy.table.gz - 0.5 KB)
+0013.857 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0013.874 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0013.881 (0) Table wp_termmeta: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_termmeta.table.gz - 0.4 KB)
+0013.906 (0) Table wp_terms: Total expected rows (approximate): 8
+0013.925 (0) Table wp_terms: Total rows added: 8 in 0.01 seconds
+0013.932 (0) Table wp_terms: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_terms.table.gz - 0.5 KB)
+0013.968 (0) Table wp_eg_grids: Total expected rows (approximate): 0
+0013.981 (0) Table wp_eg_grids: Total rows added: 1 in 0.01 seconds
+0013.993 (0) Table wp_eg_grids: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_grids.table.gz - 2.2 KB)
+0014.026 (0) Table wp_eg_item_elements: Total expected rows (approximate): 0
+0014.040 (0) Table wp_eg_item_elements: Total rows added: 1 in 0.00 seconds
+0014.047 (0) Table wp_eg_item_elements: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_item_elements.table.gz - 1 KB)
+0014.080 (0) Table wp_eg_item_skins: Total expected rows (approximate): 37
+0014.118 (0) Table wp_eg_item_skins: Total rows added: 50 in 0.02 seconds
+0014.129 (0) Table wp_eg_item_skins: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_item_skins.table.gz - 22.8 KB)
+0014.164 (0) Table wp_eg_navigation_skins: Total expected rows (approximate): 8
+0014.179 (0) Table wp_eg_navigation_skins: Total rows added: 8 in 0.01 seconds
+0014.195 (0) Table wp_eg_navigation_skins: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_navigation_skins.table.gz - 3.6 KB)
+0014.225 (0) Table wp_responsive_menu: Total expected rows (approximate): 218
+0014.246 (0) Table wp_responsive_menu: Total rows added: 218 in 0.01 seconds
+0014.258 (0) Table wp_responsive_menu: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_responsive_menu.table.gz - 1.9 KB)
+0014.286 (0) Table wp_revslider_css: Total expected rows (approximate): 109
+0014.307 (0) Table wp_revslider_css: Total rows added: 109 in 0.01 seconds
+0014.313 (0) Table wp_revslider_css: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_css.table.gz - 4.9 KB)
+0014.352 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0014.363 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0014.374 (0) Table wp_revslider_layer_animations: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0014.408 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0014.421 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0014.428 (0) Table wp_revslider_navigations: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0014.457 (0) Table wp_revslider_sliders: Total expected rows (approximate): 8
+0014.481 (0) Table wp_revslider_sliders: Total rows added: 8 in 0.01 seconds
+0014.489 (0) Table wp_revslider_sliders: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_sliders.table.gz - 4.7 KB)
+0014.523 (0) Table wp_revslider_slides: Total expected rows (approximate): 24
+0014.542 (0) Table wp_revslider_slides: Total rows added: 24 in 0.01 seconds
+0014.550 (0) Table wp_revslider_slides: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_slides.table.gz - 6.5 KB)
+0014.583 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 4
+0014.598 (0) Table wp_revslider_static_slides: Total rows added: 4 in 0.00 seconds
+0014.606 (0) Table wp_revslider_static_slides: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0014.636 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0014.649 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0014.656 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0014.692 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0014.704 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0014.714 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0014.746 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 2
+0014.761 (0) Table wp_wfBlockedIPLog: Total rows added: 2 in 0.01 seconds
+0014.775 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlockedIPLog.table.gz - 0.4 KB)
+0014.816 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0014.828 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0014.838 (0) Table wp_wfBlocks: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0014.870 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0014.886 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.01 seconds
+0014.897 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0014.932 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0014.943 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0014.951 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0014.992 (0) Table wp_wfConfig: Total expected rows (approximate): 234
+0015.021 (0) Table wp_wfConfig: Total rows added: 234 in 0.02 seconds
+0015.030 (0) Table wp_wfConfig: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfConfig.table.gz - 235.5 KB)
+0015.059 (0) Table wp_wfCrawlers: Total expected rows (approximate): 33
+0015.074 (0) Table wp_wfCrawlers: Total rows added: 41 in 0.01 seconds
+0015.082 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfCrawlers.table.gz - 1 KB)
+0015.120 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0015.137 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0015.145 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0015.180 (0) Table wp_wfFileMods: Total expected rows (approximate): 9142
+0015.336 (0) Table wp_wfFileMods: binary mysqldump finished (writes: 36) in 0.14 seconds
+0015.344 (0) Table wp_wfFileMods: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfFileMods.table.gz - 750.2 KB)
+0015.382 (0) Table wp_wfHits: Total expected rows (approximate): 4346
+0015.521 (0) Table wp_wfHits: Total rows added: 4389 in 0.13 seconds
+0015.534 (0) Table wp_wfHits: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfHits.table.gz - 73.5 KB)
+0015.568 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0015.581 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0015.589 (0) Table wp_wfHoover: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0015.624 (0) Table wp_wfIssues: Total expected rows (approximate): 2
+0015.639 (0) Table wp_wfIssues: Total rows added: 1 in 0.00 seconds
+0015.646 (0) Table wp_wfIssues: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfIssues.table.gz - 1.1 KB)
+0015.684 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 9097
+0015.763 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.07 seconds
+0015.774 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfKnownFileList.table.gz - 90 KB)
+0015.808 (0) Table wp_wfLeechers: Total expected rows (approximate): 89
+0015.827 (0) Table wp_wfLeechers: Total rows added: 89 in 0.01 seconds
+0015.838 (0) Table wp_wfLeechers: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLeechers.table.gz - 1 KB)
+0015.872 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0015.881 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0015.890 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0015.919 (0) Table wp_wfLocs: Total expected rows (approximate): 1
+0015.935 (0) Table wp_wfLocs: Total rows added: 2 in 0.00 seconds
+0015.946 (0) Table wp_wfLocs: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLocs.table.gz - 0.5 KB)
+0015.982 (0) Table wp_wfLogins: Total expected rows (approximate): 232
+0015.999 (0) Table wp_wfLogins: Total rows added: 278 in 0.01 seconds
+0016.010 (0) Table wp_wfLogins: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLogins.table.gz - 5.4 KB)
+0016.048 (0) Table wp_wfNet404s: Total expected rows (approximate): 0
+0016.059 (0) Table wp_wfNet404s: Total rows added: 0 in 0.00 seconds
+0016.073 (0) Table wp_wfNet404s: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfNet404s.table.gz - 0.3 KB)
+0016.110 (0) Table wp_wfNotifications: Total expected rows (approximate): 23
+0016.127 (0) Table wp_wfNotifications: Total rows added: 25 in 0.01 seconds
+0016.138 (0) Table wp_wfNotifications: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfNotifications.table.gz - 0.9 KB)
+0016.180 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0016.193 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0016.201 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0016.236 (0) Table wp_wfReverseCache: Total expected rows (approximate): 10
+0016.249 (0) Table wp_wfReverseCache: Total rows added: 10 in 0.00 seconds
+0016.258 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfReverseCache.table.gz - 0.6 KB)
+0016.288 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0016.302 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0016.310 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0016.338 (0) Table wp_wfScanners: Total expected rows (approximate): 41
+0016.354 (0) Table wp_wfScanners: Total rows added: 41 in 0.00 seconds
+0016.366 (0) Table wp_wfScanners: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfScanners.table.gz - 0.7 KB)
+0016.406 (0) Table wp_wfStatus: Total expected rows (approximate): 1333
+0016.439 (0) Table wp_wfStatus: Total rows added: 1434 in 0.02 seconds
+0016.451 (0) Table wp_wfStatus: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfStatus.table.gz - 26 KB)
+0016.507 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0016.520 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0016.530 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0016.567 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0016.581 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0016.591 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0016.618 (0) Table wp_wpgmza: Total expected rows (approximate): 2
+0016.634 (0) Table wp_wpgmza: Total rows added: 2 in 0.00 seconds
+0016.640 (0) Table wp_wpgmza: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza.table.gz - 0.5 KB)
+0016.678 (0) Table wp_wpgmza_categories: Total expected rows (approximate): 0
+0016.688 (0) Table wp_wpgmza_categories: Total rows added: 0 in 0.00 seconds
+0016.702 (0) Table wp_wpgmza_categories: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_categories.table.gz - 0.3 KB)
+0016.736 (0) Table wp_wpgmza_category_maps: Total expected rows (approximate): 0
+0016.753 (0) Table wp_wpgmza_category_maps: Total rows added: 0 in 0.00 seconds
+0016.762 (0) Table wp_wpgmza_category_maps: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_category_maps.table.gz - 0.3 KB)
+0016.796 (0) Table wp_wpgmza_maps: Total expected rows (approximate): 0
+0016.810 (0) Table wp_wpgmza_maps: Total rows added: 1 in 0.01 seconds
+0016.824 (0) Table wp_wpgmza_maps: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_maps.table.gz - 1.2 KB)
+0016.852 (0) Table wp_wpgmza_polygon: Total expected rows (approximate): 0
+0016.865 (0) Table wp_wpgmza_polygon: Total rows added: 0 in 0.00 seconds
+0016.873 (0) Table wp_wpgmza_polygon: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_polygon.table.gz - 0.4 KB)
+0016.908 (0) Table wp_wpgmza_polylines: Total expected rows (approximate): 0
+0016.920 (0) Table wp_wpgmza_polylines: Total rows added: 0 in 0.00 seconds
+0016.929 (0) Table wp_wpgmza_polylines: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_polylines.table.gz - 0.3 KB)
+0016.963 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 47
+0016.980 (0) Table wp_yoast_seo_links: Total rows added: 47 in 0.01 seconds
+0016.994 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_yoast_seo_links.table.gz - 0.8 KB)
+0017.027 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 479
+0017.046 (0) Table wp_yoast_seo_meta: Total rows added: 488 in 0.01 seconds
+0017.062 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_yoast_seo_meta.table.gz - 1.5 KB)
+0017.091 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_options.table.gz (1/58): adding to final database dump
+0017.137 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_users.table.gz (2/58): adding to final database dump
+0017.150 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_usermeta.table.gz (3/58): adding to final database dump
+0017.164 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_commentmeta.table.gz (4/58): adding to final database dump
+0017.188 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_comments.table.gz (5/58): adding to final database dump
+0017.213 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_links.table.gz (6/58): adding to final database dump
+0017.225 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_postmeta.table.gz (7/58): adding to final database dump
+0017.238 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_posts.table.gz (8/58): adding to final database dump
+0017.249 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_term_relationships.table.gz (9/58): adding to final database dump
+0017.262 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_term_taxonomy.table.gz (10/58): adding to final database dump
+0017.270 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_termmeta.table.gz (11/58): adding to final database dump
+0017.278 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_terms.table.gz (12/58): adding to final database dump
+0017.289 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_grids.table.gz (13/58): adding to final database dump
+0017.298 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_item_elements.table.gz (14/58): adding to final database dump
+0017.309 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_item_skins.table.gz (15/58): adding to final database dump
+0017.327 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_eg_navigation_skins.table.gz (16/58): adding to final database dump
+0017.339 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_responsive_menu.table.gz (17/58): adding to final database dump
+0017.348 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_css.table.gz (18/58): adding to final database dump
+0017.359 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_layer_animations.table.gz (19/58): adding to final database dump
+0017.368 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_navigations.table.gz (20/58): adding to final database dump
+0017.375 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_sliders.table.gz (21/58): adding to final database dump
+0017.386 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_slides.table.gz (22/58): adding to final database dump
+0017.396 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_revslider_static_slides.table.gz (23/58): adding to final database dump
+0017.404 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBadLeechers.table.gz (24/58): adding to final database dump
+0017.412 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlockedCommentLog.table.gz (25/58): adding to final database dump
+0017.421 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlockedIPLog.table.gz (26/58): adding to final database dump
+0017.429 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlocks.table.gz (27/58): adding to final database dump
+0017.437 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlocks7.table.gz (28/58): adding to final database dump
+0017.443 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfBlocksAdv.table.gz (29/58): adding to final database dump
+0017.452 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfConfig.table.gz (30/58): adding to final database dump
+0017.474 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfCrawlers.table.gz (31/58): adding to final database dump
+0017.484 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfFileChanges.table.gz (32/58): adding to final database dump
+0017.494 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfFileMods.table.gz (33/58): adding to final database dump
+0017.588 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfHits.table.gz (34/58): adding to final database dump
+0017.628 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfHoover.table.gz (35/58): adding to final database dump
+0017.634 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfIssues.table.gz (36/58): adding to final database dump
+0017.642 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfKnownFileList.table.gz (37/58): adding to final database dump
+0017.671 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLeechers.table.gz (38/58): adding to final database dump
+0017.682 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLockedOut.table.gz (39/58): adding to final database dump
+0017.692 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLocs.table.gz (40/58): adding to final database dump
+0017.703 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfLogins.table.gz (41/58): adding to final database dump
+0017.716 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfNet404s.table.gz (42/58): adding to final database dump
+0017.729 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfNotifications.table.gz (43/58): adding to final database dump
+0017.739 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfPendingIssues.table.gz (44/58): adding to final database dump
+0017.746 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfReverseCache.table.gz (45/58): adding to final database dump
+0017.755 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfSNIPCache.table.gz (46/58): adding to final database dump
+0017.761 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfScanners.table.gz (47/58): adding to final database dump
+0017.770 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfStatus.table.gz (48/58): adding to final database dump
+0017.784 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfThrottleLog.table.gz (49/58): adding to final database dump
+0017.798 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wfVulnScanners.table.gz (50/58): adding to final database dump
+0017.806 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza.table.gz (51/58): adding to final database dump
+0017.814 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_categories.table.gz (52/58): adding to final database dump
+0017.822 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_category_maps.table.gz (53/58): adding to final database dump
+0017.834 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_maps.table.gz (54/58): adding to final database dump
+0017.846 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_polygon.table.gz (55/58): adding to final database dump
+0017.858 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_wpgmza_polylines.table.gz (56/58): adding to final database dump
+0017.869 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_yoast_seo_links.table.gz (57/58): adding to final database dump
+0017.879 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db-table-wp_yoast_seo_meta.table.gz (58/58): adding to final database dump
+0017.887 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db.gz: finished writing out complete database file (1440 KB)
+0017.953 (0) Total database tables backed up: 58 (backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db.gz, size: 1486633, sha256)
+0018.036 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0018.045 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0018.054 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0018.065 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-others.zip: others: This file has not yet been successfully uploaded: will queue
+0018.074 (0) backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db.gz: db: This file has not yet been successfully uploaded: will queue
+0018.082 (0) Saving backup history. Total backup size: 58.9 MB
+0018.117 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0018.158 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0018.166 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-002d1ff63e1cccb84229e9a3b20f3251)
+0018.546 (0) Set region: us-west-1
+0018.554 (0) S3 upload (us-west-1): backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip (chunks: 7) -> s3://mightywizards.com/backups/backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip
+0018.696 (0) S3 chunked upload: got multipart ID: mBGBjyV8n0s7R0MN.8bIVCVyUb6_Jko7b7FpTQEzoXZqvn3SNwNIfI.B.qtWP6DhISIoYyHSORFtzIOn4LgilN5034O7hJpRyBuHGgyDkz8GtdIBjR5ncvjFwJAF3iQh
+0019.434 (0) S3 chunked upload: 14.3 % uploaded (1, "fc1a5a914f222ee1830c74ec830bdcf2")
+0020.102 (0) S3 chunked upload: 28.6 % uploaded (2, "bb3e7fdccf7e21ac006ac100822463a2")
+0020.753 (0) S3 chunked upload: 42.9 % uploaded (3, "4fb8840c2506f2bcbaacad345e9600e5")
+0021.618 (0) S3 chunked upload: 57.1 % uploaded (4, "27675628b3c23a20415f895c76d5736b")
+0022.381 (0) S3 chunked upload: 71.4 % uploaded (5, "2dea7f4c9706282892ba4d0c7ed91766")
+0023.086 (0) S3 chunked upload: 85.7 % uploaded (6, "32b04bfb92c28e032bed26ed834f878d")
+0023.269 (0) S3 chunked upload: 100 % uploaded (7, "257840fa29d1ce65b882f60e9b40cd72")
+0023.303 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0023.494 (0) S3 upload (plugins0): re-assembly succeeded
+0023.518 (0) Recording as successfully uploaded: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip (f8fd736f1e15b2c8cd5a36cc47534750)
+0023.561 (0) Deleting local file: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-plugins.zip: OK
+0023.573 (0) S3 upload (us-west-1): backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip (chunks: 2) -> s3://mightywizards.com/backups/backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip
+0023.615 (0) S3 chunked upload: got multipart ID: re7W2nSkfqsyHcfg98IZyfFAYfGe4o64wfcQLAwaKhwvTJW8Q0tBqnrHb87tqc1jE6K6QFeKntkk3MmQu7XpVFV1IrTzxisuLCy2SUaYY2maesdUOqPJ_S7Z90nLEfxC
+0024.293 (0) S3 chunked upload: 50 % uploaded (1, "6b376b4cd6794cd628f28be703448c6c")
+0024.882 (0) S3 chunked upload: 100 % uploaded (2, "5e2c3044b4101ae216b30b89b4fba997")
+0024.913 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0025.060 (0) S3 upload (themes0): re-assembly succeeded
+0025.081 (0) Recording as successfully uploaded: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip (5f6c99cbc479dc9e9114bfc3a0ca1991)
+0025.124 (0) Deleting local file: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-themes.zip: OK
+0025.138 (0) S3 upload (us-west-1): backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip (chunks: 4) -> s3://mightywizards.com/backups/backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip
+0025.179 (0) S3 chunked upload: got multipart ID: Pan1US86DF35D9YXCRxoVr9eRgENTrLtzJLc1EfupAoHiHOsnf4OGVoCjfNQchnehdtJ2CrU4W1xEnda15uPnrtpHNe8Zj513grPzQddyN4syA.84tFdqgRlsZHSECbM
+0025.926 (0) S3 chunked upload: 25 % uploaded (1, "c779ac944dfd02c79366310bd0ae671b")
+0026.667 (0) S3 chunked upload: 50 % uploaded (2, "d0476ad1647a8fdbc6e6fdcf8de718bd")
+0027.367 (0) S3 chunked upload: 75 % uploaded (3, "e4ed57be1152437f8b25b0ec4bb84bfb")
+0027.690 (0) S3 chunked upload: 100 % uploaded (4, "b4acf36f50cdd8999342098bd69f486f")
+0027.734 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0027.837 (0) S3 upload (uploads0): re-assembly succeeded
+0027.870 (0) Recording as successfully uploaded: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip (a2064a7138789b242b2122d2180ac1e1)
+0027.917 (0) Deleting local file: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-uploads.zip: OK
+0027.930 (0) S3 upload (us-west-1): backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-others.zip (chunks: 1) -> s3://mightywizards.com/backups/backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-others.zip
+0028.278 (0) S3 regular upload: success
+0028.303 (0) Recording as successfully uploaded: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-others.zip (1cecca4930092f9f84c9a5d89f870718)
+0028.339 (0) Deleting local file: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-others.zip: OK
+0028.349 (0) S3 upload (us-west-1): backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db.gz (chunks: 1) -> s3://mightywizards.com/backups/backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db.gz
+0028.630 (0) S3 regular upload: success
+0028.654 (0) Recording as successfully uploaded: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db.gz (ad0a8a2150b31f7ac78074c49bfd444a)
+0028.691 (0) Deleting local file: backup_2018-03-24-0836_Mighty_Wizards_Technologies_401ef2a4d443-db.gz: OK
+0028.714 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0028.727 (0) Number of backup sets in history: 32; groups (db): 1
+0028.738 (0) Examining (for databases) backup set with group_id=0, nonce=401ef2a4d443, datestamp=1521902218 (Mar 24 2018 14:36:58)
+0028.749 (0) This backup set is the backup set just made, so will not be deleted.
+0028.749 (0) Examining (for databases) backup set with group_id=0, nonce=a2bc1fab593a, datestamp=1521814920 (Mar 23 2018 14:22:00)
+0028.749 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.758 (0) Examining (for databases) backup set with group_id=0, nonce=39234d9c9429, datestamp=1521729697 (Mar 22 2018 14:41:37)
+0028.758 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.759 (0) Examining (for databases) backup set with group_id=0, nonce=961bf6e423f5, datestamp=1521640799 (Mar 21 2018 13:59:59)
+0028.759 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.759 (0) Examining (for databases) backup set with group_id=0, nonce=fcbf9c6c7dbf, datestamp=1521554362 (Mar 20 2018 13:59:22)
+0028.759 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.759 (0) Examining (for databases) backup set with group_id=0, nonce=bba273508274, datestamp=1521469916 (Mar 19 2018 14:31:56)
+0028.759 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.759 (0) Examining (for databases) backup set with group_id=0, nonce=0dd12651d0e0, datestamp=1521393037 (Mar 18 2018 17:10:37)
+0028.759 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.759 (0) Examining (for databases) backup set with group_id=0, nonce=384d8112b5f7, datestamp=1521295667 (Mar 17 2018 14:07:47)
+0028.759 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.759 (0) Examining (for databases) backup set with group_id=0, nonce=8107b9015ab7, datestamp=1521212363 (Mar 16 2018 14:59:23)
+0028.759 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.760 (0) Examining (for databases) backup set with group_id=0, nonce=d086f21fad1c, datestamp=1521123826 (Mar 15 2018 14:23:46)
+0028.760 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.760 (0) Examining (for databases) backup set with group_id=0, nonce=e8b16e3fa252, datestamp=1521037667 (Mar 14 2018 14:27:47)
+0028.760 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.760 (0) Examining (for databases) backup set with group_id=0, nonce=d5f7ef8d6d18, datestamp=1520951220 (Mar 13 2018 14:27:00)
+0028.760 (0) Examining (for databases) backup set with group_id=0, nonce=67e658d3c6a0, datestamp=1520863671 (Mar 12 2018 14:07:51)
+0028.760 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.760 (0) Examining (for databases) backup set with group_id=0, nonce=d90975f71203, datestamp=1520776835 (Mar 11 2018 14:00:35)
+0028.760 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.760 (0) Examining (for databases) backup set with group_id=0, nonce=1ac81a7df363, datestamp=1520765019 (Mar 11 2018 10:43:39)
+0028.760 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.761 (0) Examining (for databases) backup set with group_id=0, nonce=1fc5df8871e5, datestamp=1520608558 (Mar 09 2018 15:15:58)
+0028.761 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.761 (0) Examining (for databases) backup set with group_id=0, nonce=9fb9b22aa647, datestamp=1520517615 (Mar 08 2018 14:00:15)
+0028.761 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.761 (0) Examining (for databases) backup set with group_id=0, nonce=9a7e37554db0, datestamp=1520434556 (Mar 07 2018 14:55:56)
+0028.761 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.761 (0) Examining (for databases) backup set with group_id=0, nonce=12ac0c104c82, datestamp=1520345373 (Mar 06 2018 14:09:33)
+0028.761 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.761 (0) Examining (for databases) backup set with group_id=0, nonce=fe36ce754a3a, datestamp=1520258864 (Mar 05 2018 14:07:44)
+0028.761 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.761 (0) Examining (for databases) backup set with group_id=0, nonce=1875c593569a, datestamp=1520171926 (Mar 04 2018 13:58:46)
+0028.761 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.762 (0) Examining (for databases) backup set with group_id=0, nonce=48a1fed67b31, datestamp=1520091685 (Mar 03 2018 15:41:25)
+0028.762 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.762 (0) Examining (for databases) backup set with group_id=0, nonce=8784b55d4e70, datestamp=1520003519 (Mar 02 2018 15:11:59)
+0028.762 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.762 (0) Examining (for databases) backup set with group_id=0, nonce=9089f2f42717, datestamp=1519913387 (Mar 01 2018 14:09:47)
+0028.762 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.762 (0) Examining (for databases) backup set with group_id=0, nonce=3eb289653275, datestamp=1519826559 (Feb 28 2018 14:02:39)
+0028.762 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.762 (0) Examining (for databases) backup set with group_id=0, nonce=52464119bf8b, datestamp=1519740094 (Feb 27 2018 14:01:34)
+0028.762 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.762 (0) Examining (for databases) backup set with group_id=0, nonce=0001e46fce6c, datestamp=1519657375 (Feb 26 2018 15:02:55)
+0028.763 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.763 (0) Examining (for databases) backup set with group_id=0, nonce=b673b7955c73, datestamp=1519567566 (Feb 25 2018 14:06:06)
+0028.763 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.763 (0) Examining (for databases) backup set with group_id=0, nonce=53a500f88c2b, datestamp=1519480872 (Feb 24 2018 14:01:12)
+0028.763 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.763 (0) Examining (for databases) backup set with group_id=0, nonce=296779a87565, datestamp=1519398306 (Feb 23 2018 15:05:06)
+0028.763 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.763 (0) Examining (for databases) backup set with group_id=0, nonce=89e780d9535c, datestamp=1519308801 (Feb 22 2018 14:13:21)
+0028.763 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.763 (0) Examining (for databases) backup set with group_id=0, nonce=4432706ac83d, datestamp=1519225258 (Feb 21 2018 15:00:58)
+0028.763 (0) 1519225258: db: this set includes a database (backup_2018-02-21-0900_Mighty_Wizards_Technologies_4432706ac83d-db.gz); db count is now 30
+0028.763 (0) 1519225258: db: over retain limit (30); will delete this database
+0028.763 (0) Delete file: backup_2018-02-21-0900_Mighty_Wizards_Technologies_4432706ac83d-db.gz, service=s3
+0028.774 (0) S3: Delete remote: bucket=mightywizards.com, URI=backups/backup_2018-02-21-0900_Mighty_Wizards_Technologies_4432706ac83d-db.gz
+0028.823 (0) This backup set is now empty; will remove from history
+0028.835 (0) Deleting log file (log.4432706ac83d.txt)
+0028.842 (0) Number of backup sets in history: 31; groups (files): 1
+0028.850 (0) Examining (for files) backup set with nonce=401ef2a4d443, datestamp=1521902218 (Mar 24 2018 14:36:58)
+0028.850 (0) This backup set is the backup set just made, so will not be deleted.
+0028.858 (0) This backup set is the backup set just made, so will not be deleted.
+0028.858 (0) This backup set is the backup set just made, so will not be deleted.
+0028.859 (0) This backup set is the backup set just made, so will not be deleted.
+0028.859 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.870 (0) Examining (for files) backup set with nonce=a2bc1fab593a, datestamp=1521814920 (Mar 23 2018 14:22:00)
+0028.870 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.871 (0) Examining (for files) backup set with nonce=39234d9c9429, datestamp=1521729697 (Mar 22 2018 14:41:37)
+0028.871 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.871 (0) Examining (for files) backup set with nonce=961bf6e423f5, datestamp=1521640799 (Mar 21 2018 13:59:59)
+0028.871 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.871 (0) Examining (for files) backup set with nonce=fcbf9c6c7dbf, datestamp=1521554362 (Mar 20 2018 13:59:22)
+0028.871 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.871 (0) Examining (for files) backup set with nonce=bba273508274, datestamp=1521469916 (Mar 19 2018 14:31:56)
+0028.871 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.871 (0) Examining (for files) backup set with nonce=0dd12651d0e0, datestamp=1521393037 (Mar 18 2018 17:10:37)
+0028.871 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.872 (0) Examining (for files) backup set with nonce=384d8112b5f7, datestamp=1521295667 (Mar 17 2018 14:07:47)
+0028.872 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.872 (0) Examining (for files) backup set with nonce=8107b9015ab7, datestamp=1521212363 (Mar 16 2018 14:59:23)
+0028.872 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.872 (0) Examining (for files) backup set with nonce=d086f21fad1c, datestamp=1521123826 (Mar 15 2018 14:23:46)
+0028.872 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.872 (0) Examining (for files) backup set with nonce=e8b16e3fa252, datestamp=1521037667 (Mar 14 2018 14:27:47)
+0028.872 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.872 (0) Examining (for files) backup set with nonce=d5f7ef8d6d18, datestamp=1520951220 (Mar 13 2018 14:27:00)
+0028.872 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0028.885 (0) Examining (for files) backup set with nonce=67e658d3c6a0, datestamp=1520863671 (Mar 12 2018 14:07:51)
+0028.886 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.894 (0) Examining (for files) backup set with nonce=d90975f71203, datestamp=1520776835 (Mar 11 2018 14:00:35)
+0028.894 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.895 (0) Examining (for files) backup set with nonce=1ac81a7df363, datestamp=1520765019 (Mar 11 2018 10:43:39)
+0028.895 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.895 (0) Examining (for files) backup set with nonce=1fc5df8871e5, datestamp=1520608558 (Mar 09 2018 15:15:58)
+0028.895 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.895 (0) Examining (for files) backup set with nonce=9fb9b22aa647, datestamp=1520517615 (Mar 08 2018 14:00:15)
+0028.895 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.895 (0) Examining (for files) backup set with nonce=9a7e37554db0, datestamp=1520434556 (Mar 07 2018 14:55:56)
+0028.895 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.895 (0) Examining (for files) backup set with nonce=12ac0c104c82, datestamp=1520345373 (Mar 06 2018 14:09:33)
+0028.895 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.896 (0) Examining (for files) backup set with nonce=fe36ce754a3a, datestamp=1520258864 (Mar 05 2018 14:07:44)
+0028.896 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.896 (0) Examining (for files) backup set with nonce=1875c593569a, datestamp=1520171926 (Mar 04 2018 13:58:46)
+0028.896 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.896 (0) Examining (for files) backup set with nonce=48a1fed67b31, datestamp=1520091685 (Mar 03 2018 15:41:25)
+0028.896 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.896 (0) Examining (for files) backup set with nonce=8784b55d4e70, datestamp=1520003519 (Mar 02 2018 15:11:59)
+0028.896 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.896 (0) Examining (for files) backup set with nonce=9089f2f42717, datestamp=1519913387 (Mar 01 2018 14:09:47)
+0028.896 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.897 (0) Examining (for files) backup set with nonce=3eb289653275, datestamp=1519826559 (Feb 28 2018 14:02:39)
+0028.897 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.897 (0) Examining (for files) backup set with nonce=52464119bf8b, datestamp=1519740094 (Feb 27 2018 14:01:34)
+0028.897 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.897 (0) Examining (for files) backup set with nonce=0001e46fce6c, datestamp=1519657375 (Feb 26 2018 15:02:55)
+0028.897 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.897 (0) Examining (for files) backup set with nonce=b673b7955c73, datestamp=1519567566 (Feb 25 2018 14:06:06)
+0028.897 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.897 (0) Examining (for files) backup set with nonce=53a500f88c2b, datestamp=1519480872 (Feb 24 2018 14:01:12)
+0028.897 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.898 (0) Examining (for files) backup set with nonce=296779a87565, datestamp=1519398306 (Feb 23 2018 15:05:06)
+0028.898 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0028.898 (0) Examining (for files) backup set with nonce=89e780d9535c, datestamp=1519308801 (Feb 22 2018 14:13:21)
+0028.898 (0) plugins: over retain limit (30); will delete this file entity
+0028.898 (0) themes: over retain limit (30); will delete this file entity
+0028.898 (0) uploads: over retain limit (30); will delete this file entity
+0028.898 (0) others: over retain limit (30); will delete this file entity
+0028.898 (0) Delete file: backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-plugins.zip, service=s3
+0028.905 (0) Delete file: backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-themes.zip, service=s3
+0028.914 (0) Delete file: backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-uploads.zip, service=s3
+0028.922 (0) Delete file: backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-others.zip, service=s3
+0028.928 (0) S3: Delete remote: bucket=mightywizards.com, URI=backups/backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-plugins.zip
+0028.999 (0) S3: Delete remote: bucket=mightywizards.com, URI=backups/backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-themes.zip
+0029.054 (0) S3: Delete remote: bucket=mightywizards.com, URI=backups/backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-uploads.zip
+0029.139 (0) S3: Delete remote: bucket=mightywizards.com, URI=backups/backup_2018-02-22-0813_Mighty_Wizards_Technologies_89e780d9535c-others.zip
+0029.202 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0029.211 (0) Retain: saving new backup history (sets now: 31) and finishing retain operation
+0029.262 (0) Resume backup (401ef2a4d443, 0): finish run
+0029.286 (0) Decremented the semaphore (fd) by 1
+0029.302 (0) Semaphore (fd) unlocked
+0029.311 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0029.335 (0) The backup apparently succeeded and is now complete
+0029.345 (0) No email will/can be sent - the user has not configured an email address.
+0029.353 (0) El respaldo aparentemente fue exitoso y ya terminó

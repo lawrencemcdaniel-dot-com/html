@@ -1,0 +1,484 @@
+0000.003 (0) Opened log file at time: Mon, 19 Mar 2018 00:00:51 +0000 on https://zicatela.yoga
+0000.011 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-14-147 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: es_MX Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 40.4M | 42M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.017 (0) Free space on disk containing Updraft's temporary directory: 93559.1 MB
+0000.030 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.037 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.056 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1521333537, seconds_ago=84114)
+0000.080 (0) Set semaphore last lock (fd) time to 2018-03-19 00:00:51
+0000.087 (0) Semaphore lock (fd) complete
+0000.117 (0) Backup run: resumption=0, nonce=67ef824ec36a, begun at=1521417651 (0s ago), job type=backup
+0000.131 (0) Scheduling a resumption (1) after 300 seconds (1521417951) in case this run gets aborted
+0000.159 (0) Checking if we have a zip executable available
+0000.177 (0) Testing: /usr/bin/zip
+0000.222 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.229 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.236 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.243 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.249 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.260 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.268 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.283 (0) Working binary zip found: /usr/bin/zip
+0000.298 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.305 (0) Creation of backups of directories: beginning
+0000.327 (0) Beginning creation of dump of plugins (split every: 25 MB)
+0000.964 (0) Total entities for the zip file: 1218 directories, 8152 files (0 skipped as non-modified), 108.7 MB
+0000.976 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.987 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.997 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0001.006 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0001.041 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0001.048 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.2 MB, 8152 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.599 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: size is now: 1.10 MB
+0001.614 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 600 files added (on-disk size: 1105.3 KB)
+0001.623 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 700 files added (on-disk size: 1105.3 KB)
+0001.640 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 800 files added (on-disk size: 1105.3 KB)
+0001.655 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 900 files added (on-disk size: 1105.3 KB)
+0001.664 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1000 files added (on-disk size: 1105.3 KB)
+0001.670 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.9 MB, 8152 files batched, 501 (1002) added so far); re-opening (prior size: 1105.3 KB)
+0002.234 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: size is now: 1.80 MB
+0002.285 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1100 files added (on-disk size: 1811.4 KB)
+0002.302 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1200 files added (on-disk size: 1811.4 KB)
+0002.318 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1300 files added (on-disk size: 1811.4 KB)
+0002.345 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1400 files added (on-disk size: 1811.4 KB)
+0002.366 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1500 files added (on-disk size: 1811.4 KB)
+0002.376 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.4 MB, 8152 files batched, 501 (1503) added so far); re-opening (prior size: 1811.4 KB)
+0003.029 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: size is now: 3.00 MB
+0003.053 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1600 files added (on-disk size: 3080.6 KB)
+0003.079 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1700 files added (on-disk size: 3080.6 KB)
+0003.097 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1800 files added (on-disk size: 3080.6 KB)
+0003.107 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 1900 files added (on-disk size: 3080.6 KB)
+0003.126 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2000 files added (on-disk size: 3080.6 KB)
+0003.135 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.5 MB, 8152 files batched, 501 (2004) added so far); re-opening (prior size: 3080.6 KB)
+0005.295 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: size is now: 6.10 MB
+0005.327 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2100 files added (on-disk size: 6284.6 KB)
+0005.343 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2200 files added (on-disk size: 6284.6 KB)
+0005.354 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2300 files added (on-disk size: 6284.6 KB)
+0005.366 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2400 files added (on-disk size: 6284.6 KB)
+0005.379 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2500 files added (on-disk size: 6284.6 KB)
+0005.386 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6 MB, 8152 files batched, 501 (2505) added so far); re-opening (prior size: 6284.6 KB)
+0005.864 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: size is now: 11.20 MB
+0005.895 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2600 files added (on-disk size: 11487 KB)
+0005.915 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2700 files added (on-disk size: 11487 KB)
+0005.925 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2800 files added (on-disk size: 11487 KB)
+0005.934 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 2900 files added (on-disk size: 11487 KB)
+0005.946 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3000 files added (on-disk size: 11487 KB)
+0005.954 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.8 MB, 8152 files batched, 501 (3006) added so far); re-opening (prior size: 11487 KB)
+0006.694 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: size is now: 16.10 MB
+0006.711 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3100 files added (on-disk size: 16520.8 KB)
+0006.720 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3200 files added (on-disk size: 16520.8 KB)
+0006.730 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3300 files added (on-disk size: 16520.8 KB)
+0006.739 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3400 files added (on-disk size: 16520.8 KB)
+0006.748 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3500 files added (on-disk size: 16520.8 KB)
+0006.754 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.3 MB, 8152 files batched, 501 (3507) added so far); re-opening (prior size: 16520.8 KB)
+0007.311 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3600 files added (on-disk size: 18626.7 KB)
+0007.320 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3700 files added (on-disk size: 18626.7 KB)
+0007.328 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3800 files added (on-disk size: 18626.7 KB)
+0007.336 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 3900 files added (on-disk size: 18626.7 KB)
+0007.343 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 4000 files added (on-disk size: 18626.7 KB)
+0007.350 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.5 MB, 8152 files batched, 501 (4008) added so far); re-opening (prior size: 18626.7 KB)
+0007.981 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 4100 files added (on-disk size: 22003 KB)
+0007.991 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 4200 files added (on-disk size: 22003 KB)
+0008.002 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 4300 files added (on-disk size: 22003 KB)
+0008.028 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip.tmp: 4400 files added (on-disk size: 22003 KB)
+0008.043 (0) Adding batch to zip file (UpdraftPlus_BinZip): possibly approaching split limit (6.3 MB, 468 (4476) files added so far); last ratio: 0.5111; re-opening (prior size: 22003 KB)
+0008.579 (0) Zip size is at/near split limit (23.6 MB / 25 MB) - bumping index (from: 0)
+0008.892 (0) Created plugins zip (0) - 24116.4 KB in 8.3 s (2922.2 KB/s) (checksums: sha1: 4c90ef816caeb41211e76c062e3d111cd291b38a, sha256: 1b9365bd46e07371de8e4d0afc94c49e72165754d2b5f2391352e1c2002d4b53)
+0008.908 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 4500 files added (on-disk size: 0 KB)
+0008.918 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 4600 files added (on-disk size: 0 KB)
+0008.927 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 4700 files added (on-disk size: 0 KB)
+0008.935 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 4800 files added (on-disk size: 0 KB)
+0008.943 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 4900 files added (on-disk size: 0 KB)
+0008.951 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (15.7 MB, 8152 files batched, 501 (4977) added so far); re-opening (prior size: 0 KB)
+0009.935 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: size is now: 4.70 MB
+0009.957 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5000 files added (on-disk size: 4762.9 KB)
+0009.966 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5100 files added (on-disk size: 4762.9 KB)
+0009.975 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5200 files added (on-disk size: 4762.9 KB)
+0009.983 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5300 files added (on-disk size: 4762.9 KB)
+0009.993 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5400 files added (on-disk size: 4762.9 KB)
+0010.001 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 8152 files batched, 501 (5478) added so far); re-opening (prior size: 4762.9 KB)
+0010.442 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: size is now: 6.30 MB
+0010.462 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5500 files added (on-disk size: 6463.2 KB)
+0010.472 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5600 files added (on-disk size: 6463.2 KB)
+0010.483 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5700 files added (on-disk size: 6463.2 KB)
+0010.494 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5800 files added (on-disk size: 6463.2 KB)
+0010.506 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 5900 files added (on-disk size: 6463.2 KB)
+0010.516 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.8 MB, 8152 files batched, 501 (5979) added so far); re-opening (prior size: 6463.2 KB)
+0010.946 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6000 files added (on-disk size: 7680 KB)
+0010.954 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6100 files added (on-disk size: 7680 KB)
+0010.963 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6200 files added (on-disk size: 7680 KB)
+0010.980 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6300 files added (on-disk size: 7680 KB)
+0010.990 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6400 files added (on-disk size: 7680 KB)
+0010.998 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.9 MB, 8152 files batched, 501 (6480) added so far); re-opening (prior size: 7680 KB)
+0011.407 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6500 files added (on-disk size: 8959.2 KB)
+0011.416 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6600 files added (on-disk size: 8959.2 KB)
+0011.425 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6700 files added (on-disk size: 8959.2 KB)
+0011.435 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6800 files added (on-disk size: 8959.2 KB)
+0011.443 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 6900 files added (on-disk size: 8959.2 KB)
+0011.452 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (18.7 MB, 8152 files batched, 501 (6981) added so far); re-opening (prior size: 8959.2 KB)
+0012.755 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: size is now: 15.60 MB
+0012.773 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7000 files added (on-disk size: 15961.8 KB)
+0012.782 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7100 files added (on-disk size: 15961.8 KB)
+0012.793 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7200 files added (on-disk size: 15961.8 KB)
+0012.803 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7300 files added (on-disk size: 15961.8 KB)
+0012.812 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7400 files added (on-disk size: 15961.8 KB)
+0012.820 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.5 MB, 8152 files batched, 501 (7482) added so far); re-opening (prior size: 15961.8 KB)
+0013.656 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7500 files added (on-disk size: 17525.1 KB)
+0013.667 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7600 files added (on-disk size: 17525.1 KB)
+0013.676 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7700 files added (on-disk size: 17525.1 KB)
+0013.688 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7800 files added (on-disk size: 17525.1 KB)
+0013.700 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 7900 files added (on-disk size: 17525.1 KB)
+0013.710 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.4 MB, 8152 files batched, 501 (7983) added so far); re-opening (prior size: 17525.1 KB)
+0014.171 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 8000 files added (on-disk size: 18111.3 KB)
+0014.182 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip.tmp: 8100 files added (on-disk size: 18111.3 KB)
+0014.588 (0) Created plugins zip (1) - 18482.7 KB in 5.7 s (3248.8 KB/s) (sha1: 31240462dc5d68d449a811ba2d7a60d764627fab, sha256: accf64df0bea315a62ccc2dbb2b5b76c03de45be7a29fcecac77e221d3ab276f)
+0014.603 (0) Beginning creation of dump of themes (split every: 25 MB)
+0014.641 (0) Total entities for the zip file: 42 directories, 297 files (0 skipped as non-modified), 6.4 MB
+0014.650 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0014.658 (0) Zip: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0015.102 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip.tmp: size is now: 4.40 MB
+0015.188 (0) Created themes zip (0) - 4494.5 KB in 0.6 s (7784.8 KB/s) (sha1: 64168df7fc87280a8d8bba9c88b40484631fb203, sha256: b5a12e24a985bb0731d307ce9a4db1ee8428645c0ed7aca7b88691881634f9a1)
+0015.203 (0) Exclusion option setting (uploads): 
+0015.212 (0) Looking for candidates to back up in: /var/www/html/zicatela.yoga/wp-content/uploads
+0015.219 (0) finding files: 2018: adding to list (1)
+0015.226 (0) Beginning creation of dump of uploads (split every: 25 MB)
+0015.241 (0) Total entities for the zip file: 2 directories, 0 files (0 skipped as non-modified), 0 MB
+0015.251 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-uploads.zip.tmp: size is now: 0.00 MB
+0015.283 (0) Created uploads zip (0) - 0.3 KB in 0 s (6.6 KB/s) (sha1: bf2a66f1c2f7fac3c09d9ccbb1a1f47c88d535e1, sha256: d42ba3c046fd79260cfffb0e1680a93ac660dddedbc1d1a8dc79cac32c3e2af4)
+0015.299 (0) Beginning backup of other directories found in the content directory (index: 0)
+0015.306 (0) Exclusion option setting (others): 
+0015.312 (0) Looking for candidates to back up in: /var/www/html/zicatela.yoga/wp-content
+0015.319 (0) finding files: wflogs: adding to list (1)
+0015.327 (0) finding files: index.php: adding to list (2)
+0015.334 (0) finding files: upgrade: adding to list (3)
+0015.340 (0) finding files: updraft: skipping: this is the updraft directory
+0015.346 (0) finding files: themes: skipping: this is the themes directory
+0015.353 (0) finding files: advanced-cache.php: adding to list (4)
+0015.359 (0) finding files: ip-geo-api: adding to list (5)
+0015.364 (0) finding files: w3tc-config: adding to list (6)
+0015.370 (0) finding files: languages: adding to list (7)
+0015.377 (0) finding files: uploads: skipping: this is the uploads directory
+0015.384 (0) finding files: cache: adding to list (8)
+0015.389 (0) finding files: plugins: skipping: this is the plugins directory
+0015.414 (0) Total entities for the zip file: 27 directories, 49 files (0 skipped as non-modified), 11.3 MB
+0016.115 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-others.zip.tmp: size is now: 3.60 MB
+0016.200 (0) Created others zip (0) - 3660.8 KB in 0.8 s (4554.2 KB/s) (sha1: d422fa5d1853303daf00b43872b4c2483badff2a, sha256: 0e24daffa545aa35242f2d31d21bee77421f75be20bb72967688df37a524b6ac)
+0016.243 (0) Saving backup status to database (elements: 9)
+0016.277 (0) Beginning creation of database dump (WordPress DB)
+0016.292 (0) Testing: /usr/bin/mysqldump
+0016.328 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1189 bytes total)
+0016.341 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0016.375 (0) Table wp_options: Total expected rows (approximate): 412
+0016.440 (0) Table wp_options: Total rows added: 443 in 0.06 seconds
+0016.451 (0) Table wp_options: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_options.table.gz - 131.1 KB)
+0016.480 (0) Table wp_users: Total expected rows (approximate): 3
+0016.494 (0) Table wp_users: Total rows added: 3 in 0.01 seconds
+0016.503 (0) Table wp_users: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_users.table.gz - 0.7 KB)
+0016.539 (0) Table wp_usermeta: Total expected rows (approximate): 72
+0016.552 (0) Table wp_usermeta: Total rows added: 72 in 0.01 seconds
+0016.559 (0) Table wp_usermeta: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_usermeta.table.gz - 3.3 KB)
+0016.594 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0016.605 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0016.615 (0) Table wp_commentmeta: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0016.645 (0) Table wp_comments: Total expected rows (approximate): 1
+0016.656 (0) Table wp_comments: Total rows added: 0 in 0.01 seconds
+0016.663 (0) Table wp_comments: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_comments.table.gz - 0.5 KB)
+0016.690 (0) Table wp_links: Total expected rows (approximate): 0
+0016.700 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0016.707 (0) Table wp_links: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_links.table.gz - 0.4 KB)
+0016.739 (0) Table wp_postmeta: Total expected rows (approximate): 1391
+0016.850 (0) Table wp_postmeta: Total rows added: 1662 in 0.10 seconds
+0016.859 (0) Table wp_postmeta: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_postmeta.table.gz - 107.3 KB)
+0016.895 (0) Table wp_posts: Total expected rows (approximate): 1101
+0017.015 (0) Table wp_posts: Total rows added: 947 in 0.11 seconds
+0017.021 (0) Table wp_posts: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_posts.table.gz - 191.2 KB)
+0017.050 (0) Table wp_term_relationships: Total expected rows (approximate): 291
+0017.065 (0) Table wp_term_relationships: Total rows added: 291 in 0.01 seconds
+0017.073 (0) Table wp_term_relationships: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_term_relationships.table.gz - 1.1 KB)
+0017.099 (0) Table wp_term_taxonomy: Total expected rows (approximate): 42
+0017.124 (0) Table wp_term_taxonomy: Total rows added: 42 in 0.01 seconds
+0017.133 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_term_taxonomy.table.gz - 1 KB)
+0017.167 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0017.178 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0017.186 (0) Table wp_termmeta: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_termmeta.table.gz - 0.4 KB)
+0017.218 (0) Table wp_terms: Total expected rows (approximate): 42
+0017.231 (0) Table wp_terms: Total rows added: 42 in 0.01 seconds
+0017.249 (0) Table wp_terms: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_terms.table.gz - 0.9 KB)
+0017.279 (0) Table wp_ip_geo_block_cache: Total expected rows (approximate): 2
+0017.291 (0) Table wp_ip_geo_block_cache: Total rows added: 2 in 0.01 seconds
+0017.300 (0) Table wp_ip_geo_block_cache: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ip_geo_block_cache.table.gz - 0.5 KB)
+0017.327 (0) Table wp_ip_geo_block_logs: Total expected rows (approximate): 191
+0017.342 (0) Table wp_ip_geo_block_logs: Total rows added: 191 in 0.01 seconds
+0017.352 (0) Table wp_ip_geo_block_logs: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ip_geo_block_logs.table.gz - 5.5 KB)
+0017.387 (0) Table wp_ip_geo_block_stat: Total expected rows (approximate): 0
+0017.404 (0) Table wp_ip_geo_block_stat: Total rows added: 1 in 0.01 seconds
+0017.415 (0) Table wp_ip_geo_block_stat: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ip_geo_block_stat.table.gz - 1 KB)
+0017.442 (0) Table wp_nf_objectmeta: Total expected rows (approximate): 81
+0017.460 (0) Table wp_nf_objectmeta: Total rows added: 81 in 0.01 seconds
+0017.471 (0) Table wp_nf_objectmeta: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_nf_objectmeta.table.gz - 1.4 KB)
+0017.503 (0) Table wp_nf_objects: Total expected rows (approximate): 5
+0017.516 (0) Table wp_nf_objects: Total rows added: 5 in 0.01 seconds
+0017.527 (0) Table wp_nf_objects: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_nf_objects.table.gz - 0.3 KB)
+0017.563 (0) Table wp_nf_relationships: Total expected rows (approximate): 3
+0017.578 (0) Table wp_nf_relationships: Total rows added: 3 in 0.01 seconds
+0017.588 (0) Table wp_nf_relationships: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_nf_relationships.table.gz - 0.4 KB)
+0017.615 (0) Table wp_ninja_forms_fav_fields: Total expected rows (approximate): 17
+0017.632 (0) Table wp_ninja_forms_fav_fields: Total rows added: 17 in 0.01 seconds
+0017.643 (0) Table wp_ninja_forms_fav_fields: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ninja_forms_fav_fields.table.gz - 2.6 KB)
+0017.671 (0) Table wp_ninja_forms_fields: Total expected rows (approximate): 4
+0017.684 (0) Table wp_ninja_forms_fields: Total rows added: 4 in 0.01 seconds
+0017.693 (0) Table wp_ninja_forms_fields: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ninja_forms_fields.table.gz - 0.9 KB)
+0017.731 (0) Table wp_w3tc_cdn_queue: Total expected rows (approximate): 2064
+0017.792 (0) Table wp_w3tc_cdn_queue: Total rows added: 2115 in 0.05 seconds
+0017.801 (0) Table wp_w3tc_cdn_queue: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_w3tc_cdn_queue.table.gz - 26.6 KB)
+0017.831 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0017.841 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0017.850 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0017.879 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0017.890 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0017.897 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0017.931 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 0
+0017.944 (0) Table wp_wfBlockedIPLog: Total rows added: 0 in 0.00 seconds
+0017.955 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlockedIPLog.table.gz - 0.3 KB)
+0017.981 (0) Table wp_wfBlocks: Total expected rows (approximate): 0
+0017.992 (0) Table wp_wfBlocks: Total rows added: 0 in 0.00 seconds
+0017.999 (0) Table wp_wfBlocks: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlocks.table.gz - 0.4 KB)
+0018.027 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0018.040 (0) Table wp_wfBlocks7: Total rows added: 1 in 0.01 seconds
+0018.047 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlocks7.table.gz - 1.1 KB)
+0018.079 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0018.090 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0018.098 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0018.131 (0) Table wp_wfConfig: Total expected rows (approximate): 232
+0018.146 (0) Table wp_wfConfig: Total rows added: 236 in 0.01 seconds
+0018.155 (0) Table wp_wfConfig: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfConfig.table.gz - 9.6 KB)
+0018.187 (0) Table wp_wfCrawlers: Total expected rows (approximate): 0
+0018.197 (0) Table wp_wfCrawlers: Total rows added: 0 in 0.00 seconds
+0018.207 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfCrawlers.table.gz - 0.3 KB)
+0018.232 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0018.242 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0018.251 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0018.278 (0) Table wp_wfFileMods: Total expected rows (approximate): 253
+0018.294 (0) Table wp_wfFileMods: Total rows added: 253 in 0.01 seconds
+0018.303 (0) Table wp_wfFileMods: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfFileMods.table.gz - 11.8 KB)
+0018.333 (0) Table wp_wfHits: Total expected rows (approximate): 1585
+0018.404 (0) Table wp_wfHits: Total rows added: 1847 in 0.06 seconds
+0018.415 (0) Table wp_wfHits: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfHits.table.gz - 155.8 KB)
+0018.451 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0018.461 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0018.471 (0) Table wp_wfHoover: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0018.503 (0) Table wp_wfIssues: Total expected rows (approximate): 0
+0018.513 (0) Table wp_wfIssues: Total rows added: 0 in 0.00 seconds
+0018.523 (0) Table wp_wfIssues: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfIssues.table.gz - 0.4 KB)
+0018.555 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 8506
+0018.643 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.08 seconds
+0018.651 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfKnownFileList.table.gz - 94.8 KB)
+0018.683 (0) Table wp_wfLeechers: Total expected rows (approximate): 7
+0018.695 (0) Table wp_wfLeechers: Total rows added: 12 in 0.01 seconds
+0018.703 (0) Table wp_wfLeechers: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLeechers.table.gz - 0.4 KB)
+0018.727 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0018.737 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0018.748 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0018.779 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0018.790 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0018.801 (0) Table wp_wfLocs: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0018.824 (0) Table wp_wfLogins: Total expected rows (approximate): 332
+0018.843 (0) Table wp_wfLogins: Total rows added: 340 in 0.01 seconds
+0018.851 (0) Table wp_wfLogins: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLogins.table.gz - 6.7 KB)
+0018.891 (0) Table wp_wfNet404s: Total expected rows (approximate): 4
+0018.906 (0) Table wp_wfNet404s: Total rows added: 4 in 0.01 seconds
+0018.914 (0) Table wp_wfNet404s: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfNet404s.table.gz - 0.5 KB)
+0018.943 (0) Table wp_wfNotifications: Total expected rows (approximate): 4
+0018.959 (0) Table wp_wfNotifications: Total rows added: 7 in 0.01 seconds
+0018.968 (0) Table wp_wfNotifications: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfNotifications.table.gz - 2.3 KB)
+0018.998 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0019.084 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.02 seconds
+0019.095 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0019.130 (0) Table wp_wfReverseCache: Total expected rows (approximate): 1
+0019.149 (0) Table wp_wfReverseCache: Total rows added: 2 in 0.01 seconds
+0019.156 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0019.187 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0019.199 (0) Table wp_wfSNIPCache: Total rows added: 1 in 0.01 seconds
+0019.208 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0019.234 (0) Table wp_wfScanners: Total expected rows (approximate): 12
+0019.246 (0) Table wp_wfScanners: Total rows added: 17 in 0.01 seconds
+0019.254 (0) Table wp_wfScanners: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfScanners.table.gz - 0.5 KB)
+0019.295 (0) Table wp_wfStatus: Total expected rows (approximate): 937
+0019.320 (0) Table wp_wfStatus: Total rows added: 944 in 0.02 seconds
+0019.327 (0) Table wp_wfStatus: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfStatus.table.gz - 15.4 KB)
+0019.363 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 0
+0019.374 (0) Table wp_wfThrottleLog: Total rows added: 0 in 0.00 seconds
+0019.389 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfThrottleLog.table.gz - 0.3 KB)
+0019.419 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0019.431 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0019.441 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0019.467 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 0
+0019.477 (0) Table wp_yoast_seo_links: Total rows added: 0 in 0.00 seconds
+0019.488 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_yoast_seo_links.table.gz - 0.4 KB)
+0019.519 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 0
+0019.532 (0) Table wp_yoast_seo_meta: Total rows added: 1 in 0.01 seconds
+0019.539 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_yoast_seo_meta.table.gz - 0.3 KB)
+0019.569 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_options.table.gz (1/50): adding to final database dump
+0019.609 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_users.table.gz (2/50): adding to final database dump
+0019.616 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_usermeta.table.gz (3/50): adding to final database dump
+0019.623 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_commentmeta.table.gz (4/50): adding to final database dump
+0019.632 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_comments.table.gz (5/50): adding to final database dump
+0019.640 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_links.table.gz (6/50): adding to final database dump
+0019.646 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_postmeta.table.gz (7/50): adding to final database dump
+0019.712 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_posts.table.gz (8/50): adding to final database dump
+0019.772 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_term_relationships.table.gz (9/50): adding to final database dump
+0019.779 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_term_taxonomy.table.gz (10/50): adding to final database dump
+0019.786 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_termmeta.table.gz (11/50): adding to final database dump
+0019.793 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_terms.table.gz (12/50): adding to final database dump
+0019.806 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ip_geo_block_cache.table.gz (13/50): adding to final database dump
+0019.812 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ip_geo_block_logs.table.gz (14/50): adding to final database dump
+0019.820 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ip_geo_block_stat.table.gz (15/50): adding to final database dump
+0019.827 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_nf_objectmeta.table.gz (16/50): adding to final database dump
+0019.834 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_nf_objects.table.gz (17/50): adding to final database dump
+0019.840 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_nf_relationships.table.gz (18/50): adding to final database dump
+0019.847 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ninja_forms_fav_fields.table.gz (19/50): adding to final database dump
+0019.854 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_ninja_forms_fields.table.gz (20/50): adding to final database dump
+0019.860 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_w3tc_cdn_queue.table.gz (21/50): adding to final database dump
+0019.884 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBadLeechers.table.gz (22/50): adding to final database dump
+0019.891 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlockedCommentLog.table.gz (23/50): adding to final database dump
+0019.898 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlockedIPLog.table.gz (24/50): adding to final database dump
+0019.905 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlocks.table.gz (25/50): adding to final database dump
+0019.912 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlocks7.table.gz (26/50): adding to final database dump
+0019.919 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfBlocksAdv.table.gz (27/50): adding to final database dump
+0019.925 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfConfig.table.gz (28/50): adding to final database dump
+0019.934 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfCrawlers.table.gz (29/50): adding to final database dump
+0019.941 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfFileChanges.table.gz (30/50): adding to final database dump
+0019.948 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfFileMods.table.gz (31/50): adding to final database dump
+0019.957 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfHits.table.gz (32/50): adding to final database dump
+0019.989 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfHoover.table.gz (33/50): adding to final database dump
+0019.995 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfIssues.table.gz (34/50): adding to final database dump
+0020.002 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfKnownFileList.table.gz (35/50): adding to final database dump
+0020.026 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLeechers.table.gz (36/50): adding to final database dump
+0020.033 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLockedOut.table.gz (37/50): adding to final database dump
+0020.039 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLocs.table.gz (38/50): adding to final database dump
+0020.044 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfLogins.table.gz (39/50): adding to final database dump
+0020.060 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfNet404s.table.gz (40/50): adding to final database dump
+0020.067 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfNotifications.table.gz (41/50): adding to final database dump
+0020.075 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfPendingIssues.table.gz (42/50): adding to final database dump
+0020.082 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfReverseCache.table.gz (43/50): adding to final database dump
+0020.089 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfSNIPCache.table.gz (44/50): adding to final database dump
+0020.095 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfScanners.table.gz (45/50): adding to final database dump
+0020.102 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfStatus.table.gz (46/50): adding to final database dump
+0020.113 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfThrottleLog.table.gz (47/50): adding to final database dump
+0020.120 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_wfVulnScanners.table.gz (48/50): adding to final database dump
+0020.129 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_yoast_seo_links.table.gz (49/50): adding to final database dump
+0020.137 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db-table-wp_yoast_seo_meta.table.gz (50/50): adding to final database dump
+0020.144 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db.gz: finished writing out complete database file (752 KB)
+0020.188 (0) Total database tables backed up: 50 (backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db.gz, size: 794476, sha256)
+0020.245 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0020.251 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip: plugins: This file has not yet been successfully uploaded: will queue
+0020.256 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0020.263 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0020.269 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-others.zip: others: This file has not yet been successfully uploaded: will queue
+0020.276 (0) backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db.gz: db: This file has not yet been successfully uploaded: will queue
+0020.284 (0) Saving backup history. Total backup size: 50.3 MB
+0020.316 (0) Requesting upload of the files that have not yet been successfully uploaded (6)
+0020.347 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0020.357 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-58dc46ceef2c54f0a49b4c5e8ac172a3)
+0020.837 (0) Set region: us-west-2
+0020.853 (0) S3 upload (us-west-2): backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip (chunks: 5) -> s3://zicatela-yoga/backups/backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip
+0020.935 (0) S3 chunked upload: got multipart ID: hAwPcmlwWxNkCwzdF7Ke09ofYs7eBkklSTvAEfNUJJ6dIpPcNBeVQxjbcM4yAm0lPtM4hrrMDEEUDRKLKmKD2iM3kGsHzuee8BF65X2pk.w8OEJRinFOFrMY6maTtnHl
+0021.213 (0) S3 chunked upload: 20 % uploaded (1, "6574e5a8d1b7b3f646671b34d223f097")
+0021.688 (0) S3 chunked upload: 40 % uploaded (2, "ec01dff94cbe8d888ef294bb95b01468")
+0022.045 (0) S3 chunked upload: 60 % uploaded (3, "ec32ef8b38d14116e605e90489285614")
+0022.289 (0) S3 chunked upload: 80 % uploaded (4, "952dca798b276f692ec409f2ba451a44")
+0022.480 (0) S3 chunked upload: 100 % uploaded (5, "55dd948837a3d7f17e61f19724850ef9")
+0022.512 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0022.702 (0) S3 upload (plugins0): re-assembly succeeded
+0022.724 (0) Recording as successfully uploaded: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip (d368fdc1f6a505839e57e5b07fdd5d8e)
+0022.760 (0) Deleting local file: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins.zip: skipped: user has unchecked updraft_delete_local option
+0022.767 (0) S3 upload (us-west-2): backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip (chunks: 4) -> s3://zicatela-yoga/backups/backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip
+0022.782 (0) S3 chunked upload: got multipart ID: 5_oH5wb8T83nPz1IeMWUf.vw1._B736uXQlbkiV5i6uIZ34jpsMImXpY7wf2O08xjzcKxiF.oWc.hvWbd1mow6RckDfeaJ3f9HAriWPbk.4qchErunYUYQYmmHiFgxQz
+0023.056 (0) S3 chunked upload: 25 % uploaded (1, "f2ef08d2df113f42b8ed4c50fc015c05")
+0023.358 (0) S3 chunked upload: 50 % uploaded (2, "a07b5abace5541984af45d6d8d3dfade")
+0023.626 (0) S3 chunked upload: 75 % uploaded (3, "007e340623c98f91cbc3ac3006f7cb89")
+0023.921 (0) S3 chunked upload: 100 % uploaded (4, "39bad397aad1b0c8cb2c9a82e9dbd5cb")
+0023.959 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0024.070 (0) S3 upload (plugins1): re-assembly succeeded
+0024.096 (0) Recording as successfully uploaded: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip (be0a674fcc00be80d30424c2629a0994)
+0024.124 (0) Deleting local file: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-plugins2.zip: skipped: user has unchecked updraft_delete_local option
+0024.132 (0) S3 upload (us-west-2): backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip (chunks: 1) -> s3://zicatela-yoga/backups/backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip
+0024.410 (0) S3 regular upload: success
+0024.427 (0) Recording as successfully uploaded: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip (159d699780fca4af437ae6af0f3e9844)
+0024.464 (0) Deleting local file: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-themes.zip: skipped: user has unchecked updraft_delete_local option
+0024.471 (0) S3 upload (us-west-2): backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-uploads.zip (chunks: 1) -> s3://zicatela-yoga/backups/backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-uploads.zip
+0024.494 (0) S3 regular upload: success
+0024.517 (0) Recording as successfully uploaded: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-uploads.zip (a2587654fba3e20b9a2d0d2c30562ac9)
+0024.548 (0) Deleting local file: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-uploads.zip: skipped: user has unchecked updraft_delete_local option
+0024.555 (0) S3 upload (us-west-2): backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-others.zip (chunks: 1) -> s3://zicatela-yoga/backups/backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-others.zip
+0024.797 (0) S3 regular upload: success
+0024.817 (0) Recording as successfully uploaded: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-others.zip (ca9a099fa472097dc895e32c5790c989)
+0024.840 (0) Deleting local file: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-others.zip: skipped: user has unchecked updraft_delete_local option
+0024.848 (0) S3 upload (us-west-2): backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db.gz (chunks: 1) -> s3://zicatela-yoga/backups/backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db.gz
+0024.960 (0) S3 regular upload: success
+0024.976 (0) Recording as successfully uploaded: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db.gz (f71a08bcda29fc3763eb736497a4e4c0)
+0025.008 (0) Deleting local file: backup_2018-03-18-1800_Zicatela_Yoga_67ef824ec36a-db.gz: skipped: user has unchecked updraft_delete_local option
+0025.033 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0025.042 (0) Number of backup sets in history: 12; groups (db): 1
+0025.049 (0) Examining (for databases) backup set with group_id=0, nonce=67ef824ec36a, datestamp=1521417651 (Mar 19 2018 00:00:51)
+0025.056 (0) This backup set is the backup set just made, so will not be deleted.
+0025.056 (0) Examining (for databases) backup set with group_id=0, nonce=60c44de4e1fc, datestamp=1521333537 (Mar 18 2018 00:38:57)
+0025.056 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.063 (0) Examining (for databases) backup set with group_id=0, nonce=25828162e002, datestamp=1521274685 (Mar 17 2018 08:18:05)
+0025.063 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.063 (0) Examining (for databases) backup set with group_id=0, nonce=3850001ce5e1, datestamp=1521178587 (Mar 16 2018 05:36:27)
+0025.063 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.063 (0) Examining (for databases) backup set with group_id=0, nonce=016022e4edc5, datestamp=1521070953 (Mar 14 2018 23:42:33)
+0025.063 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.064 (0) Examining (for databases) backup set with group_id=0, nonce=540f7b878544, datestamp=1521063829 (Mar 14 2018 21:43:49)
+0025.064 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.064 (0) Examining (for databases) backup set with group_id=0, nonce=55e7d1d62d63, datestamp=1520892025 (Mar 12 2018 22:00:25)
+0025.064 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.064 (0) Examining (for databases) backup set with group_id=0, nonce=d20b767f25b7, datestamp=1520810572 (Mar 11 2018 23:22:52)
+0025.064 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.064 (0) Examining (for databases) backup set with group_id=0, nonce=ed2326cd3666, datestamp=1520636561 (Mar 09 2018 23:02:41)
+0025.064 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.064 (0) Examining (for databases) backup set with group_id=0, nonce=5a838fcaff9a, datestamp=1520548891 (Mar 08 2018 22:41:31)
+0025.064 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.064 (0) Examining (for databases) backup set with group_id=0, nonce=4f3cb719c354, datestamp=1520476431 (Mar 08 2018 02:33:51)
+0025.064 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.065 (0) Examining (for databases) backup set with group_id=0, nonce=e66f4b70a17c, datestamp=1520374856 (Mar 06 2018 22:20:56)
+0025.065 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.065 (0) Number of backup sets in history: 12; groups (files): 1
+0025.071 (0) Examining (for files) backup set with nonce=67ef824ec36a, datestamp=1521417651 (Mar 19 2018 00:00:51)
+0025.071 (0) This backup set is the backup set just made, so will not be deleted.
+0025.080 (0) This backup set is the backup set just made, so will not be deleted.
+0025.081 (0) This backup set is the backup set just made, so will not be deleted.
+0025.081 (0) This backup set is the backup set just made, so will not be deleted.
+0025.081 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.087 (0) Examining (for files) backup set with nonce=60c44de4e1fc, datestamp=1521333537 (Mar 18 2018 00:38:57)
+0025.087 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.088 (0) Examining (for files) backup set with nonce=25828162e002, datestamp=1521274685 (Mar 17 2018 08:18:05)
+0025.088 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.088 (0) Examining (for files) backup set with nonce=3850001ce5e1, datestamp=1521178587 (Mar 16 2018 05:36:27)
+0025.088 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.088 (0) Examining (for files) backup set with nonce=016022e4edc5, datestamp=1521070953 (Mar 14 2018 23:42:33)
+0025.088 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.088 (0) Examining (for files) backup set with nonce=540f7b878544, datestamp=1521063829 (Mar 14 2018 21:43:49)
+0025.088 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.088 (0) Examining (for files) backup set with nonce=55e7d1d62d63, datestamp=1520892025 (Mar 12 2018 22:00:25)
+0025.088 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.088 (0) Examining (for files) backup set with nonce=d20b767f25b7, datestamp=1520810572 (Mar 11 2018 23:22:52)
+0025.088 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.089 (0) Examining (for files) backup set with nonce=ed2326cd3666, datestamp=1520636561 (Mar 09 2018 23:02:41)
+0025.089 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.089 (0) Examining (for files) backup set with nonce=5a838fcaff9a, datestamp=1520548891 (Mar 08 2018 22:41:31)
+0025.089 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.089 (0) Examining (for files) backup set with nonce=4f3cb719c354, datestamp=1520476431 (Mar 08 2018 02:33:51)
+0025.089 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.089 (0) Examining (for files) backup set with nonce=e66f4b70a17c, datestamp=1520374856 (Mar 06 2018 22:20:56)
+0025.089 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.089 (0) Retain: saving new backup history (sets now: 12) and finishing retain operation
+0025.109 (0) Resume backup (67ef824ec36a, 0): finish run
+0025.128 (0) Decremented the semaphore (fd) by 1
+0025.141 (0) Semaphore (fd) unlocked
+0025.147 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0025.181 (0) The backup apparently succeeded and is now complete
+0025.187 (0) Fetching RSS news feed
+0025.402 (0) Fetched RSS news feed; result is a: SimplePie
+0025.420 (0) Sending email ('Archivos y base de datos (Respaldo completo)') report (attachments: 0, size: 0 KB) to: lpm00...
+0025.460 (0) El respaldo aparentemente fue exitoso y ya terminó

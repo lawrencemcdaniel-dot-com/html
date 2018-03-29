@@ -1,0 +1,200 @@
+/* Custom Editor Styles
+*********************************/
+
+/* Buttons
+*********************************/
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.btn {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+a.btn {
+  text-decoration: none;
+}
+.btn i {
+  margin-right: 5px;
+}
+
+/* Countdown
+*********************************/
+.doodle-countdown {
+  display: block;
+}
+.doodle-countdown .col-sm-3 {
+  display: inline-block;
+  text-align: center;
+  padding: 15px;
+  text-transform: uppercase;
+  border: 1px solid #999;
+}
+.doodle-countdown .col-sm-3 span {
+  display: block;
+}
+
+/* Features
+*********************************/
+.feature-item {
+  text-align: center;
+}
+i.feature-icon {
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  float: none;
+  display: inline-block;
+  color: #212121;
+  border: 1px solid #999;
+  border-radius: 50%;
+}
+i.feature-icon:before {
+  font-size: 42px;
+  line-height: 90px;
+}
+
+/* Heading with icon
+*********************************/
+.section-title {
+  text-align: center;
+}
+.section-title h1 small {
+  display: block;
+  font-size: 65%;
+}
+.section-title h1 small i {
+  display: block;
+}
+
+/* Portfolio & Product Slider
+*********************************/
+.portfolio-slider, .product-slider {
+  display: block;
+}
+.portfolio-slider .col-xs-12, .product-slider .col-xs-12 {
+  display: inline-block;
+}
+.portfolio-slider .col-xs-12 img, .product-slider .col-xs-12 img {
+  max-width: 200px;
+}
+
+/* Testimonial
+*********************************/
+.testimonial {
+  display: block;
+}
+.testimonial .col-sm-4 {
+  width: 215px;
+}
+.testimonial .col-sm-8 {
+  width: 400px;
+}
+.testimonial .col-sm-4, .testimonial .col-sm-8 {
+  display: inline-block;
+  vertical-align: top;
+}
+.testimonial img {
+  max-width: 95%;
+  height: auto;
+  display: block;
+}
+.testimonial h2 {
+  margin-top: 0;
+}
+div.frame {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  padding: 11% 12%;
+}
+div.frame-1 {
+  background-image: url(../img/frames/frame1.svg);
+}
+div.frame-2 {
+  background-image: url(../img/frames/frame2.svg);
+}
+div.frame-3 {
+  background-image: url(../img/frames/frame3.svg);
+}
+div.frame-4 {
+  background-image: url(../img/frames/frame4.svg);
+}
+.testimonial div.frame-1 img,
+.testimonial div.frame-2 img,
+.testimonial div.frame-3 img,
+.testimonial div.frame-4 img {
+    border: 3px solid #212121;
+}
+
+/* Icons
+*********************************/
+[class^="icon-"], [class*=" icon-"] {
+  margin: 0 3px;
+}
+
+/* Woocommerce
+*********************************/
+.woocommerce ul.products {
+  margin: 0 0 1em;
+  padding: 0;
+  list-style: none;
+  clear: both;
+  overflow: hidden;
+}
+.woocommerce ul.products li {
+  float: left;
+  margin: 0 3.8% 2.992em 0;
+  padding: 0;
+  position: relative;
+  width: 22.05%;
+}
+.woocommerce ul.products li.first {
+  clear: both;
+}
+.woocommerce ul.products li.last {
+  margin-right: 0;
+}
+.woocommerce.columns-1 ul.products li {
+  width:100%;
+  margin-right:0
+}
+.woocommerce.columns-2 ul.products li {
+  width:48%
+}
+.woocommerce.columns-3 ul.products li {
+  width:30.75%
+}
+.woocommerce.columns-4 ul.products li {
+  width:22.05%
+}
+.woocommerce.columns-5 ul.products li {
+  width:16.95%
+}
+.woocommerce.columns-6 ul.products li {
+  width:13.5%
+}
+.woocommerce .onsale {
+  display: none;
+}
+.woocommerce .add_to_cart_button {
+  display: block;
+}

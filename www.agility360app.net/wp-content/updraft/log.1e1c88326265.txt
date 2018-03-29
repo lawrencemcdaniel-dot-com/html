@@ -1,0 +1,281 @@
+0000.001 (0) Opened log file at time: Mon, 26 Mar 2018 16:55:16 +0000 on https://www.agility360app.net
+0000.011 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-26-142 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 20.6M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.019 (0) Free space on disk containing Updraft's temporary directory: 92537.9 MB
+0000.029 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.037 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.066 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1521985733, seconds_ago=97583)
+0000.101 (0) Set semaphore last lock (fd) time to 2018-03-26 16:55:17
+0000.110 (0) Semaphore lock (fd) complete
+0000.134 (0) Backup run: resumption=0, nonce=1e1c88326265, begun at=1522083316 (1s ago), job type=backup
+0000.150 (0) Scheduling a resumption (1) after 300 seconds (1522083617) in case this run gets aborted
+0000.178 (0) Checking if we have a zip executable available
+0000.188 (0) Testing: /usr/bin/zip
+0000.201 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.210 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.218 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.227 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.235 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.246 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.254 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.270 (0) Working binary zip found: /usr/bin/zip
+0000.284 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.292 (0) Creation of backups of directories: beginning
+0000.316 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.528 (0) Total entities for the zip file: 413 directories, 2601 files (0 skipped as non-modified), 36.1 MB
+0000.538 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.547 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.557 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.566 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.575 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.584 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.1 MB, 2601 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.156 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: size is now: 2.30 MB
+0001.184 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 600 files added (on-disk size: 2404.4 KB)
+0001.193 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 700 files added (on-disk size: 2404.4 KB)
+0001.202 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 800 files added (on-disk size: 2404.4 KB)
+0001.212 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 900 files added (on-disk size: 2404.4 KB)
+0001.221 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1000 files added (on-disk size: 2404.4 KB)
+0001.229 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 2601 files batched, 501 (1002) added so far); re-opening (prior size: 2404.4 KB)
+0001.517 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: size is now: 3.80 MB
+0001.534 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1100 files added (on-disk size: 3866.9 KB)
+0001.543 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1200 files added (on-disk size: 3866.9 KB)
+0001.553 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1300 files added (on-disk size: 3866.9 KB)
+0001.562 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1400 files added (on-disk size: 3866.9 KB)
+0001.573 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1500 files added (on-disk size: 3866.9 KB)
+0001.581 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (18.7 MB, 2601 files batched, 501 (1503) added so far); re-opening (prior size: 3866.9 KB)
+0002.752 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: size is now: 9.40 MB
+0002.769 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1600 files added (on-disk size: 9607.6 KB)
+0002.779 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1700 files added (on-disk size: 9607.6 KB)
+0002.789 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1800 files added (on-disk size: 9607.6 KB)
+0002.798 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 1900 files added (on-disk size: 9607.6 KB)
+0002.807 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 2000 files added (on-disk size: 9607.6 KB)
+0002.815 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.9 MB, 2601 files batched, 501 (2004) added so far); re-opening (prior size: 9607.6 KB)
+0003.426 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 2100 files added (on-disk size: 11361.8 KB)
+0003.437 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 2200 files added (on-disk size: 11361.8 KB)
+0003.449 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 2300 files added (on-disk size: 11361.8 KB)
+0003.461 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 2400 files added (on-disk size: 11361.8 KB)
+0003.471 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 2500 files added (on-disk size: 11361.8 KB)
+0003.478 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.4 MB, 2601 files batched, 501 (2505) added so far); re-opening (prior size: 11361.8 KB)
+0003.811 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip.tmp: 2600 files added (on-disk size: 11934.6 KB)
+0004.214 (0) Created plugins zip (0) - 12071.5 KB in 3.9 s (3103.4 KB/s) (sha1: 79fc80f31c34e6c83ae24a54594b1a7c95e15db0, sha256: c5e14c2982fc2539efb88f773c9adedbbb330d18c918eb71a23339bf4902cd4f)
+0004.232 (0) Beginning creation of dump of themes (split every: 400 MB)
+0004.255 (0) Total entities for the zip file: 24 directories, 144 files (0 skipped as non-modified), 2.9 MB
+0004.286 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0004.428 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-themes.zip.tmp: size is now: 2.20 MB
+0004.481 (0) Created themes zip (0) - 2266.2 KB in 0.2 s (9427.3 KB/s) (sha1: 85fce98b1fdae179b7ccf4560c304298dda83cac, sha256: fa027af7290d004f2a2492c74daedaacd1a04aace4cd16b719e7682280c6b369)
+0004.498 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0004.513 (0) Looking for candidates to back up in: /var/www/html/www.agility360app.net/wp-content/uploads
+0004.521 (0) finding files: 2018: adding to list (1)
+0004.529 (0) finding files: 2017: adding to list (2)
+0004.537 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0004.557 (0) Total entities for the zip file: 7 directories, 1 files (0 skipped as non-modified), 0 MB
+0004.570 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-uploads.zip.tmp: size is now: 0.00 MB
+0004.600 (0) Created uploads zip (0) - 3.5 KB in 0.1 s (67 KB/s) (sha1: a0c1bcf9c5be2e43d306f20e385a119835c0ff5d, sha256: 69eeee63ee0154a8344ad66ac2fe7e234283f6279e80a3441d466b3382da6e85)
+0004.618 (0) Beginning backup of other directories found in the content directory (index: 0)
+0004.625 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0004.633 (0) Looking for candidates to back up in: /var/www/html/www.agility360app.net/wp-content
+0004.642 (0) finding files: object-cache.php: adding to list (1)
+0004.650 (0) finding files: index.php: adding to list (2)
+0004.657 (0) finding files: upgrade: skipping: excluded by options
+0004.666 (0) finding files: updraft: skipping: this is the updraft directory
+0004.673 (0) finding files: themes: skipping: this is the themes directory
+0004.682 (0) finding files: advanced-cache.php: adding to list (3)
+0004.690 (0) finding files: ip-geo-api: adding to list (4)
+0004.698 (0) finding files: w3tc-config: adding to list (5)
+0004.706 (0) finding files: uploads: skipping: this is the uploads directory
+0004.714 (0) finding files: cache: skipping: excluded by options
+0004.721 (0) finding files: wp-rocket-config: adding to list (6)
+0004.729 (0) finding files: plugins: skipping: this is the plugins directory
+0004.762 (0) Total entities for the zip file: 34 directories, 111 files (0 skipped as non-modified), 21.9 MB
+0004.772 (0) Zip: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-others.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.404 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-others.zip.tmp: size is now: 9.80 MB
+0006.546 (0) Created others zip (0) - 10017.7 KB in 1.8 s (5541.8 KB/s) (sha1: c8ae6f964707505ac39e56ba4a908a35ee234248, sha256: 857805ffe5993b3ab17e0f0fd7cb8bb98e77406ca394df7eb9b1697e9ba73ae7)
+0006.581 (0) Saving backup status to database (elements: 8)
+0006.615 (0) Beginning creation of database dump (WordPress DB)
+0006.642 (0) Testing: /usr/bin/mysqldump
+0006.677 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1214 bytes total)
+0006.696 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0006.732 (0) Table wp_options: Total expected rows (approximate): 269
+0006.790 (0) Table wp_options: Total rows added: 271 in 0.05 seconds
+0006.804 (0) Table wp_options: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_options.table.gz - 123 KB)
+0006.836 (0) Table wp_users: Total expected rows (approximate): 2
+0006.848 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0006.858 (0) Table wp_users: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_users.table.gz - 0.7 KB)
+0006.892 (0) Table wp_usermeta: Total expected rows (approximate): 33
+0006.905 (0) Table wp_usermeta: Total rows added: 36 in 0.01 seconds
+0006.914 (0) Table wp_usermeta: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_usermeta.table.gz - 1.7 KB)
+0006.948 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0006.959 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0006.970 (0) Table wp_commentmeta: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0006.999 (0) Table wp_comments: Total expected rows (approximate): 0
+0007.015 (0) Table wp_comments: Total rows added: 1 in 0.01 seconds
+0007.024 (0) Table wp_comments: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_comments.table.gz - 0.7 KB)
+0007.052 (0) Table wp_links: Total expected rows (approximate): 0
+0007.065 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0007.072 (0) Table wp_links: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_links.table.gz - 0.4 KB)
+0007.107 (0) Table wp_postmeta: Total expected rows (approximate): 21
+0007.121 (0) Table wp_postmeta: Total rows added: 21 in 0.01 seconds
+0007.132 (0) Table wp_postmeta: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_postmeta.table.gz - 0.6 KB)
+0007.172 (0) Table wp_posts: Total expected rows (approximate): 9
+0007.187 (0) Table wp_posts: Total rows added: 8 in 0.01 seconds
+0007.197 (0) Table wp_posts: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_posts.table.gz - 1.6 KB)
+0007.227 (0) Table wp_term_relationships: Total expected rows (approximate): 3
+0007.240 (0) Table wp_term_relationships: Total rows added: 3 in 0.00 seconds
+0007.250 (0) Table wp_term_relationships: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0007.276 (0) Table wp_term_taxonomy: Total expected rows (approximate): 2
+0007.289 (0) Table wp_term_taxonomy: Total rows added: 2 in 0.00 seconds
+0007.299 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_term_taxonomy.table.gz - 0.4 KB)
+0007.336 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0007.347 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0007.356 (0) Table wp_termmeta: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_termmeta.table.gz - 0.4 KB)
+0007.382 (0) Table wp_terms: Total expected rows (approximate): 2
+0007.395 (0) Table wp_terms: Total rows added: 2 in 0.00 seconds
+0007.406 (0) Table wp_terms: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_terms.table.gz - 0.4 KB)
+0007.436 (0) Table wp_ip_geo_block_cache: Total expected rows (approximate): 0
+0007.447 (0) Table wp_ip_geo_block_cache: Total rows added: 0 in 0.00 seconds
+0007.458 (0) Table wp_ip_geo_block_cache: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_ip_geo_block_cache.table.gz - 0.4 KB)
+0007.492 (0) Table wp_ip_geo_block_logs: Total expected rows (approximate): 26
+0007.505 (0) Table wp_ip_geo_block_logs: Total rows added: 41 in 0.01 seconds
+0007.514 (0) Table wp_ip_geo_block_logs: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_ip_geo_block_logs.table.gz - 1.3 KB)
+0007.548 (0) Table wp_ip_geo_block_stat: Total expected rows (approximate): 0
+0007.560 (0) Table wp_ip_geo_block_stat: Total rows added: 1 in 0.00 seconds
+0007.570 (0) Table wp_ip_geo_block_stat: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_ip_geo_block_stat.table.gz - 0.7 KB)
+0007.596 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 0
+0007.607 (0) Table wp_yoast_seo_links: Total rows added: 0 in 0.00 seconds
+0007.618 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_yoast_seo_links.table.gz - 0.4 KB)
+0007.648 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 0
+0007.660 (0) Table wp_yoast_seo_meta: Total rows added: 1 in 0.00 seconds
+0007.670 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_yoast_seo_meta.table.gz - 0.3 KB)
+0007.702 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_options.table.gz (1/17): adding to final database dump
+0007.733 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_users.table.gz (2/17): adding to final database dump
+0007.741 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_usermeta.table.gz (3/17): adding to final database dump
+0007.749 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_commentmeta.table.gz (4/17): adding to final database dump
+0007.757 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_comments.table.gz (5/17): adding to final database dump
+0007.768 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_links.table.gz (6/17): adding to final database dump
+0007.776 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_postmeta.table.gz (7/17): adding to final database dump
+0007.784 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_posts.table.gz (8/17): adding to final database dump
+0007.792 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_term_relationships.table.gz (9/17): adding to final database dump
+0007.801 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_term_taxonomy.table.gz (10/17): adding to final database dump
+0007.808 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_termmeta.table.gz (11/17): adding to final database dump
+0007.816 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_terms.table.gz (12/17): adding to final database dump
+0007.824 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_ip_geo_block_cache.table.gz (13/17): adding to final database dump
+0007.840 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_ip_geo_block_logs.table.gz (14/17): adding to final database dump
+0007.848 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_ip_geo_block_stat.table.gz (15/17): adding to final database dump
+0007.856 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_yoast_seo_links.table.gz (16/17): adding to final database dump
+0007.864 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db-table-wp_yoast_seo_meta.table.gz (17/17): adding to final database dump
+0007.872 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db.gz: finished writing out complete database file (104 KB)
+0007.914 (0) Total database tables backed up: 17 (backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db.gz, size: 132375, sha256)
+0007.976 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0007.984 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0007.992 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0008.008 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-others.zip: others: This file has not yet been successfully uploaded: will queue
+0008.016 (0) backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db.gz: db: This file has not yet been successfully uploaded: will queue
+0008.023 (0) Saving backup history. Total backup size: 23.9 MB
+0008.056 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0008.106 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0008.203 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-45ae78caaca0a6bd200fb2f885ab6a8e)
+0008.570 (0) S3 upload (): backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip (chunks: 3) -> s3://www.agility360app.net/backups/backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip
+0008.756 (0) S3 chunked upload: got multipart ID: Qhsfik0u26TkpVdBRovrDsNmwdhDM1leUnUxZF6T8C7lqfhr9K9TKe0_O5aM9ajCl4pZfVaA8GBoyfl876HnHU7LOtBLvTBEH.b8gC6Cuji5TtIRiRE8jrCfSztYFjyL
+0010.586 (0) S3 chunked upload: 33.3 % uploaded (1, "2ab76c581ec1b9e0b89378f8b1152f4a")
+0011.954 (0) S3 chunked upload: 66.7 % uploaded (2, "4cdc2ff6fa1bb2309938bac2b413ffde")
+0012.802 (0) S3 chunked upload: 100 % uploaded (3, "0d30c119649fcf6580cf9ca2db2771b1")
+0012.834 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0012.996 (0) S3 upload (plugins0): re-assembly succeeded
+0013.017 (0) Recording as successfully uploaded: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip (1a61bcb8e432fc5974df7d556f565c22)
+0013.076 (0) Deleting local file: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-plugins.zip: OK
+0013.092 (0) S3 upload (): backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-themes.zip (chunks: 1) -> s3://www.agility360app.net/backups/backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-themes.zip
+0014.238 (0) S3 regular upload: success
+0014.257 (0) Recording as successfully uploaded: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-themes.zip (ef02d14aa168ad4acc69fa65881bea95)
+0014.290 (0) Deleting local file: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-themes.zip: OK
+0014.298 (0) S3 upload (): backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-uploads.zip (chunks: 1) -> s3://www.agility360app.net/backups/backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-uploads.zip
+0014.393 (0) S3 regular upload: success
+0014.414 (0) Recording as successfully uploaded: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-uploads.zip (dad98f02f1e0f7c1835658b3592be34d)
+0014.450 (0) Deleting local file: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-uploads.zip: OK
+0014.458 (0) S3 upload (): backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-others.zip (chunks: 2) -> s3://www.agility360app.net/backups/backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-others.zip
+0014.549 (0) S3 chunked upload: got multipart ID: RP52rKq6NdvSjyX_WppTLSEPfQTl9MtqarP5iAD_c7ggDiBteptcflv4lDlM4Lbx0xGpO6OzvH2IfepEf0twxqUnUTAPWF0EF.FLVgn_Bagbn3fc6jYNKzMyQbFDOXjZ
+0016.582 (0) S3 chunked upload: 50 % uploaded (1, "f179ca9e48be7d7d2b7d779dc7305a43")
+0018.603 (0) S3 chunked upload: 100 % uploaded (2, "32339ca9eff0018c2745e058503f74e0")
+0018.642 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0018.781 (0) S3 upload (others0): re-assembly succeeded
+0018.806 (0) Recording as successfully uploaded: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-others.zip (aaf53283ff36586b6baf9b7a95a3cc9e)
+0018.852 (0) Deleting local file: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-others.zip: OK
+0018.860 (0) S3 upload (): backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db.gz (chunks: 1) -> s3://www.agility360app.net/backups/backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db.gz
+0018.980 (0) S3 regular upload: success
+0018.998 (0) Recording as successfully uploaded: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db.gz (965e93b440cff487c002d350557fbf28)
+0019.024 (0) Deleting local file: backup_2018-03-26-1655_Agility_360_Client_Engagement_Ap_1e1c88326265-db.gz: OK
+0019.046 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+0019.057 (0) Number of backup sets in history: 11; groups (db): 1
+0019.064 (0) Examining (for databases) backup set with group_id=0, nonce=1e1c88326265, datestamp=1522083316 (Mar 26 2018 16:55:16)
+0019.073 (0) This backup set is the backup set just made, so will not be deleted.
+0019.073 (0) Examining (for databases) backup set with group_id=0, nonce=22dc2eddf8c8, datestamp=1521985733 (Mar 25 2018 13:48:53)
+0019.073 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.081 (0) Examining (for databases) backup set with group_id=0, nonce=c155a118ff82, datestamp=1521899183 (Mar 24 2018 13:46:23)
+0019.081 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.081 (0) Examining (for databases) backup set with group_id=0, nonce=251734d2bbd9, datestamp=1521880401 (Mar 24 2018 08:33:21)
+0019.081 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.081 (0) Examining (for databases) backup set with group_id=0, nonce=02b35c0be61e, datestamp=1521769623 (Mar 23 2018 01:47:03)
+0019.081 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.081 (0) Examining (for databases) backup set with group_id=0, nonce=99cdbca03269, datestamp=1521647660 (Mar 21 2018 15:54:20)
+0019.081 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.082 (0) Examining (for databases) backup set with group_id=0, nonce=a0202d6b3b7e, datestamp=1521553629 (Mar 20 2018 13:47:09)
+0019.082 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.082 (0) Examining (for databases) backup set with group_id=0, nonce=3a6e910f456e, datestamp=1521468900 (Mar 19 2018 14:15:00)
+0019.082 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.082 (0) Examining (for databases) backup set with group_id=0, nonce=40296046ba24, datestamp=1521379942 (Mar 18 2018 13:32:22)
+0019.082 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.082 (0) Examining (for databases) backup set with group_id=0, nonce=8a459e49f163, datestamp=1521293866 (Mar 17 2018 13:37:46)
+0019.082 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.082 (0) Examining (for databases) backup set with group_id=0, nonce=0ec95c6ba451, datestamp=1521214846 (Mar 16 2018 15:40:46)
+0019.082 (0) 1521214846: db: this set includes a database (backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-db.gz); db count is now 10
+0019.082 (0) 1521214846: db: over retain limit (10); will delete this database
+0019.082 (0) Delete file: backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-db.gz, service=s3
+0019.095 (0) S3: Delete remote: bucket=www.agility360app.net, URI=backups/backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-db.gz
+0019.248 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0019.257 (0) Number of backup sets in history: 11; groups (files): 1
+0019.265 (0) Examining (for files) backup set with nonce=1e1c88326265, datestamp=1522083316 (Mar 26 2018 16:55:16)
+0019.265 (0) This backup set is the backup set just made, so will not be deleted.
+0019.273 (0) This backup set is the backup set just made, so will not be deleted.
+0019.273 (0) This backup set is the backup set just made, so will not be deleted.
+0019.273 (0) This backup set is the backup set just made, so will not be deleted.
+0019.273 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.282 (0) Examining (for files) backup set with nonce=22dc2eddf8c8, datestamp=1521985733 (Mar 25 2018 13:48:53)
+0019.282 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.282 (0) Examining (for files) backup set with nonce=c155a118ff82, datestamp=1521899183 (Mar 24 2018 13:46:23)
+0019.282 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.283 (0) Examining (for files) backup set with nonce=251734d2bbd9, datestamp=1521880401 (Mar 24 2018 08:33:21)
+0019.283 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.283 (0) Examining (for files) backup set with nonce=02b35c0be61e, datestamp=1521769623 (Mar 23 2018 01:47:03)
+0019.283 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.283 (0) Examining (for files) backup set with nonce=99cdbca03269, datestamp=1521647660 (Mar 21 2018 15:54:20)
+0019.283 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.283 (0) Examining (for files) backup set with nonce=a0202d6b3b7e, datestamp=1521553629 (Mar 20 2018 13:47:09)
+0019.283 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.283 (0) Examining (for files) backup set with nonce=3a6e910f456e, datestamp=1521468900 (Mar 19 2018 14:15:00)
+0019.283 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.284 (0) Examining (for files) backup set with nonce=40296046ba24, datestamp=1521379942 (Mar 18 2018 13:32:22)
+0019.284 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.284 (0) Examining (for files) backup set with nonce=8a459e49f163, datestamp=1521293866 (Mar 17 2018 13:37:46)
+0019.284 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.284 (0) Examining (for files) backup set with nonce=0ec95c6ba451, datestamp=1521214846 (Mar 16 2018 15:40:46)
+0019.284 (0) plugins: over retain limit (10); will delete this file entity
+0019.284 (0) themes: over retain limit (10); will delete this file entity
+0019.284 (0) uploads: over retain limit (10); will delete this file entity
+0019.284 (0) others: over retain limit (10); will delete this file entity
+0019.284 (0) Delete file: backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-plugins.zip, service=s3
+0019.301 (0) Delete file: backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-themes.zip, service=s3
+0019.314 (0) Delete file: backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-uploads.zip, service=s3
+0019.325 (0) Delete file: backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-others.zip, service=s3
+0019.333 (0) S3: Delete remote: bucket=www.agility360app.net, URI=backups/backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-plugins.zip
+0019.428 (0) S3: Delete remote: bucket=www.agility360app.net, URI=backups/backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-themes.zip
+0019.516 (0) S3: Delete remote: bucket=www.agility360app.net, URI=backups/backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-uploads.zip
+0019.605 (0) S3: Delete remote: bucket=www.agility360app.net, URI=backups/backup_2018-03-16-1540_Agility_360_Client_Engagement_Ap_0ec95c6ba451-others.zip
+0019.718 (0) This backup set is now empty; will remove from history
+0019.726 (0) Deleting log file (log.0ec95c6ba451.txt)
+0019.734 (0) Retain: saving new backup history (sets now: 10) and finishing retain operation
+0019.790 (0) Resume backup (1e1c88326265, 0): finish run
+0019.812 (0) Decremented the semaphore (fd) by 1
+0019.829 (0) Semaphore (fd) unlocked
+0019.838 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0019.868 (0) Fetching RSS news feed
+0019.975 (0) Fetched RSS news feed; result is a: SimplePie
+0020.001 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: lpm00...
+0020.245 (0) The backup apparently succeeded and is now complete

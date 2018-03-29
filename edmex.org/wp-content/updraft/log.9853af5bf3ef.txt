@@ -1,0 +1,486 @@
+0000.002 (0) Opened log file at time: Sun, 25 Mar 2018 14:46:44 +0000 on http://edmex.org
+0000.056 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-26-142 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: es_MX Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 42.8M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.112 (0) Free space on disk containing Updraft's temporary directory: 92950.2 MB
+0000.172 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.236 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.353 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1521904768, seconds_ago=84436)
+0000.430 (0) Set semaphore last lock (fd) time to 2018-03-25 14:46:44
+0000.484 (0) Semaphore lock (fd) complete
+0000.553 (0) Backup run: resumption=0, nonce=9853af5bf3ef, begun at=1521989204 (0s ago), job type=backup
+0000.618 (0) Scheduling a resumption (1) after 300 seconds (1521989504) in case this run gets aborted
+0000.740 (0) Checking if we have a zip executable available
+0000.792 (0) Testing: /usr/bin/zip
+0000.853 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.908 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.964 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0001.024 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0001.076 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0001.132 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0001.188 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0001.256 (0) Working binary zip found: /usr/bin/zip
+0001.322 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0001.376 (0) Creation of backups of directories: beginning
+0001.445 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0002.040 (0) Total entities for the zip file: 1117 directories, 6137 files (0 skipped as non-modified), 81.3 MB
+0002.099 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0002.153 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0002.209 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0002.278 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0002.333 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0002.388 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.8 MB, 6137 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0003.149 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: size is now: 3.80 MB
+0003.228 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 600 files added (on-disk size: 3928.2 KB)
+0003.289 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 700 files added (on-disk size: 3928.2 KB)
+0003.345 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 800 files added (on-disk size: 3928.2 KB)
+0003.401 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 900 files added (on-disk size: 3928.2 KB)
+0003.458 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1000 files added (on-disk size: 3928.2 KB)
+0003.512 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.7 MB, 6137 files batched, 501 (1002) added so far); re-opening (prior size: 3928.2 KB)
+0003.932 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: size is now: 7.00 MB
+0004.000 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1100 files added (on-disk size: 7172.2 KB)
+0004.053 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1200 files added (on-disk size: 7172.2 KB)
+0004.109 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1300 files added (on-disk size: 7172.2 KB)
+0004.165 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1400 files added (on-disk size: 7172.2 KB)
+0004.222 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1500 files added (on-disk size: 7172.2 KB)
+0004.276 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.2 MB, 6137 files batched, 501 (1503) added so far); re-opening (prior size: 7172.2 KB)
+0004.632 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1600 files added (on-disk size: 7858.6 KB)
+0004.685 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1700 files added (on-disk size: 7858.6 KB)
+0004.741 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1800 files added (on-disk size: 7858.6 KB)
+0004.798 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 1900 files added (on-disk size: 7858.6 KB)
+0004.853 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2000 files added (on-disk size: 7858.6 KB)
+0004.912 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.6 MB, 6137 files batched, 501 (2004) added so far); re-opening (prior size: 7858.6 KB)
+0005.585 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: size is now: 11.70 MB
+0005.648 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2100 files added (on-disk size: 11965.5 KB)
+0005.701 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2200 files added (on-disk size: 11965.5 KB)
+0005.757 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2300 files added (on-disk size: 11965.5 KB)
+0005.813 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2400 files added (on-disk size: 11965.5 KB)
+0005.869 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2500 files added (on-disk size: 11965.5 KB)
+0005.924 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.5 MB, 6137 files batched, 501 (2505) added so far); re-opening (prior size: 11965.5 KB)
+0006.312 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2600 files added (on-disk size: 13781.2 KB)
+0006.369 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2700 files added (on-disk size: 13781.2 KB)
+0006.425 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2800 files added (on-disk size: 13781.2 KB)
+0006.482 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 2900 files added (on-disk size: 13781.2 KB)
+0006.538 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3000 files added (on-disk size: 13781.2 KB)
+0006.592 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.4 MB, 6137 files batched, 501 (3006) added so far); re-opening (prior size: 13781.2 KB)
+0007.186 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3100 files added (on-disk size: 15923.4 KB)
+0007.241 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3200 files added (on-disk size: 15923.4 KB)
+0007.297 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3300 files added (on-disk size: 15923.4 KB)
+0007.365 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3400 files added (on-disk size: 15923.4 KB)
+0007.425 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3500 files added (on-disk size: 15923.4 KB)
+0007.480 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (13.6 MB, 6137 files batched, 501 (3507) added so far); re-opening (prior size: 15923.4 KB)
+0008.381 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: size is now: 23.10 MB
+0008.445 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3600 files added (on-disk size: 23703.9 KB)
+0008.501 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3700 files added (on-disk size: 23703.9 KB)
+0008.557 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3800 files added (on-disk size: 23703.9 KB)
+0008.613 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 3900 files added (on-disk size: 23703.9 KB)
+0008.669 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4000 files added (on-disk size: 23703.9 KB)
+0008.724 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.3 MB, 6137 files batched, 501 (4008) added so far); re-opening (prior size: 23703.9 KB)
+0009.183 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4100 files added (on-disk size: 28127.9 KB)
+0009.241 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4200 files added (on-disk size: 28127.9 KB)
+0009.298 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4300 files added (on-disk size: 28127.9 KB)
+0009.353 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4400 files added (on-disk size: 28127.9 KB)
+0009.409 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4500 files added (on-disk size: 28127.9 KB)
+0009.464 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.2 MB, 6137 files batched, 501 (4509) added so far); re-opening (prior size: 28127.9 KB)
+0009.878 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4600 files added (on-disk size: 29195.3 KB)
+0009.937 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4700 files added (on-disk size: 29195.3 KB)
+0009.993 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4800 files added (on-disk size: 29195.3 KB)
+0010.050 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 4900 files added (on-disk size: 29195.3 KB)
+0010.105 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5000 files added (on-disk size: 29195.3 KB)
+0010.160 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17.2 MB, 6137 files batched, 501 (5010) added so far); re-opening (prior size: 29195.3 KB)
+0011.361 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5100 files added (on-disk size: 34132.8 KB)
+0011.422 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5200 files added (on-disk size: 34132.8 KB)
+0011.478 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5300 files added (on-disk size: 34132.8 KB)
+0011.533 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5400 files added (on-disk size: 34132.8 KB)
+0011.598 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5500 files added (on-disk size: 34132.8 KB)
+0011.652 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 6137 files batched, 501 (5511) added so far); re-opening (prior size: 34132.8 KB)
+0012.111 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5600 files added (on-disk size: 34967.9 KB)
+0012.166 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5700 files added (on-disk size: 34967.9 KB)
+0012.221 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5800 files added (on-disk size: 34967.9 KB)
+0012.277 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 5900 files added (on-disk size: 34967.9 KB)
+0012.334 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 6000 files added (on-disk size: 34967.9 KB)
+0012.388 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.5 MB, 6137 files batched, 501 (6012) added so far); re-opening (prior size: 34967.9 KB)
+0012.880 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip.tmp: 6100 files added (on-disk size: 39800.6 KB)
+0013.543 (0) Created plugins zip (0) - 40012.3 KB in 12 s (3322.6 KB/s) (sha1: 6392e6874ddb1c44150518d1e08dd8af90b87226, sha256: c8a6d37ff6e2eed760097e387d3cbe1ca0b32935dd1d859d1f7231867b6d7152)
+0013.611 (0) Beginning creation of dump of themes (split every: 400 MB)
+0013.703 (0) Total entities for the zip file: 51 directories, 328 files (0 skipped as non-modified), 8.2 MB
+0013.758 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0013.813 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0013.869 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0014.313 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip.tmp: size is now: 6.10 MB
+0014.459 (0) Created themes zip (0) - 6208.7 KB in 0.8 s (7893.7 KB/s) (sha1: b356f102c7541b4f33242f371942f76f1ed8e0c1, sha256: 6475f59532ba5a89c9de8ab8612e7caa998de51165f9cd8a03a45d3b3b084cfa)
+0014.522 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0014.576 (0) Looking for candidates to back up in: /var/www/html/edmex.org/wp-content/uploads
+0014.632 (0) finding files: 2018: adding to list (1)
+0014.692 (0) finding files: calls-to-action: adding to list (2)
+0014.756 (0) finding files: 2016: adding to list (3)
+0014.812 (0) finding files: 2017: adding to list (4)
+0014.868 (0) finding files: ninja-popups: adding to list (5)
+0014.924 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0015.011 (0) Total entities for the zip file: 27 directories, 594 files (0 skipped as non-modified), 33.8 MB
+0015.065 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0015.121 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0015.177 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0015.233 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25 MB, 594 files batched, 359 (359) added so far); re-opening (prior size: 0 KB)
+0015.947 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip.tmp: size is now: 24.70 MB
+0016.104 (0) A useful amount of data was added after this amount of zip processing: 1.3 s (normalised: 1.3 s, rate: 20005.3 KB/s)
+0016.166 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.2817540168762, normalised_time=1.2796585798569, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=122912785)
+0016.228 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip.tmp: 400 files added (on-disk size: 25270.2 KB)
+0016.281 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip.tmp: 500 files added (on-disk size: 25270.2 KB)
+0016.600 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip.tmp: size is now: 33.50 MB
+0017.056 (0) Created uploads zip (0) - 34255.6 KB in 2.1 s (16502.7 KB/s) (sha1: cc37c25255ea6fcee8f0382c1c397eff9ea81a0a, sha256: 94576337d30ef41171baabb5298303040dff5af9b6662f88dc4b5b0f4218f51b)
+0017.120 (0) Beginning backup of other directories found in the content directory (index: 0)
+0017.176 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0017.232 (0) Looking for candidates to back up in: /var/www/html/edmex.org/wp-content
+0017.288 (0) finding files: wflogs: adding to list (1)
+0017.344 (0) finding files: object-cache.php: adding to list (2)
+0017.400 (0) finding files: index.php: adding to list (3)
+0017.460 (0) finding files: upgrade: skipping: excluded by options
+0017.516 (0) finding files: updraft: skipping: this is the updraft directory
+0017.572 (0) finding files: themes: skipping: this is the themes directory
+0017.628 (0) finding files: advanced-cache.php: adding to list (4)
+0017.684 (0) finding files: ip-geo-api: adding to list (5)
+0017.740 (0) finding files: w3tc-config: adding to list (6)
+0017.796 (0) finding files: languages: adding to list (7)
+0017.856 (0) finding files: uploads: skipping: this is the uploads directory
+0017.912 (0) finding files: cache: skipping: excluded by options
+0017.968 (0) finding files: wp-rocket-config: adding to list (8)
+0018.024 (0) finding files: plugins: skipping: this is the plugins directory
+0018.104 (0) Total entities for the zip file: 38 directories, 136 files (0 skipped as non-modified), 15 MB
+0018.162 (0) Zip: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-others.zip.tmp: 100 files added (on-disk size: 0 KB)
+0019.316 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-others.zip.tmp: size is now: 5.50 MB
+0019.458 (0) Created others zip (0) - 5650.3 KB in 1.4 s (4103.2 KB/s) (sha1: 24b5c264ab851c4fec3d1399186750103deed49c, sha256: e0f906197a8991e5e3fa6025ba06c1eb1dcd56013fd78c72668f51caf17f003a)
+0019.534 (0) Saving backup status to database (elements: 8)
+0019.652 (0) Beginning creation of database dump (WordPress DB)
+0019.716 (0) Testing: /usr/bin/mysqldump
+0019.789 (0) Binary mysqldump: error (code: 2)
+0019.885 (0) Table wp_options: Total expected rows (approximate): 429
+0019.988 (0) Table wp_options: Total rows added: 437 in 0.05 seconds
+0020.044 (0) Table wp_options: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_options.table.gz - 165.5 KB)
+0020.125 (0) Table wp_users: Total expected rows (approximate): 15
+0020.185 (0) Table wp_users: Total rows added: 14 in 0.01 seconds
+0020.240 (0) Table wp_users: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_users.table.gz - 1.8 KB)
+0020.325 (0) Table wp_usermeta: Total expected rows (approximate): 284
+0020.387 (0) Table wp_usermeta: Total rows added: 285 in 0.01 seconds
+0020.444 (0) Table wp_usermeta: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_usermeta.table.gz - 5.8 KB)
+0020.518 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0020.576 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0020.632 (0) Table wp_commentmeta: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0020.726 (0) Table wp_comments: Total expected rows (approximate): 14
+0020.787 (0) Table wp_comments: Total rows added: 14 in 0.01 seconds
+0020.845 (0) Table wp_comments: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_comments.table.gz - 14.5 KB)
+0020.924 (0) Table wp_links: Total expected rows (approximate): 0
+0020.980 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0021.036 (0) Table wp_links: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_links.table.gz - 0.4 KB)
+0021.112 (0) Table wp_postmeta: Total expected rows (approximate): 805
+0021.181 (0) Table wp_postmeta: Total rows added: 789 in 0.01 seconds
+0021.237 (0) Table wp_postmeta: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_postmeta.table.gz - 21.2 KB)
+0021.313 (0) Table wp_posts: Total expected rows (approximate): 121
+0021.390 (0) Table wp_posts: Total rows added: 121 in 0.02 seconds
+0021.472 (0) Table wp_posts: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_posts.table.gz - 31.2 KB)
+0021.549 (0) Table wp_term_relationships: Total expected rows (approximate): 44
+0021.609 (0) Table wp_term_relationships: Total rows added: 43 in 0.00 seconds
+0021.664 (0) Table wp_term_relationships: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_term_relationships.table.gz - 0.5 KB)
+0021.740 (0) Table wp_term_taxonomy: Total expected rows (approximate): 12
+0021.797 (0) Table wp_term_taxonomy: Total rows added: 12 in 0.00 seconds
+0021.852 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_term_taxonomy.table.gz - 0.5 KB)
+0021.928 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0021.988 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0022.044 (0) Table wp_termmeta: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_termmeta.table.gz - 0.4 KB)
+0022.121 (0) Table wp_terms: Total expected rows (approximate): 12
+0022.181 (0) Table wp_terms: Total rows added: 12 in 0.00 seconds
+0022.236 (0) Table wp_terms: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_terms.table.gz - 0.5 KB)
+0022.325 (0) Table wp_inbound_events: Total expected rows (approximate): 30
+0022.386 (0) Table wp_inbound_events: Total rows added: 30 in 0.01 seconds
+0022.440 (0) Table wp_inbound_events: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_inbound_events.table.gz - 1.3 KB)
+0022.525 (0) Table wp_inbound_page_views: Total expected rows (approximate): 3718
+0022.643 (0) Table wp_inbound_page_views: Total rows added: 3761 in 0.06 seconds
+0022.701 (0) Table wp_inbound_page_views: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_inbound_page_views.table.gz - 106.2 KB)
+0022.785 (0) Table wp_inbound_tracked_links: Total expected rows (approximate): 17
+0022.846 (0) Table wp_inbound_tracked_links: Total rows added: 20 in 0.01 seconds
+0022.900 (0) Table wp_inbound_tracked_links: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_inbound_tracked_links.table.gz - 1.1 KB)
+0022.981 (0) Table wp_ip_geo_block_cache: Total expected rows (approximate): 1
+0023.041 (0) Table wp_ip_geo_block_cache: Total rows added: 1 in 0.00 seconds
+0023.096 (0) Table wp_ip_geo_block_cache: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_ip_geo_block_cache.table.gz - 0.5 KB)
+0023.185 (0) Table wp_ip_geo_block_logs: Total expected rows (approximate): 499
+0023.252 (0) Table wp_ip_geo_block_logs: Total rows added: 500 in 0.01 seconds
+0023.308 (0) Table wp_ip_geo_block_logs: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_ip_geo_block_logs.table.gz - 12.5 KB)
+0023.389 (0) Table wp_ip_geo_block_stat: Total expected rows (approximate): 0
+0023.450 (0) Table wp_ip_geo_block_stat: Total rows added: 1 in 0.01 seconds
+0023.508 (0) Table wp_ip_geo_block_stat: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_ip_geo_block_stat.table.gz - 1.1 KB)
+0023.585 (0) Table wp_snp_log: Total expected rows (approximate): 0
+0023.644 (0) Table wp_snp_log: Total rows added: 0 in 0.00 seconds
+0023.700 (0) Table wp_snp_log: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_snp_log.table.gz - 0.4 KB)
+0023.781 (0) Table wp_snp_stats: Total expected rows (approximate): 230
+0023.843 (0) Table wp_snp_stats: Total rows added: 230 in 0.01 seconds
+0023.900 (0) Table wp_snp_stats: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_snp_stats.table.gz - 1.2 KB)
+0023.981 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0024.040 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0024.096 (0) Table wp_wfBadLeechers: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0024.177 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0024.236 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0024.292 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0024.373 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 59
+0024.434 (0) Table wp_wfBlockedIPLog: Total rows added: 42 in 0.01 seconds
+0024.492 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlockedIPLog.table.gz - 0.7 KB)
+0024.573 (0) Table wp_wfBlocks: Total expected rows (approximate): 12
+0024.634 (0) Table wp_wfBlocks: Total rows added: 11 in 0.01 seconds
+0024.688 (0) Table wp_wfBlocks: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlocks.table.gz - 0.7 KB)
+0024.769 (0) Table wp_wfBlocks7: Total expected rows (approximate): 11
+0024.830 (0) Table wp_wfBlocks7: Total rows added: 11 in 0.01 seconds
+0024.888 (0) Table wp_wfBlocks7: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlocks7.table.gz - 0.9 KB)
+0024.973 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 4
+0025.037 (0) Table wp_wfBlocksAdv: Total rows added: 4 in 0.01 seconds
+0025.092 (0) Table wp_wfBlocksAdv: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlocksAdv.table.gz - 0.5 KB)
+0025.169 (0) Table wp_wfConfig: Total expected rows (approximate): 235
+0025.245 (0) Table wp_wfConfig: Total rows added: 246 in 0.02 seconds
+0025.301 (0) Table wp_wfConfig: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfConfig.table.gz - 250.3 KB)
+0025.381 (0) Table wp_wfCrawlers: Total expected rows (approximate): 21
+0025.442 (0) Table wp_wfCrawlers: Total rows added: 21 in 0.01 seconds
+0025.496 (0) Table wp_wfCrawlers: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfCrawlers.table.gz - 0.7 KB)
+0025.577 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0025.636 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0025.692 (0) Table wp_wfFileChanges: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0025.769 (0) Table wp_wfFileMods: Total expected rows (approximate): 8044
+0026.118 (0) Table wp_wfFileMods: Total rows added: 8754 in 0.29 seconds
+0026.172 (0) Table wp_wfFileMods: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfFileMods.table.gz - 762.9 KB)
+0026.253 (0) Table wp_wfHits: Total expected rows (approximate): 1563
+0026.351 (0) Table wp_wfHits: Total rows added: 1604 in 0.04 seconds
+0026.408 (0) Table wp_wfHits: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfHits.table.gz - 55 KB)
+0026.495 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0026.552 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0026.608 (0) Table wp_wfHoover: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0026.683 (0) Table wp_wfIssues: Total expected rows (approximate): 7
+0026.742 (0) Table wp_wfIssues: Total rows added: 7 in 0.01 seconds
+0026.796 (0) Table wp_wfIssues: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfIssues.table.gz - 2.6 KB)
+0026.877 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 8978
+0027.026 (0) Table wp_wfKnownFileList: Total rows added: 8754 in 0.09 seconds
+0027.080 (0) Table wp_wfKnownFileList: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfKnownFileList.table.gz - 87.5 KB)
+0027.165 (0) Table wp_wfLeechers: Total expected rows (approximate): 32
+0027.225 (0) Table wp_wfLeechers: Total rows added: 32 in 0.01 seconds
+0027.284 (0) Table wp_wfLeechers: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLeechers.table.gz - 0.6 KB)
+0027.369 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0027.428 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0027.484 (0) Table wp_wfLockedOut: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0027.573 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0027.632 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0027.692 (0) Table wp_wfLocs: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0027.772 (0) Table wp_wfLogins: Total expected rows (approximate): 269
+0027.841 (0) Table wp_wfLogins: Total rows added: 349 in 0.01 seconds
+0027.896 (0) Table wp_wfLogins: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLogins.table.gz - 7.4 KB)
+0027.972 (0) Table wp_wfNet404s: Total expected rows (approximate): 0
+0028.032 (0) Table wp_wfNet404s: Total rows added: 0 in 0.00 seconds
+0028.088 (0) Table wp_wfNet404s: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfNet404s.table.gz - 0.3 KB)
+0028.170 (0) Table wp_wfNotifications: Total expected rows (approximate): 48
+0028.230 (0) Table wp_wfNotifications: Total rows added: 73 in 0.01 seconds
+0028.284 (0) Table wp_wfNotifications: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfNotifications.table.gz - 4.3 KB)
+0028.364 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0028.424 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0028.480 (0) Table wp_wfPendingIssues: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0028.555 (0) Table wp_wfReverseCache: Total expected rows (approximate): 7
+0028.613 (0) Table wp_wfReverseCache: Total rows added: 7 in 0.00 seconds
+0028.668 (0) Table wp_wfReverseCache: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfReverseCache.table.gz - 0.5 KB)
+0028.742 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0028.800 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0028.856 (0) Table wp_wfSNIPCache: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0028.933 (0) Table wp_wfScanners: Total expected rows (approximate): 32
+0028.993 (0) Table wp_wfScanners: Total rows added: 32 in 0.00 seconds
+0029.048 (0) Table wp_wfScanners: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfScanners.table.gz - 0.6 KB)
+0029.137 (0) Table wp_wfStatus: Total expected rows (approximate): 939
+0029.219 (0) Table wp_wfStatus: Total rows added: 947 in 0.02 seconds
+0029.277 (0) Table wp_wfStatus: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfStatus.table.gz - 17.2 KB)
+0029.353 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 2
+0029.413 (0) Table wp_wfThrottleLog: Total rows added: 2 in 0.00 seconds
+0029.472 (0) Table wp_wfThrottleLog: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfThrottleLog.table.gz - 0.5 KB)
+0029.561 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0029.620 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0029.676 (0) Table wp_wfVulnScanners: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0029.752 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 0
+0029.811 (0) Table wp_yoast_seo_links: Total rows added: 0 in 0.00 seconds
+0029.868 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_yoast_seo_links.table.gz - 0.4 KB)
+0029.944 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 183
+0030.002 (0) Table wp_yoast_seo_meta: Total rows added: 184 in 0.01 seconds
+0030.056 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_yoast_seo_meta.table.gz - 0.8 KB)
+0030.124 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_options.table.gz (1/49): adding to final database dump
+0030.219 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_users.table.gz (2/49): adding to final database dump
+0030.272 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_usermeta.table.gz (3/49): adding to final database dump
+0030.333 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_commentmeta.table.gz (4/49): adding to final database dump
+0030.388 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_comments.table.gz (5/49): adding to final database dump
+0030.443 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_links.table.gz (6/49): adding to final database dump
+0030.496 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_postmeta.table.gz (7/49): adding to final database dump
+0030.557 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_posts.table.gz (8/49): adding to final database dump
+0030.618 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_term_relationships.table.gz (9/49): adding to final database dump
+0030.672 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_term_taxonomy.table.gz (10/49): adding to final database dump
+0030.728 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_termmeta.table.gz (11/49): adding to final database dump
+0030.784 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_terms.table.gz (12/49): adding to final database dump
+0030.840 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_inbound_events.table.gz (13/49): adding to final database dump
+0030.908 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_inbound_page_views.table.gz (14/49): adding to final database dump
+0030.984 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_inbound_tracked_links.table.gz (15/49): adding to final database dump
+0031.037 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_ip_geo_block_cache.table.gz (16/49): adding to final database dump
+0031.092 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_ip_geo_block_logs.table.gz (17/49): adding to final database dump
+0031.151 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_ip_geo_block_stat.table.gz (18/49): adding to final database dump
+0031.216 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_snp_log.table.gz (19/49): adding to final database dump
+0031.273 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_snp_stats.table.gz (20/49): adding to final database dump
+0031.328 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBadLeechers.table.gz (21/49): adding to final database dump
+0031.384 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlockedCommentLog.table.gz (22/49): adding to final database dump
+0031.440 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlockedIPLog.table.gz (23/49): adding to final database dump
+0031.500 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlocks.table.gz (24/49): adding to final database dump
+0031.556 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlocks7.table.gz (25/49): adding to final database dump
+0031.612 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfBlocksAdv.table.gz (26/49): adding to final database dump
+0031.668 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfConfig.table.gz (27/49): adding to final database dump
+0031.738 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfCrawlers.table.gz (28/49): adding to final database dump
+0031.792 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfFileChanges.table.gz (29/49): adding to final database dump
+0031.848 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfFileMods.table.gz (30/49): adding to final database dump
+0031.983 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfHits.table.gz (31/49): adding to final database dump
+0032.048 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfHoover.table.gz (32/49): adding to final database dump
+0032.104 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfIssues.table.gz (33/49): adding to final database dump
+0032.164 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfKnownFileList.table.gz (34/49): adding to final database dump
+0032.256 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLeechers.table.gz (35/49): adding to final database dump
+0032.312 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLockedOut.table.gz (36/49): adding to final database dump
+0032.368 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLocs.table.gz (37/49): adding to final database dump
+0032.424 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfLogins.table.gz (38/49): adding to final database dump
+0032.482 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfNet404s.table.gz (39/49): adding to final database dump
+0032.536 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfNotifications.table.gz (40/49): adding to final database dump
+0032.593 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfPendingIssues.table.gz (41/49): adding to final database dump
+0032.648 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfReverseCache.table.gz (42/49): adding to final database dump
+0032.704 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfSNIPCache.table.gz (43/49): adding to final database dump
+0032.760 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfScanners.table.gz (44/49): adding to final database dump
+0032.816 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfStatus.table.gz (45/49): adding to final database dump
+0032.876 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfThrottleLog.table.gz (46/49): adding to final database dump
+0032.932 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_wfVulnScanners.table.gz (47/49): adding to final database dump
+0032.988 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_yoast_seo_links.table.gz (48/49): adding to final database dump
+0033.044 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db-table-wp_yoast_seo_meta.table.gz (49/49): adding to final database dump
+0033.100 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db.gz: finished writing out complete database file (1544 KB)
+0033.208 (0) Total database tables backed up: 49 (backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db.gz, size: 1593756, sha256)
+0033.416 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0033.468 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0033.528 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0033.580 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-others.zip: others: This file has not yet been successfully uploaded: will queue
+0033.636 (0) backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db.gz: db: This file has not yet been successfully uploaded: will queue
+0033.692 (0) Saving backup history. Total backup size: 85.6 MB
+0033.820 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0033.899 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0033.952 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-1cdbf39efc18b15be81c909392092155)
+0034.386 (0) S3 upload (): backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip (chunks: 8) -> s3://edmex.org/backups/backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip
+0034.533 (0) S3 chunked upload: got multipart ID: djLmkB9aXP0XnazTIKjIV_YduMOOyS5yMe_8nSOxXAcFmVwtLcp9OtZDGqKfoOTqB2MaIHQx8lLK7CB1ryn8C.d.DkXd3Whv9e0l7x9aZanfaoeNg4U02Zhsr0Ulizfv
+0036.410 (0) S3 chunked upload: 12.5 % uploaded (1, "565bb1f632507ca13f5b3b31ca8d441c")
+0038.119 (0) S3 chunked upload: 25 % uploaded (2, "5c1f0449c0d9134efdbae9b7b4f73697")
+0039.826 (0) S3 chunked upload: 37.5 % uploaded (3, "ad717a0f83e5edbbfb1184dd05d59b4a")
+0041.367 (0) S3 chunked upload: 50 % uploaded (4, "640a71abe9aa4804312b6ed39df2d14d")
+0043.095 (0) S3 chunked upload: 62.5 % uploaded (5, "a3a9813b14653452fe022bef049b343c")
+0044.643 (0) S3 chunked upload: 75 % uploaded (6, "712dc47d42b682ddcccc6b1801ad1754")
+0046.107 (0) S3 chunked upload: 87.5 % uploaded (7, "b2922bcbd4474aa3bf43b049bab60219")
+0047.331 (0) S3 chunked upload: 100 % uploaded (8, "9bf3c49dcf4d36845373b415177e8c41")
+0047.407 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0047.672 (0) S3 upload (plugins0): re-assembly succeeded
+0047.739 (0) Recording as successfully uploaded: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip (fcb5aa8960c40c847325fff63ee1d923)
+0047.848 (0) Deleting local file: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-plugins.zip: OK
+0047.904 (0) S3 upload (): backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip (chunks: 2) -> s3://edmex.org/backups/backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip
+0048.050 (0) S3 chunked upload: got multipart ID: xRFeDMWqmzXd5EeFYJ0a8AJXUH01nbqMb_swmOHwWziRWehXkQFk1MbJkJuAkn6n.i.GNTzk7m5hWz9hOYiLMfNMif8msz2buomuZqwSac_PPyl0_76HMf1gTNEakUjQ
+0049.531 (0) S3 chunked upload: 50 % uploaded (1, "96655b9e4b3f26cb23ffb24d71f6e0c5")
+0050.087 (0) S3 chunked upload: 100 % uploaded (2, "6937ad6f92a51d4f34fe727a9d31dd7c")
+0050.168 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0050.414 (0) S3 upload (themes0): re-assembly succeeded
+0050.479 (0) Recording as successfully uploaded: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip (bbb28332fbbd82f284c02f2c2f4a2598)
+0050.559 (0) Deleting local file: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-themes.zip: OK
+0050.612 (0) S3 upload (): backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip (chunks: 7) -> s3://edmex.org/backups/backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip
+0050.757 (0) S3 chunked upload: got multipart ID: 3UBS6d_dTCJWQaTBAi6b5ar9Iexxzf_5fFkrAahtiixnSyaTxnRbOXYpCQxrWDDeHiryS.riV8pOnktUVs1KdItJcUzvxu2IZdhmns6fWrkmhLB6Asi97ryWzpFXC0Qg
+0052.459 (0) S3 chunked upload: 14.3 % uploaded (1, "a565d5e230c6572778f9b8b7d57c624a")
+0053.961 (0) S3 chunked upload: 28.6 % uploaded (2, "bafdf49677938dd51854fe2b9504240c")
+0055.582 (0) S3 chunked upload: 42.9 % uploaded (3, "767001f4db0f5593813f55dfdff2c47e")
+0057.855 (0) S3 chunked upload: 57.1 % uploaded (4, "6c343ed79071731d4a334d3bc31c6bb4")
+0059.907 (0) S3 chunked upload: 71.4 % uploaded (5, "5e1acc728f6d8c75eb3db710704d07a5")
+0061.975 (0) S3 chunked upload: 85.7 % uploaded (6, "8fc4286df3b8bd4f70e26ff2dfb8ae80")
+0063.447 (0) S3 chunked upload: 100 % uploaded (7, "2e6bdaceaf02f2bd2219a0c42f01de39")
+0063.519 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0063.778 (0) S3 upload (uploads0): re-assembly succeeded
+0063.846 (0) Recording as successfully uploaded: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip (f10d9d2f471ae73b0b568c691887e757)
+0063.940 (0) Deleting local file: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-uploads.zip: OK
+0063.996 (0) S3 upload (): backup_2018-03-25-0846_edMexorg_9853af5bf3ef-others.zip (chunks: 2) -> s3://edmex.org/backups/backup_2018-03-25-0846_edMexorg_9853af5bf3ef-others.zip
+0064.141 (0) S3 chunked upload: got multipart ID: MPrvcE0Llzmfy.sHClz.MCEAsoFhES20lMAtJHEaNo7GRlAHB.KN_Tvbt2Yy9z7G8Kd9H2W96_cb2xEWvGjcOLRf_QImDf0S_WCGxAKxJR7HHRcPzRf0eJUk5ZyJA6aZ
+0066.127 (0) S3 chunked upload: 50 % uploaded (1, "2e330b32fc525719ea8843f8f1d8c369")
+0066.545 (0) S3 chunked upload: 100 % uploaded (2, "010762b6962b129513018f25b0953053")
+0066.630 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0066.844 (0) S3 upload (others0): re-assembly succeeded
+0066.924 (0) Recording as successfully uploaded: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-others.zip (4562228eabec04210d4c916ecbf87912)
+0067.001 (0) Deleting local file: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-others.zip: OK
+0067.060 (0) S3 upload (): backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db.gz (chunks: 1) -> s3://edmex.org/backups/backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db.gz
+0067.912 (0) S3 regular upload: success
+0067.984 (0) Recording as successfully uploaded: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db.gz (a083aa80333fa1a55d83834c3fb27088)
+0068.071 (0) Deleting local file: backup_2018-03-25-0846_edMexorg_9853af5bf3ef-db.gz: OK
+0068.139 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+0068.198 (0) Number of backup sets in history: 11; groups (db): 1
+0068.256 (0) Examining (for databases) backup set with group_id=0, nonce=9853af5bf3ef, datestamp=1521989204 (Mar 25 2018 14:46:44)
+0068.308 (0) This backup set is the backup set just made, so will not be deleted.
+0068.308 (0) Examining (for databases) backup set with group_id=0, nonce=1166d4b2eb8f, datestamp=1521904767 (Mar 24 2018 15:19:27)
+0068.308 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.364 (0) Examining (for databases) backup set with group_id=0, nonce=bc71532ced2b, datestamp=1521818492 (Mar 23 2018 15:21:32)
+0068.364 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.364 (0) Examining (for databases) backup set with group_id=0, nonce=75abf9fe818f, datestamp=1521729364 (Mar 22 2018 14:36:04)
+0068.364 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.365 (0) Examining (for databases) backup set with group_id=0, nonce=ebe62b475bcd, datestamp=1521643979 (Mar 21 2018 14:52:59)
+0068.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.365 (0) Examining (for databases) backup set with group_id=0, nonce=0d5a13da66ac, datestamp=1521557476 (Mar 20 2018 14:51:16)
+0068.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.365 (0) Examining (for databases) backup set with group_id=0, nonce=1bf6bb36d6be, datestamp=1521470808 (Mar 19 2018 14:46:48)
+0068.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.365 (0) Examining (for databases) backup set with group_id=0, nonce=53378fd34586, datestamp=1521385224 (Mar 18 2018 15:00:24)
+0068.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.365 (0) Examining (for databases) backup set with group_id=0, nonce=cd1ba93dfe81, datestamp=1521297791 (Mar 17 2018 14:43:11)
+0068.365 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.366 (0) Examining (for databases) backup set with group_id=0, nonce=bae627d26e68, datestamp=1521212965 (Mar 16 2018 15:09:25)
+0068.366 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.366 (0) Examining (for databases) backup set with group_id=0, nonce=293d5d3f9726, datestamp=1521124514 (Mar 15 2018 14:35:14)
+0068.366 (0) 1521124514: db: this set includes a database (backup_2018-03-15-0835_edMexorg_293d5d3f9726-db.gz); db count is now 10
+0068.366 (0) 1521124514: db: over retain limit (10); will delete this database
+0068.366 (0) Delete file: backup_2018-03-15-0835_edMexorg_293d5d3f9726-db.gz, service=s3
+0068.420 (0) S3: Delete remote: bucket=edmex.org, URI=backups/backup_2018-03-15-0835_edMexorg_293d5d3f9726-db.gz
+0068.574 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0068.628 (0) Number of backup sets in history: 11; groups (files): 1
+0068.688 (0) Examining (for files) backup set with nonce=9853af5bf3ef, datestamp=1521989204 (Mar 25 2018 14:46:44)
+0068.688 (0) This backup set is the backup set just made, so will not be deleted.
+0068.748 (0) This backup set is the backup set just made, so will not be deleted.
+0068.748 (0) This backup set is the backup set just made, so will not be deleted.
+0068.749 (0) This backup set is the backup set just made, so will not be deleted.
+0068.749 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.804 (0) Examining (for files) backup set with nonce=1166d4b2eb8f, datestamp=1521904767 (Mar 24 2018 15:19:27)
+0068.804 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.804 (0) Examining (for files) backup set with nonce=bc71532ced2b, datestamp=1521818492 (Mar 23 2018 15:21:32)
+0068.804 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.805 (0) Examining (for files) backup set with nonce=75abf9fe818f, datestamp=1521729364 (Mar 22 2018 14:36:04)
+0068.805 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.805 (0) Examining (for files) backup set with nonce=ebe62b475bcd, datestamp=1521643979 (Mar 21 2018 14:52:59)
+0068.805 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.805 (0) Examining (for files) backup set with nonce=0d5a13da66ac, datestamp=1521557476 (Mar 20 2018 14:51:16)
+0068.805 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.805 (0) Examining (for files) backup set with nonce=1bf6bb36d6be, datestamp=1521470808 (Mar 19 2018 14:46:48)
+0068.805 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.805 (0) Examining (for files) backup set with nonce=53378fd34586, datestamp=1521385224 (Mar 18 2018 15:00:24)
+0068.805 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.806 (0) Examining (for files) backup set with nonce=cd1ba93dfe81, datestamp=1521297791 (Mar 17 2018 14:43:11)
+0068.806 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.806 (0) Examining (for files) backup set with nonce=bae627d26e68, datestamp=1521212965 (Mar 16 2018 15:09:25)
+0068.806 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0068.806 (0) Examining (for files) backup set with nonce=293d5d3f9726, datestamp=1521124514 (Mar 15 2018 14:35:14)
+0068.806 (0) plugins: over retain limit (10); will delete this file entity
+0068.806 (0) themes: over retain limit (10); will delete this file entity
+0068.806 (0) uploads: over retain limit (10); will delete this file entity
+0068.806 (0) others: over retain limit (10); will delete this file entity
+0068.806 (0) Delete file: backup_2018-03-15-0835_edMexorg_293d5d3f9726-plugins.zip, service=s3
+0068.860 (0) Delete file: backup_2018-03-15-0835_edMexorg_293d5d3f9726-themes.zip, service=s3
+0068.916 (0) Delete file: backup_2018-03-15-0835_edMexorg_293d5d3f9726-uploads.zip, service=s3
+0068.972 (0) Delete file: backup_2018-03-15-0835_edMexorg_293d5d3f9726-others.zip, service=s3
+0069.036 (0) S3: Delete remote: bucket=edmex.org, URI=backups/backup_2018-03-15-0835_edMexorg_293d5d3f9726-plugins.zip
+0069.243 (0) S3: Delete remote: bucket=edmex.org, URI=backups/backup_2018-03-15-0835_edMexorg_293d5d3f9726-themes.zip
+0069.393 (0) S3: Delete remote: bucket=edmex.org, URI=backups/backup_2018-03-15-0835_edMexorg_293d5d3f9726-uploads.zip
+0069.568 (0) S3: Delete remote: bucket=edmex.org, URI=backups/backup_2018-03-15-0835_edMexorg_293d5d3f9726-others.zip
+0069.733 (0) This backup set is now empty; will remove from history
+0069.788 (0) Deleting log file (log.293d5d3f9726.txt)
+0069.844 (0) Retain: saving new backup history (sets now: 10) and finishing retain operation
+0069.980 (0) Resume backup (9853af5bf3ef, 0): finish run
+0070.099 (0) Decremented the semaphore (fd) by 1
+0070.158 (0) Semaphore (fd) unlocked
+0070.212 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0070.340 (0) The backup apparently succeeded and is now complete
+0070.396 (0) Fetching RSS news feed
+0070.570 (0) Fetched RSS news feed; result is a: SimplePie
+0070.651 (0) Sending email ('Archivos y base de datos (Respaldo completo)') report (attachments: 0, size: 0 KB) to: siste...
+0070.970 (0) El respaldo aparentemente fue exitoso y ya terminó

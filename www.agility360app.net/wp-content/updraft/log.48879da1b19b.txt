@@ -1,0 +1,75 @@
+0000.019 () Opened log file at time: Wed, 20 Dec 2017 21:33:42 +0000 on http://www.agility360app.net
+0000.019 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.13.16 WP: 4.9.1 PHP: 7.0.25 (apache2handler, Linux ip-172-31-14-147 4.9.62-21.56.amzn1.x86_64 #1 SMP Thu Nov 16 05:37:08 UTC 2017 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.25 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 21.5M | 4M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.019 () Free space on disk containing Updraft's temporary directory: 95139.5 MB
+0000.025 () Restore job started. Entities to restore: plugins, themes, uploads, others, db. Restore options: {"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false}
+0000.062 () Entity: db
+0000.062 () restore_backup(backup_file=backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-db.gz, type=db, info=a:0:{}, last_one=)
+0000.062 () Unpacking backup... (backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-db.gz, 0 Mb)
+0000.062 () Database successfully unpacked
+0000.062 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0000.062 () Using direct MySQL access; value of use_mysqli is: 1
+0000.115 () Tried to raise max_allowed_packet from 4 MB to 32 MB, but failed (Access denied; you need (at least one of) the SUPER privilege(s) for this operation, b:0;)
+0000.116 () Max packet size: 4 MB
+0000.116 () Entering maintenance mode
+0000.116 () Enabling Maintenance mode&#8230;
+0000.117 () Backup created by: 1.13.12
+0000.117 () Backup of: https://www.agility360app.net
+0000.178 () Content URL: https://www.agility360app.net/wp-content
+0000.178 () Uploads URL: https://www.agility360app.net/wp-content/uploads
+0000.179 () Old table prefix: wp_
+0000.179 () Site information: multisite=0
+0000.187 () New table prefix: wp_
+0000.206 () Processing table (InnoDB): wp_options
+0000.317 () Restoring prior UD configuration (table: wp_options; keys: 90)
+0001.379 () Processing table (InnoDB): wp_users
+0001.463 () Processing table (InnoDB): wp_usermeta
+0001.527 () Processing table (InnoDB): wp_commentmeta
+0001.586 () Processing table (InnoDB): wp_comments
+0001.673 () Processing table (InnoDB): wp_links
+0001.732 () Processing table (InnoDB): wp_postmeta
+0001.806 () Processing table (InnoDB): wp_posts
+0001.896 () Processing table (InnoDB): wp_term_relationships
+0001.971 () Processing table (InnoDB): wp_term_taxonomy
+0002.030 () Processing table (InnoDB): wp_termmeta
+0002.084 () Processing table (InnoDB): wp_terms
+0002.154 () Processing table (InnoDB): wp_ip_geo_block_cache
+0002.200 () Processing table (InnoDB): wp_ip_geo_block_logs
+0002.276 () Processing table (InnoDB): wp_ip_geo_block_stat
+0002.345 () Unlocking database and leaving maintenance mode
+0002.345 () Disabling Maintenance mode&#8230;
+0002.345 () Finished: lines processed: 49 in 2.28 seconds
+0002.345 () Cleaning up rubbish...
+0002.372 () Entity: plugins
+0002.372 () restore_backup(backup_file=backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:54:"/var/www/html/www.agility360app.net/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0002.372 () Unpacking backup... (backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-plugins.zip, 8.9 Mb)
+0002.673 () Moving old data: filesystem method / updraft_dir is potentially possible
+0002.673 () Moving old data: can potentially use wp_filesystem method / -old
+0002.673 () Moving old data out of the way...
+0002.741 () Top-level entities being moved: index.php, updraftplus
+0002.742 () Moving unpacked backup into place...
+0002.864 () Top-level entities being moved: rename-wp-login, index.php, all-in-one-favicon, ip-geo-block, w3-total-cache, updraftplus
+0002.865 () Cleaning up rubbish...
+0002.881 () Entity: themes
+0002.881 () restore_backup(backup_file=backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-themes.zip, type=themes, info=a:2:{s:4:"path";s:53:"/var/www/html/www.agility360app.net/wp-content/themes";s:11:"description";s:6:"Themes";}, last_one=)
+0002.881 () Unpacking backup... (backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-themes.zip, 2.2 Mb)
+0002.899 () Moving old data: filesystem method / updraft_dir is potentially possible
+0002.899 () Moving old data: can potentially use wp_filesystem method / -old
+0002.899 () Moving old data out of the way...
+0002.907 () Top-level entities being moved: index.php, twentyseventeen, twentyfifteen, twentysixteen
+0002.907 () Moving unpacked backup into place...
+0002.915 () Top-level entities being moved: index.php, twentyseventeen, twentyfifteen, twentysixteen
+0002.915 () Cleaning up rubbish...
+0002.927 () Entity: uploads
+0002.927 () restore_backup(backup_file=backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:54:"/var/www/html/www.agility360app.net/wp-content/uploads";s:11:"description";s:7:"Uploads";}, last_one=)
+0002.927 () Unpacking backup... (backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-uploads.zip, 0 Mb)
+0002.927 () Moving old data: filesystem method / updraft_dir is potentially possible
+0002.928 () Moving old data: can potentially use wp_filesystem method / -old
+0002.928 () Moving old data out of the way...
+0002.928 () Moving unpacked backup into place...
+0002.928 () Cleaning up rubbish...
+0002.939 () Entity: others
+0002.940 () restore_backup(backup_file=backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-others.zip, type=others, info=a:2:{s:4:"path";s:46:"/var/www/html/www.agility360app.net/wp-content";s:11:"description";s:6:"Others";}, last_one=1)
+0002.940 () Unpacking backup... (backup_2017-12-20-2014_Agility_360_Client_Engagement_Ap_df96a1d84815-others.zip, 7.9 Mb)
+0003.060 () Cleaning up rubbish...
+0003.082 () Restore successful!
+0003.082 () Restore successful

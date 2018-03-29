@@ -1,0 +1,121 @@
+0000.018 () Opened log file at time: Tue, 13 Mar 2018 16:30:01 +0000 on https://mightywizards.com
+0000.018 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-14-147 4.9.85-37.55.amzn1.x86_64 #1 SMP Mon Mar 5 19:00:48 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: es_MX Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 51.4M | 10M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.018 () Free space on disk containing Updraft's temporary directory: 93189.7 MB
+0000.027 () Restore job started. Entities to restore: plugins, themes, uploads, others, db. Restore options: {"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false,"updraft_incremental_restore_point":-1}
+0000.087 () Entity: db
+0000.087 () restore_backup(backup_file=backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-db.gz, type=db, info=a:0:{}, last_one=)
+0000.087 () Desempacando el respaldo... (backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-db.gz, 1.1 Mb)
+0000.088 () Database successfully unpacked
+0000.088 () Restaurando la base de datos (en un sitio grande esto puede tomar bastante tiempo - si se da un time out (lo cual puede pasar si su compañía de hospedaje web ha configurado su cuenta con límites de recursos) entonces usted debe usar un método diferente, como phpMyAdmin)...
+0000.088 () Using direct MySQL access; value of use_mysqli is: 1
+0000.148 () Tried to raise max_allowed_packet from 4 MB to 32 MB, but failed (Access denied; you need (at least one of) the SUPER privilege(s) for this operation, b:0;)
+0000.149 () Max packet size: 4 MB
+0000.149 () Entering maintenance mode
+0000.149 () Activando el modo mantenimiento&#8230;
+0000.151 () Backup of: https://mightywizards.com
+0000.151 () Content URL: https://mightywizards.com/wp-content
+0000.151 () Uploads URL: http://mightywizards.com/wp-content/uploads
+0000.151 () Old table prefix: wp_
+0000.151 () Site information: multisite=0
+0000.157 () New table prefix: wp_
+0000.175 () Processing table (InnoDB): wp_options
+0000.661 () Restoring prior UD configuration (table: wp_options; keys: 3)
+0000.761 () Processing table (InnoDB): wp_users
+0000.830 () Processing table (InnoDB): wp_usermeta
+0000.900 () Processing table (InnoDB): wp_commentmeta
+0000.953 () Processing table (InnoDB): wp_comments
+0001.017 () Processing table (InnoDB): wp_links
+0001.062 () Processing table (InnoDB): wp_postmeta
+0001.183 () Processing table (InnoDB): wp_posts
+0001.720 () Processing table (InnoDB): wp_term_relationships
+0001.770 () Processing table (InnoDB): wp_term_taxonomy
+0001.825 () Processing table (InnoDB): wp_termmeta
+0001.872 () Processing table (InnoDB): wp_terms
+0001.927 () Processing table (InnoDB): wp_eg_grids
+0001.978 () Processing table (InnoDB): wp_eg_item_elements
+0002.027 () Processing table (InnoDB): wp_eg_item_skins
+0002.422 () Database queries processed: 50 in 2.33 seconds
+0002.465 () Processing table (InnoDB): wp_eg_navigation_skins
+0002.544 () Processing table (InnoDB): wp_responsive_menu
+0002.596 () Processing table (InnoDB): wp_revslider_css
+0002.671 () Processing table (InnoDB): wp_revslider_layer_animations
+0002.743 () Processing table (InnoDB): wp_revslider_navigations
+0002.783 () Processing table (InnoDB): wp_revslider_sliders
+0002.846 () Processing table (InnoDB): wp_revslider_slides
+0002.939 () Processing table (InnoDB): wp_revslider_static_slides
+0002.986 () Processing table (InnoDB): wp_w3tc_cdn_queue
+0003.026 () Processing table (InnoDB): wp_wfBadLeechers
+0003.066 () Processing table (InnoDB): wp_wfBlockedCommentLog
+0003.114 () Processing table (InnoDB): wp_wfBlockedIPLog
+0003.162 () Processing table (InnoDB): wp_wfBlocks
+0003.206 () Processing table (InnoDB): wp_wfBlocks7
+0003.254 () Processing table (InnoDB): wp_wfBlocksAdv
+0003.287 () Processing table (InnoDB): wp_wfConfig
+0003.402 () Processing table (InnoDB): wp_wfCrawlers
+0003.446 () Processing table (InnoDB): wp_wfFileChanges
+0003.482 () Processing table (InnoDB): wp_wfFileMods
+0003.679 () Database queries processed: 100 in 3.58 seconds
+0004.039 () Processing table (InnoDB): wp_wfHits
+0004.490 () Processing table (InnoDB): wp_wfHoover
+0004.526 () Processing table (InnoDB): wp_wfIssues
+0004.582 () Processing table (InnoDB): wp_wfKnownFileList
+0005.015 () Processing table (InnoDB): wp_wfLeechers
+0005.063 () Processing table (InnoDB): wp_wfLockedOut
+0005.098 () Processing table (InnoDB): wp_wfLocs
+0005.134 () Processing table (InnoDB): wp_wfLogins
+0005.202 () Processing table (InnoDB): wp_wfNet404s
+0005.242 () Processing table (InnoDB): wp_wfNotifications
+0005.284 () Processing table (InnoDB): wp_wfPendingIssues
+0005.339 () Processing table (InnoDB): wp_wfReverseCache
+0005.393 () Processing table (InnoDB): wp_wfSNIPCache
+0005.447 () Processing table (InnoDB): wp_wfScanners
+0005.491 () Processing table (InnoDB): wp_wfStatus
+0005.589 () Database queries processed: 150 in 5.49 seconds
+0005.602 () Processing table (InnoDB): wp_wfThrottleLog
+0005.642 () Processing table (InnoDB): wp_wfVulnScanners
+0005.682 () Processing table (InnoDB): wp_wpgmza
+0005.749 () Processing table (InnoDB): wp_wpgmza_categories
+0005.788 () Processing table (InnoDB): wp_wpgmza_category_maps
+0005.830 () Processing table (InnoDB): wp_wpgmza_maps
+0005.874 () Processing table (InnoDB): wp_wpgmza_polygon
+0005.907 () Processing table (InnoDB): wp_wpgmza_polylines
+0005.942 () Processing table (InnoDB): wp_yoast_seo_links
+0005.991 () Processing table (InnoDB): wp_yoast_seo_meta
+0006.025 () Unlocking database and leaving maintenance mode
+0006.025 () Desactivando el modo de mantenimiento&#8230;
+0006.025 () Finished: lines processed: 177 in 5.93 seconds
+0006.025 () Limpiando...
+0006.063 () Entity: plugins
+0006.063 () restore_backup(backup_file=backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:40:"/var/www/html/wizards/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0006.063 () Desempacando el respaldo... (backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-plugins.zip, 30.1 Mb)
+0006.819 () Moving old data: filesystem method / updraft_dir is potentially possible
+0006.819 () Moving old data: can potentially use wp_filesystem method / -old
+0006.819 () Moviendo datos viejos del proceso...
+0007.147 () Top-level entities being moved: rename-wp-login, wp-google-maps, wordfence, google-analytics-dashboard-for-wp, index.php, essential-grid, wp-add-custom-css, revslider, wordpress-seo, insert-headers-and-footers, w3-total-cache, updraftplus, velvet-blues-update-urls, duplicate-page
+0007.149 () Moviendo respaldo desempacado a su lugar....
+0007.476 () Top-level entities being moved: rename-wp-login, wp-google-maps, wordfence, google-analytics-dashboard-for-wp, index.php, essential-grid, wp-add-custom-css, revslider, wordpress-seo, insert-headers-and-footers, w3-total-cache, updraftplus, velvet-blues-update-urls, duplicate-page
+0007.478 () Limpiando...
+0007.492 () Entity: themes
+0007.492 () restore_backup(backup_file=backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-themes.zip, type=themes, info=a:2:{s:4:"path";s:39:"/var/www/html/wizards/wp-content/themes";s:11:"description";s:10:"Plantillas";}, last_one=)
+0007.492 () Desempacando el respaldo... (backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-themes.zip, 8.6 Mb)
+0007.544 () Moving old data: filesystem method / updraft_dir is potentially possible
+0007.544 () Moving old data: can potentially use wp_filesystem method / -old
+0007.544 () Moviendo datos viejos del proceso...
+0007.559 () Top-level entities being moved: Mighty-Wizards, index.php, twentyseventeen, twentyfifteen, twentysixteen
+0007.559 () Moviendo respaldo desempacado a su lugar....
+0007.574 () Top-level entities being moved: Mighty-Wizards, index.php, twentyseventeen, twentyfifteen, twentysixteen
+0007.574 () Limpiando...
+0007.588 () Entity: uploads
+0007.588 () restore_backup(backup_file=backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:40:"/var/www/html/wizards/wp-content/uploads";s:11:"description";s:7:"Subidas";}, last_one=)
+0007.588 () Desempacando el respaldo... (backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-uploads.zip, 16.2 Mb)
+0007.635 () Moving old data: filesystem method / updraft_dir is potentially possible
+0007.635 () Moving old data: can potentially use wp_filesystem method / -old
+0007.635 () Moviendo datos viejos del proceso...
+0007.669 () Moviendo respaldo desempacado a su lugar....
+0007.720 () Limpiando...
+0007.735 () Entity: others
+0007.736 () restore_backup(backup_file=backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-others.zip, type=others, info=a:2:{s:4:"path";s:32:"/var/www/html/wizards/wp-content";s:11:"description";s:5:"Otros";}, last_one=1)
+0007.736 () Desempacando el respaldo... (backup_2018-03-13-0827_Mighty_Wizards_Technologies_d5f7ef8d6d18-others.zip, 1.1 Mb)
+0007.758 () Limpiando...
+0007.785 () Restore successful!
+0007.785 () Restore successful

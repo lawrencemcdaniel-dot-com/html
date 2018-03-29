@@ -1,0 +1,126 @@
+0000.017 () Opened log file at time: Mon, 27 Nov 2017 17:39:44 +0000 on https://wizards.lawrencemcdaniel.com
+0000.017 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.13.12 WP: 4.9 PHP: 7.0.25 (apache2handler, Linux ip-172-31-14-147 4.9.62-21.56.amzn1.x86_64 #1 SMP Thu Nov 16 05:37:08 UTC 2017 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.25 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 33.6M | 6M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.017 () Free space on disk containing Updraft's temporary directory: 95384.4 MB
+0000.023 () Restore job started. Entities to restore: plugins, themes, uploads, others, db. Restore options: {"updraft_restorer_replacesiteurl":false,"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false}
+0000.041 () Requested file from remote service: s3: backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-db.gz
+0000.484 () Set region: us-west-2
+0000.514 () Set region: us-west-2
+0000.641 () File is already completely downloaded (1824736/1824736)
+0000.642 () Requested file from remote service: s3: backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-plugins.zip
+0000.957 () Set region: us-west-2
+0000.984 () Set region: us-west-2
+0001.099 () File is already completely downloaded (18079689/18079689)
+0001.099 () Requested file from remote service: s3: backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-themes.zip
+0001.456 () Set region: us-west-2
+0001.484 () Set region: us-west-2
+0001.592 () File is already completely downloaded (71439008/71439008)
+0001.592 () Requested file from remote service: s3: backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-uploads.zip
+0001.946 () Set region: us-west-2
+0001.976 () Set region: us-west-2
+0002.098 () File is already completely downloaded (21136605/21136605)
+0002.099 () Requested file from remote service: s3: backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-others.zip
+0002.470 () Set region: us-west-2
+0003.132 () Set region: us-west-2
+0003.454 () File is already completely downloaded (516600/516600)
+0003.475 () Entity: db
+0003.475 () restore_backup(backup_file=backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-db.gz, type=db, info=a:0:{}, last_one=)
+0003.475 () Unpacking backup... (backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-db.gz, 1.7 Mb)
+0003.476 () Database successfully unpacked
+0003.477 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0003.477 () Using direct MySQL access; value of use_mysqli is: 1
+0003.521 () Tried to raise max_allowed_packet from 4 MB to 32 MB, but failed (Access denied; you need (at least one of) the SUPER privilege(s) for this operation, b:0;)
+0003.522 () Max packet size: 4 MB
+0003.522 () Entering maintenance mode
+0003.522 () Enabling Maintenance mode&#8230;
+0003.523 () Backup of: https://wizards.lawrencemcdaniel.com
+0003.527 () Site home: http://wizards.lawrencemcdaniel.com
+0003.527 () Content URL: https://wizards.lawrencemcdaniel.com/wp-content
+0003.527 () Uploads URL: http://wizards.lawrencemcdaniel.com/wp-content/uploads
+0003.527 () Old table prefix: wp_
+0003.528 () Site information: multisite=0
+0003.536 () New table prefix: wp_
+0003.546 () Processing table (InnoDB): wp_options
+0003.915 () Restoring prior UD configuration (table: wp_options; keys: 3)
+0003.952 () Processing table (InnoDB): wp_users
+0004.010 () Processing table (InnoDB): wp_usermeta
+0004.066 () Processing table (InnoDB): wp_commentmeta
+0004.113 () Processing table (InnoDB): wp_comments
+0004.182 () Processing table (InnoDB): wp_links
+0004.225 () Processing table (InnoDB): wp_postmeta
+0004.336 () Processing table (InnoDB): wp_posts
+0004.541 () Processing table (InnoDB): wp_term_relationships
+0004.598 () Processing table (InnoDB): wp_term_taxonomy
+0004.660 () Processing table (InnoDB): wp_termmeta
+0004.709 () Processing table (InnoDB): wp_terms
+0004.766 () Processing table (InnoDB): wp_eg_grids
+0004.807 () Processing table (InnoDB): wp_eg_item_elements
+0004.853 () Processing table (InnoDB): wp_eg_item_skins
+0005.222 () Processing table (InnoDB): wp_eg_navigation_skins
+0005.298 () Processing table (InnoDB): wp_wfBadLeechers
+0005.322 () Database queries processed: 50 in 1.84 seconds
+0005.338 () Processing table (InnoDB): wp_wfBlockedCommentLog
+0005.378 () Processing table (InnoDB): wp_wfBlockedIPLog
+0005.418 () Processing table (InnoDB): wp_wfBlocks
+0005.466 () Processing table (InnoDB): wp_wfBlocksAdv
+0005.510 () Processing table (InnoDB): wp_wfConfig
+0005.682 () Processing table (InnoDB): wp_wfCrawlers
+0005.803 () Processing table (InnoDB): wp_wfFileMods
+0006.624 () Processing table (InnoDB): wp_wfHits
+0006.777 () Processing table (InnoDB): wp_wfHoover
+0006.826 () Processing table (InnoDB): wp_wfIssues
+0006.878 () Database queries processed: 100 in 3.39 seconds
+0006.882 () Processing table (InnoDB): wp_wfKnownFileList
+0007.393 () Processing table (InnoDB): wp_wfLeechers
+0007.442 () Processing table (InnoDB): wp_wfLockedOut
+0007.486 () Processing table (InnoDB): wp_wfLocs
+0007.546 () Processing table (InnoDB): wp_wfLogins
+0007.610 () Processing table (InnoDB): wp_wfNet404s
+0007.661 () Processing table (InnoDB): wp_wfNotifications
+0007.758 () Processing table (InnoDB): wp_wfPendingIssues
+0007.806 () Processing table (InnoDB): wp_wfReverseCache
+0007.850 () Processing table (InnoDB): wp_wfSNIPCache
+0007.909 () Processing table (InnoDB): wp_wfScanners
+0007.964 () Processing table (InnoDB): wp_wfStatus
+0008.198 () Processing table (InnoDB): wp_wfThrottleLog
+0008.245 () Processing table (InnoDB): wp_wfVulnScanners
+0008.294 () Processing table (InnoDB): wp_yoast_seo_links
+0008.333 () Database queries processed: 150 in 4.85 seconds
+0008.357 () Processing table (InnoDB): wp_yoast_seo_meta
+0008.395 () Unlocking database and leaving maintenance mode
+0008.395 () Disabling Maintenance mode&#8230;
+0008.395 () Finished: lines processed: 157 in 4.91 seconds
+0008.395 () Cleaning up rubbish...
+0008.421 () Entity: plugins
+0008.421 () restore_backup(backup_file=backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:40:"/var/www/html/wizards/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0008.421 () Unpacking backup... (backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-plugins.zip, 17.2 Mb)
+0008.907 () Moving old data: filesystem method / updraft_dir is potentially possible
+0008.907 () Moving old data: can potentially use wp_filesystem method / -old
+0008.907 () Moving old data out of the way...
+0009.091 () Top-level entities being moved: rename-wp-login, wordfence, index.php, google-analytics-for-wordpress, essential-grid, wp-add-custom-css, wordpress-seo, w3-total-cache, updraftplus
+0009.093 () Moving unpacked backup into place...
+0009.275 () Top-level entities being moved: rename-wp-login, wordfence, index.php, google-analytics-for-wordpress, essential-grid, wp-add-custom-css, wordpress-seo, w3-total-cache, updraftplus
+0009.276 () Cleaning up rubbish...
+0009.293 () Entity: themes
+0009.293 () restore_backup(backup_file=backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-themes.zip, type=themes, info=a:2:{s:4:"path";s:39:"/var/www/html/wizards/wp-content/themes";s:11:"description";s:6:"Themes";}, last_one=)
+0009.293 () Unpacking backup... (backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-themes.zip, 68.1 Mb)
+0010.909 () Moving old data: filesystem method / updraft_dir is potentially possible
+0010.909 () Moving old data: can potentially use wp_filesystem method / -old
+0010.909 () Moving old data out of the way...
+0011.741 () Top-level entities being moved: Mighty-Wizards, index.php, twentyseventeen, twentyfifteen, twentysixteen, understrap
+0011.745 () Moving unpacked backup into place...
+0012.580 () Top-level entities being moved: Mighty-Wizards, index.php, twentyseventeen, twentyfifteen, twentysixteen, understrap
+0012.585 () Cleaning up rubbish...
+0012.600 () Entity: uploads
+0012.600 () restore_backup(backup_file=backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:40:"/var/www/html/wizards/wp-content/uploads";s:11:"description";s:7:"Uploads";}, last_one=)
+0012.600 () Unpacking backup... (backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-uploads.zip, 20.2 Mb)
+0012.627 () Moving old data: filesystem method / updraft_dir is potentially possible
+0012.627 () Moving old data: can potentially use wp_filesystem method / -old
+0012.627 () Moving old data out of the way...
+0012.631 () Moving unpacked backup into place...
+0012.634 () Cleaning up rubbish...
+0012.650 () Entity: others
+0012.650 () restore_backup(backup_file=backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-others.zip, type=others, info=a:2:{s:4:"path";s:32:"/var/www/html/wizards/wp-content";s:11:"description";s:6:"Others";}, last_one=1)
+0012.650 () Unpacking backup... (backup_2017-11-27-0756_Mighty_Wizards_Technologies_94c58b372657-others.zip, 0.5 Mb)
+0012.658 () Cleaning up rubbish...
+0012.683 () Restore successful!
+0012.683 () Restore successful
