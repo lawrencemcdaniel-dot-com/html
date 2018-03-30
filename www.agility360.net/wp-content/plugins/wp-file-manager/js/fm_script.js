@@ -45,10 +45,26 @@ jQuery('#fm_theme').change(function(e) {
 	    e.preventDefault();  
 		var email = jQuery('#verify_lokhal_email').val(); 
 		var fname = jQuery('#verify_lokhal_fname').val();   
-		var lname = jQuery('#verify_lokhal_lname').val();  
-		jQuery('.lokhal_verify_email_popup').slideUp();
-		jQuery('.lokhal_verify_email_popup_overlay').hide();		
-		send_ajax('verify', email, fname, lname);
+		var lname = jQuery('#verify_lokhal_lname').val(); 
+		var send_mail = true; 
+		jQuery('.error_msg').hide();
+		if(fname == '') {
+			jQuery('#fname_error').show();
+			send_mail = false;
+		} 
+		if(lname == '') {
+			jQuery('#lname_error').show();
+			send_mail = false;
+		}
+		if(email == '') {
+			jQuery('#email_error').show();
+			send_mail = false;
+		}
+		if(send_mail) {	
+		  jQuery('.lokhal_verify_email_popup').slideUp();
+		  jQuery('.lokhal_verify_email_popup_overlay').hide();
+		  send_ajax('verify', email, fname, lname);
+		}
     });
 						
 });
@@ -66,16 +82,3 @@ function send_ajax(todo, email, fname, lname) {
 						 }
 						});	
 }
-
-
-/**custom scroller**/
-var $  = jQuery.noConflict();
-(function($){
-			$(window).on("load",function(){
-				
-				$(".elfinder-cwd-wrapper.ui-droppable").mCustomScrollbar({
-					theme:"minimal"
-				});
-				
-			});
-		})(jQuery);

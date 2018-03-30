@@ -29,7 +29,7 @@ $this->load_help_desk();
 
 <select name="theme" id="fm_theme">
 <option value="default" <?php echo (isset($_GET['theme']) && $_GET['theme'] == 'default') ? 'selected="selected"' : ($wp_fm_theme !== false) && $wp_fm_theme == 'default' ? 'selected="selected"' : '';?>><?php  _e('Default', 'wp-file-manager'); ?></option>
-<option value="mac" <?php echo (isset($_GET['theme']) && $_GET['theme'] == 'mac') ? 'selected="selected"' : ($wp_fm_theme !== false) && $wp_fm_theme == 'mac' ? 'selected="selected"' : '';?>><?php  _e('Mac', 'wp-file-manager'); ?></option>
+<option value="dark" <?php echo (isset($_GET['theme']) && $_GET['theme'] == 'dark') ? 'selected="selected"' : ($wp_fm_theme !== false) && $wp_fm_theme == 'dark' ? 'selected="selected"' : '';?>><?php  _e('Dark', 'wp-file-manager'); ?></option>
 <option value="light" <?php echo (isset($_GET['theme']) && $_GET['theme'] == 'light') ? 'selected="selected"' : ($wp_fm_theme !== false) && $wp_fm_theme == 'light' ? 'selected="selected"' : '';?>><?php  _e('Light', 'wp-file-manager'); ?></option>
 <option value="gray" <?php echo (isset($_GET['theme']) && $_GET['theme'] == 'gray') ? 'selected="selected"' : ($wp_fm_theme !== false) && $wp_fm_theme == 'gray' ? 'selected="selected"' : '';?>><?php  _e('Gray', 'wp-file-manager'); ?></option>
 <option value="windows - 10" <?php echo (isset($_GET['theme']) && $_GET['theme'] == 'windows - 10') ? 'selected="selected"' : ($wp_fm_theme !== false) && $wp_fm_theme == 'windows - 10' ? 'selected="selected"' : '';?>><?php  _e('Windows - 10', 'wp-file-manager'); ?></option>
@@ -62,15 +62,18 @@ awesome deals and a few special offers.', 'wp-file-manager'); ?></p>
 <div class="form_grp">
 <div class="form_twocol">
 <input name="verify_lokhal_fname" id="verify_lokhal_fname" class="regular-text" type="text" value="<?php echo (null == get_option('verify_filemanager_fname_'.$current_user->ID)) ? $current_user->user_firstname : get_option('verify_filemanager_fname_'.$current_user->ID);?>" placeholder="First Name" />
+<span id="fname_error" class="error_msg"><?php  _e('Please Enter First Name.', 'wp-file-manager'); ?></span>
 </div>
 <div class="form_twocol">
 <input name="verify_lokhal_lname" id="verify_lokhal_lname" class="regular-text" type="text" value="<?php echo (null == 
 get_option('verify_filemanager_lname_'.$current_user->ID)) ? $current_user->user_lastname : get_option('verify_filemanager_lname_'.$current_user->ID);?>" placeholder="Last Name" />
+<span id="lname_error" class="error_msg"><?php  _e('Please Enter Last Name.', 'wp-file-manager'); ?></span>
 </div>
 </div>
 <div class="form_grp">
 <div class="form_onecol">
 <input name="verify_lokhal_email" id="verify_lokhal_email" class="regular-text" type="text" value="<?php echo (null == get_option('filemanager_email_address_'.$current_user->ID)) ? $current_user->user_email :  get_option('filemanager_email_address_'.$current_user->ID);?>" placeholder="Email Address" />
+<span id="email_error" class="error_msg"><?php  _e('Please Enter Email Address.', 'wp-file-manager'); ?></span>
 </div>
 </div>
 <div class="btn_dv">
