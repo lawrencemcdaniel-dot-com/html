@@ -1,0 +1,505 @@
+0000.000 (0) Opened log file at time: Sat, 31 Mar 2018 13:14:34 +0000 on https://agility360.lawrencemcdaniel.com
+0000.056 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.4 WP: 4.9.4 PHP: 7.0.27 (apache2handler, Linux ip-172-31-26-142 4.9.85-38.58.amzn1.x86_64 #1 SMP Wed Mar 14 01:17:26 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.27 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.27 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 35.8M | 4M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.112 (0) Free space on disk containing Updraft's temporary directory: 91177.1 MB
+0000.169 (0) Tasks: Backup files: 1 (schedule: manual) Backup DB: 1 (schedule: manual)
+0000.225 (0) Semaphore (fd, wp_options) being initialised
+0000.356 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.429 (0) Set semaphore last lock (fd) time to 2018-03-31 13:14:34
+0000.484 (0) Semaphore lock (fd) complete
+0000.566 (0) Backup run: resumption=0, nonce=ca18fdce6b47, begun at=1522502074 (1s ago), job type=backup
+0000.626 (0) Scheduling a resumption (1) after 300 seconds (1522502375) in case this run gets aborted
+0000.746 (0) Checking if we have a zip executable available
+0000.800 (0) Testing: /usr/bin/zip
+0000.859 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.916 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.972 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0001.028 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0001.084 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0001.147 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0001.204 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0001.264 (0) Working binary zip found: /usr/bin/zip
+0001.326 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0001.384 (0) Creation of backups of directories: beginning
+0001.457 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0001.612 (0) Total entities for the zip file: 842 directories, 6697 files (0 skipped as non-modified), 96.2 MB
+0001.670 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0001.725 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0001.781 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0001.837 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0001.893 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0001.948 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (14.3 MB, 6697 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0002.768 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: size is now: 6.20 MB
+0002.835 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 600 files added (on-disk size: 6336.7 KB)
+0002.893 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 700 files added (on-disk size: 6336.7 KB)
+0002.949 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 800 files added (on-disk size: 6336.7 KB)
+0003.005 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 900 files added (on-disk size: 6336.7 KB)
+0003.061 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1000 files added (on-disk size: 6336.7 KB)
+0003.116 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.1 MB, 6697 files batched, 501 (1002) added so far); re-opening (prior size: 6336.7 KB)
+0003.413 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: size is now: 9.60 MB
+0003.494 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1100 files added (on-disk size: 9852.5 KB)
+0003.569 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1200 files added (on-disk size: 9852.5 KB)
+0003.637 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1300 files added (on-disk size: 9852.5 KB)
+0003.693 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1400 files added (on-disk size: 9852.5 KB)
+0003.749 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1500 files added (on-disk size: 9852.5 KB)
+0003.808 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.9 MB, 6697 files batched, 501 (1503) added so far); re-opening (prior size: 9852.5 KB)
+0004.483 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: size is now: 16.10 MB
+0004.548 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1600 files added (on-disk size: 16482.2 KB)
+0004.605 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1700 files added (on-disk size: 16482.2 KB)
+0004.661 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1800 files added (on-disk size: 16482.2 KB)
+0004.717 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 1900 files added (on-disk size: 16482.2 KB)
+0004.773 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2000 files added (on-disk size: 16482.2 KB)
+0004.828 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6 MB, 6697 files batched, 501 (2004) added so far); re-opening (prior size: 16482.2 KB)
+0005.646 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2100 files added (on-disk size: 19635.9 KB)
+0005.705 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2200 files added (on-disk size: 19635.9 KB)
+0005.761 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2300 files added (on-disk size: 19635.9 KB)
+0005.817 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2400 files added (on-disk size: 19635.9 KB)
+0005.873 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2500 files added (on-disk size: 19635.9 KB)
+0005.928 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.6 MB, 6697 files batched, 501 (2505) added so far); re-opening (prior size: 19635.9 KB)
+0006.324 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2600 files added (on-disk size: 20105.1 KB)
+0006.381 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2700 files added (on-disk size: 20105.1 KB)
+0006.437 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2800 files added (on-disk size: 20105.1 KB)
+0006.493 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 2900 files added (on-disk size: 20105.1 KB)
+0006.549 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3000 files added (on-disk size: 20105.1 KB)
+0006.608 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.7 MB, 6697 files batched, 501 (3006) added so far); re-opening (prior size: 20105.1 KB)
+0006.985 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3100 files added (on-disk size: 20481 KB)
+0007.041 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3200 files added (on-disk size: 20481 KB)
+0007.097 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3300 files added (on-disk size: 20481 KB)
+0007.153 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3400 files added (on-disk size: 20481 KB)
+0007.209 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3500 files added (on-disk size: 20481 KB)
+0007.264 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.1 MB, 6697 files batched, 501 (3507) added so far); re-opening (prior size: 20481 KB)
+0007.644 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3600 files added (on-disk size: 23771.4 KB)
+0007.725 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3700 files added (on-disk size: 23771.4 KB)
+0007.781 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3800 files added (on-disk size: 23771.4 KB)
+0007.837 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 3900 files added (on-disk size: 23771.4 KB)
+0007.897 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4000 files added (on-disk size: 23771.4 KB)
+0007.952 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.3 MB, 6697 files batched, 501 (4008) added so far); re-opening (prior size: 23771.4 KB)
+0008.591 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4100 files added (on-disk size: 27021.7 KB)
+0008.649 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4200 files added (on-disk size: 27021.7 KB)
+0008.709 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4300 files added (on-disk size: 27021.7 KB)
+0008.765 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4400 files added (on-disk size: 27021.7 KB)
+0008.821 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4500 files added (on-disk size: 27021.7 KB)
+0008.876 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.5 MB, 6697 files batched, 501 (4509) added so far); re-opening (prior size: 27021.7 KB)
+0009.596 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4600 files added (on-disk size: 30512.8 KB)
+0009.657 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4700 files added (on-disk size: 30512.8 KB)
+0009.717 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4800 files added (on-disk size: 30512.8 KB)
+0009.773 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 4900 files added (on-disk size: 30512.8 KB)
+0009.829 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5000 files added (on-disk size: 30512.8 KB)
+0009.884 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (18.5 MB, 6697 files batched, 501 (5010) added so far); re-opening (prior size: 30512.8 KB)
+0010.934 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: size is now: 37.90 MB
+0011.004 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5100 files added (on-disk size: 38790.1 KB)
+0011.061 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5200 files added (on-disk size: 38790.1 KB)
+0011.117 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5300 files added (on-disk size: 38790.1 KB)
+0011.173 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5400 files added (on-disk size: 38790.1 KB)
+0011.229 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5500 files added (on-disk size: 38790.1 KB)
+0011.284 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.7 MB, 6697 files batched, 501 (5511) added so far); re-opening (prior size: 38790.1 KB)
+0011.720 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5600 files added (on-disk size: 41032.4 KB)
+0011.781 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5700 files added (on-disk size: 41032.4 KB)
+0011.837 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5800 files added (on-disk size: 41032.4 KB)
+0011.893 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 5900 files added (on-disk size: 41032.4 KB)
+0011.949 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 6000 files added (on-disk size: 41032.4 KB)
+0012.004 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.4 MB, 6697 files batched, 501 (6012) added so far); re-opening (prior size: 41032.4 KB)
+0012.200 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 6100 files added (on-disk size: 41615.2 KB)
+0012.257 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 6200 files added (on-disk size: 41615.2 KB)
+0012.313 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 6300 files added (on-disk size: 41615.2 KB)
+0012.369 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 6400 files added (on-disk size: 41615.2 KB)
+0012.425 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 6500 files added (on-disk size: 41615.2 KB)
+0012.480 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 6697 files batched, 501 (6513) added so far); re-opening (prior size: 41615.2 KB)
+0013.005 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip.tmp: 6600 files added (on-disk size: 43489.3 KB)
+0013.866 (0) Created plugins zip (0) - 45740.9 KB in 12.4 s (3702.4 KB/s) (sha1: 26e9abe560a76b2b8977fcea7f0595c986c651bc, sha256: 601b15df84f443a044fd21799a30dd74cba06c515118bf573c594b28fd10282c)
+0013.927 (0) Beginning creation of dump of themes (split every: 400 MB)
+0013.998 (0) Total entities for the zip file: 53 directories, 604 files (0 skipped as non-modified), 6.1 MB
+0014.054 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0014.109 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0014.165 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0014.221 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0014.277 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0014.332 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 604 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0014.779 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: size is now: 3.00 MB
+0014.854 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: 600 files added (on-disk size: 3032.7 KB)
+0015.038 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip.tmp: size is now: 4.30 MB
+0015.165 (0) Created themes zip (0) - 4366.5 KB in 1.2 s (3683.7 KB/s) (sha1: f27374143675b39883e88eb5fe4290703eca7cbb, sha256: aa665c79e679af3732021dcf7806d54760369773eb96922c62d5649f3cf5d3e7)
+0015.230 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0015.284 (0) Looking for candidates to back up in: /var/www/html/www.agility360.net/wp-content/uploads
+0015.340 (0) finding files: 2018: adding to list (1)
+0015.396 (0) finding files: photo-gallery: adding to list (2)
+0015.452 (0) finding files: revslider: adding to list (3)
+0015.508 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0015.582 (0) Total entities for the zip file: 157 directories, 357 files (0 skipped as non-modified), 16.5 MB
+0015.637 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0015.693 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0015.753 (0) Zip: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0016.172 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip.tmp: size is now: 16.70 MB
+0016.452 (0) Created uploads zip (0) - 17059.8 KB in 0.9 s (19205.9 KB/s) (sha1: 7348cdd28df05a66ccf58e1d8064a54c6a7ed3b7, sha256: 8812f63693f3283773ddd96e6d7af3232de6899c381944b984a1a56a466d6e1e)
+0016.520 (0) Beginning backup of other directories found in the content directory (index: 0)
+0016.576 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0016.632 (0) Looking for candidates to back up in: /var/www/html/www.agility360.net/wp-content
+0016.688 (0) finding files: object-cache.php: adding to list (1)
+0016.744 (0) finding files: gallery: adding to list (2)
+0016.800 (0) finding files: index.php: adding to list (3)
+0016.868 (0) finding files: upgrade: skipping: excluded by options
+0016.924 (0) finding files: updraft: skipping: this is the updraft directory
+0016.980 (0) finding files: themes: skipping: this is the themes directory
+0017.052 (0) finding files: advanced-cache.php: adding to list (4)
+0017.108 (0) finding files: ngg: adding to list (5)
+0017.164 (0) finding files: uploads: skipping: this is the uploads directory
+0017.220 (0) finding files: cache: skipping: excluded by options
+0017.276 (0) finding files: wp-rocket-config: adding to list (6)
+0017.332 (0) finding files: plugins: skipping: this is the plugins directory
+0017.400 (0) Total entities for the zip file: 24 directories, 9 files (0 skipped as non-modified), 8.5 MB
+0017.687 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-others.zip.tmp: size is now: 8.50 MB
+0017.887 (0) Created others zip (0) - 8657.7 KB in 0.5 s (17350.4 KB/s) (sha1: 209ee32eb2e68a6170d6595d2b4920fdbf406bc8, sha256: d5fc12bd07038ae83add66bea985f17663264ec4d6b362a7e748bc058a2806c6)
+0018.004 (0) Saving backup status to database (elements: 8)
+0018.132 (0) Beginning creation of database dump (WordPress DB)
+0018.225 (0) Testing: /usr/bin/mysqldump
+0018.306 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1211 bytes total)
+0018.384 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0018.479 (0) Table wp_options: Total expected rows (approximate): 363
+0018.591 (0) Table wp_options: Total rows added: 365 in 0.05 seconds
+0018.652 (0) Table wp_options: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_options.table.gz - 82.4 KB)
+0018.737 (0) Table wp_users: Total expected rows (approximate): 2
+0018.800 (0) Table wp_users: Total rows added: 1 in 0.01 seconds
+0018.856 (0) Table wp_users: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_users.table.gz - 0.5 KB)
+0018.953 (0) Table wp_usermeta: Total expected rows (approximate): 43
+0019.018 (0) Table wp_usermeta: Total rows added: 45 in 0.01 seconds
+0019.076 (0) Table wp_usermeta: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_usermeta.table.gz - 3.3 KB)
+0019.187 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0019.257 (0) Table wp_commentmeta: Total rows added: 0 in 0.01 seconds
+0019.312 (0) Table wp_commentmeta: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0019.418 (0) Table wp_comments: Total expected rows (approximate): 29
+0019.481 (0) Table wp_comments: Total rows added: 29 in 0.01 seconds
+0019.536 (0) Table wp_comments: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_comments.table.gz - 1.8 KB)
+0019.629 (0) Table wp_links: Total expected rows (approximate): 0
+0019.698 (0) Table wp_links: Total rows added: 0 in 0.01 seconds
+0019.752 (0) Table wp_links: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_links.table.gz - 0.4 KB)
+0019.856 (0) Table wp_postmeta: Total expected rows (approximate): 1689
+0019.959 (0) Table wp_postmeta: Total rows added: 1682 in 0.04 seconds
+0020.016 (0) Table wp_postmeta: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_postmeta.table.gz - 39.7 KB)
+0020.140 (0) Table wp_posts: Total expected rows (approximate): 483
+0020.269 (0) Table wp_posts: Total rows added: 510 in 0.05 seconds
+0020.324 (0) Table wp_posts: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_posts.table.gz - 42.6 KB)
+0020.425 (0) Table wp_term_relationships: Total expected rows (approximate): 157
+0020.489 (0) Table wp_term_relationships: Total rows added: 167 in 0.01 seconds
+0020.544 (0) Table wp_term_relationships: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_term_relationships.table.gz - 0.8 KB)
+0020.641 (0) Table wp_term_taxonomy: Total expected rows (approximate): 57
+0020.710 (0) Table wp_term_taxonomy: Total rows added: 64 in 0.01 seconds
+0020.776 (0) Table wp_term_taxonomy: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_term_taxonomy.table.gz - 0.9 KB)
+0020.856 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0020.919 (0) Table wp_termmeta: Total rows added: 0 in 0.01 seconds
+0020.976 (0) Table wp_termmeta: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_termmeta.table.gz - 0.4 KB)
+0021.076 (0) Table wp_terms: Total expected rows (approximate): 57
+0021.149 (0) Table wp_terms: Total rows added: 64 in 0.01 seconds
+0021.216 (0) Table wp_terms: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_terms.table.gz - 1.1 KB)
+0021.297 (0) Table wp_apexnb_subscriber: Total expected rows (approximate): 0
+0021.361 (0) Table wp_apexnb_subscriber: Total rows added: 0 in 0.01 seconds
+0021.416 (0) Table wp_apexnb_subscriber: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_apexnb_subscriber.table.gz - 0.3 KB)
+0021.509 (0) Table wp_bwg_album: Total expected rows (approximate): 0
+0021.568 (0) Table wp_bwg_album: Total rows added: 0 in 0.00 seconds
+0021.624 (0) Table wp_bwg_album: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_album.table.gz - 0.4 KB)
+0021.705 (0) Table wp_bwg_album_gallery: Total expected rows (approximate): 0
+0021.764 (0) Table wp_bwg_album_gallery: Total rows added: 0 in 0.00 seconds
+0021.820 (0) Table wp_bwg_album_gallery: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_album_gallery.table.gz - 0.3 KB)
+0021.900 (0) Table wp_bwg_gallery: Total expected rows (approximate): 0
+0021.962 (0) Table wp_bwg_gallery: Total rows added: 1 in 0.01 seconds
+0022.016 (0) Table wp_bwg_gallery: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_gallery.table.gz - 0.6 KB)
+0022.104 (0) Table wp_bwg_image: Total expected rows (approximate): 6
+0022.165 (0) Table wp_bwg_image: Total rows added: 6 in 0.01 seconds
+0022.220 (0) Table wp_bwg_image: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image.table.gz - 0.9 KB)
+0022.297 (0) Table wp_bwg_image_comment: Total expected rows (approximate): 0
+0022.356 (0) Table wp_bwg_image_comment: Total rows added: 0 in 0.00 seconds
+0022.412 (0) Table wp_bwg_image_comment: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image_comment.table.gz - 0.4 KB)
+0022.493 (0) Table wp_bwg_image_rate: Total expected rows (approximate): 0
+0022.552 (0) Table wp_bwg_image_rate: Total rows added: 0 in 0.00 seconds
+0022.612 (0) Table wp_bwg_image_rate: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image_rate.table.gz - 0.3 KB)
+0022.697 (0) Table wp_bwg_image_tag: Total expected rows (approximate): 0
+0022.755 (0) Table wp_bwg_image_tag: Total rows added: 0 in 0.00 seconds
+0022.816 (0) Table wp_bwg_image_tag: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image_tag.table.gz - 0.3 KB)
+0022.905 (0) Table wp_bwg_shortcode: Total expected rows (approximate): 0
+0022.977 (0) Table wp_bwg_shortcode: Total rows added: 1 in 0.00 seconds
+0023.044 (0) Table wp_bwg_shortcode: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_shortcode.table.gz - 0.4 KB)
+0023.139 (0) Table wp_bwg_theme: Total expected rows (approximate): 2
+0023.217 (0) Table wp_bwg_theme: Total rows added: 2 in 0.02 seconds
+0023.276 (0) Table wp_bwg_theme: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_theme.table.gz - 4.2 KB)
+0023.377 (0) Table wp_content_tabs_ultimate_import: Total expected rows (approximate): 1
+0023.437 (0) Table wp_content_tabs_ultimate_import: Total rows added: 1 in 0.01 seconds
+0023.492 (0) Table wp_content_tabs_ultimate_import: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_content_tabs_ultimate_import.table.gz - 0.3 KB)
+0023.588 (0) Table wp_content_tabs_ultimate_list: Total expected rows (approximate): 4
+0023.649 (0) Table wp_content_tabs_ultimate_list: Total rows added: 3 in 0.01 seconds
+0023.704 (0) Table wp_content_tabs_ultimate_list: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_content_tabs_ultimate_list.table.gz - 0.9 KB)
+0023.805 (0) Table wp_content_tabs_ultimate_style: Total expected rows (approximate): 2
+0023.888 (0) Table wp_content_tabs_ultimate_style: Total rows added: 3 in 0.02 seconds
+0023.944 (0) Table wp_content_tabs_ultimate_style: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_content_tabs_ultimate_style.table.gz - 0.7 KB)
+0024.069 (0) Table wp_edn_subscriber: Total expected rows (approximate): 0
+0024.133 (0) Table wp_edn_subscriber: Total rows added: 0 in 0.01 seconds
+0024.188 (0) Table wp_edn_subscriber: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_edn_subscriber.table.gz - 0.3 KB)
+0024.300 (0) Table wp_ngg_album: Total expected rows (approximate): 0
+0024.368 (0) Table wp_ngg_album: Total rows added: 0 in 0.00 seconds
+0024.436 (0) Table wp_ngg_album: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_ngg_album.table.gz - 0.4 KB)
+0024.537 (0) Table wp_ngg_gallery: Total expected rows (approximate): 0
+0024.600 (0) Table wp_ngg_gallery: Total rows added: 0 in 0.00 seconds
+0024.656 (0) Table wp_ngg_gallery: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_ngg_gallery.table.gz - 0.4 KB)
+0024.755 (0) Table wp_ngg_pictures: Total expected rows (approximate): 3
+0024.825 (0) Table wp_ngg_pictures: Total rows added: 3 in 0.01 seconds
+0024.896 (0) Table wp_ngg_pictures: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_ngg_pictures.table.gz - 1.4 KB)
+0024.977 (0) Table wp_revslider_css: Total expected rows (approximate): 109
+0025.063 (0) Table wp_revslider_css: Total rows added: 109 in 0.02 seconds
+0025.120 (0) Table wp_revslider_css: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_css.table.gz - 4.9 KB)
+0025.233 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0025.292 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0025.352 (0) Table wp_revslider_layer_animations: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0025.458 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0025.516 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0025.772 (0) Table wp_revslider_navigations: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0026.012 (0) Table wp_revslider_sliders: Total expected rows (approximate): 1
+0026.080 (0) Table wp_revslider_sliders: Total rows added: 1 in 0.01 seconds
+0026.140 (0) Table wp_revslider_sliders: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_sliders.table.gz - 3.1 KB)
+0026.233 (0) Table wp_revslider_slides: Total expected rows (approximate): 1
+0026.296 (0) Table wp_revslider_slides: Total rows added: 1 in 0.01 seconds
+0026.364 (0) Table wp_revslider_slides: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_slides.table.gz - 5.4 KB)
+0026.445 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0026.529 (0) Table wp_revslider_static_slides: Total rows added: 1 in 0.02 seconds
+0026.584 (0) Table wp_revslider_static_slides: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0026.669 (0) Table wp_rich_web_photo_slider_instal: Total expected rows (approximate): 0
+0026.728 (0) Table wp_rich_web_photo_slider_instal: Total rows added: 0 in 0.00 seconds
+0026.792 (0) Table wp_rich_web_photo_slider_instal: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_photo_slider_instal.table.gz - 0.4 KB)
+0026.874 (0) Table wp_rich_web_photo_slider_manager: Total expected rows (approximate): 0
+0026.934 (0) Table wp_rich_web_photo_slider_manager: Total rows added: 1 in 0.01 seconds
+0026.996 (0) Table wp_rich_web_photo_slider_manager: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_photo_slider_manager.table.gz - 0.4 KB)
+0027.092 (0) Table wp_rich_web_slider_effect1: Total expected rows (approximate): 2
+0027.157 (0) Table wp_rich_web_slider_effect1: Total rows added: 2 in 0.01 seconds
+0027.212 (0) Table wp_rich_web_slider_effect1: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect1.table.gz - 0.7 KB)
+0027.288 (0) Table wp_rich_web_slider_effect10: Total expected rows (approximate): 2
+0027.353 (0) Table wp_rich_web_slider_effect10: Total rows added: 2 in 0.01 seconds
+0027.408 (0) Table wp_rich_web_slider_effect10: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect10.table.gz - 0.7 KB)
+0027.482 (0) Table wp_rich_web_slider_effect10_loader: Total expected rows (approximate): 2
+0027.548 (0) Table wp_rich_web_slider_effect10_loader: Total rows added: 2 in 0.01 seconds
+0027.608 (0) Table wp_rich_web_slider_effect10_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect10_loader.table.gz - 0.6 KB)
+0027.687 (0) Table wp_rich_web_slider_effect1_loader: Total expected rows (approximate): 2
+0027.751 (0) Table wp_rich_web_slider_effect1_loader: Total rows added: 2 in 0.01 seconds
+0027.808 (0) Table wp_rich_web_slider_effect1_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect1_loader.table.gz - 0.6 KB)
+0027.882 (0) Table wp_rich_web_slider_effect2: Total expected rows (approximate): 2
+0027.945 (0) Table wp_rich_web_slider_effect2: Total rows added: 2 in 0.01 seconds
+0028.000 (0) Table wp_rich_web_slider_effect2: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect2.table.gz - 0.7 KB)
+0028.077 (0) Table wp_rich_web_slider_effect2_loader: Total expected rows (approximate): 2
+0028.138 (0) Table wp_rich_web_slider_effect2_loader: Total rows added: 2 in 0.01 seconds
+0028.196 (0) Table wp_rich_web_slider_effect2_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect2_loader.table.gz - 0.6 KB)
+0028.269 (0) Table wp_rich_web_slider_effect3: Total expected rows (approximate): 2
+0028.330 (0) Table wp_rich_web_slider_effect3: Total rows added: 2 in 0.01 seconds
+0028.388 (0) Table wp_rich_web_slider_effect3: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect3.table.gz - 0.8 KB)
+0028.465 (0) Table wp_rich_web_slider_effect3_loader: Total expected rows (approximate): 2
+0028.536 (0) Table wp_rich_web_slider_effect3_loader: Total rows added: 2 in 0.02 seconds
+0028.592 (0) Table wp_rich_web_slider_effect3_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect3_loader.table.gz - 0.6 KB)
+0028.933 (0) Table wp_rich_web_slider_effect4: Total expected rows (approximate): 2
+0029.018 (0) Table wp_rich_web_slider_effect4: Total rows added: 2 in 0.01 seconds
+0029.076 (0) Table wp_rich_web_slider_effect4: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect4.table.gz - 0.6 KB)
+0029.179 (0) Table wp_rich_web_slider_effect4_loader: Total expected rows (approximate): 2
+0029.266 (0) Table wp_rich_web_slider_effect4_loader: Total rows added: 2 in 0.01 seconds
+0029.340 (0) Table wp_rich_web_slider_effect4_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect4_loader.table.gz - 0.6 KB)
+0029.457 (0) Table wp_rich_web_slider_effect5: Total expected rows (approximate): 2
+0029.526 (0) Table wp_rich_web_slider_effect5: Total rows added: 2 in 0.01 seconds
+0029.584 (0) Table wp_rich_web_slider_effect5: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect5.table.gz - 0.9 KB)
+0029.676 (0) Table wp_rich_web_slider_effect5_loader: Total expected rows (approximate): 2
+0029.740 (0) Table wp_rich_web_slider_effect5_loader: Total rows added: 2 in 0.01 seconds
+0029.796 (0) Table wp_rich_web_slider_effect5_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect5_loader.table.gz - 0.6 KB)
+0029.894 (0) Table wp_rich_web_slider_effect6: Total expected rows (approximate): 2
+0029.966 (0) Table wp_rich_web_slider_effect6: Total rows added: 2 in 0.02 seconds
+0030.020 (0) Table wp_rich_web_slider_effect6: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect6.table.gz - 0.7 KB)
+0030.111 (0) Table wp_rich_web_slider_effect6_loader: Total expected rows (approximate): 2
+0030.180 (0) Table wp_rich_web_slider_effect6_loader: Total rows added: 2 in 0.01 seconds
+0030.236 (0) Table wp_rich_web_slider_effect6_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect6_loader.table.gz - 0.6 KB)
+0030.313 (0) Table wp_rich_web_slider_effect7: Total expected rows (approximate): 2
+0030.379 (0) Table wp_rich_web_slider_effect7: Total rows added: 2 in 0.01 seconds
+0030.436 (0) Table wp_rich_web_slider_effect7: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect7.table.gz - 0.8 KB)
+0030.537 (0) Table wp_rich_web_slider_effect7_loader: Total expected rows (approximate): 2
+0030.602 (0) Table wp_rich_web_slider_effect7_loader: Total rows added: 2 in 0.01 seconds
+0030.660 (0) Table wp_rich_web_slider_effect7_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect7_loader.table.gz - 0.6 KB)
+0030.757 (0) Table wp_rich_web_slider_effect8: Total expected rows (approximate): 2
+0030.829 (0) Table wp_rich_web_slider_effect8: Total rows added: 2 in 0.02 seconds
+0030.884 (0) Table wp_rich_web_slider_effect8: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect8.table.gz - 0.8 KB)
+0030.965 (0) Table wp_rich_web_slider_effect8_loader: Total expected rows (approximate): 2
+0031.031 (0) Table wp_rich_web_slider_effect8_loader: Total rows added: 2 in 0.01 seconds
+0031.088 (0) Table wp_rich_web_slider_effect8_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect8_loader.table.gz - 0.6 KB)
+0031.205 (0) Table wp_rich_web_slider_effect9: Total expected rows (approximate): 2
+0031.270 (0) Table wp_rich_web_slider_effect9: Total rows added: 2 in 0.01 seconds
+0031.328 (0) Table wp_rich_web_slider_effect9: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect9.table.gz - 0.6 KB)
+0031.416 (0) Table wp_rich_web_slider_effect9_loader: Total expected rows (approximate): 2
+0031.487 (0) Table wp_rich_web_slider_effect9_loader: Total rows added: 2 in 0.02 seconds
+0031.544 (0) Table wp_rich_web_slider_effect9_loader: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect9_loader.table.gz - 0.6 KB)
+0031.641 (0) Table wp_rich_web_slider_effects_data: Total expected rows (approximate): 20
+0031.702 (0) Table wp_rich_web_slider_effects_data: Total rows added: 20 in 0.01 seconds
+0031.760 (0) Table wp_rich_web_slider_effects_data: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effects_data.table.gz - 0.6 KB)
+0031.850 (0) Table wp_rich_web_slider_font_family: Total expected rows (approximate): 125
+0031.910 (0) Table wp_rich_web_slider_font_family: Total rows added: 125 in 0.01 seconds
+0031.964 (0) Table wp_rich_web_slider_font_family: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_font_family.table.gz - 1.4 KB)
+0032.072 (0) Table wp_rich_web_slider_id: Total expected rows (approximate): 0
+0032.141 (0) Table wp_rich_web_slider_id: Total rows added: 1 in 0.01 seconds
+0032.224 (0) Table wp_rich_web_slider_id: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_id.table.gz - 0.3 KB)
+0032.305 (0) Table wp_smush_dir_images: Total expected rows (approximate): 0
+0032.376 (0) Table wp_smush_dir_images: Total rows added: 0 in 0.00 seconds
+0032.432 (0) Table wp_smush_dir_images: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_smush_dir_images.table.gz - 0.4 KB)
+0032.521 (0) Table wp_wp_topbar_data: Total expected rows (approximate): 0
+0032.612 (0) Table wp_wp_topbar_data: Total rows added: 1 in 0.02 seconds
+0032.676 (0) Table wp_wp_topbar_data: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wp_topbar_data.table.gz - 1.5 KB)
+0032.769 (0) Table wp_wpgmza: Total expected rows (approximate): 0
+0032.829 (0) Table wp_wpgmza: Total rows added: 1 in 0.01 seconds
+0032.888 (0) Table wp_wpgmza: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza.table.gz - 0.5 KB)
+0032.989 (0) Table wp_wpgmza_categories: Total expected rows (approximate): 0
+0033.048 (0) Table wp_wpgmza_categories: Total rows added: 0 in 0.00 seconds
+0033.104 (0) Table wp_wpgmza_categories: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_categories.table.gz - 0.3 KB)
+0033.226 (0) Table wp_wpgmza_category_maps: Total expected rows (approximate): 0
+0033.287 (0) Table wp_wpgmza_category_maps: Total rows added: 0 in 0.00 seconds
+0033.348 (0) Table wp_wpgmza_category_maps: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_category_maps.table.gz - 0.3 KB)
+0033.425 (0) Table wp_wpgmza_maps: Total expected rows (approximate): 0
+0033.487 (0) Table wp_wpgmza_maps: Total rows added: 1 in 0.01 seconds
+0033.544 (0) Table wp_wpgmza_maps: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_maps.table.gz - 0.9 KB)
+0033.625 (0) Table wp_wpgmza_polygon: Total expected rows (approximate): 0
+0033.684 (0) Table wp_wpgmza_polygon: Total rows added: 0 in 0.00 seconds
+0033.740 (0) Table wp_wpgmza_polygon: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_polygon.table.gz - 0.4 KB)
+0033.821 (0) Table wp_wpgmza_polylines: Total expected rows (approximate): 0
+0033.880 (0) Table wp_wpgmza_polylines: Total rows added: 0 in 0.00 seconds
+0033.936 (0) Table wp_wpgmza_polylines: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_polylines.table.gz - 0.3 KB)
+0034.021 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 7
+0034.081 (0) Table wp_yoast_seo_links: Total rows added: 8 in 0.01 seconds
+0034.136 (0) Table wp_yoast_seo_links: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_yoast_seo_links.table.gz - 0.5 KB)
+0034.225 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 53
+0034.295 (0) Table wp_yoast_seo_meta: Total rows added: 57 in 0.02 seconds
+0034.356 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_yoast_seo_meta.table.gz - 0.5 KB)
+0034.459 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_options.table.gz (1/70): adding to final database dump
+0034.535 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_users.table.gz (2/70): adding to final database dump
+0034.592 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_usermeta.table.gz (3/70): adding to final database dump
+0034.657 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_commentmeta.table.gz (4/70): adding to final database dump
+0034.712 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_comments.table.gz (5/70): adding to final database dump
+0034.772 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_links.table.gz (6/70): adding to final database dump
+0034.840 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_postmeta.table.gz (7/70): adding to final database dump
+0034.906 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_posts.table.gz (8/70): adding to final database dump
+0034.970 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_term_relationships.table.gz (9/70): adding to final database dump
+0035.028 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_term_taxonomy.table.gz (10/70): adding to final database dump
+0035.092 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_termmeta.table.gz (11/70): adding to final database dump
+0035.148 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_terms.table.gz (12/70): adding to final database dump
+0035.204 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_apexnb_subscriber.table.gz (13/70): adding to final database dump
+0035.260 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_album.table.gz (14/70): adding to final database dump
+0035.316 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_album_gallery.table.gz (15/70): adding to final database dump
+0035.384 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_gallery.table.gz (16/70): adding to final database dump
+0035.440 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image.table.gz (17/70): adding to final database dump
+0035.496 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image_comment.table.gz (18/70): adding to final database dump
+0035.552 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image_rate.table.gz (19/70): adding to final database dump
+0035.612 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_image_tag.table.gz (20/70): adding to final database dump
+0035.680 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_shortcode.table.gz (21/70): adding to final database dump
+0035.788 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_bwg_theme.table.gz (22/70): adding to final database dump
+0035.845 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_content_tabs_ultimate_import.table.gz (23/70): adding to final database dump
+0035.908 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_content_tabs_ultimate_list.table.gz (24/70): adding to final database dump
+0035.972 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_content_tabs_ultimate_style.table.gz (25/70): adding to final database dump
+0036.040 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_edn_subscriber.table.gz (26/70): adding to final database dump
+0036.108 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_ngg_album.table.gz (27/70): adding to final database dump
+0036.168 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_ngg_gallery.table.gz (28/70): adding to final database dump
+0036.248 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_ngg_pictures.table.gz (29/70): adding to final database dump
+0036.320 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_css.table.gz (30/70): adding to final database dump
+0036.390 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_layer_animations.table.gz (31/70): adding to final database dump
+0036.456 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_navigations.table.gz (32/70): adding to final database dump
+0036.512 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_sliders.table.gz (33/70): adding to final database dump
+0036.568 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_slides.table.gz (34/70): adding to final database dump
+0036.633 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_revslider_static_slides.table.gz (35/70): adding to final database dump
+0036.696 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_photo_slider_instal.table.gz (36/70): adding to final database dump
+0036.764 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_photo_slider_manager.table.gz (37/70): adding to final database dump
+0036.820 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect1.table.gz (38/70): adding to final database dump
+0036.876 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect10.table.gz (39/70): adding to final database dump
+0036.944 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect10_loader.table.gz (40/70): adding to final database dump
+0037.008 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect1_loader.table.gz (41/70): adding to final database dump
+0037.064 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect2.table.gz (42/70): adding to final database dump
+0037.120 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect2_loader.table.gz (43/70): adding to final database dump
+0037.184 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect3.table.gz (44/70): adding to final database dump
+0037.256 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect3_loader.table.gz (45/70): adding to final database dump
+0037.320 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect4.table.gz (46/70): adding to final database dump
+0037.376 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect4_loader.table.gz (47/70): adding to final database dump
+0037.432 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect5.table.gz (48/70): adding to final database dump
+0037.488 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect5_loader.table.gz (49/70): adding to final database dump
+0037.544 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect6.table.gz (50/70): adding to final database dump
+0037.608 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect6_loader.table.gz (51/70): adding to final database dump
+0037.676 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect7.table.gz (52/70): adding to final database dump
+0037.732 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect7_loader.table.gz (53/70): adding to final database dump
+0037.788 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect8.table.gz (54/70): adding to final database dump
+0037.856 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect8_loader.table.gz (55/70): adding to final database dump
+0037.924 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect9.table.gz (56/70): adding to final database dump
+0037.980 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effect9_loader.table.gz (57/70): adding to final database dump
+0038.036 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_effects_data.table.gz (58/70): adding to final database dump
+0038.092 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_font_family.table.gz (59/70): adding to final database dump
+0038.148 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_rich_web_slider_id.table.gz (60/70): adding to final database dump
+0038.204 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_smush_dir_images.table.gz (61/70): adding to final database dump
+0038.260 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wp_topbar_data.table.gz (62/70): adding to final database dump
+0038.320 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza.table.gz (63/70): adding to final database dump
+0038.376 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_categories.table.gz (64/70): adding to final database dump
+0038.432 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_category_maps.table.gz (65/70): adding to final database dump
+0038.488 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_maps.table.gz (66/70): adding to final database dump
+0038.548 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_polygon.table.gz (67/70): adding to final database dump
+0038.604 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_wpgmza_polylines.table.gz (68/70): adding to final database dump
+0038.660 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_yoast_seo_links.table.gz (69/70): adding to final database dump
+0038.720 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db-table-wp_yoast_seo_meta.table.gz (70/70): adding to final database dump
+0038.776 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db.gz: finished writing out complete database file (176 KB)
+0038.867 (0) Total database tables backed up: 70 (backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db.gz, size: 208326, sha256)
+0039.052 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0039.108 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0039.164 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0039.220 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-others.zip: others: This file has not yet been successfully uploaded: will queue
+0039.280 (0) backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db.gz: db: This file has not yet been successfully uploaded: will queue
+0039.348 (0) Saving backup history. Total backup size: 74.2 MB
+0039.464 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0039.544 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0039.668 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-443cb234479e41ae8693d52340a821d9)
+0040.076 (0) S3 upload (): backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip (chunks: 9) -> s3://www.agility360/backups/backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip
+0040.217 (0) S3 chunked upload: got multipart ID: IdFX2BjuwVNA6RJWT1mf_lVUcwq_kl5CdAXeZt.QWOvwL84.AuvpeBgWT4y4p6xRNjsFuvOZekpfgtDoORyO52alaIQjffgR9DF6XVz6qRB8jieiWeQj02w2s432BPW5
+0042.066 (0) S3 chunked upload: 11.1 % uploaded (1, "f25c5c9dc9524f405ce772ac32b629f6")
+0043.229 (0) S3 chunked upload: 22.2 % uploaded (2, "5a4468cd6f5429b3bfc65521d5967346")
+0044.647 (0) S3 chunked upload: 33.3 % uploaded (3, "42939a3fb6cd1b341bdb0ec0a919d7d6")
+0046.359 (0) S3 chunked upload: 44.4 % uploaded (4, "f753cc9287e3363bcbea0833f241e8c8")
+0048.083 (0) S3 chunked upload: 55.6 % uploaded (5, "9a263c4e101da785ca56276520fec75f")
+0049.728 (0) S3 chunked upload: 66.7 % uploaded (6, "edb66a923930fd07fff038ab34720a4e")
+0051.319 (0) S3 chunked upload: 77.8 % uploaded (7, "10a0164667fe28bea11eec404cde3364")
+0052.915 (0) S3 chunked upload: 88.9 % uploaded (8, "433e183b5a68911a7e2101a776ed132a")
+0054.435 (0) S3 chunked upload: 100 % uploaded (9, "fb2a14f44939cc9b9093966a0a0e57d7")
+0054.519 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0054.785 (0) S3 upload (plugins0): re-assembly succeeded
+0054.862 (0) Recording as successfully uploaded: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip (5ee1bd9b12d1cb7109f1059cec4eb413)
+0054.957 (0) Deleting local file: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-plugins.zip: OK
+0055.020 (0) S3 upload (): backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip (chunks: 1) -> s3://www.agility360/backups/backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip
+0056.311 (0) S3 regular upload: success
+0056.380 (0) Recording as successfully uploaded: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip (25b3df58885366675ddbc37c3a5521d2)
+0056.464 (0) Deleting local file: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-themes.zip: OK
+0056.520 (0) S3 upload (): backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip (chunks: 4) -> s3://www.agility360/backups/backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip
+0056.666 (0) S3 chunked upload: got multipart ID: 4FXGL8pvGYCHHY_IYNscPjkvTi3hyJUk0.zJZaqQVg9G_KS5y1daGFa7PX7IfnV4M2qKSlsDcheEaLo3oAphHn5KMOVrj75rXjEPh7CqW1TuI0c_N.miM_F0ddoza63G
+0058.095 (0) S3 chunked upload: 25 % uploaded (1, "e1484aabe27deb31d780cbbdab2adcf1")
+0059.667 (0) S3 chunked upload: 50 % uploaded (2, "ec2d2e58d79f118e625203e0eab2ce80")
+0061.095 (0) S3 chunked upload: 75 % uploaded (3, "c3ce8d4092e2cfa29ea435d8b5aac02c")
+0061.699 (0) S3 chunked upload: 100 % uploaded (4, "9132136f0b1af474c309167b729eb2a8")
+0061.787 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0062.051 (0) S3 upload (uploads0): re-assembly succeeded
+0062.127 (0) Recording as successfully uploaded: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip (898d5cebdcd3edf4a8293fac8f4e1bac)
+0062.212 (0) Deleting local file: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-uploads.zip: OK
+0062.268 (0) S3 upload (): backup_2018-03-31-1314_Agility_360_ca18fdce6b47-others.zip (chunks: 2) -> s3://www.agility360/backups/backup_2018-03-31-1314_Agility_360_ca18fdce6b47-others.zip
+0062.409 (0) S3 chunked upload: got multipart ID: LHFsWv8dgSn95wJW.Ynt_XytbW9QCoyaIpSpoh1TFdXu6v_rptNzIPAYXUM.qmOb5N0GgSTRUwUOPIe_xN35y6s9VaBjMQc5Im7lTUBxTCIcmxqzEzofvm7MzqdcK16a
+0063.824 (0) S3 chunked upload: 50 % uploaded (1, "7f451608c47f130c39fb6f164125e499")
+0065.099 (0) S3 chunked upload: 100 % uploaded (2, "4aa39b259ed4820067e2b474bac524cd")
+0065.176 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0065.812 (0) S3 upload (others0): re-assembly succeeded
+0065.883 (0) Recording as successfully uploaded: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-others.zip (ad910e326932e0d4ac0efae9c9366a9c)
+0065.967 (0) Deleting local file: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-others.zip: OK
+0066.020 (0) S3 upload (): backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db.gz (chunks: 1) -> s3://www.agility360/backups/backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db.gz
+0066.409 (0) S3 regular upload: success
+0066.480 (0) Recording as successfully uploaded: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db.gz (32f74940ada25a3d14efd1f7108a518b)
+0066.562 (0) Deleting local file: backup_2018-03-31-1314_Agility_360_ca18fdce6b47-db.gz: OK
+0066.639 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0066.698 (0) Number of backup sets in history: 1; groups (db): 1
+0066.756 (0) Examining (for databases) backup set with group_id=0, nonce=ca18fdce6b47, datestamp=1522502074 (Mar 31 2018 13:14:34)
+0066.812 (0) This backup set is the backup set just made, so will not be deleted.
+0066.812 (0) Number of backup sets in history: 1; groups (files): 1
+0066.868 (0) Examining (for files) backup set with nonce=ca18fdce6b47, datestamp=1522502074 (Mar 31 2018 13:14:34)
+0066.868 (0) This backup set is the backup set just made, so will not be deleted.
+0066.924 (0) This backup set is the backup set just made, so will not be deleted.
+0066.924 (0) This backup set is the backup set just made, so will not be deleted.
+0066.924 (0) This backup set is the backup set just made, so will not be deleted.
+0066.924 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0066.980 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0067.048 (0) Resume backup (ca18fdce6b47, 0): finish run
+0067.166 (0) Decremented the semaphore (fd) by 1
+0067.226 (0) Semaphore (fd) unlocked
+0067.280 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0067.400 (0) No email will/can be sent - the user has not configured an email address.
+0067.456 (0) The backup apparently succeeded and is now complete
