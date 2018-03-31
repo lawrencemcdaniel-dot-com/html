@@ -41,6 +41,13 @@ class PUM_Upgrades {
 	private $initial_version;
 
 	/**
+	 * Popup Maker db version.
+	 *
+	 * @var    string
+	 */
+	private $db_version;
+
+	/**
 	 * Gets everything going with a singleton instance.
 	 *
 	 * @return PUM_Upgrades
@@ -77,9 +84,10 @@ class PUM_Upgrades {
 	 * Update version info.
 	 */
 	public function update_plugin_version() {
-		$this->version       = get_option( 'pum_ver' );
-		$this->upgraded_from = get_option( 'pum_ver_upgraded_from' );
+		$this->version         = get_option( 'pum_ver' );
+		$this->upgraded_from   = get_option( 'pum_ver_upgraded_from' );
 		$this->initial_version = get_option( 'pum_initial_version' );
+		$this->db_version      = get_option( 'pum_db_ver' );
 
 		/**
 		 * If no version set check if a deprecated one exists.
@@ -94,7 +102,7 @@ class PUM_Upgrades {
 		/**
 		 * Back fill the initial version with the oldest version we can detect.
 		 */
-		if ( ! get_option( 'pum_initial_version' ) ) {
+		if ( ! $this->initial_version ) {
 
 			$oldest_known = Popup_Maker::$VER;
 
@@ -122,6 +130,7 @@ class PUM_Upgrades {
 			update_option( 'pum_initial_version', $oldest_known );
 		}
 
+
 		if ( version_compare( $this->version, Popup_Maker::$VER, '<' ) ) {
 			// Allow processing of small core upgrades
 			do_action( 'pum_update_core_version', $this->version );
@@ -132,18 +141,38 @@ class PUM_Upgrades {
 			$this->upgraded_from = $this->version;
 			$this->version       = Popup_Maker::$VER;
 		}
+
+
+		// If no current db version, but prior install detected, set db version correctly.
+		if ( ! $this->db_version ) {
+			if ( $this->upgraded_from ) {
+				if ( version_compare( $this->upgraded_from, '1.3.0', '<' ) ) {
+					$this->db_version = 1;
+				} else {
+					$this->db_version = 2;
+				}
+			} else {
+				$this->db_version = Popup_Maker::$DB_VER;
+			}
+			add_option( 'pum_db_ver', $this->db_version );
+		}
+
+		if ( $this->db_version < Popup_Maker::$DB_VER ) {
+			$this->db_version = Popup_Maker::$DB_VER;
+			update_option( 'pum_db_ver', $this->db_version );
+		}
 	}
 
 	/**
 	 * Registers a new upgrade routine.
 	 *
 	 * @param string $upgrade_id Upgrade ID.
-	 * @param array $args {
-	 *      Arguments for registering a new upgrade routine.
+	 * @param array  $args       {
+	 *                           Arguments for registering a new upgrade routine.
 	 *
-	 * @type array $rules Array of true/false values.
-	 * @type string $class Batch processor class to use.
-	 * @type string $file File containing the upgrade processor class.
+	 * @type array   $rules      Array of true/false values.
+	 * @type string  $class      Batch processor class to use.
+	 * @type string  $file       File containing the upgrade processor class.
 	 * }
 	 *
 	 * @return bool True if the upgrade routine was added, otherwise false.
@@ -195,7 +224,7 @@ class PUM_Upgrades {
 	public function render_form() {
 		$args = array(
 			'upgrade_id' => $this->get_current_upgrade_id(),
-			'step' => 1,
+			'step'       => 1,
 		);
 
 		$resume_upgrade = $this->maybe_resume_upgrade();
@@ -436,7 +465,7 @@ class PUM_Upgrades {
 				}
 			} else {
 				$response_data['done']       = false;
-				$response_data['message'] = $first_step ? $upgrade->get_message( 'start' ) : '';
+				$response_data['message']    = $first_step ? $upgrade->get_message( 'start' ) : '';
 				$response_data['percentage'] = $upgrade->get_percentage_complete();
 			}
 
@@ -474,7 +503,7 @@ class PUM_Upgrades {
 	 * Gets the upgrade process object.
 	 *
 	 * @param string $upgrade_id
-	 * @param int $step
+	 * @param int    $step
 	 *
 	 * @return bool|PUM_Interface_Batch_Process|PUM_Interface_Batch_PrefetchProcess
 	 */
@@ -530,6 +559,7 @@ class PUM_Upgrades {
 	public function tools_page_tab_content() {
 		if ( ! $this->has_uncomplete_upgrades() ) {
 			_e( 'No upgrades currently required.', 'popup-maker' );
+
 			return;
 		}
 

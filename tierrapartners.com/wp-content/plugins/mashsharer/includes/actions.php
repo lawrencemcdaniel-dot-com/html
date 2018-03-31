@@ -71,6 +71,9 @@ function mashsb_force_cache_refresh() {
         MASHSB()->logger->info('Force Cache Refresh');
         return true;
     }
+    
+    return false;
 }
-add_action( 'init', 'mashsb_force_cache_refresh' );
- 
+//add_action( 'init', 'mashsb_force_cache_refresh' );
+add_action( 'wp_ajax_mashsb_force_cache_refresh', 'mashsb_force_cache_refresh' );
+add_action( 'wp_ajax_nopriv_mashsb_force_cache_refresh', 'mashsb_force_cache_refresh' );

@@ -112,7 +112,7 @@ abstract class BeaverModule extends \FLBuilderModule {
 										'label'   => esc_html__( 'Type', 'themeisle-companion' ),
 										'options' => array(
 											'text'     => esc_html__( 'Text', 'themeisle-companion' ),
-											'text'     => esc_html__( 'Email', 'themeisle-companion' ),
+											'email'     => esc_html__( 'Email', 'themeisle-companion' ),
 											'textarea' => esc_html__( 'Textarea', 'themeisle-companion' ),
 											'password' => esc_html__( 'Password', 'themeisle-companion' ),
 										)

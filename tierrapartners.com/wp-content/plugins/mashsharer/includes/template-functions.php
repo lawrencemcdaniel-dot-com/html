@@ -89,6 +89,23 @@ function mashsbGetShareMethod( $mashsbSharesObj ) {
 function mashsbGetNonPostShares( $url ) {
     global $mashsb_debug;
     
+    /*
+     * Deactivate share count on:
+     * - 404 pages
+     * - search page
+     * - empty url
+     * - disabled permalinks
+     * - disabled share count setting
+     * - rate limit exceeded
+     * - deprecated: admin pages (we need to remove this for themes which are using a bad infinite scroll implementation where is_admin() is always true)
+     */
+
+       
+    if( is_404() || is_search() || empty($url) || !mashsb_is_enabled_permalinks() || isset($mashsb_options['disable_sharecount']) || mashsb_rate_limit_exceeded() ) {
+        $mashsb_debug[] = 'MashShare: Share count (temporary) disabled';
+        return apply_filters( 'filter_get_sharedcount', 0 );
+    }
+    
     
     // Expiration
     $expiration = mashsb_get_expiration();
@@ -101,13 +118,7 @@ function mashsbGetNonPostShares( $url ) {
         
         // Its request limited
         if ( mashsb_is_req_limited() ){
-            $shares = get_transient( 'mashcount_' . md5( $url_clean ) );
-            if( isset( $shares ) && is_numeric( $shares ) ) {
-                MASHSB()->logger->info( 'mashsbGetNonPostShares() get shares from get_transient. URL: ' . $url_clean . ' SHARES: ' . $shares );
-                return $shares + getFakecount();
-            } else {
-                return 0 + getFakecount(); // we need a result
-            }
+            mashsbGetShareCountFromTransient($url_clean);
         }
 
         // Regenerate the data and save the transient
@@ -121,17 +132,22 @@ function mashsbGetNonPostShares( $url ) {
         MASHSB()->logger->info( 'mashsbGetNonPostShares set_transient - shares:' . $mashsbShareCounts->total . ' url: ' . $url_clean );
         return $mashsbShareCounts->total + getFakecount();
     } else {
-        // Get shares from transient cache
-        
-        $shares = get_transient( 'mashcount_' . md5( $url_clean ) );
-
+         mashsbGetShareCountFromTransient($url_clean);
+    }
+}
+/**
+ * get share count from transient
+ * @param type string
+ * @return int
+ */
+function mashsbGetShareCountFromTransient($url){
+        $shares = get_transient( 'mashcount_' . md5( $url ) );
         if( isset( $shares ) && is_numeric( $shares ) ) {
-            MASHSB()->logger->info( 'mashsbGetNonPostShares() get shares from get_transient. URL: ' . $url_clean . ' SHARES: ' . $shares );
+            MASHSB()->logger->info( 'mashsbGetNonPostShares() get shares from get_transient. URL: ' . $url . ' SHARES: ' . $shares );
             return $shares + getFakecount();
         } else {
             return 0 + getFakecount(); // we need a result
         }
-    }
 }
 
 
@@ -145,6 +161,24 @@ function mashsbGetNonPostShares( $url ) {
 function getSharedcount( $url ) {
     global $mashsb_options, $post, $mashsb_sharecount, $mashsb_debug; // todo test a global share count var if it reduces the amount of requests
     
+    /*
+     * Deactivate share count on:
+     * - 404 pages
+     * - search page
+     * - empty url
+     * - disabled permalinks
+     * - disabled share count setting
+     * - rate limit exceeded
+     * - deprecated: admin pages (we need to remove this for themes which are using a bad infinite scroll implementation where is_admin() is always true)
+     */
+
+    //|| mashsb_rate_limit_exceeded()
+       
+    if( is_404() || is_search() || empty($url) || !mashsb_is_enabled_permalinks() || isset($mashsb_options['disable_sharecount']) || isset($_GET['preview_id']) ) {
+        $mashsb_debug[] = 'MashShare: Share count (temporary) disabled';
+        return apply_filters( 'filter_get_sharedcount', 0 );
+    }
+    
     $mashsb_debug[] = 'Trying to get share count!';
         
     // Return global share count variable to prevent multiple execution
@@ -156,21 +190,6 @@ function getSharedcount( $url ) {
     // Remove mashsb-refresh query parameter
     $url = mashsb_sanitize_url($url);
     
-    /*
-     * Deactivate share count on:
-     * - 404 pages
-     * - search page
-     * - empty url
-     * - disabled permalinks
-     * - disabled share count setting
-     * - deprecated: admin pages (we need to remove this for themes which are using a bad infinite scroll implementation where is_admin() is always true)
-     */
-
-       
-    if( is_404() || is_search() || empty($url) || !mashsb_is_enabled_permalinks() || isset($mashsb_options['disable_sharecount']) ) {
-        $mashsb_debug[] = 'MashShare: Trying to get share count deactivated';
-        return apply_filters( 'filter_get_sharedcount', 0 );
-    }
 
     /* 
      * Return share count on non singular pages when url is defined
@@ -192,7 +211,7 @@ function getSharedcount( $url ) {
         
         // Its request limited
         if ( mashsb_is_req_limited() ){ 
-            $mashsb_debug[] = 'Rate limit reached. Return Share from custom meta option';
+            $mashsb_debug[] = 'Rate limit reached: Return Share from custom meta field.';
             return get_post_meta( $post->ID, 'mashsb_shares', true ) + getFakecount();
         }
 
@@ -221,7 +240,7 @@ function getSharedcount( $url ) {
          * API share count is greater than real fresh requested share count ->
          */
         
-        if( $mashsbShareCounts->total >= $mashsbStoredShareCount ) {
+        if( is_numeric($mashsbShareCounts->total) && $mashsbShareCounts->total >= $mashsbStoredShareCount ) {
             update_post_meta( $post->ID, 'mashsb_shares', $mashsbShareCounts->total );
             update_post_meta( $post->ID, 'mashsb_jsonshares', json_encode( $mashsbShareCounts ) );
             MASHSB()->logger->info( "Refresh Cache: Update database with share count: " . $mashsbShareCounts->total );
@@ -512,9 +531,9 @@ function mashsb_getNetworks( $is_shortcode = false, $services = 0 ) {
 
             // Lets use the data attribute to prevent that pininit.js is overwriting our pinterest button - PR: https://secure.helpscout.net/conversation/257066283/954/?folderId=924740
             if ('pinterest' === $enablednetworks[$key]['id'] && !mashsb_is_amp_page() ) {
-                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . '" href="#" data-mashsb-url="'. arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
+                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . '" href="#" data-mashsb-url="'. arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="noopener nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
             } else {
-                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . '" href="' . arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
+                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . '" href="' . arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="noopener nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
             }
             $output .= $onoffswitch;
             $output .= $startsecondaryshares;
@@ -646,9 +665,9 @@ function mashsb_getNetworksShortcode( $is_shortcode = false, $services = 0, $net
 
             // Lets use the data attribute to prevent that pininit.js is overwriting our pinterest button - PR: https://secure.helpscout.net/conversation/257066283/954/?folderId=924740
             if ('pinterest' === $enablednetworks[$key]['id'] && !mashsb_is_amp_page() ) {
-                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . $class_icons . '" href="#" data-mashsb-url="'. arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
+                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . $class_icons . '" href="#" data-mashsb-url="'. arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="noopener nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
             } else {
-                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . $class_icons . '" href="' . arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
+                $output .= '<a ' . $display . ' class="mashicon-' . $enablednetworks[$key]['id'] . $class_size . $class_margin . $class_center . $class_style . $class_icons . '" href="' . arrNetworks( $enablednetworks[$key]['id'], $is_shortcode ) . '" target="_blank" rel="noopener nofollow"><span class="icon"></span><span class="text">' . $name . '</span></a>';
             }
             $output .= $onoffswitch;
             $output .= $startsecondaryshares;
@@ -662,6 +681,7 @@ function mashsb_getNetworksShortcode( $is_shortcode = false, $services = 0, $net
     return apply_filters( 'return_networks', $output );
 }
 
+
 /*
  * Render template
  * Returns share buttons and share count
@@ -672,7 +692,7 @@ function mashsb_getNetworksShortcode( $is_shortcode = false, $services = 0, $net
 
 function mashshareShow() {
     global $mashsb_options;
-    
+        
     $class_stretched = isset($mashsb_options['responsive_buttons']) ? 'mashsb-stretched' : '';
 
     $return = '<aside class="mashsb-container mashsb-main ' . $class_stretched . '">'
@@ -898,7 +918,7 @@ function mashsb_get_post_meta_position() {
  */
 
 function mashshare_filter_content( $content ) {
-    global $mashsb_options, $post, $wp_current_filter, $wp;
+    global $mashsb_options, $wp_current_filter;
     
     // Default position
     $position = !empty( $mashsb_options['mashsharer_position'] ) ? $mashsb_options['mashsharer_position'] : '';
@@ -1082,7 +1102,7 @@ function getFakecount() {
     $fakecount = isset($mashsb_options['fake_count']) && is_numeric ($mashsb_options['fake_count']) ? 
             round( $mashsb_options['fake_count'] * mashsb_get_fake_factor(), 0 ) : 0;
     
-    return $fakecount;
+    return (int)$fakecount;
 
 }
 

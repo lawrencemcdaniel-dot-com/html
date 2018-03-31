@@ -6,7 +6,7 @@
  * Description: Mashshare is a Share functionality inspired by the the great website Mashable for Facebook and Twitter. More networks available.
  * Author: René Hermenau
  * Author URI: https://www.mashshare.net
- * Version: 3.4.9
+ * Version: 3.5.2
  * Text Domain: mashsb
  * Domain Path: /languages
  * Credits: Thanks go to Pippin Williamson and the edd team. When we started with Mashshare we decided to use the EDD code base and 
@@ -37,7 +37,7 @@ if( !defined( 'ABSPATH' ) )
 
 // Plugin version
 if( !defined( 'MASHSB_VERSION' ) ) {
-    define( 'MASHSB_VERSION', '3.4.9' );
+    define( 'MASHSB_VERSION', '3.5.2' );
 }
 
 // Debug mode
@@ -199,7 +199,7 @@ if( !class_exists( 'mashshare' ) ) :
             require_once MASHSB_PLUGIN_DIR . 'includes/shorturls.php';
             require_once MASHSB_PLUGIN_DIR . 'includes/libraries/class-google-shorturl.php';
             require_once MASHSB_PLUGIN_DIR . 'includes/libraries/class-bitly-shorturl.php';
-            require_once MASHSB_PLUGIN_DIR . 'includes/admin/tracking.php'; // Ensure cron is loading even on frontpage
+            //require_once MASHSB_PLUGIN_DIR . 'includes/admin/tracking.php'; // Ensure cron is loading even on frontpage
             require_once MASHSB_PLUGIN_DIR . 'includes/debug/debug.php';
             require_once MASHSB_PLUGIN_DIR . 'includes/amp.php';
             require_once MASHSB_PLUGIN_DIR . 'includes/cron.php';

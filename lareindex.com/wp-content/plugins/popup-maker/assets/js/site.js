@@ -389,7 +389,11 @@ var PUM;
             if (settings.close_on_overlay_click) {
                 $popup.on('pumAfterOpen', function () {
                     $(document).on('click.pumCloseOverlay', function (e) {
-                        if(!$(e.target).closest('.pum-container').length) {
+                        debugger;
+                        var $target = $(e.target),
+                            $container = $target.closest('.pum-container');
+
+                        if (!$container.length) {
                             $.fn.popmake.last_close_trigger = 'Overlay Click';
                             $popup.popmake('close');
                         }
@@ -397,7 +401,7 @@ var PUM;
                 });
 
                 $popup.on('pumAfterClose', function () {
-                   $(document).off('click.pumCloseOverlay');
+                    $(document).off('click.pumCloseOverlay');
                 });
             }
 
@@ -686,12 +690,12 @@ var PUM_Accessibility;
     var $top_level_elements,
         focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]",
         previouslyFocused,
-        currentModal;
+        currentModal
 
     PUM_Accessibility = {
         // Accessibility: Checks focus events to ensure they stay inside the modal.
         forceFocus: function (e) {
-            if (currentModal && !$.contains(currentModal, e.target)) {
+            if (currentModal && currentModal.length && !currentModal[0].contains(e.target)) {
                 e.stopPropagation();
                 PUM_Accessibility.setFocusToFirstItem();
             }
@@ -761,7 +765,7 @@ var PUM_Accessibility;
             $top_level_elements = $('body > *').filter(':visible').not(currentModal);
             $top_level_elements.attr('aria-hidden', 'true');
 
-            // Accessibility: Add focus check that prevents tabbing outside of modal.
+            // Accessibility: Add focus check first time focus changes after popup opens that prevents tabbing outside of modal.
             $(document).one('focusin.pum_accessibility', PUM_Accessibility.forceFocus);
 
             // Accessibility: Focus on the modal.
@@ -1145,7 +1149,14 @@ var PUM_Analytics;
     var _md,
         md = function () {
             if (_md === undefined) {
-                _md = new MobileDetect(window.navigator.userAgent);
+                _md = typeof MobileDetect !== 'undefined' ? new MobileDetect(window.navigator.userAgent) : {
+                    phone: function () {
+                        return false;
+                    },
+                    tablet: function() {
+                        return false;
+                    }
+                };
             }
 
             return _md;
@@ -2619,6 +2630,10 @@ var pum_debug_mode = false,
  ******************************************************************************/
 (function ($) {
     'use strict';
+
+    if (pum_vars && pum_vars.core_sub_forms_enabled !== undefined && !pum_vars.core_sub_forms_enabled) {
+        return;
+    }
 
     window.PUM = window.PUM || {};
     window.PUM.newsletter = window.PUM.newsletter || {};

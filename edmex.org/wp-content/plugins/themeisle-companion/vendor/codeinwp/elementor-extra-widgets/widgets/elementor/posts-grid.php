@@ -49,13 +49,23 @@ class Posts_Grid extends \Elementor\Widget_Base {
 	}
 
 	/**
+	 * Register dependent script.
+	 *
+	 * @return array
+	 */
+	public function get_script_depends() {
+		return [ 'obfx-grid-js' ];
+	}
+
+	/**
 	 * Widget Category.
 	 *
 	 * @return array
 	 */
 	public function get_categories() {
 		$category_args = apply_filters( 'elementor_extra_widgets_category_args', array() );
-		$slug = isset( $category_args['slug'] ) ?  $category_args['slug'] : 'obfx-elementor-widgets';
+		$slug          = isset( $category_args['slug'] ) ? $category_args['slug'] : 'obfx-elementor-widgets';
+
 		return [ $slug ];
 	}
 
@@ -480,6 +490,16 @@ class Posts_Grid extends \Elementor\Widget_Base {
 			]
 		);
 
+		// Show full content.
+		$this->add_control(
+			'grid_content_full_post',
+			[
+				'label'   => __( 'Show full content', 'themeisle-companion' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'default' => '',
+			]
+		);
+
 		// Length.
 		$this->add_control(
 			'grid_content_length',
@@ -488,6 +508,9 @@ class Posts_Grid extends \Elementor\Widget_Base {
 				'label'       => '<i class="fa fa-arrows-h"></i> ' . __( 'Length (words)', 'themeisle-companion' ),
 				'placeholder' => __( 'Length of content (words)', 'themeisle-companion' ),
 				'default'     => 30,
+				'condition'   => [
+						'grid_content_full_post!' => 'yes'
+				]
 			]
 		);
 
@@ -1665,15 +1688,18 @@ class Posts_Grid extends \Elementor\Widget_Base {
 	 */
 	protected function renderContent() {
 		$settings = $this->get_settings();
-
 		if ( $settings['grid_content_hide'] !== 'yes' ) { ?>
 			<div class="entry-content obfx-grid-content">
 				<?php
-				if ( empty( $settings['grid_content_length'] ) ) {
-					the_excerpt();
+				if( $settings['grid_content_full_post'] === 'yes' ) {
+					the_content();
 				} else {
-					echo wp_trim_words( get_the_excerpt(), $settings['grid_content_length'] );
-				} ?>
+					if ( empty( $settings['grid_content_length'] ) ) {
+						the_excerpt();
+					} else {
+						echo wp_trim_words( get_the_excerpt(), $settings['grid_content_length'] );
+					}
+				}?>
 			</div>
 			<?php
 		}
@@ -1717,7 +1743,8 @@ class Posts_Grid extends \Elementor\Widget_Base {
 						break;
 					} ?>
 					<span class="obfx-grid-categories-item">
-						<a href="<?php echo get_category_link( $category->term_id ); ?>" title="<?php echo $category->name; ?>">
+						<a href="<?php echo get_category_link( $category->term_id ); ?>"
+						   title="<?php echo $category->name; ?>">
 							<?php echo $category->name; ?>
 						</a>
 					</span>

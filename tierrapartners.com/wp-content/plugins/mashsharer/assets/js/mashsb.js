@@ -1,102 +1,208 @@
 var strict;
 
 jQuery(document).ready(function ($) {
-    
-   /* Show Whatsapp button on mobile devices iPhones and Android only */
-    if(navigator.userAgent.match(/(iPhone)/i) || navigator.userAgent.match(/(Android)/i)){
-        $('.mashicon-whatsapp').show(); 
+
+    /* Show Whatsapp button on mobile devices iPhones and Android only */
+    if (navigator.userAgent.match(/(iPhone)/i) || navigator.userAgent.match(/(Android)/i)) {
+        $('.mashicon-whatsapp').show();
     }
-    
-    // pinterest button logic
-        $('body')
-                .off('click', '.mashicon-pinterest')
-                .on('click', '.mashicon-pinterest', function (e) {
-                    e.preventDefault();
-                    console.log('preventDefault:' + e);
-                    winWidth = 520;
-                    winHeight = 350;
-                    var winTop = (screen.height / 2) - (winHeight / 2);
-                    var winLeft = (screen.width / 2) - (winWidth / 2);
-                    var url = $(this).attr('data-mashsb-url');
 
-                    window.open(url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight + ',resizable=yes');
+    /**
+     * Get facebook share count vi js client request
+     * 
+     * @returns {undefined}
+     */
+    var mashsb_get_fb_shares = function ()
+    {
 
-                });
-                
-        /* Load Pinterest Popup window
-         * 
-         * @param string html container
-         * @returns void
-         */
-        function load_pinterest(html) {
 
-            mashnet_load_pinterest_body();
-
-            jQuery('.mashnet_pinterest_header').fadeIn(500);
-            jQuery('.mashnet_pinterest_inner').html(html);
-
-            /* Close Pinterest popup*/
-            jQuery('.mashnet_pinterest_close').click(function (e) {
-                e.preventDefault();
-                jQuery('.mashnet_pinterest_header').hide();
-            });
+        if (document.querySelector('.mashsb-buttons') === null) {
+            return false;
         }
 
-        /**
-         * Load pinterest wrapper
-         * 
-         * @returns voids
-         */
-        function load_pinterest_body() {
-            var winWidth = window.innerWidth;
-            var popupWidth = 350;
-            var popupHeight = 310;
+        if ('undefined' !== typeof (mashsb.refresh) && mashsb.refresh === '0') {
+            return false;
+        }
 
-            /* Load Pinterest popup into body of page */
-            if (winWidth <= 330)
-                var popupWidth = 310;
-            if (winWidth > 400)
-                var popupWidth = 390;
-            if (winWidth > 500)
-                var popupWidth = 490;
+        if ('undefined' === typeof (mashsb.share_url) && mashsb.share_url !== '') {
+            return false;
+        }
 
-            var winTop = (window.innerHeight / 2) - (popupHeight / 2);
-            var winLeft = (window.innerWidth / 2) - (popupWidth / 2);
-            var struct = '<div class="mashnet_pinterest_header" style="position:fixed;z-index:999999;max-width:' + popupWidth + 'px; margin-left:' + winLeft + 'px;top:' + winTop + 'px;">\n\
+        if ('undefined' === typeof (mashsb.postid) && mashsb.postid !== '') {
+            return false;
+        }
+
+        if (mashsb_is_rate_limit()) {
+            return false;
+        }
+
+        //mashsb.share_url = 'https://www.google.de';
+
+        var facebookGraphURL = 'https://graph.facebook.com/?id=' + mashsb.share_url;
+        $.ajax({
+            type: 'GET',
+            url: facebookGraphURL,
+            dataType: 'json',
+            success: function (data) {
+                mashsb_set_fb_sharecount(data);
+                console.log(data);
+            },
+            error: function (e) {
+                console.log(e)
+            }
+        })
+
+
+    }
+    // Make sure page has been loaded completely before requesting any shares via ajax
+    // This also prevents hitting the server too often
+    setTimeout(mashsb_get_fb_shares, 3000);
+
+    /**
+     * If page is older than 30 second it's cached. So do not call FB API again 
+     * @returns {Boolean}
+     */
+    function mashsb_is_rate_limit() {
+
+        if ("undefined" === typeof (mashsb.servertime)) {
+            return true;
+        }
+
+        var serverTime = Number(mashsb.servertime);
+        var clientTime = Math.floor(Date.now() / 1000);
+
+        if (clientTime > (serverTime + 30)) {
+            console.log('rate limited: ' + (serverTime + 30));
+            return true;
+        } else {
+            console.log('not rate limited: ' + (serverTime + 30));
+            return false;
+        }
+    }
+
+    /**
+     * Store FB return data in mashshare cache vi js client request
+     * @returns {undefined}
+     */
+    function mashsb_set_fb_sharecount(result) {
+
+        if ('undefined' === typeof (result.share)) {
+            console.log('No valid result' + result);
+            return false;
+        }
+
+        var data = {
+            action: 'mashsb_set_fb_shares',
+            shares: result.share,
+            postid: mashsb.postid,
+            url: mashsb.share_url,
+            nonce: mashsb.nonce
+        }
+
+        $.ajax({
+            type: "post",
+            url: mashsb.ajaxurl,
+            data: data,
+            success: function (res) {
+                console.log('Save fb results: ' + res);
+            },
+            error: function (e) {
+                console.log('Unknown error ' + e)
+            }
+        })
+    }
+
+
+    // pinterest button logic
+    $('body')
+            .off('click', '.mashicon-pinterest')
+            .on('click', '.mashicon-pinterest', function (e) {
+                e.preventDefault();
+                console.log('preventDefault:' + e);
+                winWidth = 520;
+                winHeight = 350;
+                var winTop = (screen.height / 2) - (winHeight / 2);
+                var winLeft = (screen.width / 2) - (winWidth / 2);
+                var url = $(this).attr('data-mashsb-url');
+
+                window.open(url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight + ',resizable=yes');
+
+            });
+
+    /* Load Pinterest Popup window
+     * 
+     * @param string html container
+     * @returns void
+     */
+    function load_pinterest(html) {
+
+        mashnet_load_pinterest_body();
+
+        jQuery('.mashnet_pinterest_header').fadeIn(500);
+        jQuery('.mashnet_pinterest_inner').html(html);
+
+        /* Close Pinterest popup*/
+        jQuery('.mashnet_pinterest_close').click(function (e) {
+            e.preventDefault();
+            jQuery('.mashnet_pinterest_header').hide();
+        });
+    }
+
+    /**
+     * Load pinterest wrapper
+     * 
+     * @returns voids
+     */
+    function load_pinterest_body() {
+        var winWidth = window.innerWidth;
+        var popupWidth = 350;
+        var popupHeight = 310;
+
+        /* Load Pinterest popup into body of page */
+        if (winWidth <= 330)
+            var popupWidth = 310;
+        if (winWidth > 400)
+            var popupWidth = 390;
+        if (winWidth > 500)
+            var popupWidth = 490;
+
+        var winTop = (window.innerHeight / 2) - (popupHeight / 2);
+        var winLeft = (window.innerWidth / 2) - (popupWidth / 2);
+        var struct = '<div class="mashnet_pinterest_header" style="position:fixed;z-index:999999;max-width:' + popupWidth + 'px; margin-left:' + winLeft + 'px;top:' + winTop + 'px;">\n\
                         <div class="mashnet_pinit_wrapper" style="background-color:white;"><span class="mashnet_pin_it">Pin it! </span><span class="mashnet_pinicon"></span> \n\
 <div class="mashnet_pinterest_close" style="float:right;"><a href="#">X</a></div></div>\n\
 <div class="mashnet_pinterest_inner"></div>\n\
                 </div>\n\
                 ';
 
-            jQuery('body').append(struct);
+        jQuery('body').append(struct);
+    }
+
+    /* Get all images on site 
+     * 
+     * @return html
+     * */
+    function get_images(url) {
+
+        var allImages = jQuery('img').not("[nopin='nopin']");
+        var html = '';
+        var url = '';
+
+        var largeImages = allImages.filter(function () {
+            return (jQuery(this).width() > 70) || (jQuery(this).height() > 70)
+        })
+        for (i = 0; i < largeImages.length; i++) {
+            html += '<li><a target="_blank" rel="noopener" id="mashnetPinterestPopup" href="https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(window.location.href) + '%2F&media=' + largeImages[i].src + '&description=' + largeImages[i].alt + '"><img src="' + largeImages[i].src + '"></a></li>';
         }
+    }
 
-        /* Get all images on site 
-         * 
-         * @return html
-         * */
-        function get_images(url) {
-
-            var allImages = jQuery('img').not("[nopin='nopin']");
-            var html = '';
-            var url = '';
-
-            var largeImages = allImages.filter(function () {
-                return (jQuery(this).width() > 70) || (jQuery(this).height() > 70)
-            })
-            for (i = 0; i < largeImages.length; i++) {
-                html += '<li><a target="_blank" id="mashnetPinterestPopup" href="https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(window.location.href) + '%2F&media=' + largeImages[i].src + '&description=' + largeImages[i].alt + '"><img src="' + largeImages[i].src + '"></a></li>';
-            }
-        }
-          
 
     // check the sharecount caching method
-    mashsb_check_cache();
-    
+    //mashsb_check_cache();
+
     // Fix for the inline post plugin which removes the zero share count
-    if ($('.mashsbcount').text() == ''){
-       $('.mashsbcount').text(0); 
+    if ($('.mashsbcount').text() == '') {
+        $('.mashsbcount').text(0);
     }
 
     /**
@@ -105,7 +211,7 @@ jQuery(document).ready(function ($) {
      */
     function mashsb_check_cache() {
         setTimeout(function () {
-            if (typeof(mashsb) && mashsb.refresh == "1") {
+            if (typeof (mashsb) && mashsb.refresh == "1") {
                 mashsb_update_cache();
             }
 
@@ -247,14 +353,14 @@ jQuery(document).ready(function ($) {
 
                 // how many times to update the value, and how much to increment the value on each update
                 var loops = Math.ceil(settings.speed / settings.refreshInterval),
-                    increment = (settings.to - settings.from) / loops;
+                        increment = (settings.to - settings.from) / loops;
 
                 // references & variables that will change with each update
                 var self = this,
-                    $self = $(this),
-                    loopCount = 0,
-                    value = settings.from,
-                    data = $self.data('countTo') || {};
+                        $self = $(this),
+                        loopCount = 0,
+                        value = settings.from,
+                        data = $self.data('countTo') || {};
 
                 $self.data('countTo', data);
 
@@ -315,7 +421,8 @@ jQuery(document).ready(function ($) {
 
     }(jQuery));
 
-    /* Start the counter
+    /* 
+     * Start the counter
      * 
      */
     if (typeof mashsb !== 'undefined' && mashsb.animate_shares == 1 && $('.mashsbcount').length) {
@@ -336,7 +443,7 @@ jQuery(document).ready(function ($) {
 (function ($, d) {
     $.fn.nearest = function (selector) {
         var self, nearest, el, s, p,
-            hasQsa = d.querySelectorAll;
+                hasQsa = d.querySelectorAll;
 
         function update(el) {
             nearest = nearest ? nearest.add(el) : $(el);
