@@ -273,7 +273,7 @@ $grid_settings = array(
 				'id'   => $prefix.'instagram_username',
 				'name' => __( 'Username(s)', 'tg-text-domain' ),
 				'desc' => __( 'Type usernames', 'tg-text-domain' ),
-				'sub_desc' => __( 'Username can be an ID or the username.', 'tg-text-domain' ).'<br><strong> * '.__( 'For multiple username, please seperate them by a comma (e.g.: user1, user2, user3, ...)', 'tg-text-domain' ).'<br>* '.__( 'If you leave username and hashtag fields blank then it will retrieve your Instagram images.', 'tg-text-domain' ).'<br>* '. __( 'Username will be used for Instagram user (Layout Tab)', 'tg-text-domain' ) .'</strong>',
+				'sub_desc' => '<strong> * '.__( 'For multiple username, please seperate them by a comma (e.g.: user1, user2, user3, ...)', 'tg-text-domain' ).'<br>* '. __( 'Username will be used for Instagram user (Layout Tab)', 'tg-text-domain' ) .'</strong>',
 				'type' => 'text',
 				'std'  => '',
 				'tab' => __( 'Source', 'tg-text-domain' )
@@ -296,8 +296,6 @@ $grid_settings = array(
 				'type' => 'section_end',
 				'tab' => __( 'Source', 'tg-text-domain' ),
 			),
-			
-			
 			array(
 				'id'   => 'section_youtube_start',
 				'name' => __( 'Youtube Settings' ),
@@ -2082,7 +2080,7 @@ $grid_settings = array(
 			),
 			array(
 				'type' => 'break',
-				'tab' => 'Grid'
+				'tab' => __( 'Grid', 'tg-text-domain' )
 			),
 			array(
 				'id'   => 'grid_settings_device_img5',

@@ -298,7 +298,7 @@ class The_Grid_Facebook {
 		
 		$fields  = '&fields=';
 		$fields .= 'likes.summary(true),comments.summary(true),shares,';
-		$fields .= 'id,object_id,source,type,status_type,link,from,name,message,story,created_time,picture,full_picture,attachments{media,subattachments}&locale=de_DE';
+		$fields .= 'id,object_id,source,type,status_type,link,from,name,message,story,created_time,picture,full_picture,attachments{media,subattachments}';
 		
 		return $fields;
 		

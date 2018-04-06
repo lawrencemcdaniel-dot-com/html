@@ -2008,7 +2008,7 @@ var tg_is_mobile = (tg_global_var.is_mobile); // check is we are on a mobile dev
 		e.preventDefault();
 		var id = $(this).data('tolb-id');
 		if (id) {
-			$('#'+id).trigger('click');
+			$('#'+id)[0].click();
 		}
 	});
 

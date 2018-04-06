@@ -9,7 +9,7 @@
  * Plugin Name:  The Grid
  * Plugin URI:   http://www.theme-one.com/the-grid/
  * Description:  The Grid - Create advanced grids for any post type with endless possibilities (no programming knowledge required)
- * Version:      2.6.0
+ * Version:      2.6.1
  * Author:       Themeone
  * Author URI:   http://www.theme-one.com/
  * Text Domain:  tg-text-domain
@@ -34,7 +34,7 @@ if (!class_exists('The_Grid_Plugin')) {
 		*
 		* @var string
 		*/
-		public $plugin_version = '2.6.0';
+		public $plugin_version = '2.6.1';
 		
 		/**
 		* Plugin Slug

@@ -872,7 +872,8 @@
 		skin_data_arr  = $.parseJSON($('.tomb-grid-skins').val());
 		skin_data_arr  = (skin_data_arr && !$.isEmptyObject(skin_data_arr)) ? skin_data_arr : {};
 
-	$('.tomb-tab-content.Skins').find('#section_skins_start').addClass('has-grid-skin');
+	//$('.tomb-tab-content.Skins').find('#section_skins_start').addClass('has-grid-skin');
+	$('.tomb-tab-content.tomb-tab-7').find('#section_skins_start').addClass('has-grid-skin');
 		
 	if ($('#tg-grid-skins').length > 0) {
 		

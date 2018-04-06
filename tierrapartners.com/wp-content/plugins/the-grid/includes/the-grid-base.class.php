@@ -142,7 +142,7 @@ class The_Grid_Base {
 			
 			// get taxonomies from post type
 			$taxonomies = get_object_taxonomies($post_type, 'objects');
-			
+
 			// if there are some taxonomies
 			if ($taxonomies) {
 				
@@ -150,7 +150,7 @@ class The_Grid_Base {
 				
 				// for each taxonomy slug
 				foreach ($taxonomies as $taxonomy => $settings) {
-					
+
 					// if this taxonomy was already proceeded
 					if (isset($post_terms[$taxonomy])) {
 						// store terms array from previous get_terms result
@@ -167,7 +167,7 @@ class The_Grid_Base {
 					}
 					
 				}
-				
+
 				if ($taxonomies_slug) {
 					
 					// get all terms from current taxonomy
@@ -197,7 +197,7 @@ class The_Grid_Base {
 						}
 						
 						foreach ($taxonomies as $taxonomy => $settings) {
-							
+
 							// if some terms was added
 							if (isset($terms_list[$post_type]['taxonomies'][$taxonomy]['terms'])) {
 								// sort them hierarchically

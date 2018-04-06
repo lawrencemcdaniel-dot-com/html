@@ -277,11 +277,10 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
             </li>
            	<li>
             	<p style="font-weight: bold; margin: 12px 0 0;">
-                	Are you an icon designer? 
-                	<a href="mailto:biz@ultimatelysocial.com" style="color:#8E81BD; text-decoration:none;">
-                    	Contact us
-                	</a>
-                	to offer your icons here and get a free link (& traffic) back to your site!
+                        Need icons for another theme? Let us know in the
+                        <a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/#new-topic-0" style="color:#8E81BD; text-decoration:underline;">
+                            Support Forum
+                        </a>
             	</p>
             </li>
             

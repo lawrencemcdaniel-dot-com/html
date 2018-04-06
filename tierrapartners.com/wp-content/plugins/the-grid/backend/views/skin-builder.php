@@ -2737,8 +2737,8 @@ foreach ($item_panels as $type => $panel) {
 		$panels[$type] .= '<div class="tomb-tab-content tg-component-styles tomb-tab-show" data-settings="styles">';
 						
 			$panels[$type] .= '<ul class="tomb-tabs-holder tg-component-tabs">';
-				$panels[$type] .= '<li class="tomb-tab tg-component-tab selected" data-target="idle_state"><i class="tomb-icon"></i>'.__( 'Idle Sate', 'tg-text-domain' ).'</li>';
-				$panels[$type] .= '<li class="tomb-tab tg-component-tab" data-target="hover_state"><i class="tomb-icon"></i>'.__( 'Hover Sate', 'tg-text-domain' ).'</li>';
+				$panels[$type] .= '<li class="tomb-tab tg-component-tab selected" data-target="idle_state"><i class="tomb-icon"></i>'.__( 'Idle State', 'tg-text-domain' ).'</li>';
+				$panels[$type] .= '<li class="tomb-tab tg-component-tab" data-target="hover_state"><i class="tomb-icon"></i>'.__( 'Hover State', 'tg-text-domain' ).'</li>';
 			$panels[$type] .= '</ul>';
 							
 			$panels[$type] .= '<div class="tomb-tab-content tg-component-style-properties idle_state tomb-tab-show" data-settings="idle_state" data-element="'.$panel['element'].'" data-prefix="'.$type.'_idle_">';
@@ -3174,8 +3174,8 @@ echo '<div class="tg-panel-element" data-elements-content=\''.json_encode($eleme
 		echo '<div class="tomb-tab-content tg-component-styles tg-element-styles" data-settings="styles" data-prefix="">';
 				
 			echo '<ul class="tomb-tabs-holder tg-component-tabs">';
-				echo '<li class="tomb-tab tg-component-tab selected" data-target="idle_state"><i class="tomb-icon"></i>'.__( 'Idle Sate', 'tg-text-domain' ).'</li>';
-				echo '<li class="tomb-tab tg-component-tab" data-target="hover_state"><i class="tomb-icon"></i>'.__( 'Hover Sate', 'tg-text-domain' ).'</li>';
+				echo '<li class="tomb-tab tg-component-tab selected" data-target="idle_state"><i class="tomb-icon"></i>'.__( 'Idle State', 'tg-text-domain' ).'</li>';
+				echo '<li class="tomb-tab tg-component-tab" data-target="hover_state"><i class="tomb-icon"></i>'.__( 'Hover State', 'tg-text-domain' ).'</li>';
 			echo '</ul>';
 					
 			echo '<div class="tomb-tab-content tg-component-style-properties idle_state" data-settings="idle_state" data-prefix="element_idle_">';

@@ -233,7 +233,7 @@ class The_Grid_WPML {
 			'sub_desc' => '',
 			'type' => 'custom',
 			'options' => $WPML_languages,
-			'tab' => 'General'
+			'tab' => __( 'General', 'tg-text-domain'  ),
 		);
 		
 		if(self::WPML_exists()) {
@@ -264,7 +264,7 @@ class The_Grid_WPML {
 				'width' => 120,
 				'options' => $WPML_languages,
 				'std' => $WPML_current_lang,
-				'tab' => 'General'
+				'tab' => __( 'General', 'tg-text-domain'  ),
 			);
 			
 		}

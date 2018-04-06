@@ -325,17 +325,22 @@ if (!class_exists('TOMB_Metabox')) {
 			$tabNb    = sizeof($fields);
 			$tabs     = array_keys($fields);
 			$selected = ' selected';
-			
+
 			if ($tabNb > 1) {
 				echo '<ul class="tomb-tabs-holder">';
-				foreach ($tabs as $tab) {
+				/*foreach ($tabs as $tab) {
 					echo '<li class="tomb-tab'.$selected.'" data-target="'.$this->themeone_tab_name($tab).'">'.$icons[$tab].$tab.'</li>';
+					$selected = null;
+				}*/
+				foreach ($tabs as $index => $tab) {
+					echo '<li class="tomb-tab'.$selected.'" data-target="tomb-tab-'.$index.'">'.$icons[$tab].$tab.'</li>';
 					$selected = null;
 				}
 				echo '</ul>';
 				
-				foreach ($tabs as $tab) {
-					echo '<div class="tomb-tab-content '.$this->themeone_tab_name($tab).'">';
+				foreach ($tabs as $index => $tab) {
+					//echo '<div class="tomb-tab-content '.$this->themeone_tab_name($tab).'">';
+					echo '<div class="tomb-tab-content tomb-tab-'.$index.'">';
 					foreach ($fields[$tab] as $input) {
 						print_r($input);
 					}

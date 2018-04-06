@@ -102,17 +102,6 @@ class The_Grid_Instagram {
 	*/
 	private $last_media = array();
 	
-	/**
-	* Instagram temp data
-	*
-	* @since 1.0.0
-	* @access private
-	*
-	* @var string/array
-	*/
-	private $tmp_count;
-	private $tmp_media = array();
-	private $tmp_last_media = array();
 	
 	/**
 	* Initialize the class and set its properties.
@@ -120,27 +109,8 @@ class The_Grid_Instagram {
 	*/
 	public function __construct($grid_data = '') {
 		
-		$this->get_API_key();
 		$this->get_transient_expiration();
 		$this->grid_data = $grid_data;
-		
-	}
-
-	/**
-	* Get Instagram API Key
-	* @since: 1.0.0
-	*/
-	public function get_API_key(){
-		
-		$this->api_key = trim(get_option('the_grid_instagram_api_key', ''));
-		
-		if (empty($this->api_key)) {
-			$error_msg  = __( 'You didn\'t authorize The Grid to', 'tg-text-domain' );
-			$error_msg .= ' <a style="text-decoration: underline;" href="'.admin_url('admin.php?page=the_grid_global_settings').'">';
-			$error_msg .= __( 'connect to Instagram.', 'tg-text-domain' );
-			$error_msg .= '</a>';
-			throw new Exception($error_msg);
-		}
 		
 	}
 	
@@ -160,6 +130,8 @@ class The_Grid_Instagram {
 	*/
 	public function get_grid_items() {
 		
+		global $tg_is_ajax;
+
 		$this->get_data(
 			'media',
 			$this->grid_data['instagram_username'],
@@ -169,6 +141,13 @@ class The_Grid_Instagram {
 		
 		$this->grid_data['ajax_data'] = htmlspecialchars(json_encode($this->last_media), ENT_QUOTES, 'UTF-8');
 		
+		if ( empty( $this->media ) && ! $tg_is_ajax ) {
+				
+			$error_msg = __( 'No content was found for the current ursername(s) and/or hashtag(s).', 'tg-text-domain' );
+			throw new Exception($error_msg);
+
+		}
+
 		return $this->media;
 
 	}
@@ -192,25 +171,27 @@ class The_Grid_Instagram {
 		// store Instagram data
 		$this->usernames = preg_replace('/\s+/', '', $usernames);
 		$this->hashtags  = preg_replace('/\s+/', '', $hashtags);
-		$this->count     = ($count <= 0) ? 10 : $count;
-		$this->count     = ($this->count > 50) ? 50 : $this->count;
+		$this->count     = $count <= 0 ? 10 : $count;
+		$this->count     = $this->count > 100 ? 100 : $this->count;
 		
 		// get last media from ajax
-		$last_media = (isset($_POST['grid_ajax']) && !empty($_POST['grid_ajax'])) ? $_POST['grid_ajax'] : array();
+		$last_media = isset($_POST['grid_ajax']) && !empty($_POST['grid_ajax']) ? $_POST['grid_ajax'] : array();
 		$this->last_media = $last_media;
-		$this->tmp_last_media = $last_media;
-		
+
 		// prepare Instagram data
 		$this->get_users_id();
-			
 		$this->get_hashtags();
-		$this->call_nb = count($this->usernames) + count($this->hashtags);
 		
 		// retrieve Instagram data
 		if ($type == 'media') {
 			$this->get_media();
 		} else if ($type == 'user_info') {
-			$this->get_user_info();
+			if ( is_array($this->user_data) ) {
+				return reset($this->user_data);
+			} else {
+				return;
+			}
+			
 		}
 
 		return $this->media;
@@ -223,23 +204,24 @@ class The_Grid_Instagram {
 	*/
 	public function get_users_id() {
 		
-		$count = 0;
+
 		$this->usernames = array_filter(explode(',', $this->usernames));
-		foreach ($this->usernames as $username) {
-			$username = $username;
-			if (!is_numeric($username)) {
-				$url = 'https://api.instagram.com/v1/users/search?q='.$username.'&access_token='.$this->api_key;
-				$response = $this->get_response($url);
-				if(isset($response->data) && !empty($response->data)) {
-					$user_data = $response->data;
-					foreach($user_data as $user) {
-						if($user->username == $username) {
-							$this->usernames[$count] = $user->id;
-						}
-					}
-				}
+
+		foreach ($this->usernames as $index => $username) {
+			
+			if ( is_numeric( $username ) ) {
+				continue;	
 			}
-			$count++;
+
+			$username = str_replace( '@', '', $username );
+			$url = 'https://www.instagram.com/'. $username . '/?__a=1';
+			$response = $this->get_response($url);
+
+			if ( isset( $response->graphql->user->id ) && ! empty( $response->graphql->user->id ) ) {
+				$this->usernames[$index] = $response->graphql->user->id;
+				$this->user_data[$response->graphql->user->id] = $response;
+			}
+
 		}
 
 	}
@@ -250,6 +232,7 @@ class The_Grid_Instagram {
 	*/
 	public function get_hashtags() {
 		
+		$this->hashtags = str_replace( '#', '', $this->hashtags );
 		$this->hashtags = array_filter(explode(',', $this->hashtags));
 		$this->hashtags = array_map('trim',$this->hashtags);
 		
@@ -269,6 +252,7 @@ class The_Grid_Instagram {
 		usort($this->media, function($a, $b) {
     		return str_replace('@', '',$b['date']) - str_replace('@', '',$a['date']);
 		});
+
 		// return only the number of element set in grid settings
 		$this->media = array_slice($this->media, 0, $this->count);
 		
@@ -278,34 +262,26 @@ class The_Grid_Instagram {
 	}
 	
 	/**
-	* Get user info
-	* @since 1.0.0
-	*/
-	public function get_user_info() {
-
-		if (!empty($this->usernames)) {
-			foreach($this->usernames as $username) {
-				$this->_makeCall('users', $username, '');
-			}
-		} else {
-			
-			$this->_makeCall('users', 'self', '');
-		}
-		
-	}
-	
-	/**
 	* Retrieve user media
 	* @since 1.0.0
 	*/
 	public function get_user_media() {
-		
-		if (!empty($this->usernames)) {
-			foreach($this->usernames as $username) {
-				$this->_makeCall('users', $username, '/media/recent/');
+
+		foreach ($this->usernames as $username ) {
+
+			$url = 'https://instagram.com/graphql/query/?query_id=17888483320059182&id='.$username.'&first='.$this->count;
+			$url .= isset( $this->last_media[ $username ] ) ? '&after=' . $this->last_media[ $username ] : '';
+			$response = $this->get_response($url);
+
+			if ( ! isset( $response->data ) ) {
+				continue;
 			}
-		} else if ($this->call_nb == 0) {
-			$this->_makeCall('users', 'self', '/media/recent/');
+
+			$response = $response->data;
+			$response = $response->user->edge_owner_to_timeline_media->edges;
+
+			$this->build_media_array($response, $username, true);
+			
 		}
 		
 	}
@@ -315,67 +291,26 @@ class The_Grid_Instagram {
 	* @since 1.0.0
 	*/
 	public function get_hashtag_media() {
-		
-		if (!empty($this->hashtags)) {
-			foreach($this->hashtags as $hashtag) {
-				$this->_makeCall('tags', $hashtag, '/media/recent/');
+	
+		foreach ( $this->hashtags as $hashtag ) {
+
+			$url = 'https://instagram.com/graphql/query/?query_id=17875800862117404&tag_name='.$hashtag.'&first='.$this->count;
+			$url .= isset( $this->last_media[ $hashtag ] ) ? '&after=' . $this->last_media[ $hashtag ] : '';
+			$response = $this->get_response($url);
+
+			if ( ! isset( $response->data ) ) {
+				continue;
 			}
+
+			$response = $response->data;
+			$response = $response->hashtag->edge_hashtag_to_media->edges;
+			
+			$this->build_media_array($response, $hashtag);
+			
 		}
 	
 	}
 	
-	/**
-	* Instagram API call
-	* @since 1.0.0
-	*/
-	public function _makeCall($type, $id, $content) {
-
-		// set number of item to retrieve and max id if necessary
-		$count  = (!empty($this->tmp_count)) ? $this->tmp_count : $this->count;
-		$max_pr = ($type == 'tags') ? 'tag_' : '';
-
-		$max_id = (isset($this->tmp_last_media[$id]) && !empty($this->tmp_last_media[$id])) ? '&max_'.$max_pr.'id='.$this->tmp_last_media[$id] : '';
-
-		// set and retrieve response
-		$url = 'https://api.instagram.com/v1/'.$type.'/'.$id.$content.'?&access_token='.$this->api_key.$max_id;
-		$response = $this->get_response($url);
-
-		if (isset($response->data) && !empty($response->data)){
-			
-			if (!empty($content)){
-			
-				// build array data for the grid social content
-				$data = $this->build_media_array($response, $type, $id);
-				// set temporary data for current user/tag
-				$this->tmp_media[$id] = (!isset($this->tmp_media[$id])) ? array() : $this->tmp_media[$id];
-				$this->tmp_media[$id] = array_merge($this->tmp_media[$id], $data);
-				
-				// get max id from pagination
-				if (isset($response->pagination->next_max_id) || isset($response->pagination->next_max_tag_id)) {
-					$this->tmp_last_media[$id] = ($type == 'users') ? $response->pagination->next_max_id : $response->pagination->next_max_tag_id;
-				}
-				
-				$max_nb = ($this->count > 33) ? 33 : $this->count;
-				if (count($this->tmp_media[$id]) < $this->count && (count($data) == $max_nb)) {
-					// set temporary count to get next set of data (exact number)
-					$this->tmp_count = $this->count - count($this->tmp_media[$id]);
-					$this->_makeCall($type, $id, $content);
-				}
-				
-				$this->media = array_merge($this->media, $this->tmp_media[$id]);
-			
-			} else {
-				
-				$this->media = 	$response->data;
-				
-			}
-		
-		}
-		
-		// reset temporary data for current user/tag
-		$this->tmp_count = null;
-
-	}
 	
 	/**
 	* Get url response (transient)
@@ -391,19 +326,14 @@ class The_Grid_Instagram {
 			$response = json_decode($transient);
 		} else {
 			$response = wp_remote_fopen($url);
-			$json = json_decode($response);
-			if (isset($json->meta->error_message)) {
-				$error_msg  = __( 'Sorry, an error occurs from Instagram API:', 'tg-text-domain' );
-				$error_msg .= ' '.$json->meta->error_message;
+
+			if ( is_wp_error( $response ) ) {
+				$error_msg  = __( 'Sorry, an error occured from Instagram API.', 'tg-text-domain' );
 				throw new Exception($error_msg);
 			}
-			if (isset($json->data) && !empty($json->data)) {
-				set_transient($transient_name, $response, $this->transient_sec);
-			}  else if (!$tg_is_ajax) {
-				$error_msg  = __( 'No content was found for the current ursername(s) and/or hashtag(s).', 'tg-text-domain' );
-				throw new Exception($error_msg);
-			}
-			$response = $json;
+
+			set_transient($transient_name, $response, $this->transient_sec);
+			$response = json_decode($response);
 		}
 		
 		return $response;
@@ -418,34 +348,45 @@ class The_Grid_Instagram {
 		
 		// assign max id
 		foreach ($this->media as $media => $data) {
-			$id      = $data['ID'];
-			$type    = $data['type'];
-			$type_id = $data['type_id'];
-			$count[$type_id] = (!isset($count[$type_id])) ? 1 : $count[$type_id]+1;
-			$this->last_media[$type_id] = $id;
-		}
-		
-		// get the right last max id for hashtags for mix content
-		if (!empty($this->hashtags)) {
-			foreach($this->hashtags as $hashtag) {
-				/*if ($count[$hashtag] < count($this->tmp_media[$hashtag])) {
-					// remove image user id because tags doesn't handle user id
-					$this->last_media[$hashtag] = strstr($this->tmp_media[$hashtag][$count[$hashtag]]['ID'], '_', true);
-				} else {*/
-					$this->last_media[$hashtag] = $this->tmp_last_media[$hashtag];
-				//}
-			}
+			$this->last_media[$data['type']] = $data['ID'];
 		}
 		
 	}
 	
+	/**
+	* Get video
+	* @since 1.0.0
+	*/
+	public function get_video( $node ) {
+		
+		if( ! $node->is_video ){
+			return;
+		}
+
+		$url = 'https://www.instagram.com/p/'.$node->shortcode.'/?__a=1';
+		$response = $this->get_response($url);
+		
+		if ( ! isset( $response->graphql->shortcode_media->video_url ) ) {
+			return;
+		}
+
+		return array(
+			'mp4' => $response->graphql->shortcode_media->video_url,
+		);
+
+	}
+
 	/**
 	* Get excerpt
 	* @since 2.1.0
 	*/
 	public function get_excerpt($data) {
 	
-		$excerpt = isset($data->caption->text) ? $data->caption->text : null;
+		if ( ! isset( $data->edge_media_to_caption->edges[0]->node->text ) ){
+			return;
+		}
+			
+		$excerpt = $data->edge_media_to_caption->edges[0]->node->text;
 		$excerpt = $excerpt ? preg_replace('~(\#)([^\s!,. /()"\'?]+)~', '<a href="https://www.instagram.com/explore/tags/$2/" target="_blank" class="tg-item-social-link">#$2</a>', $excerpt) : null;
 		$excerpt = $excerpt ? preg_replace('~(\@)([^\s!,. /()"\'?]+)~', '<a href="https://www.instagram.com/$2/" target="_blank" class="tg-item-social-link">@$2</a>', $excerpt) : null;
 		return $excerpt;
@@ -456,62 +397,70 @@ class The_Grid_Instagram {
 	* Build data array for the grid
 	* @since 1.0.0
 	*/
-	public function build_media_array($response, $type, $type_id) {
-		
-		$images = array();
-		
-		if (isset($response->data)) {
+	public function build_media_array($response, $type, $user = false) {
 
-			foreach ($response->data as $data) {
+		foreach( $response as $node ) {
+			
+			$node = $node->node;
 
-				$images[] = array(
-					'ID'              => $data->id,
-					'type_id'         => $type_id,
-					'type'            => $data->type,
-					'date'            => $data->created_time,
-					'post_type'       => null,
-					'format'          => $data->type,
-					'url'             => $data->link,
-					'url_target'      => '_blank',
-					'title'           => null,
-					'excerpt'         => $this->get_excerpt($data),
-					'terms'           => null,
-					'author'          => array(
-						'ID'     => $data->user->id,
-						'name'   => $data->user->username,
-						'url'    => 'https://www.instagram.com/'.$data->user->username.'/',
-						'avatar' => $data->user->profile_picture,
-					),
-					'likes_number'    => $data->likes->count,
-					'likes_title'     =>  __( 'Like on Instagram', 'tg-text-domain' ),
-					'comments_number' => $data->comments->count,
-					'views_number'    => null,
-					'image'           => array(
-						'alt'    => null,
-						'url'    => $data->images->standard_resolution->url,
-						'width'  => $data->images->standard_resolution->width,
-						'height' => $data->images->standard_resolution->height
-					),
-					'gallery'         => null,
-					'video'           => array(
-						'type'   => 'video',
-						'source' => array(
-							'mp4'  => ($data->type == 'video') ? $data->videos->standard_resolution->url : null,
-							'ovg'  => null,
-							'webm' => null
-						),
-					),
-					'audio'           => null,
-					'quote'           => null,
-					'link'            => null,
-					'meta_data'       => null
-				);
+			if ( $user && isset( $this->user_data[$node->owner->id] ) ) {
+				$user = $this->user_data[$node->owner->id];
+			} else if ( $user ) {
+
+				$user = 'https://www.instagram.com/'. $node->owner->id . '/?__a=1';
+				$user = $this->get_response($user);
+				$this->user_data[$node->owner->id] = $user;
 
 			}
-		
+
+			$display_url = isset( $node->display_url ) ? $node->display_url : null;
+			$display_url = ! $display_url && isset( $node->display_src ) ? $node->display_src : $display_url;
+			
+			$thumbnail_src = isset( $node->thumbnail_resources[4]->src ) ? $node->thumbnail_resources[4]->src : null;
+			$thumbnail_src = ! $thumbnail_src && isset( $node->thumbnail_src ) ? $node->thumbnail_src : $thumbnail_src;
+			
+			$video = $this->get_video($node);
+			
+			$this->media[ $node->taken_at_timestamp ] = array(
+				'ID'              => $node->id,
+				'type'            => $type,
+				'date'            => $node->taken_at_timestamp,
+				'post_type'       => null,
+				'format'          => $video ? 'video' : null,
+				'url'             => 'https://www.instagram.com/p/' . $node->shortcode,
+				'url_target'      => '_blank',
+				'title'           => null,
+				'excerpt'         => $this->get_excerpt($node),
+				'terms'           => null,
+				'author'          => array(
+					'ID'     => isset( $node->owner->id ) ? $node->owner->id : null,
+					'name'   => isset( $user->graphql->user->username ) ? $user->graphql->user->username : '',
+					'url'    => isset( $node->owner->id ) ? 'https://www.instagram.com/'.$node->owner->id.'/' : null,
+					'avatar' => isset( $user->graphql->user->profile_pic_url ) ? $user->graphql->user->profile_pic_url : null,
+				),
+				'likes_number'    => isset( $node->edge_media_preview_like->count ) ? $node->edge_media_preview_like->count : null,
+				'likes_title'     =>  __( 'Like on Instagram', 'tg-text-domain' ),
+				'comments_number' => isset( $node->edge_media_to_comment->count ) ? $node->edge_media_to_comment->count : null,
+				'views_number'    => null,
+				'image'           => array(
+					'alt'    => null,
+					'url'    => $thumbnail_src,
+					'lb_url' => $display_url ? $display_url : $thumbnail_src,
+					'width'  => isset( $node->thumbnail_resources[4]->config_width ) ? $node->thumbnail_resources[4]->config_width : null,
+					'height' => isset( $node->thumbnail_resources[4]->config_height ) ? $node->thumbnail_resources[4]->config_height : null,
+				),
+				'gallery'         => null,
+				'video'           => array(
+					'type'   => 'video',
+					'source' => $video,
+				),
+				'audio'           => null,
+				'quote'           => null,
+				'link'            => null,
+				'meta_data'       => null
+			);
+			
 		}
-		
-		return $images;
 		
 	}
 	

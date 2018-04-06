@@ -52,7 +52,10 @@
 * CSS FOR CUSTOM FIELD GRID SETTINGS
 ********************************/
 
-body.admin_page_the_grid_settings #wpbody {
+body.admin_page_the_grid_settings #wpbody,
+body.the-grid_page_the_grid_skins_overview #wpbody,
+body.the-grid_page_the_grid_import_export #wpbody,
+body.the-grid_page_the_grid_global_settings #wpbody {
 	display: none;
 	overflow: hidden;
 }
@@ -1123,12 +1126,21 @@ li.tg-filter-item .tg-remove-filter {
 * Skin preview
 ********************************/
 
-.tomb-tab-content.Skins {
+/*.tomb-tab-content.Skins {
 	display: block !important;
 	opacity: 0;
 	height: 0;
 }
 .tomb-tab-content.Skins.tomb-tab-show {
+	height: auto;
+	opacity: 1;
+}*/
+.tomb-tab-content.tomb-tab-7 {
+	display: block !important;
+	opacity: 0;
+	height: 0;
+}
+.tomb-tab-content.tomb-tab-7.tomb-tab-show {
 	height: auto;
 	opacity: 1;
 }

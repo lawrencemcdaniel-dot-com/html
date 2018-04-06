@@ -512,7 +512,7 @@
 		</div>
 
 			<div class="premiumTxt chkbutton"><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=do_you_like_your_website&utm_medium=banner" target="_blank">Check it out ></a></div>
-			<div class="premiumTxt priceTxt">To make it available for all people pricing is <strong>super-fair</strong>, starting at 15.98 USD only</div>
+			<!-- <div class="premiumTxt priceTxt">To make it available for all people pricing is <strong>super-fair</strong>, starting at 15.98 USD only</div> -->
 	 </div>
 </div>	 
 

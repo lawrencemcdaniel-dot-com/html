@@ -1,4 +1,4 @@
-# BEGIN WP Rocket v2.11.7
+# BEGIN WP Rocket v3.0.2
 # Use UTF-8 encoding for anything served text/plain or text/html
 AddDefaultCharset UTF-8
 # Force UTF-8 for a number of file formats
@@ -15,10 +15,28 @@ Header unset ETag
 # developer.yahoo.com/performance/rules.html#etags
 FileETag None
 
+# Send CORS headers if browsers request them; enabled by default for images.
+<IfModule mod_setenvif.c>
+<IfModule mod_headers.c>
+# mod_headers, y u no match by Content-Type?!
+<FilesMatch "\.(cur|gif|png|jpe?g|svgz?|ico|webp)$">
+SetEnvIf Origin ":" IS_CORS
+Header set Access-Control-Allow-Origin "*" env=IS_CORS
+</FilesMatch>
+</IfModule>
+</IfModule>
+
+# Allow access to web fonts from all domains.
+<FilesMatch "\.(eot|otf|tt[cf]|woff2?)$">
+<IfModule mod_headers.c>
+Header set Access-Control-Allow-Origin "*"
+</IfModule>
+</FilesMatch>
+
 <IfModule mod_alias.c>
 <FilesMatch "\.(html|htm|rtf|rtx|txt|xsd|xsl|xml)$">
 <IfModule mod_headers.c>
-Header set X-Powered-By "WP Rocket/2.11.7"
+Header set X-Powered-By "WP Rocket/3.0.2"
 Header unset Pragma
 Header append Cache-Control "public"
 Header unset Last-Modified
@@ -148,5 +166,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
 # END WordPress

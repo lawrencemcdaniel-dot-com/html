@@ -2,6 +2,7 @@
 defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 $rocket_cookie_hash = '9bea700b35c9503d8c528661264f240e';
+$rocket_cache_ssl = 1;
 $rocket_secret_cache_key = '5aaed1343a94c607283340';
 $rocket_cache_mobile = '1';
 $rocket_do_caching_mobile_files = '1';
@@ -10,7 +11,6 @@ $rocket_cache_reject_cookies = 'wordpress_logged_in_|wp-postpass_|wptouch_switch
 $rocket_cache_reject_ua = 'facebookexternalhit';
 $rocket_cache_query_strings = array (
 );
-$rocket_cache_ssl = '1';
 $rocket_cache_mandatory_cookies = '';
 $rocket_cache_dynamic_cookies = array (
 );

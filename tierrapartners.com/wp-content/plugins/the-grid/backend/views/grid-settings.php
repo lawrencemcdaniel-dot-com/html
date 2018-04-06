@@ -631,14 +631,14 @@ if (isset($_GET['instagram_logout']) && $_GET['instagram_logout'] == true) {
 	update_option('the_grid_instagram_api_key', null);
 	$intagram_token = null;
 }
-// access token instagram http://instagram.pixelunion.net/
+
 $form .= '<div class="tomb-tab-content social-api tomb-tab-show">';
 
 	// meta data
-	$form .= '<div class="tg-box-side">';
+	$form .= '<div class="tg-box-side" style="display:none">';
 		$form .= '<h3>'. __( 'Instagram API', 'tg-text-domain' ) .'</h3>';
 	$form .= '</div>';
-	$form .= '<div class="inside tg-box-inside">';
+	$form .= '<div class="inside tg-box-inside" style="display:none">';
 		$form .= '<div class="tomb-row tomb-field the_grid_instagram">';
 			$form .= '<label class="tomb-label">'. __( 'Connect to Instagram', 'tg-text-domain' ) .'</label>';
 			$form .= '<div class="tomb-spacer" style="height: 15px"></div>';
@@ -658,9 +658,9 @@ $form .= '<div class="tomb-tab-content social-api tomb-tab-show">';
 		$form .= '</div>';		
 	$form .= '</div>';
 	
-	$form .= '<div class="tomb-clearfix"></div>';
+	$form .= '<div class="tomb-clearfix" style="display:none"></div>';
 	
-	$form .= '<div class="tg-box-side">';
+	$form .= '<div class="tg-box-side" >';
 		$form .= '<h3>'. __( 'Youtube API', 'tg-text-domain' ) .'</h3>';
 	$form .= '</div>';
 	$form .= '<div class="inside tg-box-inside">';

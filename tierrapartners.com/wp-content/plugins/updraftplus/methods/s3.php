@@ -229,6 +229,7 @@ class UpdraftPlus_BackupModule_s3 extends UpdraftPlus_BackupModule {
 			case 'us-east-2':
 			case 'us-west-2':
 			case 'eu-west-2':
+			case 'eu-west-3':
 			case 'ap-southeast-1':
 			case 'ap-southeast-2':
 			case 'ap-northeast-1':
@@ -1115,7 +1116,9 @@ class UpdraftPlus_BackupModule_s3 extends UpdraftPlus_BackupModule {
 		}
 		$whoweare = $config['whoweare'];
 		
-		$storage = $this->getS3($key, $secret, $useservercerts, $disableverify, $nossl, null, $sse, $config['sessiontoken']);
+		$session_token = empty($config['sessiontoken']) ? null : $config['sessiontoken'];
+		
+		$storage = $this->getS3($key, $secret, $useservercerts, $disableverify, $nossl, null, $sse, $session_token);
 		if (is_wp_error($storage)) {
 			foreach ($storage->get_error_messages() as $msg) {
 				echo $msg."\n";

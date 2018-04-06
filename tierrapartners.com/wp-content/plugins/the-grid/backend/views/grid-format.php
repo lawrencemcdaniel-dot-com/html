@@ -197,7 +197,8 @@ $the_grid_item_format = array(
 				'light' => __( 'Light', 'tg-text-domain' ),
 				'dark' => __( 'Dark', 'tg-text-domain' )
 			),
-			'tab' => __( 'Colors', 'tg-text-domain' ),				'tab_icon' => '<i class="tomb-icon dashicons dashicons-art"></i>'
+			'tab' => __( 'Colors', 'tg-text-domain' ),
+			'tab_icon' => '<i class="tomb-icon dashicons dashicons-art"></i>'
 		),
 		array( 
 			'id' => $prefix . 'image',
@@ -635,7 +636,8 @@ $the_grid_attachment_format = array(
 				'light' => __( 'Light', 'tg-text-domain' ),
 				'dark' => __( 'Dark', 'tg-text-domain' )
 			),
-			'tab' => __( 'Colors', 'tg-text-domain' ),				'tab_icon' => '<i class="tomb-icon dashicons dashicons-art"></i>'
+			'tab' => __( 'Colors', 'tg-text-domain' ),
+			'tab_icon' => '<i class="tomb-icon dashicons dashicons-art"></i>'
 		),
 	)
 );
