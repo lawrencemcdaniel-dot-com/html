@@ -5,9 +5,12 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.8.9
+Version: 1.9.1
 License: GPLv2 or later
 */
+
+error_reporting(0);
+
 global $wpdb;
 
 /* define the Root for URL and Document */
@@ -52,7 +55,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.89)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.91)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -638,8 +641,6 @@ function sfsi_admin_notice()
 		<?php
 		}
 	}
-
-
 }
 add_action('admin_init', 'sfsi_dismiss_admin_notice');
 function sfsi_dismiss_admin_notice()
@@ -702,7 +703,8 @@ function sfsi_getdomain($url)
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLinks", -10 );
 function sfsi_actionLinks($links)
 {
-	$links[] = '<a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Check out pro version</b></a>';
+	$links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/ultimate-social-media-icons#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
+	$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
 	$links[] = @$links["deactivate"];
 	$links[] = @$links["edit"];
 	$links[] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';

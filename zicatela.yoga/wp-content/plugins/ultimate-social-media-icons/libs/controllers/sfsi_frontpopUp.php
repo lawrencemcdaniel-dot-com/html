@@ -1,5 +1,5 @@
 <?php 
-  
+
 /* show a pop on the as per user chose under section 7 */
 function sfsi_frontPopUp () { 
      ob_start();
@@ -38,7 +38,7 @@ function sfsi_check_PopUp($content)
      if($sfsi_section7_options['sfsi_Shown_pop']=="once")
      {
 		$time_popUp= (int) $sfsi_section7_options['sfsi_Shown_popupOnceTime'];
-		$time_popUp=$time_popUp*1000;
+		$time_popUp= $time_popUp*1000;
 		ob_start();
 	 ?>
      <script>
@@ -59,8 +59,8 @@ function sfsi_check_PopUp($content)
      }
      if($sfsi_section7_options['sfsi_Shown_pop']=="ETscroll")
      {
-		$time_popUp=$sfsi_section7_options['sfsi_Shown_popupOnceTime'];
-		$time_popUp=$time_popUp*1000;
+		$time_popUp = (int) $sfsi_section7_options['sfsi_Shown_popupOnceTime'];
+		$time_popUp = $time_popUp*1000;
 	    ob_start();
 	 ?>
      <script>
@@ -101,9 +101,9 @@ function sfsi_check_PopUp($content)
      }
      if($sfsi_section7_options['sfsi_Shown_pop']=="LimitPopUp")
      {
-		$time_popUp=$sfsi_section7_options['sfsi_Shown_popuplimitPerUserTime'];
-		$end_time=$_COOKIE['sfsi_socialPopUp']+($time_popUp*60); 
-		$time_popUp=$time_popUp*1000;
+		$time_popUp   = (int) $sfsi_section7_options['sfsi_Shown_popuplimitPerUserTime'];
+		$end_time     = (int) $_COOKIE['sfsi_socialPopUp'] + ($time_popUp*60); 
+		$time_popUp   = $time_popUp*1000;
      
 	 if(!empty($end_time))
 	 {

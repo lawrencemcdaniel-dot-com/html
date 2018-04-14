@@ -84,7 +84,7 @@
            <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
             <p><a style="text-decoration: none;" href="javascript:void(0)">New: </a>In our new Premium Plugin many other different placement options are supported, e.g. place the icons floating/statically on the place by defining margins, only show them on certain pages, show them only on mobile etc. etc. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">See all features</a></p>
             
-            <p>Please <a target="_blank" style="text-decoration: underline;" href="https://wordpress.org/support/plugin/ultimate-social-media-icons/#new-topic-0">give us feedback</a> and tell us how we can make the plugin better. Thank you!.</p>
+            <p>Please <a target="_blank" style="text-decoration: underline;" href="https://wordpress.org/support/plugin/ultimate-social-media-icons#no-topic-0">give us feedback</a> and tell us how we can make the plugin better. Thank you!.</p>
         </div>
         
         <div class="supportforum">

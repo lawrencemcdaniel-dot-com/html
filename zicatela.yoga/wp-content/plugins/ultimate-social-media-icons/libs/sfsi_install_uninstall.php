@@ -12,7 +12,7 @@ function sfsi_update_plugin()
     }
     
     //Install version
-    update_option("sfsi_pluginVersion", "1.89");
+    update_option("sfsi_pluginVersion", "1.91");
 
 
     if(!get_option('sfsi_serverphpVersionnotification'))
@@ -625,11 +625,10 @@ function sfsi_rating_msg()
     if($diff_inrval >= 30 && get_option('sfsi_RatingDiv')=="no")
     {
      echo '<div class="sfwp_fivestar notice notice-success is-dismissible">
-                <p>We noticed you\'ve been using the Ultimate Social Icons Plugin for more than 30 days. If you\'re happy with it, could you please do us a BIG favor and give it a 5-star rating on Wordpress?</p>
+                <p>We noticed you\'ve been using the Ultimate Social Media Plugin for more than 30 days. If you\'re happy with it, could you please do us a BIG favor and let us know what you think about it & what we can improve? It only takes a minute!?</p>
                 <ul>
-                    <li><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons/reviews/" target="_new" title="Ok, you deserved it">Ok, you deserved it</a></li>
+                    <li><a href="https://wordpress.org/support/plugin/ultimate-social-media-icons#new-topic-0" target="_new" title="Yes, that\'s fair, let me give feedback!">Yes, that\'s fair, let me give feedback!</a></li>
                     <li><a href="javascript:void(0);" class="sfsiHideRating" title="I already did">I already did</a></li>
-                    <li><a href="javascript:void(0);" class="sfsiHideRating" title="No, not good enough">No, not good enough</a></li>
                 </ul>
             </div>
     <script>

@@ -89,7 +89,6 @@ if ( WP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) )
 	}
 }
 
-
 // Define WP_LANG_DIR if not set.
 wp_set_lang_dir();
 
