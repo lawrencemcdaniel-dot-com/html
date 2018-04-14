@@ -3211,13 +3211,13 @@ ul.cp-styles-list li:nth-child(3n+0) {
 	width: auto;
 	height: auto;
 	margin: 0 !important;
-	padding: 16px 25px;
+	padding: 15px 15px;
 	background: #2F9DD2;
 	color: #FFF;
 	border: 1px solid #2695CA !important;
 	box-shadow: none !important;
 	border-radius: 3px;
-	font-size: 17px !important;
+	font-size: 15px !important;
 	font-weight: 300 !important;
 	text-align: center !important;
 	text-decoration: none !important;
@@ -3667,4 +3667,10 @@ form.cp-export-contact {
 form.cp-delete-multiple-modal ,
 form.cp-export-all-contact {
     display: inline;
+}
+
+#convert_plug_settings .debug-section strong,
+#convert_plug_settings strong {
+    display: inline-block;
+    float: left;
 }

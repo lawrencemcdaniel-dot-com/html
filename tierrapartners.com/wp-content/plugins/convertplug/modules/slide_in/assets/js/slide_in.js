@@ -211,7 +211,7 @@
                 cp_animate_container.attr('class', 'cp-animate-container');
                 cp_animate_container.attr('class' , 'cp-animate-container '+ animateclass +' '+exitanimation);
                     if(typeof form !== 'undefined'){
-                        slidein_overlay.find('#smile-optin-form')[0].reset();
+                        slidein_overlay.find('.smile-optin-form')[0].reset();
                         slidein_overlay.find(".cp-form-processing-wrap").css('display', 'none');
                         slidein_overlay.find(".cp-form-processing").removeAttr('style');
                         slidein_overlay.find(".cp-msg-on-submit").removeAttr('style');

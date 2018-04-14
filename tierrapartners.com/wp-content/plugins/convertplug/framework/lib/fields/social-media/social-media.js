@@ -27,7 +27,7 @@
 
 			$id.find('.social-media').each(function(j,box){
 				var box_string = '';
-
+				
 				var temp_name = $(box).find('input[name=input_share]').val();
 				var temp_label = $(box).find('.cp_sm_select').val();
 				var temp_val = (temp_label !== '') ? temp_label : temp_name;
@@ -185,11 +185,30 @@
 		});
 
 		// custom procedure on input types like hidden, dropdown, placeholder
-		function refresh_social_dependancy(select) {			
+
+		function refresh_social_dependancy(select) {
 			var html = '';
 			var box = $(select).parents('.social-media:first');
 			var val = $(select).val();
 			$(box).find('.cp_sm_select_action, .cp_sm_select, .cp_sm_input, .cp_sm_checkbox').removeClass('skip-input');
+			var inputtype = $(box).find(".cp_sm_select").val();
+			
+			//console.log("val"+val);
+			if(inputtype == 'Instagram'){
+				$(box).find(".cp_sm_select_action option[value=follow]").removeClass('cp-hide-share');
+				$(box).find(".cp_sm_select_action option[value=social_sharing]").addClass('cp-hide-share');
+			}else{
+				$(box).find(".cp_sm_select_action option[value=follow]").addClass('cp-hide-share');
+				$(box).find(".cp_sm_select_action option[value=social_sharing]").removeClass('cp-hide-share');
+			}
+
+			if( ( $(box).find('select[name^="input_action"]').val() !== 'social_sharing' || $(box).find('select[name^="input_action"]').val() == 'follow' ) && inputtype !== 'Instagram'){
+				$(box).find('select[name^="input_action"] option[selected="selected"]').removeAttr("selected");
+				$(box).find('select[name^="input_action"] option[value="profile_link"]').attr("selected","selected");
+				$(box).find('input[name="profile_link"]').parents(".social-media-field").addClass('cp-show-profile');
+			}else{
+				$(box).find('input[name="profile_link"]').parents(".social-media-field").removeClass('cp-show-profile');
+			}
 
 			var inputtype = $(box).find(".cp_sm_select").val();
 			
@@ -211,8 +230,8 @@
 				$.each(hidden_dependant_array_to_show,function(i,show_ele){
 					$(box).find(show_ele).parents('.social-media-field').slideDown(100);
 				});
-			}
-			else if( val === 'social_sharing' ) {
+			}else if( val === 'social_sharing' ) {
+				//console.log("social_sharing");
 				var show_url = $(box).find(".smile-switch-input").val();
 
 				var dropdown_dependant_array_to_hide = [
@@ -239,7 +258,25 @@
 				$.each(dropdown_dependant_array_to_show,function(i,show_ele){
 					$(box).find(show_ele).parents('.social-media-field').slideDown(100);
 				});
-			} else if( val == 1 ) {
+			}else if(val === 'follow') {
+				var hidden_dependant_array_to_hide = [
+					'input[name=input_share]',
+					'input[name=smile_adv_share_opt]',
+					'input[name=profile_link]'
+				];
+				var hidden_dependant_array_to_show  = [
+					//'input[name=profile_link]'
+				];
+
+				$.each(hidden_dependant_array_to_hide,function(i,ele){
+					$(box).find(ele).parents('.social-media-field').slideUp(100);
+					$(box).find(ele).addClass('skip-input'); // skip input value to add to string
+				});
+
+				$.each(hidden_dependant_array_to_show,function(i,show_ele){
+					$(box).find(show_ele).parents('.social-media-field').slideDown(100);
+				});
+			}else if( val == 1 ) {
 
 				var show_url = $(box).find(".smile-switch-input").val();
 				var dropdown_dependant_array_to_hide = [
@@ -263,13 +300,24 @@
 				var show_action = $(box).find(".cp_sm_select_action").val();
 				if(show_action == 'profile_link'){
 					var dropdown_dependant_array_to_hide = [
-						'input[name=input_share]',
-						'input[name=input_img]',
-						'input[name=smile_adv_share_opt]'
+					'input[name=input_share]',
+					'input[name=input_img]',
+					'input[name=smile_adv_share_opt]'
 					];
 					var dropdown_dependant_array_to_show  = [
 						'input[name=profile_link]'
 					];
+				}else if(show_action == 'follow'){
+					var dropdown_dependant_array_to_hide = [
+						'input[name=input_share]',
+						'input[name=input_img]',
+						'input[name=smile_adv_share_opt]',
+						'input[name=profile_link]'
+					];
+					var dropdown_dependant_array_to_show  = [
+						'input[name=profile_link]'
+					];
+
 				}else{
 					var dropdown_dependant_array_to_hide = [
 						'input[name=profile_link]',
@@ -288,7 +336,26 @@
 				$.each(dropdown_dependant_array_to_show,function(i,show_ele){
 					$(box).find(show_ele).parents('.social-media-field').slideDown(100);
 				});
-
+			}else if(val === 'Instagram') {  
+				var hidden_dependant_array_to_hide = [
+					'input[name=input_share]',
+					'input[name=smile_adv_share_opt]',
+					//'option[value=social_sharing]'
+				];
+				var hidden_dependant_array_to_show  = [
+					'input[name=profile_link]'
+				];
+				$.each(hidden_dependant_array_to_hide,function(i,ele){
+					$(box).find(ele).parents('.social-media-field').slideUp(100);
+					$(box).find(ele).addClass('skip-input'); // skip input value to add to string
+				});
+				$.each(hidden_dependant_array_to_show,function(i,show_ele){
+					$(box).find(show_ele).parents('.social-media-field').slideDown(100);
+				});
+				if($(box).find('select[name^="input_action"]').val() !== 'follow'){
+					$(box).find('select[name^="input_action"] option[selected="selected"]').removeAttr("selected");
+					$(box).find('select[name^="input_action"] option[value="profile_link"]').attr("selected","selected");
+				}
 			}else if(val === 'Pinterest') {
 				var show_url = $(box).find(".smile-switch-input").val();
 				var show_action = $(box).find(".cp_sm_select_action").val();
@@ -308,20 +375,15 @@
 					'input[name=smile_adv_share_opt]'
 					];
 				}
-
 				$.each(dropdown_dependant_array_to_hide,function(i,ele){
 					$(box).find(ele).parents('.social-media-field').slideUp(100);
 					$(box).find(ele).addClass('skip-input'); // skip input value to add to string
 				});
-
 				$.each(dropdown_dependant_array_to_show,function(i,show_ele){
 					$(box).find(show_ele).parents('.social-media-field').slideDown(100);
 				});
-
 			}
-
 			if(inputtype !== 'Pinterest'){
-
 				var dropdown_dependant_array_to_hide = [
 					'input[name=input_img]',									
 				];			
@@ -356,6 +418,7 @@
 				}			 	
 			 }			
 		} // refresh dependancy
+
 
 		// sortable script
 		$('.social-media-inner').sortable({

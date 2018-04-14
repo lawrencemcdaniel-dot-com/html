@@ -1,7 +1,7 @@
 function htmlEntities(str) {
     return String(str).replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
 }
-function generateBorderCss(string){
+function generate_border_css(string){
 	var pairs = string.split('|');
 
 	var result = {};
@@ -67,7 +67,7 @@ function generate_and_apply_border_css( css_selector , border_string ){
 	}
 }
 
-function generateBoxShadow(string){
+function generate_box_shadow(string){
 	var pairs = string.split('|');
 	var result = {};
 	pairs.forEach(function(pair) {

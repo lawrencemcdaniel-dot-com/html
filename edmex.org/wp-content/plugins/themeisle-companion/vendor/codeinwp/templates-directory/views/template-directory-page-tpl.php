@@ -74,12 +74,15 @@ if ( is_array( $templates_array ) ) { ?>
 				$upsell = 'no';
 				if ( isset( $properties['has_badge'] ) && ! isset( $properties['import_file'] ) ) {
 					$upsell = 'yes';
+					$properties['import_file'] = '';
 				}
 				?>
 				<div class="install-theme-info obfx-theme-info <?php echo esc_attr( $template ); ?>"
 					 data-demo-url="<?php echo esc_url( $properties['demo_url'] ); ?>"
+                     <?php if( isset( $properties['import_file'] ) ) { ?>
 					 data-template-file="<?php echo esc_url( $properties['import_file'] ); ?>"
-					 data-template-title="<?php echo esc_html( $properties['title'] ); ?>"
+					<?php  } ?>
+                     data-template-title="<?php echo esc_html( $properties['title'] ); ?>"
 					 data-upsell="<?php echo esc_attr( $upsell ) ?>">
 					<h3 class="theme-name"><?php echo esc_html( $properties['title'] ); ?></h3>
 					<div class="obfx-preview-wrap">

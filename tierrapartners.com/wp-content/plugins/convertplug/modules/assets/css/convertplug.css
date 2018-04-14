@@ -249,7 +249,7 @@
 .cp-form-container {
   clear: both;
   float: none;
-  margin: auto auto 10px auto;
+  margin: auto auto 10px auto;  
 }
 
 .cp-slidein .cp-form-container,
@@ -515,7 +515,7 @@
   .cp-form-layout-3 .cp-form-field.enable-field-attached .cp-input {
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
-    border-right: 0!important;
+    border-right: 0!important; 
   }
 
   .cp-form-layout-3 .cp-submit-wrap.enable-field-attached {
@@ -629,10 +629,17 @@ html body div#ui-datepicker-div[style] {
 
 
   html.cp-mp-open{
-    /* This property will prevent cursor misplaced position behavior on ios devices */
+    /* This property will prevent cursor misplaced position behavior on ios devices */ 
     position: absolute;
     width: 100%
   }
+
+  html.cp-iphone-browser.cp-mp-open,
+  html.cp-mp-open.cp-iphone-browser{
+    position: fixed;
+    width: 100%
+  }
+
 
 }
 
@@ -765,7 +772,7 @@ html body div#ui-datepicker-div[style] {
 
 .cp-form-container input:focus:not([type='radio']):not([type='checkbox']):not([type='range']),
 .cp-form-container textarea:focus {
-    border-color: #eee;
+    border-color: #eee; 
     box-shadow: 0px 0px 5px 0px #eee;
 }
 .cp-tooltip-icon.has-tip {
@@ -1092,7 +1099,8 @@ input.cp-input.cp-checkbox {
   }
 }
 
-.cp_push_scroll_animate{
+.cp_push_scroll_animate,
+.cp-fusion-header{    
     -webkit-animation-name: smile-slideInDown;
     animation-name: smile-slideInDown;
 }
@@ -1103,9 +1111,6 @@ input.cp-input.cp-checkbox {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-
-.cp-load-after-post{
-	height:0!important;
-	width:0!important;
-	visibility:hidden!important;
+.cp-empty-content{
+  display: inherit;
 }

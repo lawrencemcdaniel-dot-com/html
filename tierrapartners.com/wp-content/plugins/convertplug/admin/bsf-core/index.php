@@ -30,11 +30,17 @@ if ( ! defined( 'BSF_UPDATER_SHORTNAME' ) ) {
 	define( 'BSF_UPDATER_SHORTNAME', apply_filters( 'agency_updater_shortname', 'Brainstorm' ) );
 }
 
+if ( ! defined( 'BSF_UPDATER_VERSION' ) ) {
+	global $bsf_core_version;
+	define( 'BSF_UPDATER_VERSION', $bsf_core_version );
+}
+
 /* product registration */
 require_once 'auto-update/admin-functions.php';
 require_once 'auto-update/updater.php';
 require_once 'BSF_License_Manager.php';
 require_once 'BSF_Update_Manager.php';
+require_once 'class-bsf-core-update.php';
 
 if ( defined( 'WP_CLI' ) ) {
 	require 'BSF_WP_CLI_Command.php';
@@ -581,8 +587,11 @@ if ( ! function_exists( 'bsf_flush_bundled_products' ) ) {
 		if ( $bsf_force_check_extensions == true ) {
 			delete_site_option( 'brainstrom_bundled_products' );
 			delete_site_transient( 'bsf_get_bundled_products' );
+
 			global $ultimate_referer;
-			$ultimate_referer = 'on-flush-bundled-products';
+			if ( empty( $ultimate_referer ) ) {
+				$ultimate_referer = 'on-flush-bundled-products';
+			}
 			get_bundled_plugins();
 
 			update_site_option( 'bsf_force_check_extensions', false );
@@ -1099,7 +1108,10 @@ if ( ! function_exists( 'bsf_set_options' ) ) {
 			'astra-pro-sites',
 			'wp-schema-pro',
 			'6892199',
-			'astra-sites-showcase'
+			'astra-sites-showcase',
+			'uael',
+			'brainstorm-updater',
+			'astra-portfolio'
 		);
 
 		$skip_brainstorm_menu_products = apply_filters( 'bsf_skip_braisntorm_menu', $default_skip_brainstorm_menu );
@@ -1256,8 +1268,7 @@ function bsf_systeminfo() {
 		<tr>
 			<td>BSF Updater Path</td>
 			<td>
-				<?php global $bsf_core_version; ?>
-				<?php echo '(v' . $bsf_core_version . ') ' . BSF_UPDATER_PATH; ?>
+				<?php echo '(v' . BSF_UPDATER_VERSION . ') ' . BSF_UPDATER_PATH; ?>
 			</td>
 		</tr>
 		<?php if ( defined( 'WPB_VC_VERSION' ) ) : ?>

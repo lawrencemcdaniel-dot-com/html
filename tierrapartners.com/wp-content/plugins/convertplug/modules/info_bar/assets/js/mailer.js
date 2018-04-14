@@ -342,7 +342,7 @@
 
 	jQuery(document).ready(function(){
 
-		jQuery('.cp-info-bar-container').find('#smile-optin-form').each(function(index, el) {
+		jQuery('.cp-info-bar-container').find('.smile-optin-form').each(function(index, el) {
 
 			// enter key press
 			jQuery(el).find("input").keypress(function(event) {

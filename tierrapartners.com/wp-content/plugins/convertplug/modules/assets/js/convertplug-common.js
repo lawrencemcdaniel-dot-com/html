@@ -276,23 +276,24 @@
 
                 //if( !template ){
                     cp_animate.removeClass( entry_anim );
-
                     if( vw >= animatedwidth || typeof animatedwidth == 'undefined' ){
                         cp_animate.addClass( exit_anim );
                     }
-                    if( exit_anim !== "cp-overlay-none" ){
+                   if( exit_anim !== "cp-overlay-none" ){
                         setTimeout( function(){
                             ConvertPlus._cpExecuteVideoAPI(modal,'pause');
-                            modal.removeClass("cp-open");
+                            //modal.removeClass("cp-open");
                             if( jQuery(".cp-open").length < 1 ){
                                 jQuery("html").removeAttr('style');
                             }
                             setTimeout( function(){
                                 cp_animate.removeClass(exit_anim);
-                            });
+                            },500);
+
+                            modal.removeClass("cp-open");
+                            jQuery(".cp-overlay").removeClass("cp-open");
                         }, 1000 );
                     }
-                    jQuery(".cp-overlay").removeClass("cp-open");
 
                 //}
 
@@ -324,38 +325,50 @@
 
                     if( page_push_down ) {
                         var cp_top_offset_container = jQuery("#cp-top-offset-container").val(),
-                        offset_def_settings = jQuery("#cp-top-offset-container").data('offset_def_settings'),
-                        mTop                = offset_def_settings.margin_top,
-                        top                 = offset_def_settings.top;
+                        offset_def_settings = jQuery("#cp-top-offset-container").data('offset_def_settings');
+                        if( typeof offset_def_settings !== 'undefined' ){
+                           var mTop                = offset_def_settings.margin_top,
+                            top                    = offset_def_settings.top;                        
 
-                        if( animate_push_page == 1 ) {
-                            if( cp_top_offset_container == '' ) {
-                                jQuery('body').animate({
-                                    'marginTop' : mTop,
-                                    'top'       : top
-                                });
-                            }
-                            else {
-                                jQuery(cp_top_offset_container).animate({
-                                    'margin-top' : mTop,
-                                    'top'        : top
-                                });
-                            }
-                        } else {
-                            if( cp_top_offset_container == '' ) {
-                                jQuery('body').css({
-                                    'margin-top' : mTop,
-                                    'top'        : top
-                                });
-                            }
-                            else {
-                                jQuery(cp_top_offset_container).css({
-                                    'margin-top' : mTop,
-                                    'top'        : top
-                                });
-                            }
+                            setTimeout(function() {
+                                if(info_bar.hasClass('cp-ifb-hide')){
+                                    mTop                = 0,
+                                    top                 = 0;
+                                }                           
+                                if( animate_push_page == 1 ) {
+
+                                    if( cp_top_offset_container == '' ) {
+                                        jQuery('body').animate({
+                                            'marginTop' : mTop,
+                                            'top'       : top
+                                        });
+                                    }
+                                    else {
+                                        jQuery(cp_top_offset_container).animate({
+                                            'margin-top' : mTop,
+                                            'top'        : top
+                                        });
+                                    }
+                                } else {
+                                    if( cp_top_offset_container == '' ) {
+                                        jQuery('body').css({
+                                            'margin-top' : mTop,
+                                            'top'        : top
+                                        });
+                                    }
+                                    else {
+                                        jQuery(cp_top_offset_container).css({
+                                            'margin-top' : mTop,
+                                            'top'        : top
+                                        });
+                                    }
+                                }
+                                
+                            }, 2000);
+
                         }
-                    }
+
+                    }    
 
                     if( jQuery(".ib-display").length == 1 ) {
                         var admin_bar_height                = jQuery('#wpadminbar').outerHeight(),
@@ -503,7 +516,7 @@
             }
             jQuery("html").removeClass("cp-mp-open");
             jQuery('html').removeClass('cp-oveflow-hidden');
-            jQuery('html').removeClass('customize-support');
+            jQuery('html').removeClass('customize-support');            
             jQuery('html').removeClass('cp-exceed-viewport');
             jQuery('html').removeClass('cp-exceed-vieport cp-window-viewport');
             jQuery("html").removeClass('cp-custom-viewport');
@@ -524,7 +537,7 @@
             }
         },
         /**
-         * Check video popup
+         * Check video popup 
          * @return nothing
          */
          _CpIframe: function(){
@@ -644,7 +657,7 @@
             is_on_screen         = '',
             load_on_scroll_class = '',
             id                   = style,
-            type                 = module_type;
+            type                 = module_type;    
 
             if( scrollTill ){
                 load_on_scroll = 'enable';
@@ -769,7 +782,7 @@
                     cp_height  = md.find(".cp-info-bar-body").outerHeight();
                     md.css("min-height",cp_height+"px");
                 }
-                //ConvertPlus._apply_push_page_down(md);
+
                 md.addClass('ib-display');
                 jQuery(document).trigger('resize');
                 jQuery(document).trigger('infobarOpen',[md]);
@@ -808,7 +821,7 @@
          * Update impression for modules.
          * @return nothing
          */
-         update_impressions: function(styles){
+         update_impressions: function(styles){            
             if( ajax_run == true ){
                 nounce = jQuery(".cp-impress-nonce").val();
                 data = {action:'smile_update_impressions',impression:true,styles:styles,option:'smile_modal_styles',security:nounce};
@@ -822,7 +835,7 @@
                         ajax_run = false;
                     }
                 });
-            }else{
+            }else{               
                 setTimeout(function() {
                     nounce = jQuery(".cp-impress-nonce").val();
                     data = {action:'smile_update_impressions',impression:true,styles:styles,option:'smile_modal_styles',security:nounce};
@@ -836,7 +849,7 @@
                             ajax_run = false;
                         }
                     });
-                },  2000);
+                },  2000);               
             }
         },
         /**
@@ -1016,7 +1029,7 @@
 
             if( typeof doc_ref !== 'undefined' ){
                 var doc_refs   = ConvertPlus._stripTrailingSlash( doc_ref.replace(/.*?:\/\//g, "") ),
-                referrers      = referrer.split( ",");
+                referrers      = referrer.split( ",");                        
 
                 jQuery.each( referrers, function(i, url ){
 
@@ -1499,7 +1512,7 @@
          * @param  {[type]} md [description]
          * @return Noting
          */
-         _apply_push_page_down:function(md){
+         _apply_push_page_down:function( md,resize){
             setTimeout(function() {
                 var has_toggle_btn  = md.data('toggle'),
                 toggle_visible = md.data('toggle-visible') || null,
@@ -1507,7 +1520,7 @@
                 ConvertPlus._push_page_down( md, toggle, toggle_visible );
             }, 300);
         },
-        _push_page_down:function( info_bar, toggle, toggle_visible ){
+        _push_page_down:function( info_bar, toggle, toggle_visible ){          
             var page_down = info_bar.data('push-down') || null,
             animate_push_page = info_bar.data('animate-push-page'),
             cp_top_offset_container = jQuery("#cp-top-offset-container").val();
@@ -1516,11 +1529,10 @@
                 if( info_bar.hasClass("cp-pos-top") ){
                     var cp_push_page_css = '';
                     var push_margin = ConvertPlus._cal_top_margin_push_down(info_bar,animate_push_page, toggle);
-                    var apply_css = isNaN(parseFloat(push_margin));
-
-                    if( !apply_css ){
+                    var apply_css = isNaN(parseFloat(push_margin)); 
+                    if( !apply_css ){                    
                         if( animate_push_page == 1 )  {
-                            if( cp_top_offset_container == '' ) {
+                            if( cp_top_offset_container == '' ) {                          
                                 jQuery("body").removeClass("cp_push_no_scroll").addClass("cp_push_scroll_animate");
                                 cp_push_page_css = "body.cp_push_scroll_animate{margin-top:"+push_margin+"px!important}";
                             } else {
@@ -1546,13 +1558,13 @@
             var wpadminbar = jQuery("#wpadminbar").outerHeight(); // Calculate WP admin Bar Height
             var ib_height = info_bar.outerHeight(); // Calculate Info Bar Height
 
-            if( cp_top_offset_container == '' && rs_flag <= 1 ) {
+            if( cp_top_offset_container == '' && rs_flag <= 1 ) {               
                 var site_offset = jQuery('body').offset().top;
                 var offset_def_settings = {
                     margin_top: jQuery('body').css('margin-top'),
                     top:  jQuery('body').css('top'),
                 };
-            } else {
+            } else {               
                 if( jQuery(cp_top_offset_container).length > 0 ) {
                     var site_offset = jQuery(cp_top_offset_container).offset().top;
                     var offset_def_settings = {
@@ -1567,10 +1579,19 @@
                 jQuery("#cp-top-offset-container").attr("data-offset_def_settings", seetings_string  );
             }
 
+            if( typeof site_offset == 'undefined' ){
+                site_offset = 0;
+            }
+
+            if( typeof wpadminbar == 'undefined' ){
+                wpadminbar = 0;
+            }
+
             var push_down_top = (ib_height + site_offset) - wpadminbar,
-            push_down_top_support = ib_height + site_offset,
+                push_down_top_support = ib_height + site_offset,
                 cp_push_down_support_ht = jQuery("#cp-push-down-support").outerHeight(), // Calculate height of user entered fixed class / ID
                 cp_push_down_support_htop = push_down_top_support - 0;
+
                 if( toggle ) {
                     cp_push_down_support_htop = wpadminbar + ib_height;
                     push_down_top = ib_height;
@@ -1580,7 +1601,6 @@
                 } else {
                     jQuery("#cp-push-down-support").css( 'top', cp_push_down_support_htop + 'px' );
                 }
-
                 return push_down_top;
             },
         /**
@@ -1676,7 +1696,7 @@
                                 'visibility': 'hidden'
                             });
                             if(typeof form !== 'undefined'){
-                                cp_info_bar.find('#smile-optin-form')[0].reset();
+                                cp_info_bar.find('.smile-optin-form')[0].reset();
                                 cp_info_bar.find(".cp-form-processing-wrap").css('display', 'none');
                                 cp_info_bar.find(".cp-form-processing").removeAttr('style');
                                 cp_info_bar.find(".cp-msg-on-submit").removeAttr('style');
@@ -1747,7 +1767,8 @@
         jQuery.each(custom_uniqueNames, function(index,value){
 
             if( '' != value && 'undefined' != value && null != value  ) {
-                jQuery("."+value).click(function(event){
+                
+               jQuery("body").on( "click", "."+value, function(event){
 
                     var element        = jQuery(".cp-global-load."+value),
                     type           = element.data('module-type'),
@@ -1905,32 +1926,46 @@ jQuery(window).on('load', function (e) {
     if( typeof load_after_post !== 'undefined' ){
         var post_lenght = jQuery.trim( load_after_post ).length;
         if( post_lenght == '0'){
-            var check_xtheme_preview = jQuery('body').find(".cs-preview-frame-container").length;
-            if( check_xtheme_preview > 1 ){
+            var check_xtheme_preview = jQuery(window.parent.document).find(".cs-preview-frame-container").length;
+            if( check_xtheme_preview !== 1 ){
                 jQuery('.cp-load-after-post').parent().addClass("cp-empty-content");
             }
         }
+    }    
+
+    var deviceAgent = navigator.userAgent.toLowerCase();
+    var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
+    if (agentID) {     
+        jQuery('html').addClass('cp-iphone-browser');
     }
+
 }, 1000));
 
 });
 
 
 var rs_flag = 0;
+var resizeTimer;
 
-jQuery( window ).resize(function() {
+jQuery(window).on('resize', function(e) {
+    
+    clearTimeout(resizeTimer);
+    
+    resizeTimer = setTimeout(function() {
+        
+        ConvertPlus._close_button_tootip();
 
-    ConvertPlus._close_button_tootip();
+        jQuery(".cp-info-bar.ib-display").each(function() {
+            var md = jQuery(this);
+            rs_flag++;        
+            ConvertPlus._apply_push_page_down(md,'resize');
+        });
 
-    jQuery(".cp-info-bar.ib-display").each(function() {
-        var md = jQuery(this);
-        rs_flag++;
-        ConvertPlus._apply_push_page_down(md,'resize');
-    });
+        jQuery(".cp-info-bar").each(function(t) {
+            ConvertPlus._infoBarPos(jQuery( this ) );
+        });
 
-    jQuery(".cp-info-bar").each(function(t) {
-        ConvertPlus._infoBarPos(jQuery( this ) );
-    });
+    }, 1000);    
 
 });
 
@@ -1967,7 +2002,7 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
 
     });
 
-    jQuery(".cp-overlay").on( "idle.idleTimer", function(event, elem, obj){
+    jQuery(".cp-overlay").on( "idle.idleTimer", function(event, elem, obj){        
         var modal = jQuery(".cp-overlay");
         jQuery(document).trigger('closeModal',[modal]);
         var cp_tooltip  =  modal.find(".cp-tooltip-icon").data('classes');
@@ -1976,14 +2011,14 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
         },1000);
     });
 
-    jQuery(document).on( "idle.idleTimer", function(event, elem, obj){
+    jQuery(document).on( "idle.idleTimer", function(event, elem, obj){ 
         if( jQuery(".ib-display").hasClass('cp-close-after-x')){
             var info_bar = jQuery(".ib-display");
             jQuery(document).trigger('cp_close_info_bar',[info_bar]);
         }
 
         if( jQuery(".slidein-overlay").hasClass('cp-close-after-x')){
-            var slidein = jQuery(".slidein-overlay");
+            var slidein = jQuery(".slidein-overlay");            
             jQuery(document).trigger('closeSlideIn',[slidein]);
         }
     });
@@ -2047,7 +2082,7 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
             ConvertPlus.init( event, overlay, 'closepopup' );
         });
     //set tab index for input
-    jQuery("#smile-optin-form").each(function() {
+    jQuery(".smile-optin-form").each(function() {
         var last_input = jQuery(this).find( "input.cp-input" ).last();
         if( last_input.hasClass("cp-input")){
             last_input.addClass("cp-last-field");
@@ -2058,23 +2093,23 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
         var keyCode = (window.event) ? e.which : e.keyCode;
         if (keyCode == 9 && jQuery(this).hasClass("cp-last-field")){
             e.preventDefault();
-            var form = jQuery(this).parents("#smile-optin-form");
+            var form = jQuery(this).parents(".smile-optin-form");
             form.find(".cp-submit").attr("tabindex",-1).focus();
         }
     });
 
 
     //Add compatibility support for avada theme push page down
-    $( document ).scroll( function(event) {
+    $( document ).scroll( function(event) {        
 
         clearTimeout($.data(this, 'CP_scrollTimer'));
         $.data(this, 'CP_scrollTimer', setTimeout(function() {
-            $(".cp-ib-onload.cp-pos-top").each( function(t) {
-                var element = $( this ),
-                ht = element.outerHeight(),
+            $(".cp-ib-onload.cp-pos-top").each( function(t) {  
+                var element = $( this ), 
+                ht = element.outerHeight(), 
                 page_push_down    = element.data('push-down') || null;
-                var data_toggle = element.data("toggle-visible");
-
+                var data_toggle = element.data("toggle-visible");                
+                
                 if( page_push_down && element.hasClass("ib-display") && element.hasClass("ib-fixed") ){
                     var is_avada_header = jQuery(".fusion-header-wrapper").find(".fusion-sticky-menu-");
                     var is_avada_sticky_menu = '';
@@ -2088,19 +2123,19 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
                             fusion_class = '.fusion-secondary-main-menu';
                         }
                         var admin_bar_height  = jQuery('#wpadminbar').outerHeight();
-                        var total_ht = ht + admin_bar_height;
+                        var total_ht = ht + admin_bar_height;  
                         jQuery(fusion_class).addClass("cp-fusion-header");
                         jQuery(".cp_fusion_css").remove();
-
+                        
                         if( element.find(".cp-ifb-toggle-btn").hasClass("cp-ifb-show") ){
                             var fixed_css = ".cp-fusion-header{top:"+admin_bar_height+"px !important}";
                             $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
                         }else{
                             var fixed_css = ".cp-fusion-header{top:"+total_ht+"px !important}";
                             $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
-                        }
-
-                        jQuery(fusion_class).addClass("cp-scroll-start");
+                        }                      
+                        
+                        jQuery(fusion_class).addClass("cp-scroll-start");        
                     }
                 }else{
 
@@ -2109,7 +2144,7 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
                     fusion_class = '.fusion-secondary-main-menu';
                 }
                 jQuery(fusion_class).addClass("cp-fusion-header");
-                var admin_bar_height  = jQuery('#wpadminbar').outerHeight();
+                var admin_bar_height  = jQuery('#wpadminbar').outerHeight(); 
                 var fixed_css = ".cp-fusion-header{top:"+admin_bar_height+"px !important}";
                 $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
 
@@ -2122,9 +2157,9 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
     });
 
     //Add compatibility support for avada theme push page down
-    jQuery(document).on("infobarOpen", function(e,data) {
-        var element = data,
-        ht      = element.outerHeight(),
+    jQuery(document).on("infobarOpen", function(e,data) {  
+        var element = data, 
+        ht      = element.outerHeight(),  
         page_push_down    = element.data('push-down') || null;
 
         var is_avada_sticky_menu = jQuery(".fusion-header-wrapper").find(".fusion-sticky-menu-").length;
@@ -2139,23 +2174,23 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
             old_top = jQuery(fusion_class).css("top");
 
             jQuery(fusion_class).attr( "data-old-top", old_top );
-            var data_toggle = element.data("toggle-visible");
-            if( !data_toggle  && element.hasClass("ib-fixed") ){
+            var data_toggle = element.data("toggle-visible");                
+            if( !data_toggle  && element.hasClass("ib-fixed") ){ 
                 jQuery(".cp_fusion_css").remove();
                 jQuery(fusion_class).addClass("cp-fusion-header");
                 var fixed_css = ".cp-fusion-header{top:"+total_ht+"px !important}";
                 $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
 
-                jQuery(fusion_class).addClass("cp-scroll-start");
-            }
+                jQuery(fusion_class).addClass("cp-scroll-start");   
+            }               
         }
 
     });
 
     //Add compatibility support for avada theme push page down
     jQuery(document).on("cp_close_info_bar", function( event, info_bar ) {
-        var element = info_bar,
-        ht      = element.outerHeight(),
+        var element = info_bar, 
+        ht      = element.outerHeight(),      
         page_push_down    = element.data('push-down') || null;
 
         if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
@@ -2165,18 +2200,18 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
         }
 
         if( page_push_down ){
-            var old_top = jQuery(fusion_class).attr("data-old-top");
-            jQuery(".cp_fusion_css").remove();
+            var old_top = jQuery(fusion_class).attr("data-old-top");  
+            jQuery(".cp_fusion_css").remove();  
         }
 
         info_bar.addClass("cp-stop-scroll");
-        jQuery(fusion_class).removeClass("cp-scroll-start");
+        jQuery(fusion_class).removeClass("cp-scroll-start");    
         $('.cp-push-page-css').remove();
 
 });
 
     //close gravity form
-    jQuery(document).bind('gform_confirmation_loaded', function(event, form_id){
+    jQuery(document).bind('gform_confirmation_loaded', function(event, form_id){    
         var modal       =  jQuery(".cp-open");
         jQuery(document).trigger('closeModal',[modal]);
     });

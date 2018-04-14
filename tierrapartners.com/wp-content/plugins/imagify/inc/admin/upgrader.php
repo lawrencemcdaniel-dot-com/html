@@ -259,7 +259,7 @@ function _imagify_new_upgrade( $network_version, $site_version ) {
 	// 1.7
 	if ( version_compare( $site_version, '1.7' ) < 0 ) {
 		// Migrate data.
-		_do_imagify_update_library_size_calculations();
+		Imagify_Cron_Library_Size::get_instance()->do_event();
 
 		if ( ! imagify_is_active_for_network() ) {
 			// Make sure the settings are autoloaded.
@@ -268,5 +268,63 @@ function _imagify_new_upgrade( $network_version, $site_version ) {
 
 		// Rename the option that stores the NGG table version. Since the table is also updated in 1.7, let's simply delete the option.
 		delete_option( $wpdb->prefix . 'ngg_imagify_data_db_version' );
+	}
+}
+
+add_action( 'upgrader_process_complete', 'imagify_maybe_reset_opcache', 20, 2 );
+/**
+ * Maybe reset opcache after Imagify update.
+ *
+ * @since  1.7.1.2
+ * @author Grégory Viguier
+ *
+ * @param object $wp_upgrader Plugin_Upgrader instance.
+ * @param array  $hook_extra  {
+ *     Array of bulk item update data.
+ *
+ *     @type string $action  Type of action. Default 'update'.
+ *     @type string $type    Type of update process. Accepts 'plugin', 'theme', 'translation', or 'core'.
+ *     @type bool   $bulk    Whether the update process is a bulk update. Default true.
+ *     @type array  $plugins Array of the basename paths of the plugins' main files.
+ * }
+ */
+function imagify_maybe_reset_opcache( $wp_upgrader, $hook_extra ) {
+	static $imagify_path;
+	static $can_reset;
+
+	if ( ! isset( $hook_extra['action'], $hook_extra['type'], $hook_extra['plugins'] ) ) {
+		return;
+	}
+
+	if ( 'update' !== $hook_extra['action'] || 'plugin' !== $hook_extra['type'] || ! is_array( $hook_extra['plugins'] ) ) {
+		return;
+	}
+
+	$plugins = array_flip( $hook_extra['plugins'] );
+
+	if ( ! isset( $imagify_path ) ) {
+		$imagify_path = plugin_basename( IMAGIFY_FILE );
+	}
+
+	if ( ! isset( $plugins[ $imagify_path ] ) ) {
+		return;
+	}
+
+	if ( ! isset( $can_reset ) ) {
+		$can_reset = true;
+
+		if ( ! function_exists( 'opcache_reset' ) ) {
+			$can_reset = false;
+		}
+
+		$restrict_api = ini_get( 'opcache.restrict_api' );
+
+		if ( $restrict_api && strpos( __FILE__, $restrict_api ) !== 0 ) {
+			$can_reset = false;
+		}
+	}
+
+	if ( $can_reset ) {
+		opcache_reset();
 	}
 }

@@ -61,7 +61,7 @@
     }
 
 	function modal_process_cp_form(t) {
-		var form 					= jQuery(t).parents(".cp-modal-body").find("#smile-optin-form"),
+		var form 					= jQuery(t).parents(".cp-modal-body").find(".smile-optin-form"),
 			data 					= form.serialize(),
 			info_container  		= jQuery(t).parents(".cp-animate-container").find('.cp-msg-on-submit'),
 			form_container  		= jQuery(t).parents(".cp-modal-body").find('.cp-form-container'),
@@ -325,7 +325,7 @@
 
 	jQuery(document).ready(function(){
 
-		jQuery('.cp-modal-popup-container').find('#smile-optin-form').each(function(index, el) {
+		jQuery('.cp-modal-popup-container').find('.smile-optin-form').each(function(index, el) {
 
 			// enter key press
 			jQuery(el).find("input").keypress(function(event) {

@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/wp-file-manager
   Description: Manage your WP files.
   Author: mndpsingh287
-  Version: 2.1
+  Version: 2.2
   Author URI: https://profiles.wordpress.org/mndpsingh287
   License: GPLv2
 **/
@@ -109,27 +109,6 @@ if(!class_exists('mk_file_folder_manager')):
 		*/
 		public function verify_on_server($email, $fname, $lname, $engagement, $todo, $verified) {
 			global $wpdb, $wp_version;
-			if ( get_bloginfo( 'version' ) < '3.4' ) {
-					$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );
-					$theme      = $theme_data['Name'] . ' ' . $theme_data['Version'];
-				} else {
-					$theme_data = wp_get_theme();
-					$theme      = $theme_data->Name . ' ' . $theme_data->Version;
-				}
-		
-				// Try to identify the hosting provider
-				$host = false;
-				if ( defined( 'WPE_APIKEY' ) ) {
-					$host = 'WP Engine';
-				} elseif ( defined( 'PAGELYBIN' ) ) {
-					$host = 'Pagely';
-				}
-	
-		if ( $wpdb->use_mysqli ) {
-			$mysql_ver = @mysqli_get_server_info( $wpdb->dbh );
-		} else {
-			$mysql_ver = @mysql_get_server_info();
-		}
 		      $id = get_option( 'page_on_front' );
 			    $info = array(
 				         'email' => $email,

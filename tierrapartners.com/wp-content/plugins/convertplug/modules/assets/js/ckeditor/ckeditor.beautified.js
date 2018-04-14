@@ -3811,7 +3811,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
     CKEDITOR.ENTER_BR = 2;
     CKEDITOR.ENTER_DIV = 3;
     CKEDITOR.config = {
-        customConfig: "config.js",
+        customConfig: "config-new.js",
         autoUpdateElement: !0,
         language: "",
         defaultLanguage: "en",

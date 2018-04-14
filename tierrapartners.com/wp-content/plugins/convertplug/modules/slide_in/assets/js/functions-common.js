@@ -1214,7 +1214,7 @@ function apply_shadow( data ) {
 		cp_slidein_content	= jQuery(".cp-slidein-content");
 		smile_global_data   = get_customizer_form_data();
 
-	var border = generateBorderCss(border_str);
+	var border = generate_border_css(border_str);
 
 	jQuery("#cp-border-style").remove();
 

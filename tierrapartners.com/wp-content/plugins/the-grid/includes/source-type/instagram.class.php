@@ -129,7 +129,7 @@ class The_Grid_Instagram {
 	* @since 1.0.0
 	*/
 	public function get_grid_items() {
-		
+
 		global $tg_is_ajax;
 
 		$this->get_data(
@@ -185,7 +185,7 @@ class The_Grid_Instagram {
 		// retrieve Instagram data
 		if ($type == 'media') {
 			$this->get_media();
-		} else if ($type == 'user_info') {
+		} else if ($type == 'user_info') {	
 			if ( is_array($this->user_data) ) {
 				return reset($this->user_data);
 			} else {
@@ -214,11 +214,11 @@ class The_Grid_Instagram {
 			}
 
 			$username = str_replace( '@', '', $username );
-			$url = 'https://www.instagram.com/'. $username . '/?__a=1';
-			$response = $this->get_response($url);
+			$url = 'https://www.instagram.com/'. $username;// . '/?__a=1';
+			$response = $this->request_body($url);
 
 			if ( isset( $response->graphql->user->id ) && ! empty( $response->graphql->user->id ) ) {
-				$this->usernames[$index] = $response->graphql->user->id;
+				//$this->usernames[$index] = $response->graphql->user->id;
 				$this->user_data[$response->graphql->user->id] = $response;
 			}
 
@@ -244,20 +244,29 @@ class The_Grid_Instagram {
 	*/
 	public function get_media() {
 
-		// retrieve Instagram data
-		$this->get_hashtag_media();
-		$this->get_user_media();
-		
-		// sort all data by date
-		usort($this->media, function($a, $b) {
-    		return str_replace('@', '',$b['date']) - str_replace('@', '',$a['date']);
-		});
+		$prev = -1;
 
-		// return only the number of element set in grid settings
-		$this->media = array_slice($this->media, 0, $this->count);
-		
-		// get the last media id (max_id)
-		$this->get_last_media();
+		while ( count( $this->media ) < $this->count && count( $this->media ) !== $prev ) {
+
+			// store previous number of media.
+			$prev = count( $this->media );
+
+			// retrieve Instagram data
+			$this->get_hashtag_media();
+			$this->get_user_media();
+
+			// sort all data by date
+			usort($this->media, function($a, $b) {
+				return str_replace('@', '',$b['date']) - str_replace('@', '',$a['date']);
+			});
+
+			// return only the number of element set in grid settings
+			$this->media = array_slice($this->media, 0, $this->count);
+
+			// get the last media id (max_id)
+			$this->get_last_media();
+			
+		}
 	
 	}
 	
@@ -268,22 +277,58 @@ class The_Grid_Instagram {
 	public function get_user_media() {
 
 		foreach ($this->usernames as $username ) {
+			
+			if ( isset( $this->last_media[ $username ] ) ) {
+				break;
+			}
 
-			$url = 'https://instagram.com/graphql/query/?query_id=17888483320059182&id='.$username.'&first='.$this->count;
-			$url .= isset( $this->last_media[ $username ] ) ? '&after=' . $this->last_media[ $username ] : '';
-			$response = $this->get_response($url);
+			/*$url = 'https://www.instagram.com/graphql/query/?query_id=17888483320059182&id='.$username.'&first='.$this->count;
+			$url .= isset( $this->last_media[ $username ] ) ? '&after=' . $this->last_media[ $username ] : '';*/
+			
+			/*$query_url  = 'https://www.instagram.com/graphql/query/';
+			$query_hash = '42323d64886122307be10013ad2dcc44';
+			$variables  = array(
+				'id'    => '25025320',
+				'first' => $this->count
+			);*/
 
-			if ( ! isset( $response->data ) ) {
+			$response = $this->request_body( 'https://www.instagram.com/'.$username );
+
+			if ( empty( $response->graphql->user ) ) {
 				continue;
 			}
 
-			$response = $response->data;
-			$response = $response->user->edge_owner_to_timeline_media->edges;
+			$response = $response->graphql->user->edge_owner_to_timeline_media->edges;
 
 			$this->build_media_array($response, $username, true);
 			
 		}
 		
+		/*foreach ($this->usernames as $username ) {
+
+			$url = 'https://www.instagram.com/'. $username . '/?__a=1';
+			
+			if ( isset( $this->last_media[ $username ] ) ) {
+				return;
+			}
+			
+			//$url .= isset( $this->last_media[ $username ] ) ? '&max_id=' . $this->last_media[ $username ] : '';
+			$response = $this->get_response($url);
+
+			if ( ! isset( $response->graphql ) ) {
+				continue;
+			}
+
+			//$this->last_media[$username] = $response->graphql->user->edge_owner_to_timeline_media->page_info->end_cursor;
+
+			
+			$response = $response->graphql;
+			$response = $response->user->edge_owner_to_timeline_media->edges;
+			
+			$this->build_media_array($response, $username, true);
+			
+		}*/
+
 	}
 	
 	/**
@@ -292,11 +337,11 @@ class The_Grid_Instagram {
 	*/
 	public function get_hashtag_media() {
 	
-		foreach ( $this->hashtags as $hashtag ) {
+		/*foreach ( $this->hashtags as $hashtag ) {
 
-			$url = 'https://instagram.com/graphql/query/?query_id=17875800862117404&tag_name='.$hashtag.'&first='.$this->count;
+			$url = 'https://www.instagram.com/graphql/query/?query_id=17875800862117404&tag_name='.$hashtag.'&first='.$this->count;
 			$url .= isset( $this->last_media[ $hashtag ] ) ? '&after=' . $this->last_media[ $hashtag ] : '';
-			$response = $this->get_response($url);
+			$response = $this->request_body($url);
 
 			if ( ! isset( $response->data ) ) {
 				continue;
@@ -307,7 +352,25 @@ class The_Grid_Instagram {
 			
 			$this->build_media_array($response, $hashtag);
 			
+		}*/
+		
+		foreach ( $this->hashtags as $hashtag ) {
+
+			$url = 'https://www.instagram.com/explore/tags/'.$hashtag.'/?__a=1';
+			$url .= isset( $this->last_media[ $hashtag ] ) ? '&max_id=' . $this->last_media[ $hashtag ] : '';
+			$response = $this->get_response($url);
+
+			if ( ! isset( $response->graphql ) ) {
+				continue;
+			}
+
+			$response = $response->graphql;
+			$response = $response->hashtag->edge_hashtag_to_media->edges;
+			
+			$this->build_media_array($response, $hashtag);
+			
 		}
+		
 	
 	}
 	
@@ -335,10 +398,91 @@ class The_Grid_Instagram {
 			set_transient($transient_name, $response, $this->transient_sec);
 			$response = json_decode($response);
 		}
-		
+
 		return $response;
 		
 	}
+	
+	public function request_body($url/*, $hash, $variables*/) {
+		
+		$transient_name = 'tg_grid_' . md5($url);
+	
+		if ($this->transient_sec > 0 && ($transient = get_transient($transient_name)) !== false) {
+			$response = $transient;
+		} else {
+
+			$response = wp_remote_get($url);
+
+			if ( !preg_match('#window\._sharedData\s*=\s*(.*?)\s*;\s*</script>#', $response['body'], $response) ) {
+				return;
+			}
+
+			if ( ! isset($response[1]) ) {
+				return;
+			}
+
+			$response = json_decode($response[1]);
+
+			if ( !$response || !isset( $response->entry_data->ProfilePage[0] ) ) {
+				return;
+			}
+
+			$response = $response->entry_data->ProfilePage[0];
+			set_transient($transient_name, $response, $this->transient_sec);
+
+		}
+		
+		return $response;
+		
+		//print_r(json_encode($page_data_matches));
+		/*$csrf = uniqid();
+		$args = array(
+			'status'     => 1,
+			'base_url'   => 'https://www.instagram.com/',
+			'cookie_jar' => array(
+        		'ig_pr' => '1',
+			),
+			'query' => array(
+				'query_hash' => $hash,
+				'variables' => json_encode($variables)
+			),
+			'headers' => array(
+				'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36',
+				'Accept-Encoding' => 'gzip, deflate',
+				'Accept-Language' => 'en-US,en;q=0.8',
+				'Origin' => 'https://www.instagram.com/',
+				'Referer' => 'https://www.instagram.com/',
+				'Connection' => 'close',
+				'X-CSRFToken' => $csrf,
+				'X-Requested-With' => 'XMLHttpRequest',
+				'X-Instagram-AJAX' => '1',
+				'X-Instagram-Gis' => 'rrrr',
+				'Cookie' => 'ig_pr=1;csrftoken=' . $csrf,
+				'Content-Length' => 0,
+			),
+		);
+
+		$transient_name = 'tg_grid_' . md5($url);
+	
+		if ($this->transient_sec > 0 && ($transient = get_transient($transient_name)) !== false) {
+			$response = json_decode($transient);
+		} else {
+			$response = wp_remote_get($url, $args);
+		preg_match('#window\._sharedData\s*=\s*(.*?)\s*;\s*</script>#', $response['body'], $page_data_matches);
+
+			if ( is_wp_error( $response ) || ! is_array( $response ) || ! isset( $response['body'] ) ) {
+				$error_msg  = __( 'Sorry, an error occured from Instagram API.', 'tg-text-domain' );
+				throw new Exception($error_msg);
+			}
+
+			set_transient($transient_name, $response['body'], $this->transient_sec);
+			$response = json_decode($response['body']);
+		}
+
+		return $response;*/
+
+	}
+		
 
 	/**
 	* Store last media media

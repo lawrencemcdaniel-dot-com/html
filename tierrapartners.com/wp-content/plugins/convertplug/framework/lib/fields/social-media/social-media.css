@@ -3,7 +3,7 @@
 }
 .social-media,
 .social-media-field {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .cp-mini-box {
   padding: 10px;
@@ -22,13 +22,13 @@
   border-left: 0;
 }
 .toggle-accordion-head {
-	text-align: right;
-	background: #f5f5f5;
+  text-align: right;
+  background: #f5f5f5;
   border-bottom: 1px solid #eeeeee;
 }
 .toggle-accordion-head,
 .social-media-add-new > i {
-	cursor: pointer;
+  cursor: pointer;
 }
 .social-media.ui-sortable-helper .toggle-accordion-head{
 border:1px solid #0094DD;
@@ -66,7 +66,12 @@ border:1px solid #0094DD;
 .cp-mini-box.accordion-head-label {
     float: left;
 }
-
+.social-media option.cp-hide-share {
+    display: none;
+}
+.social-media-field.cp-show-profile {
+    display: block!important;
+}
 /* rotator */
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {

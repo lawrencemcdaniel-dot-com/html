@@ -1344,7 +1344,7 @@ function apply_border_and_shadow( data ) {
 		cp_md_overlay    	= jQuery(".cp-modal-body-overlay"),
 		cp_modal_content	= jQuery(".cp-modal-content");
 
-	var box_shadow = generateBoxShadow(box_shadow_str);
+	var box_shadow = generate_box_shadow(box_shadow_str);
 
 	//	Update SELECTOR for 'Flat Discount' style - Apply - Border
 	if( style === 'flat_discount' ) {

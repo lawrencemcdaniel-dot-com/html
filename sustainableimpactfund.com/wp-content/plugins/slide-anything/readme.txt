@@ -198,6 +198,9 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 = 2.1.4 =
 * Upgraded Owl Carousel from version 2.3 BETA to version 2.3.3 (production release)
 
+= 2.1.5 =
+* Bug Fix - Issue with using shortcodes within slides. Certain shortcodes can only be displayed on the front-end (i.e. required resources are only loaded on the front-end), so the 'Preview Slider' feature on the Edit Slider page was causing issues for these shortcodes. So I have displayed this 'Preview Slider' feature for sliders where the 'Allow Shortcodes' checkbox is checked.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -311,3 +314,6 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 
 = 2.1.4 =
 * Upgraded Owl Carousel from version 2.3 BETA to version 2.3.3 (production release)
+
+= 2.1.5 =
+* Bug Fix - Issue with using shortcodes within slides. Certain shortcodes can only be displayed on the front-end (i.e. required resources are only loaded on the front-end), so the 'Preview Slider' feature on the Edit Slider page was causing issues for these shortcodes. So I have displayed this 'Preview Slider' feature for sliders where the 'Allow Shortcodes' checkbox is checked.

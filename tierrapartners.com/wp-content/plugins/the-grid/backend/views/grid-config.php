@@ -292,6 +292,14 @@ $grid_settings = array(
 				'tab' => __( 'Source', 'tg-text-domain' )
 			),
 			array(
+				'id'   => $prefix.'instagram_info',
+				'name' => '',
+				'type' => 'info_box',
+				'title' => __( 'IMPORTANT! Instagram API change', 'tg-text-domain' ),
+				'desc' => __( 'Instagram have changed its API the 4th April 2018. For now, the official API does not support anymore Media endpoints (to get media from users).<br>Due to these new restrictions, it\'s, currently, not possible to retrieved more than 9/12 posts from an user. The way to fetch these posts from Instagram is not offical and may not work at any time.<br> Thank you for your understanding.', 'tg-text-domain' ),
+				'tab' => __( 'Source', 'tg-text-domain' )
+			),
+			array(
 				'id'   => 'section_instagram_end',
 				'type' => 'section_end',
 				'tab' => __( 'Source', 'tg-text-domain' ),

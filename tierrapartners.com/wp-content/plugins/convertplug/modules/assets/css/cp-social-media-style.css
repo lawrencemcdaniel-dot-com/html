@@ -1493,10 +1493,18 @@ li.cp_social_digg:hover,
 .cp-slidein .cp-icon-style-top.cp-square .cp_social_share,
 .cp-slidein .cp-icon-style-top.cp-border_radius .cp_social_share,
 .cp-slidein .cp-icon-style-top.cp-circle .cp_social_share {
-	padding: 0px;
+	/*padding: 0px;*/
 	color:#fff;
 }
 
+.cp-slidein .cp-icon-style-top.cp-icon-style-left.cp-square .cp_social_share.cp_social_display_count,
+.cp-slidein .cp-icon-style-top.cp-icon-style-rectangle.cp-square .cp_social_share.cp_social_display_count,
+.cp-slidein .cp-icon-style-top.cp-icon-style-rounded.cp-square .cp_social_share.cp_social_display_count,
+.cp-slidein .cp-icon-style-top.cp-square .cp_social_share.cp_social_display_count,
+.cp-slidein .cp-icon-style-top.cp-border_radius .cp_social_share.cp_social_display_count,
+.cp-slidein .cp-icon-style-top.cp-circle .cp_social_share.cp_social_display_count {
+	padding: 0px;
+}
 .cp-slidein .cp-icon-style-top.cp-circle i,
 .cp-slidein .cp-icon-style-top.cp-border_radius i {
 	background-color: transparent;
@@ -1778,12 +1786,7 @@ span.cp_social_hide_sidebar.cp_hidden_sidebar {
 	margin-bottom: 10px;
 }
 
-/* .cp-info-bar .cp_social_flip.cp_social_left.cp-icon-style-right li:hover .cp_social_network_label,
-.cp-info-bar .cp_social_flip.cp_social_left.cp-icon-style-right li:hover .cp_social_overlay {
-	margin: 0 50px 0 10px;
-}
- */
- .cp-info-bar .cp_social_flip.cp_social_left.cp-icon-style-right li:hover .cp_social_network_label{
+.cp-info-bar .cp_social_flip.cp_social_left.cp-icon-style-right li:hover .cp_social_network_label{
 	margin: 0 70px 0 -10px;
 }
 .cp-info-bar .cp_social_flip.cp_social_left.cp-icon-style-right li:hover .cp_social_overlay {
@@ -1824,4 +1827,30 @@ span.cp_social_hide_sidebar.cp_hidden_sidebar {
 .cp_social_networks li a:visited span, .cp_social_networks li a:visited span *,
 .cp_social_networks li a:hover span, .cp_social_networks li a:hover span *{
     color:inherit
+}
+
+/*----- icon insta -------*/
+.cp_social_instagram,
+.cp_social_networks.cp_social_simple .cp_social_instagram i,
+.cp_social_networks.cp_social_circle .cp_social_instagram i {
+	background-color: #517fa4;
+}
+
+li.cp_social_instagram:hover,
+.cp_social_networks.cp_social_simple li.cp_social_instagram:hover i,
+.cp_social_networks.cp_social_circle li.cp_social_instagram:hover i {
+	background-color: #456c8c;
+}
+
+.cp_3D .cp_social_instagram,
+.cp_social_networks.cp_social_simple.cp_3D .cp_social_instagram i,
+.cp_social_networks.cp_social_circle.cp_3D .cp_social_instagram i {
+	box-shadow: 0 4px #456c8c;
+}
+
+.cp-icon-style-top.cp-normal .cp_social_instagram,
+.cp-icon-style-top.cp-normal .cp_social_instagram i,
+.cp-icon-style-simple.cp-normal .cp_social_instagram,
+.cp_social_networks.cp_social_simple.cp-icon-style-simple.cp-normal  .cp_social_instagram i {
+	color: #456c8c;
 }
