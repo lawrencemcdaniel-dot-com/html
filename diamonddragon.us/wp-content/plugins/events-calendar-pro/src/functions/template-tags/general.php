@@ -570,7 +570,7 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 	}
 
 	/**
-	 * Week Loop View Test
+	 * Photo Loop View Test
 	 *
 	 * @return bool
 	 */

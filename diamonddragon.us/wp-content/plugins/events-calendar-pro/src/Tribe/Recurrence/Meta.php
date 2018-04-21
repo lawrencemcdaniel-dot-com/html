@@ -950,7 +950,7 @@ class Tribe__Events__Pro__Recurrence__Meta {
 		if ( empty( $post_id ) ) {
 			return array();
 		}
-		$cache = new Tribe__Cache();
+		$cache = tribe( 'cache' );
 		$dates = $cache->get( 'event_dates_' . $post_id, 'save_post' );
 		if ( is_array( $dates ) ) {
 			return $dates;
@@ -976,7 +976,7 @@ class Tribe__Events__Pro__Recurrence__Meta {
 
 		$sql       = $wpdb->prepare( $sql, $post_id, $post_id, Tribe__Events__Main::POSTTYPE );
 		$result    = $wpdb->get_col( $sql );
-		$cache->set( 'recurrence_start_dates_' . $post_id, $result, Tribe__Cache::NO_EXPIRATION, 'save_post' );
+		$cache->set( 'event_dates_' . $post_id, $result, Tribe__Cache::NO_EXPIRATION, 'save_post' );
 
 		return $result;
 	}
@@ -1104,7 +1104,7 @@ class Tribe__Events__Pro__Recurrence__Meta {
 				// recurrence meta entry might be malformed
 				if ( is_wp_error( $rule ) ) {
 					// let's not process it and let's not try to fix it as it might be a third-party modification
-					tribe( 'logger' )->log_debug( "Broken recurrence data detected for event #$event_id", __CLASS__ );
+					tribe( 'logger' )->log_debug( "Broken recurrence data detected for event #{$event_id}", __CLASS__ );
 					continue;
 				}
 

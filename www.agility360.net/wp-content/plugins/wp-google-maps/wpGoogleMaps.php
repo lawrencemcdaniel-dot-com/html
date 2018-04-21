@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.0.01
+Version: 7.0.03
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,14 @@ Domain Path: /languages
 */
 
 /* 
+ * 7.0.03 - 2018-04-20
+ * Improved spatial data migration function to be more robust
+ * Fixed undefined index use_fontawesome
+ *
+ * 7.0.02 - 2018-04-15
+ * Added option to select FontAwesome version
+ * Fixed bug with circle data array
+ *
  * 7.0.01 - 2018-04-11
  * Switched to WebFont / CSS FontAwesome 5 for compatibility reasons
  * Fixed JS error in for ... in loop when adding methods to Array prototype
@@ -367,7 +375,7 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "7.0.01";
+$wpgmza_version = "7.0.03";
 $wpgmza_p_version = "6.19";
 $wpgmza_t = "basic";
 
@@ -2700,7 +2708,7 @@ function wpgmaps_tag_basic( $atts ) {
 	
     wp_enqueue_script('wpgmaps_core', plugins_url('/js/wpgmaps.js',__FILE__), $wpgaps_core_dependancy, $wpgmza_version.'b' , false);
 	
-	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+	wpgmza_enqueue_fontawesome();
 	
 	wp_localize_script('wpgmaps_core', 'wpgmza_circle_data_array', wpgmza_get_circle_data(1));
 	wp_localize_script('wpgmaps_core', 'wpgmza_rectangle_data_array', wpgmza_get_rectangle_data(1));
@@ -3460,7 +3468,11 @@ function wpgmaps_head() {
         if (isset($_POST['wpgmza_settings_map_type'])) { $wpgmza_data['wpgmza_settings_map_type'] = sanitize_text_field($_POST['wpgmza_settings_map_type']); }
         if (isset($_POST['wpgmza_settings_force_jquery'])) { $wpgmza_data['wpgmza_settings_force_jquery'] = sanitize_text_field($_POST['wpgmza_settings_force_jquery']); }
         if (isset($_POST['wpgmza_settings_remove_api'])) { $wpgmza_data['wpgmza_settings_remove_api'] = sanitize_text_field($_POST['wpgmza_settings_remove_api']); }
-
+        if (isset($_POST['wpgmza_settings_remove_api'])) { $wpgmza_data['wpgmza_settings_remove_api'] = sanitize_text_field($_POST['wpgmza_settings_remove_api']); }
+		
+		if(isset($_POST['wpgmza_use_fontawesome']))
+			$wpgmza_data['use_fontawesome'] = $_POST['wpgmza_use_fontawesome'];
+		
          if (isset($_POST['wpgmza_force_greedy_gestures'])) { $wpgmza_data['wpgmza_force_greedy_gestures'] = sanitize_text_field($_POST['wpgmza_force_greedy_gestures']); }
         
         if (isset($_POST['wpgmza_settings_map_scroll'])) { $wpgmza_data['wpgmza_settings_map_scroll'] = sanitize_text_field($_POST['wpgmza_settings_map_scroll']); }
@@ -4318,9 +4330,43 @@ function wpgmaps_settings_page_basic() {
             $ret .= "               <tr>";
             $ret .= "                        <td width='200' valign='top'></td>";
             $ret .= "                     <td>";
-            $ret .= "                           <div class='switch'><input name='wpgmza_settings_remove_api' type='checkbox' class='cmn-toggle cmn-toggle-yes-no' id='wpgmza_settings_remove_api' value='yes' $wpgmza_remove_api_checked /> <label for='wpgmza_settings_remove_api' data-on='".__("Yes", "wp-google-maps")."' data-off='".__("No", "wp-google-maps")."'></label></div> ".__("Do not load the Google Maps API (Only check this if your theme loads the Google Maps API by default)", 'wp-google-maps')."<br />";
+            $ret .= "                           
+			<div class='switch'>
+				<input name='wpgmza_settings_remove_api' 
+					type='checkbox' 
+					class='cmn-toggle cmn-toggle-yes-no' 
+					id='wpgmza_settings_remove_api' 
+					value='yes' 
+					$wpgmza_remove_api_checked /> 
+				<label for='wpgmza_settings_remove_api' 
+					data-on='".__("Yes", "wp-google-maps")."' 
+					data-off='".__("No", "wp-google-maps")."'>
+				</label>
+			</div> ".__("Do not load the Google Maps API (Only check this if your theme loads the Google Maps API by default)", 'wp-google-maps')."<br />";
             $ret .= "                    </td>";
             $ret .= "                </tr>";
+			
+			$use_fontawesome = (isset($wpgmza_settings['use_fontawesome']) ? $wpgmza_settings['use_fontawesome'] : '5.*');
+			$use_fontawesome_5_selected		= ($use_fontawesome == '5.*' ? 'selected="selected"' : '');
+			$use_fontawesome_4_selected		= ($use_fontawesome == '4.*' ? 'selected="selected"' : '');
+			$use_fontawesome_none_selected	= ($use_fontawesome == 'none' ? 'selected="selected"' : '');
+			
+			$ret .= "
+			
+			<tr>
+				<td>
+					" . __("Use FontAwesome:", "wp-google-maps") . "
+				</td>
+				<td>
+					<select name='wpgmza_use_fontawesome'>
+						<option value='5.*' $use_fontawesome_5_selected>5.*</option>
+						<option value='4.*' $use_fontawesome_4_selected>4.*</option>
+						<option value='none' $use_fontawesome_none_selected>" . __("None", "wp-google-maps") . "</option>
+					</select>
+				</td>
+			</tr>
+			
+			";
 
             $ret .= "                <tr>";
             $ret .= "                        <td width='200' valign='top'>".__("Use Google Maps API","wp-google-maps").":</td>";
@@ -4649,7 +4695,6 @@ function wpgmaps_list_maps() {
     if (function_exists('wpgmaps_list_maps_pro')) { wpgmaps_list_maps_pro(); return; }
 
     if ($wpgmza_tblname_maps) { $table_name = $wpgmza_tblname_maps; } else { $table_name = $wpdb->prefix . "wpgmza_maps"; }
-
 
     $results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name WHERE `active` = %d ORDER BY `id` DESC",0));
     echo "
@@ -5982,11 +6027,8 @@ function wpgmaps_admin_scripts() {
             }
         }
 
-        if ($_GET['page'] == "wp-google-maps-menu-support" && !function_exists('wpgmaps_admin_styles_pro')) {
-            //wp_register_style('fontawesome', plugins_url('css/font-awesome.min.css', __FILE__));
-			wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.0.9/css/all.css');
-            wp_enqueue_style('fontawesome');
-        }
+        if ($_GET['page'] == "wp-google-maps-menu-support" && !function_exists('wpgmaps_admin_styles_pro'))
+            wpgmza_enqueue_fontawesome();
 
         if(strpos($_GET['page'], "wp-google-maps") !== false){
             wp_register_style('wpgmaps-admin-style', plugins_url('css/wp-google-maps-admin.css', __FILE__));
@@ -6022,13 +6064,11 @@ function wpgmaps_user_styles() {
 }
 
 function wpgmaps_admin_styles() {
-    wp_enqueue_style('thickbox');
-     global $wpgmza_version;
-        wp_register_style( 'wpgmaps-style', plugins_url('css/wpgmza_style.css', __FILE__),array(),$wpgmza_version );
-        wp_enqueue_style( 'wpgmaps-style' );
-    //wp_register_style( 'fontawesome', plugins_url('css/font-awesome.min.css', __FILE__) );
-	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.0.9/css/all.css');
-    wp_enqueue_style( 'fontawesome' );
+	global $wpgmza_version;
+	
+	wp_enqueue_style('thickbox');
+
+	wpgmza_enqueue_fontawesome();
 
 }
 
@@ -7334,7 +7374,7 @@ if(!function_exists('wpgmza_migrate_spatial_data'))
 		if($wpdb->get_var("SELECT COUNT(id) FROM $wpgmza_tblname WHERE latlng IS NULL LIMIT 1") == 0)
 			return; // Nothing to migrate
 		
-		$wpdb->query("UPDATE ".$wpgmza_tblname." SET latlng=PointFromText(CONCAT('POINT(', lat, ' ', lng, ')'))");
+		$wpdb->query("UPDATE ".$wpgmza_tblname." SET latlng=PointFromText(CONCAT('POINT(', CAST(lat AS DECIMAL(18,10)), ' ', CAST(lng AS DECIMAL(18,10)), ')'))");
 	}
 	
 	add_action('init', 'wpgmza_migrate_spatial_data', 1);
@@ -7773,7 +7813,7 @@ function wpgmza_b_edit_circle($mid)
 	
 	wpgmaps_b_admin_add_circle_javascript();
 	
-	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+	wpgmza_enqueue_fontawesome();
 	
     if ($_GET['action'] == "edit_circle" && isset($mid)) {
         $res = wpgmza_get_map_data($mid);
@@ -8345,3 +8385,34 @@ function maybe_install_v7_tables_basic()
 }
 
 add_action('init', 'maybe_install_v7_tables_basic');
+
+if(!function_exists('wpgmza_enqueue_fontawesome'))
+{
+	function wpgmza_enqueue_fontawesome()
+	{
+		$settings = get_option('WPGMZA_OTHER_SETTINGS');
+		
+		if($settings)
+			$settings = maybe_unserialize($settings);
+		else
+			$settings = array(
+				'use_fontawesome' => '5.*'
+			);
+		
+		$version = (empty($settings['use_fontawesome']) ? '4.*' : $settings['use_fontawesome']);
+		
+		switch($version)
+		{
+			case '5.*':
+				wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+				break;
+				
+			case 'none':
+				break;
+				
+			default:
+				wp_enqueue_style('fontawesome', plugins_url('css/font-awesome.min.css', __FILE__));
+				break;
+		}
+	}
+}

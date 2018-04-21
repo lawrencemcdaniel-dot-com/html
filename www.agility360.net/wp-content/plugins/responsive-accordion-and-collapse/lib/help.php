@@ -1,124 +1,120 @@
 <style>
-		.wpsm_ac_h_i{
-			background:url('<?php echo wpshopmart_accordion_directory_url.'img/slideshow-01.jpg'; ?>') 50% 0 repeat fixed;
-			
-			
-			margin-left: -20px;
-			font-family: Myriad Pro ;
-			cursor: pointer;
-			text-align: center;
-		}
-		.wpsm_ac_h_i .wpsm_ac_h_b{
-			color: white;
-			font-size: 30px;
-			font-weight: bolder;
-			padding: 0 0 15px 0;
-		}
-		.wpsm_ac_h_i .wpsm_ac_h_b .dashicons{
-			font-size: 40px;
-			position: absolute;
-			margin-left: -45px;
-			margin-top: -10px;
-		}
-		 .wpsm_ac_h_small{
-			font-weight: bolder;
-			color: white;
-			font-size: 18px;
-			padding: 0 0 15px 15px;
-		}
+	.wpsm_ac_h_i{
+		background:url('<?php echo wpshopmart_accordion_directory_url.'img/slideshow-01.jpg'; ?>') 50% 0 repeat fixed;
+		
+		
+		margin-left: -20px;
+		font-family: Myriad Pro ;
+		cursor: pointer;
+		text-align: center;
+	}
+	.wpsm_ac_h_i .wpsm_ac_h_b{
+		color: white;
+		font-size: 30px;
+		font-weight: bolder;
+		padding: 0 0 15px 0;
+	}
+	.wpsm_ac_h_i .wpsm_ac_h_b .dashicons{
+		font-size: 40px;
+		position: absolute;
+		margin-left: -45px;
+		margin-top: -10px;
+	}
+	 .wpsm_ac_h_small{
+		font-weight: bolder;
+		color: white;
+		font-size: 18px;
+		padding: 0 0 15px 15px;
+	}
 
-		.wpsm_ac_h_i a{
-		text-decoration: none;
-		}
-		@media screen and ( max-width: 600px ) {
-			.wpsm_ac_h_i{ padding-top: 60px; margin-bottom: -50px; }
-			.wpsm_ac_h_i .WlTSmall { display: none; }
-		}
-		.texture-layer {
-			background: rgba(0,0,0,0.7);
-    padding-top: 0px;
-	padding: 27px 0 23px 0;
-		}
-		.wpsm_ac_h_i  li {
-			
-			color:#fff;
-			font-size: 17px;
-			line-height: 1.3;
-			font-weight: 600;
-			
-		}
-		 
-		  .wpsm_ac_h_i .btn-danger{
-			      font-size: 29px;
-				  background-color: #E74B42;
-				  border-radius:1px;
-				  margin-right:10px;
-				 
-		  }
-		  .wpsm_ac_h_i .btn-success{
-			      font-size: 29px;
-				  border-radius:1px;
-		  }
-		  #wpcontent{
-			  padding-left:0px !important;
-			  
-		  }
-		  .panel-primary{
-			  
-			  border:0px !important;
-		  }
-		  .panel-default{
-			 background:#f1f1f1 !important; 
-			  
-		  }
-		  .postbox{
-			  
-			  border: 0px solid #e5e5e5 !important;
-				background: #f1f1f1 !important;
-		  }
-		  
-		</style>
-		<div class="wpsm_ac_h_i ">
-			<div class="texture-layer">
-				<a href="http://wpshopmart.com/plugins/accordion-pro/" target="_blank">
-					<div class="wpsm_ac_h_b"><a class="btn btn-danger btn-lg " href="http://wpshopmart.com/plugins/accordion-pro/" target="_blank">Get Accordion Pro Only In $6</a><a class="btn btn-success btn-lg " href="http://demo.wpshopmart.com/accordion-pro/" target="_blank">View Demo</a></div>
-					<div style="overflow:hidden;display:block;width:100%">
-						<div class="col-md-3">
-							<ul>
-								<li> 8 Design Templates </li>
-								<li> 30 Content Animations </li>
-								<li> 12 Open/close Icons Set </li>
-								<li> 4 Overlay Effect </li>
-							</ul>
-						</div>
-						<div class="col-md-3">
-							<ul>
-								<li> 500+ Google Fonts </li>
-								<li> Accordion Scroll Effect </li>
-								<li> On Hover Accordion </li>
-								<li> Widget Option </li>
-							</ul>
-						</div>
-						<div class="col-md-3">
-							<ul>
-								<li> Unlimited Shortcode </li>
-								<li> Unlimited Color Scheme </li>
-								<li> Drag And Drop Builder </li>
-								<li> Preview Option </li>
-							</ul>
-						</div>
-						<div class="col-md-3">
-							<ul>
-								<li> Collapse Mode </li>
-								<li> Border Color Customization </li>
-								<li> High Priority Support </li>
-								<li> All Browser Compatible </li>
-							</ul>
-						</div>
-					</div>
-				</a>
+	.wpsm_ac_h_i a{
+	text-decoration: none;
+	}
+	@media screen and ( max-width: 600px ) {
+		.wpsm_ac_h_i{ padding-top: 60px; margin-bottom: -50px; }
+		.wpsm_ac_h_i .WlTSmall { display: none; }
+	}
+	.texture-layer {
+		background: rgba(0,0,0,0.7);
+		padding-top: 0px;
+		padding: 27px 0 23px 0;
+	}
+	.wpsm_ac_h_i  li {			
+		color:#fff;
+		font-size: 17px;
+		line-height: 1.3;
+		font-weight: 600;			
+	} 
+	.wpsm_ac_h_i .btn-danger{
+	  font-size: 29px;
+	  background-color: #E74B42;
+	  border-radius:1px;
+	  margin-right:10px;				 
+	}
+	.wpsm_ac_h_i .btn-success{
+		  font-size: 29px;
+		  border-radius:1px;
+	}
+	#wpcontent{
+	  padding-left:0px !important;
+	  
+	}
+	.panel-primary{
+	  
+	  border:0px !important;
+	}
+	.panel-default{
+	 background:#f1f1f1 !important; 
+	  
+	}
+	.postbox{
+	  
+	  border: 0px solid #e5e5e5 !important;
+		background: #f1f1f1 !important;
+	}
+  
+</style>
+<div class="wpsm_ac_h_i ">
+	<div class="texture-layer">
+		<a href="https://wpshopmart.com/plugins/accordion-pro/" target="_blank">
+			<div class="wpsm_ac_h_b"><a class="btn btn-danger btn-lg " href="https://wpshopmart.com/plugins/accordion-pro/" target="_blank">Get Accordion Pro Only In $9</a><a class="btn btn-success btn-lg " href="http://demo.wpshopmart.com/accordion-pro/" target="_blank">View Demo</a></div>
+			<div style="overflow:hidden;display:block;width:100%">
+				<div class="col-md-3">
+					<ul>
+						<li> 8 Design Templates </li>
+						<li> 30 Content Animations </li>
+						<li> 12 Open/close Icons Set </li>
+						<li> 4 Overlay Effect </li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul>
+						<li> 500+ Google Fonts </li>
+						<li> Accordion Scroll Effect </li>
+						<li> On Hover Accordion </li>
+						<li> Widget Option </li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul>
+						<li> Unlimited Shortcode </li>
+						<li> Unlimited Color Scheme </li>
+						<li> Drag And Drop Builder </li>
+						<li> Preview Option </li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul>
+						<li> Collapse Mode </li>
+						<li> Border Color Customization </li>
+						<li> High Priority Support </li>
+						<li> All Browser Compatible </li>
+					</ul>
+				</div>
 			</div>
-		</div>
+		</a>
+	</div>
+</div>
 <div class="row">
 	
 	<div class="panel panel-primary panel-default content-panel">

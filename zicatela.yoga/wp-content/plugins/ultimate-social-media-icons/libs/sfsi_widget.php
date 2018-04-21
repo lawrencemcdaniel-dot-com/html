@@ -741,6 +741,7 @@ function sfsi_prepairIcons($icon_name,$is_front=0)
 										   'tw_consumer_secret'=> $sfsi_section4_options['tw_consumer_secret'],
 										   'tw_oauth_access_token'=> $sfsi_section4_options['tw_oauth_access_token'],
 										   'tw_oauth_access_token_secret'=> $sfsi_section4_options['tw_oauth_access_token_secret']);
+						
 						$followers = $socialObj->sfsi_get_tweets($twitter_user,$tw_settings);
 						$counts = $socialObj->format_num($followers);
 						if(empty($counts))

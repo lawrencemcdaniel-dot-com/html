@@ -5,7 +5,7 @@ Tags: events, calendar, event, venue, organizer, dates, date, google maps, confe
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
 Tested up to: 4.9.4
-Stable tag: 4.4.24.2
+Stable tag: 4.4.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -203,13 +203,19 @@ Our Premium Plugins:
 
 == Changelog ==
 
+= [4.4.25] 2018-04-18 =
+
+* Fix - Make sure Additional Fields are not emptied when an Event Aggregator import updates an event [98015]
+* Tweak - Prevent unnecessary recurring-events labels from showing up on Community Events submission form [98934]
+* Tweak - Make sure country names don't contain parentheses before being sent to the Google Maps API [79880]
+
 = [4.4.24.2] 2018-03-13 =
 
-- Fix - Reverted Geolocalization changes made on Version `4.4.24`, will revisit the issue in future release (our thanks to Katherine, Ben Winton and others for flagging this) [101266]
+* Fix - Reverted Geolocalization changes made on Version `4.4.24`, will revisit the issue in future release (our thanks to Katherine, Ben Winton and others for flagging this) [101266]
 
 = [4.4.24.1] 2018-03-09 =
 
-- Fix - Prevent fatals and 500 errors from happening because of `undefined function tribe_get_global_query_object()` due to mismatch of the required The Events Calendar versions
+* Fix - Prevent fatals and 500 errors from happening because of `undefined function tribe_get_global_query_object()` due to mismatch of the required The Events Calendar versions
 
 = [4.4.24] 2018-03-08 =
 

@@ -284,7 +284,11 @@ class Tribe__Events__Pro__Geo_Loc {
 	 * @return array
 	 */
 	public function filter_aggregator_add_overwrite_geolocation_value( $venue, $record, $venue_id, $importer ) {
-		$venue['OverwriteCoords'] = $importer->get_value_by_key( $record, 'venue_overwrite_coords' );
+		$record_value = $importer->get_value_by_key( $record, 'venue_overwrite_coords' );
+		$from_venue   = Tribe__Utils__Array::get( $venue, 'OverwriteCoords', '' );
+
+		$venue['OverwriteCoords'] = '' === $record_value && '' !== $from_venue ? $from_venue : $record_value;
+
 		return $venue;
 	}
 
@@ -545,7 +549,11 @@ class Tribe__Events__Pro__Geo_Loc {
 			update_post_meta( $venueId, self::OVERWRITE, 0 );
 		}
 
-		$address = trim( $_address . ' ' . $_city . ' ' . $_province . ' ' . $_state . ' ' . $_zip . ' ' . $_country );
+		// Remove remaining spaces from any of the pieces of the address.
+		$pieces = array_map( 'trim', array( $_address, $_province, $_city, $_state, $_zip, $_country ) );
+		$address = implode( ' ', array_filter( $pieces ) );
+		// Remove any parenthesis from the address and his content as well
+		$address = preg_replace( '/\(.*\)/', '', $address );
 
 		if ( empty( $address ) ) {
 			return false;
@@ -572,7 +580,7 @@ class Tribe__Events__Pro__Geo_Loc {
 		$data = wp_remote_get( apply_filters( 'tribe_events_pro_geocode_request_url', $api_url ) );
 
 		if ( is_wp_error( $data ) || ! isset( $data['body'] ) ) {
-			Tribe__Main::instance()->log()->log_warning( sprintf(
+			tribe( 'logger' )->log_warning( sprintf(
 					_x( 'Geocode request failed ($1%s - $2%s)', 'debug geodata', 'tribe-events-calendar-pro' ),
 					is_wp_error( $data ) ? $data->get_error_code() : _x( 'empty response', 'debug geodata' ),
                     $api_url

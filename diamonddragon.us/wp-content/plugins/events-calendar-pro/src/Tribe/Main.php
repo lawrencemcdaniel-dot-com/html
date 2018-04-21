@@ -59,7 +59,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		public $shortcodes;
 
 		const REQUIRED_TEC_VERSION = '4.6.12';
-		const VERSION = '4.4.24.2';
+		const VERSION = '4.4.25';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -573,7 +573,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 				$confirm_redirect = apply_filters( 'tribe_events_pro_detect_recurrence_redirect', true, $wp_query->query_vars['eventDisplay'] );
 				do_action( 'tribe_events_pro_detect_recurrence_redirect', $wp_query->query_vars['eventDisplay'] );
 				if ( $confirm_redirect ) {
-					Tribe__Main::instance()->log()->log_warning( sprintf(
+					tribe( 'logger' )->log_warning( sprintf(
 							_x( 'Invalid instance of a recurring event was requested ($1%s) redirecting to $2%s', 'debug recurrence', 'tribe-events-calendar-pro' ),
 							$problem,
 							$current_url

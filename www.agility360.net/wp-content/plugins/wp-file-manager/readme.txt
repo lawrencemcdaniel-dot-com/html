@@ -5,7 +5,7 @@ Tags: wp-file-manager, elfinder,file manager, ftp, wordpress file manager,file m
 Requires at least: 4.0
 Tested up to: 4.9.5
 Requires PHP: 5.2.4
-Stable tag: 2.2
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,14 @@ Yes, You can archieve any files and folders as zip then simple download it. Plea
 15. Edit Root Directory Path
 
 == Changelog ==
+
+= 2.4 (16th Apr ,2018) =
+
+* On extract Invaild Backend issue
+
+= 2.3 (16th Apr ,2018) =
+
+* Extract Issue Resolved
 
 = 2.2 (9th Apr ,2018) =
 

@@ -7,6 +7,22 @@
  
 	<footer class="text-center">
 		<!-- Footer Text -->
+		<style>
+			.woz-u {
+				width: 20%;
+				min-width: 200px;
+				text-align: center;
+				margin: auto auto 25px auto;
+				border-bottom: 1px solid #f1f1f1;
+			}
+			
+			.woz-u img {
+				margin-bottom: 10px;
+			}
+		</style>
+		<div class="woz-u"><a href="https://woz-u.com/curriculum-software-development/" target="_blank"><img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2018/04/16162612/woz-u-logo-white.png" alt="Woz U logo"></a>
+		<p>Proud to support Woz U</p>
+		</div>
 		<div>More about me: 
 		<a class="footer-links" href="https://mx.linkedin.com/in/lawrencemcdaniel" target="_blank">LinkedIn</a> | 
 		<a class="footer-links" href="https://angel.co/lpm0073-gmail-com" target="_blank">Angel Network</a> | 

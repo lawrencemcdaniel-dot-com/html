@@ -1,13 +1,13 @@
-=== Social Media Share Buttons & Social Sharing Icons (Ultimate Sharing) ===
+=== Share Icons Share Buttons ===
 Contributors: socialdude
 Tags: social media, share, buttons, social, icons, share icons, share buttons, sharing icons, sharing buttons, social share, sharing, social sharing
 Requires at least: 2.8
 Tested up to: 4.9.4
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Share buttons plugin which adds social media icons to your site to enable sharing.  
+Share buttons and share icons for social media sharing 
 
 == Description ==
 
@@ -266,6 +266,11 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 
 == Changelog ==
+
+= 1.9.2 =
+* Instagram followers count issue fixed
+* Twitter count issue fixed
+* Facebook share count issue fixed
 
 = 1.9.1 =
 * Errors with "non-numeric value" fixed
@@ -667,5 +672,5 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 == Upgrade Notice ==
 
-= 1.9.1 =
+= 1.9.2 =
 Please upgrade

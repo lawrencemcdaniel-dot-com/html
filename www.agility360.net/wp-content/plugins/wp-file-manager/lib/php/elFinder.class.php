@@ -240,7 +240,7 @@ class elFinder {
 		'rename'    => array('target' => true, 'name' => true, 'mimes' => false, 'targets' => false, 'q' => false),
 		'duplicate' => array('targets' => true, 'suffix' => false),
 		'paste'     => array('dst' => true, 'targets' => true, 'cut' => false, 'mimes' => false, 'renames' => false, 'hashes' => false, 'suffix' => false),
-		'upload'    => array('target' => true, 'FILES' => true, 'mimes' => false, 'html' => false, 'upload' => false, 'name' => false, 'upload_path' => false, 'chunk' => false, 'cid' => false, 'node' => false, 'renames' => false, 'hashes' => false, 'suffix' => false, 'mtime' => false, 'overwrite' => false),
+		'upload'    => array('target' => true, 'FILES' => true, 'mimes' => false, 'html' => false, 'upload' => false, 'name' => false, 'upload_path' => false, 'chunk' => false, 'cid' => false, 'node' => false, 'renames' => false, 'hashes' => false, 'suffix' => false, 'mtime' => false),
 		'get'       => array('target' => true, 'conv' => false),
 		'put'       => array('target' => true, 'content' => '', 'mimes' => false, 'encoding' => false),
 		'archive'   => array('targets' => true, 'type' => true, 'mimes' => false, 'name' => false),
@@ -460,13 +460,13 @@ class elFinder {
 	public function __construct($opts) {
 		// set default_charset
 		if (version_compare(PHP_VERSION, '5.6', '>=')) {
-			if (($_val = ini_get('iconv.internal_encoding')) && strtoupper($_val) !== 'UTF-8') {
+			/*if (ini_get('iconv.internal_encoding')) {
 				ini_set('iconv.internal_encoding', '');
 			}
-			if (($_val = ini_get('mbstring.internal_encoding')) && strtoupper($_val) !== 'UTF-8') {
+			if (ini_get('mbstring.internal_encoding')) {
 				ini_set('mbstring.internal_encoding', '');
-			}
-			if (($_val = ini_get('internal_encoding')) && strtoupper($_val) !== 'UTF-8') {
+			}*/
+			if (ini_get('internal_encoding')) {
 				ini_set('internal_encoding', '');
 			}
 		} else {
@@ -2195,7 +2195,7 @@ class elFinder {
 	* @author Naoki Sawada
 	**/
 	protected function get_remote_contents( &$url, $timeout = 30, $redirect_max = 5, $ua = 'Mozilla/5.0', $fp = null ) {
-		$method = (function_exists('curl_exec') && !ini_get('open_basedir'))? 'curl_get_contents' : 'fsock_get_contents'; 
+		$method = (function_exists('curl_exec') && !ini_get('safe_mode') && !ini_get('open_basedir'))? 'curl_get_contents' : 'fsock_get_contents'; 
 		return $this->$method( $url, $timeout, $redirect_max, $ua, $fp );
 	}
 	
@@ -4245,7 +4245,7 @@ class elFinder {
 	 * @author Naoki Sawada
 	 */
 	public static function curlExec($curl, $options = array(), $headers = array()) {
-		if ($followLocation = (!ini_get('open_basedir'))) {
+		if ($followLocation = (!ini_get('safe_mode') && !ini_get('open_basedir'))) {
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 		}
 		
