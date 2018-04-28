@@ -9,8 +9,6 @@
  * @subpackage Core
  */
 
-/* modified mcdaniel april-2018 */
-
 // Do not allow directly accessing this file.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Direct script access denied.' );
@@ -59,7 +57,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<a class="fusion-icon fusion-icon-search" aria-hidden="true" aria-label="<?php esc_attr_e( 'Toggle Search', 'Avada' ); ?>" href="#"></a>
 					</div>
 				<?php endif; ?>
-				<a class="fusion-flyout-menu-toggle" aria-hidden="true" aria-label="<?php esc_attr_e( 'Toggle Menu', 'Avada' ); ?>" href="#"><span style="color: #e91e63;">Menu</span>
+
+				<a class="fusion-flyout-menu-toggle" aria-hidden="true" aria-label="<?php esc_attr_e( 'Toggle Menu', 'Avada' ); ?>" href="#">
 					<div class="fusion-toggle-icon-line"></div>
 					<div class="fusion-toggle-icon-line"></div>
 					<div class="fusion-toggle-icon-line"></div>
