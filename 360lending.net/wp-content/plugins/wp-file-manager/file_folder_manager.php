@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/wp-file-manager
   Description: Manage your WP files.
   Author: mndpsingh287
-  Version: 2.1
+  Version: 2.4
   Author URI: https://profiles.wordpress.org/mndpsingh287
   License: GPLv2
 **/
@@ -29,8 +29,6 @@ if(!class_exists('mk_file_folder_manager')):
 			 */
 			 add_action( 'wp_ajax_mk_filemanager_verify_email', array(&$this, 'mk_filemanager_verify_email_callback'));
 			 add_action( 'wp_ajax_verify_filemanager_email', array(&$this, 'verify_filemanager_email_callback') );
-			 //
-			 add_action( 'admin_head', array(&$this, 'wp_file_manager_admin_head'));
 
 		}
 		
@@ -53,7 +51,7 @@ if(!class_exists('mk_file_folder_manager')):
 				  update_option( 'verify_filemanager_fname_'.$current_user->ID, $lokhal_fname );
 				  update_option( 'verify_filemanager_lname_'.$current_user->ID, $lokhal_lname );
 				  update_option( 'filemanager_email_verified_'.$current_user->ID, 'yes' );
-				  // Send Email Code
+				  /* Send Email Code */
 				  $subject = "Email Verification";				  
 				  $message = "
 					<html>
@@ -159,16 +157,6 @@ if(!class_exists('mk_file_folder_manager')):
 				$result = curl_exec ($curl); 
 				$data = json_decode($result,true);
 				return $data;
-		}
-		/* wp_file_manager_admin_head */
-		public function wp_file_manager_admin_head() {
-			   $getPage = isset($_GET['page']) ? $_GET['page'] : '';
-				$allowedPages = array(
-									  'wp_file_manager'
-									  );
-					if(!empty($getPage) && in_array($getPage, $allowedPages)):
-					 include('inc/head.php');
-					endif;
 		}
 		/* File Manager text Domain */
 		public function filemanager_load_text_domain() {
@@ -279,7 +267,7 @@ if(!class_exists('mk_file_folder_manager')):
 						if(isset($_GET['theme']) && !empty($_GET['theme'])){
 							 delete_transient('wp_fm_theme');
 							 set_transient( 'wp_fm_theme', $_GET['theme'] ,  60 * 60 * 720 );
-							 if($_GET['theme'] != 'default') {
+							 if($_GET['theme'] != 'nwp_file_manager-color') {
 								wp_enqueue_style( 'theme-latest', plugins_url('lib/themes/'.$_GET['theme'].'/css/theme.css',  __FILE__ ));	
 						       } 
 						} else if(false !== ( $wp_fm_theme = get_transient( 'wp_fm_theme' ) )) {
@@ -289,7 +277,7 @@ if(!class_exists('mk_file_folder_manager')):
 						} else {
 							wp_enqueue_style( 'theme-latest', plugins_url('lib/themes/default/css/theme.css', __FILE__));
 						}
-					endif;						
+					endif;							
 		}
 		/*
 		* Admin Links

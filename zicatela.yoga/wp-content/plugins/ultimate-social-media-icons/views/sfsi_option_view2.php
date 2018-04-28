@@ -70,9 +70,6 @@ $option2['sfsi_youtube_page'] 			= 	(isset($option2['sfsi_youtube_page']))
 $option2['sfsi_youtube_follow'] 		= 	(isset($option2['sfsi_youtube_follow']))
 												? sanitize_text_field($option2['sfsi_youtube_follow'])
 												: '';
-$option2['sfsi_ytube_user'] 			= 	(isset($option2['sfsi_ytube_user']))
-												? sanitize_text_field($option2['sfsi_ytube_user'])
-												: '';
 
 $option2['sfsi_pinterest_page'] 		= 	(isset($option2['sfsi_pinterest_page']))
 												? sanitize_text_field($option2['sfsi_pinterest_page'])
@@ -113,13 +110,25 @@ $option2['sfsi_linkedin_recommendProductId'] = 	(isset($option2['sfsi_linkedin_r
 												? intval($option2['sfsi_linkedin_recommendProductId'])
 												: '';
 
-$option4['sfsi_youtubeusernameorid'] 	= 	(isset($option2['sfsi_youtubeusernameorid']))
-												? sanitize_text_field($option4['sfsi_youtubeusernameorid'])
-												:'';
-$option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
-												? strip_tags(trim($option4['sfsi_ytube_chnlid']))
-												: '';
+if("name"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeusernameorid']) && !empty($option2['sfsi_youtubeusernameorid'])){
 
+    if(isset($option2['sfsi_ytube_user']) && !empty($option2['sfsi_ytube_user'])){
+            $option2['sfsi_ytube_user']   = sfsi_sanitize_field($option2['sfsi_ytube_user']);
+    }
+    else{
+            $option2['sfsi_ytube_user']   = isset($option4['sfsi_youtube_user']) && !empty($option4['sfsi_youtube_user']) ?  $option4['sfsi_youtube_user']: "";
+    }
+}
+
+if("id"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeusernameorid']) && !empty($option2['sfsi_youtubeusernameorid'])){
+
+    if(isset($option2['sfsi_ytube_chnlid']) && !empty($option2['sfsi_ytube_chnlid'])){
+            $option2['sfsi_ytube_chnlid']   = sfsi_sanitize_field($option2['sfsi_ytube_chnlid']);
+    }
+    else{
+            $option2['sfsi_ytube_chnlid']   = isset($option4['sfsi_youtube_channelId']) && !empty($option4['sfsi_youtube_channelId']) ?  $option4['sfsi_youtube_channelId']: "";
+    }
+}
 ?>
 
 <!-- Section 2 "What do you want the icons to do?" main div Start -->
@@ -292,23 +301,23 @@ $option4['sfsi_ytube_chnlid'] 			= 	(isset($option2['sfsi_ytube_chnlid']))
             <!--Adding Code for Channel Id and Channel Name-->
             <div class="cstmutbewpr">
                 <ul class="enough_waffling">
-                   <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option4['sfsi_youtubeusernameorid']=='name') ?  'checked="true"' : '' ;?> type="radio" value="name" class="styled"  /><label>User Name</label></li>
-                   <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option4['sfsi_youtubeusernameorid']=='id') ?  'checked="true"' : '' ;?> type="radio" value="id" class="styled"  /><label>Channel Id</label></li>
+                   <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option2['sfsi_youtubeusernameorid']=='name') ?  'checked="true"' : '' ;?> type="radio" value="name" class="styled"  /><label>User Name</label></li>
+                   <li onclick="showhideutube(this);"><input name="sfsi_youtubeusernameorid" <?php echo ($option2['sfsi_youtubeusernameorid']=='id') ?  'checked="true"' : '' ;?> type="radio" value="id" class="styled"  /><label>Channel Id</label></li>
                 </ul>
                 <div class="cstmutbtxtwpr">
                     <?php
-                        $sfsi_youtubeusernameorid = $option4['sfsi_youtubeusernameorid'];
+                        $sfsi_youtubeusernameorid = $option2['sfsi_youtubeusernameorid'];
                     ?>
                     <div class="cstmutbchnlnmewpr" <?php if($sfsi_youtubeusernameorid != 'id'){echo 'style="display: block;"';}?>>
                         <p class="extra_pp"><label>UserName:</label><input name="sfsi_ytube_user" type="url" value="<?php echo (isset($option2['sfsi_ytube_user']) && $option2['sfsi_ytube_user']!='') ?  $option2['sfsi_ytube_user'] : '' ;?>" placeholder="Youtube username" class="add" /></p>
                         <div class="utbe_instruction">
-                            To find your Username go to "My channel" in Youtube menu bar on the left & Select the "About" tab and take your user name from URL there (e.g. https://www.youtube.com/user/<b>Myusername</b>/about).
+                            To find your User ID/Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings", then click "Advanced" under "Name" and you will find both your "Channel ID" and "User ID" under "Account Information".
                         </div>
                     </div>
                     <div class="cstmutbchnlidwpr" <?php if($sfsi_youtubeusernameorid == 'id'){echo 'style="display: block;"';}?>>
-                        <p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option4['sfsi_ytube_chnlid']) && $option4['sfsi_ytube_chnlid']!='') ?  $option4['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
+                        <p class="extra_pp"><label>ChannelId:</label><input name="sfsi_ytube_chnlid" type="url" value="<?php echo (isset($option2['sfsi_ytube_chnlid']) && $option2['sfsi_ytube_chnlid']!='') ?  $option2['sfsi_ytube_chnlid'] : '' ;?>" placeholder="youtube_channel_id" class="add" /></p>
                         <div class="utbe_instruction">
-                            To find your Channel name go to "My Channel" in Youtube menu bar on the left and take your channel name from there.
+                            To find your User ID/Channel ID, login to your YouTube account, click the user icon at the top right corner and select "Settings", then click "Advanced" under "Name" and you will find both your "Channel ID" and "User ID" under "Account Information".
                         </div>
                     </div>
                 </div>

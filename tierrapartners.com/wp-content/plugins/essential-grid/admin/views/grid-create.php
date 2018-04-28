@@ -670,7 +670,7 @@ LEFT SETTINGS
 									</p>
 									<p class="cachenumbercheck">
 										<input type="number" value="<?php echo $base->getVar($grid['postparams'], 'instagram-transient-sec', '86400'); ?>" name="instagram-transient-sec">&nbsp;<a style="margin-right:10px" id="clear_cache_instagram"  class="button-primary revblue eg-clear-cache" href="javascript:void(0);" data-clear="instagram-transient-sec">Clear Cache</a>
-										<span style="margin-left:10px" class="importantlabel showonsmallcache description"><?php _e('Small cache intervals may influence the loading times negatively.', EG_TEXTDOMAIN); ?></span>	
+										<span style="margin-left:10px" class="importantlabel showonsmallcache description"><?php _e('Please use no cache smaller than 1800 seconds or Instagram might ban your IP temporarily.', EG_TEXTDOMAIN); ?></span>	
 									</p>
 								</div>
 							</div>

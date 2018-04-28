@@ -240,7 +240,7 @@ class elFinder {
 		'rename'    => array('target' => true, 'name' => true, 'mimes' => false, 'targets' => false, 'q' => false),
 		'duplicate' => array('targets' => true, 'suffix' => false),
 		'paste'     => array('dst' => true, 'targets' => true, 'cut' => false, 'mimes' => false, 'renames' => false, 'hashes' => false, 'suffix' => false),
-		'upload'    => array('target' => true, 'FILES' => true, 'mimes' => false, 'html' => false, 'upload' => false, 'name' => false, 'upload_path' => false, 'chunk' => false, 'cid' => false, 'node' => false, 'renames' => false, 'hashes' => false, 'suffix' => false, 'mtime' => false, 'overwrite' => false),
+		'upload'    => array('target' => true, 'FILES' => true, 'mimes' => false, 'html' => false, 'upload' => false, 'name' => false, 'upload_path' => false, 'chunk' => false, 'cid' => false, 'node' => false, 'renames' => false, 'hashes' => false, 'suffix' => false, 'mtime' => false),
 		'get'       => array('target' => true, 'conv' => false),
 		'put'       => array('target' => true, 'content' => '', 'mimes' => false, 'encoding' => false),
 		'archive'   => array('targets' => true, 'type' => true, 'mimes' => false, 'name' => false),
@@ -460,12 +460,12 @@ class elFinder {
 	public function __construct($opts) {
 		// set default_charset
 		if (version_compare(PHP_VERSION, '5.6', '>=')) {
-			if (ini_get('iconv.internal_encoding')) {
+			/*if (ini_get('iconv.internal_encoding')) {
 				ini_set('iconv.internal_encoding', '');
 			}
 			if (ini_get('mbstring.internal_encoding')) {
 				ini_set('mbstring.internal_encoding', '');
-			}
+			}*/
 			if (ini_get('internal_encoding')) {
 				ini_set('internal_encoding', '');
 			}

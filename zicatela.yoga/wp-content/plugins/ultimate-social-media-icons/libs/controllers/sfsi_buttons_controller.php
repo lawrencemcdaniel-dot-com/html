@@ -136,7 +136,10 @@ function sfsi_options_updater2()
         'sfsi_youtube_pageUrl'      => esc_url($sfsi_youtube_pageUrl),
         'sfsi_youtube_page'         => sanitize_text_field($sfsi_youtube_page),
         'sfsi_youtube_follow'       => sanitize_text_field($sfsi_youtube_follow),
+        'sfsi_youtubeusernameorid'  => sanitize_text_field($sfsi_youtubeusernameorid),
         'sfsi_ytube_user'           => sanitize_text_field($sfsi_ytube_user),
+        'sfsi_ytube_chnlid'         => sanitize_text_field($sfsi_ytube_chnlid),
+        
          /* pinterest options */
         'sfsi_pinterest_page'       => sanitize_text_field($sfsi_pinterest_page),
         'sfsi_pinterest_pageUrl'    => esc_url($sfsi_pinterest_pageUrl),
@@ -154,13 +157,12 @@ function sfsi_options_updater2()
         'sfsi_linkedin_recommendProductId'=> intval($sfsi_linkedin_recommendProductId),
         'sfsi_CustomIcon_links'         => $sfsi_CustomIcon_links
     );
-    update_option('sfsi_section2_options',  serialize($up_option2));
+
     $option4 = unserialize(get_option('sfsi_section4_options',false));     
     
-    //$option4['sfsi_ytube_user']           = $sfsi_ytube_user;
-    $option4['sfsi_youtubeusernameorid']    = sanitize_text_field($sfsi_youtubeusernameorid);
-    $option4['sfsi_ytube_chnlid']           = sfsi_sanitize_field($sfsi_ytube_chnlid);
+    
     update_option('sfsi_section4_options',  serialize($option4));
+    update_option('sfsi_section2_options',  serialize($up_option2));
     
     header('Content-Type: application/json');
     echo json_encode(array("success")); exit;

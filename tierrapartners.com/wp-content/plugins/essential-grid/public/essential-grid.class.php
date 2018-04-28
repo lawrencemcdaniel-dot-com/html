@@ -20,7 +20,7 @@ class Essential_Grid {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	const VERSION = '2.2.4';
+	const VERSION = '2.2.4.1';
 	const TABLE_GRID = 'eg_grids';
 	const TABLE_ITEM_SKIN = 'eg_item_skins';
 	const TABLE_ITEM_ELEMENTS = 'eg_item_elements';
@@ -104,7 +104,7 @@ class Essential_Grid {
 			// 2.2 lightbox post content
 			add_filter('essgrid_lightbox_post_content', array($this, 'on_lightbox_post_content'), 10, 2);
 
-		}		
+		}
 	}
 
 	
@@ -165,7 +165,7 @@ class Essential_Grid {
 		wp_register_style('themepunchboxextcss', EG_PLUGIN_URL . 'public/assets/css/jquery.esgbox.min.css', array(), self::VERSION);
 		
 		// Enqueue Lightbox Style/Script
-		if($use_cache){ 
+		if($use_cache){
 			wp_enqueue_style('themepunchboxextcss');
 		}
 
@@ -221,7 +221,7 @@ class Essential_Grid {
 		));
 		
 		// Enqueue Lightbox Style/Script
-		if($use_cache){ 
+		if($use_cache){
 			wp_enqueue_script( 'themepunchboxext' );
 		}
 
@@ -412,7 +412,7 @@ class Essential_Grid {
 					//set order of filter
 					$navigation_c->set_orders_text($sort_by_text);
 					$navigation_c->set_orders_start($order_by_start);
-					$navigation_c->set_orders($order_by); 
+					$navigation_c->set_orders($order_by);
 					
 					/* 2.1.6 */
 					echo $navigation_c->output_sorting();
@@ -694,7 +694,7 @@ class Essential_Grid {
 	
 	
 	/**
-	 * We check the content for gallery shortcode. 
+	 * We check the content for gallery shortcode.
 	 * If existing, create Grid based on the images
 	 * @since: 1.2.0
 	 * @moved: 1.5.4: moved to Essential_Grid_Base->get_all_gallery_images($mid_content);
@@ -750,8 +750,8 @@ class Essential_Grid {
 		$postArgs["hierarchical"] = false;
 		$postArgs["show_ui"] = true;
 		$postArgs["show_in_menu"] = true;
-		$postArgs["supports"] = array('title', 'editor', 'thumbnail', 'author', 'comments', 'excerpt');			
-		$postArgs["show_in_admin_bar"] = false;			
+		$postArgs["supports"] = array('title', 'editor', 'thumbnail', 'author', 'comments', 'excerpt');
+		$postArgs["show_in_admin_bar"] = false;
 		$postArgs["taxonomies"] = array($taxonomy, 'post_tag');
 		
 		$postArgs["rewrite"] = array("slug"=>$postType,"with_front"=>true);
@@ -760,7 +760,7 @@ class Essential_Grid {
 		$postArgs = $d['postArgs'];
 		$taxArgs = $d['taxArgs'];
 		
-		register_taxonomy($taxonomy,array($postType),$taxArgs); 
+		register_taxonomy($taxonomy,array($postType),$taxArgs);
 		register_post_type($postType,$postArgs);
 		
 	}
@@ -1040,7 +1040,7 @@ class Essential_Grid {
 	
 	/**
 	 * get array of id -> title
-	 */		
+	 */
 	public static function get_grids_short($exceptID = null){
 		$arrGrids = self::get_essential_grids();
 		
@@ -1063,7 +1063,7 @@ class Essential_Grid {
 	/**
 	 * get array of id -> handle
 	 * @since 1.0.6
-	 */		
+	 */
 	public static function get_grids_short_widgets($exceptID = null){
 		$arrGrids = self::get_essential_grids();
 		
@@ -1084,7 +1084,7 @@ class Essential_Grid {
 	
 	/**
 	 * get array of id -> title
-	 */		
+	 */
 	public static function get_grids_short_vc($exceptID = null){
 		$arrGrids = self::get_essential_grids();
 		
@@ -1108,7 +1108,7 @@ class Essential_Grid {
 	/**
 	 * Get Choosen Item Skin
 	 * @since: 1.2.0
-	 */		
+	 */
 	public static function get_choosen_item_skin(){
 		
 		$base = new Essential_Grid_Base();
@@ -1121,7 +1121,7 @@ class Essential_Grid {
 	/**
 	 * Get Certain Parameter
 	 * @since: 1.5.0
-	 */		
+	 */
 	public function get_param_by_handle($handle, $default = ''){
 		$d = apply_filters('essgrid_get_param_by_handle', array('handle' => $handle, 'default' => $default));
 		$handle = $d['handle'];
@@ -1137,7 +1137,7 @@ class Essential_Grid {
 	/**
 	 * Get Certain Post Parameter
 	 * @since: 1.5.0
-	 */		
+	 */
 	public function get_postparam_by_handle($handle, $default = ''){
 		$d = apply_filters('essgrid_get_postparam_by_handle', array('handle' => $handle, 'default' => $default));
 		$handle = $d['handle'];
@@ -1153,7 +1153,7 @@ class Essential_Grid {
 	/**
 	 * Update Certain Parameter by Handle
 	 * @since: 2.1.0
-	 */	
+	 */
 	public function set_param_by_handle($handle, $param){
 		$this->grid_params[$handle] = $param;
 	}
@@ -1162,7 +1162,7 @@ class Essential_Grid {
 	/**
 	 * Update Certain Post Parameter by Handle
 	 * @since: 2.1.0
-	 */	
+	 */
 	public function set_postparam_by_handle($handle, $param){
 		$this->grid_postparams[$handle] = $param;
 	}
@@ -1171,7 +1171,7 @@ class Essential_Grid {
 	/**
 	 * Update Certain Post Parameter by Handle
 	 * @since: 2.1.0
-	 */	
+	 */
 	public function save_params(){
 		global $wpdb;
 		
@@ -1190,7 +1190,7 @@ class Essential_Grid {
 	
 	/**
 	 * Output Essential Grid in Page by alias
-	 */		
+	 */
 	public function output_essential_grid_by_alias($eg_alias){
 		global $wpdb;
 		
@@ -1212,7 +1212,7 @@ class Essential_Grid {
 	/**
 	 * Output Essential Grid in Page by Custom Settings and Layers
 	 * @since: 1.2.0
-	 */		
+	 */
 	public function output_essential_grid_by_settings(){
 		
 		do_action('essgrid_output_essential_grid_by_settings', $this);
@@ -1236,7 +1236,7 @@ class Essential_Grid {
 	/**
 	 * Get Essential Grid ID by alias
 	 * @since: 1.2.0
-	 */		
+	 */
 	public static function get_id_by_alias($eg_alias){
 		global $wpdb;
 		
@@ -1258,7 +1258,7 @@ class Essential_Grid {
 	/**
 	 * Get Essential Grid alias by ID
 	 * @since: 2.0
-	 */		
+	 */
 	public static function get_alias_by_id($eg_id){
 		global $wpdb;
 		
@@ -1290,7 +1290,7 @@ class Essential_Grid {
 	
     /**
 	 * Init essential data by id
-	 */	
+	 */
     public function init_by_id($grid_id){
         global $wpdb;
 		
@@ -1333,7 +1333,7 @@ class Essential_Grid {
 	
     /**
 	 * Init essential data by given data
-	 */	
+	 */
     public function init_by_data($grid_data){
         
 		$grid_data = apply_filters('essgrid_init_by_data', $grid_data);
@@ -1370,7 +1370,7 @@ class Essential_Grid {
 	
     /**
 	 * Init essential data by id
-	 */	
+	 */
     public function set_loading_ids($ids){
         
 		$this->filter_by_ids = apply_filters('essgrid_set_loading_ids', $ids);
@@ -1380,7 +1380,7 @@ class Essential_Grid {
 	
     /**
 	 * Check if Grid is a Post
-	 */	
+	 */
     public function is_custom_grid(){
         
 		do_action('essgrid_is_custom_grid');
@@ -1396,7 +1396,7 @@ class Essential_Grid {
 	
     /**
 	 * Check if Grid is a Stream
-	 */	
+	 */
     public function is_stream_grid(){
         
 		do_action('essgrid_is_stream_grid');
@@ -1422,7 +1422,7 @@ class Essential_Grid {
     
 	/**
 	 * Output Essential Grid in Page
-	 */		
+	 */
 	public function output_essential_grid($grid_id, $data = array(), $grid_preview = false, $by_id = false){
 
 		try{
@@ -1479,7 +1479,7 @@ class Essential_Grid {
 				case 'nextgen':
 				case 'rml':
 				case 'vimeo':
-					// $this->output_by_stream(false); //false, as we do not have any options to be changed 
+					// $this->output_by_stream(false); //false, as we do not have any options to be changed
 					$this->output_by_stream($grid_preview);
 				break;
 			}
@@ -1541,7 +1541,7 @@ class Essential_Grid {
 	/**
 	 * Output Essential Grid in Page with Custom Layer and Settings
 	 * @since: 1.2.0
-	 */		
+	 */
 	public function output_essential_grid_custom($grid_preview = false){
 		try{
 			
@@ -1650,7 +1650,7 @@ class Essential_Grid {
 			$this->grid_params['columns'] = $columns;
 		}
 		
-		if(isset($this->grid_params['rows-unlimited']) && $this->grid_params['rows-unlimited'] == 'off'){ //add pagination 
+		if(isset($this->grid_params['rows-unlimited']) && $this->grid_params['rows-unlimited'] == 'off'){ //add pagination
 			$this->grid_params['navigation-layout']['pagination']['bottom-1'] = '0';
 			$this->grid_params['bottom-1-margin-top'] = '10';
 		}
@@ -1743,12 +1743,12 @@ class Essential_Grid {
 				$nextgen_images_avail_sizes = array('thumb','original');
 				
 				if(is_array($images)){
-					foreach ($images as $image) {	
+					foreach ($images as $image) {
 						$image['custom-image-url-full'] = $this->find_biggest_photo($image['custom-image-url'],$base->getVar($this->grid_postparams, 'nextgen-full-size'),$nextgen_images_avail_sizes);
 						$image['custom-preload-image-url'] = $image['custom-image-url'][$base->getVar($this->grid_postparams, 'nextgen-thumb-size','thumb')][0];
 						$image['custom-image-url'] = $this->find_biggest_photo($image['custom-image-url'],$base->getVar($this->grid_postparams, 'nextgen-thumb-size'),$nextgen_images_avail_sizes);
 						$this->grid_layers[] = $image; //preg_replace("/[^0-9]/","",$image['id'])
-					}	
+					}
 				}
 			}
 			else {
@@ -1756,12 +1756,12 @@ class Essential_Grid {
 				$images = $rml->get_images($base->getVar($this->grid_postparams, 'rml-source-type'));
 				
 				if(is_array($images)){
-					foreach ($images as $image) {	
+					foreach ($images as $image) {
 						$image['custom-image-url-full'] = $image['custom-image-url'][$base->getVar($this->grid_postparams, 'rml-full-size','original')];
 						$image['custom-preload-image-url'] = $image['custom-image-url']['thumbnail'];
 						$image['custom-image-url'] = $image['custom-image-url'][$base->getVar($this->grid_postparams, 'rml-thumb-size','original')];
 						$this->grid_layers[] = $image; //preg_replace("/[^0-9]/","",$image['id'])
-					}	
+					}
 				}
 			}
 		}
@@ -1800,23 +1800,23 @@ class Essential_Grid {
 
 					if($base->getVar($this->grid_postparams, 'instagram-thumb-size') == 'Original Resolution' || $base->getVar($this->grid_postparams, 'instagram-full-size') == 'Original Resolution')
 						$orig_image = true;
-					else 
+					else
 						$orig_image = false;
 
 					if( $base->getVar($this->grid_postparams, 'instagram-type-source-tags') == "true" ) {
 						$tag_photos = $instagram->get_tags_photos($base->getVar($this->grid_postparams, 'instagram-tags'),$base->getVar($this->grid_postparams, 'instagram-count'),$orig_image );
-						if(is_array($tag_photos))	
+						if(is_array($tag_photos))
 							$public_photos = array_merge($public_photos , $tag_photos);
 					}
 					if($base->getVar($this->grid_postparams, 'instagram-type-source-places') == "true") {
 						$place_photos = $instagram->get_places_photos($base->getVar($this->grid_postparams, 'instagram-places'),$base->getVar($this->grid_postparams, 'instagram-count'),$orig_image );
-						if(is_array($place_photos))	
+						if(is_array($place_photos))
 							$public_photos = array_merge($public_photos , $place_photos);
 					}
 					$instagram_user_id = $base->getVar($this->grid_postparams, 'instagram-user-id');
 					if($base->getVar($this->grid_postparams, 'instagram-type-source-users') == "true" || ( $base->getVar($this->grid_postparams, 'instagram-type-source-tags') != "true" && $base->getVar($this->grid_postparams, 'instagram-type-source-places') != "true" && $base->getVar($this->grid_postparams, 'instagram-type-source-users') != "true" &&  !empty($instagram_user_id)  ) ) {
 						$user_photos = $instagram->get_users_photos($base->getVar($this->grid_postparams, 'instagram-user-id'),$base->getVar($this->grid_postparams, 'instagram-count'),$orig_image );
-						if(is_array($user_photos))	
+						if(is_array($user_photos))
 							$public_photos = array_merge($public_photos , $user_photos );
 					}
 
@@ -1844,12 +1844,12 @@ class Essential_Grid {
 							$photo['custom-image-url'] = $this->find_biggest_photo($photo['custom-image-url'],$base->getVar($this->grid_postparams, 'instagram-thumb-size'),$instagram_images_avail_sizes);
 
 							if($photo['custom-type'] == 'html5'){
-								$photo['html5']['mp4'] = $photo['custom-html5-mp4'];	
+								$photo['html5']['mp4'] = $photo['custom-html5-mp4'];
 							}
 
 							$this->grid_layers[] = $photo; //preg_replace("/[^0-9]/","",$photo['id'])
 						}
-					}		
+					}
 					break;
 				case 'vimeo':
 					$vimeo = new Essential_Grid_Vimeo($base->getVar($this->grid_postparams, 'vimeo-transient-sec',86400));
@@ -1881,7 +1881,7 @@ class Essential_Grid {
 							$video['custom-image-url'] = $this->find_biggest_photo($video['custom-image-url'],$base->getVar($this->grid_postparams, 'vimeo-thumb-size','thumbnail_medium'),$vimeo_images_avail_sizes);
 							$this->grid_layers[] = $video; //preg_replace("/[^0-9]/","",$video['id'])
 						}
-					}		
+					}
 					break;
 				case 'youtube':
 					$channel_id = $base->getVar($this->grid_postparams, 'youtube-channel-id');
@@ -1934,7 +1934,7 @@ class Essential_Grid {
 
 							$this->grid_layers[] = $video; //preg_replace("/[^0-9]/","",$video['id'])
 						}
-					}		
+					}
 					break;
 				case 'facebook':
 					$facebook = new Essential_Grid_Facebook($base->getVar($this->grid_postparams, 'facebook-transient-sec',86400));
@@ -1965,8 +1965,6 @@ class Essential_Grid {
 							}
 							
 							$this->grid_layers[] = $photo;
-
-							// if(isset($_GET['dg'])){echo '<pre>';   var_dump($photo);   echo '</pre>';}
 						}
 					}
 					break;
@@ -1989,7 +1987,7 @@ class Essential_Grid {
 						case 'photosets':
 							$flickr_photos = $flickr->get_photo_set_photos($base->getVar($this->grid_postparams, 'flickr-photoset'),$base->getVar($this->grid_postparams, 'flickr-count'));
 							break;
-					}	
+					}
 			
 					$flickr_images_avail_sizes = array('Square','Thumbnail','Large Square','Small','Small 320','Medium','Medium 640','Medium 800','Large','Original');
 
@@ -2017,7 +2015,7 @@ class Essential_Grid {
 
 
 						if(is_array($images)){
-							foreach ($images as $image) {	
+							foreach ($images as $image) {
 								if($base->getVar($this->grid_postparams, 'behance-type','projects')!='projects'){
 
 									$image['custom-image-url-full'] = $this->find_biggest_photo($image['custom-image-url'],$base->getVar($this->grid_postparams, 'behance-project-full-size'),$behance_project_images_avail_sizes);
@@ -2026,7 +2024,7 @@ class Essential_Grid {
 								else{
 
 									$image['custom-image-url-full'] = $this->find_biggest_photo($image['custom-image-url'],$base->getVar($this->grid_postparams, 'behance-projects-full-size'),$behance_images_avail_sizes);
-									$image['custom-image-url'] = $this->find_biggest_photo($image['custom-image-url'],$base->getVar($this->grid_postparams, 'behance-projects-thumb-size'),$behance_images_avail_sizes);	
+									$image['custom-image-url'] = $this->find_biggest_photo($image['custom-image-url'],$base->getVar($this->grid_postparams, 'behance-projects-thumb-size'),$behance_images_avail_sizes);
 								}
 
 								$this->grid_layers[] = $image; //preg_replace("/[^0-9]/","",$image['id'])
@@ -2130,14 +2128,14 @@ class Essential_Grid {
 		$wanted_size = $d['wanted_size'];
 		$avail_sizes = $d['avail_sizes'];
 		
-		if(isset($image_urls[$wanted_size]) && !$this->isEmpty($image_urls[$wanted_size])) return $image_urls[$wanted_size];	
+		if(isset($image_urls[$wanted_size]) && !$this->isEmpty($image_urls[$wanted_size])) return $image_urls[$wanted_size];
 		$wanted_size_pos = array_search($wanted_size, $avail_sizes);
-		for ($i=$wanted_size_pos; $i < 7; $i++) { 
-			if(isset($avail_sizes[$i]) && !$this->isEmpty($image_urls[$avail_sizes[$i]])) 
-				return $image_urls[$avail_sizes[$i]];	
+		for ($i=$wanted_size_pos; $i < 7; $i++) {
+			if(isset($avail_sizes[$i]) && !$this->isEmpty($image_urls[$avail_sizes[$i]]))
+				return $image_urls[$avail_sizes[$i]];
 		}
-		for ($i=$wanted_size_pos; $i >= 0 ; $i--) { 
-			if(!$this->isEmpty($image_urls[$avail_sizes[$i]])) return $image_urls[$avail_sizes[$i]];	
+		for ($i=$wanted_size_pos; $i >= 0 ; $i--) {
+			if(!$this->isEmpty($image_urls[$avail_sizes[$i]])) return $image_urls[$avail_sizes[$i]];
 		}
 	}
 
@@ -2350,8 +2348,12 @@ class Essential_Grid {
 		$i = 1;
 		$this->order_by_custom($order_by_start, $order_by_dir);
 
-		if($base->getVar($this->grid_postparams, 'source-type') == "stream" && $base->getVar($this->grid_postparams, 'stream-source-type') == "instagram" )//&& $base->getVar($this->grid_postparams, 'instagram-type-source')=="mixed")
+		if($base->getVar($this->grid_postparams, 'source-type') == "stream" && $base->getVar($this->grid_postparams, 'stream-source-type') == "instagram" ){//&& $base->getVar($this->grid_postparams, 'instagram-type-source')=="mixed")
+			if($order_by_start=="none"){
+				$this->order_by_custom("date", "asc");
+			}
 			$this->grid_layers = array_slice($this->grid_layers,0,$base->getVar($this->grid_postparams, 'instagram-count'));
+		}
 
 		if(!empty($this->grid_layers) && count($this->grid_layers) > 0){
 			foreach($this->grid_layers as $key => $entry){
@@ -3741,7 +3743,7 @@ class Essential_Grid {
         $n = '<!-- THE ESSENTIAL GRID '. self::VERSION .' '.strtoupper($source_type).' -->'."\n\n";
         
 		//$n .= '<!-- GRID WRAPPER FOR CONTAINER SIZING - HERE YOU CAN SET THE CONTAINER SIZE AND CONTAINER SKIN -->'."\n";
-		$n .= '<article class="myportfolio-container '.$navigation_skin.$fix_height_class.' source_type_'.$source_type.'" id="'.$css_id.$article_id.'">'."\n\n"; //fullwidthcontainer-with-padding 
+		$n .= '<article class="myportfolio-container '.$navigation_skin.$fix_height_class.' source_type_'.$source_type.'" id="'.$css_id.$article_id.'">'."\n\n"; //fullwidthcontainer-with-padding
         
         //$n .= '    <!-- THE GRID ITSELF WITH FILTERS, PAGINATION, SORTING ETC -->'."\n";
 		$n .= '    <div id="'.$grid_id.'" class="esg-grid"'.$div_style.'>'."\n";
@@ -3895,14 +3897,14 @@ class Essential_Grid {
 		$lightbox_effect_open_close = $base->getVar($this->grid_params, 'lightbox-effect-open-close', 'fade');
 		if($lightbox_effect_open_close != 'false') $lightbox_effect_open_close = '"' . $lightbox_effect_open_close . '"';
 		
-		$lightbox_effect_open_close_speed = $base->getVar($this->grid_params, 'lightbox-effect-open-close-speed', '500');	
+		$lightbox_effect_open_close_speed = $base->getVar($this->grid_params, 'lightbox-effect-open-close-speed', '500');
 		if(!is_numeric($lightbox_effect_open_close_speed)) $lightbox_effect_open_close_speed = '500';
 		
-		$lightbox_effect_next_prev = $base->getVar($this->grid_params, 'lightbox-effect-next-prev', 'fade');		
+		$lightbox_effect_next_prev = $base->getVar($this->grid_params, 'lightbox-effect-next-prev', 'fade');
 		if($lightbox_effect_next_prev != 'false') $lightbox_effect_next_prev = '"' . $lightbox_effect_next_prev . '"';
 		
-		$lightbox_effect_next_prev_speed = $base->getVar($this->grid_params, 'lightbox-effect-next-prev-speed', '366');	
-		if(!is_numeric($lightbox_effect_next_prev_speed)) $lightbox_effect_next_prev_speed = '366';		
+		$lightbox_effect_next_prev_speed = $base->getVar($this->grid_params, 'lightbox-effect-next-prev-speed', '366');
+		if(!is_numeric($lightbox_effect_next_prev_speed)) $lightbox_effect_next_prev_speed = '366';
 		
 		$lightbox_deep_link = $base->getVar($this->grid_params, 'lightbox-deep-link', 'group');
 		if(empty($lightbox_deep_link)) $lightbox_deep_link = 'group';
@@ -3996,7 +3998,7 @@ class Essential_Grid {
 			echo '	resultidb = 0,'."\n";
 			echo '	responsiveEntries = ['."\n";
 	        echo '						{ width:'.$columns_width['0'].',amount:'.$columns['0'].',mmheight:'.$masonry_content_height['0'].'},'."\n";
-	        echo '						{ width:'.$columns_width['1'].',amount:'.$columns['1'].',mmheight:'.$masonry_content_height['1'].'},'."\n";		
+	        echo '						{ width:'.$columns_width['1'].',amount:'.$columns['1'].',mmheight:'.$masonry_content_height['1'].'},'."\n";
 			echo '						{ width:'.$columns_width['2'].',amount:'.$columns['2'].',mmheight:'.$masonry_content_height['2'].'},'."\n";
 			echo '						{ width:'.$columns_width['3'].',amount:'.$columns['3'].',mmheight:'.$masonry_content_height['3'].'},'."\n";
 			echo '						{ width:'.$columns_width['4'].',amount:'.$columns['4'].',mmheight:'.$masonry_content_height['4'].'},'."\n";
@@ -4036,18 +4038,18 @@ class Essential_Grid {
 			echo '	}'."\n";
 	        echo 'if ("'.$layout.'"=="even") {'."\n";
 			echo '	var coh=0,'."\n";
-			echo '		container = jQuery("#esg-grid-'.$this->grid_div_name.'-'.$esg_grid_serial.'");'."\n";	
+			echo '		container = jQuery("#esg-grid-'.$this->grid_div_name.'-'.$esg_grid_serial.'");'."\n";
 			if($layout_sizing == 'fullscreen'){
-				echo 'coh = jQuery(window).height();'."\n";							
+				echo 'coh = jQuery(window).height();'."\n";
 
 				if($layout_offset_container !== ''){
-					echo 'try{'."\n";				
+					echo 'try{'."\n";
 					echo '	var offcontainers = "'.$layout_offset_container.'".split(",");'."\n";
 					echo '	jQuery.each(offcontainers,function(index,searchedcont) {'."\n";
 					echo '		coh = coh - jQuery(searchedcont).outerHeight(true);'."\n";
 					echo '	})'."\n";
-					echo '} catch(e) {}'."\n";		
-				}						
+					echo '} catch(e) {}'."\n";
+				}
 			} else {
 				echo '	var	cwidth = container.width(),'."\n";
 				echo '		ar = "'.$aspect_ratio_x.':'.$aspect_ratio_y.'",'."\n";
@@ -4056,7 +4058,7 @@ class Essential_Grid {
 					echo '	row = 2;'."\n";
 				} else {
 					echo '	row = '.$rows.';'."\n";
-				}																		
+				}
 				echo 'ar = ar.split(":");'."\n";
 				echo 'var aratio=parseInt(ar[0],0) / parseInt(ar[1],0);'."\n";
 				echo 'coh = cwidth / aratio;'."\n";
@@ -4095,7 +4097,7 @@ class Essential_Grid {
 				echo '        loadMoreAmount:'.$load_more_amount.','."\n";
 				echo '        loadMoreTxt:"'.$load_more_text.'",'."\n";
 				echo '        loadMoreNr:"'.$load_more_show_number.'",'."\n";
-				echo '        loadMoreEndTxt:"'.__('No More Items for the Selected Filter', EG_TEXTDOMAIN).'",'."\n";   
+				echo '        loadMoreEndTxt:"'.__('No More Items for the Selected Filter', EG_TEXTDOMAIN).'",'."\n";
 				echo '        loadMoreItems:';
 				$this->output_load_more_list();
 				echo ','."\n";
@@ -4250,7 +4252,7 @@ class Essential_Grid {
         }
         echo '        responsiveEntries: ['."\n";
         echo '						{ width:'.$columns_width['0'].',amount:'.$columns['0'].',mmheight:'.$masonry_content_height['0'].'},'."\n";
-        echo '						{ width:'.$columns_width['1'].',amount:'.$columns['1'].',mmheight:'.$masonry_content_height['1'].'},'."\n";		
+        echo '						{ width:'.$columns_width['1'].',amount:'.$columns['1'].',mmheight:'.$masonry_content_height['1'].'},'."\n";
 		echo '						{ width:'.$columns_width['2'].',amount:'.$columns['2'].',mmheight:'.$masonry_content_height['2'].'},'."\n";
 		echo '						{ width:'.$columns_width['3'].',amount:'.$columns['3'].',mmheight:'.$masonry_content_height['3'].'},'."\n";
 		echo '						{ width:'.$columns_width['4'].',amount:'.$columns['4'].',mmheight:'.$masonry_content_height['4'].'},'."\n";
@@ -4276,24 +4278,24 @@ class Essential_Grid {
 			echo '		loop : '.$lbox_loop.','."\n";
 			echo '		slideShow : {"autoStart": ' . $lbox_autoplay . ', "speed": ' . $lbox_playspeed . '},'."\n";
 			
-			echo '		animationEffect : '.$lightbox_effect_open_close.','."\n";	
-			echo '		animationDuration : '.$lightbox_effect_open_close_speed.','."\n";	
+			echo '		animationEffect : '.$lightbox_effect_open_close.','."\n";
+			echo '		animationDuration : '.$lightbox_effect_open_close_speed.','."\n";
 			
 			echo '		beforeShow: function(a, c) {'."\n";
 			echo '          if(!arrows) {'."\n";
 			echo '              jQuery("body").addClass("esgbox-hidearrows");'."\n";
 			echo '          }'."\n";
-			echo '			var i = 0,'."\n";	
-			echo '				multiple = false;'."\n";	
-			echo '			a = a.slides;'."\n";	
-			echo '			for(var b in a) {'."\n";	
-			echo '				i++;'."\n";	
-			echo '				if(i > 1) {'."\n";	
-			echo '					multiple = true;'."\n";	
-			echo '					break;'."\n";	
-			echo '				}'."\n";	
-			echo '			}'."\n";	
-			echo '			if(!multiple) jQuery("body").addClass("esgbox-single");'."\n";	
+			echo '			var i = 0,'."\n";
+			echo '				multiple = false;'."\n";
+			echo '			a = a.slides;'."\n";
+			echo '			for(var b in a) {'."\n";
+			echo '				i++;'."\n";
+			echo '				if(i > 1) {'."\n";
+			echo '					multiple = true;'."\n";
+			echo '					break;'."\n";
+			echo '				}'."\n";
+			echo '			}'."\n";
+			echo '			if(!multiple) jQuery("body").addClass("esgbox-single");'."\n";
 			echo '			if(c.type === "image") jQuery(".esgbox-button--zoom").show();'."\n";
 			echo '		},'."\n";
 			
@@ -4302,10 +4304,10 @@ class Essential_Grid {
 			echo '			if(b.opts.$orig.data("ratio") === "4:3") jQuery("body").addClass("esg-four-by-three");'."\n";
 			echo '		},'."\n";
 			
-			echo '		afterLoad: function() {jQuery(window).trigger("resize.esglb");},'."\n";	
-			echo '		afterClose : function() {jQuery("body").removeClass("esgbox-hidearrows esgbox-single");},'."\n";			
+			echo '		afterLoad: function() {jQuery(window).trigger("resize.esglb");},'."\n";
+			echo '		afterClose : function() {jQuery("body").removeClass("esgbox-hidearrows esgbox-single");},'."\n";
 			
-			echo '		transitionEffect : '.$lightbox_effect_next_prev.','."\n";		
+			echo '		transitionEffect : '.$lightbox_effect_next_prev.','."\n";
 			echo '		transitionDuration : '.$lightbox_effect_next_prev_speed.','."\n";
 			
 			echo '		hash : "'.$lightbox_deep_link.'",'."\n";
@@ -4331,7 +4333,7 @@ class Essential_Grid {
 			echo '	try{'."\n";
 			echo '	    jQuery("#esg-grid-'.$this->grid_div_name.'-'.$esg_grid_serial.' .esgbox").esgbox(lightboxOptions);'."\n";
 			echo '    } catch (e) {}'."\n"."\n";
-		}		
+		}
 		
 		echo '});'."\n";
 		echo '</script>'."\n";
@@ -4749,10 +4751,10 @@ class Essential_Grid {
 		$base = new Essential_Grid_Base();
 		
 		$container_id = $base->getVar($this->grid_params, 'ajax-container-id', '');
-		$container_css = $base->getVar($this->grid_params, 'ajax-container-css', ''); 
+		$container_css = $base->getVar($this->grid_params, 'ajax-container-css', '');
 		
-		$container_pre = $base->getVar($this->grid_params, 'ajax-container-pre', ''); 
-		$container_post = $base->getVar($this->grid_params, 'ajax-container-post', ''); 
+		$container_pre = $base->getVar($this->grid_params, 'ajax-container-pre', '');
+		$container_post = $base->getVar($this->grid_params, 'ajax-container-post', '');
 		
 		$cont = '';
 		$cont .= '<div class="eg-ajax-target-container-wrapper" id="'.$container_id.'">'."\n";
@@ -4913,7 +4915,7 @@ class Essential_Grid {
 	}
 	
 	/**
-	 * Adds default Grids at installation process 
+	 * Adds default Grids at installation process
 	 * @since 1.5.0
 	 */
 	public static function propagate_default_grids(){
@@ -5108,10 +5110,10 @@ class Essential_Grid {
 			$maxW = $settings['lbMax'];
 			
 			$margin = $settings['margin'];
-			$margin = explode('|', $margin);	
+			$margin = explode('|', $margin);
 			
 			$padding = $settings['padding'];
-			$padding = explode('|', $padding);	
+			$padding = explode('|', $padding);
 			
 			$overflow = $settings['overflow'];
 				
@@ -5129,7 +5131,7 @@ class Essential_Grid {
 				$padding = '0';
 			}
 			
-			$html = '<div class="eg-lightbox-post-content" style="width: ' . $maxW . ';min-width: ' . $minW . '; max-width: ' . $maxW . '; margin: ' . $margin . '">' . 
+			$html = '<div class="eg-lightbox-post-content" style="width: ' . $maxW . ';min-width: ' . $minW . '; max-width: ' . $maxW . '; margin: ' . $margin . '">' .
 					'<div class="eg-lightbox-post-content-inner" style="padding: ' . $padding . '; overflow: ' . $overflow . '">';
 
 			if(isset($settings['revslider']) && !empty($settings['revslider']) && class_exists('RevSlider')) {
@@ -5152,10 +5154,10 @@ class Essential_Grid {
 									$content = do_shortcode('[rev_slider alias="' . $slider . '"][/rev_slider]');
 									if($content) return $html . $content . '</div></div>';
 								
-								}	
-							}	
-						}	
-					}	
+								}
+							}
+						}
+					}
 				}
 			}
 			else if(isset($settings['essgrid']) && !empty($settings['essgrid'])) {
@@ -5230,7 +5232,7 @@ class Essential_Grid {
 			if(!empty($featured) && $lbImg === 'on') {
 				
 				$margin = $settings['lbMargin'];
-				$margin = explode('|', $margin);	
+				$margin = explode('|', $margin);
 					
 				if(!empty($margin) && count($margin) === 4) {
 					$margin = $margin[0] . 'px ' . $margin[1] . 'px ' . $margin[2] . 'px ' . $margin[3] . 'px';
@@ -5395,7 +5397,7 @@ class Essential_Grid {
 
 						$return = Essential_Grid_Search::output_search_result_ids($search_string, $grid_id);
 						if(!is_array($return)){
-							$error = $return; 
+							$error = $return;
 						}else{
 							self::ajaxResponseSuccess('', $return);
 						}
@@ -5426,13 +5428,13 @@ class Essential_Grid {
 	public static function ajaxResponse($success,$message,$arrData = null){
 		
 		$response = array();
-		$response["success"] = $success;				
+		$response["success"] = $success;
 		$response["message"] = $message;
 
 		if(!empty($arrData)){
 			
 			if(gettype($arrData) == "string" || gettype($arrData) == "boolean")
-				$arrData = array("data"=>$arrData);				
+				$arrData = array("data"=>$arrData);
 			
 			$response = array_merge($response,$arrData);
 		}
@@ -5536,14 +5538,14 @@ class Essential_Grid {
 			if($grid=="nogrid"){
 				
 				// Defaults for Param
-				$entryskin = !empty($output['entryskin']) ? $output['entryskin'] : 1; 
-				$layoutsizing = !empty($output['layoutsizing']) ? $output['layoutsizing'] : 'boxed'; 
-				$gridlayout = !empty($output['gridlayout']) ? $output['gridlayout'] : 'even'; 
-				$spacings = !empty($output['spacings']) ? $output['spacings'] : 0; 
-				$rowsunlimited = !empty($output['rowsunlimited']) ? $output['rowsunlimited'] : 'off'; 
-				$rows = !empty($output['rows']) ? $output['rows'] : 3; 
-				$gridanimation = !empty($output['gridanimation']) ? $output['gridanimation'] : 'fade'; 
-				$usespinner = !empty($output['usespinner']) ? $output['usespinner'] : 0; 
+				$entryskin = !empty($output['entryskin']) ? $output['entryskin'] : 1;
+				$layoutsizing = !empty($output['layoutsizing']) ? $output['layoutsizing'] : 'boxed';
+				$gridlayout = !empty($output['gridlayout']) ? $output['gridlayout'] : 'even';
+				$spacings = !empty($output['spacings']) ? $output['spacings'] : 0;
+				$rowsunlimited = !empty($output['rowsunlimited']) ? $output['rowsunlimited'] : 'off';
+				$rows = !empty($output['rows']) ? $output['rows'] : 3;
+				$gridanimation = !empty($output['gridanimation']) ? $output['gridanimation'] : 'fade';
+				$usespinner = !empty($output['usespinner']) ? $output['usespinner'] : 0;
 
 				//echo '[ess_grid  settings=\'{"entry-skin":"'.$entryskin.'","layout-sizing":"'.$layoutsizing.'","grid-layout":"'.$gridlayout.'","spacings":"'.$spacings.'","rows-unlimited":"'.$rowsunlimited.'","columns":"'.$columns.'","rows":"'.$rows.'","grid-animation":"'.$gridanimation.'","use-spinner":"'.$usespinner.'"}\' alias="portfolio1"][gallery '.$return.'][/ess_grid]';
 				return do_shortcode('[ess_grid  settings=\'{"entry-skin":"'.$entryskin.'","layout-sizing":"'.$layoutsizing.'","grid-layout":"'.$gridlayout.'","spacings":"'.$spacings.'","rows-unlimited":"'.$rowsunlimited.'","columns":"'.$columns.'","rows":"'.$rows.'","grid-animation":"'.$gridanimation.'","use-spinner":"'.$usespinner.'"}\' alias="'.get_option('tp_eg_overwrite_gallery').'"][gallery '.$return.'][/ess_grid]');

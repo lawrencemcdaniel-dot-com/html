@@ -73,19 +73,12 @@ $option4['sfsi_youtube_countsDisplay'] 	= 	(isset($option4['sfsi_youtube_countsD
 $option4['sfsi_youtube_countsFrom'] 	= 	(isset($option4['sfsi_youtube_countsFrom']))
 												? sanitize_text_field($option4['sfsi_youtube_countsFrom'])
 												: '';
-$option4['sfsi_youtubeusernameorid'] 	= 	(isset($option4['sfsi_youtubeusernameorid']))
-												? sanitize_text_field($option4['sfsi_youtubeusernameorid'])
-												: '';
+// $option4['sfsi_youtubeusernameorid'] 	= 	(isset($option4['sfsi_youtubeusernameorid']))
+// 												? sanitize_text_field($option4['sfsi_youtubeusernameorid'])
+// 												: '';
 $option4['sfsi_youtube_manualCounts'] 	= 	(isset($option4['sfsi_youtube_manualCounts']))
 												? intval($option4['sfsi_youtube_manualCounts'])
 												: '';
-$option4['sfsi_youtube_user'] 			= 	(isset($option4['sfsi_youtube_user']))
-												? sfsi_sanitize_field($option4['sfsi_youtube_user'])
-												: '';
-$option4['sfsi_youtube_channelId'] 		= 	(isset($option4['sfsi_youtube_channelId']))
-												? sfsi_sanitize_field($option4['sfsi_youtube_channelId'])
-												: '';
-
 
 $option4['sfsi_instagram_manualCounts'] = 	(isset($option4['sfsi_instagram_manualCounts']))
 												? intval($option4['sfsi_instagram_manualCounts'])
@@ -119,6 +112,24 @@ $option4['sfsi_shares_manualCounts'] 	= 	(isset($option4['sfsi_shares_manualCoun
 $option4['sfsi_linkedIn_manualCounts'] 	= 	(isset($option4['sfsi_linkedIn_manualCounts']))
 												? intval($option4['sfsi_linkedIn_manualCounts'])
 												: '';
+
+if(isset($option4['sfsi_youtube_user']) && !empty($option4['sfsi_youtube_user'])){
+    $option4['sfsi_youtube_user']       = sfsi_sanitize_field($option4['sfsi_youtube_user']);
+}
+else{
+    if("name"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeusernameorid']) && !empty($option2['sfsi_youtubeusernameorid'])){
+        $option4['sfsi_youtube_user']   = $option2['sfsi_ytube_user'];
+    }
+}
+
+if(isset($option4['sfsi_youtube_channelId']) && !empty($option4['sfsi_youtube_channelId'])){
+        $option4['sfsi_youtube_channelId']       = sfsi_sanitize_field($option4['sfsi_youtube_channelId']);
+}
+else{
+    if("id"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeusernameorid']) && !empty($option2['sfsi_youtubeusernameorid'])){
+        $option4['sfsi_youtube_channelId']   = $option2['sfsi_ytube_chnlid'];
+    }
+}
 
 /* fetch counts for admin sections */
 $counts = sfsi_getCounts();
