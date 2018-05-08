@@ -5,7 +5,7 @@
  * Description: Soliloquy is the best responsive WordPress slider plugin.
  * Author:      Soliloquy Team
  * Author URI:  http://soliloquywp.com
- * Version:     2.5.4
+ * Version:     2.5.5
  * Text Domain: soliloquy
  * Domain Path: languages
  *
@@ -54,7 +54,7 @@ class Soliloquy {
      *
      * @var string
      */
-    public $version = '2.5.4';
+    public $version = '2.5.5';
 
     /**
      * The name of the plugin.
@@ -140,8 +140,8 @@ class Soliloquy {
         if ( is_admin() ) {
             $this->require_admin();
             $this->require_updater();
- 			
- 			if ( class_exists( 'AM_Notification' ) ){
+
+            if ( class_exists( 'AM_Notification' ) ){
 				$notifications = new AM_Notification( 'sol', $this->version );
 			}
         }
@@ -168,7 +168,7 @@ class Soliloquy {
         require plugin_dir_path( __FILE__ ) . 'includes/admin/metaboxes.php';
         require plugin_dir_path( __FILE__ ) . 'includes/admin/posttype.php';
         require plugin_dir_path( __FILE__ ) . 'includes/admin/settings.php';
- 		require plugin_dir_path( __FILE__ ) . 'includes/admin/addons.php';
+        require plugin_dir_path( __FILE__ ) . 'includes/admin/addons.php';
         require plugin_dir_path( __FILE__ ) . 'includes/admin/vimeo.php';
         require plugin_dir_path( __FILE__ ) . 'includes/admin/review.php';
         require plugin_dir_path( __FILE__ ) . 'includes/admin/notifications.php';
@@ -277,7 +277,7 @@ class Soliloquy {
         // Check status of slider
         if ( isset( $slider['status'] ) ) {
 	        if ( $slider['status'] == 'draft' || $slider['status'] == 'pending' ) {
-	        	// Public site, slider is set to draft, so don't display it
+	            // Public site, slider is set to draft, so don't display it
 				return;
 	        }
         }
@@ -320,12 +320,12 @@ class Soliloquy {
             if ( $slider ) {
                 set_transient( '_sol_cache_' . $slug, $slider, DAY_IN_SECONDS );
             }
-       	}
+        }
 
-       	// Check status of slider
+        // Check status of slider
         if ( isset( $slider['status'] ) ) {
 	        if ( $slider['status'] == 'draft' || $slider['status'] == 'pending' ) {
-	        	// Public site, slider is set to draft, so don't display it
+	            // Public site, slider is set to draft, so don't display it
 				return;
 	        }
         }
@@ -354,9 +354,9 @@ class Soliloquy {
         $ret = false;
         foreach ( $sliders as $data ) {
 
-        	if ( empty( $data['config']['slug'] ) ) {
+            if ( empty( $data['config']['slug'] ) ) {
 				continue;
-        	}
+            }
 
             if ( $data['config']['slug'] == $slug ) {
 

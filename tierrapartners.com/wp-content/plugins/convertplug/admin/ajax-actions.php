@@ -1089,7 +1089,7 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 		$email_body = isset( $cp_settings['cp-email-body'] ) ? $cp_settings['cp-email-body'] : '';
 
 		//add subscriber as new user role to site.		
-		$new_role  = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : '';
+		$new_role  = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : 'None';
 
 		if ( 'success' === $status && ! $only_conversion ) {
 
@@ -1100,8 +1100,7 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 				$style_name      = isset( $_POST['cp_module_name'] ) ? esc_attr( $_POST['cp_module_name'] ) : '';
 				cp_notify_sub_to_admin( $list_name, $param, $sub_email, $email_sub, $email_body, $cp_page_url, $style_name );
 			}
-
-			if( 'None' !== $new_role ){
+			if( '' !== $new_role && ( 'None' !== $new_role && 'none' !== $new_role ) ){
 				cp_add_new_user_role( $param, $new_role );
 			}			
 		}		
@@ -1184,7 +1183,7 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 		$email_body  = isset( $cp_settings['cp-email-body'] ) ? $cp_settings['cp-email-body'] : '';
 		$param       = array_map( 'sanitize_text_field', wp_unslash( $_POST['param'] ) );
 		//add subscriber as new user role to site.
-		$new_role  = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : '';
+		$new_role  = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : 'None';
 
 		if ( $update_option && ! $only_conversion ) {
 			if( '1' === $sub_optin || 1 === $sub_optin ){
@@ -1193,8 +1192,8 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 				$style_name           = isset( $_POST['cp_module_name'] ) ? esc_attr( $_POST['cp_module_name'] ) : '';
 				cp_notify_sub_to_admin( $list_name, $param, $sub_email, $email_sub, $email_body, $cp_page_url, $style_name );
 			}
-
-			if( 'None' !== $new_role ){
+			
+			if( '' !== $new_role && ( 'None' !== $new_role && 'none' !== $new_role ) ){
 				cp_add_new_user_role( $param, $new_role );
 			}	
 

@@ -208,10 +208,13 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 					<div id="rs-instagram-settings-wrapper" class="rs-settings-wrapper">
 						<div style="width:50%;display:block;float:left;">
 							<span class="rev-new-label"><?php _e('Slides', 'revslider');?></span>
-							<input type="text" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'instagram-count', '');?>" name="instagram-count" title="<?php _e('Display this number of photos', 'revslider');?>">
+							<input type="text" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'instagram-count', '');?>" name="instagram-count" title="<?php _e('Display this number of photos (max. 12 photos)', 'revslider');?>">
 							<p>
 								<span class="rev-new-label"><?php _e('Cache (sec)', 'revslider');?></span>
 								<input type="text" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'instagram-transient', '1200');?>" name="instagram-transient" title="<?php _e('Cache the result', 'revslider');?>">
+							</p>
+							<p>
+									<span class="description"><?php _e('Please remember that you can only fetch max 12 items.', 'revslider');?></span>
 							</p>
 							<!--p>
 								<span class="rev-new-label"><?php _e('Access Token', 'revslider');?></span>
@@ -231,9 +234,6 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 								<p>
 									<span class="rev-new-label"><?php _e('Instagram User Name', 'revslider');?></span>
 									<input type="text" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'instagram-user-id', '');?>" name="instagram-user-id" title="<?php _e('Put in the Instagram User Name', 'revslider');?>">
-								</p>
-								<!--p>
-									<span class="description"><?php _e('Please remember that if your application is in <a href="https://www.instagram.com/developer/sandbox/" target="_blank">Instagram Sandbox mode</a> you will only see max 20 items and only from your own account (no other account).', 'revslider');?></span>
 								</p>
 								<!--p>
 									<span class="description"><?php _e('Find the Instagram User ID <a target="_blank" href="http://www.otzberg.net/iguserid/">here</a>', 'revslider');?></span>

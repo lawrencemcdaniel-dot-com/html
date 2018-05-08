@@ -239,7 +239,7 @@ class The_Grid_Facebook {
 			
 		}
 		
-		$this->get_response('https://graph.facebook.com/'.$this->facebook_user.'/posts?'.$this->request_query());
+		$this->get_response('https://graph.facebook.com/v2.12/'.$this->facebook_user.'/feed?'.$this->request_query());
 
 	}
 	
@@ -256,7 +256,7 @@ class The_Grid_Facebook {
 
 		}
 
-		$this->get_response('https://graph.facebook.com/'.$this->facebook_group_id.'/feed?'.$this->request_query());
+		$this->get_response('https://graph.facebook.com/v2.12/'.$this->facebook_group_id.'/feed?'.$this->request_query());
 	
 	}
 	
@@ -273,7 +273,7 @@ class The_Grid_Facebook {
 
 		}
 		
-		$this->get_response('https://graph.facebook.com/'.$this->facebook_album_id.'/photos?'.$this->request_query());
+		$this->get_response('https://graph.facebook.com/v2.12/'.$this->facebook_album_id.'/photos?'.$this->request_query());
 	
 	}
 	
@@ -298,7 +298,7 @@ class The_Grid_Facebook {
 		
 		$fields  = '&fields=';
 		$fields .= 'likes.summary(true),comments.summary(true),shares,';
-		$fields .= 'id,object_id,source,type,status_type,link,from,name,message,story,created_time,picture,full_picture,attachments{media,subattachments}';
+		$fields .= 'id,from,object_id,source,type,status_type,link,name,message,story,created_time,picture,full_picture,attachments{media,subattachments}';
 		
 		return $fields;
 		
@@ -417,6 +417,10 @@ class The_Grid_Facebook {
 	* @since 2.0.0
 	*/
 	public function get_user_picture($data) {
+		
+		if ( ! isset( $data->from->id ) ) {
+			return;
+		}
 		
 		if (isset($data->from->id) && !empty($data->from->id) && !array_key_exists($data->from->id, $this->facebook_user_id)){
 			

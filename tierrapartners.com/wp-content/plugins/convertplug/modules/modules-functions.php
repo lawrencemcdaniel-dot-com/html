@@ -59,7 +59,7 @@ if ( ! function_exists( 'cp_get_form_hidden_fields' ) ) {
 		$nonce = wp_create_nonce( 'cp-submit-form-' . $style_id );
 		$style_name = isset( $a['new_style'] )?esc_attr( stripcslashes( htmlspecialchars( $a['new_style'] ) ) ) :'';
 
-		$user_role = isset( $a['cp_new_user_role'] ) ? $a['cp_new_user_role'] :'';
+		$user_role = isset( $a['cp_new_user_role'] ) ? $a['cp_new_user_role'] :'None';
 
 		?>
 		<input type="hidden" id="<?php echo rand();?>_wpnonce" name="_wpnonce" value="<?php echo $nonce;?>">
