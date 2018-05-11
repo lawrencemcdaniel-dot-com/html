@@ -132,6 +132,7 @@ class Tribe__Events__Pro__Geo_Loc {
 		add_filter( 'tribe_events_importer_venue_column_names', array( $this, 'filter_aggregator_add_overwrite_geolocation_column' ) );
 
 		add_action( 'admin_notices', array( $this, 'maybe_notify_about_google_over_limit' ) );
+		add_filter( 'tribe_events_google_map_link', array( $this, 'google_map_link' ), 10, 2 );
 	}
 
 	/**
@@ -1247,5 +1248,49 @@ class Tribe__Events__Pro__Geo_Loc {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Update the Google Map Link to add the coordinates if present to increase accuracy on it.
+	 *
+	 * @since 4.4.26
+	 *
+	 * @param $link
+	 * @param $post_id
+	 *
+	 * @return string
+	 */
+	public function google_map_link( $link, $post_id ) {
+		$venue_id = function_exists( 'tribe_get_venue_id' ) ? tribe_get_venue_id( $post_id ) : $post_id;
+		$is_venue = function_exists( 'tribe_is_venue' ) ? tribe_is_venue( $venue_id ) : false;
+
+		/**
+		 * Disable the behavior to add the coordinates if present on the Google Map Link
+		 *
+		 * @since 4.4.26
+		 *
+		 * @param $disable true to disable the behavior / false to keep doing it
+		 * @param $post_id The ID of the post being modified
+		 *
+		 * @return boolean
+		 */
+		$disable_behavior = apply_filters( 'tribe_events_pro_google_map_link_disable_coordinates', false, $post_id );
+
+		if ( ! $is_venue || $disable_behavior ) {
+			return $link;
+		}
+
+		$coordinates = tribe_get_coordinates( $post_id );
+		if ( empty( $coordinates['lat'] ) || empty( $coordinates['lng'] ) || ! function_exists( 'tribe_is_venue' ) ) {
+			return $link;
+		}
+
+		return add_query_arg(
+			array(
+				'api'   => 1,
+				'query' => urlencode( $coordinates['lat'] . ',' . $coordinates['lng'] ),
+			),
+			'https://www.google.com/maps/search/'
+		);
 	}
 }

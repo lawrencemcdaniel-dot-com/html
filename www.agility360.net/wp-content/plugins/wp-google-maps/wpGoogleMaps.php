@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.0.03
+Version: 7.0.04
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,9 @@ Domain Path: /languages
 */
 
 /* 
+ * 7.0.04 - 2018-05-07
+ * Fixed PHP notice regarding store locator default radius
+ * 
  * 7.0.03 - 2018-04-20
  * Improved spatial data migration function to be more robust
  * Fixed undefined index use_fontawesome
@@ -375,7 +378,7 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "7.0.03";
+$wpgmza_version = "7.0.04";
 $wpgmza_p_version = "6.19";
 $wpgmza_t = "basic";
 
@@ -2910,7 +2913,7 @@ function wpgmaps_sl_user_output_basic($map_id) {
 		$radii = array_map('intval', $m[0]);
 	
 	foreach($radii as $radius) {
-		$selected = ($radius == $sl_default_radius ? 'selected="selected"' : '');
+		$selected = (!empty($sl_default_radius) && $radius == $sl_default_radius ? 'selected="selected"' : '');
 		$ret_msg .= "<option class='wpgmza_sl_select_option' value='$radius' $selected>{$radius}{$suffix}</option>";
 	}
 	

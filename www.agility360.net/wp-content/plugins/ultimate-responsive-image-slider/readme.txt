@@ -3,8 +3,8 @@ Contributors: weblizar
 Donate link: http://www.weblizar.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
-Tested up to: 4.9.1
-Stable tag: 3.1.4
+Tested up to: 4.9.5
+Stable tag: 3.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -195,6 +195,7 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 
 For more information, see Weblizar(http://wwww.weblizar.com/).
 
+V 3.1.5 - update Font-awesome + update bootstrap + update slider pro js and css 1.4.0 + Modify Custom CSS editor + Add new setting - set slide title as file name + update basic font family + Add recommendation and our product page + compatible upto wp 4.9.5
 V 3.1.4 - New: range slider for autoplay slider settings + autoplay tips typos fixed +compatible upto wp 4.9.1
 V 3.1.3 - Fix: new settings saving issue fixed
 V 3.1.2 - New settings: Slide Scale Mode(none,exact,contain,cover) Slide Auto Scale(on/off), Color Picker For All Color Settings  + compatible upto wp 4.9

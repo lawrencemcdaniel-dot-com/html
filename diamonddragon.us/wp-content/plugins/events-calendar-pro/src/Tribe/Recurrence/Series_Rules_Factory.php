@@ -224,7 +224,7 @@ class Tribe__Events__Pro__Recurrence__Series_Rules_Factory {
 
 				if ( isset( $recurrence['custom']['year']['number'] ) ) {
 					if ( is_numeric( $recurrence['custom']['year']['number'] ) ) {
-						$day_of_month = array( $recurrence['custom']['year']['number'] );
+						$day_of_month = $recurrence['custom']['year']['number'];
 					} else {
 						$year_number = self::ordinalToInt( $recurrence['custom']['year']['number'] );
 					}
@@ -240,7 +240,8 @@ class Tribe__Events__Pro__Recurrence__Series_Rules_Factory {
 					$recurrence['custom']['interval'],
 					$months,
 					empty( $filter ) ? null : $year_number,
-					empty( $filter ) ? null : $recurrence['custom']['year']['day']
+					empty( $filter ) || empty( $recurrence['custom']['year']['day'] ) ? null : $recurrence['custom']['year']['day'],
+					$day_of_month
 				);
 				break;
 			default:

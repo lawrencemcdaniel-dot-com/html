@@ -188,6 +188,10 @@ jQuery( document ).ready(function() {
 	font-size: 13px !important;
 }
 
+.uris-title{
+	font-family: <?php echo $WRIS_L3_Font_Style; ?>;
+}
+
 @media (max-width: 640px) {
 	#example3_<?php echo $post_id; ?> .hide-small-screen {
 		display: none;
@@ -207,7 +211,7 @@ jQuery( document ).ready(function() {
 <?php echo $WRIS_L3_Custom_CSS; ?>
 </style>
 <?php  if($WRIS_L3_Slide_Title) { ?>
-<h3 class="uris-slider-title"><?php echo get_the_title( $post_id ); ?></h3>
+<h3 class="uris-slider-title uris-title"><?php echo get_the_title( $post_id ); ?></h3>
 <?php } ?>
 <div id="example3_<?php echo $post_id; ?>" class="slider-pro">
 	<!---- slides div start ---->
@@ -243,9 +247,49 @@ jQuery( document ).ready(function() {
 				data-position="centerCenter"
 				data-vertical="-14%"
 				data-show-transition="left" data-show-delay="500">
-				<?php if(strlen($Title) > 100 ) echo substr($Title,0,100); else echo esc_html( $Title ); ?>
+				<?php // set slide title as a custom title
+					if($WRIS_L3_Set_slide_Title==0){
+						if(strlen($Title) > 100 ) echo substr($Title,0,100); else echo esc_html( $Title ); 
+					}else{ // set slide title as a file title
+							global $wpdb;
+							$post_table_name = $wpdb->prefix. "posts";
+							if(count($attachment = $wpdb->get_col($wpdb->prepare("SELECT `post_title` FROM `$post_table_name` WHERE `guid` LIKE '%s'", $Url)))) { 
+							// attachment title as slide title
+							echo $Title = $attachment[0];
+							if(empty($attachment[0])) {
+								// post title as slide title
+								echo $Title = get_the_title( $post_id );
+							}
+						}	
+					}
+				?>
 			</p>
-			<?php } ?>
+			<?php } 
+			?>
+
+			<?php if($Title == "" && $WRIS_L3_Set_slide_Title==1 ) { ?>
+			<p class="sp-layer sp-white sp-padding title-in title-in-bg hide-small-screen" 
+				data-position="centerCenter"
+				data-vertical="-14%"
+				data-show-transition="left" data-show-delay="500">
+				<?php // set slide title as a custom title
+					if($WRIS_L3_Set_slide_Title==1){
+							global $wpdb;
+							$post_table_name = $wpdb->prefix. "posts";
+							if(count($attachment = $wpdb->get_col($wpdb->prepare("SELECT `post_title` FROM `$post_table_name` WHERE `guid` LIKE '%s'", $Url)))) { 
+							// attachment title as slide title
+							echo $Title = $attachment[0];
+							if(empty($attachment[0])) {
+								// post title as slide title
+								echo $Title = get_the_title( $post_id );
+							}
+						}
+					}	
+					
+				?>
+			</p>
+			<?php } 
+			?>
 
 			<?php if($Desc != "") { ?>
 			<p class="sp-layer sp-black sp-padding desc-in desc-in-bg hide-medium-screen" 

@@ -33,7 +33,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Countdown_Widget' ) ) {
 			$instance['complete'] = $new_instance['complete'] == '' ? $old_instance['complete'] : $new_instance['complete'];
 
 			$instance['event_ID'] = $instance['event'] = absint( $new_instance['event'] );
-			$instance['event_date'] = tribe_get_start_date( $instance['event_ID'], false, Tribe__Date_Utils::DBDATETIMEFORMAT );
+			$instance['event_date'] = tribe_get_start_date( $instance['event_ID'], false, Tribe__Date_Utils::DBDATETIMEFORMAT,'event' );
 
 			if ( isset( $new_instance['jsonld_enable'] ) && $new_instance['jsonld_enable'] == true ) {
 				$instance['jsonld_enable'] = 1;
@@ -140,10 +140,13 @@ if ( ! class_exists( 'Tribe__Events__Pro__Countdown_Widget' ) ) {
 		 * @return string
 		 */
 		public function get_output( $instance, $deprecated = null, $deprecated_ = null, $deprecated__ = null ) {
+			$time = Tribe__Timezones::localize_date( Tribe__Date_Utils::DBDATETIMEFORMAT, current_time( 'timestamp' ) );
+
 			if ( 'next-event' === $instance['type'] ) {
 				$event = tribe_get_events( array(
-					'eventDisplay' => 'list',
+					'eventDisplay'   => 'list',
 					'posts_per_page' => 1,
+					'start_date'     => $time,
 				) );
 				$event = reset( $event );
 			} else {
@@ -157,11 +160,19 @@ if ( ! class_exists( 'Tribe__Events__Pro__Countdown_Widget' ) ) {
 			$hourformat = ob_get_clean();
 
 			if ( $event instanceof WP_Post ) {
-				// Get the event start date.
-				$startdate = tribe_get_start_date( $event->ID, false, Tribe__Date_Utils::DBDATETIMEFORMAT );
+
+				// Get the event start date and time zone
+				$startdate = new DateTime( tribe_get_start_date( $event->ID, false, Tribe__Date_Utils::DBTZDATETIMEFORMAT, 'event' ) );
+				$use_tz = $startdate->getTimeZone();//Tribe__Events__Timezones::get_event_timezone_string( $event->ID );
+
+				// Get current time, make both times use the same timezone
+				$now = new DateTime( 'now', new DateTimeZone( $use_tz->getName() ) );
+				$startdate->setTimezone( new DateTimeZone( $use_tz->getName() ) );
 
 				// Get the number of seconds remaining until the date in question.
-				$seconds = strtotime( $startdate ) - current_time( 'timestamp' );
+				// Note: can't use $startdate->getTimestamp() as that negates all the TZ work we just did!
+				$seconds = strtotime( $startdate->format( Tribe__Date_Utils::DBTZDATETIMEFORMAT ) ) - strtotime( $now->format( Tribe__Date_Utils::DBTZDATETIMEFORMAT ) );
+
 			} else {
 				$seconds = 0;
 			}

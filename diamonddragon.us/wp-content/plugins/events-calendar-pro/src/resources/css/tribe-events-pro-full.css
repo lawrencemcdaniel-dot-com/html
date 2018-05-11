@@ -265,6 +265,8 @@
 
 .tribe-grid-body div[id*='tribe-events-event-']:hover {
 	z-index: 4;
+	background: rgba(221, 221, 221, .9);
+	border-color: #aaa;
 }
 
 .tribe-week-grid-hours {
@@ -549,12 +551,24 @@
 }
 
 .tribe-events-venue-widget .type-tribe_events {
-	padding: 0 24px;
-	padding: 0 1.5rem;
-	margin-bottom: 1em;
+	border: 0;
+	border-bottom  : 1px dotted #2f2f2f;
+	padding-bottom : 10px;
+	margin-bottom  : 5px;
+	padding: 0;
+}
+
+.tribe-events-venue-widget .tribe-venue-widget-list {
+	font-size: 13px;
+	line-height: 1.6;
 }
 
 .tribe-events-venue-widget .tribe-event-title {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 18px;
+	margin-top: 0;
+	margin-bottom: 10px;
 	padding-top: .75em;
 }
 
@@ -1334,17 +1348,8 @@ div.tribe-countdown-text {
 	font-size: 1.2em;
 }
 
-.tribe-theme-twentyfifteen .tribe-venue-widget-wrapper ul {
+.tribe-theme-twentyfifteen .tribe-venue-widget-wrapper ul.tribe-venue-widget-list {
 	list-style-type: none;
-}
-
-.tribe-theme-twentyfifteen .tribe-venue-widget-wrapper li {
-	border-bottom: 1px dotted #000;
-	box-shadow: none;
-	margin-left: 0;
-	margin-right: 0;
-	padding-bottom: 10px;
-	padding-top: 5px;
 }
 
 .tribe-theme-twentyfifteen .tribe-venue-widget-wrapper h4 {
@@ -1468,10 +1473,6 @@ div.tribe-countdown-text {
 	font-weight: bold;
 }
 
-.tribe-venue-widget-list li + li {
-	margin-top: 15px;
-}
-
 .tribe-venue-widget-list .tribe-events-event-schedule-details {
 	display: inline;
 	font-weight: bold;
@@ -1482,7 +1483,8 @@ div.tribe-countdown-text {
 }
 
 .tribe-venue-widget-list .type-tribe_events {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
+	padding-bottom: 15px;
 }
 
 .tribe-venue-widget-thumbnail {

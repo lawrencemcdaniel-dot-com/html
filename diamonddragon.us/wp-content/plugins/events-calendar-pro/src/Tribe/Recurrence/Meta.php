@@ -1541,14 +1541,14 @@ class Tribe__Events__Pro__Recurrence__Meta {
 
 			// If the events are single events, use the dates of those single instances.
 			if ( 'date' === $type && isset( $rule['custom']['date']['date'] ) ) {
-				$series_end = date( tribe_get_date_format( true ), strtotime( $rule['custom']['date']['date'] ) );
+				$series_end = date_i18n( tribe_get_date_format( true ), strtotime( $rule['custom']['date']['date'] ) );
 
 			// Otherwise there's no end date specified.
 			} else {
 				$series_end = _x( 'an unspecified date', 'An unspecified end date', 'tribe-events-calendar-pro' );
 			}
 		} else {
-			$series_end = date( tribe_get_date_format( true ), strtotime( $rule['end'] ) );
+			$series_end = date_i18n( tribe_get_date_format( true ), strtotime( $rule['end'] ) );
 		}
 
 		$text = str_replace( array(

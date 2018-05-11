@@ -59,7 +59,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		public $shortcodes;
 
 		const REQUIRED_TEC_VERSION = '4.6.12';
-		const VERSION = '4.4.25';
+		const VERSION = '4.4.26';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -588,6 +588,10 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		}
 
 		public function filter_canonical_link_on_recurring_events() {
+			if ( is_feed() ) {
+				return;
+			}
+
 			if ( is_singular( Tribe__Events__Main::POSTTYPE ) && get_query_var( 'eventDate' ) && has_action( 'wp_head', 'rel_canonical' ) ) {
 				remove_action( 'wp_head', 'rel_canonical' );
 				add_action( 'wp_head', array( $this, 'output_recurring_event_canonical_link' ) );
@@ -836,9 +840,11 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		public function filter_add_routes( $rewrite ) {
 			$rewrite
 				->single( array( '(\d{4}-\d{2}-\d{2})' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'eventDate' => '%2' ) )
+				->single( array( '(\d{4}-\d{2}-\d{2})', '(feed|rdf|rss|rss2|atom)' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'eventDate' => '%2', 'feed' => '%3' ) )
+				->single( array( '(\d{4}-\d{2}-\d{2})', '(\d+)', '(feed|rdf|rss|rss2|atom)' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'eventDate' => '%2', 'eventSequence' => '%3', 'feed' => '%4' ) )
 				->single( array( '(\d{4}-\d{2}-\d{2})', '(\d+)' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'eventDate' => '%2', 'eventSequence' => '%3' ) )
 				->single( array( '(\d{4}-\d{2}-\d{2})', 'embed' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'eventDate' => '%2', 'embed' => 1 ) )
-				->single( array( '{{ all }}' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'post_type' => Tribe__Events__Main::POSTTYPE, 'eventDisplay' => 'all' ) )
+				->single( array( '{{ all }}' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'post_type' => Tribe__Events__Main::POSTTYPE, 'eventDisplay' => 'all', 'tribe_recurrence_list' => true ) )
 				->single( array( '(\d{4}-\d{2}-\d{2})', 'ical' ), array( Tribe__Events__Main::POSTTYPE => '%1', 'eventDate' => '%2', 'ical' => 1 ) )
 
 				->archive( array( '{{ week }}' ), array( 'eventDisplay' => 'week' ) )
@@ -1032,7 +1038,8 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 						$query->set( 'hide_upcoming', false );
 						break;
 					case 'all':
-						new Tribe__Events__Pro__Recurrence__Event_Query( $query );
+						$recurrence_query = new Tribe__Events__Pro__Recurrence__Event_Query( $query );
+						$recurrence_query->hook();
 						break;
 				}
 				apply_filters( 'tribe_events_pro_pre_get_posts', $query );
@@ -1866,7 +1873,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		 * @return void
 		 */
 		public function add_recurring_occurance_setting_to_list () {
-			if ( tribe_get_option( 'userToggleSubsequentRecurrences', true ) && ! tribe_is_showing_all() && ( tribe_is_upcoming() || tribe_is_past() || tribe_is_map() || tribe_is_photo() ) || apply_filters( 'tribe_events_display_user_toggle_subsequent_recurrences', false ) ) {
+			if ( tribe_get_option( 'userToggleSubsequentRecurrences', false ) && ! tribe_is_showing_all() && ( tribe_is_upcoming() || tribe_is_past() || tribe_is_map() || tribe_is_photo() ) || apply_filters( 'tribe_events_display_user_toggle_subsequent_recurrences', false ) ) {
 				echo tribe_recurring_instances_toggle();
 			}
 		}
@@ -2029,9 +2036,11 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 
 			tribe_singleton( 'events-pro.admin.settings', 'Tribe__Events__Pro__Admin__Settings', array( 'hook' ) );
 			tribe_singleton( 'events-pro.customizer.photo-view', 'Tribe__Events__Pro__Customizer__Photo_View' );
+			tribe_singleton( 'events-pro.recurrence.nav', 'Tribe__Events__Pro__Recurrence__Navigation', array( 'hook' ) );
 
 			tribe( 'events-pro.admin.settings' );
 			tribe( 'events-pro.customizer.photo-view' );
+			tribe( 'events-pro.recurrence.nav' );
 		}
 	} // end Class
 }

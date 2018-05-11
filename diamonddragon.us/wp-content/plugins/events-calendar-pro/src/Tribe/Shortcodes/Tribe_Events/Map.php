@@ -17,6 +17,7 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events__Map {
 	protected function hooks() {
 		add_action( 'tribe_events_pro_tribe_events_shortcode_pre_render', array( $this, 'shortcode_pre_render' ) );
 		add_action( 'tribe_events_pro_tribe_events_shortcode_post_render', array( $this, 'shortcode_post_render' ) );
+		add_action( 'tribe_events_pro_tribe_events_shortcode_before_render', array( $this, 'load_map_container' ) );
 	}
 
 	protected function setup() {
@@ -41,6 +42,19 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events__Map {
 	 */
 	public function filter_baseurl( $url ) {
 		return trailingslashit( get_home_url( null, $GLOBALS['wp']->request ) );
+	}
+
+	/**
+	 * Load the map container before the HTML of the shortcode is rendered the function is called by the action:
+	 *
+	 * - tribe_events_pro_tribe_events_shortcode_before_render
+	 *
+	 * @see Tribe__Events__Pro__Shortcodes__Tribe_Events->render_view()
+	 *
+	 * @since 4.4.26
+	 */
+	public function load_map_container() {
+		tribe_get_template_part( 'pro/map/gmap-container' );
 	}
 
 	public function shortcode_pre_render() {

@@ -559,37 +559,70 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 	}
 
 	/**
-	 * Week Loop View Test
+	 * Week View Test
+	 *
+	 * Returns true when on the "real" Week View itself, but not in other secondary instances of the
+	 * Week View like instance of the [tribe_events] shortcode.
 	 *
 	 * @return bool
 	 */
 	function tribe_is_week() {
-		$is_week = ( Tribe__Events__Main::instance()->displaying == 'week' ) ? true : false;
+		$is_week = ( 'week' === Tribe__Events__Main::instance()->displaying ) ? true : false;
 
-		return apply_filters( 'tribe_is_week', $is_week );
+		/**
+		 * Allows filtering of the tribe_is_week boolean value.
+		 *
+		 * @since 4.4.26 Added inline documentation for this filter.
+		 *
+		 * @param boolean $is_week Whether you're on the main Week View or not
+		 * @param Tribe__Events__Main $tribe_ecp The current Tribe__Events__Main instance.
+		 */
+		return apply_filters( 'tribe_is_week', $is_week, Tribe__Events__Main::instance() );
 	}
 
 	/**
-	 * Photo Loop View Test
+	 * Photo View Test
+	 *
+	 * Returns true when on the "real" Photo View itself, but not in other secondary instances of the
+	 * Photo View like instance of the [tribe_events] shortcode.
 	 *
 	 * @return bool
 	 */
 	function tribe_is_photo() {
-		$is_photo = ( Tribe__Events__Main::instance()->displaying == 'photo' ) ? true : false;
+		$is_photo = ( 'photo' === Tribe__Events__Main::instance()->displaying ) ? true : false;
 
-		return apply_filters( 'tribe_is_photo', $is_photo );
+		/**
+		 * Allows filtering of the tribe_is_photo boolean value.
+		 *
+		 * @since 4.4.26 Added inline documentation for this filter.
+		 *
+		 * @param boolean $is_photo Whether you're on the main Photo View or not
+		 * @param Tribe__Events__Main $tribe_ecp The current Tribe__Events__Main instance.
+		 */
+		return apply_filters( 'tribe_is_photo', $is_photo, Tribe__Events__Main::instance() );
 	}
 
 	/**
-	 * Map Loop View Test
+	 * Map View Test
+	 *
+	 * Returns true when on the "real" Map View itself, but not in other secondary instances of the
+	 * Map View like instance of the [tribe_events] shortcode.
 	 *
 	 * @return bool
 	 */
 	function tribe_is_map() {
 		$tribe_ecp = Tribe__Events__Main::instance();
-		$is_map    = ( $tribe_ecp->displaying == 'map' ) ? true : false;
+		$is_map    = ( 'map' === $tribe_ecp->displaying ) ? true : false;
 
-		return apply_filters( 'tribe_is_map', $is_map );
+		/**
+		 * Allows filtering of the tribe_is_map boolean value.
+		 *
+		 * @since 4.4.26 Added inline documentation for this filter.
+		 *
+		 * @param boolean $is_map Whether you're on the main Map View or not
+		 * @param Tribe__Events__Main $tribe_ecp The current Tribe__Events__Main instance.
+		 */
+		return apply_filters( 'tribe_is_map', $is_map, $tribe_ecp );
 	}
 
 	/**

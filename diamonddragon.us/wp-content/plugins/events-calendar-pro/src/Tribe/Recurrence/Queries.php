@@ -89,9 +89,13 @@ class Tribe__Events__Pro__Recurrence__Queries {
 		//
 		// Regarding the optional closing parentheses "\)?" after meta_value, this exists because
 		// wp_postmeta.meta_value *may* be passed as a parameter to MIN() or another function
-		$order_by_clause = preg_match( "/{$wpdb->postmeta}.meta_value\)? as EventStartDate/", $sql )
-			? "ORDER BY EventStartDate $direction"
-			: '';
+		$order_by_clause = '';
+		if (
+			preg_match( "/{$wpdb->postmeta}.meta_value\)? as EventStartDate/", $sql )
+			|| preg_match( "/AS EventStartDate/", $sql )
+		) {
+			$order_by_clause = "ORDER BY EventStartDate $direction";
+		}
 
 		return '
 			SELECT

@@ -432,6 +432,47 @@ if ( Object.prototype.hasOwnProperty.call( window, 'tribe_ev' ) ) {
 			}
 		} );
 
+		/**
+		 * Transform from a string into an object with key / value pairs. Transforms string from type:
+		 * key=value&ket_2=value2  into an object of type { key: value, key_2: value2 }
+		 *
+		 * @since TBD
+		 *
+		 * @param params
+		 * @returns {object}
+		 */
+		function deserialize( params ) {
+			return params
+				.split( '&' )
+				.map( function ( item ) {
+					return item.split( '=' );
+				} )
+				.filter( function ( item ) {
+					return item.length === 2;
+				} ).reduce( function ( obj, current ) {
+					obj[ current[ 0 ] ] = current[ 1 ];
+					return obj;
+				}, {} );
+		}
+
+		/**
+		 * Add a new parameter before the data is serialized and the request to be fired.
+		 *
+		 * @since TBD
+		 */
+		var isRecurrence = $tribe_container.data( 'recurrence-list' ) === 1;
+		$( te ).on( 'tribe_ev_ajaxStart', function () {
+			if ( typeof ts.params === 'string' ) {
+				ts.params = deserialize( ts.params );
+			}
+			ts.params.is_recurrence_list = isRecurrence;
+			var value = $tribe_container.data( 'tribe_post_parent' );
+			if ( value ) {
+				ts.params.tribe_post_parent = value;
+			}
+			ts.params = $.param( ts.params );
+		} );
+
 		// @ifdef DEBUG
 		dbug && debug.info( 'TEC Debug: tribe-events-pro.js successfully loaded' );
 		// @endif

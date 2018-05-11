@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Ultimate Responsive Image Slider
- * Version: 3.1.4
+ * Version: 3.1.5
  * Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
  * Author: Weblizar
  * Author URI: https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/
@@ -18,6 +18,7 @@ function WRIS_DefaultSettingsPro() {
     $DefaultSettingsProArray = serialize( array(
 		//layout 3 settings
 		"WRIS_L3_Slide_Title"   		=> 1,
+		"WRIS_L3_Set_slide_Title"		=> 0,
 		"WRIS_L3_Auto_Slideshow"   		=> 1,
 		"WRIS_L3_Transition"   			=> 1,
 		"WRIS_L3_Transition_Speed"   	=> 5000,
@@ -54,7 +55,6 @@ function WRIS_DefaultSettingsPro() {
 // Image Crop Size Function 
 add_image_size( 'rpggallery_admin_thumb', 300, 300, true ); 
 add_image_size( 'rpggallery_admin_large', 500,9999 );
-
 function admin_content_wpse_144936() { 
 	if(get_post_type()=="ris_gallery") { ?>
 		<style>
@@ -370,8 +370,8 @@ class WRIS {
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
-						  <button type="button" class="close" data-dismiss="modal">&times;</button>
-						  <h4 class="modal-title"><i class="fa fa-edit" style="font-size:23px"></i> Rich Editor</h4>
+						   <h4 class="modal-title"><i class="fa fa-edit" style="font-size:23px"></i> Rich Editor</h4>
+						    <button type="button" class="close" data-dismiss="modal">&times;</button>
 						</div>
 						<div class="modal-body">
 						  <p>
@@ -445,9 +445,9 @@ class WRIS {
 	 * Also loads all saved gallery photos into photo gallery
 	 */
     public function ris_settings_meta_box_function($post) {
-		wp_enqueue_script( 'ris-bootstrap-js', WRIS_PLUGIN_URL.'js/bootstrap.min.js');
-		wp_enqueue_style('uris-bootstrap-min', WRIS_PLUGIN_URL.'css/bootstrap.min.css');
-		wp_enqueue_style('uris-font-awesome-min', WRIS_PLUGIN_URL.'css/font-awesome/css/font-awesome.min.css');
+		wp_enqueue_script('uris-bootstrap-js', WRIS_PLUGIN_URL.'js/bootstrap.min.js');
+		wp_enqueue_style('uris-bootstrap-min', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min.css');
+		wp_enqueue_style('uris-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
 		wp_enqueue_style('uris-editor-modal', WRIS_PLUGIN_URL.'css/editor-modal.css');				
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('uris-media-uploader-js', WRIS_PLUGIN_URL . 'js/uris-multiple-media-uploader.js', array('jquery'));
@@ -457,7 +457,7 @@ class WRIS {
 		wp_enqueue_style('ris-meta-css', WRIS_PLUGIN_URL.'css/ris-meta.css');
 	
 		//font awesome css
-		wp_enqueue_style('ris-font-awesome-4', WRIS_PLUGIN_URL.'css/font-awesome/css/font-awesome.min.css');
+		wp_enqueue_style('ris-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
 
 		//tool-tip js & css
 		wp_enqueue_script('ris-tool-tip-js',WRIS_PLUGIN_URL.'tooltip/jquery.darktooltip.min.js', array('jquery'));
@@ -466,6 +466,16 @@ class WRIS {
 		//color-picker css n js
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'ris-color-picker-script', plugins_url('js/wl-color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+
+		// code-mirror css & js for custom css section
+		wp_enqueue_style('ris_codemirror-css', WRIS_PLUGIN_URL.'css/codemirror/codemirror.css');
+		wp_enqueue_style('ris_blackboard', WRIS_PLUGIN_URL.'css/codemirror/blackboard.css');
+		wp_enqueue_style('ris_show-hint-css', WRIS_PLUGIN_URL.'css/codemirror/show-hint.css');
+		
+		wp_enqueue_script('ris_codemirror-js',WRIS_PLUGIN_URL.'css/codemirror/codemirror.js',array('jquery'));
+		wp_enqueue_script('ris_css-js',WRIS_PLUGIN_URL.'css/codemirror/ris-css.js',array('jquery'));
+		wp_enqueue_script('ris_css-hint-js',WRIS_PLUGIN_URL.'css/codemirror/css-hint.js',array('jquery'));
+
 		require_once('ultimate-responsive-image-slider-settings-meta-box.php');		
 	}
 	
@@ -544,6 +554,7 @@ class WRIS {
 	public function ris_settings_meta_save($PostID) {
 		if(isset($PostID) && isset($_POST['wl_action']) == "wl-save-settings") {
 			$WRIS_L3_Slide_Title				=	 sanitize_option ( 'title', $_POST['wl-l3-slide-title'] );
+			$WRIS_L3_Set_slide_Title			=	 sanitize_option ( 'set_slide_title', $_POST['wl-l3-set-slide-title'] );
 			$WRIS_L3_Auto_Slideshow				=	 sanitize_option ( 'autoplay', $_POST['wl-l3-auto-slide'] );
 			$WRIS_L3_Transition					=	 sanitize_option ( 'transition', $_POST['wl-l3-transition'] );
 			$WRIS_L3_Transition_Speed			=	 sanitize_text_field( $_POST['wl-l3-transition-speed'] );
@@ -575,6 +586,7 @@ class WRIS {
 			
 			$WRIS_Settings_Array = serialize( array(
 				'WRIS_L3_Slide_Title'  			=> 	$WRIS_L3_Slide_Title,
+				'WRIS_L3_Set_slide_Title'		=>  $WRIS_L3_Set_slide_Title,
 				'WRIS_L3_Auto_Slideshow'  		=> 	$WRIS_L3_Auto_Slideshow,
 				'WRIS_L3_Transition'  			=> 	$WRIS_L3_Transition,
 				'WRIS_L3_Transition_Speed'  	=> 	$WRIS_L3_Transition_Speed,
@@ -620,17 +632,28 @@ $WRIS = WRIS::forge();
 add_action('admin_menu' , 'uris_pro_SettingsPage');
 function uris_pro_SettingsPage() {
 	function uris_upgrade_pro_function() {
-		wp_enqueue_style('wl-font-awesome-4', WRIS_PLUGIN_URL.'css/font-awesome/css/font-awesome.min.css');
+		wp_enqueue_style('wl-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
 		wp_enqueue_style('wl-pricing-table-css', WRIS_PLUGIN_URL.'css/pricing-table.css');
-		wp_enqueue_style('wl-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-admin.css');
+		wp_enqueue_style('wl-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
 		require_once("get-uris-pro.php");
 	}
 	function RIS_Help_and_Support_page() {
-		wp_enqueue_style('bootstrap-admin.css', WRIS_PLUGIN_URL.'css/bootstrap-admin.css');
+		wp_enqueue_style('bootstrap-admin.css', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
 		require_once("help_and_support.php");
+	}
+	function uris_our_products_function() {
+		wp_enqueue_style('PGPP-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min.css');
+		wp_enqueue_style('PGPP-font-awesome-5', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
+    	require_once("our_product.php");
+	}
+	function uris_recommendation_function() {
+		wp_enqueue_style('recom2', WRIS_PLUGIN_URL.'css/recom.css');
+    	require_once("recommendations.php");
 	}
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Upgrade To Pro', 'Upgrade To Pro', 'administrator', 'ris_gallery', 'uris_upgrade_pro_function');
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Help and Support', 'Help and Support', 'administrator', 'RIS-Help-page', 'RIS_Help_and_Support_page');
+	add_submenu_page('edit.php?post_type=ris_gallery', 'Our Products', 'Our Products', 'administrator', 'RIS-Our-Products', 'uris_our_products_function');
+	add_submenu_page('edit.php?post_type=ris_gallery', 'Recommendation', 'Recommendation', 'administrator', 'RIS-Recommendation', 'uris_recommendation_function');
 }
 /**
  * Weblizar RIS Short Code [URIS]

@@ -4,8 +4,8 @@ Contributors: ModernTribe, barry.hughes, bordoni, borkweb, brianjessee, brook-tr
 Tags: events, calendar, event, venue, organizer, dates, date, google maps, conference, workshop, concert, meeting, seminar, summit, class, modern tribe, tribe, widget, pro
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
-Tested up to: 4.9.4
-Stable tag: 4.4.25
+Tested up to: 4.9.5
+Stable tag: 4.4.26
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -203,8 +203,33 @@ Our Premium Plugins:
 
 == Changelog ==
 
+= [4.4.26] 2018-05-09 =
+
+* Feature - Added two new actions to control the shortcodes HTML, `tribe_events_pro_tribe_events_shortcode_before_render` and `tribe_events_pro_tribe_events_shortcode_after_render` [73412]
+* Feature - Added a new attribute to the `[tribe_events]` shortcode, `main-calendar` so that you can control whether the "All Events" link on a single event will return the main calendar page or to the page with the `[tribe_events]` shortcode [69192]
+* Fix - Prevent unbalanced HTML tags from being output by the `[tribe_event_inline]` shortcode [77943]
+* Fix - Resolved some problems with translations in tooltips on recurring events [67870]
+* Fix - Prevent PHP errors when saving an event with the UTC + 9.5 time zone (thanks to Ross in the Help Desk for flagging this problem!) [101973]
+* Fix - Prevent PHP errors when saving a recurring event with mulitple recurrences in the same day [101973]
+* Fix - Prevent 404 errors on recurrence feed pages (thanks to Ranjan and others in the Help Desk for reporting this problem!) [72077]
+* Fix - Fixed the default value for the front-end recurring event instances toggle [36559]
+* Fix - Make sure that hidden events are not displayed on the Mini Calendar Widget [65688]
+* Fix - Added support for custom days on yearly recurrence rules (thanks to Ross for reporting this problem in our Help Desk) [101973]
+* Fix - Prevent navigation on recurring events on pages that don't exist (thanks to Jay and others in the Help Desk for reporting this problem) [43925]
+* Fix - Ensure the `[tribe_event]` shortcode uses the default view in the Event Settings if there's no defined `view` attribute in the shortcode [68689]
+* Fix - Avoid some "not found" errors on recurring event list pages when the number of pages is 2 [105490]
+* Fix - Fixed navigation problems on recurring events when the parent event is in the past or the future relative the currently-viewed event [93104]
+* Tweak - Added coordinates to the Google Map Link for Venues instead of the address to improve accuracy [61152]
+* Tweak - Ensure maps honor the content around the `[tribe_events]` shortcode instead of rendering the map above all content (thanks to Francesco and others for flagging this problem!) [73412]
+* Tweak - Improved default styles for the Venue Widget [39251]
+* Tweak - Improved Week View user experience in small viewports [69856]
+* Tweak - Added notice about required dependencies on network installations [68598]
+* Tweak - Ensure event countdowns use the event's timezone [76618]
+* Language - 0 new strings added, 123 updated, 0 fuzzied, and 0 obsoleted
+
 = [4.4.25] 2018-04-18 =
 
+* Fix - Make sure order clause for EventStartDate is present on the SQL query [97829]
 * Fix - Make sure Additional Fields are not emptied when an Event Aggregator import updates an event [98015]
 * Tweak - Prevent unnecessary recurring-events labels from showing up on Community Events submission form [98934]
 * Tweak - Make sure country names don't contain parentheses before being sent to the Google Maps API [79880]

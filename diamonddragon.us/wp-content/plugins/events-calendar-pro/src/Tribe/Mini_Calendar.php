@@ -182,7 +182,7 @@ class Tribe__Events__Pro__Mini_Calendar {
 		}
 
 		// don't show the list if they set it the widget option to show 0 events in the list
-		if ( $this->args['count'] == 0 ) {
+		if ( 0 === $this->args['count'] ) {
 			$this->show_list = false;
 		}
 
@@ -258,14 +258,19 @@ class Tribe__Events__Pro__Mini_Calendar {
 
 	public function setup_list( $template_file ) {
 
-		if ( basename( dirname( $template_file ) ) . '/' . basename( $template_file ) == 'mini-calendar/list.php' ) {
+		$path = basename( dirname( $template_file ) ) . '/' . basename( $template_file );
 
-			if ( $this->args['count'] == 0 ) {
+		if ( 'mini-calendar/list.php' === $path ) {
+
+			if ( 0 === $this->args['count'] ) {
 				return;
 			}
 
 			// make sure the widget taxonomy filter setting is respected
 			add_action( 'pre_get_posts', array( $this, 'set_count' ), 1000 );
+
+			// Make sure that the hidden events are not displayed on the list
+			add_action( 'tribe_events_parse_query', array( $this, 'set_hidden' ), 1000 );
 
 			global $wp_query;
 
@@ -300,6 +305,9 @@ class Tribe__Events__Pro__Mini_Calendar {
 
 			// stop paying attention to the widget count setting, we're done with it
 			remove_action( 'pre_get_posts', array( $this, 'set_count' ), 1000 );
+
+			// stop paying attention to the hidden events, we're done with it
+			remove_action( 'tribe_events_parse_query', array( $this, 'set_hidden' ), 1000 );
 		}
 	}
 
@@ -317,6 +325,26 @@ class Tribe__Events__Pro__Mini_Calendar {
 
 		if ( ! empty( $this->args['tax_query'] ) ) {
 			$query->set( 'tax_query', $this->args['tax_query'] );
+		}
+
+		return $query;
+	}
+
+	/**
+	 * Make sure that the hidden events are not
+	 * part of the query.
+	 *
+	 * @since 4.4.26
+	 *
+	 * @return WP_Query $query
+	 *
+	 * @return WP_Query $query
+	 */
+	public function set_hidden( $query ) {
+
+		if ( in_array( Tribe__Events__Main::POSTTYPE, (array) $query->get( 'post_type' ) ) ) {
+			$hide_upcoming_ids = Tribe__Events__Query::getHideFromUpcomingEvents();
+			$query->set( 'post__not_in', $hide_upcoming_ids );
 		}
 
 		return $query;

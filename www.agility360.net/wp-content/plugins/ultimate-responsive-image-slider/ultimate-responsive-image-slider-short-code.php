@@ -3,11 +3,10 @@ add_shortcode( 'URIS', 'ResponsiveWWRISroShortCode' );
 function ResponsiveWWRISroShortCode( $Id ) {
 
     ob_start();
-	
 	// slider js css scripts
-	wp_enqueue_script('ris-jquery-sliderPro-js', WRIS_PLUGIN_URL.'js/jquery.sliderPro.js', array('jquery'), '1.1.0', true);
+	wp_enqueue_script('ris-jquery-sliderPro-js', WRIS_PLUGIN_URL.'js/jquery.sliderPro.js', array('jquery'), '1.4.0', true);
 	wp_enqueue_style('ris-slider-css', WRIS_PLUGIN_URL.'css/slider-pro.css');
-
+	
 	/**
      * Load Saved Responsive Image Slider Settings
      */
@@ -35,6 +34,12 @@ function ResponsiveWWRISroShortCode( $Id ) {
 				$WRIS_L3_Slide_Title   		    	= $WRIS_Gallery_Settings['WRIS_L3_Slide_Title'];
 			else
 				$WRIS_L3_Slide_Title				= 1;
+
+			if(isset($WRIS_Gallery_Settings['WRIS_L3_Set_slide_Title'])) 
+				$WRIS_L3_Set_slide_Title   		    	= $WRIS_Gallery_Settings['WRIS_L3_Set_slide_Title'];
+			else
+				$WRIS_L3_Set_slide_Title				= 0;		
+			
 
 			if(isset($WRIS_Gallery_Settings['WRIS_L3_Auto_Slideshow'])) 
 				$WRIS_L3_Auto_Slideshow				= $WRIS_Gallery_Settings['WRIS_L3_Auto_Slideshow'];

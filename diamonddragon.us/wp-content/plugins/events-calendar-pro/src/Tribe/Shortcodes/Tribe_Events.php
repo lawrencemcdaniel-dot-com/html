@@ -48,7 +48,6 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 	 */
 	protected $truthy_values = array();
 
-
 	/**
 	 * Generates output for the [tribe_events] shortcode.
 	 *
@@ -67,12 +66,13 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 	 */
 	protected function setup( $atts ) {
 		$defaults = array(
-			'date'      => '',
-			'tribe-bar' => 'true',
-			'view'      => '',
-			'category'  => '',
-			'cat'       => '',
-			'featured'  => 'false',
+			'date'          => '',
+			'tribe-bar'     => 'true',
+			'view'          => '',
+			'category'      => '',
+			'cat'           => '',
+			'featured'      => 'false',
+			'main-calendar' => 'false',
 		);
 
 		$this->atts = shortcode_atts( $defaults, $atts, 'tribe_events' );
@@ -102,13 +102,14 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 	 *
 	 *     1) The value of "eventDisplay" in the URL query, if set and if valid
 	 *     2) The value of the "view" attribute provided to the shortcode, if set and if valid
-	 *     3) The first view that is available
-	 *     4) Month view
+	 *     3) The value of the "Default Value" option, if valid.
+	 *     4) The first view that is available
+	 *     5) Month view
 	 */
 	protected function set_view_attribute() {
 		$valid_views = wp_list_pluck( tribe_events_get_views(), 'displaying' );
 		$url_view    = $this->get_url_param( 'tribe_event_display' );
-		$view_attr   = $this->get_attribute( 'view', 'month' );
+		$view_attr   = $this->get_attribute( 'view' );
 
 		// If tribe_event_display is "past", we need to grab the view from the action parameter
 		if ( 'past' === $url_view ) {
@@ -130,6 +131,13 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 		// Else fallback on the view attribute supplied to the shortcode
 		if ( in_array( $view_attr, $valid_views ) ) {
 			$this->atts['view'] = $view_attr;
+			return;
+		}
+
+		// Else fallback on the default value from the settings
+		$view_option = tribe_get_option( 'viewOption', 'month' );
+		if ( in_array( $view_option, $valid_views ) ) {
+			$this->atts['view'] = $view_option;
 			return;
 		}
 
@@ -212,8 +220,6 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 		if ( ! class_exists( 'Tribe__Events__Pro__Templates__Map' ) ) {
 			return;
 		}
-
-		tribe_get_template_part( 'pro/map/gmap-container' );
 
 		$this->view_handler = new Tribe__Events__Pro__Shortcodes__Tribe_Events__Map( $this );
 	}
@@ -549,6 +555,15 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 
 		ob_start();
 
+		/**
+		 * Fires before the render of the markup starts
+		 *
+		 * @since 4.4.26
+		 *
+		 * @param Tribe__Events__Pro__Shortcodes__Tribe_Events $shortcode
+		 */
+		do_action( 'tribe_events_pro_tribe_events_shortcode_before_render', $this );
+
 		$this->get_template_object()->add_input_hash();
 		$attributes[] = 'id="tribe-events"';
 		$attributes[] = 'class="' . $this->get_wrapper_classes() . '"';
@@ -570,6 +585,15 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 
 		tribe_get_view( $this->get_template_object()->view_path );
 		echo '</div>';
+
+		/**
+		 * Fires just before the markup is completed
+		 *
+		 * @since 4.4.26
+		 *
+		 * @param Tribe__Events__Pro__Shortcodes__Tribe_Events $shortcode
+		 */
+		do_action( 'tribe_events_pro_tribe_events_shortcode_after_render', $this );
 
 		$html = ob_get_clean();
 

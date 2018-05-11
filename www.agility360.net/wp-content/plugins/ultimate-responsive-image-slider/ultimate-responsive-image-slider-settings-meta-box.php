@@ -7,20 +7,25 @@ $WRIS_Gallery_Settings_Key = "WRIS_Gallery_Settings_".$PostId;
 $WRIS_Gallery_Settings = unserialize(get_post_meta( $PostId, $WRIS_Gallery_Settings_Key, true));
 if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRIS_L3_Slider_Height']) {
 	
-	if(isset($WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'])) 
-			$WRIS_L3_Slider_Scale_Mode   		    = $WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'];
-		else
-			$WRIS_L3_Slider_Scale_Mode				= "cover";		
-			
-	if(isset($WRIS_Gallery_Settings['WRIS_L3_Slider_Auto_Scale'])) 
-			$WRIS_L3_Slider_Auto_Scale   		    = $WRIS_Gallery_Settings['WRIS_L3_Slider_Auto_Scale'];
-		else
-			$WRIS_L3_Slider_Auto_Scale				= 1;	
-	
-	if(isset($WRIS_Gallery_Settings['WRIS_L3_Slide_Title'])) 
-			$WRIS_L3_Slide_Title   		    	= $WRIS_Gallery_Settings['WRIS_L3_Slide_Title'];
-		else
-			$WRIS_L3_Slide_Title				= 1;
+		if(isset($WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'])) 
+				$WRIS_L3_Slider_Scale_Mode   		    = $WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'];
+			else
+				$WRIS_L3_Slider_Scale_Mode				= "cover";		
+				
+		if(isset($WRIS_Gallery_Settings['WRIS_L3_Slider_Auto_Scale'])) 
+				$WRIS_L3_Slider_Auto_Scale   		    = $WRIS_Gallery_Settings['WRIS_L3_Slider_Auto_Scale'];
+			else
+				$WRIS_L3_Slider_Auto_Scale				= 1;	
+		
+		if(isset($WRIS_Gallery_Settings['WRIS_L3_Slide_Title'])) 
+				$WRIS_L3_Slide_Title   		    	= $WRIS_Gallery_Settings['WRIS_L3_Slide_Title'];
+			else
+				$WRIS_L3_Slide_Title				= 1;	
+
+		if(isset($WRIS_Gallery_Settings['WRIS_L3_Set_slide_Title'])) 
+				$WRIS_L3_Set_slide_Title   		    	= $WRIS_Gallery_Settings['WRIS_L3_Set_slide_Title'];
+			else
+				$WRIS_L3_Set_slide_Title				= 0;		
 		
 		if(isset($WRIS_Gallery_Settings['WRIS_L3_Auto_Slideshow'])) 
 			$WRIS_L3_Auto_Slideshow				= $WRIS_Gallery_Settings['WRIS_L3_Auto_Slideshow'];
@@ -153,7 +158,29 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 			$WRIS_L3_Navigation_Pointer_Color   = "#000000";
 }
 ?>
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+		var editor = CodeMirror.fromTextArea(document.getElementById("wl-l3-custom-css"), {
+		lineNumbers: true,
+		styleActiveLine: true,
+		matchBrackets: true,
+		hint:true,
+		theme : 'blackboard',
+		extraKeys: {"Ctrl-Space": "autocomplete"},
+    });
+});
+</script>
 <style>
+.custnote{
+    background-color: rgba(23, 31, 22, 0.64);
+    color: #fff;
+    width: 348px;
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
 .thumb-pro th, .thumb-pro label, .thumb-pro h3, .thumb-pro {
 	color:#31a3dd !important;
 	font-weight:bold;
@@ -169,7 +196,22 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 	<tbody>
 		<tr id="L3">
 			<th scope="row" colspan="2"><h2><?php _e('Configure Settings For Slider Shortcode', WRIS_TEXT_DOMAIN); ?>: <?php echo "<strong>[URIS id=$PostId]</strong>"; ?></h2><hr></th>
-		</tr>		
+		</tr>
+
+		<tr id="L3">
+			<th scope="row"><label><?php _e('Set Slide Title As', WRIS_TEXT_DOMAIN); ?></label></th>
+			<td>
+				<?php if(!isset($WRIS_L3_Set_slide_Title)) $WRIS_L3_Set_slide_Title = 0; ?>
+				
+				<input type="radio" name="wl-l3-set-slide-title" id="wl-l3-set-slide-title" value="0" <?php if($WRIS_L3_Set_slide_Title == 0 ) { echo "checked"; } ?>> Custom Title</i> &nbsp;&nbsp;
+				<input type="radio" name="wl-l3-set-slide-title" id="wl-l3-set-slide-title" value="1" <?php if($WRIS_L3_Set_slide_Title == 1 ) { echo "checked"; } ?>> File Title (Slide Title as a image file name)</i>
+				<p class="description">
+					<?php _e('Select Custom/File option to set slide title as above slider', WRIS_TEXT_DOMAIN); ?>.
+				</p>
+				</select>
+			</td>
+		</tr>
+
 		<tr id="L3">
 			<th scope="row"><label><?php _e('Display Slider Title', WRIS_TEXT_DOMAIN); ?></label></th>
 			<td>
@@ -404,23 +446,26 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 				<?php if(!isset($WRIS_L3_Font_Style)) $WRIS_L3_Font_Style = "Arial";?>	
 				<select name="wl-l3-font-style" id="wl-l3-font-style" class="standard-dropdown" >
 					<optgroup label="Default Fonts">
-						<option value="Arial"           <?php if($WRIS_L3_Font_Style == 'Arial' ) { echo "selected"; } ?>>Arial</option>
-						<option value="Arial Black"    	<?php if($WRIS_L3_Font_Style == 'Arial Black' ) { echo "selected"; } ?>>Arial Black</option>
-						<option value="Courier New"     <?php if($WRIS_L3_Font_Style == 'Courier New' ) { echo "selected"; } ?>>Courier New</option>
-						<option value="Georgia"         <?php if($WRIS_L3_Font_Style == 'Georgia' ) { echo "selected"; } ?>>Georgia</option>
-						<option value="Grande"          <?php if($WRIS_L3_Font_Style == 'Grande' ) { echo "selected"; } ?>>Grande</option>
-						<option value="Helvetica" 		<?php if($WRIS_L3_Font_Style == 'Helvetica' ) { echo "selected"; } ?>>Helvetica Neue</option>
-						<option value="Impact"         	<?php if($WRIS_L3_Font_Style == 'Impact' ) { echo "selected"; } ?>>Impact</option>
-						<option value="Lucida"         	<?php if($WRIS_L3_Font_Style == 'Lucida' ) { echo "selected"; } ?>>Lucida</option>
-						<option value="Lucida Grande"   <?php if($WRIS_L3_Font_Style == 'Lucida Grande' ) { echo "selected"; } ?>>Lucida Grande</option>
-						<option value="_OpenSansBold"   <?php if($WRIS_L3_Font_Style == '_OpenSansBold' ) { echo "selected"; } ?>>OpenSansBold</option>
-						<option value="Palatino Linotype"       <?php if($WRIS_L3_Font_Style == 'Palatino Linotype' ) { echo "selected"; } ?>>Palatino</option>
-						<option value="Sans"           	<?php if($WRIS_L3_Font_Style == 'Sans' ) { echo "selected"; } ?>>Sans</option>
-						<option value="sans-serif"      <?php if($WRIS_L3_Font_Style == 'sans-serif' ) { echo "selected"; } ?>>Sans-Serif</option>
-						<option value="Tahoma"         	<?php if($WRIS_L3_Font_Style == 'Tahoma' ) { echo "selected"; } ?>>Tahoma</option>
-						<option value="Times New Roman" <?php if($WRIS_L3_Font_Style == 'Times New Roman' ) { echo "selected"; } ?>>Times New Roman</option>
-						<option value="Trebuchet"      	<?php if($WRIS_L3_Font_Style == 'Trebuchet' ) { echo "selected"; } ?>>Trebuchet</option>
-						<option value="Verdana"        	<?php if($WRIS_L3_Font_Style == 'Verdana' ) { echo "selected"; } ?>>Verdana</option>
+						<option value="Arial" <?php selected($WRIS_L3_Font_Style, 'Arial' ); ?>>Arial</option>
+                        <option value="Arial Black" <?php selected($WRIS_L3_Font_Style, 'Arial Black' ); ?>>Arial Black</option>
+                        <option value="Courier New" <?php selected($WRIS_L3_Font_Style, 'Courier New' ); ?>>Courier New</option>
+                        <option value="cursive" <?php selected($WRIS_L3_Font_Style, 'cursive' ); ?>>Cursive</option>
+                        <option value="fantasy" <?php selected($WRIS_L3_Font_Style, 'fantasy' ); ?>>Fantasy</option>
+                        <option value="Georgia" <?php selected($WRIS_L3_Font_Style, 'Georgia' ); ?>>Georgia</option>
+                        <option value="Grande"<?php selected($WRIS_L3_Font_Style, 'Grande' ); ?>>Grande</option>
+                        <option value="Helvetica Neue" <?php selected($WRIS_L3_Font_Style, 'Helvetica Neue' ); ?>>Helvetica Neue</option>
+                        <option value="Impact" <?php selected($WRIS_L3_Font_Style, 'Impact' ); ?>>Impact</option>
+                        <option value="Lucida" <?php selected($WRIS_L3_Font_Style, 'Lucida' ); ?>>Lucida</option>
+                        <option value="Lucida Console"<?php selected($WRIS_L3_Font_Style, 'Lucida Console' ); ?>>Lucida Console</option>
+                         <option value="monospace" <?php selected($WRIS_L3_Font_Style, 'monospace' ); ?>>Monospace</option>
+                        <option value="Open Sans" <?php selected($WRIS_L3_Font_Style, 'Open Sans' ); ?>>Open Sans</option>
+                        <option value="Palatino" <?php selected($WRIS_L3_Font_Style, 'Palatino' ); ?>>Palatino</option>
+                        <option value="sans" <?php selected($WRIS_L3_Font_Style, 'sans' ); ?>>Sans</option>
+                        <option value="sans-serif" <?php selected($WRIS_L3_Font_Style, 'sans-serif' ); ?>>Sans-Serif</option>
+                        <option value="Tahoma" <?php selected($WRIS_L3_Font_Style, 'Tahoma' ); ?>>Tahoma</option>
+                        <option value="Times New Roman"<?php selected($WRIS_L3_Font_Style, 'Times New Roman' ); ?>>Times New Roman</option>
+                        <option value="Trebuchet MS" <?php selected($WRIS_L3_Font_Style, 'Trebuchet MS' ); ?>>Trebuchet MS</option>
+                        <option value="Verdana" <?php selected($WRIS_L3_Font_Style, 'Verdana' ); ?>>Verdana</option>
 					</optgroup>
 				</select>
 				<p class="description"><?php _e("Choose a caption font style", WRIS_TEXT_DOMAIN); ?> (Upgrade to pro for get 500+ Google fonts in plugin, check <a href="https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/" target="_new">demo</a> )</p>
@@ -528,8 +573,8 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 				<textarea name="wl-l3-custom-css" id="wl-l3-custom-css" rows="5" cols="75"><?php echo $WRIS_L3_Custom_CSS; ?></textarea>
 				<p class="description">
 					<?php _e('Enter any custom css you want to apply on this slider into textarea filed', WRIS_TEXT_DOMAIN); ?>.<br>
-					<?php _e('Note', WRIS_TEXT_DOMAIN); ?><strong>:</strong> <?php _e('Please Do Not Use', WRIS_TEXT_DOMAIN); ?> <strong>&lt;style&gt;...&lt;/style&gt;</strong> <?php _e('Tag With Custom CSS', WRIS_TEXT_DOMAIN); ?>.
 				</p>
+				<p class="custnote">Note: Please Do Not Use <b>Style</b> Tag With Custom CSS</p>
 			</td>
 		</tr>
 	</tbody>
