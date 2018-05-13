@@ -782,11 +782,11 @@ class Avada_Layout {
 	/**
 	 * Checks is the current page is a 100% width page.
 	 *
-	 * @param integer|false $page_id A custom page ID.
 	 * @param bool          $value   The value from the filter.
+	 * @param integer|false $page_id A custom page ID.
 	 * @return bool
 	 */
-	public function is_hundred_percent_template( $page_id = false, $value = false ) {
+	public function is_hundred_percent_template( $value = false, $page_id = false ) {
 		if ( ! $page_id ) {
 			$fusion_library = Fusion::get_instance();
 			$page_id = $fusion_library->get_page_id();
@@ -804,14 +804,14 @@ class Avada_Layout {
 		}
 
 		if (
-			'100%' === fusion_library()->get_option( 'site_width' ) ||
+			( '100%' === fusion_library()->get_option( 'site_width' ) ||
 			( is_page_template( '100-width.php' ) && $page_id ) ||
 			is_page_template( 'blank.php' ) ||
 			( '100-width.php' === $page_template && $page_id ) ||
 			( ( '1' === fusion_get_option( 'portfolio_width_100', 'portfolio_width_100', $page_id ) || 'yes' === fusion_get_option( 'portfolio_width_100', 'portfolio_width_100', $page_id ) ) && is_singular( 'avada_portfolio' ) ) ||
 			( ( '1' === fusion_get_option( 'blog_width_100', 'portfolio_width_100', $page_id ) || 'yes' === fusion_get_option( 'blog_width_100', 'portfolio_width_100', $page_id ) ) && is_singular( 'post' ) ) ||
 			( ( '1' === fusion_get_option( 'product_width_100', 'portfolio_width_100', $page_id ) || 'yes' === fusion_get_option( 'product_width_100', 'portfolio_width_100', $page_id ) ) && is_singular( 'product' ) ) ||
-			( 'yes' === fusion_get_page_option( 'portfolio_width_100', $page_id ) && ! is_singular( array( 'post', 'avada_portfolio' ) ) )
+			( 'yes' === fusion_get_page_option( 'portfolio_width_100', $page_id ) && ! is_singular( array( 'post', 'avada_portfolio' ) ) ) )
 		) {
 			return true;
 		}
