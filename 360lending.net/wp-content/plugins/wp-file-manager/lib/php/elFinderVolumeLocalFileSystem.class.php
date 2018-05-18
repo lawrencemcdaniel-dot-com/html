@@ -985,31 +985,7 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 	 * @author Dmitry (dio) Levashov
 	 **/
 	protected function _findSymlinks($path) {
-		if (is_link($path)) {
-			return true;
-		}
-		
-		if (is_dir($path)) {
-			foreach (self::localScandir($path) as $name) {
-				$p = $path.DIRECTORY_SEPARATOR.$name;
-				if (is_link($p) || !$this->nameAccepted($name)
-					||
-				(($mimeByName = elFinderVolumeDriver::mimetypeInternalDetect($name)) && $mimeByName !== 'unknown' && !$this->allowPutMime($mimeByName))) {
-					$this->setError(elFinder::ERROR_SAVE, $name);
-					return true;
-				}
-				if (is_dir($p) && $this->_findSymlinks($p)) {
-					return true;
-				} elseif (is_file($p)) {
-					$this->archiveSize += sprintf('%u', filesize($p));
-				}
-			}
-		} else {
-			
-			$this->archiveSize += sprintf('%u', filesize($path));
-		}
-		
-		return false;
+		return self::localFindSymlinks($path);
 	}
 
 	/**
@@ -1026,7 +1002,7 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 		if ($this->quarantine) {
 
 			$dir     = $this->quarantine.DIRECTORY_SEPARATOR.md5(basename($path).mt_rand());
-			$archive = $dir.DIRECTORY_SEPARATOR.basename($path);
+			$archive = (isset($arc['toSpec']) || $arc['cmd'] === 'phpfunction')? '' : $dir.DIRECTORY_SEPARATOR.basename($path);
 			
 			if (!mkdir($dir)) {
 				return false;
@@ -1038,12 +1014,12 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 			chmod($dir, 0777);
 			
 			// copy in quarantine
-			if (!copy($path, $archive)) {
+			if (!is_readable($path) || ($archive && !copy($path, $archive))) {
 				return false;
 			}
 			
 			// extract in quarantine
-			$this->unpackArchive($archive, $arc);
+			$this->unpackArchive($path, $arc, $archive? true : $dir);
 			
 			// get files list
 			$ls = self::localScandir($dir);
@@ -1055,14 +1031,19 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 			
 			$this->archiveSize = 0;
 			
-			// find symlinks
-			$symlinks = $this->_findSymlinks($dir);
-			
-			if ($symlinks) {
-				$this->delTree($dir);
+			// find symlinks and check extracted items
+			$checkRes = $this->checkExtractItems($dir);
+			if ($checkRes['symlinks']) {
+				self::localRmdirRecursive($dir);
 				return $this->setError(array_merge($this->error, array(elFinder::ERROR_ARC_SYMLINKS)));
 			}
-
+			$this->archiveSize = $checkRes['totalSize'];
+			if ($checkRes['rmNames']) {
+				foreach($checkRes['rmNames'] as $name) {
+					$this->addError(elFinder::ERROR_SAVE, $name);
+				}
+			}
+			
 			// check max files size
 			if ($this->options['maxArcFilesSize'] > 0 && $this->options['maxArcFilesSize'] < $this->archiveSize) {
 				$this->delTree($dir);
@@ -1080,10 +1061,8 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 				// for several files - create new directory
 				// create unique name for directory
 				$src = $dir;
-				$name = basename($path);
-				if (preg_match('/\.((tar\.(gz|bz|bz2|z|lzo))|cpio\.gz|ps\.gz|xcf\.(gz|bz2)|[a-z0-9]{1,4})$/i', $name, $m)) {
-					$name = substr($name, 0,  strlen($name)-strlen($m[0]));
-				}
+				$splits = elFinder::splitFileExtention(basename($path));
+				$name = $splits[0];
 				$test = dirname($path).DIRECTORY_SEPARATOR.$name;
 				if (file_exists($test) || is_link($test)) {
 					$name = $this->uniqueName(dirname($path), $name, '-', false);
@@ -1099,14 +1078,10 @@ class elFinderVolumeLocalFileSystem extends elFinderVolumeDriver {
 				}
 			} else {
 				$dstDir = dirname($path);
-				$res = false;
 				$result = array();
 				foreach($ls as $name) {
 					$target = $dstDir.DIRECTORY_SEPARATOR.$name;
-					if (is_dir($target)) {
-						$this->delTree($target);
-					}
-					if (rename($dir.DIRECTORY_SEPARATOR.$name, $target)) {
+					if (self::localMoveRecursive($dir.DIRECTORY_SEPARATOR.$name, $target, true, $this->options['copyJoin'])) {
 						$result[] = $target;
 					}
 				}
