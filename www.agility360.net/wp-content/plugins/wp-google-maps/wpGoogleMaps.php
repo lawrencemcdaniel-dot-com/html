@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.0.04
+Version: 7.0.06
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,12 @@ Domain Path: /languages
 */
 
 /* 
+ * 7.0.06 - 2018-05-25
+ * Fixed GDPR settings blank after saving
+ *
+ * 7.0.05 - 2018-05-25
+ * GDPR Compliance
+ *
  * 7.0.04 - 2018-05-07
  * Fixed PHP notice regarding store locator default radius
  * 
@@ -378,7 +384,7 @@ $wpgmza_tblname_poly = $wpdb->prefix . "wpgmza_polygon";
 $wpgmza_tblname_polylines = $wpdb->prefix . "wpgmza_polylines";
 $wpgmza_tblname_categories = $wpdb->prefix. "wpgmza_categories";
 $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
-$wpgmza_version = "7.0.04";
+$wpgmza_version = "7.0.06";
 $wpgmza_p_version = "6.19";
 $wpgmza_t = "basic";
 
@@ -400,8 +406,11 @@ include ( "base/classes/widget_module.class.php" );
 include ( "base/includes/deprecated.php" );
 include ( "includes/compat/backwards_compat_v6.php" );
 
-/* plugin deactivation checks */
-include ( "lib/codecabin/deactivate-feedback-form.php" );
+require_once(plugin_dir_path(__FILE__) . 'includes/class.dom-document.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/class.gdpr-compliance.php');
+
+// NB: GDPR
+/*include ( "lib/codecabin/deactivate-feedback-form.php" );
 add_filter( 'codecabin_deactivate_feedback_form_plugins', 'wpgmaps_deactivation_survey_t2' );
 function wpgmaps_deactivation_survey_t2( $plugins ) {
     global $wpgmza_version;
@@ -411,7 +420,7 @@ function wpgmaps_deactivation_survey_t2( $plugins ) {
     );
 
     return $plugins;
-}
+}*/
 
 
 
@@ -810,13 +819,13 @@ function wpgmza_plugin_action_links( $links ) {
     return $links;
 }
 
-add_action( 'wp_ajax_wpgmza_subscribe','wpgmza_ajax_subscribe');
-add_action( 'wp_ajax_wpgmza_subscribe_hide','wpgmza_ajax_subscribe'); 
+//add_action( 'wp_ajax_wpgmza_subscribe','wpgmza_ajax_subscribe');
+//add_action( 'wp_ajax_wpgmza_subscribe_hide','wpgmza_ajax_subscribe'); 
 
 
 
 function wpgmza_ajax_subscribe() {
-    $check = check_ajax_referer( 'wpgmza_subscribe', 'security' );
+    /*$check = check_ajax_referer( 'wpgmza_subscribe', 'security' );
     if ( $check == 1 ) {
         if ( $_POST['action'] == 'wpgmza_subscribe' ) {
             $uid = get_current_user_id();
@@ -830,10 +839,10 @@ function wpgmza_ajax_subscribe() {
             echo "1"; 
             die(); 
         }  
-    }
+    }*/
 }
 
-add_action ( 'admin_head', 'wpgmza_plugin_row_js' );
+/*add_action ( 'admin_head', 'wpgmza_plugin_row_js' );
 function wpgmza_plugin_row_js(){
     $current_page = get_current_screen();
 
@@ -843,13 +852,13 @@ function wpgmza_plugin_row_js(){
         wp_localize_script( 'wpgmza_plugin_row_js', 'wpgmza_sub_nonce', wp_create_nonce("wpgmza_subscribe") );
     }
 }
-
+*/
 
 /**
  * Adds the email subscription field below the plugin row on the plugins page
  * 
  */
-add_filter( 'plugin_row_meta', 'wpgmza_plugin_row', 4, 10 );
+/*add_filter( 'plugin_row_meta', 'wpgmza_plugin_row', 4, 10 );
 function wpgmza_plugin_row( $plugin_meta, $plugin_file, $plugin_data, $status ) {
 
     if ( $plugin_file == "wp-google-maps/wpGoogleMaps.php") {
@@ -870,7 +879,7 @@ function wpgmza_plugin_row( $plugin_meta, $plugin_file, $plugin_data, $status ) 
         }
     }
     return $plugin_meta;
-}
+}*/
 
 /**
  * Check if the XML folder exists, if not, display a warning notification
@@ -3463,7 +3472,9 @@ function wpgmaps_head() {
     }
     else if (isset($_POST['wpgmza_save_settings']) && current_user_can('administrator')){
         global $wpdb;
+		
         $wpgmza_data = array();
+		
         if (isset($_POST['wpgmza_settings_map_full_screen_control'])) { $wpgmza_data['wpgmza_settings_map_full_screen_control'] = sanitize_text_field($_POST['wpgmza_settings_map_full_screen_control']); }
         if (isset($_POST['wpgmza_settings_map_streetview'])) { $wpgmza_data['wpgmza_settings_map_streetview'] = sanitize_text_field($_POST['wpgmza_settings_map_streetview']); }
         if (isset($_POST['wpgmza_settings_map_zoom'])) { $wpgmza_data['wpgmza_settings_map_zoom'] = sanitize_text_field($_POST['wpgmza_settings_map_zoom']); }
@@ -3500,6 +3511,10 @@ function wpgmaps_head() {
 
         update_option('WPGMZA_OTHER_SETTINGS', $wpgmza_data);
 
+		global $wpgmzaGDPRCompliance;
+		if($wpgmzaGDPRCompliance)
+			$wpgmzaGDPRCompliance->onPOST();
+		
         if( isset( $_POST['wpgmza_google_maps_api_key'] ) ){ update_option( 'wpgmza_google_maps_api_key', sanitize_text_field( trim($_POST['wpgmza_google_maps_api_key'] )) ); }
 
         echo "<div class='updated'><p>";
@@ -4305,6 +4320,9 @@ function wpgmaps_settings_page_basic() {
             $ret .= "                <li><a href=\"#tabs-3\">".__("Marker Listing","wp-google-maps")."</a></li>";
             $ret .= "                <li><a href=\"#tabs-4\">".__("Store Locator","wp-google-maps")."</a></li>";
             $ret .= "                <li><a href=\"#tabs-5\">".__("Advanced","wp-google-maps")."</a></li>";
+			
+			$ret .= apply_filters('wpgmza_global_settings_tabs', '');
+			
             $ret .= "        </ul>";
             $ret .= "        <div id=\"tabs-1\">";
             $ret .= "                <h3>".__("Map Settings")."</h3>";
@@ -4578,7 +4596,12 @@ function wpgmaps_settings_page_basic() {
             $ret .= "                   </tr>";
             $ret .= "                   </table>";
             $ret .= "           </div>";
+			
+			$ret .= apply_filters('wpgmza_global_settings_tab_content', '');
+			
             $ret .= "       </div>";
+			
+			
             $ret .= "       <p class='submit'><input type='submit' name='wpgmza_save_settings' class='button-primary' value='".__("Save Settings","wp-google-maps")." &raquo;' /></p>";
             $ret .= "   </form>";
             $ret .=  "</div>";
@@ -4969,6 +4992,8 @@ function wpgmza_basic_menu() {
     }
     }
 
+	global $wpgmzaGDPRCompliance;
+	$gdpr_privacy_notice_html = $wpgmzaGDPRCompliance->getPrivacyPolicyNoticeHTML();
 
 	google_maps_api_key_warning();
     echo "
@@ -4980,6 +5005,9 @@ function wpgmza_basic_menu() {
 
 
                     <h2>".__("Create your Map","wp-google-maps")."</h2>
+					
+					$gdpr_privacy_notice_html
+					
                     <form action='' method='post' id='wpgmaps_options'>
                     <p></p>
                     <div id=\"wpgmaps_tabs\">

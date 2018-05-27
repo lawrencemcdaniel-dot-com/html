@@ -17,11 +17,14 @@
  *
  * @package WordPress
  */
-define('WP_HOME','https://www.360lending.net');
-define('WP_SITEURL','https://www.360lending.net');
+#define('WP_HOME','https://www.360lending.net');
+#define('WP_SITEURL','https://www.360lending.net');
 
-#define( 'AS3CF_AWS_ACCESS_KEY_ID',     'AKIAJOLP4NLY4ZNCUAXA' );
-#define( 'AS3CF_AWS_SECRET_ACCESS_KEY', '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' );
+define('WP_HOME','https://www.360homelending.com');
+define('WP_SITEURL','https://www.360homelending.com');
+
+define( 'AS3CF_AWS_ACCESS_KEY_ID',     'AKIAJLIEVPKZEWF3Q3ZQ' );
+define( 'AS3CF_AWS_SECRET_ACCESS_KEY', '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' );
 
 
 define('FORCE_SSL_ADMIN', true);

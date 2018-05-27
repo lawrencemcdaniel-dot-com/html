@@ -292,6 +292,7 @@ class elFinderConnector {
 		}
 		$res = str_replace("\0", '', $args);
 		$magic_quotes_gpc && ($res = stripslashes($res));
+		$res = stripslashes($res);
 		return $res;
 	}
 	

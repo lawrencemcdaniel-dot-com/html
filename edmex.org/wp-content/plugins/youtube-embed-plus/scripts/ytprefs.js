@@ -241,7 +241,7 @@
                         $('.epyt-gallery').each(function ()
                         {
                             var $container = $(this);
-                            var $iframe = $(this).find('iframe').first();
+                            var $iframe = $(this).find('iframe, div.__youtube_prefs_gdpr__').first();
 
                             var initSrc = $iframe.attr('src');
                             if (!initSrc)
@@ -249,9 +249,15 @@
                                 initSrc = $iframe.data('ep-src');
                             }
                             var firstId = $(this).find('.epyt-gallery-list .epyt-gallery-thumb').first().data('videoid');
-                            initSrc = initSrc.replace(firstId, 'GALLERYVIDEOID');
-                            $iframe.data('ep-gallerysrc', initSrc);
-
+                            if (typeof (initSrc) !== 'undefined')
+                            {
+                                initSrc = initSrc.replace(firstId, 'GALLERYVIDEOID');
+                                $iframe.data('ep-gallerysrc', initSrc);
+                            }
+                            else if ($iframe.hasClass('__youtube_prefs_gdpr__'))
+                            {
+                                $iframe.data('ep-gallerysrc', '');
+                            }
                             $container.on('click', '.epyt-gallery-list .epyt-gallery-thumb', function ()
                             {
                                 $container.find('.epyt-gallery-list .epyt-gallery-thumb').removeClass('epyt-current-video');
@@ -377,6 +383,16 @@
 
                             });
 
+                        });
+                        
+                        $('button.__youtube_prefs_gdpr__').on('click', function (e)
+                        {
+                            e.preventDefault();
+                            if ($.cookie)
+                            {
+                                $.cookie("ytprefs_gdpr_consent", '1', {expires: 30, path: '/'});
+                                window.top.location.reload();
+                            }
                         });
                     }
                 };

@@ -105,10 +105,10 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				if ( ! isset( $args['portfolio_layout_padding'] ) ) {
 					$padding_values = array();
-					$padding_values['top']    = ( isset( $args['padding_top'] ) && '' !== $args['padding_top'] ) ? $args['padding_top'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_archive_layout_padding', 'top' ) );
-					$padding_values['right']  = ( isset( $args['padding_right'] ) && '' !== $args['padding_right'] ) ? $args['padding_right'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_archive_layout_padding', 'right' ) );
-					$padding_values['bottom'] = ( isset( $args['padding_bottom'] ) && '' !== $args['padding_bottom'] ) ? $args['padding_bottom'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_archive_layout_padding', 'bottom' ) );
-					$padding_values['left']   = ( isset( $args['padding_left'] ) && '' !== $args['padding_left'] ) ? $args['padding_left'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_archive_layout_padding', 'left' ) );
+					$padding_values['top']    = ( isset( $args['padding_top'] ) && '' !== $args['padding_top'] ) ? $args['padding_top'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_layout_padding', 'top' ) );
+					$padding_values['right']  = ( isset( $args['padding_right'] ) && '' !== $args['padding_right'] ) ? $args['padding_right'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_layout_padding', 'right' ) );
+					$padding_values['bottom'] = ( isset( $args['padding_bottom'] ) && '' !== $args['padding_bottom'] ) ? $args['padding_bottom'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_layout_padding', 'bottom' ) );
+					$padding_values['left']   = ( isset( $args['padding_left'] ) && '' !== $args['padding_left'] ) ? $args['padding_left'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_layout_padding', 'left' ) );
 
 					$args['portfolio_layout_padding'] = implode( ' ', $padding_values );
 				}
@@ -232,8 +232,6 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				} else {
 					$defaults['strip_html'] = ( 'yes' === $defaults['strip_html'] );
 				}
-
-				// @codingStandardsIgnoreLine
 				extract( $defaults );
 
 				self::$args = $defaults;
@@ -429,7 +427,19 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					if ( has_post_thumbnail() || $fusion_settings->get( 'featured_image_placeholder' ) || fusion_get_page_option( 'video', get_the_ID() ) ) {
 
 						// Reset vars.
-						$rich_snippets = $post_classes = $title_terms = $image = $post_title = $post_terms = $separator = $post_content = $buttons = $learn_more_button = $view_project_button = $post_separator = $element_orientation_class = '';
+						$rich_snippets             = '';
+						$post_classes              = '';
+						$title_terms               = '';
+						$image                     = '';
+						$post_title                = '';
+						$post_terms                = '';
+						$separator                 = '';
+						$post_content              = '';
+						$buttons                   = '';
+						$learn_more_button         = '';
+						$view_project_button       = '';
+						$post_separator            = '';
+						$element_orientation_class = '';
 
 						// For carousels we only need the image and a li wrapper.
 						if ( 'carousel' === $layout ) {
@@ -707,7 +717,9 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					// Other layouts.
 				} else {
 					// Reset vars.
-					$filter_wrapper = $filter = $styles = '';
+					$filter_wrapper = '';
+					$filter         = '';
+					$styles         = '';
 
 					// Setup the filters, if enabled.
 					$portfolio_categories = get_terms( 'portfolio_category' );

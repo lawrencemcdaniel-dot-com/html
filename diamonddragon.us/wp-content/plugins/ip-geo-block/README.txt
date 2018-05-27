@@ -4,7 +4,7 @@ Donate link:
 Tags: security, firewall, brute force, vulnerability, login, wp-admin, admin, ajax, xmlrpc, comment, pingback, trackback, spam, IP address, geo, geolocation, buddypress, bbPress
 Requires at least: 3.7
 Tested up to: 4.9.5
-Stable tag: 3.0.11
+Stable tag: 3.0.12
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -242,7 +242,7 @@ or following descriptions for your best setup.
 
 = Does the site using this plugin comply with GDPR? =
 
-Using this plugin itself should not be the problem, because from version 3.0.11 IP addresses in logs and cache of this plugin are encrypted by default in preparation for personal data breach. It also not only provides a way to manually erase them but also has the functionality to remove them when those are exceeded a certain amount/time. The option "Plivacy friendly" helps you to restrict sending the ip address to the 3rd parties such as geolocaiton APIs and whois service equiped in this plugin. However, these functions are part of the requirements that GDPR requires and do not guarantee that the site is compliant with GDPR. Refer to [3.0.11 release note](http://www.ipgeoblock.com/changelog/release-3.0.11.html) for details.
+Using this plugin itself should not be the problem, because from version 3.0.11 IP addresses in logs and cache of this plugin are encrypted by default in preparation for personal data breach. It also not only provides a way to manually erase them but also has the functionality to remove them when those are exceeded a certain amount/time. The option "Privacy friendly" helps you to restrict sending the ip address to the 3rd parties such as geolocaiton APIs and whois service equipped in this plugin. However, these functions are part of the requirements that GDPR requires and do not guarantee that the site is compliant with GDPR. Refer to [3.0.11 release note](http://www.ipgeoblock.com/changelog/release-3.0.11.html) for details.
 
 = Does this plugin support multisite? =
 
@@ -381,6 +381,11 @@ Please refer to "[How can I fix permission troubles?](http://www.ipgeoblock.com/
 10. **IP Geo Plugin** - Attribution tab
 
 == Changelog ==
+
+= 3.0.12 =
+* **Improvement:** Enhance "Privacy and record settings" where "Expiration time [sec] for Logs" can be specified.
+* **Improvement:** Add "Export cache" in "Statistics in IP address cache" on "Statistics" tab.
+* **Fix:** Fix some minor bugs.
 
 = 3.0.11 =
 * **Improvement:** To comply with GDPR, IP address in logs/cache will be always encrypted. The option of "**Anonymize IP address**" was renamed to "**Privacy friendly**" in "**Privacy and record settings**". It will not only anonymize an IP address but also will restrict on sending to the 3rd parties such as geolocation APIs and whois service.

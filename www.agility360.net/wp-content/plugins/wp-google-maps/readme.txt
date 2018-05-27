@@ -214,6 +214,9 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 7.0.04 - 2018-05-25 =
+* GDPR compliance
+
 = 7.0.04 - 2018-05-07 =
 * Fixed PHP notice regarding store locator default radius
 
