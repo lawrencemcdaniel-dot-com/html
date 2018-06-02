@@ -41,7 +41,7 @@ $lsDefaults = array(
 <span>IMPORTANT:</span>
 <ul>
 	<li>You will still need to set the slider status as published,</li>
-	<li>and insert the slider to the target page with one of the methods described in the <a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#publish-shortcode" target="_blank">documentation</a>.</li>
+	<li>and insert the slider to the target page with one of the methods described in the <a href="https://layerslider.kreaturamedia.com/documentation/#publish-shortcode" target="_blank">documentation</a>.</li>
 </ul>', 'LayerSlider'),
 			'attrs' => array(
 				'placeholder' => __('No schedule', 'LayerSlider')

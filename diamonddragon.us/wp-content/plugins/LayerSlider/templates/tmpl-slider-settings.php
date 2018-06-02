@@ -65,7 +65,7 @@
 				<small><?php _e('NEW', 'LayerSlider') ?></small>
 
 				<?php if( ! $lsActivated ) : ?>
-				<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>"></a>
+				<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>"></a>
 				<?php endif; ?>
 			</li>
 			<?php endif ?>
@@ -153,7 +153,7 @@
 								<span><?php _e('Popup', 'LayerSlider') ?></span>
 
 								<?php if( ! $lsActivated ) : ?>
-								<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>"></a>
+								<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>"></a>
 								<?php endif ?>
 							</div>
 							<?php endif ?>
@@ -380,7 +380,7 @@
 								<?php if( ! get_option('layerslider-authorized-site', false) ) : ?>
 								<div class="ls-notification">
 									<i class="dashicons dashicons-warning"></i>
-									<?php echo sprintf(__('Popup is a premium feature. You can preview all the options here with the Live Preview button, but you need to activate your copy of LayerSlider in order to use it on your front end pages. %sPurchase a license%s or %sread the documentation%s to learn more. %sGot LayerSlider in a theme?%s', 'LayerSlider'), '<a href="'.LS_Config::get('purchase_url').'" target="_blank">', '</a>', '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">', '</a>', '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation-bundles" target="_blank">', '</a>') ?>
+									<?php echo sprintf(__('Popup is a premium feature. You can preview all the options here with the Live Preview button, but you need to activate your copy of LayerSlider in order to use it on your front end pages. %sPurchase a license%s or %sread the documentation%s to learn more. %sGot LayerSlider in a theme?%s', 'LayerSlider'), '<a href="'.LS_Config::get('purchase_url').'" target="_blank">', '</a>', '<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">', '</a>', '<a href="https://layerslider.kreaturamedia.com/documentation/#activation-bundles" target="_blank">', '</a>') ?>
 								</div>
 								<?php endif ?>
 

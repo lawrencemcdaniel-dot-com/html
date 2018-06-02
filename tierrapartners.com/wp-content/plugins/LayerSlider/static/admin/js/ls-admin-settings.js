@@ -265,6 +265,7 @@ jQuery(function($) {
 	};
 
 
+	kmUI.popover.init();
 
 	// Tabs
 	$('.km-tabs').kmTabs();
@@ -297,6 +298,19 @@ jQuery(function($) {
 		e.preventDefault();
 		if(confirm(LS_l10n.SLPermissions)) {
 			this.submit();
+		}
+	});
+
+	$('#ls-privacy-form .ls-checkbox').click(function(e) {
+
+		var $this 		= $(this),
+			warningText = $this.parent().data('warning');
+
+		if( $this.hasClass('on') && warningText ) {
+			if( ! confirm( warningText ) ) {
+				e.preventDefault();
+				return false;
+			}
 		}
 	});
 

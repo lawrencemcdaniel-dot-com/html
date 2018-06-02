@@ -7,7 +7,6 @@ function layerslider_check_notices() {
 
 	if(strpos($_SERVER['REQUEST_URI'], '?page=layerslider') !== false) {
 		add_action('admin_notices', 'layerslider_update_notice');
-		add_action('admin_notices', 'layerslider_unauthorized_update_notice');
 		add_action('admin_notices', 'layerslider_dependency_notice');
 
 		if( LS_Config::get('notices') && ! get_option('layerslider-authorized-site', null) ) {
@@ -97,18 +96,38 @@ function layerslider_important_notice() {
 
 function layerslider_update_notice() {
 
-	if(get_option('layerslider-authorized-site', false)) {
+	$activated 	= get_option( 'layerslider-authorized-site', false );
+	$updates 	= get_plugin_updates();
+	$latest 	= get_option( 'ls-latest-version', false );
 
-		// Get plugin updates
-		$updates = get_plugin_updates();
+	$last_notification = get_option( 'ls-last-update-notification', LS_PLUGIN_VERSION );
+	if( ! empty( $updates[ LS_PLUGIN_BASE ]->update->_update_banner )  ) {
+
+		if( version_compare( $last_notification, $latest, '<' ) ) {
+
+		 ?>
+			<div class="layerslider_notice_img" style="background-image: url(<?php echo $updates[ LS_PLUGIN_BASE ]->update->_update_banner ?>);">
+
+				<?php if( ! $activated ) : ?>
+				<a href="<?php echo wp_nonce_url('?page=layerslider&action=hide-update-notice', 'hide-update-notice') ?>" class="dashicons dashicons-dismiss" data-help="<?php _e('Hide this banner', 'LayerSlider') ?>"></a>
+				<?php endif ?>
+
+				<a href="<?php echo wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin='.LS_PLUGIN_BASE), 'upgrade-plugin_'.LS_PLUGIN_BASE) ?>" class="button button-install" title="<?php _e('Install now', 'LayerSlider') ?>">
+						<?php _e('Install now', 'LayerSlider') ?>
+				</a>
+			</div>
+		<?php
+		}
+
+	} elseif( $activated ) {
 
 		// Check for update
-		if(isset($updates[LS_PLUGIN_BASE]) && isset($updates[LS_PLUGIN_BASE]->update)) {
-			$update 		= $updates[LS_PLUGIN_BASE];
+		if( isset( $updates[ LS_PLUGIN_BASE ] ) && isset( $updates[ LS_PLUGIN_BASE ]->update ) ) {
+			$update 		= $updates[ LS_PLUGIN_BASE ];
 			$currentVersion = $update->Version;
 			$newVersion 	= $update->update->new_version;
 
-			if( version_compare($newVersion, $currentVersion, '>') ) {
+			if( version_compare( $newVersion, $currentVersion, '>' ) ) {
 			add_thickbox();
 			?>
 			<div class="layerslider_notice">
@@ -126,17 +145,12 @@ function layerslider_update_notice() {
 			<?php
 			}
 		}
-	}
-}
+	} elseif( ! $activated ) {
 
-function layerslider_unauthorized_update_notice() {
-
-	if(!get_option('layerslider-authorized-site', false)) {
-
-		$latest = get_option('ls-latest-version', false);
-		if($latest && version_compare(LS_PLUGIN_VERSION, $latest, '<')) {
-			$last_notification = get_option('ls-last-update-notification', LS_PLUGIN_VERSION);
-			if(version_compare($last_notification, $latest, '<')) {
+		$latest = get_option( 'ls-latest-version', false );
+		if( $latest && version_compare( LS_PLUGIN_VERSION, $latest, '<' ) ) {
+			$last_notification = get_option( 'ls-last-update-notification', LS_PLUGIN_VERSION );
+			if( version_compare( $last_notification, $latest, '<' ) ) {
 			?>
 			<div class="layerslider_notice">
 				<img src="<?php echo LS_ROOT_URL.'/static/admin/img/ls_80x80.png' ?>" alt="LayerSlider icon">
@@ -144,7 +158,7 @@ function layerslider_unauthorized_update_notice() {
 				<p>
 					<?php echo sprintf(__('You have version %1$s. The latest version is %2$s.', 'LayerSlider'), LS_PLUGIN_VERSION, $latest); ?><br>
 					<i><?php _e('New releases contain new features, bug fixes and various improvements across the entire plugin.', 'LayerSlider') ?></i>
-					<i><?php echo sprintf(__('Set up auto-updates to upgrade to this new version, or request it from the author of your theme if you’ve received LayerSlider from them. %sClick here%s to learn more.', 'LayerSlider'), '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#updating" target="_blank">', '</a>') ?></i>
+					<i><?php echo sprintf(__('Set up auto-updates to upgrade to this new version, or request it from the author of your theme if you’ve received LayerSlider from them. %sClick here%s to learn more.', 'LayerSlider'), '<a href="https://layerslider.kreaturamedia.com/documentation/#updating" target="_blank">', '</a>') ?></i>
 					<a href="<?php echo wp_nonce_url('?page=layerslider&action=hide-update-notice', 'hide-update-notice') ?>" class="button button-extra"><?php _e('Hide this message', 'LayerSlider') ?></a>
 				</p>
 				<div class="clear"></div>
@@ -152,6 +166,7 @@ function layerslider_unauthorized_update_notice() {
 			}
 		}
 	}
+
 }
 
 
@@ -192,9 +207,9 @@ function layerslider_premium_support() { ?>
 		<p>
 			<?php echo sprintf(
 				__('Activate LayerSlider to unlock premium features, slider templates and other exclusive content & services. Receive live plugin updates with 1-Click installation (including optional early access releases) and premium support. Please read our %sdocumentation%s for more information. %sGot LayerSlider with a theme?%s', 'LayerSlider'),
-				'<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">',
+				'<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">',
 				'</a>',
-				'<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation-bundles" target="_blank">',
+				'<a href="https://layerslider.kreaturamedia.com/documentation/#activation-bundles" target="_blank">',
 				'</a>')
 			?>
 			<a href="<?php echo wp_nonce_url('?page=layerslider&action=hide-support-notice', 'hide-support-notice') ?>" class="button">Hide this message</a>
@@ -214,7 +229,7 @@ function layerslider_plugins_purchase_notice( $plugin_file, $plugin_data, $statu
 				<p>
 					<?php
 						printf(__('License activation is required in order to receive updates and premium support for LayerSlider. %sPurchase a license%s or %sread the documentation%s to learn more. %sGot LayerSlider in a theme?%s', 'installer'),
-							'<a href="'.LS_Config::get('purchase_url').'" target="_blank">', '</a>', '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">', '</a>', '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation-bundles" target="_blank">', '</a>');
+							'<a href="'.LS_Config::get('purchase_url').'" target="_blank">', '</a>', '<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">', '</a>', '<a href="https://layerslider.kreaturamedia.com/documentation/#activation-bundles" target="_blank">', '</a>');
 					?>
 				</p>
 			</div>
@@ -228,7 +243,7 @@ function layerslider_canceled_activation() { ?>
 	<h1><?php _e('LayerSlider product activation was canceled on this site', 'LayerSlider') ?></h1>
 	<p>
 		<?php _e('You’ve previously activated your copy of LayerSlider on this site to receive plugin updates, use exclusive features and access to premium templates in the Template Store. However, your activation was canceled and you can no longer enjoy these benefits. There are a number of potential reasons why this could happen, the common ones include: you’ve remotely deactivated your site using our online tools or asked us to do the same on your behalf; your purchase have been refunded or the transaction disputed; Envato have revoked your purchase code with an undisclosed reason.', 'LayerSlider') ?>
-		<br><br> <?php echo sprintf(__('To review all the possible reasons and find out what to do next, please refer to the %sWhy was my activation canceled?%s section in our documentation.', 'LayerSlider'), '<a target="_blank" href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#canceled-activation">', '</a>') ?>
+		<br><br> <?php echo sprintf(__('To review all the possible reasons and find out what to do next, please refer to the %sWhy was my activation canceled?%s section in our documentation.', 'LayerSlider'), '<a target="_blank" href="https://layerslider.kreaturamedia.com/documentation/#canceled-activation">', '</a>') ?>
 		<a href="<?php echo wp_nonce_url('?page=layerslider&action=hide-canceled-activation-notice', 'hide-canceled-activation-notice') ?>" class="button button-primary button-hero"><?php _e('OK, I understand', 'LayerSlider') ?></a>
 	</p>
 	<div class="clear"></div>

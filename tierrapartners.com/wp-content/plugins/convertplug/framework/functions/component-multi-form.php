@@ -843,11 +843,12 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 
 	<?php
 
+	$style_id = ( isset( $a['style_id'] ) ) ? esc_attr( $a['style_id'] ) : '';
 		// Form Type?
 	if ( isset( $a['mailer'] ) && 'custom-form' === $a['mailer'] ) {
 
 		// if Form - Custom?
-		echo '<div class="custom-html-form">' . do_shortcode( $a['custom_html_form'] ) . '</div>';
+		echo '<div class="custom-html-form" data-style="'.$style_id.'">' . do_shortcode( $a['custom_html_form'] ) . '</div>';
 
 	} else {
 			// apply button styles.

@@ -165,7 +165,7 @@ class KM_UpdatesV3 {
 				if( LS_Config::get('autoupdate') && ! get_option( $this->config['authKey'], false ) ) {
 					return new WP_Error('ls_update_error', sprintf(
 						__('License activation is required to receive updates. Please read our %sonline documentation%s to learn more.', 'LayerSlider'),
-						'<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">',
+						'<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">',
 						'</a>')
 					);
 				}
@@ -188,7 +188,7 @@ class KM_UpdatesV3 {
 		// Provide license activation warning on non-activated sites
 		if( ! get_option( $this->config['authKey'], false ) ) {
 			printf(__('License activation is required in order to receive updates for LayerSlider. %sPurchase a license%s or %sread the documentation%s to learn more. %sGot LayerSlider in a theme?%s', 'installer'),
-							'<a href="'.LS_Config::get('purchase_url').'" target="_blank">', '</a>', '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">', '</a>', '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation-bundles" target="_blank">', '</a>');
+							'<a href="'.LS_Config::get('purchase_url').'" target="_blank">', '</a>', '<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">', '</a>', '<a href="https://layerslider.kreaturamedia.com/documentation/#activation-bundles" target="_blank">', '</a>');
 		}
 	}
 

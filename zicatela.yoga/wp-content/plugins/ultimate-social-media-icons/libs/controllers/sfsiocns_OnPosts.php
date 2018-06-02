@@ -298,6 +298,8 @@ function sfsi_footer_script()
 		$sfsi_section6['sfsi_rectfbshare'] = 'no';
 	}
 	
+	$sfsi_section6['sfsi_show_Onposts'] = isset($sfsi_section6['sfsi_show_Onposts']) && !empty($sfsi_section6['sfsi_show_Onposts']) ? $sfsi_section6['sfsi_show_Onposts'] : "no";
+
 	if($sfsi_section1['sfsi_facebook_display']=="yes" || ($sfsi_section6['sfsi_rectfb'] == "yes" && $sfsi_section6['sfsi_show_Onposts'] == "yes") || ($sfsi_section6['sfsi_rectfbshare'] == "yes" && $sfsi_section6['sfsi_show_Onposts'] == "yes"))
 	{
 		?>

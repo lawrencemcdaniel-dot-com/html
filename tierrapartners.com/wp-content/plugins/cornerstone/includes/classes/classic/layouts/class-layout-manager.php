@@ -13,7 +13,7 @@ class Cornerstone_Layout_Manager extends Cornerstone_Plugin_Component {
 			'supports'        => false
 		));
 
-    $this->element_migrations = $this->plugin->loadComponent( 'Element_Migrations' );
+    $this->element_migrations = $this->plugin->component( 'Element_Migrations' );
 	}
 
 	public function load() {

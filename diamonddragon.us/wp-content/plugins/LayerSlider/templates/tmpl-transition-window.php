@@ -83,7 +83,7 @@
 										<span class="dashicons dashicons-yes"></span>
 										<?php _e('Use it on this slide', 'LayerSlider') ?>
 										<?php if( ! $lsActivated ) : ?>
-										<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>" data-help-delay="100"></a>
+										<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>" data-help-delay="100"></a>
 										<?php endif ?>
 									</div>
 									<div class="center ls-example-link">

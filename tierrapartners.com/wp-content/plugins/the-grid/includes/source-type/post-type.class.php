@@ -1082,17 +1082,18 @@ class The_Grid_Post_Type {
 	public function get_terms() {
 		
 		$this->post_terms = null;
-		$taxonomies = get_object_taxonomies($this->post_type, 'objects');
-		
+
+		$taxonomies = $this->get_taxonomies( (array) $this->post_type );
+
 		if (!empty($taxonomies)) {
 			
-			foreach ($taxonomies as $taxonomy_slug => $taxonomy){
+			foreach ($taxonomies as $taxonomy => $name ){
 				
-				$terms = (array) get_the_terms($this->post_ID, $taxonomy_slug);
+				$terms = (array) get_the_terms($this->post_ID, $taxonomy);
 				
 				foreach ($terms as $term){
 					
-					if(!empty($term) && $taxonomy_slug != 'product_type'){
+					if(!empty($term) && $taxonomy != 'product_type'){
 						
 						$term_options = get_option($term->taxonomy.'_'.$term->term_id);
 						$this->post_terms[] = array(
@@ -1110,6 +1111,50 @@ class The_Grid_Post_Type {
 
 		}
 	
+	}
+	
+	/**
+	 * Get Taxonomies
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @param array $post_types Holds post types.
+	 * @return array
+	 */
+	public function get_taxonomies( $post_types = array() ) {
+
+		global $wp_taxonomies;
+
+		$taxonomies = array();
+
+		if ( empty( $wp_taxonomies ) ) {
+			return $taxonomies;
+		}
+
+		foreach ( $wp_taxonomies as $taxonomy => $args ) {
+
+			$matched = true;
+
+			if ( ! empty( $post_types ) && is_array( $post_types ) ) {
+
+				$matched = array_filter( $post_types, function( $post_type ) use ( $args ) {
+					return in_array( $post_type, $args->object_type );
+				});
+
+			}
+
+			if ( empty( $matched ) || ! $args->publicly_queryable || ! $args->public ) {
+				continue;
+			}
+
+			// Fallback to taxonomy name if empty label.
+			$taxonomies[ $taxonomy ] = ucfirst( $args->label ?: $taxonomy );
+
+		}
+
+		return $taxonomies;
+
 	}
 	
 	/**

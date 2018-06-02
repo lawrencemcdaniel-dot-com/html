@@ -7,6 +7,10 @@ class Cornerstone_Model_Footers_Footer_Template extends Cornerstone_Plugin_Compo
 
   public function setup() {
 
+    if ( ! $this->plugin->component('App_Permissions')->user_can('footers.create_from_template') ) {
+      return;
+    }
+
     $posts = get_posts( array(
       'post_type' => array( 'cs_template' ),
       'post_status' => array( 'tco-data', 'publish' ),
@@ -126,6 +130,10 @@ class Cornerstone_Model_Footers_Footer_Template extends Cornerstone_Plugin_Compo
 
   public function create( $params ) {
 
+    if ( ! $this->plugin->component('App_Permissions')->user_can('footers.save_as_template') ) {
+      throw new Exception( 'Unauthorized' );
+    }
+
     $atts = $this->atts_from_request( $params );
 
     if ( ! isset( $atts['title'] ) ) {
@@ -152,6 +160,10 @@ class Cornerstone_Model_Footers_Footer_Template extends Cornerstone_Plugin_Compo
   }
 
   public function update( $params ) {
+
+    if ( ! $this->plugin->component('App_Permissions')->user_can('footers.save_as_template') ) {
+      throw new Exception( 'Unauthorized' );
+    }
 
     $atts = $this->atts_from_request( $params );
 

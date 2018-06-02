@@ -4,9 +4,9 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-function getFieldValues(form, fieldName) {
+function getFieldValues(form, fieldName, evt) {
     var values = [];
-    var inputs = form.querySelectorAll('input[name="' + fieldName + '"], select[name="' + fieldName + '"], textarea[name="' + fieldName + '"]');
+    var inputs = form.querySelectorAll('input[name="' + fieldName + '"], select[name="' + fieldName + '"], textarea[name="' + fieldName + '"], button[name="' + fieldName + '"]');
 
     for (var i = 0; i < inputs.length; i++) {
         var input = inputs[i];
@@ -14,6 +14,14 @@ function getFieldValues(form, fieldName) {
 
         if ((type === "radio" || type === "checkbox") && !input.checked) {
             continue;
+        }
+
+        if (type === 'button' || type === 'submit' || input.tagName === 'BUTTON') {
+            if ((!evt || evt.target !== input) && form.dataset[fieldName] !== input.value) {
+                continue;
+            }
+
+            form.dataset[fieldName] = input.value;
         }
 
         values.push(input.value);
@@ -36,13 +44,13 @@ function findForm(element) {
     return null;
 }
 
-function toggleElement(el) {
+function toggleElement(el, evt) {
     var show = !!el.getAttribute('data-show-if');
     var conditions = show ? el.getAttribute('data-show-if').split(':') : el.getAttribute('data-hide-if').split(':');
     var fieldName = conditions[0];
     var expectedValues = (conditions.length > 1 ? conditions[1] : "*").split('|');
     var form = findForm(el);
-    var values = getFieldValues(form, fieldName);
+    var values = getFieldValues(form, fieldName, evt);
 
     // determine whether condition is met
     var conditionMet = false;
@@ -93,11 +101,14 @@ function handleInputEvent(evt) {
 
     var form = evt.target.form;
     var elements = form.querySelectorAll('[data-show-if], [data-hide-if]');
-    [].forEach.call(elements, toggleElement);
+    [].forEach.call(elements, function (el) {
+        return toggleElement(el, evt);
+    });
 }
 
 exports.default = {
     'init': function init() {
+        document.addEventListener('click', handleInputEvent, true);
         document.addEventListener('keyup', handleInputEvent, true);
         document.addEventListener('change', handleInputEvent, true);
         document.addEventListener('hf-refresh', evaluate, true);
@@ -312,7 +323,7 @@ function submitForm(formEl) {
 
     var formData = new FormData(formEl);
     [].forEach.call(formEl.querySelectorAll('[data-was-required=true]'), function (el) {
-        formData.append('was_required[]', el.getAttribute('name'));
+        formData.append('_was_required[]', el.getAttribute('name'));
     });
 
     var request = new XMLHttpRequest();

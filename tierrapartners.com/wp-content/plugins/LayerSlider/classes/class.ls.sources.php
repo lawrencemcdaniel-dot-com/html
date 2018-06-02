@@ -131,7 +131,7 @@ class LS_Sources {
 	public static function urlForSkin( $handle ) {
 		$path = self::$skins[ strtolower($handle) ]['dir'];
 		$url = content_url() . str_replace(realpath(WP_CONTENT_DIR), '', realpath($path)).'/';
-		$url = str_replace('\\', '/', $url);
+		$url = set_url_scheme( str_replace('\\', '/', $url) );
 
 		if( has_filter( 'layerslider_skin_url' ) ) {
 			$url = apply_filters( 'layerslider_skin_url', $url, $handle );

@@ -89,7 +89,7 @@ class Forms
             return 'spam';
         }
 
-        $was_required = (array) hf_array_get( $data, 'was_required', array() );
+        $was_required = (array) hf_array_get( $data, '_was_required', array() );
         $required_fields = $form->get_required_fields();
         foreach ($required_fields as $field_name) {
             $value = hf_array_get( $data, $field_name );
@@ -333,7 +333,7 @@ class Forms
                 ob_end_clean();
             }
 
-            http_response_code(200);
+            status_header(200);
             require dirname( $this->plugin_file ) . '/views/form-preview.php';
             exit;
         });

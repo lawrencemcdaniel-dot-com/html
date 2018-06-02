@@ -96,27 +96,11 @@ return array(
 
 
 	// Elements
-	'elements-heading' => __( 'Elements', 'cornerstone' ),
-	'elements-search'  => __( 'Search Elements', 'cornerstone' ),
-	'elements-return'  => __( 'Back to Elements', 'cornerstone' ),
-
 	'no-elements-found'         => __( 'No Elements Found', 'cornerstone' ),
   'no-elements-found-message' => __( 'Try refining your search to locate your desired element.', 'cornerstone' ),
 
 	// Inspector
-	'inspector-heading'            => __( 'Inspector', 'cornerstone' ),
-	'inspector-return'             => __( 'Back to Inspector', 'cornerstone' ),
-	'inspector-blank-title'        => __( 'No elements are selected!', 'cornerstone' ),
-	'inspector-blank-pane-title'   => __( 'Nothing Selected', 'cornerstone' ),
 	'inspector-blank-pane-message' => __( 'Click on an element in the site preview to begin inspecting it.', 'cornerstone' ),
-	'inspector-blank-sub'          => __( 'Inspect an element by clicking on it in the preview pane.', 'cornerstone' ),
-	'inspector-duplicate'          => __( 'Duplicate', 'cornerstone' ),
-	'inspector-delete'             => __( 'Delete', 'cornerstone' ),
-	'inspector-really-delete'      => __( 'Really Delete?', 'cornerstone' ),
-	'inspector-delete-confirm'     => __( 'Are you sure you wish to delete this element?', 'cornerstone' ),
-	'inspector-erase'              => __( 'Erase', 'cornerstone' ),
-	'inspector-really-erase'       => __( 'Really Erase?', 'cornerstone' ),
-	'inspector-manage-layout'      => __( 'Manage Layout', 'cornerstone' ),
 
 	// Controls
 	'controls-on'           => __( 'On', 'cornerstone' ),
@@ -141,6 +125,8 @@ return array(
 	'sortable-empty'        => __( 'No items!', 'cornerstone' ),
 	'sortable-empty-sub'    => __( 'Add some to continue building.', 'cornerstone' ),
 	'expand-control'        => __( 'Expand', 'cornerstone' ),
+
+  'settings-format'        => __( '{{type}} Settings', 'cornerstone' ),
 
 	// Settings
 	'settings-heading'       => __( 'Settings', 'cornerstone' ),
@@ -214,11 +200,11 @@ return array(
 	'message-success' => __( 'Awesome!', 'cornerstone' ),
 	'message-error'   => __( 'Uh oh!', 'cornerstone' ),
 
-	'moment-months'         => __( 'January_February_March_April_May_June_July_August_September_October_November_December', 'cornerstone' ),
-	'moment-months-short'   => __( 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec', 'cornerstone' ),
-	'moment-weekdays'       => __( 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday', 'cornerstone' ),
-	'moment-weekdays-short' => __( 'Sun_Mon_Tue_Wed_Thu_Fri_Sat', 'cornerstone' ),
-	'moment-weekdays-min'   => __( 'Su_Mo_Tu_We_Th_Fr_Sa', 'cornerstone' ),
+	// 'moment-months'         => __( 'January_February_March_April_May_June_July_August_September_October_November_December', 'cornerstone' ),
+	// 'moment-months-short'   => __( 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec', 'cornerstone' ),
+	// 'moment-weekdays'       => __( 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday', 'cornerstone' ),
+	// 'moment-weekdays-short' => __( 'Sun_Mon_Tue_Wed_Thu_Fri_Sat', 'cornerstone' ),
+	// 'moment-weekdays-min'   => __( 'Su_Mo_Tu_We_Th_Fr_Sa', 'cornerstone' ),
 	'prev-month'            => __( 'Previous Month', 'cornerstone' ),
 	'next-month'            => __( 'Next Month', 'cornerstone' ),
 

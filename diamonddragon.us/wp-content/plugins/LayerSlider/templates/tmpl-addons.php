@@ -26,15 +26,15 @@ $isActivated = get_option('layerslider-authorized-site', false);
 					__('Product activation is required to use Add-Ons. Add-Ons are optional, but they can enhance your content &amp; workflow. Activate your copy of LayerSlider in order to receive these additional benefits. <br><br> %sPurchase a license%s or %sread our documentation%s to learn more. %sGot LayerSlider in a theme?%s', 'LayerSlider'),
 						'<a href="'.LS_Config::get('purchase_url').'" target="_blank">',
 						'</a>',
-						'<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">',
+						'<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">',
 						'</a>',
-						'<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation-bundles" target="_blank">',
+						'<a href="https://layerslider.kreaturamedia.com/documentation/#activation-bundles" target="_blank">',
 						'</a>'
 					);
 			} else {
 				echo sprintf(
 					__('Product activation is required in order to use Add-Ons. Add-Ons can enhance your content &amp; workflow, but they are optional and not required to build sliders. Product activation requires you to have a purchase code, which is payable if you have received LayerSlider with a theme. For more information, please read our %sactivation guide%s or Envato’s %sBundled Plugins%s help article.', 'LayerSlider'),
-					'<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">',
+					'<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">',
 					'</a>',
 					'<a href="https://help.market.envato.com/hc/en-us/articles/213762463" target="_blank">',
 					'</a>'

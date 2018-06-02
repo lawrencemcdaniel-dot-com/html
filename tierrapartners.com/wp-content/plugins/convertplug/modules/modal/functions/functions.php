@@ -217,14 +217,10 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		// Enqueue Google Fonts.
 		cp_enqueue_google_fonts( $a['cp_google_fonts'] );
 
-		if ( isset( $a['opt_bg'] ) && false !== strpos( $a['opt_bg'], '|' ) ) {
-			$opt_bg      = explode( '|', $a['opt_bg'] );
-			$bg_repeat   = $opt_bg[0];
-			$bg_pos      = $opt_bg[1];
-			$bg_size     = $opt_bg[2];
-			$bg_setting .= 'background-repeat: ' . $bg_repeat . ';';
-			$bg_setting .= 'background-position: ' . $bg_pos . ';';
-			$bg_setting .= 'background-size: ' . $bg_size . ';';
+		// get op_bg image sizes.
+		$opt_bg = isset( $a['opt_bg'] ) ? $a['opt_bg'] : '';
+		if ( isset( $opt_bg ) && false !== strpos( $opt_bg, '|' ) ) {
+			$bg_setting .= cp_get_image_size_opt( $opt_bg );
 		}
 
 		// Time Zone.
@@ -260,29 +256,15 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		}
 
 		// Modal - Background Image & Background Color.
-		$modal_bg_color = ( isset( $a['modal_bg_color'] ) ) ? $a['modal_bg_color'] : '';
-		if ( ! isset( $a['modal_bg_image_src'] ) ) {
-			$a['modal_bg_image_src'] = 'upload_img';
-		}
-		if ( isset( $a['modal_bg_image_src'] ) && ! empty( $a['modal_bg_image_src'] ) ) {
+		$modal_bg_color = ( isset( $a['modal_bg_color'] ) ) ? $a['modal_bg_color'] : '';	
+		$modal_bg_image = '';
+		$modal_bg_image_new = isset( $a['modal_bg_image'] ) ?  $a['modal_bg_image'] :'';
+		$modal_bg_image_src = isset( $a['modal_bg_image_src'] ) ? $a['modal_bg_image_src']  :'upload_img';
+		$modal_bg_image_custom_url = isset( $a['modal_bg_image_custom_url'] ) ?  $a['modal_bg_image_custom_url']  :'';
 
-			if ( 'custom_url' === $a['modal_bg_image_src'] ) {
-				$modal_bg_image = $a['modal_bg_image_custom_url'];
-			} elseif ( 'upload_img' === $a['modal_bg_image_src'] ) {
-				if ( isset( $a['modal_bg_image'] ) ) {
-					if ( false !== strpos( $a['modal_bg_image'], 'http' ) ) {
-						$modal_bg_image = explode( '|', $a['modal_bg_image'] );
-						$modal_bg_image = $modal_bg_image[0];
-					} else {
-						$modal_bg_image = apply_filters( 'cp_get_wp_image_url', $a['modal_bg_image'] );
-					}
-					$modal_image = cp_get_protocol_settings_init( $modal_bg_image );
-				}
-			} else {
-				$modal_bg_image = '';
-			}
+		if ( isset( $modal_bg_image_src ) && ! empty( $modal_bg_image_src ) ) {
+			$modal_bg_image = cp_get_module_images_new( $modal_bg_image_new, $modal_bg_image_src, $modal_bg_image_custom_url );
 		}
-
 		if ( '' !== $modal_bg_image ) {
 			if ( $bg_type_set && 'image' === $module_bg_color_type ) {
 				$customcss .= 'background-image:url(' . $modal_bg_image . ');' . $bg_setting . ';';
@@ -292,7 +274,7 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 				$windowcss .= 'background-image:url(' . $modal_bg_image . ');' . $bg_setting . ';';
 			}
 		}
-
+		
 		$gradient_css   = '';
 		$modal_body_css = '';
 		if ( ! $old_user && 'gradient' === $module_bg_color_type && $bg_type_set && 'countdown' !== $a['style'] ) {
@@ -494,7 +476,7 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		if ( 'cp-modal-window-size' === $a['modal_size'] ) {
 			$global_class .= ' cp-window-overlay';
 		}
-
+	
 		// form display/hide after sucessfull submission.
 		$form_action_onsubmit = isset( $a['form_action_on_submit'] ) ? $a['form_action_on_submit'] : '';
 
@@ -507,6 +489,12 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		}
 
 		$inline_test = ( $is_inline ) ? $inline_text : 'cp-overlay ';
+		// Custom selector.
+		$custom_selector = '';
+		$custom_selector = isset( $a['custom_selector'] ) ? cp_get_custom_slector_init( $a['custom_selector'] ): '';		
+		if( $custom_selector !== '' ){
+			$custom_class      .= ' '.cp_get_custom_slector_class_init( $a['custom_selector'] );
+		}
 
 		$content_uid        = 'content-' . $a['uid'];
 		$overlay_show_data  = '';
@@ -523,6 +511,8 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		$overlay_show_data .= 'data-custom-class = "' . esc_attr( $custom_class ) . '"';
 		$overlay_show_data .= 'data-load-on-refresh = "' . esc_attr( $load_on_refresh ) . '"';
 		$overlay_show_data .= 'data-dev-mode = "' . esc_attr( $dev_mode ) . '"';
+		$overlay_show_data .= 'data-custom-selector = "' . esc_attr( $custom_selector ) . '"';
+
 		$onload_class       = '';
 		$onload_class      .= 'overlay-show ' . $cp_onload . ' ' . esc_attr( $custom_class );
 
@@ -531,7 +521,7 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		if ( $is_inline ) {
 			$overlay_class .= ' cp-inline-modal-container';
 		}
-
+		
 		// global container class and data.
 		$global_cont_data  = '';
 		$global_cont_data .= $is_scheduled;
@@ -562,16 +552,46 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		$global_cont_class .= esc_attr( $global_class ) . ' ';
 		$global_cont_class .= esc_attr( $close_class ) . ' ';
 		$global_cont_class .= esc_attr( $impression_disable_class ) . ' ';
+		$custom_css_class = isset( $a['custom_css_class'] ) ? $a['custom_css_class'] :'';// Custom class for specific module.
+
+		$overlay_style = '';
+		$overlay_color_style = '';
+		$overlay_type = isset( $a['module_overlay_color_type'] ) ? $a['module_overlay_color_type'] :'';
+		$overlay_color = isset( $a['modal_overlay_bg_color'] ) ? $a['modal_overlay_bg_color'] :'';
+		$overlay_img = isset( $a['overlay_bg_image'] ) ? $a['overlay_bg_image'] :'';
+		$overlay_custom_url = isset( $a['overlay_bg_image_custom_url'] ) ? $a['overlay_bg_image_custom_url'] :'';
+		$overlay_img_src = isset( $a['overlay_bg_image_src'] ) ? $a['overlay_bg_image_src'] :'';
+		$overlay_img_color = isset( $a['modal_img_overlay_bg_color'] ) ? $a['modal_img_overlay_bg_color'] :'';
+
+		$overlay_color_style = 'background-color:'.$overlay_color.';';
+
+		if( 'image' === $overlay_type ){
+			$overlay_color_style = 'background-color:'.$overlay_img_color.';';
+		}
+		
+		$cp_overlay_image = cp_get_module_images_new( $overlay_img, $overlay_img_src, $overlay_custom_url );
+
+		//get overlay image size.
+		$overlay_bg_setting ='';
+		if ( isset( $a['overlay_bg'] ) && false !== strpos( $a['overlay_bg'], '|' ) ) {
+			$overlay_bg_setting .= cp_get_image_size_opt( $a['overlay_bg'] );
+		}
+		
+		//overlay image style.
+		if ( $overlay_type && 'image' === $overlay_type ) {
+			$overlay_style = 'background-image:url(' . $cp_overlay_image . ');' . $overlay_bg_setting . ';';
+		}
 
 		ob_start();
 
 		?>
 		<?php if ( ! $is_inline ) { ?>
-		<div <?php echo $overlay_show_data; ?> class="<?php echo $onload_class; ?>" data-module-type="modal" ></div>
+		<div <?php echo ($overlay_show_data); ?> class="<?php echo $onload_class; ?>" data-module-type="modal" ></div>
 		<?php } ?>
 
-		<div <?php echo $data_form_layout; ?> class="<?php echo esc_attr( $overlay_class ); ?> ">
-			<div class="<?php echo ( $global_cont_class ); ?>" <?php echo  $global_cont_data; ?> style=" <?php echo esc_attr( 'background:' . $a['modal_overlay_bg_color'] ); ?>" >
+		<div <?php echo $data_form_layout; ?> class="<?php echo esc_attr( $overlay_class ); ?> " data-style-id ="<?php echo $style_id; ?>"  data-module-name ="modal" >
+			<div class="<?php echo ( $global_cont_class ); ?>" <?php echo  $global_cont_data; ?>  style=" <?php echo esc_attr( $overlay_style ); ?>" >
+				<?php if( !$is_inline ){ ?><div class="cp-overlay-background" style=" <?php echo esc_attr( $overlay_color_style ); ?>"></div><?php } ?>
 				<?php if ( isset( $a['modal_size'] ) && 'cp-modal-custom-size' !== $a['modal_size'] ) { ?>
 				<div class="cp-modal-body-overlay cp_fs_overlay" style="<?php echo esc_attr( $modal_body_css ); ?>;<?php echo esc_attr( $inset ); ?>;"></div>
 				<?php } ?>

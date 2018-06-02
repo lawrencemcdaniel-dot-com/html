@@ -554,7 +554,11 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		$cp_container_class .= ' ' . esc_attr( $style_id );
 		$cp_container_class .= ' ' . $style_class . '-container';
 		$cp_container_class .= ' overlay-show ';
-
+		$custom_selector = '';
+		$custom_selector = isset( $a['custom_selector'] ) ? cp_get_custom_slector_init( $a['custom_selector'] ): '';	
+		if( '' !== $custom_selector ){
+			$custom_class      .= ' '.cp_get_custom_slector_class_init( $a['custom_selector'] );
+		}
 		// overlay div data.
 		$slide_overlay_data .= 'data-image-position="' . $image_position . '" ';
 		$slide_overlay_data .= 'data-placeholder-color ="' . $placeholder_color . '" ';
@@ -574,15 +578,17 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		$slide_overlay_data .= $form_data_onsubmit . ' ';
 		$slide_overlay_data .= $autoclose_data . ' ';
 		$slide_overlay_data .= $close_btn_on_duration . ' ';
+		//$slide_overlay_data .= 'data-custom-selector = "' . esc_attr( $custom_selector ) . '"';
 
-		$slide_overlay_class  = 'slidein-overlay' . ' ';
-		$slide_overlay_class .= ' ' . $global_class . ' ';
-		$slide_overlay_class .= ' ' . $inline_text . ' ';
-		$slide_overlay_class .= ' ' . esc_attr( $slide_toggle_class ) . ' ';
-		$slide_overlay_class .= ' content-' . $uid . ' ';
-		$slide_overlay_class .= ' ' . $close_class . ' ';
-		$slide_overlay_class .= ' ' . $minimize_widget . ' ';
-		$slide_overlay_class .= ' ' . $impression_disable_class . ' ';
+
+		$slide_overlay_class  = 'slidein-overlay';
+		$slide_overlay_class .= ' ' . $global_class ;
+		$slide_overlay_class .= ' ' . $inline_text ;
+		$slide_overlay_class .= ' ' . esc_attr( $slide_toggle_class );
+		$slide_overlay_class .= ' content-' . $uid ;
+		$slide_overlay_class .= ' ' . $close_class;
+		$slide_overlay_class .= ' ' . $minimize_widget ;
+		$slide_overlay_class .= ' ' . $impression_disable_class;
 
 		$slide_content_data .= 'data-dev-mode="' . esc_attr( $dev_mode ) . '" ';
 		$slide_content_data .= 'data-load-on-refresh="' . esc_attr( $load_on_refresh ) . '" ';
@@ -598,14 +604,16 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		$slide_content_data .= $scroll_data . ' ';
 		$slide_content_data .= $after_content_data . ' ';
 		$slide_content_data .= $referrer_data . ' ';
-
+		$custom_css_class = isset( $a['custom_css_class'] ) ? $a['custom_css_class'] :'';
+		$slide_content_data .= 'data-custom-selector = "' . esc_attr( $custom_selector ) . '"';
+		
 		ob_start();
 		if ( ! $is_inline ) {
 			?>
 			<div <?php echo $slide_content_data; ?> class="<?php echo $si_onload; ?> overlay-show <?php echo esc_attr( $custom_class ); ?>"  data-module-type="slide_in" ></div>
 			<?php } ?>
-			<div class="<?php echo $cp_container_class; ?> ">
-				<div class="<?php echo $slide_overlay_class; ?>" <?php echo $slide_overlay_data; ?> >
+			<div class="<?php echo $cp_container_class; ?>" data-style-id ="<?php echo $style_id; ?>" data-module-name ="slidein" >
+				<div class="<?php echo $slide_overlay_class; echo $custom_css_class; ?>" <?php echo $slide_overlay_data; ?> >
 					<div class="cp-slidein <?php echo $slide_position; ?>" style="<?php echo esc_attr( $slidein_size_style ); ?>">
 						<div class="cp-animate-container <?php echo esc_attr( $toggleclass ); ?>" <?php echo $overaly_setting; ?> data-exit-animation="<?php echo esc_attr( $exit_animation ); ?>">
 							<div class="cp-slidein-content" id="slide-in-animate-<?php echo esc_attr( $style_id ); ?>" style="<?php echo esc_attr( $css_style ); ?>;<?php echo esc_attr( $windowcss ); ?>">

@@ -6994,6 +6994,14 @@ var initSliderBuilder = function() {
 		e.preventDefault();
 		e.stopPropagation();
 
+		// Check if the image editor is enabled as
+		// per the new privacy settings introduced
+		// in version 6.7.6
+		if( ! featherEditor ) {
+			alert( LS_l10n.SBImageEditorDisabled );
+			return false;
+		}
+
 		// Set ID on the currently editing image
 		var $parent = jQuery(this).parent(),
 			$image 	= $parent.find('img').attr('id', 'cc-current-image'),
@@ -9075,6 +9083,12 @@ var initSliderBuilder = function() {
 			LayerSlider.updatePreviewSelection();
 		});
 	}
+
+
+	jQuery(document).on('click', '.ls-activation-lock', function( e ) {
+		e.preventDefault();
+		lsDisplayActivationWindow();
+	});
 };
 
 jQuery(document).ready(function() {

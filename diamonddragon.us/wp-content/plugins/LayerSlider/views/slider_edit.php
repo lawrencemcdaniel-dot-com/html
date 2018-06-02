@@ -117,6 +117,7 @@
 
 <!-- Load templates -->
 <?php
+
 include LS_ROOT_PATH . '/templates/tmpl-share-sheet.php';
 include LS_ROOT_PATH . '/templates/tmpl-layer-item.php';
 include LS_ROOT_PATH . '/templates/tmpl-static-layer-item.php';
@@ -132,6 +133,7 @@ include LS_ROOT_PATH . '/templates/tmpl-button-presets.php';
 include LS_ROOT_PATH . '/templates/tmpl-import-slide.php';
 include LS_ROOT_PATH . '/templates/tmpl-import-layer.php';
 include LS_ROOT_PATH . '/templates/tmpl-slide-tab.php';
+include LS_ROOT_PATH . '/templates/tmpl-activation.php';
 
 ?>
 
@@ -402,11 +404,11 @@ include LS_ROOT_PATH . '/templates/tmpl-slide-tab.php';
 				<i class="dashicons dashicons-redo"></i>
 				<?php _e('Event Callbacks', 'LayerSlider') ?>
 			</a>
-			<a href="https://support.kreaturamedia.com/faq/4/layerslider-for-wordpress/" target="_blank" class="faq right unselectable">
+			<a href="https://kreatura.ticksy.com/" target="_blank" class="faq right unselectable">
 				<i class="dashicons dashicons-sos"></i>
 				<?php _e('FAQ', 'LayerSlider') ?>
 			</a>
-			<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html" target="_blank" class="support right unselectable">
+			<a href="https://layerslider.kreaturamedia.com/documentation/" target="_blank" class="support right unselectable">
 				<i class="dashicons dashicons-editor-help"></i>
 				<?php _e('Documentation', 'LayerSlider') ?>
 			</a>
@@ -510,7 +512,7 @@ include LS_ROOT_PATH . '/templates/tmpl-slide-tab.php';
 
 			<div class="ls-notification-info">
 				<i class="dashicons dashicons-info"> </i>
-				<?php echo sprintf(__('Please read our %sonline documentation%s before start using the API. LayerSlider 6 introduced an entirely new API model with different events and methods.', 'LayerSlider'), '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#layerslider-api" target="_blank">', '</a>') ?>
+				<?php echo sprintf(__('Please read our %sonline documentation%s before start using the API. LayerSlider 6 introduced an entirely new API model with different events and methods.', 'LayerSlider'), '<a href="https://layerslider.kreaturamedia.com/documentation/#layerslider-api" target="_blank">', '</a>') ?>
 			</div>
 
 

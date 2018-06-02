@@ -38,6 +38,8 @@ $ajax_events = array(
 	'cp_trash_contact'             => false,
 	'cp_dismiss_rebrand_notice'    => false,
 	'cp_delete_all_modal_action'   => false,
+	'smile_update_custom_conversions' => true,
+
 );
 
 foreach ( $ajax_events as $event_slug => $is_nopriv ) {
@@ -978,9 +980,15 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 		$default_action  = isset( $_POST['action'] ) ? esc_attr( $_POST['action'] ) : '';
 		$cp_settings     = get_option( 'convert_plug_settings' );
 
-		if ( is_array( $cp_settings ) ) {
-			$banneduser = explode( ',', $cp_settings['cp-user-role'] );
+		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;		
+
+		$store = false; 
+		if( '1' !== $disable_storage ){					
+			$store = true;
 		}
+		/*if ( is_array( $cp_settings ) ) {
+			$banneduser = explode( ',', $cp_settings['cp-user-role'] );
+		}*/
 
 		if ( isset( $_POST['message'] ) ) {
 			$on_success = 'message';
@@ -1056,14 +1064,16 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 					$msg    = ( isset( $_POST['message'] ) && '' !== $_POST['message'] ) ? do_shortcode( html_entity_decode( stripcslashes( sanitize_text_field( htmlspecialchars( $_POST['message'] ) ) ) ) ) : __( 'Thank you.', 'smile' );
 				}
 			} else {
-				$prev_contacts[] = $contact;
+				if( $store ){					
+					$prev_contacts[] = $contact;
+				}
 			}
-
-			if ( ! empty( $prev_contacts ) ) {
+			
+			if ( ! empty( $prev_contacts ) && $store ) {				
 				$prev_contacts = array_map( 'unserialize', array_unique( array_map( 'serialize', $prev_contacts ) ) );
 			}
-			//var_dump($prev_contacts);die();
-			if ( ! $only_conversion ) {
+
+			if ( ! $only_conversion && $store ) {
 				update_option( $data_option, $prev_contacts );
 			}
 
@@ -1146,6 +1156,9 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 
 		$subscriber = array_map( 'sanitize_text_field', wp_unslash( $subscriber ) );
 
+		$cp_settings = get_option( 'convert_plug_settings' );
+		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;
+
 		if ( false !== $index ) {
 			unset( $data[ $index ] );
 			$data[]  = $subscriber;
@@ -1161,22 +1174,25 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 		// convert array.
 		$data1 = array();
 		$data  = array_filter( $data );
-		foreach ( $data as $key => $value ) {
-			$newdata = array();
-			foreach ( $value as $key1 => $value1 ) {
-				if ( 'email' === $key1 ) {
-					$newdata[ $key1 ] = strtolower( $value1 );
-				} else {
-					$newdata[ $key1 ] = $value1;
+
+		if( '1' !== $disable_storage ){
+			foreach ( $data as $key => $value ) {
+				$newdata = array();
+				foreach ( $value as $key1 => $value1 ) {
+					if ( 'email' === $key1 ) {
+						$newdata[ $key1 ] = strtolower( $value1 );
+					} else {
+						$newdata[ $key1 ] = $value1;
+					}
 				}
+				array_push( $data1, $newdata );
 			}
-			array_push( $data1, $newdata );
+		
+			$update_option = update_option( $option, $data1 );
 		}
 
-		$update_option = update_option( $option, $data1 );
-
 		// send subscriber notification to provided email address.
-		$cp_settings = get_option( 'convert_plug_settings' );
+		
 		$sub_optin   = isset( $cp_settings['cp-sub-notify'] ) ? $cp_settings['cp-sub-notify'] : 0;
 		$sub_email   = isset( $cp_settings['cp-sub-email'] ) ? $cp_settings['cp-sub-email'] : get_option( 'admin_email' );
 		$email_sub   = isset( $cp_settings['cp-email-sub'] ) ? $cp_settings['cp-email-sub'] : '';
@@ -3108,6 +3124,7 @@ if ( ! function_exists( 'cp_export_modal_action' ) ) {
 						$bg_image         = isset( $style_settings['modal_bg_image'] ) ? $style_settings['modal_bg_image'] : '';
 						$content_bg_image = isset( $style_settings['content_bg_image'] ) ? $style_settings['content_bg_image'] : '';
 						$form_bg_image    = isset( $style_settings['form_bg_image'] ) ? $style_settings['form_bg_image'] : '';
+						$overlay_bg_image    = isset( $style_settings['overlay_bg_image'] ) ? $style_settings['overlay_bg_image'] : '';
 
 						if ( $has_variants ) {
 							foreach ( $variant_tests[ $data_style ] as $variant ) {
@@ -3751,3 +3768,90 @@ function cp_dismiss_rebrand_notice() {
 		update_option( $option, 'no' );
 	}
 }
+
+
+if ( ! function_exists( 'smile_update_custom_conversions' ) ) {
+	/**
+	 * Function Name: smile_update_custom_conversions update style conversions.
+	 *
+	 * @param  string $style_id style id.
+	 */
+	function smile_update_custom_conversions() {
+
+		// verify nonce.
+		if ( ! wp_verify_nonce( esc_attr( $_POST['security'] ), 'cp-impress-nonce' ) ) {
+			wp_send_json_error();
+		}
+		
+		$style_id = isset( $_POST['style_id'] ) ? $_POST['style_id'] : '';
+		global $cp_analytics_end_time;
+		$user_role   = '';
+		$condition   = true;
+		$cp_settings = get_option( 'convert_plug_settings' );
+
+		if ( is_array( $cp_settings ) ) {
+			$banneduser = explode( ',', $cp_settings['cp-user-role'] );
+		}
+
+		if ( is_user_logged_in() ) {
+			$current_user = new WP_User( wp_get_current_user() );
+			$user_roles   = $current_user->roles;
+			$user_role    = $user_roles[0];
+		}
+
+		if ( ! empty( $cp_settings ) ) {
+			$condition = ! is_user_logged_in() || ( is_user_logged_in() && ( ! in_array( $user_role, $banneduser ) ) );
+		} else {
+			$condition = ! is_user_logged_in() || ( is_user_logged_in() && ( 'administrator' !== $user_role ) );
+		}
+
+		if ( $condition ) {
+
+			// Save analytics data.
+			$existing_data = get_option( 'smile_style_analytics' );
+			$date          = $cp_analytics_end_time;
+
+			if ( ! is_array( $existing_data ) ) {
+
+				// First conversion.
+				$analytics_data = array(
+					$style_id => array(
+						$date => array(
+							'impressions' => 0,
+							'conversions' => 1,
+						),
+					),
+				);
+
+			} else {
+				if ( isset( $existing_data[ $style_id ] ) ) {
+					foreach ( $existing_data[ $style_id ] as $key => $value ) {
+						if ( $key === $date ) {
+							$old_impressions                     = $value['impressions'];
+							$old_conversions                     = $value['conversions'];
+							$existing_data[ $style_id ][ $date ] = array(
+								'impressions' => $old_impressions,
+								'conversions' => $old_conversions + 1,
+							);
+						}
+					}
+				} else {
+					// first conversion for this particular style.
+					$existing_data[ $style_id ] = array(
+						$date => array(
+							'impressions' => 0,
+							'conversions' => 1,
+						),
+					);
+				}
+				$analytics_data = $existing_data;
+			}
+
+			update_option( 'smile_style_analytics', $analytics_data );
+			echo "custom conversion done";
+		}
+
+		die();
+	}
+}
+

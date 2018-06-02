@@ -1,13 +1,13 @@
 === Social Media Share Buttons & Social Sharing Icons ===
 Contributors: socialdude
-Tags: social media, share, buttons, social, icons, share icons, share buttons, sharing icons, sharing buttons, social share, sharing, social sharing
+Tags: social media, share, buttons, social widget, icons, share icons, share buttons, sharing icons, sharing buttons, social share, sharing, social sharing
 Requires at least: 2.8
 Tested up to: 4.9.4
-Stable tag: 1.9.7
+Stable tag: 2.0.0
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Share buttons and share icons for social media sharing 
+Share buttons and share icons plugin for social media sharing on Facebook, Twitter, Instagram, Whatsapp, Pinterest etc.
 
 == Description ==
 
@@ -274,6 +274,9 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 
 == Changelog ==
+
+= 2.0.0 =
+* New question 3 to facilitate placement of icons
 
 = 1.9.7 =
 * Stopped setting cookies for pop-up selection "if user moved to end of page" as not needed in this case (relevant for GDPR compliance)
@@ -696,5 +699,5 @@ You cannot use the same plugin twice, however you can install both the USM as we
 
 == Upgrade Notice ==
 
-= 1.9.7 =
+= 2.0.0 =
 Please upgrade

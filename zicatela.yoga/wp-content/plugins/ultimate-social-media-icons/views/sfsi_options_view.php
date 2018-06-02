@@ -80,11 +80,22 @@
     <div class="main_contant">
 
         <h1>Welcome to the Ultimate Social Icons and Share Plugin!</h1>
+        
         <div class="welcometext">
-           <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
+           
+           <p>Simple answer the questions below (at least the first 3) by clicking on them - that's it! </p>
+
+           <p>If you want more features like <a target="_blank" href="https://www.ultimatelysocial.com/all-platforms/">more platform icons</a>, <a target="_blank" href="https://www.ultimatelysocial.com/themed-icons-search/">themed icons</a>, more design options, better sharing features, mobile optimization, faster loading, full support and <a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/">much more</a>, then please check out our <a target="_blank" href="https://www.ultimatelysocial.com/checkout?edd_action=add_to_cart&download_id=150&edd_options[price_id]=2">Premium Plugin</a>. Pricing is really fair (24.98 USD).</p> 
+
+
+           <p>For questions and suggestions please raise a ticket in the <a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0">Support Forum.</a></p> 
+
+            <!--            <p>Get started by clicking on the first question below. Once done, go to the <a href="<?php //echo admin_url('/widgets.php');?>">widget area</a> and move the widget to the sidebar so that your icons are displayed.</p>
+
             <p><a style="text-decoration: none;" href="javascript:void(0)">New: </a>In our new Premium Plugin many other different placement options are supported, e.g. place the icons floating/statically on the place by defining margins, only show them on certain pages, show them only on mobile etc. etc. <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=top_introduction&utm_medium=banner" target="_blank">See all features</a></p>
             
-            <p>Please <a target="_blank" style="text-decoration: underline;" href="https://goo.gl/auxJ9C#no-topic-0">give us feedback</a> and tell us how we can make the plugin better. Thank you!.</p>
+            <p>Please <a target="_blank" style="text-decoration: underline;" href="https://goo.gl/auxJ9C#no-topic-0">give us feedback</a> and tell us how we can make the plugin better. Thank you!.</p> -->
+
         </div>
         
         <div class="supportforum">
@@ -109,10 +120,9 @@
 
     </div> <!-- END Top content area of plugin -->
 
+<!-- step 1 end  here -->
+<div id="accordion">
 
-
-    <!-- step 1 end  here -->
-     <div id="accordion">
     <h3><span>1</span>Which icons do you want to show on your site? </h3>
     <!-- step 1 end  here -->
     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view1.php'); ?>
@@ -122,43 +132,53 @@
     <h3><span>2</span>What do you want the icons to do? </h3>
     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view2.php'); ?>
     <!-- step 2 END here -->
-    <!-- step 3 start here -->
     
-    </div>
-    <h2 class="optional">Optional</h2>
-     <div id="accordion1">
-    <h3><span>3</span>What design &amp; animation do you want to give your icons?</h3>
-     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view3.php'); ?>
-    <!-- step 3 END here -->
+    <!-- step 3 start here -->
+    <h3><span>3</span>Where shall they be displayed? </h3>
+    <?php include(SFSI_DOCROOT.'/views/sfsi_question3.php'); ?>
+    <!-- step 3 end here -->
 
-    <!-- step 4 Start here -->
-    <h3><span>4</span>Do you want to display "counts" next to your icons?</h3>
-     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view4.php'); ?>
+    
+</div>
+
+    <h2 class="optional">Optional</h2>
+
+<div id="accordion1">
+
+    <!-- step 4 start here -->
+    <h3><span>4</span>What design &amp; animation do you want to give your icons?</h3>
+     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view3.php'); ?>
     <!-- step 4 END here -->
 
     <!-- step 5 Start here -->
-    <h3><span>5</span>Any other wishes for your main icons?</h3>
-    <?php include(SFSI_DOCROOT.'/views/sfsi_option_view5.php'); ?>
+    <h3><span>5</span>Do you want to display "counts" next to your icons?</h3>
+     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view4.php'); ?>
     <!-- step 5 END here -->
 
     <!-- step 6 Start here -->
-    <h3><span>6</span>Do you want to display icons at the end of every post?</h3>
-     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view6.php'); ?>
+    <h3><span>6</span>Any other wishes for your main icons?</h3>
+    <?php include(SFSI_DOCROOT.'/views/sfsi_option_view5.php'); ?>
     <!-- step 6 END here -->
 
-
     <!-- step 7 Start here -->
-    <h3><span>7</span>Do you want to display a pop-up, asking people to subscribe?</h3>
-     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view7.php'); ?>
+    <h3><span>7</span>Do you want to display icons at the end of every post?</h3>
+     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view6.php'); ?>
     <!-- step 7 END here -->
-    
+
+
     <!-- step 8 Start here -->
-    <h3><span>8</span>Do you want to show a subscription form (<b>increases sign ups</b>)?</h3>
-    <?php include(SFSI_DOCROOT.'/views/sfsi_option_view8.php'); ?>
+    <h3><span>8</span>Do you want to display a pop-up, asking people to subscribe?</h3>
+     <?php include(SFSI_DOCROOT.'/views/sfsi_option_view7.php'); ?>
     <!-- step 8 END here -->
+    
+    <!-- step 9 Start here -->
+    <h3><span>9</span>Do you want to show a subscription form (<b>increases sign ups</b>)?</h3>
+    <?php include(SFSI_DOCROOT.'/views/sfsi_option_view8.php'); ?>
+    <!-- step 9 END here -->
 
     </div>
-    <div class="tab9">
+
+    <div class="tab10">
          <div class="save_button">
           <img src="<?php echo SFSI_PLUGURL; ?>images/ajax-loader.gif" class="loader-img" />
         <a href="javascript:;" id="save_all_settings" title="Save All Settings">Save All Settings</a>

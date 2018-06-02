@@ -23,8 +23,8 @@
 define('WP_HOME','https://www.360homelending.com');
 define('WP_SITEURL','https://www.360homelending.com');
 
-define( 'AS3CF_AWS_ACCESS_KEY_ID',     'AKIAJLIEVPKZEWF3Q3ZQ' );
-define( 'AS3CF_AWS_SECRET_ACCESS_KEY', '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' );
+define( 'AS3CF_AWS_ACCESS_KEY_ID',     'AKIAIU6AHUBWKZRC2WWA' );
+define( 'AS3CF_AWS_SECRET_ACCESS_KEY', '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' );
 
 
 define('FORCE_SSL_ADMIN', true);

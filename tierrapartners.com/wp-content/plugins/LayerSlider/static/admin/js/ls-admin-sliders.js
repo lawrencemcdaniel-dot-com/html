@@ -173,13 +173,7 @@ jQuery(function($) {
 		if( ! window.lsSiteActivation ) {
 			e.preventDefault();
 
-			kmUI.modal.open({
-				title: LS_l10n.SLExportActivationTitle,
-				content: LS_l10n.SLExportActivationContent,
-				width: 800,
-				height: 200,
-				overlayAnimate: 'fade'
-			});
+			lsDisplayActivationWindow();
 
 			return false;
 		}
@@ -409,6 +403,7 @@ jQuery(function($) {
 			x: '-='+width,
 			onComplete: function() {
 				$guide.hide();
+				$wrapper.addClass('ls-opened');
 			}
 		});
 	});
@@ -507,8 +502,12 @@ jQuery(function($) {
 		}
 	});
 
-	$('.ls-product-banner .unlock').click(function(e) {
-		e.preventDefault();
+	var lsShowActivationBox = function( activateBox ) {
+
+		document.location.hash = '';
+
+		kmUI.overlay.close();
+		kmUI.modal.close();
 
 		var $box 	= $('.ls-product-banner.ls-auto-update'),
 			$window = $(window),
@@ -517,18 +516,57 @@ jQuery(function($) {
 			bh 		= $box.height(),
 			top 	= bt + (bh / 2) - (wh / 2);
 
-			$('html,body').animate({ scrollTop: top }, 200, function() {
-				setTimeout(function() {
+		$('html,body').animate({ scrollTop: top }, 500, function() {
+			setTimeout(function() {
 
-					TweenMax.to( $box[0], 0.2, {
-						yoyo: true,
-						repeat: 3,
-						ease: Quad.easeInOut,
-						scale: 1.1
-					});
-				}, 100);
-			});
+				TweenMax.to( $box[0], 0.2, {
+					yoyo: true,
+					repeat: 3,
+					ease: Quad.easeInOut,
+					scale: 1.1,
+					onComplete: function() {
+
+						if( activateBox && ! $box.hasClass('ls-opened') ) {
+							setTimeout(function() {
+								$box.find('.button-activation').click();
+							}, 300 );
+						}
+					}
+				});
+			}, 200);
+		});
+	};
+
+	$('.ls-product-banner .unlock, .ls-show-activation-box').click(function(e) {
+		e.preventDefault();
+		lsShowActivationBox();
 	});
+
+	$( document ).on('click', '#tmpl-activation-modal-window .button-activation', function( e ) {
+
+		e.preventDefault();
+
+		if( $(this).closest('#ls-import-modal-window').length ) {
+
+			jQuery(document).trigger( jQuery.Event('keyup', { keyCode: 27 }) );
+			setTimeout(function() {
+				lsShowActivationBox( true );
+			}, 800);
+
+		} else {
+
+			kmUI.overlay.close();
+			kmUI.modal.close( function() {
+				lsShowActivationBox( true );
+			});
+		}
+	});
+
+	if( document.location.href.indexOf('#activationBox') !== -1 ) {
+		setTimeout(function() {
+			lsShowActivationBox( true );
+		}, 500 );
+	}
 
 
 
@@ -568,18 +606,16 @@ jQuery(function($) {
 
 		// Premium notice
 		if( $figure.data('premium') && ! window.lsSiteActivation ) {
-			kmUI.modal.open( {
+
+			lsDisplayActivationWindow({
 				into: '#ls-import-modal-window',
-				title: LS_l10n.TSImportWarningTitle,
-				content: LS_l10n.TSImportWarningContent,
-				width: 800,
-				height: 200,
-				overlayAnimate: 'fade'
+				title: LS_l10n.activationTemplate
 			});
+
 			return;
 
 		} else if( $figure.data('version-warning') ) {
-			kmUI.modal.open( {
+			kmUI.modal.open({
 				into: '#ls-import-modal-window',
 				title: LS_l10n.TSVersionWarningTitle,
 				content: LS_l10n.TSVersionWarningContent,
@@ -605,6 +641,29 @@ jQuery(function($) {
 				slider: handle,
 				security: window.lsImportNonce
 			},
+
+			beforeSend: function( jqXHR, settings ) {
+
+				setTimeout( function( ) {
+
+					var $modal = jQuery('#ls-import-modal-window .km-ui-modal-window');
+
+					TweenLite.to( $modal[0], 1, {
+						width: 500,
+						height: 400,
+						marginLeft: -290,
+						marginTop: -240,
+
+						onComplete: function() {
+							$('<div class="ls-import-notice">'+LS_l10n.SLImportNotice+'</div>')
+							.hide()
+							.appendTo( $modal )
+							.fadeIn( 500 );
+						}
+					});
+				}, 1000*60 );
+			},
+
 			success: function(data, textStatus, jqXHR) {
 
 				data = data ? JSON.parse( data ) : {};
@@ -650,7 +709,99 @@ jQuery(function($) {
 		}, 500);
 	}
 
+
+	$('.layerslider_notice_img .button-install').click(function( e ) {
+
+		if( ! window.lsSiteActivation ) {
+			e.preventDefault();
+			lsDisplayActivationWindow({
+				title: LS_l10n.activationUpdate
+			});
+		}
+	});
+
+	if( ! window.lsGDPRConsent ) {
+
+		setTimeout(function() {
+			lsDisplayGDPRConsent();
+		}, 500 );
+	}
+
 });
+
+
+var lsDisplayGDPRConsent = function() {
+
+	// Init & step 1
+	kmUI.modal.open({
+		into: 'body',
+		title: '',
+		content: $('#tmpl-ls-gdpr-consent').text(),
+		width: 700,
+		height: 700,
+		close: false,
+		overlayAnimate: 'fade'
+	});
+
+	var $modalWindow 	= $('._tmpl-gdpr-modal-window'),
+		$modalH1 		= $('header h1', $modalWindow),
+		$nextButton 	= $('.button-next', $modalWindow);
+
+	$modalWindow.find(':checkbox').customCheckbox();
+	$modalH1.text( $('#ls-gdpr-step-1 h1').text() );
+
+
+	// Step 2
+	$nextButton.one('click', function() {
+
+
+		$modalH1.fadeOut(500, function() {
+			$modalH1.text( $('#ls-gdpr-step-2 h1').text() ).fadeIn(500);
+		});
+
+		$('#ls-gdpr-step-1').css('transform', 'translateX(-740px)');
+		$('#ls-gdpr-step-2').css('transform', 'translateX(0px)');
+		$('#ls-gdpr-step-3').css('transform', 'translateX(740px)');
+		$('#ls-gdpr-step-4').css('transform', 'translateX(1480px)');
+
+		// Step 3
+		$nextButton.off().one('click', function() {
+
+			$modalH1.fadeOut(500, function() {
+				$modalH1.text( $('#ls-gdpr-step-3 h1').text() );
+			}).fadeIn(500);
+
+			$('#ls-gdpr-step-1').css('transform', 'translateX(-1480px)');
+			$('#ls-gdpr-step-2').css('transform', 'translateX(-740px)');
+			$('#ls-gdpr-step-3').css('transform', 'translateX(0px)');
+			$('#ls-gdpr-step-4').css('transform', 'translateX(740px)');
+
+
+			// Step 4
+			$nextButton.off().one('click', function() {
+
+				$modalH1.fadeOut(500, function() {
+					$modalH1.text( $('#ls-gdpr-step-4 h1').text() );
+				}).fadeIn(500);
+
+				$('#ls-gdpr-step-1').css('transform', 'translateX(-2220px)');
+				$('#ls-gdpr-step-2').css('transform', 'translateX(-1480px)');
+				$('#ls-gdpr-step-3').css('transform', 'translateX(-740px)');
+				$('#ls-gdpr-step-4').css('transform', 'translateX(0px)');
+
+				// Do ajax
+
+				$nextButton.one('click', function() {
+
+					kmUI.modal.close();
+					kmUI.overlay.close();
+
+					$.post( ajaxurl, $('#tmpl-gdpr-modal-window form').serialize() );
+				});
+			});
+		});
+	});
+};
 
 var addLSOverlay = function() {
 

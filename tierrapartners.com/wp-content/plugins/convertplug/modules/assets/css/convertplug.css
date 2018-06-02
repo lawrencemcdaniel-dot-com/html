@@ -395,7 +395,7 @@
 }
 
 .cp-modal-popup-container .cp-form-field button,
-.cp-modal-popup-container .cp-form-field input,
+.cp-modal-popup-container .cp-form-field input:not(.cp-checkbox),
 .cp-modal-popup-container .cp-form-field textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1083,8 +1083,10 @@ label.cp-label {
     pointer-events: none;
 }
 input.cp-input.cp-checkbox {
-    -webkit-appearance: checkbox!important;
-    pointer-events: all;
+  -moz-appearance: checkbox!important;
+  -webkit-appearance: checkbox!important;
+  appearance :checkbox!important;
+  pointer-events: all;
 }
 .cp-mp-open .cp-affilate-link {
     display: block;
@@ -1114,3 +1116,4 @@ input.cp-input.cp-checkbox {
 .cp-empty-content{
   display: inherit;
 }
+

@@ -5,8 +5,15 @@ if( ! defined( 'LS_ROOT_FILE' ) ) {
 	exit;
 }
 
+include LS_ROOT_PATH . '/helpers/admin.ui.tools.php';
+
 // Custom capability
 $custom_capability = $custom_role = get_option('layerslider_custom_capability', 'manage_options');
+
+// Privacy
+$gdpr_google_fonts 	= get_option('layerslider-google-fonts-enabled', true );
+$gdpr_aviary 		= get_option('layerslider-aviary-enabled', true );
+
 
 $default_capabilities = array(
 	'manage_network',
@@ -31,7 +38,8 @@ $notifications = array(
 
 	'cacheEmpty' => __('Successfully emptied LayerSlider caches.', 'LayerSlider'),
 	'permissionError' => __('Your account does not have the necessary permission you have chosen, and your settings have not been saved in order to prevent locking yourself out of the plugin.', 'LayerSlider'),
-	'permissionSuccess' => __('Permission changes has been updated.', 'LayerSlider'),
+	'permissionSuccess' => __('Permission settings has been updated.', 'LayerSlider'),
+	'privacySuccess' => __('Privacy settings has been updated.', 'LayerSlider'),
 	'googleFontsUpdated' => __('Your Google Fonts library has been updated.', 'LayerSlider'),
 	'generalUpdated' => __('Your settings have been updated.', 'LayerSlider')
 );
@@ -61,6 +69,7 @@ $notifications = array(
 	<!-- Plugin Settings -->
 	<div class="km-tabs ls-plugin-settings-tabs">
 		<a href="#" class="active"><?php _e('Permissions', 'LayerSlider') ?></a>
+		<a href="#"><?php _e('Privacy', 'LayerSlider') ?></a>
 		<a href="#"><?php _e('Google Fonts', 'LayerSlider') ?></a>
 		<a href="#"><?php _e('Advanced', 'LayerSlider') ?></a>
 	</div>
@@ -93,6 +102,41 @@ $notifications = array(
 				</div>
 				<div class="footer">
 					<button class="button"><?php _e('Update', 'LayerSlider') ?></button>
+				</div>
+			</form>
+		</div>
+
+
+		<!-- Privacy -->
+		<div>
+
+			<figure><?php _e('Enable or disable external services to protect your privacy.', 'LayerSlider') ?></figure>
+			<form method="post" id="ls-privacy-form" class="ls-box km-tabs-inner ls-global-settings">
+				<input type="hidden" name="ls_save_gdpr_settings" value="1">
+				<?php wp_nonce_field('ls-save-gdpr-settings'); ?>
+				<table>
+					<tr>
+						<td><?php _e('Enable Google Fonts', 'LayerSlider') ?></td>
+						<td data-warning="<?php _e("Many of our importable content in the Template Store use and rely on Google Fonts. If you disable this feature, you may not be able to add custom fonts and it might compromise the appearance of textual content in sliders. \n\n Are you sure you want to disable Google Fonts?", 'LayerSlider') ?>">
+							<?php echo lsGetOptionField('checkbox', 'ls_gdpr_goole_fonts', $gdpr_google_fonts) ?>
+						</td>
+						<td class="desc">
+							<?php echo sprintf( __('Google Fonts offers hundreds of custom fonts and is one of the most popular web services to customize website appearance with beautiful typography. Many of our importable content in the Template Store use and rely on Google Fonts. If you disable this feature, you may not be able to add custom fonts and it might compromise the appearance of textual content in sliders. Google might be able to track your activity when using their services. Please review Google’s %sPrivacy Policy%s and %sGDPR Compliance%s. As an external service, you can choose to disable Google Fonts if you disagree with Google’s data processing methods.', 'LayerSlider'), '<a href="https://privacy.google.com/" target="_blank">', '</a>', '<a href="https://privacy.google.com/businesses/compliance" target="_blank">', '</a>') ?>
+						</td>
+					</tr>
+					<tr>
+						<td><?php _e('Enable Image Editor', 'LayerSlider') ?></td>
+						<td data-warning="<?php _e("If you disable this feature, you may need to use a dedicated software installed on your computer (e. g. Photoshop) to perform common image editing tasks such as resizing, cropping, rotating images etc. \n\n Are you sure you want to disable the Image Editor?", 'LayerSlider') ?>">
+							<?php echo lsGetOptionField('checkbox', 'ls_gdpr_aviary', $gdpr_aviary) ?>
+						</td>
+						<td class="desc">
+							<?php echo sprintf(__('As part of the Adobe Creative SDK, Adobe offers a Photoshop-like image editor for the web. LayerSlider uses this service, so you can perform common tasks like resizing, cropping, rotating images, as well as photo retouching, adding frames, text, effects, stickers and a lot more. If you disable this feature, you may need to use a dedicated software installed on your computer (e. g. Photoshop) to perform these tasks. Adobe might be able to track your activity when using their services. Please review Adobe’s %sPrivacy Policy%s and %sGDPR Compliance%s. As an external service, you can choose to disable the image editor feature if you disagree with Adobe’s data processing methods.', 'LayerSlider'), '<a href="https://www.adobe.com/privacy/policy.html" target="_blank">', '</a>', '<a href="https://www.adobe.com/privacy/general-data-protection-regulation.html" target="_blank">', '</a>') ?>
+						</td>
+					</tr>
+				</table>
+
+				<div class="footer">
+					<button type="submit" class="button"><?php _e('Save changes', 'LayerSlider') ?></button>
 				</div>
 			</form>
 		</div>
@@ -237,7 +281,9 @@ $notifications = array(
 				<table>
 					<tr class="ls-cache-options">
 						<td><?php _e('Use slider markup caching', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="use_cache" <?php echo get_option('ls_use_cache', true) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'use_cache', true) ?>
+						</td>
 						<td class="desc">
 							<?php _e('Enabled caching can drastically increase the plugin performance and spare your server from unnecessary load. LayerSlider will serve fresh, non-cached versions for admins and anyone who can manage sliders.', 'LayerSlider') ?>
 							<a href="<?php echo wp_nonce_url('?page=layerslider&action=empty_caches', 'empty_caches') ?>" class="button button-small"><?php _e('Empty caches', 'LayerSlider') ?></a>
@@ -245,22 +291,29 @@ $notifications = array(
 					</tr>
 					<tr>
 						<td><?php _e('Include scripts in the footer', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="include_at_footer" <?php echo get_option('ls_include_at_footer', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'include_at_footer', false) ?>
 						<td class="desc"><?php _e('Including resources in the footer can improve load times and solve other type of issues. Outdated themes might not support this method.', 'LayerSlider') ?></td>
 					</tr>
 					<tr>
 						<td><?php _e('Conditional script loading', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="conditional_script_loading" <?php echo get_option('ls_conditional_script_loading', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'conditional_script_loading', false) ?>
+						</td>
 						<td class="desc"><?php _e('Increase your site’s performance by loading resources only when necessary. Outdated themes might not support this method.', 'LayerSlider') ?></td>
 					</tr>
 					<tr>
 						<td><?php _e('Concatenate output', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="concatenate_output" <?php echo get_option('ls_concatenate_output', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'concatenate_output', false) ?>
+						</td>
 						<td class="desc"><?php _e('Concatenating the plugin’s output could solve issues caused by custom filters your theme might use.', 'LayerSlider') ?></td>
 					</tr>
 					<tr>
 						<td><?php _e('Defer JavaScript loading', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="defer_scripts" <?php echo get_option('ls_defer_scripts', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'defer_scripts', false) ?>
+						</td>
 						<td class="desc"><?php _e('Eliminates render-blocking JavaScript files, but might also delay a bit displaying sliders above the fold.', 'LayerSlider') ?></td>
 					</tr>
 				</table>
@@ -270,33 +323,38 @@ $notifications = array(
 				<table>
 					<tr>
 						<td><?php _e('RocketScript compatibility', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="rocketscript_ignore" <?php echo get_option('ls_rocketscript_ignore', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'rocketscript_ignore', false) ?>
+						</td>
 						<td class="desc"><?php _e('Enable this option to ignore LayerSlider files by CloudFront’s Rocket Loader, which can help overcoming potential issues.', 'LayerSlider') ?></td>
 
 					</tr>
 					<tr>
 						<td><?php _e('Always load all JavaScript files', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="load_all_js_files"<?php echo get_option('ls_load_all_js_files', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'load_all_js_files', false) ?>
+						</td>
 						<td class="desc"><?php _e('Enabling this option will likely help if you’re experiencing issues with CDN services or JavaScript minify/combine features in a 3rd party plugin. However, it can also negatively impact performance since resources will not be loaded conditionally.', 'LayerSlider' ) ?></td>
 					</tr>
 					<tr>
-						<td><?php _e('Put JS includes to body', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="put_js_to_body" <?php echo get_option('ls_put_js_to_body', false) ? 'checked="checked"' : '' ?>></td>
-						<td class="desc"><?php _e('This is the most common workaround for jQuery related issues, and is recommended when you experience problems with jQuery.', 'LayerSlider') ?></td>
-					</tr>
-					<tr>
 						<td><?php _e('Use GreenSock (GSAP) sandboxing', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="gsap_sandboxing" <?php echo get_option('ls_gsap_sandboxing', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'gsap_sandboxing', false) ?>
+						</td>
 						<td class="desc"><?php _e('Enabling GreenSock sandboxing can solve issues when other plugins are using multiple/outdated versions of this library.', 'LayerSlider') ?></td>
 					</tr>
 					<tr id="ls_use_custom_jquery">
 						<td><?php _e('Use Google CDN version of jQuery', 'LayerSlider') ?></td>
-						<td><input type="checkbox" name="use_custom_jquery" <?php echo get_option('ls_use_custom_jquery', false) ? 'checked="checked"' : '' ?>></td>
+						<td>
+							<?php echo lsGetOptionField('checkbox', 'use_custom_jquery', false) ?>
+						</td>
 						<td class="desc"><?php _e('This option will likely solve “Old jQuery” issues, but can easily have other side effects. Use it only when it is necessary.', 'LayerSlider') ?></td>
 					</tr>
 					<tr>
 						<td><?php _e('Scripts priority', 'LayerSlider') ?></td>
-						<td><input name="scripts_priority" value="<?php echo get_option('ls_scripts_priority', 3) ?>" placeholder="3"></td>
+						<td>
+							<?php echo lsGetOptionField('text', 'scripts_priority', 3, array( 'placeholder' => 3 ) ) ?>
+						</td>
 						<td class="desc"><?php _e('Used to specify the order in which scripts are loaded. Lower numbers correspond with earlier execution.', 'LayerSlider') ?></td>
 					</tr>
 				</table>

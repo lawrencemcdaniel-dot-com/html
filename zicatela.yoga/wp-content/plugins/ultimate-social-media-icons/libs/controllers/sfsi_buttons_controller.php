@@ -359,14 +359,16 @@ function sfsi_options_updater5()
     $sfsi_icons_perRow              = isset($_POST["sfsi_icons_perRow"]) ? $_POST["sfsi_icons_perRow"] : '5'; 
     $sfsi_icons_ClickPageOpen       = isset($_POST["sfsi_icons_ClickPageOpen"]) ? $_POST["sfsi_icons_ClickPageOpen"] : 'no'; 
     
-    $sfsi_icons_float               = isset($_POST["sfsi_icons_float"]) ? $_POST["sfsi_icons_float"] : 'no';
-    $sfsi_disable_floaticons        = isset($_POST["sfsi_disable_floaticons"]) ? $_POST["sfsi_disable_floaticons"] : 'no'; 
-    $sfsi_icons_floatPosition       = isset($_POST["sfsi_icons_floatPosition"]) ? $_POST["sfsi_icons_floatPosition"] : 'center-right';
-    $sfsi_icons_floatMargin_top     = isset($_POST["sfsi_icons_floatMargin_top"]) ? $_POST["sfsi_icons_floatMargin_top"] : '';
-    $sfsi_icons_floatMargin_bottom  = isset($_POST["sfsi_icons_floatMargin_bottom"])? $_POST["sfsi_icons_floatMargin_bottom"]:'';
-    $sfsi_icons_floatMargin_left    = isset($_POST["sfsi_icons_floatMargin_left"]) ? $_POST["sfsi_icons_floatMargin_left"] : '';
-    $sfsi_icons_floatMargin_right   = isset($_POST["sfsi_icons_floatMargin_right"]) ? $_POST["sfsi_icons_floatMargin_right"]:''; 
+    // $sfsi_icons_float               = isset($_POST["sfsi_icons_float"]) ? $_POST["sfsi_icons_float"] : 'no';
+    // $sfsi_disable_floaticons        = isset($_POST["sfsi_disable_floaticons"]) ? $_POST["sfsi_disable_floaticons"] : 'no'; 
+    // $sfsi_icons_floatPosition       = isset($_POST["sfsi_icons_floatPosition"]) ? $_POST["sfsi_icons_floatPosition"] : 'center-right';
+    // $sfsi_icons_floatMargin_top     = isset($_POST["sfsi_icons_floatMargin_top"]) ? $_POST["sfsi_icons_floatMargin_top"] : '';
+    // $sfsi_icons_floatMargin_bottom  = isset($_POST["sfsi_icons_floatMargin_bottom"])? $_POST["sfsi_icons_floatMargin_bottom"]:'';
+    // $sfsi_icons_floatMargin_left    = isset($_POST["sfsi_icons_floatMargin_left"]) ? $_POST["sfsi_icons_floatMargin_left"] : '';
+    // $sfsi_icons_floatMargin_right   = isset($_POST["sfsi_icons_floatMargin_right"]) ? $_POST["sfsi_icons_floatMargin_right"]:''; 
+    
     $sfsi_icons_stick               = isset($_POST["sfsi_icons_stick"]) ? $_POST["sfsi_icons_stick"] : 'no';
+
     $sfsi_rss_MouseOverText         = isset($_POST["sfsi_rss_MouseOverText"]) ? $_POST["sfsi_rss_MouseOverText"] : '';
     $sfsi_email_MouseOverText       = isset($_POST["sfsi_email_MouseOverText"]) ? $_POST["sfsi_email_MouseOverText"] : '';
     $sfsi_twitter_MouseOverText     = isset($_POST["sfsi_twitter_MouseOverText"]) ? $_POST["sfsi_twitter_MouseOverText"] : '';
@@ -400,13 +402,15 @@ function sfsi_options_updater5()
         'sfsi_icons_Alignment'          => sanitize_text_field($sfsi_icons_Alignment),
         'sfsi_icons_perRow'             => intval($sfsi_icons_perRow),
         'sfsi_icons_ClickPageOpen'      => sanitize_text_field($sfsi_icons_ClickPageOpen),
-        'sfsi_icons_float'              => sanitize_text_field($sfsi_icons_float),
-        'sfsi_disable_floaticons'       => sanitize_text_field($sfsi_disable_floaticons),
-        'sfsi_icons_floatPosition'      => sanitize_text_field($sfsi_icons_floatPosition),
-        'sfsi_icons_floatMargin_top'    => intval($sfsi_icons_floatMargin_top),
-        'sfsi_icons_floatMargin_bottom' => intval($sfsi_icons_floatMargin_bottom),
-        'sfsi_icons_floatMargin_left'   => intval($sfsi_icons_floatMargin_left),
-        'sfsi_icons_floatMargin_right'  => intval($sfsi_icons_floatMargin_right),
+
+        // 'sfsi_icons_float'              => sanitize_text_field($sfsi_icons_float),
+        // 'sfsi_disable_floaticons'       => sanitize_text_field($sfsi_disable_floaticons),
+        // 'sfsi_icons_floatPosition'      => sanitize_text_field($sfsi_icons_floatPosition),
+        // 'sfsi_icons_floatMargin_top'    => intval($sfsi_icons_floatMargin_top),
+        // 'sfsi_icons_floatMargin_bottom' => intval($sfsi_icons_floatMargin_bottom),
+        // 'sfsi_icons_floatMargin_left'   => intval($sfsi_icons_floatMargin_left),
+        // 'sfsi_icons_floatMargin_right'  => intval($sfsi_icons_floatMargin_right),
+
         'sfsi_icons_stick'              => sanitize_text_field($sfsi_icons_stick),
         /* mouse over texts */
         'sfsi_rss_MouseOverText'        => sanitize_text_field($sfsi_rss_MouseOverText),
@@ -445,7 +449,9 @@ function sfsi_options_updater6()
     if ( !wp_verify_nonce( $_POST['nonce'], "update_step6")) {
       echo  json_encode(array("wrong_nonce")); exit;
     }
+    
     $sfsi_show_Onposts              = isset($_POST["sfsi_show_Onposts"]) ? $_POST["sfsi_show_Onposts"] : 'no'; 
+    
     $sfsi_icons_postPositon         = isset($_POST["sfsi_icons_postPositon"]) ? $_POST["sfsi_icons_postPositon"] : ''; 
     $sfsi_icons_alignment           = isset($_POST["sfsi_icons_alignment"]) ? $_POST["sfsi_icons_alignment"] : 'center-right'; 
     $sfsi_textBefor_icons           = isset($_POST["sfsi_textBefor_icons"]) ? $_POST["sfsi_textBefor_icons"] : ''; 
@@ -459,7 +465,9 @@ function sfsi_options_updater6()
     $sfsi_rectfbshare               = isset($_POST["sfsi_rectfbshare"]) ? $_POST["sfsi_rectfbshare"] : 'no';
     /* post options */
     $up_option6=array(
+        
         'sfsi_show_Onposts'     => sanitize_text_field($sfsi_show_Onposts),
+        
         'sfsi_icons_postPositon'=> sanitize_text_field($sfsi_icons_postPositon),
         'sfsi_icons_alignment'  => sanitize_text_field($sfsi_icons_alignment),
         'sfsi_textBefor_icons'  => sanitize_text_field(stripslashes($sfsi_textBefor_icons)),
@@ -528,35 +536,36 @@ function sfsi_options_updater8()
     if ( !wp_verify_nonce( $_POST['nonce'], "update_step8")) {
       echo  json_encode(array("wrong_nonce")); exit;
     }
+
     $sfsi_form_adjustment       = isset($_POST["sfsi_form_adjustment"]) ? $_POST["sfsi_form_adjustment"] : 'yes';
     $sfsi_form_height           = isset($_POST["sfsi_form_height"]) ? $_POST["sfsi_form_height"] : '180';
     $sfsi_form_width            = isset($_POST["sfsi_form_width"]) ? $_POST["sfsi_form_width"] : '230';
     $sfsi_form_border           = isset($_POST["sfsi_form_border"]) ? $_POST["sfsi_form_border"] : 'no';
     $sfsi_form_border_thickness = isset($_POST["sfsi_form_border_thickness"]) ? $_POST["sfsi_form_border_thickness"] : '1';
-    $sfsi_form_border_color     = isset($_POST["sfsi_form_border_color"]) ? $_POST["sfsi_form_border_color"] : '#f3faf2';
+    $sfsi_form_border_color     = isset($_POST["sfsi_form_border_color"]) ? $_POST["sfsi_form_border_color"] : '#b5b5b5';
     $sfsi_form_background       = isset($_POST["sfsi_form_background"]) ? $_POST["sfsi_form_background"] : '#eff7f7';
     
-    $sfsi_form_heading_text     = isset($_POST["sfsi_form_heading_text"]) ? $_POST["sfsi_form_heading_text"] : '';
-    $sfsi_form_heading_font     = isset($_POST["sfsi_form_heading_font"]) ? $_POST["sfsi_form_heading_font"] : '';
-    $sfsi_form_heading_fontstyle= isset($_POST["sfsi_form_heading_fontstyle"]) ? $_POST["sfsi_form_heading_fontstyle"] : '';
-    $sfsi_form_heading_fontcolor= isset($_POST["sfsi_form_heading_fontcolor"]) ? $_POST["sfsi_form_heading_fontcolor"] : '';
-    $sfsi_form_heading_fontsize = isset($_POST["sfsi_form_heading_fontsize"]) ? $_POST["sfsi_form_heading_fontsize"] : '22';
+    $sfsi_form_heading_text     = isset($_POST["sfsi_form_heading_text"]) ? $_POST["sfsi_form_heading_text"] : 'Get new posts by email';
+    $sfsi_form_heading_font     = isset($_POST["sfsi_form_heading_font"]) ? $_POST["sfsi_form_heading_font"] : 'Helvetica,Arial,sans-serif';
+    $sfsi_form_heading_fontstyle= isset($_POST["sfsi_form_heading_fontstyle"]) ? $_POST["sfsi_form_heading_fontstyle"] : 'bold';
+    $sfsi_form_heading_fontcolor= isset($_POST["sfsi_form_heading_fontcolor"]) ? $_POST["sfsi_form_heading_fontcolor"] : '#000000';
+    $sfsi_form_heading_fontsize = isset($_POST["sfsi_form_heading_fontsize"]) ? $_POST["sfsi_form_heading_fontsize"] : '16';
     $sfsi_form_heading_fontalign= isset($_POST["sfsi_form_heading_fontalign"]) ? $_POST["sfsi_form_heading_fontalign"] :'center';
     
-    $sfsi_form_field_text       = isset($_POST["sfsi_form_field_text"]) ? $_POST["sfsi_form_field_text"] : '';
-    $sfsi_form_field_font       = isset($_POST["sfsi_form_field_font"]) ? $_POST["sfsi_form_field_font"] : '';
-    $sfsi_form_field_fontstyle  = isset($_POST["sfsi_form_field_fontstyle"]) ? $_POST["sfsi_form_field_fontstyle"] : '';
-    $sfsi_form_field_fontcolor  = isset($_POST["sfsi_form_field_fontcolor"]) ? $_POST["sfsi_form_field_fontcolor"] : '';
-    $sfsi_form_field_fontsize   = isset($_POST["sfsi_form_field_fontsize"]) ? $_POST["sfsi_form_field_fontsize"] : '22';
+    $sfsi_form_field_text       = isset($_POST["sfsi_form_field_text"]) ? $_POST["sfsi_form_field_text"] : 'Subscribe';
+    $sfsi_form_field_font       = isset($_POST["sfsi_form_field_font"]) ? $_POST["sfsi_form_field_font"] : 'Helvetica,Arial,sans-serif';
+    $sfsi_form_field_fontstyle  = isset($_POST["sfsi_form_field_fontstyle"]) ? $_POST["sfsi_form_field_fontstyle"] : 'normal';
+    $sfsi_form_field_fontcolor  = isset($_POST["sfsi_form_field_fontcolor"]) ? $_POST["sfsi_form_field_fontcolor"] : '#000000';
+    $sfsi_form_field_fontsize   = isset($_POST["sfsi_form_field_fontsize"]) ? $_POST["sfsi_form_field_fontsize"] : '14';
     $sfsi_form_field_fontalign  = isset($_POST["sfsi_form_field_fontalign"]) ? $_POST["sfsi_form_field_fontalign"] :'center';
     
     $sfsi_form_button_text      = isset($_POST["sfsi_form_button_text"]) ? $_POST["sfsi_form_button_text"] : 'Subscribe';
-    $sfsi_form_button_font      = isset($_POST["sfsi_form_button_font"]) ? $_POST["sfsi_form_button_font"] : '';
-    $sfsi_form_button_fontstyle = isset($_POST["sfsi_form_button_fontstyle"]) ? $_POST["sfsi_form_button_fontstyle"] : '';
-    $sfsi_form_button_fontcolor = isset($_POST["sfsi_form_button_fontcolor"]) ? $_POST["sfsi_form_button_fontcolor"] : '';
-    $sfsi_form_button_fontsize  = isset($_POST["sfsi_form_button_fontsize"]) ? $_POST["sfsi_form_button_fontsize"] : '22';
+    $sfsi_form_button_font      = isset($_POST["sfsi_form_button_font"]) ? $_POST["sfsi_form_button_font"] : 'Helvetica,Arial,sans-serif';
+    $sfsi_form_button_fontstyle = isset($_POST["sfsi_form_button_fontstyle"]) ? $_POST["sfsi_form_button_fontstyle"] : 'bold';
+    $sfsi_form_button_fontcolor = isset($_POST["sfsi_form_button_fontcolor"]) ? $_POST["sfsi_form_button_fontcolor"] : '#000000';
+    $sfsi_form_button_fontsize  = isset($_POST["sfsi_form_button_fontsize"]) ? $_POST["sfsi_form_button_fontsize"] : '16';
     $sfsi_form_button_fontalign = isset($_POST["sfsi_form_button_fontalign"]) ? $_POST["sfsi_form_button_fontalign"] :'center';
-    $sfsi_form_button_background= isset($_POST["sfsi_form_button_background"]) ? $_POST["sfsi_form_button_background"]:'#5a6570';
+    $sfsi_form_button_background= isset($_POST["sfsi_form_button_background"]) ? $_POST["sfsi_form_button_background"]:'#dedede';
     
     /* icons pop options */
     $up_option8 = array(    
@@ -593,6 +602,53 @@ function sfsi_options_updater8()
     update_option('sfsi_section8_options',serialize($up_option8)); 
     header('Content-Type: application/json');
     echo  json_encode(array("success")); exit;
+}
+
+/* save settings for section 3 */ 
+add_action('wp_ajax_updateSrcn9','sfsi_options_updater9');
+function sfsi_options_updater9(){
+    
+    if ( !wp_verify_nonce( $_POST['nonce'], "update_step9")) {
+      echo  json_encode(array("wrong_nonce")); exit;
+    }
+
+    $sfsi_show_via_widget           = isset($_POST["sfsi_show_via_widget"])          ? $_POST["sfsi_show_via_widget"]   : 'no';
+
+    $sfsi_icons_float               = isset($_POST["sfsi_icons_float"])              ? $_POST["sfsi_icons_float"]            : 'no';    
+    $sfsi_icons_floatPosition       = isset($_POST["sfsi_icons_floatPosition"])      ? $_POST["sfsi_icons_floatPosition"]    : 'center-right';
+    $sfsi_icons_floatMargin_top     = isset($_POST["sfsi_icons_floatMargin_top"])    ? $_POST["sfsi_icons_floatMargin_top"]   : '';
+    $sfsi_icons_floatMargin_bottom  = isset($_POST["sfsi_icons_floatMargin_bottom"]) ? $_POST["sfsi_icons_floatMargin_bottom"]: '';
+    $sfsi_icons_floatMargin_left    = isset($_POST["sfsi_icons_floatMargin_left"])   ? $_POST["sfsi_icons_floatMargin_left"]  : '';
+    $sfsi_icons_floatMargin_right   = isset($_POST["sfsi_icons_floatMargin_right"])  ? $_POST["sfsi_icons_floatMargin_right"] : '';
+    $sfsi_disable_floaticons        = isset($_POST["sfsi_disable_floaticons"])       ? $_POST["sfsi_disable_floaticons"]      : 'no';
+
+    $sfsi_show_via_shortcode        = isset($_POST["sfsi_show_via_shortcode"])       ? $_POST["sfsi_show_via_shortcode"]   : 'no';
+
+    $sfsi_show_via_afterposts       = isset($_POST["sfsi_show_via_afterposts"])      ? $_POST["sfsi_show_via_afterposts"]   : 'no';
+
+
+    /* icons pop options */
+    $up_option9 = array(
+
+        'sfsi_show_via_widget'          =>  sanitize_text_field($sfsi_show_via_widget),        
+
+        'sfsi_icons_float'              =>  sanitize_text_field($sfsi_icons_float),
+        'sfsi_icons_floatPosition'      =>  sanitize_text_field($sfsi_icons_floatPosition),
+        'sfsi_icons_floatMargin_top'    =>  intval(sanitize_text_field($sfsi_icons_floatMargin_top)),
+        'sfsi_icons_floatMargin_bottom' =>  intval(sanitize_text_field($sfsi_icons_floatMargin_bottom)),
+        'sfsi_icons_floatMargin_left'   =>  intval(sanitize_text_field($sfsi_icons_floatMargin_left)),
+        'sfsi_icons_floatMargin_right'  =>  intval(sanitize_text_field($sfsi_icons_floatMargin_right)),
+        'sfsi_disable_floaticons'       =>  sanitize_text_field($sfsi_disable_floaticons),
+
+        'sfsi_show_via_shortcode'       =>  sanitize_text_field($sfsi_show_via_shortcode),
+
+        'sfsi_show_via_afterposts'      =>  sanitize_text_field($sfsi_show_via_afterposts)                        
+
+    );
+
+    update_option('sfsi_section9_options',serialize($up_option9));
+    header('Content-Type: application/json');
+    echo  json_encode(array("success")); exit;       
 }
 /* upload custom icons images */
 /* get counts for admin section */        

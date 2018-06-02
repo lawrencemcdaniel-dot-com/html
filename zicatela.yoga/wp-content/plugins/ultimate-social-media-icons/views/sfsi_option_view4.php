@@ -118,7 +118,7 @@ if(isset($option4['sfsi_youtube_user']) && !empty($option4['sfsi_youtube_user'])
 }
 else{
     if("name"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeusernameorid']) && !empty($option2['sfsi_youtubeusernameorid'])){
-        $option4['sfsi_youtube_user']   = $option2['sfsi_ytube_user'];
+        $option4['sfsi_youtube_user']   = isset($option2['sfsi_ytube_user']) && !empty($option2['sfsi_ytube_user']) ? $option2['sfsi_ytube_user']: '';
     }
 }
 
@@ -127,7 +127,7 @@ if(isset($option4['sfsi_youtube_channelId']) && !empty($option4['sfsi_youtube_ch
 }
 else{
     if("id"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeusernameorid']) && !empty($option2['sfsi_youtubeusernameorid'])){
-        $option4['sfsi_youtube_channelId']   = $option2['sfsi_ytube_chnlid'];
+        $option4['sfsi_youtube_channelId']   = isset($option2['sfsi_ytube_chnlid']) && !empty($option2['sfsi_ytube_chnlid']) ? $option2['sfsi_ytube_chnlid']: '';
     }
 }
 
@@ -136,7 +136,8 @@ $counts = sfsi_getCounts();
 
 /* check for email icon display */
 $email_image="email.png";
-if($option2['sfsi_rss_icons']=="sfsi")
+
+if(isset($option2['sfsi_rss_icons']) && !empty($option2['sfsi_rss_icons']) && $option2['sfsi_rss_icons']=="sfsi")
 {
 	$email_image="sf_arow_icn.png";
 }    

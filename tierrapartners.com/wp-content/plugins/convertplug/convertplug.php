@@ -4,9 +4,10 @@
 	Plugin URI: https://www.convertplug.com/plus
 	Author: Brainstorm Force
 	Author URI: https://www.brainstormforce.com
-	Version: 3.2.3
+	Version: 3.3.0
 	Description: Welcome to Convert Plus - the easiest WordPress plugin to convert website traffic into leads. Convert Plus will help you build email lists, drive traffic, promote videos, offer coupons and much more!
 	Text Domain: smile
+	License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  *  @package Convert_Plus.
  */
@@ -15,7 +16,7 @@
 	defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 if ( ! defined( 'CP_VERSION' ) ) {
-	define( 'CP_VERSION', '3.2.3' );
+	define( 'CP_VERSION', '3.3.0' );
 }
 
 if ( ! defined( 'CP_BASE_DIR' ) ) {
@@ -156,7 +157,7 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'cp_admin_scripts' ), 100 );
 			add_filter( 'bsf_core_style_screens', array( $this, 'cp_add_core_styles' ) );
 			add_action( 'admin_head', array( $this, 'cp_custom_css' ) );
-			add_action( 'admin_init', array( $this, 'cp_redirect_on_activation' ) );
+			add_action( 'admin_init', array( $this, 'cp_redirect_on_activation' ),1 );
 			add_filter( 'plugin_action_links_' . CP_DIR_FILE_NAME, array( $this, 'cp_action_links' ), 10, 5 );
 			add_action( 'wp_ajax_cp_display_preview_modal', array( $this, 'cp_display_preview_modal' ) );
 			add_action( 'wp_ajax_cp_display_preview_info_bar', array( $this, 'cp_display_preview_info_bar' ) );
@@ -987,9 +988,8 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		function cp_redirect_on_activation() {
-
-			if ( true === get_option( 'convert_plug_redirect' ) ) {
+		function cp_redirect_on_activation() {	
+			if ( true === get_option( 'convert_plug_redirect' ) || '1' === get_option( 'convert_plug_redirect' ) ) {
 				update_option( 'convert_plug_redirect', false );
 				$this->create_default_campaign();
 				if ( ! is_multisite() ) :

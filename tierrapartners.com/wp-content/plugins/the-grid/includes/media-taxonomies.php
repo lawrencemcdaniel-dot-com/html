@@ -12,18 +12,23 @@ if (!defined('ABSPATH')) {
 
 class Media_Taxonomies {
 
-	private static $instance = null;
+	private $taxonomies = array();
 
 	/**
 	 * Constructor
 	 * @since v1.0.5
 	 */
 	public function __construct() {
+
 		add_action('init', array($this, 'register_taxonomy'));
+
 		if (is_admin()) {
+
+			
 			add_filter('attachment_fields_to_edit', array( $this, 'attachment_fields_to_edit'), 10, 2);
 			add_filter('attachment_fields_to_save', array( $this, 'save_media_terms'), 10, 2);
 			add_action('admin_head', array($this, 'media_taxonomy_styles'));
+
 		}
 	}
 	
@@ -32,50 +37,56 @@ class Media_Taxonomies {
 	 * @since v1.0.5
 	 */
 	public function register_taxonomy() {
-
-		register_taxonomy('media-category', array('attachment'), array(
-			'hierarchical' => true,
-			'labels' => array(
-				'name' => _x('Categories', 'taxonomy general name', 'tg-text-domain'),
-				'singular_name' => _x('Category', 'taxonomy singular name', 'tg-text-domain'),
-				'search_items' =>  __('Search Categories', 'tg-text-domain'),
-				'all_items' => __('All Categories', 'tg-text-domain'),
-				'parent_item' => __('Parent Category', 'tg-text-domain'),
-				'parent_item_colon' => __('Parent Category:', 'tg-text-domain'),
-				'edit_item' => __('Edit Category', 'tg-text-domain'),
-				'update_item' => __('Update Category', 'tg-text-domain'),
-				'add_new_item' => __('Add New Category', 'tg-text-domain'),
-				'new_item_name' => __('New Category Name', 'tg-text-domain'),
-				'menu_name' => __('Categories', 'tg-text-domain'),
+		
+		$this->taxonomies = array(
+			'media-category' => array(
+				'hierarchical' => true,
+				'labels' => array(
+					'name' => _x('Categories', 'taxonomy general name', 'tg-text-domain'),
+					'singular_name' => _x('Category', 'taxonomy singular name', 'tg-text-domain'),
+					'search_items' =>  __('Search Categories', 'tg-text-domain'),
+					'all_items' => __('All Categories', 'tg-text-domain'),
+					'parent_item' => __('Parent Category', 'tg-text-domain'),
+					'parent_item_colon' => __('Parent Category:', 'tg-text-domain'),
+					'edit_item' => __('Edit Category', 'tg-text-domain'),
+					'update_item' => __('Update Category', 'tg-text-domain'),
+					'add_new_item' => __('Add New Category', 'tg-text-domain'),
+					'new_item_name' => __('New Category Name', 'tg-text-domain'),
+					'menu_name' => __('Categories', 'tg-text-domain'),
+				),
+				'show_ui' => true,
+				'query_var' => true,
+				'rewrite' => array('slug' => _x('media-category', 'Category Slug', 'tg-text-domain')),
+				'show_admin_column' => true,
+				'update_count_callback' => '_update_generic_term_count',
 			),
-			'show_ui' => true,
-			'query_var' => true,
-			'rewrite' => array('slug' => _x('media-category', 'Category Slug', 'tg-text-domain')),
-			'show_admin_column' => true,
-			'update_count_callback' => '_update_generic_term_count',
-		));
-
-		register_taxonomy('media-tag', array('attachment'), array(
-			'hierarchical' => false,
-			'labels' => array(
-				'name' => _x('Tags', 'taxonomy general name', 'tg-text-domain'),
-				'singular_name' => _x('Tag', 'taxonomy singular name', 'tg-text-domain'),
-				'search_items' =>  __('Search Tags', 'tg-text-domain'),
-				'all_items' => __('All Tags', 'tg-text-domain'),
-				'parent_item' => __('Parent Tag', 'tg-text-domain'),
-				'parent_item_colon' => __('Parent Tag:', 'tg-text-domain'),
-				'edit_item' => __('Edit Tag', 'tg-text-domain'),
-				'update_item' => __('Update Tag', 'tg-text-domain'),
-				'add_new_item' => __('Add New Tag', 'tg-text-domain'),
-				'new_item_name' => __('New Tag Name', 'tg-text-domain'),
-				'menu_name' => __('Tags', 'tg-text-domain'),
+			'media-tag' => array(
+				'hierarchical' => false,
+				'labels' => array(
+					'name' => _x('Tags', 'taxonomy general name', 'tg-text-domain'),
+					'singular_name' => _x('Tag', 'taxonomy singular name', 'tg-text-domain'),
+					'search_items' =>  __('Search Tags', 'tg-text-domain'),
+					'all_items' => __('All Tags', 'tg-text-domain'),
+					'parent_item' => __('Parent Tag', 'tg-text-domain'),
+					'parent_item_colon' => __('Parent Tag:', 'tg-text-domain'),
+					'edit_item' => __('Edit Tag', 'tg-text-domain'),
+					'update_item' => __('Update Tag', 'tg-text-domain'),
+					'add_new_item' => __('Add New Tag', 'tg-text-domain'),
+					'new_item_name' => __('New Tag Name', 'tg-text-domain'),
+					'menu_name' => __('Tags', 'tg-text-domain'),
+				),
+				'show_ui' => true,
+				'query_var' => true,
+				'rewrite' => array('slug' => _x('media-tag', 'Tag Slug', 'tg-text-domain')),
+				'show_admin_column' => true,
+				'update_count_callback' => '_update_generic_term_count',
 			),
-			'show_ui' => true,
-			'query_var' => true,
-			'rewrite' => array('slug' => _x('media-tag', 'Tag Slug', 'tg-text-domain')),
-			'show_admin_column' => true,
-			'update_count_callback' => '_update_generic_term_count',
-		));
+		);
+		
+		foreach( $this->taxonomies as $taxonomy => $args ) {
+			register_taxonomy( $taxonomy, array( 'attachment' ), $args );
+		}
+		
 
 	}
 
@@ -86,22 +97,21 @@ class Media_Taxonomies {
 	public function attachment_fields_to_edit($fields, $post) {
 
 		$screen = get_current_screen();
+
 		if (isset($screen->id) && 'attachment' == $screen->id) {
 			return $fields;
 		}
 		
-		$taxonomies = apply_filters('media-taxonomies', get_object_taxonomies('attachment', 'objects'));
-		if (!$taxonomies) {
-			return $fields;
-		}
-		
-		foreach ($taxonomies as $taxonomyname => $taxonomy) {
-			$fields[$taxonomyname] = array(
-				'label' => $taxonomy->labels->singular_name,
+
+		foreach( $this->taxonomies as $taxonomy => $args ) {
+			
+			$fields[ $taxonomy ] = array(
+				'label' => $args['labels']['singular_name'],
 				'input' => 'html',
 				'html'  => $this->terms_checkboxes($taxonomy, $post->ID),
 				'show_in_edit' => true,
 			);
+
 		}
 
 		return $fields;
@@ -138,9 +148,7 @@ class Media_Taxonomies {
 					$terms = array_filter(array_map('intval', $terms));
 					wp_set_object_terms($attachment_id, $terms, $taxonomy, false);
 				}
-			} else {
-				wp_set_object_terms($attachment_id, array(), $taxonomy, false);
-			}
+			}			
 		}
 		
 		return $post;
@@ -153,29 +161,25 @@ class Media_Taxonomies {
 	 */
 	protected function terms_checkboxes($taxonomy, $post_id) {
 
-		if (!is_object($taxonomy)) {
-			$taxonomy = get_taxonomy($taxonomy);
-		}
-		
-		$terms = get_terms($taxonomy->name, array('hide_empty' => FALSE));
-		$attachment_terms = wp_get_object_terms($post_id, $taxonomy->name, array('fields' => 'ids'));
+		$terms = get_terms($taxonomy, array('hide_empty' => FALSE));
+		$attachment_terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'ids'));
 
 		$output  = '<div class="media-term-section">';
 			
 			$cats  = __( 'All Categories', 'tg-text-domain');
 			$tags  = __( 'All Tags', 'tg-text-domain');
-			$label = ($taxonomy->name == 'media-category') ? $cats : $tags;
+			$label = ($taxonomy == 'media-category') ? $cats : $tags;
 			$output .= '<ul class="media-category-tabs category-tabs">';
 				$output .= '<li class="tabs" data-tab="media-terms-all"><span>'. $label .'</span></li>';
 				$output .= '<li class="hide-if-no-js" data-tab="media-terms-popular"><span>'. __( 'Most Used', 'tg-text-domain') .'</span></li>';
 			$output .= '</ul>';
 			
-			$output .= '<div class="media-terms" data-id="'. $post_id .'" data-taxonomy="'. $taxonomy->name .'">';
+			$output .= '<div class="media-terms" data-id="'. $post_id .'" data-taxonomy="'. $taxonomy .'">';
 				$output .= '<ul>';	
 							ob_start();			
 							wp_terms_checklist($post_id, array(
 								'selected_cats' => $attachment_terms,
-								'taxonomy'      => $taxonomy->name,
+								'taxonomy'      => $taxonomy,
 								'checked_ontop' => true,
 								'walker'        => new Walker_WP_Media_Taxonomy_Checklist($post_id)
 							));	
@@ -185,12 +189,12 @@ class Media_Taxonomies {
 				$output .= '</ul>';
 			$output .= '</div>';
 			
-			$output .= '<h4><span class="toggle-add-media-term">+ '. $taxonomy->labels->add_new_item .'</span></h4>';
+			$output .= '<h4><span class="toggle-add-media-term">+ '. $this->taxonomies[$taxonomy]['labels']['add_new_item'] .'</span></h4>';
 			
 			$output .= '<div class="add-new-term">';
 				$output .= '<p class="category-add wp-hidden-child">';
-				$output .= '<input type="text" class="text form-required" autocomplete="off" id="new-media-term" name="new-media-term['.$taxonomy->name.']" value="">';
-				$output .= '<button class="button save-media-term" name="current-taxonomy">'.$taxonomy->labels->add_new_item.'</button>';
+				$output .= '<input type="text" class="text form-required" autocomplete="off" id="new-media-term" name="new-media-term['.$taxonomy.']" value="">';
+				$output .= '<button class="button save-media-term" name="current-taxonomy">'. $this->taxonomies[$taxonomy]['labels']['add_new_item'] .'</button>';
 				$output .= '</p>';
 			$output .= '</div>';
 			

@@ -2808,6 +2808,8 @@ class Essential_Grid_Item_Skin {
 			}
 		}
 		
+		$this->layers_meta_css = array();
+		
 	}
 	
 	/**

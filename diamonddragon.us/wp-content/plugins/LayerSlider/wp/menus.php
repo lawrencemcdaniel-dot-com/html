@@ -57,7 +57,7 @@ function layerslider_help($contextual_help, $screen_id, $screen) {
 		$screen->add_help_tab(array(
 			'id' => 'help',
 			'title' => __('Getting Help', 'LayerSlider'),
-			'content' => '<p>'. sprintf(__('Please read our  %sOnline Documentation%s carefully, it will likely answer all of your questions.<br><br>You can also check the %sFAQs%s for additional information, including our support policies and licensing rules.', 'LayerSlider'), '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html" target="_blank">', '</a>', '<a href="https://support.kreaturamedia.com/faq/4/layerslider-for-wordpress/" target="_blank">', '</a>').'</p>'
+			'content' => '<p>'. sprintf(__('Please read our  %sOnline Documentation%s carefully, it will likely answer all of your questions.<br><br>You can also check the %sFAQs%s for additional information, including our support policies and licensing rules.', 'LayerSlider'), '<a href="https://layerslider.kreaturamedia.com/documentation/" target="_blank">', '</a>', '<a href="https://kreatura.ticksy.com/" target="_blank">', '</a>').'</p>'
 		));
 	}
 }
@@ -84,6 +84,10 @@ function layerslider_router() {
 
 			case 'about':
 				include(LS_ROOT_PATH.'/views/about.php');
+				break;
+
+			case 'gdpr':
+				include(LS_ROOT_PATH.'/views/gdpr.php');
 				break;
 
 			case 'skin-editor':

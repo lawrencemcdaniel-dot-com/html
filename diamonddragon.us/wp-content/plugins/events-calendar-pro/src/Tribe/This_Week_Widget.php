@@ -74,11 +74,11 @@ class Tribe__Events__Pro__This_Week_Widget extends WP_Widget {
 		$week_offset = isset( $instance['week_offset'] ) ? $instance['week_offset'] : null;
 
 		//Array of Variables to use for Data Attributes and
-		$this_week_query_vars['start_date'] = tribe_get_this_week_first_week_day( $start_date, $week_offset );
-		$this_week_query_vars['end_date'] = tribe_get_this_week_last_week_day( $this_week_query_vars['start_date'] );
-		$this_week_query_vars['count'] = $instance['count'];
-		$this_week_query_vars['layout'] = $instance['layout'];
-		$this_week_query_vars['tax_query'] = $tax_query;
+		$this_week_query_vars['start_date']    = tribe_get_this_week_first_week_day( $start_date, $week_offset );
+		$this_week_query_vars['end_date']      = tribe_get_this_week_last_week_day( $this_week_query_vars['start_date'] );
+		$this_week_query_vars['count']         = $instance['count'];
+		$this_week_query_vars['layout']        = $instance['layout'];
+		$this_week_query_vars['tax_query']     = $tax_query;
 		$this_week_query_vars['hide_weekends'] = isset( $instance['hide_weekends'] ) ? $instance['hide_weekends'] : false;
 
 		//Setup Variables for Template

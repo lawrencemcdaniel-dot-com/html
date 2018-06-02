@@ -59,7 +59,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		public $shortcodes;
 
 		const REQUIRED_TEC_VERSION = '4.6.12';
-		const VERSION = '4.4.26';
+		const VERSION = '4.4.27';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -731,7 +731,9 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			switch ( $tab ) {
 				case 'display':
 					$fields = Tribe__Main::array_insert_after_key(
-						'tribeDisableTribeBar', $fields, array(
+						'tribeDisableTribeBar',
+						$fields,
+						array(
 							'hideRelatedEvents' => array(
 								'type'            => 'checkbox_bool',
 								'label'           => __( 'Hide related events', 'tribe-events-calendar-pro' ),
@@ -742,7 +744,9 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 						)
 					);
 					$fields = Tribe__Main::array_insert_after_key(
-						'monthAndYearFormat', $fields, array(
+						'monthAndYearFormat',
+						$fields,
+						array(
 							'weekDayFormat' => array(
 								'type'            => 'text',
 								'label'           => __( 'Week Day Format', 'tribe-events-calendar-pro' ),
@@ -754,11 +758,39 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 						)
 					);
 					$fields = Tribe__Main::array_insert_after_key(
-						'hideRelatedEvents', $fields, array(
+						'hideRelatedEvents',
+						$fields,
+						array(
 							'week_view_hide_weekends' => array(
 								'type'            => 'checkbox_bool',
 								'label'           => __( 'Hide weekends on Week View', 'tribe-events-calendar-pro' ),
 								'tooltip'         => __( 'Check this to only show weekdays on Week View', 'tribe-events-calendar-pro' ),
+								'default'         => false,
+								'validation_type' => 'boolean',
+							),
+						)
+					);
+					$fields = Tribe__Main::array_insert_before_key(
+						'tribeEventsBeforeHTML',
+						$fields,
+						array(
+							'tribeEventsShortcodeBeforeHTML' => array(
+								'type'            => 'checkbox_bool',
+								'label'           => __( 'Enable the Before HTML (below) on shortcodes.', 'the-events-calendar' ),
+								'tooltip'         => __( 'Check this to show the Before HTML from the text area below on events displayed via shortcode.', 'the-events-calendar' ),
+								'default'         => false,
+								'validation_type' => 'boolean',
+							),
+						)
+					);
+					$fields = Tribe__Main::array_insert_before_key(
+						'tribeEventsAfterHTML',
+						$fields,
+						array(
+							'tribeEventsShortcodeAfterHTML' => array(
+								'type'            => 'checkbox_bool',
+								'label'           => __( 'Enable the After HTML (below) on shortcodes.', 'the-events-calendar' ),
+								'tooltip'         => __( 'Check this to show the After HTML from the text area below on events displayed via shortcode.', 'the-events-calendar' ),
 								'default'         => false,
 								'validation_type' => 'boolean',
 							),

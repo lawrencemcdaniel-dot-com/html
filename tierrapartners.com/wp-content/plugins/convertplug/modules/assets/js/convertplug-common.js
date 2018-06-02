@@ -89,6 +89,7 @@
      delay_set           = '',
      url_arr             = '',
      ajax_run            = true,
+     custom_selector     = '',
      floating_status     = 0 ;
 
      var ConvertPlus = {
@@ -125,6 +126,7 @@
                 scroll_class       = element.data("scroll-class"),
                 afterpost          = element.hasClass('cp-after-post'),
                 custom_class       = element.data('custom-class'),
+                custom_selector    = element.data('custom-selector'),
                 ib_id              = element.attr("id"),
                 iframes            = modal.find('iframe'),
                 disabled_upto      = modal.data('load-on-count');
@@ -178,6 +180,7 @@
                         this._CploadEvent();
                     }
                     this._CpCustomClass();
+                    //this._CpCustomSelector();
 
                     this._CpIframe();
                     if( module_type == 'slide_in'){
@@ -194,7 +197,7 @@
                     break;
 
                     case 'closepopup':
-                    this._CpclosepopupEvent();
+                    this._CpclosepopupEvent( e );
                     break;
 
                     case 'idle':
@@ -232,7 +235,7 @@
          * Clsoe popup Event
          * @return nothing
          */
-         _CpclosepopupEvent: function(){
+         _CpclosepopupEvent: function( event ){
             var type = module_type;
             if( type == 'modal' && typeof modal !=='undefined'){
                 var template      = $modal_container.data('template'),
@@ -534,8 +537,8 @@
                         custom_class_arr.push(classname);
                     }
                 });
-            }
-        },
+            }            
+        },       
         /**
          * Check video popup 
          * @return nothing
@@ -1762,29 +1765,42 @@
         jQuery.each(custom_class_arr, function(i, el){
             if($.inArray(el, custom_uniqueNames) === -1) custom_uniqueNames.push(el);
         });
-
+        
         //click event for open module on custom class
         jQuery.each(custom_uniqueNames, function(index,value){
 
             if( '' != value && 'undefined' != value && null != value  ) {
+                var check_val = "."+value,
+                    is_custom = false;
+
+                if( value.indexOf('#') != -1 || value.indexOf('.') != -1 ){                   
+                    var str     = value;                  
+                    str         = str.replace(/^(?:\[[^\]]*\]|\([^()]*\))\s*|\s*(?:\[[^\]]*\]|\([^()]*\))/g, "");
+                    check_val   = str;
+                    is_custom   = true;
+                }
                 
-               jQuery("body").on( "click", "."+value, function(event){
+                jQuery("body").on( "click", check_val, function(event){
+                    if( is_custom ){                       
+                        var element        = jQuery(".cp-global-load[data-custom-selector='"+custom_selector+"']");
+                    }else{
+                        var element        = jQuery(".cp-global-load"+check_val);
+                    }     
 
-                    var element        = jQuery(".cp-global-load."+value),
-                    type           = element.data('module-type'),
+                    var type           = element.data('module-type'),
                     is_inner_class = false;
-
                     if( !jQuery(this).hasClass("global_info_bar_container") ){
-                        event.preventDefault();
+                        //event.preventDefault();
                     }else{
                         is_inner_class = true;
                     }
-
+                    
                     if( type == 'modal'){
+
                         var modal_id = element.data("modal-style");
 
                         if( !jQuery('.cp-modal-popup-container.'+modal_id).find('.cp-animate-container').hasClass('cp-form-submit-success') ) {
-
+                            event.preventDefault();
                             var class_id    = element.data("class-id"),
                             modal       = $('.'+class_id);
 
@@ -1806,8 +1822,12 @@
                                 }
                             }
                         }
+
                     }else if( type == 'info-bar' && !is_inner_class ){
-                        var target      = jQuery(".cp-info-bar." + value ).first(),
+                        if( !jQuery(this).hasClass("global_info_bar_container") ){
+                            event.preventDefault();
+                        }
+                        var target      = element.first(),                       
                         id =       target.data('info_bar-id');
                         if( !target.hasClass('cp-form-submit-success') ) {
                             var class_id   = target.data("custom-class");
@@ -1819,13 +1839,13 @@
 
                     }else if( type == 'slide_in'){
                         if( !jQuery(this).hasClass("slidein-overlay") ){
-                            var element = jQuery(".si-onload."+value),
-                            type    = element.data('module-type'),
-                            target  = jQuery("."+value),
-                            class_id = element.data("class-id"),
-                            slidein  = $('.'+class_id),
-                            style    = slidein.data('slidein-style'),
-                            condition = ( jQuery(".si-open").length <= 1 && jQuery(".si-open").find(".cp-slide-in-float-on").length <= 1 );
+                        event.preventDefault();
+                        var type        = element.data('module-type'),
+                            target      = element,
+                            class_id    = element.data("class-id"),
+                            slidein     = $('.'+class_id),
+                            style       = slidein.data('slidein-style'),
+                            condition   = ( jQuery(".si-open").length <= 1 && jQuery(".si-open").find(".cp-slide-in-float-on").length <= 1 );
 
                             if( condition ){
                                 slidein.find('.cp-animate-container').removeClass('cp-hide-slide');
@@ -1836,9 +1856,9 @@
 
                 });
             }
-        });
-
+        });        
     });
+
 
 /* check if event is already fired */
 function cp_is_triggered( elem ){
@@ -2210,10 +2230,74 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
 
 });
 
-    //close gravity form
-    jQuery(document).bind('gform_confirmation_loaded', function(event, form_id){    
-        var modal       =  jQuery(".cp-open");
-        jQuery(document).trigger('closeModal',[modal]);
+    //close gravity form & Custom analytics for Contact form.
+    jQuery(document).bind('gform_confirmation_loaded', function(event, form_id){ 
+        var form     = jQuery('#gf_'+form_id),        
+            style_id = form.parents(".cp-module").data("style-id"),
+            style_name  = form.parents(".cp-module").data("module-name");  
+
+        jQuery(document).trigger('cp_custom_analytics',[style_id]);
+        jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+    });
+
+
+    //Custom analytics for Contact form.
+    document.addEventListener( 'wpcf7submit', function( event ) {
+        var status = event.detail.status;
+        var form_id = event.detail.id;
+    
+        if( status == 'mail_sent'){
+            var form = jQuery('#'+form_id );
+            var style_id    = form.parents(".cp-module").data("style-id"),
+                style_name  = form.parents(".cp-module").data("module-name");
+
+            jQuery(document).trigger('cp_custom_analytics',[style_id]);
+            jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+        }       
+    }, false );
+
+   //custom analytics for ninja form.    
+    jQuery( document ).on( 'nfFormSubmitResponse', function( event, response ) {
+        var error       = response.response.errors,
+            form_id     = 'nf-form-'+response.id+'-cont',
+            form        = jQuery('#'+form_id),
+            style_id    = form.parents(".cp-module").data("style-id"),
+            style_name  = form.parents(".cp-module").data("module-name");
+
+            jQuery(document).trigger('cp_custom_analytics',[style_id]);
+            jQuery(document).trigger('cp_custom_close_module',[form, style_name] );
+    });
+
+    //close module after custom conversion
+    jQuery(window).on("cp_custom_close_module", function( e, form, style_name ) {
+        if( style_name == 'modal' ){
+            var modal       =  form.parents(".cp-open");
+            jQuery(document).trigger('closeModal',[modal]);
+        }else if( style_name == 'slidein' ){
+            var slidein       =  form.parents(".slidein-overlay");
+            jQuery(document).trigger('closeSlideIn',[slidein]);
+        }else if( style_name == 'infobar' ){
+            var info_bar = form.parents(".cp-info-bar");
+            jQuery(document).trigger("cp_close_info_bar",[info_bar]);
+        }    
+    });
+
+    //Custom conversion
+    jQuery(window).on("cp_custom_analytics", function(e,style_id) {
+        setTimeout(function() {
+            var nounce = jQuery(".cp-impress-nonce").val(),
+            data = {action:'smile_update_custom_conversions',conversion:true,style_id:style_id,option:'smile_modal_styles',security:nounce};
+            jQuery.ajax({
+                url:smile_ajax.url,
+                data: data,
+                type: "POST",
+                dataType:"HTML",
+                security:jQuery(".cp-impress-nonce").val(),
+                beforeSend: function(result){// do your stuff
+                    ajax_run = false;
+                }
+            });
+        },  2000); 
     });
 
 })(jQuery);

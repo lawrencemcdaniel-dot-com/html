@@ -524,10 +524,9 @@ function cs_send_json_error( $data = null ) {
  * @param  string $content Content to make an excerpt for
  * @return string          Text result
  */
-function cs_derive_excerpt( $content, $store = false ) {
+function cs_derive_excerpt( $content ) {
 
-
-	$the_content = apply_filters( 'the_content', $content );
+	$the_content = do_shortcode( $content );
 	$length = apply_filters( 'excerpt_length', 55 );
 
 	$offset = 0;
@@ -545,12 +544,12 @@ function cs_derive_excerpt( $content, $store = false ) {
 
 	}
 
-	if ( $store === true ) {
-		return trim( $reduction );
-	}
+	return trim( $reduction );
 
-	return wp_trim_words( trim( $reduction ), $length, apply_filters( 'excerpt_more', ' [&hellip;]' ) );
+}
 
+function cs_format_excerpt( $excerpt ) {
+  return wp_trim_words( $excerpt, apply_filters( 'excerpt_length', 55 ), apply_filters( 'excerpt_more', ' [&hellip;]' ) );
 }
 
 /**
@@ -634,13 +633,13 @@ function cs_to_component_name( $name ) {
 }
 
 function cs_debug( $message ) {
-  CS()->loadComponent('Debug')->add_message($message);
+  CS()->component('Debug')->add_message($message);
 }
 
 function cs_set_curl_timeout_begin( $timeout ) {
-  CS()->loadComponent('Networking')->set_curl_timeout_begin( $timeout );
+  CS()->component('Networking')->set_curl_timeout_begin( $timeout );
 }
 
 function cs_set_curl_timeout_end() {
-  CS()->loadComponent('Networking')->set_curl_timeout_end();
+  CS()->component('Networking')->set_curl_timeout_end();
 }

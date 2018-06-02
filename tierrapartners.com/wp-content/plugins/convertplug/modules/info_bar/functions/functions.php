@@ -521,6 +521,12 @@ if ( ! function_exists( 'cp_ib_global_before_init' ) ) {
 			$form_data_onsubmit .= ' data-form-action-time =' . $a['form_disappears_time'];
 		}
 
+		// Custom selector.
+		$custom_selector = '';
+		$custom_selector = isset( $a['custom_selector'] ) ? cp_get_custom_slector_init( $a['custom_selector'] ): '';		
+		if( '' !== $custom_selector ){
+			$ib_custom_class      .= ' '.cp_get_custom_slector_class_init( $a['custom_selector'] );
+		}
 		// set data variables and class name for ifb_onload.
 		$ifb_inline_cls = ( ! $is_inline ) ? ' content-' . $uid . ' ' . $style_id . ' ' . $ib_custom_class : '';
 		$class_ifb      = '';
@@ -563,13 +569,16 @@ if ( ! function_exists( 'cp_ib_global_before_init' ) ) {
 		$infobar_global_data .= $referrer_data . '  ';
 		$infobar_global_data .= $after_content_data . '  ';
 		$infobar_global_data .= 'id = "' . esc_attr( $ib_custom_id ) . ' " ';
+		$infobar_global_data .= 'data-custom-selector = "' . esc_attr( $custom_selector ) . '"';
+
+		$custom_css_class = isset( $a['custom_css_class'] ) ? $a['custom_css_class'] :'';
 
 		?>
 
 		<input type="hidden" id="cp-push-down-support" value="<?php echo $push_page_input; ?>">
 		<input type="hidden" id="cp-top-offset-container" value="<?php echo $top_offset_container; ?>">
 
-		<div <?php echo  $infobar_global_data; ?> class="<?php echo  $class_ifb; ?> " style="min-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;">
+		<div <?php echo  $infobar_global_data; ?> class="<?php echo  $class_ifb; echo $custom_css_class;?> " style="min-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;" data-style-id ="<?php echo $style_id; ?>" data-module-name ="infobar" >
 			<div class="cp-info-bar-wrapper cp-clear">
 				<div class="cp-info-bar-body-overlay"></div>
 				<div class="cp-flex cp-info-bar-body <?php echo esc_attr( $ib_close_class ); ?>" style="min-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;" data-height=''>

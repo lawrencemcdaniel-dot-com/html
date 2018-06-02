@@ -248,7 +248,7 @@ class Tribe__Events__Pro__Mini_Calendar {
 			wp_enqueue_style( 'tribe_events-widget-calendar-pro-style', $style_url, array(), $pro_version );
 		}
 
-		if ( $style_override_url ) {
+		if ( $style_override_url && $style_url !== $style_override_url ) {
 			wp_enqueue_style( 'tribe_events-widget-calendar-pro-override-style', $style_override_url, array(), $pro_version );
 		}
 

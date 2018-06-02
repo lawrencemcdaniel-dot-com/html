@@ -1530,6 +1530,19 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'section'      => __( 'Design', 'smile' ),
 			'section_icon' => 'connects-icon-image',
 		),
+		array(
+			'type'         => 'textfield',
+			'class'        => '',
+			'name'         => 'custom_css_class',
+			'opts'         => array(
+				'title'       => __( 'Custom Class', 'smile' ),
+				'value'       => '',
+				'description' => __( 'Enter your custom class for this Slide In here.', 'smile' ),
+			),
+			'panel'        => __( 'Advance Design Options', 'smile' ),
+			'section'      => __( 'Design', 'smile' ),
+			'section_icon' => 'connects-icon-image',
+		),
 	);
 
 
@@ -2150,6 +2163,19 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'panel'        => 'Manual Display',
 			'section'      => __( 'Behavior', 'smile' ),
 			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'tags',
+			'class'        => '',
+			'name'         => 'custom_selector',
+			'opts'         => array(
+				'title' => __( 'Launch With Custom Selector', 'smile' ),
+				'value' => '',
+				'description' => __( "Use this option to display Slide In on click of custom selector.  <br/>Example - #myclass[reference='12345']<br>", 'smile' ),
+			),			
+			'panel'        => __( 'Manual Display', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-cog',
 		),
 		array(
 			'type'         => 'switch',

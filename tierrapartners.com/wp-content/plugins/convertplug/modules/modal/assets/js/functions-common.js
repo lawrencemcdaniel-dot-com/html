@@ -519,6 +519,66 @@ function cp_update_ajax_modal_image_src( smile_global_data ) {
 
 }
 
+/**
+ * [cp_update_ajax_overlay_image_src description]
+ * @param  {[type]} smile_global_data [description]
+ * @return {[type]}                   [description]
+ */
+/*function cp_update_ajax_overlay_image_src( smile_global_data ) {
+	var modal_image_size = smile_global_data.modal_image_size,
+		modal_image 	 = smile_global_data.modal_image,
+		modal_img_src    = smile_global_data.modal_img_src;
+		modal_img 		 = jQuery('.cp-image-container img');
+
+	switch( modal_img_src ) {
+
+		case "upload_img":
+
+				// 	file not exists
+			if( typeof modal_image !== 'undefined' && modal_image.indexOf('http') === -1 && modal_image !== '' ) {
+
+				var image_details = modal_image.split("|"),
+                        img_id = image_details[0],
+                        img_size = modal_image_size;
+				var img_data = {
+					action:'cp_get_image',
+					img_id: img_id,
+					size: img_size
+				};
+				jQuery.ajax({
+					url: smile_ajax.url,
+					data: img_data,
+					type: "POST",
+					success: function(img_url){
+						modal_img.attr( "src", img_url);
+					}
+				});
+			} else if( typeof modal_image !== 'undefined' && modal_image.indexOf('http') != -1 ) {
+				if( modal_image.indexOf('|') ) {
+					var url = modal_image.split('|');
+					modal_img.attr( "src", url[0]);
+				} else {
+                	modal_img.attr( "src", modal_image );
+                }
+			} else {
+				var img_src = jQuery('.smile-input[name="modal_image"]', window.parent.document ).attr('data-css-image-url');
+				modal_img.attr( "src", img_src );
+			}
+		break;
+
+		case "custom_url":
+
+			var custom_url = smile_global_data.modal_img_custom_url;
+			modal_img.attr( "src", custom_url );
+		break;
+
+		case "none":
+			modal_img.attr( "src", "" );
+		break;
+	}
+
+}*/
+
 parent.jQuery(window.parent.document).on('cp-image-default', function( e, name, url, val) {
 
 	//	Modal - Background Image
@@ -533,6 +593,10 @@ parent.jQuery(window.parent.document).on('cp-image-default', function( e, name, 
 
 	if( name == 'content_bg_image' && name != 'undefined' && name != null ) {
 		cp_change_bg_img( smile_global_data, '.cp-content-section' , '' , name, 'content_opt_bg', url, val );
+	}
+
+	if( name == 'overlay_bg_image' && name != 'undefined' && name != null ) {
+		cp_change_bg_img( smile_global_data, '.cp-overlay' , '' , name, 'overlay_bg', url, val );
 	}
 
 	//	Modal - Image
@@ -577,6 +641,10 @@ parent.jQuery(window.parent.document).on('cp-image-remove', function( e, name, u
 			var sel1 = '.cp-content-section';
 			var sel2 = '';
 		break;
+		case "overlay_bg_image":
+			var sel1 = '.cp-overlay';
+			var sel2 = '';
+		break;
 
 	}
 
@@ -594,7 +662,6 @@ parent.jQuery(window.parent.document).on('cp-image-remove', function( e, name, u
  * Change - Modal Image
  */
 parent.jQuery(window.parent.document).on('cp-image-change', function( e, name, url, val) {
-
 	//	Modal - Background Image
 	// Process for modal background image - for variable 'modal_bg_image'
 	if( name == 'modal_bg_image' && name != 'undefined' && name != null ) {
@@ -607,6 +674,10 @@ parent.jQuery(window.parent.document).on('cp-image-change', function( e, name, u
 
 	if( name == 'content_bg_image' && name != 'undefined' && name != null ) {
 		cp_change_bg_img( smile_global_data, '.cp-content-section' , '' , name, 'content_opt_bg', url, val );
+	}
+
+	if( name == 'overlay_bg_image' && name != 'undefined' && name != null ) {
+		cp_change_bg_img( smile_global_data, '.cp-overlay' , '' , name, 'overlay_bg', url, val );
 	}
 
 	//	Modal - Image
@@ -1376,7 +1447,7 @@ function apply_border_and_shadow( data ) {
 }
 
 /**
- * Backgorund color/image/gradient
+ * Backgorund color/image/gradient   
  */
 function apply_background_type( data ){	
 	var style 			 = data.style;
@@ -1514,6 +1585,35 @@ function apply_background_type( data ){
 				break;
 		}
 	}
+}
+
+/**
+ * [apply_overlay_background_type description]
+ * @param  {[type]} data [description]
+ * @return {[type]}      [description]
+ */
+function apply_overlay_background_type( data ){
+	var type 		 		= data.module_overlay_color_type,
+		cp_overlay 	 		= jQuery(".cp-overlay"),
+		cp_overlay_bg 		= jQuery(".cp-overlay-background"),
+		overlay_color     	= data.modal_overlay_bg_color,	
+		overlay_img_color 	= data.modal_img_overlay_bg_color;
+		switch(type){
+			case 'simple':
+					cp_overlay.css('background-image', '');
+					cp_overlay.css('background-position', '');
+					cp_overlay.css('background-repeat', '');
+					cp_overlay.css('background-size', '');
+					cp_overlay.css('background', '');
+					cp_overlay_bg.css('background-color', overlay_color);
+				break;
+
+			case 'image':
+					cp_overlay_bg.css('background', '');
+					cp_update_bg_image( smile_global_data, '.cp-overlay', '', 'overlay_bg_image', 'overlay_bg_image_src' );
+					cp_overlay_bg.css('background-color', overlay_img_color);
+				break;
+		}
 }
 
 /**
@@ -1657,8 +1757,12 @@ parent.jQuery(window.parent.document).on('smile-colorpicker-change', function( e
  */
 jQuery(document).on('smile_customizer_field_change',function(e, single_data){
 
-	if("module_bg_color_type" in single_data || "module_bg1_color_type" in single_data || "module_bg2_color_type" in single_data) {
+	if( "module_bg_color_type" in single_data || "module_bg1_color_type" in single_data || "module_bg2_color_type" in single_data ) {
 		apply_background_type( smile_global_data );
+	}
+
+	if( "module_overlay_color_type" in single_data ){
+		apply_overlay_background_type( smile_global_data );
 	}
 
 	//	Update box shadow
@@ -1725,6 +1829,30 @@ jQuery(document).on('smile_customizer_field_change',function(e, single_data){
 		}
 	}
 
+	// Overlay image ---------------
+	//	AJAX update image size - full / thumbnail / medium etc.
+	if( 'overlay_bg_image_size' in single_data ) {
+		cp_update_ajax_bg_image_size( smile_global_data, '.cp-overlay', '', 'overlay_bg_image', 'overlay_bg' );
+	}
+
+	//	1) Overlay Background Image-repeat
+	var overlay_bg_rpt = single_data.overlay_bg_rpt || null;
+	if( 'overlay_bg_rpt' in single_data ) {
+		add_css( '.cp-overlay', "background-repeat", overlay_bg_rpt );		
+	}
+
+	//	2) Overlay Background Image-position
+	var overlay_bg_pos = single_data.overlay_bg_pos || null;
+	if( 'overlay_bg_pos' in single_data ) {
+		add_css( '.cp-overlay', "background-position", overlay_bg_pos );
+	}
+
+	//	2) Overlay Background Image-position
+	var overlay_bg_size = single_data.overlay_bg_size || null;
+	if( 'overlay_bg_size' in single_data ) {
+		add_css( '.cp-overlay', "background-size", overlay_bg_size );
+	}
+
 	//	Animations
 	if( 'overlay_effect' in single_data || 'exit_animation' in single_data ) {
 		cp_apply_animations( smile_global_data );
@@ -1746,7 +1874,7 @@ jQuery(document).on('smile_customizer_field_change',function(e, single_data){
 	}
 
 	//	Modal Size
-	if( 'modal_size' in single_data || 'modal_bg_image_src' in single_data || 'modal_bg_image_custom_url' in single_data ) {
+	if( 'modal_size' in single_data || 'modal_bg_image_src' in single_data || 'modal_bg_image_custom_url' in single_data || 'overlay_bg_image_src' in single_data || 'overlay_bg_image_custom_url' in single_data ) {
 		update_modal_size( smile_global_data.modal_size );
 
 		//	Modal width
@@ -1757,8 +1885,13 @@ jQuery(document).on('smile_customizer_field_change',function(e, single_data){
 
 		//rearrange image 
 		cp_update_bg_image( smile_global_data, '.cp-modal-body', '.cp-modal-content', 'modal_bg_image', 'modal_bg_image_src' );
+		
+		//overlay image
+		cp_update_bg_image( smile_global_data, '.cp-overlay', '', 'overlay_bg_image', 'overlay_bg_image_src' );
+
 	}
 
+	
 	/**
 	 * Jugaad Background Image
 	 */
@@ -1916,11 +2049,18 @@ function global_initial_call( data ) {
 		cp_update_bg_image( data, '.cp-modal-body', '.cp-modal-content', 'modal_bg_image', 'modal_bg_image_src' );
 	}
 
+	if( typeof data.overlay_bg_image !== 'undefined' ) {
+		cp_update_bg_image( smile_global_data, '.cp-overlay', '', 'overlay_bg_image', 'overlay_bg_image_src' );
+	}
+
 	//	Border & Shadow
 	apply_border_and_shadow( data );
 
 	//Gradient background 
 	apply_background_type( data );
+
+	//overlay background
+	apply_overlay_background_type( data );
 
 	//	'cp_empty_classes' is a classes array defined in another file
 	//	Add Cp-empty Class To Empty Containers

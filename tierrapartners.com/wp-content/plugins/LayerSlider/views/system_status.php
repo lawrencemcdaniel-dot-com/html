@@ -70,7 +70,7 @@ $notifications = array(
 						<td><?php echo ! empty($authorized) ? __('Activated', 'LayerSlider') : __('Not set', 'LayerSlider') ?></td>
 						<td>
 							<?php if( ! $authorized ) : ?>
-							<span><?php echo sprintf(__('Activate your copy of LayerSlider for auto-updates, or ask new versions from the theme author, so you can always use the latest release with all the new features and bug fixes. %sClick here to learn more%s.', 'LayerSlider'), '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#updating" target="_blank">', '</a>') ?></span>
+							<span><?php echo sprintf(__('Activate your copy of LayerSlider for auto-updates, or ask new versions from the theme author, so you can always use the latest release with all the new features and bug fixes. %sClick here to learn more%s.', 'LayerSlider'), '<a href="https://layerslider.kreaturamedia.com/documentation/#updating" target="_blank">', '</a>') ?></span>
 							<?php endif ?>
 						</td>
 					</tr>
@@ -328,7 +328,7 @@ $notifications = array(
 						<td><?php echo $test ? __('OK', 'LayerSlider') : __('Blocked', 'LayerSlider') ?></td>
 						<td>
 							<?php if( ! $test ) : ?>
-							<span><?php _e('Failed to connect to our update server. This could cause issues with product activation, serving updates or downloading templates from the Template Store. It’s most likely a web server configuration issue. Please contact your web host and ask them to allow external connection to the following domain: <mark>repository.kreaturamedia.com</mark>', 'LayerSlider') ?></span>
+							<span><?php _e('Failed to connect to our update server. This could cause issues with product activation, serving updates or downloading templates from the Template Store. It’s most likely a web server configuration issue. Please contact your server host and ask them to allow external connections to <mark>repository.kreaturamedia.com</mark> domain and have cURL and the necessary components installed.', 'LayerSlider') ?></span>
 							<?php endif ?>
 						</td>
 					</tr>

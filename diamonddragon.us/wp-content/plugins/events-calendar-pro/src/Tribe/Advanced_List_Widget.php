@@ -82,6 +82,8 @@ class Tribe__Events__Pro__Advanced_List_Widget extends Tribe__Events__List_Widge
 
 		$instance['venue']                = $new_instance['venue'];
 		$instance['country']              = $new_instance['country'];
+		$instance['street']               = $new_instance['street'];
+		//@todo remove $instance['address'] after 4.6 (continuity helper for upgrading users)
 		$instance['address']              = $new_instance['address'];
 		$instance['city']                 = $new_instance['city'];
 		$instance['region']               = $new_instance['region'];
@@ -156,6 +158,8 @@ class Tribe__Events__Pro__Advanced_List_Widget extends Tribe__Events__List_Widge
 			'featured_events_only' => false,
 			'venue'                => false,
 			'country'              => true,
+			'street'               => false,
+			//@todo remove 'address' after 4.6 (continuity helper for upgrading users)
 			'address'              => false,
 			'city'                 => true,
 			'region'               => true,
@@ -172,6 +176,8 @@ class Tribe__Events__Pro__Advanced_List_Widget extends Tribe__Events__List_Widge
 		if ( $empty_values ) {
 			$defaults = array_map( '__return_empty_string', $defaults );
 		}
+
+
 
 		return wp_parse_args( (array) $instance, $defaults );
 	}

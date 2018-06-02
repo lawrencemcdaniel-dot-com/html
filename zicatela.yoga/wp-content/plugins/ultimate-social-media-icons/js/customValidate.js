@@ -491,13 +491,13 @@ function sfsi_validationStep5()
             return false;
         }   
         
-  /* validate icons effects   */      
-        if(SFSI('input[name="sfsi_icons_float"]:checked').val()=="yes" && SFSI('input[name="sfsi_icons_stick"]:checked').val()=="yes")
-        {   
-            showErrorSuc("error","Error : Only one allow from Sticking & floating ",5);
-            SFSI('input[name="sfsi_icons_float"][value="no"]').prop("checked", true);
-            return false;
-        }
+       /* validate icons effects   */      
+        // if(SFSI('input[name="sfsi_icons_float"]:checked').val()=="yes" && SFSI('input[name="sfsi_icons_stick"]:checked').val()=="yes")
+        // {   
+        //     showErrorSuc("error","Error : Only one allow from Sticking & floating ",5);
+        //     SFSI('input[name="sfsi_icons_float"][value="no"]').prop("checked", true);
+        //     return false;
+        // }
  
     
     return true;

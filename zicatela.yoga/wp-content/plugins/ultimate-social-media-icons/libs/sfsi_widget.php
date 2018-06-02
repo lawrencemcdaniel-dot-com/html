@@ -26,10 +26,12 @@ class Sfsi_Widget extends WP_Widget
 	{
 		extract( $args );
 		/*Our variables from the widget settings. */
-		$title = apply_filters('widget_title', $instance['title'] );
-		$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
+		$title 		= apply_filters('widget_title', $instance['title'] );
+		$show_info  = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
+		
 		global $is_floter;	      
 		echo $before_widget;
+		
 		/* Display the widget title */
 		if ( $title ) echo $before_title . $title . $after_title;
         ?>
@@ -109,18 +111,19 @@ function sfsi_check_visiblity($isFloter=0)
   	global $wpdb;
     /* Access the saved settings in database  */
     $sfsi_section1_options =  unserialize(get_option('sfsi_section1_options',false));
-    $sfsi_section3 =  unserialize(get_option('sfsi_section3_options',false));
-    $sfsi_section5 =  unserialize(get_option('sfsi_section5_options',false));
+    $sfsi_section3 		   =  unserialize(get_option('sfsi_section3_options',false));
+    $sfsi_section5 		   =  unserialize(get_option('sfsi_section5_options',false));
+    $sfsi_section9 		   =  unserialize(get_option('sfsi_section9_options',false));
        
     /* calculate the width and icons display alignments */
-    $icons_space = $sfsi_section5['sfsi_icons_spacing'];
-    $icons_size = $sfsi_section5['sfsi_icons_size'];
-    $icons_per_row = ($sfsi_section5['sfsi_icons_perRow'])? $sfsi_section5['sfsi_icons_perRow'] : '';
+    $icons_space 	 	   = $sfsi_section5['sfsi_icons_spacing'];
+    $icons_size 	 	   = $sfsi_section5['sfsi_icons_size'];
+    $icons_per_row   	   = ($sfsi_section5['sfsi_icons_perRow'])? $sfsi_section5['sfsi_icons_perRow'] : '';
     
-    $icons_alignment = $sfsi_section5['sfsi_icons_Alignment'];
-    $position = 'position:absolute;';
-    $position1 = 'position:absolute;';
-    $jquery='<script>';
+    $icons_alignment 	   = $sfsi_section5['sfsi_icons_Alignment'];
+    $position 			   = 'position:absolute;';
+    $position1 			   = 'position:absolute;';
+    $jquery 			   ='<script>';
 	
 	$jquery .= 'jQuery(".sfsi_widget").each(function( index ) {
 					if(jQuery(this).attr("data-position") == "widget")
@@ -152,10 +155,10 @@ function sfsi_check_visiblity($isFloter=0)
     }
 	
     /* check if icons floating  is activated in admin */
-    if($sfsi_section5['sfsi_icons_float']=="yes")
+    if($sfsi_section9['sfsi_icons_float']=="yes")
 	{
          $top = "15";
-         switch($sfsi_section5['sfsi_icons_floatPosition'])
+         switch($sfsi_section9['sfsi_icons_floatPosition'])
          {
              case "top-left" : if(is_admin_bar_showing()) :  $position.="position:absolute;left:30px;top:35px;"; $top="35"; else : $position.="position:absolute;left:10px;top:2%"; $top="10"; endif;                                                
              break;
@@ -165,13 +168,27 @@ function sfsi_check_visiblity($isFloter=0)
              break;
              case "center-left" : $position.="position:absolute;left:30px;top:50%"; $top="center";  
              break;
+			 case "center-top" :
+				if(is_admin_bar_showing())
+				{
+					$position .= "left:50%;top:35px;"; $top="35";
+				}
+				else
+				{
+					$position .= "left:50%;top:10px;"; $top="10";
+				} 
+			 break;
+			 case "center-bottom" :
+				$position .= "left:50%;bottom:0px"; $top="bottom";  
+			 break;
+
              case "bottom-right" : $position.="position:absolute;right:30px;bottom:0px"; $top="bottom"; 
              break;
              case "bottom-left" : $position.="position:absolute;left:30px;bottom:0px"; $top="bottom"; 
              break;
          }
         //$jquery.="jQuery( document ).ready(function( $ ) { sfsi_float_widget('".$top."')});";
-		if($sfsi_section5['sfsi_icons_floatPosition'] == 'center-right' || $sfsi_section5['sfsi_icons_floatPosition'] == 'center-left')
+		if($sfsi_section9['sfsi_icons_floatPosition'] == 'center-right' || $sfsi_section9['sfsi_icons_floatPosition'] == 'center-left')
 		 {
         	$jquery.="jQuery( document ).ready(function( $ )
 					  {
@@ -180,6 +197,15 @@ function sfsi_check_visiblity($isFloter=0)
 					  	sfsi_float_widget('".$top."');
 					  });";
 		 }
+		 else if($sfsi_section9['sfsi_icons_floatPosition'] == 'center-top' || $sfsi_section9['sfsi_icons_floatPosition'] == 'center-bottom'){
+
+			$jquery.="jQuery(document).ready(function( $ )
+					  {
+						var leftalign = ( jQuery(window).width() - jQuery('#sfsi_floater').width() ) / 2;
+						jQuery('#sfsi_floater').css('left',leftalign);
+						sfsi_float_widget('".$top."');
+					});";						
+		 }		 
 		 else
 		 {
 			$jquery.="jQuery( document ).ready(function( $ ) { sfsi_float_widget('".$top."')});"; 
@@ -235,11 +261,12 @@ function sfsi_check_visiblity($isFloter=0)
    if(!empty($icons_per_row))
    {
 		$width = ((int)$icons_space+(int)$icons_size)*(int)$icons_per_row;
-		$main_width = $width=$width+$extra;
+		$main_width = $width = $width+$extra;
 		$main_width = $main_width."px";
    }
    else
    {
+   		$width      =  ((int)$icons_space+(int)$icons_size);
 		$main_width = "35%";
    }
 	
@@ -276,41 +303,44 @@ function sfsi_check_visiblity($isFloter=0)
    
     $jquery.="</script>";
     $icons.='</div >';
-    $margin=$width+11;
+    
+    $margin = $width+11;
+
     $icons_main.=$icons.'<div id="sfsi_holder" class="sfsi_holders" style="position: relative; float: left;width:100%;z-index:-1;"></div >'.$jquery;
     /* if floating of icons is active create a floater div */
     $icons_float='';
-    if($sfsi_section5['sfsi_icons_float']=="yes" && $isFloter==1)
+
+    if($sfsi_section9['sfsi_icons_float']=="yes" && $isFloter==1)
     {
-		if($sfsi_section5['sfsi_icons_floatPosition'] == "top-left")
+		if($sfsi_section9['sfsi_icons_floatPosition'] == "top-left")
 		{
-			$styleMargin = "margin-top:".$sfsi_section5['sfsi_icons_floatMargin_top']."px;margin-left:".$sfsi_section5['sfsi_icons_floatMargin_left']."px;";
+			$styleMargin = "margin-top:".$sfsi_section9['sfsi_icons_floatMargin_top']."px;margin-left:".$sfsi_section9['sfsi_icons_floatMargin_left']."px;";
 		}
-		elseif($sfsi_section5['sfsi_icons_floatPosition'] == "top-right")
+		elseif($sfsi_section9['sfsi_icons_floatPosition'] == "top-right")
 		{
-			$styleMargin = "margin-top:".$sfsi_section5['sfsi_icons_floatMargin_top']."px;margin-right:".$sfsi_section5['sfsi_icons_floatMargin_right']."px;";
+			$styleMargin = "margin-top:".$sfsi_section9['sfsi_icons_floatMargin_top']."px;margin-right:".$sfsi_section9['sfsi_icons_floatMargin_right']."px;";
 		}
-		elseif($sfsi_section5['sfsi_icons_floatPosition'] == "center-left")
+		elseif($sfsi_section9['sfsi_icons_floatPosition'] == "center-left")
 		{
-			$styleMargin = "margin-left:".$sfsi_section5['sfsi_icons_floatMargin_left']."px;";
+			$styleMargin = "margin-left:".$sfsi_section9['sfsi_icons_floatMargin_left']."px;";
 		}
-		elseif($sfsi_section5['sfsi_icons_floatPosition'] == "center-right")
+		elseif($sfsi_section9['sfsi_icons_floatPosition'] == "center-right")
 		{
-			$styleMargin = "margin-right:".$sfsi_section5['sfsi_icons_floatMargin_right']."px;";
+			$styleMargin = "margin-right:".$sfsi_section9['sfsi_icons_floatMargin_right']."px;";
 		}
-		elseif($sfsi_section5['sfsi_icons_floatPosition'] == "bottom-left")
+		elseif($sfsi_section9['sfsi_icons_floatPosition'] == "bottom-left")
 		{
-			$styleMargin = "margin-bottom:".$sfsi_section5['sfsi_icons_floatMargin_bottom']."px;margin-left:".$sfsi_section5['sfsi_icons_floatMargin_left']."px;";
+			$styleMargin = "margin-bottom:".$sfsi_section9['sfsi_icons_floatMargin_bottom']."px;margin-left:".$sfsi_section9['sfsi_icons_floatMargin_left']."px;";
 		}
-		elseif($sfsi_section5['sfsi_icons_floatPosition'] == "bottom-right")
+		elseif($sfsi_section9['sfsi_icons_floatPosition'] == "bottom-right")
 		{
-			$styleMargin = "margin-bottom:".$sfsi_section5['sfsi_icons_floatMargin_bottom']."px;margin-right:".$sfsi_section5['sfsi_icons_floatMargin_right']."px;";
-		}
+			$styleMargin = "margin-bottom:".$sfsi_section9['sfsi_icons_floatMargin_bottom']."px;margin-right:".$sfsi_section9['sfsi_icons_floatMargin_right']."px;";
+		}	
 		
-		$icons_float = '<style type="text/css">#sfsi_floater { '.$styleMargin.' }</style>';
+		$icons_float = isset($styleMargin) && !empty($styleMargin) ? '<style type="text/css">#sfsi_floater { '.$styleMargin.' }</style>' : '';
 		$icons_float .= '<div class="norm_row sfsi_wDiv" id="sfsi_floater"  style="z-index: 9999;width:'.$width.'px;text-align:'.$icons_alignment.';'.$position.'">';
 		$icons_float .= $icons;
-		$icons_float .= "<input type='hidden' id='sfsi_floater_sec' value='".$sfsi_section5['sfsi_icons_floatPosition']."' />";
+		$icons_float .= "<input type='hidden' id='sfsi_floater_sec' value='".$sfsi_section9['sfsi_icons_floatPosition']."' />";
 		$icons_float.="</div>".$jquery;
 		return $icons_float; exit;
     }

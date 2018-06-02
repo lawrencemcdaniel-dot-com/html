@@ -16,7 +16,7 @@ class Cornerstone_Template {
 
   public function __construct( $post ) {
 
-    $this->manager = CS()->loadComponent('Template_Manager');
+    $this->manager = CS()->component('Template_Manager');
 
     if ( is_array( $post ) ) {
       if ( isset( $post['id'] ) ) {
@@ -105,7 +105,7 @@ class Cornerstone_Template {
     }
 
     if ( $should_migrate ) {
-      $elements = CS()->loadComponent( 'Element_Migrations' )->migrate_classic( $elements );
+      $elements = CS()->component( 'Element_Migrations' )->migrate_classic( $elements );
     }
 
     $this->meta = array( 'legacy' => true, 'elements' => $elements );

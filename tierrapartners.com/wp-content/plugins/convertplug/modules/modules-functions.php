@@ -245,12 +245,10 @@ function cp_is_style_visible( $settings ) {
 
 			if ( is_archive() ) {
 				$term_id = '';
-				$obj     = get_queried_object();
-				if ( is_object( $obj ) && '' !== $obj && null !== $obj ) {
-					if ( isset( $obj->term_id ) ) {
-						$term_id = $obj->term_id;
-					}
-				}
+				$obj     = get_queried_object();				
+				if ( isset( $obj->term_id ) ) {
+					$term_id = $obj->term_id;
+				}				
 
 				// check if this woocomerce archive page.
 				if ( function_exists('is_woocommerce') && function_exists( 'is_shop' ) ) {
@@ -370,7 +368,7 @@ function cp_is_style_visible( $settings ) {
 			if ( is_archive() ) {
 				$obj     = get_queried_object();
 				$term_id = '';
-				if ( is_object( $obj ) && '' !== $obj && null !== $obj ) {
+				if ( isset( $obj->term_id ) ) {
 					$term_id = $obj->term_id;
 				}
 
@@ -1277,7 +1275,7 @@ if ( ! function_exists( 'cp_get_custom_class_init' ) ) {
 	 * @since 0.1.5
 	 */
 	function cp_get_custom_class_init( $enable_custom_class = 0, $custom_class, $style_id ) {
-		$custom_class  = str_replace( ' ', '', trim( $custom_class ) );
+		$custom_class  = str_replace( ' ', ' ', trim( $custom_class ) );
 		$custom_class  = str_replace( ',', ' ', trim( $custom_class ) );
 		$custom_class .= ' cp-' . $style_id;
 		$custom_class  = trim( $custom_class );
@@ -1672,5 +1670,92 @@ if ( ! function_exists( 'cp_get_the_user_ip' ) ) {
 			$ip = $_SERVER['REMOTE_ADDR'];
 		}
 		return apply_filters( 'wpb_get_ip', $ip );
+	}
+}
+
+/**
+ * Function Name: cp_get_module_images_new.
+ * @param  string $bg_image            image.
+ * @param  string $bg_image_src        image_src.
+ * @param  string $bg_image_custom_url custom_url.
+ * @return string                      image_url.
+ */
+function cp_get_module_images_new( $bg_image, $bg_image_src, $bg_image_custom_url ){
+
+	if ( isset( $bg_image_src ) && ! empty( $bg_image_src ) ) {
+		
+		$module_bg_image = '';
+		if ( 'custom_url' === $bg_image_src) {
+			$module_bg_image = $bg_image_custom_url;
+		} elseif ( 'upload_img' === $bg_image_src ) {
+			if ( isset( $bg_image ) ) {
+				if ( false !== strpos( $bg_image, 'http' ) ) {
+					$module_bg_image = explode( '|', $bg_image );
+					$module_bg_image = $module_bg_image[0];
+				} else {
+					$module_bg_image = apply_filters( 'cp_get_wp_image_url', $bg_image );
+				}
+				$module_bg_image = cp_get_protocol_settings_init( $module_bg_image );
+			}
+		} else {
+			$module_bg_image = '';
+		}
+		
+		return $module_bg_image;
+	}
+}
+
+/**
+ * Function Name: cp_get_image_size_opt description]
+ * @param  string $opt_bg image_size.
+ * @return string         custom css for image-size.
+ */
+function cp_get_image_size_opt( $opt_bg ){
+	if ( isset( $opt_bg ) && false !== strpos( $opt_bg, '|' ) ) {
+		$bg_setting ='';
+		$opt_bg      = explode( '|', $opt_bg );
+		$bg_repeat   = $opt_bg[0];
+		$bg_pos      = $opt_bg[1];
+		$bg_size     = $opt_bg[2];
+		$bg_setting .= 'background-repeat: ' . $bg_repeat . ';';
+		$bg_setting .= 'background-position: ' . $bg_pos . ';';
+		$bg_setting .= 'background-size: ' . $bg_size . ';';
+		return $bg_setting;
+	}
+}
+
+add_filter( 'cp_get_custom_selector', 'cp_get_custom_slector_init' );
+
+if ( ! function_exists( 'cp_get_custom_slector_init' ) ) {
+	/**
+	 * Function Name: cp_get_custom_slector_init Set custom class for modal
+	 *
+	 * @param  string  $custom_selector        string parameter.
+	 * @return string                       string parameter.
+	 * @since 0.1.5
+	 */
+	function cp_get_custom_slector_init( $custom_selector ) {
+		$custom_selector  = str_replace( ' ', '', trim( $custom_selector ) );
+		//$custom_selector  = str_replace( ',', ' ', trim( $custom_selector ) );
+		$custom_selector  = trim( $custom_selector );
+		return $custom_selector;
+	}
+}
+
+add_filter( 'cp_get_custom_selector_class', 'cp_get_custom_slector_class_init' );
+
+if ( ! function_exists( 'cp_get_custom_slector_class_init' ) ) {
+	/**
+	 * Function Name: cp_get_custom_slector_class_init Set custom class for modal
+	 *
+	 * @param  string  $custom_selector        string parameter.
+	 * @return string                       string parameter.
+	 * @since 0.1.5
+	 */
+	function cp_get_custom_slector_class_init( $custom_selector ) {
+		$custom_selector  = str_replace( ' ', '', trim( $custom_selector ) );
+		$custom_selector  = str_replace( ',', ' ', trim( $custom_selector ) );
+		$custom_selector  = trim( $custom_selector );
+		return $custom_selector;
 	}
 }

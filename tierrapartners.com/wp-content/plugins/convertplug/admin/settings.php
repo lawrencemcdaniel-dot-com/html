@@ -483,6 +483,35 @@ if ( true !== $reg_menu_hide ) {
 								</div>
 								<?php } ?>
 
+					<!-- disable impression -->
+						<div class="debug-section">
+							<p>
+								<table>
+									<tr>
+										<td style="vertical-align: top;">
+										<?php
+										$disable_storage     = isset( $data['cp-disable-storage'] ) ? $data['cp-disable-storage'] : 0;
+										$is_storage_checked = ( $disable_storage ) ? ' checked="checked" ' : '';
+										$uniq             = uniqid();
+										?>
+										<label for="plugin-support" style="width:340px; display: inline-block;"><strong><?php _e( 'Disable data storage', 'smile' ); ?></strong>
+											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to do not store information of the user to your site database after submission.', 'smile' ); ?>">
+												<i class="dashicons dashicons-editor-help"></i>
+											</span>
+										</label>
+									</td>
+								<td>
+								<label class="switch-wrapper" style="display: inline-block;margin: 0;height: 20px;">
+									<input type="text"  id="cp-disable-storage" class="form-control smile-input smile-switch-input"  name="cp-disable-storage" value="<?php echo $disable_storage; ?>" />
+									<input type="checkbox" <?php echo $is_storage_checked; ?> id="smile_cp-disable-storage_btn_<?php echo $uniq; ?>"  class="ios-toggle smile-input smile-switch-input switch-checkbox smile-switch " value="<?php echo $disable_storage; ?>" >
+									<label class="smile-switch-btn checkbox-label" data-on="ON"  data-off="OFF" data-id="cp-disable-storage" for="smile_cp-disable-storage_btn_<?php echo $uniq; ?>"></label>
+								</label>
+							</td>
+						</tr>
+					</table>
+							</p>
+						</div>
+
 								</form>
 								<button type="button" class="button button-primary button-update-settings"><?php _e( 'Save Settings', 'smile' ); ?></button>
 							</div>

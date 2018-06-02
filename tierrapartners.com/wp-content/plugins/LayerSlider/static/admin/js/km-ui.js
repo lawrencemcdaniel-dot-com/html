@@ -116,6 +116,16 @@ jQuery( function( $ ){
 						padding: kmUI.modal.settings.padding
 					});
 
+					var innerID = kmUI.modal.$window.find( '.km-ui-modal-scrollable > div' ).attr( 'id' );
+
+					if( innerID ){
+						kmUI.modal.$window.addClass( '_' + innerID );
+					}
+
+					if( kmUI.modal.$window.find( '.kmui-prepend').length ){
+						kmUI.modal.$window.find( '.kmui-prepend').prependTo( kmUI.modal.$window );
+					}
+
 					kmUI.modal.$window.addClass( 'km-ui-animating' );
 
 					kmUI.modal.$header = kmUI.modal.$window.find( 'header' );
@@ -193,7 +203,7 @@ jQuery( function( $ ){
 				}
 			},
 
-			animate: function( event ){
+			animate: function( event, onComplete ){
 
 				if( event && event === 'open' ){
 
@@ -205,6 +215,11 @@ jQuery( function( $ ){
 						},
 						onReverseComplete: function(){
 							kmUI.modal.remove();
+
+							if( kmUI.modal.settings.onReverseComplete ) {
+								kmUI.modal.settings.onReverseComplete();
+								kmUI.modal.settings.onReverseComplete = null;
+							}
 						}
 					});
 
@@ -237,14 +252,25 @@ jQuery( function( $ ){
 				kmUI.modal.state = 'opened';
 			},
 
-			close: function(){
+			close: function( onComplete ){
 
 				if( kmUI.modal.state === 'opened' ){
 
 					if( kmUI.modal.settings.animate ){
 						kmUI.modal.animate( 'close' );
+
+						if( onComplete ) {
+							kmUI.modal.settings.onReverseComplete = onComplete;
+						}
+
+
 					}else{
+
 						kmUI.modal.remove();
+
+						if( onComplete ) {
+							onComplete();
+						}
 					}
 
 					if( kmUI.modal.settings.clip ){

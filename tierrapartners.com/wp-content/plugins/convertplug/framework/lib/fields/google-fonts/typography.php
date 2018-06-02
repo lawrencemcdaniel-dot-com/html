@@ -52,7 +52,7 @@ function google_fonts_settings_field( $name, $settings, $value ) {
 
 	// Google Fonts.
 	$fonts       = get_option( 'ultimate_selected_google_fonts' );
-	$fontsvals   = '';
+	$fontsvals   = array();
 	$basic_fonts = array(
 		'Arial',
 		'Arial Black',

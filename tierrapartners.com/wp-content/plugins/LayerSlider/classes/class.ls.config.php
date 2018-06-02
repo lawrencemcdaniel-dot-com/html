@@ -2,7 +2,9 @@
 
 class LS_Config {
 
-	public static $config = array();
+	public static $config 	= array();
+	public static $forced 	= array();
+	public static $forcedBy = array();
 
 	private function __construct() {}
 
@@ -62,6 +64,26 @@ class LS_Config {
 
 		if( isset( $GLOBALS['lsAutoUpdateBox'] ) && $GLOBALS['lsAutoUpdateBox'] === false ) {
 			self::set('autoupdate', false);
+		}
+	}
+
+
+	public static function forceSettings( $name = 'Unknown', $keys, $value = null ) {
+
+		if( is_string( $keys ) ) {
+			$keys = array( "$keys" => $value );
+		}
+
+		if( is_array( $keys) ) {
+			foreach( $keys as $key => $val ) {
+
+				if( get_option( 'ls_'.$key ) != $val ) {
+					update_option( 'ls_'.$key, $val );
+				}
+
+				self::$forced[ $key ] = $val;
+				self::$forcedBy[ $key ] = $name;
+			}
 		}
 	}
 }

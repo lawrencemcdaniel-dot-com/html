@@ -517,7 +517,7 @@
  								<li>
 									<div class="ls-premium">
 										<?php if( ! $lsActivated ) : ?>
-										<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
+										<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
 										<?php endif ?>
 										<a href="https://developer.mozilla.org/en/docs/Web/CSS/filter#Functions" target="_blank"><?php echo $lsDefaults['layers']['transitionInFilter']['name'] ?></a>
 									</div>
@@ -908,7 +908,7 @@
  								<li>
 									<div class="ls-premium">
 										<?php if( ! $lsActivated ) : ?>
-										<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
+										<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
 										<?php endif ?>
 										<a href="https://developer.mozilla.org/en/docs/Web/CSS/filter#Functions" target="_blank"><?php echo $lsDefaults['layers']['loopFilter']['name'] ?></a>
 									</div>
@@ -1325,7 +1325,7 @@
  								<li>
 									<div class="ls-premium">
 										<?php if( ! $lsActivated ) : ?>
-										<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
+										<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
 										<?php endif ?>
 										<a href="https://developer.mozilla.org/en/docs/Web/CSS/filter#Functions" target="_blank"><?php echo $lsDefaults['layers']['transitionOutFilter']['name'] ?></a>
 									</div>
@@ -1905,7 +1905,7 @@
 									<td>
 										<div class="ls-premium">
 											<?php if( ! $lsActivated ) : ?>
-											<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
+											<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
 											<?php endif ?>
 											<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode" target="_blank">
 												<?php echo $lsDefaults['layers']['blendMode']['name'] ?>
@@ -1920,7 +1920,7 @@
 									<td>
 										<div class="ls-premium">
 											<?php if( ! $lsActivated ) : ?>
-											<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
+											<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
 											<?php endif ?>
 											<a href="https://developer.mozilla.org/en/docs/Web/CSS/filter#Functions" target="_blank">
 												<?php echo $lsDefaults['layers']['filter']['name'] ?>

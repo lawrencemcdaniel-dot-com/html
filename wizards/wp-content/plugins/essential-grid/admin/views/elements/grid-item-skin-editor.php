@@ -55,6 +55,11 @@ $transitions_hover = array_slice($transitions_cover, 0, count($transitions_cover
 if(isset($transitions_hover['turn'])) unset($transitions_hover['turn']);
 if(isset($transitions_hover['covergrowup'])) unset($transitions_hover['covergrowup']);
 
+/* 2.2.4.2 */
+$transitions_elements = array_slice($transitions_cover, 0, count($transitions_cover), true);
+if(isset($transitions_elements['rotatescale'])) unset($transitions_elements['rotatescale']);
+if(isset($transitions_elements['covergrowup'])) unset($transitions_elements['covergrowup']);
+
 if(!isset($skin['params'])) $skin['params'] = array(); //fallback if skin does not exist
 if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does not exist
 
@@ -1506,7 +1511,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 											<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
 											<select name="element-transition" class="eg-tooltip-wrap" title="<?php _e('Select Animation of Element on Hover', EG_TEXTDOMAIN); ?>" >
 												<?php
-												foreach($transitions_cover as $handle => $name){
+												foreach($transitions_elements as $handle => $name){
 												?>
 												<option value="<?php echo $handle; ?>"><?php echo $name; ?></option>
 												<?php

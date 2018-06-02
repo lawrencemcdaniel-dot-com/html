@@ -715,6 +715,13 @@
 			}
 		}
 
+		// Prevent double-tap to open link to single event
+		$( '.tribe-week-event a.url' ).on( 'click touchend', function( e ) {
+			var el   = $( this );
+			var link = el.attr( 'href' );
+			window.location = link;
+		} );
+
 		// @ifdef DEBUG
 		dbug && debug.info( 'TEC Debug: tribe-events-week.js successfully loaded' );
 		ts.view && dbug && debug.timeEnd( 'Tribe JS Init Timer' );

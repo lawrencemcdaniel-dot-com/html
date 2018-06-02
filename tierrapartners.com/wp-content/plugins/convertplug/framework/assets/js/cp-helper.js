@@ -290,6 +290,10 @@ function cp_update_bg_image( data, sel1, sel2, option, src_option ) {
     if( typeof data.content_opt_bg != 'undefined' ) {
         image_positions( data, sel1, sel2, 'content_opt_bg' );
     }
+
+    if( typeof data.overlay_bg != 'undefined' ) {
+        image_positions( data, sel1, sel2, 'overlay_bg' );
+    }
 }
 
 
@@ -366,7 +370,6 @@ function cp_change_bg_img( smile_global_data, sel1, sel2, option, bg_option, url
  * Also, Replaced [data-css-image-url] with updated image size. [Which is used to updated image URL without AJAX.]
  */
 function cp_update_ajax_bg_image_size( smile_global_data, sel1, sel2, option, bg_option ) {
-
     var sel2_elem           = jQuery(sel2),
         sel1_elem           = jQuery(sel1),
         modal_size          = smile_global_data.modal_size,
@@ -374,7 +377,7 @@ function cp_update_ajax_bg_image_size( smile_global_data, sel1, sel2, option, bg
         modal_bg_image_size = smile_global_data[option+"_size"],
         opt_bg              = smile_global_data[bg_option];
 
-                //file not exists
+    //file not exists
     if( modal_bg_image !== "" ) {
         var img_data = {
             action:'cp_get_image',

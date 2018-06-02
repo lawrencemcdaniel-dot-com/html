@@ -118,7 +118,7 @@ if ( ! function_exists( 'modal_theme_every_design' ) ) {
 					?>
 					">
 					<?php
-					if ( '' === $a['modal_confidential'] ) {
+					if ( '' !== $a['modal_confidential'] ) {
 						echo do_shortcode( html_entity_decode( $a['modal_confidential'] ) );
 					}
 					?>

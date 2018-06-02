@@ -241,7 +241,6 @@
 							// Redirect if status is [success]
 							if( obj.action === 'redirect' ) {
 								cp_form_processing_wrap.hide();
-								modal.hide();
 								var url = obj.url;
 								var urlstring ='';
 								if (url.indexOf("?") > -1) {
@@ -266,6 +265,8 @@
 								}else{
 									cp_download_file(redirect_url);
 								}
+								modal.removeClass('cp-open');
+								jQuery(document).trigger('closeModal',[modal]);
 
 							} else {
 

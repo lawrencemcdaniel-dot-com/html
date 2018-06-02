@@ -382,7 +382,7 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		$option = Tribe__Events__Main::instance()->defaults()->state();
 		$option = empty( $option ) ? __( 'No default set', 'tribe-events-calendar-pro' ) : $option;
 		$option = esc_html( $option );
-		echo '<p class="tribe-field-indent tribe-field-description venue-default-info description">' . sprintf( __( 'The current default state is: %s', 'tribe-events-calendar-pro' ), '<strong>' . $option . '</strong>' ) . '</p>';
+		echo '<p class="tribe-field-indent tribe-field-description venue-default-info description tribe-saved-state">' . sprintf( __( 'The current default state/province is: %s', 'tribe-events-calendar-pro' ), '<strong>' . $option . '</strong>' ) . '</p>';
 	}
 
 	/**
@@ -397,7 +397,7 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		$option = Tribe__Events__Main::instance()->defaults()->province();
 		$option = empty( $option ) ? __( 'No default set', 'tribe-events-calendar-pro' ) : $option;
 		$option = esc_html( $option );
-		echo '<p class="tribe-field-indent tribe-field-description venue-default-info description">' . sprintf( __( 'The current default province is: %s', 'tribe-events-calendar-pro' ), '<strong>' . $option . '</strong>' ) . '</p>';
+		echo '<p class="tribe-field-indent tribe-field-description venue-default-info description tribe-saved-province">' . sprintf( __( 'The current default state/province is: %s', 'tribe-events-calendar-pro' ), '<strong>' . $option . '</strong>' ) . '</p>';
 	}
 
 	/**
@@ -730,18 +730,19 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 	 * @return array the related posts.
 	 */
 	function tribe_get_related_posts( $count = 3, $post = false ) {
-		$post_id = Tribe__Events__Main::postIdHelper( $post );
-		$tags = wp_get_post_tags( $post_id, array( 'fields' => 'ids' ) );
+		$post_id    = Tribe__Events__Main::postIdHelper( $post );
+		$tags       = wp_get_post_tags( $post_id, array( 'fields' => 'ids' ) );
 		$categories = wp_get_object_terms( $post_id, Tribe__Events__Main::TAXONOMY, array( 'fields' => 'ids' ) );
 		if ( ! $tags && ! $categories ) {
 			return;
 		}
 		$args = array(
 			'posts_per_page' => $count,
-			'post__not_in' => array( $post_id ),
-			'eventDisplay' => 'list',
-			'tax_query' => array( 'relation' => 'OR' ),
-			'orderby' => 'rand',
+			'post__not_in'   => array( $post_id ),
+			'eventDisplay'   => 'list',
+			'tax_query'      => array( 'relation' => 'OR' ),
+			'meta_key'       => '_EventStartDate',
+			'orderby'        => 'meta_value',
 		);
 		if ( $tags ) {
 			$args['tax_query'][] = array( 'taxonomy' => 'post_tag', 'field' => 'id', 'terms' => $tags );

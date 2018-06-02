@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 1.9.7
+Version: 2.0.0
 License: GPLv2 or later
 */
 
@@ -55,7 +55,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 1.97)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.00)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -81,9 +81,11 @@ function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
 	if(!isset($after_widget)): $after_widget =''; endif;
 	
 	/*Our variables from the widget settings. */
-	$title = apply_filters('widget_title', $instance['title'] );
-	$show_info = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
+	$title 		= apply_filters('widget_title', $instance['title'] );
+	$show_info  = isset( $instance['show_info'] ) ? $instance['show_info'] : false;
+	
 	global $is_floter;	      
+	
 	$return.= $before_widget;
 		/* Display the widget title */
 		if ( $title ) $return .= $before_title . $title . $after_title;
@@ -707,7 +709,10 @@ function sfsi_actionLinks($links)
 	$links[] = '<a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
 	$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
 	$links[] = @$links["deactivate"];
-	$links[] = @$links["edit"];
+
+	if(isset($links["edit"]) && empty($links["edit"])){
+		$links[] = @$links["edit"];		
+	}
 	$links[] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';
 	unset($links['deactivate']);
 	unset($links['edit']);

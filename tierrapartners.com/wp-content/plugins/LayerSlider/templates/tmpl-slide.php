@@ -145,7 +145,7 @@
 						<div class="row-helper ls-global-hover">
 							<div class="ls-premium">
 								<?php if( ! $lsActivated ) : ?>
-								<a class="dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
+								<a class="ls-activation-lock dashicons dashicons-lock" target="_blank" href="<?php echo admin_url('admin.php?page=layerslider-addons' ) ?>" data-help="<?php _e('This feature requires product activation. Click on the padlock icon to learn more.', 'LayerSlider') ?>"></a>
 								<?php endif ?>
 							</div>
 							<a href="https://layerslider.kreaturamedia.com/sliders/global-hover-example/" target="_blank">

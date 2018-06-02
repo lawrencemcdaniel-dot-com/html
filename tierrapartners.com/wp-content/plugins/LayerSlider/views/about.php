@@ -102,30 +102,30 @@
 			<div class="km-tabs-inner">
 				<ul>
 					<li class="gap">
-						<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#updating" target="_blank">
+						<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">
 							<?php _e('Active the plugin to receive auto updates and premium support', 'LayerSlider') ?>
 						</a>
 						<p><?php _e('Keep the plugin up-to-date by activating the auto-update feature. We regularly release updates with new features, bug fixes and other improvements.', 'LayerSlider') ?></p>
 					</li>
 					<li class="gap">
-						<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#demo-sliders" target="_blank">
+						<a href="https://layerslider.kreaturamedia.com/documentation/#demo-sliders" target="_blank">
 							<?php _e('Check out the included demo sliders', 'LayerSlider') ?>
 						</a>
 						<p><?php _e('We’ve bundled several sample sliders into the plugin, so you can see how they built. You can find really simple sliders as well as compled and content rich ones.', 'LayerSlider') ?></p>
 					</li>
 					<li class="gap">
-						<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#overview" target="_blank">
+						<a href="https://layerslider.kreaturamedia.com/documentation/#overview" target="_blank">
 							<?php _e('Read online resouces to get help', 'LayerSlider') ?>
 						</a>
 						<p><?php _e('We have online resouces where you can find help whether if you get stuck, experience an issue or just have a question about the item.', 'LayerSlider') ?></p>
 						<ul>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/" target="_blank">
 								<?php _e('End-User documentation', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/developers.html" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/developers/" target="_blank">
 								<?php _e('Developer documentation', 'LayerSlider') ?>
 								</a>
 							</li>
@@ -135,7 +135,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/faq/4/layerslider-for-wordpress/" target="_blank">
+								<a href="https://kreatura.ticksy.com/" target="_blank">
 									<?php _e('Item FAQs', 'LayerSlider') ?>
 								</a>
 							</li>
@@ -155,22 +155,22 @@
 						<h3><?php _e('Preface', 'LayerSlider') ?></h3>
 						<ul>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/" target="_blank">
 									<?php _e('Introduction', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#support" targee="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/#support" target="_blank">
 									<?php _e('Support', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/faq/4/layerslider-for-wordpress/#group-1" target="_blank">
+								<a href="https://kreatura.ticksy.com/article/9273/" target="_blank">
 									<?php _e('Support Policies', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://news.kreaturamedia.com/layerslider/" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/release-log/" target="_blank">
 									<?php _e('Release Notes', 'LayerSlider') ?>
 								</a>
 							</li>
@@ -195,12 +195,12 @@
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/faq/4/layerslider-for-wordpress/#group-3" target="_blank">
+								<a href="https://kreatura.ticksy.com/article/9274/" target="_blank">
 									<?php _e('Licensing Questions', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/faq/4/layerslider-for-wordpress/#group-3&entry-18" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/developers/#licensing" target="_blank">
 									<?php _e('In-Stock Usage', 'LayerSlider') ?>
 								</a>
 							</li>
@@ -211,22 +211,22 @@
 						<ul>
 
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#updating" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/#updating" target="_blank">
 									<?php _e('Plugin updates', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#demo-sliders" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/#demo-sliders" target="_blank">
 									<?php _e('Import demo content', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/" target="_blank">
 									<?php _e('Online Documentation', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#troubleshooting" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/#troubleshooting" target="_blank">
 									<?php _e('Troubleshooting', 'LayerSlider') ?>
 								</a>
 							</li>
@@ -236,17 +236,17 @@
 						<h3><?php _e('Resources', 'LayerSlider') ?></h3>
 						<ul>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/documentation/" target="_blank">
 									<?php _e('End-User Documentation', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/docs/layersliderwp/developers.html" target="_blank">
+								<a href="https://layerslider.kreaturamedia.com/developers/" target="_blank">
 									<?php _e('Developer Documentation', 'LayerSlider') ?>
 								</a>
 							</li>
 							<li>
-								<a href="https://support.kreaturamedia.com/faq/4/layerslider-for-wordpress/" target="_blank">
+								<a href="https://kreatura.ticksy.com/" target="_blank">
 									<?php _e('Item FAQs', 'LayerSlider') ?>
 								</a>
 							</li>

@@ -563,6 +563,19 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'panel'        => __( 'Advanced', 'smile' ),
 			'section_icon' => 'connects-icon-image',
 		),
+		array(
+			'type'         => 'textfield',
+			'class'        => '',
+			'name'         => 'custom_css_class',
+			'opts'         => array(
+				'title'       => __( 'Custom Class', 'smile' ),
+				'value'       => '',
+				'description' => __( 'Enter your custom class for this Info Bar here.', 'smile' ),
+			),
+			'panel'        => __( 'Advanced', 'smile' ),
+			'section'      => __( 'Design', 'smile' ),
+			'section_icon' => 'connects-icon-image',
+		),
 	);
 
 	/****** Behaviour */
@@ -839,7 +852,20 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'section'      => __( 'Behavior', 'smile' ),
 			'section_icon' => 'connects-icon-cog',
 		),
+		array(
+			'type'         => 'tags',
+			'class'        => '',
+			'name'         => 'custom_selector',
+			'opts'         => array(
+				'title' => __( 'Launch With Custom Selector', 'smile' ),
+				'value' => '',
+				'description' => __( "Use this option to display Info Bar on click of custom selector.  <br/>Example - #myclass[reference='12345']<br>", 'smile' ),
 
+			),			
+			'panel'        => __( 'Manual Display', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-cog',
+		),
 		array(
 			'type'         => 'switch',
 			'class'        => '',

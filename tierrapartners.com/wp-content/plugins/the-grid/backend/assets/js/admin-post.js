@@ -18,7 +18,7 @@
 			post_type;
 
 		if (terms) {
-			console.log(terms)
+
 			$.each(terms, function(post_type, data) {
 				filter_arr[post_type]    = [];
 				post_type_arr[post_type] = [];

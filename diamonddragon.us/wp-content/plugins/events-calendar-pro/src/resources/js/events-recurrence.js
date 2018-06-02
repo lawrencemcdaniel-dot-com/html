@@ -741,7 +741,13 @@ tribe_events_pro_admin.recurrence = {
 	 */
 	my.convert_date_format_php_to_moment = function( format ) {
 		// this format conversion is pretty fragile, but the best we can do at the moment
-		return format.replace( 'j', 'D' ).replace( 'F', 'MMMM' ).replace( 'Y', 'YYYY' ).replace( 'm', 'MM' ).replace( 'd', 'DD' );
+		return format
+			.replace( 'S', 'o' )
+			.replace( 'j', 'D' )
+			.replace( 'F', 'MMMM' )
+			.replace( 'Y', 'YYYY' )
+			.replace( 'm', 'MM' )
+			.replace( 'd', 'DD' );
 	};
 
 	my.update_rule_recurrence_text = function( $rule ) {
@@ -877,9 +883,10 @@ tribe_events_pro_admin.recurrence = {
 		} else if ( 'date' === type ) {
 			var single_date = $rule.find( 'input.tribe-datepicker' ).val();
 
-			// If the date for this rule has not yet been set, default to the event's start date
+			// If the date for this rule has not yet been set, clean the description
 			if ( ! single_date ) {
-				single_date = start_date;
+				$rule.find( '.tribe-event-recurrence-description' ).html( '' );
+				return;
 			}
 
 			var single_moment = moment( single_date, date_format );

@@ -81,6 +81,9 @@
 	$validity 	= get_option('layerslider-authorized-site', false);
 	$channel 	= get_option('layerslider-release-channel', 'stable');
 
+	// GDPR
+	$lsGDPRConsent = get_option('layerslider-gdpr-consent', false);
+
 	// Purchase code
 	$codeFormatted = '';
 	if(!empty($code)) {
@@ -150,7 +153,8 @@
 ?>
 
 <script type="text/javascript">
-	window.lsSiteActivation = <?php echo ! empty($validity) ? 'true' : 'false' ?>;
+	window.lsSiteActivation = <?php echo ! empty( $validity ) ? 'true' : 'false' ?>;
+	window.lsGDPRConsent 	= <?php echo ! empty( $lsGDPRConsent ) ? 'true' : 'false' ?>;
 </script>
 
 <div id="ls-screen-options" class="metabox-prefs hidden">
@@ -212,12 +216,18 @@
 	<!-- Import sample sliders template -->
 	<?php include LS_ROOT_PATH . '/templates/tmpl-upload-sliders.php'; ?>
 
+	<!-- Activation required -->
+	<?php include LS_ROOT_PATH . '/templates/tmpl-activation.php'; ?>
+
 	<!-- Embed slider template -->
 	<?php include LS_ROOT_PATH . '/templates/tmpl-embed-slider.php'; ?>
 
 	<!-- Share sheet template -->
 	<?php include LS_ROOT_PATH . '/templates/tmpl-share-sheet.php'; ?>
 
+	<?php if( ! $lsGDPRConsent ) {
+		include LS_ROOT_PATH . '/templates/tmpl-gdpr.php';
+	} ?>
 
 
 	<!-- Slider Filters -->
@@ -579,7 +589,7 @@
 					<p>
 						<?php if( ! $validity ) : ?>
 						<?php _e('Unlock all these features by activating your site.', 'LayerSlider') ?>
-						<a target="_blank" href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation"><?php _e('Click here to learn more', 'LayerSlider') ?></a>
+						<a target="_blank" href="https://layerslider.kreaturamedia.com/documentation/#activation"><?php _e('Click here to learn more', 'LayerSlider') ?></a>
 						<?php else : ?>
 						<?php _e('You have successfully activated your site to receive all these features:', 'LayerSlider') ?>
 						<?php endif ?>
@@ -614,7 +624,7 @@
 
 					<div class="main-controls">
 						<span class="enter"><?php _e('Enter your purchase code:', 'LayerSlider') ?></span>
-						<a target="_blank" class="button button-small where-button" href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation-purchase-code"><?php _e('Where’s my purchase code?', 'LayerSlider') ?></a>
+						<a target="_blank" class="button button-small where-button" href="https://layerslider.kreaturamedia.com/documentation/#activation-purchase-code"><?php _e('Where’s my purchase code?', 'LayerSlider') ?></a>
 
 						<div class="key">
 							<input type="text" name="purchase_code" value="<?php echo $codeFormatted ?>" placeholder="e.g. bc8e2b24-3f8c-4b21-8b4b-90d57a38e3c7">
@@ -622,9 +632,9 @@
 						<p>
 							<?php if( ! LS_Config::get('autoupdate') ) {
 								echo sprintf(
-									__('In case you’ve received LayerSlider with a theme, you will need a purchase code, which is payable. Product activation is optional, it’s for additional features only. For more information, read %sour documentation%s or Envato’s %sBundled Plugins%s help article.', 'LayerSlider'), '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">', '</a>', '<a href="https://help.market.envato.com/hc/en-us/articles/213762463" target="_blank">', '</a>');
+									__('In case you’ve received LayerSlider with a theme, you will need a purchase code, which is payable. Product activation is optional, it’s for additional features only. For more information, read %sour documentation%s or Envato’s %sBundled Plugins%s help article.', 'LayerSlider'), '<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">', '</a>', '<a href="https://help.market.envato.com/hc/en-us/articles/213762463" target="_blank">', '</a>');
 							} else {
-								echo sprintf(__('If you experience any issue or need further information, please read our %sactivation guide%s.', 'LayerSlider'), '<a href="https://support.kreaturamedia.com/docs/layersliderwp/documentation.html#activation" target="_blank">', '</a>');
+								echo sprintf(__('If you experience any issue or need further information, please read our %sactivation guide%s.', 'LayerSlider'), '<a href="https://layerslider.kreaturamedia.com/documentation/#activation" target="_blank">', '</a>');
 							} ?>
 						</p>
 
