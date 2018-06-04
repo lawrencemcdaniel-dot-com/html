@@ -1,5 +1,10 @@
 *** WooCommerce Subscriptions Changelog ***
 
+2018.05.29 - version 2.2.21
+* Tweak: Update WooCommerce tested up to compatibility flag.
+* Fix: [GDPR] While processing erasure requests anonymise all user subscriptions with any status. PR#2720
+* Fix: Fix PHP warnings which appear on the WooCommerce > Settings > Accounts & Privacy page and while exporting user personal data. PR#2719
+
 2018.05.25 - version 2.2.20
 * New: [GDPR] Export and erase subscription personal data when processing user export and erasure requests. PR#2692
 * New: [GDPR] Add an automatic data removal system for ended subscriptions and their related orders. PR#2702
