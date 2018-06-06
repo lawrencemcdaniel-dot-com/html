@@ -7,14 +7,14 @@
  *
  *     [your-theme]/tribe-events/eventbrite/eventbrite-meta-box-extension.php
  *
- * @version 4.4.9
+ * @version 4.5
  * @package Tribe__Events__MainEventBrite
  * @since  3.0
  * @author Modern Tribe Inc.
  */
 
 ?>
-<script type="text/javascript" charset="utf-8">
+<script charset="utf-8">
 jQuery(document).ready(function($){
 
 	// hide/show EventBrite fields
@@ -149,51 +149,24 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	/**
-		* BEGIN: chunk copied from core events-admin.js for a datepicker patch in 3.11.
-		* TODO: restructure core and this location for the next release
-	 */
-	var $date_format      = $( '[data-datepicker_format]' );
+	var $event_details  = $( document.getElementById( 'tribe_events_event_details' ) );
 
-	// Modified from tribe_ev.data to match jQuery UI formatting.
-	var datepicker_formats = {
-		'main' : ['yy-mm-dd', 'm/d/yy', 'mm/dd/yy', 'd/m/yy', 'dd/mm/yy', 'm-d-yy', 'mm-dd-yy', 'd-m-yy', 'dd-mm-yy'],
-		'month': ['yy-mm', 'm/yy', 'mm/yy', 'm/yy', 'mm/yy', 'm-yy', 'mm-yy', 'm-yy', 'mm-yy']
-	};
+	// Runs right before the datepicker div is rendered.
+	$event_details.on( 'tribe.ui-datepicker-div-beforeshow', function( e, object ) {
 
-	var date_format = 'yy-mm-dd';
+		$dpDiv = $( object.dpDiv );
 
-	if ( $date_format.length && $date_format.attr( 'data-datepicker_format' ).length === 1 ) {
-		var datepicker_format = $date_format.attr( 'data-datepicker_format' );
-		date_format = datepicker_formats.main[ datepicker_format ];
-	}
-	/**
-	 * END: chunk copied from core for a patch in 3.11
-	 */
-
-   var datepickerOpts = {
-      dateFormat: date_format,
-      showOn: 'focus',
-      showAnim: 'fadeIn',
-      minDate: new Date(),
-      changeMonth: true,
-      changeYear: true,
-      numberOfMonths: 3,
-      showButtonPanel: true,
-      onSelect: function(selectedDate) {
-         var option = "minDate";
-         var instance = $(this).data("datepicker");
-         var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
-      }
-   };
-   var dates = $(".etp-datepicker").datepicker(datepickerOpts);
-   $(".etp-datepicker").bind( 'click', function() {
-		var startDate = $('#EventStartDate').val();
-		if ( startDate ) {
-			$(this).datepicker( 'option', 'maxDate', startDate );
-			$(this).datepicker( 'show' );
+		// if eb datepicker set min and max date
+		if ( $( object.input ).hasClass( 'etp-datepicker' ) ) {
+			var startDate = $('#EventStartDate').val();
+			if ( startDate ) {
+				object.input.datepicker( 'option', 'minDate', new Date() );
+				object.input.datepicker( 'option', 'maxDate', startDate );
+			}
 		}
+
 	});
+
 }); // end document ready
 </script>
 
@@ -210,9 +183,53 @@ jQuery(document).ready(function($){
 	<p><?php esc_html_e( 'This event has been deleted from Eventbrite. It is now unregistered from Eventbrite.', 'tribe-eventbrite' ); ?></p>
 	</div>
 <?php endif; ?>
+
+<?php if ( $_EventBriteId && empty( $event->is_owner ) ) : ?>
+	<tr>
+		<td colspan="2">
+			<div class="tribe-eb-msg">
+			<?php
+				echo sprintf(
+					'%1$s %2$s%3$s%4$s',
+						esc_html__( 'This event was imported from Eventbrite.', 'tribe-eventbrite' ),
+						'<a href="' . esc_url( $event->url ) . '" title="' . esc_attr( get_the_title() ) . '" target="_blank">',
+						esc_html__( 'View Event', 'tribe-eventbrite' ),
+						'</a>'
+					);
+			?>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div class="tribe-eb-notice"><?php esc_html_e( 'You are not the owner of this event listing on Eventbrite.com.', 'tribe-eventbrite' ); ?></div>
+			<div class="tribe-eb-notice"><?php esc_html_e( 'Content changes made to the event here will not impact the listing on Eventbrite.com.', 'tribe-eventbrite' ); ?></div>
+		</td>
+	</tr>
+	<tr>
+		<td><?php esc_html_e( 'Display tickets on event page?', 'tribe-eventbrite' ); ?></td>
+		<td>
+			<input id='EventBriteShowOn' tabindex="<?php $tribe_ecp->tabIndex(); ?>" type='radio' name='EventShowTickets' value='yes' <?php checked( $_EventShowTickets, 'yes' ); ?> />&nbsp;<b><?php esc_attr_e( 'Yes', 'tribe-eventbrite' ); ?></b>
+			<input id='EventBriteShowOff' tabindex="<?php $tribe_ecp->tabIndex(); ?>" type='radio' name='EventShowTickets' value='no' <?php checked( $_EventShowTickets, 'no' ); ?>/>&nbsp;<b><?php esc_attr_e( 'No', 'tribe-eventbrite' ); ?></b>
+		</td>
+	</tr>
+	<tr>
+		<td><?php esc_html_e( 'When this post is updated, how do you want the featured image to be handled?', 'tribe-eventbrite' ); ?></td>
+		<td>
+			<select id='EventBriteImageSyncMode' tabindex="<?php $tribe_ecp->tabIndex(); ?>" name='EventBriteImageSyncMode' class="tribe-dropdown">
+				<option value="0" <?php selected( $image_sync_mode, 0 ); ?>><?php echo esc_html_x( 'Import the event image from eventbrite.com and overwrite the local one', 'image sync', 'tribe-eventbrite' ); ?></option>
+				<option value="-1" <?php selected( $image_sync_mode, - 1 ); ?>><?php echo esc_html_x( 'Never synchronize the images', 'image sync', 'tribe-eventbrite' ); ?></option>
+			</select>
+		</td>
+	</tr>
+	<?php
+	return;
+endif;
+?>
+
 	<tr>
 		<td>
-			<?php if ( ! $_EventBriteId ) {?>
+			<?php if ( ! $_EventBriteId ) { ?>
 				<?php esc_html_e( 'Register this event with eventbrite.com?', 'tribe-eventbrite' );?>
 			<?php }else{ ?>
 				<?php esc_html_e( 'Leave this event associated with eventbrite.com?', 'tribe-eventbrite' );?>
@@ -294,7 +311,7 @@ jQuery(document).ready(function($){
 			<?php esc_html_e( 'Date to Start Ticket Sales', 'tribe-eventbrite' ); ?>:<span class="tec-required">✳</span>
 		</td>
 		<td>
-			<input tabindex="<?php $tribe_ecp->tabIndex(); ?>" type="text" name="EventBriteTicketStartDate" value='<?php echo esc_attr( $_EventBriteTicketStartDate ); ?>' class='tribe-datepicker'/>
+			<input tabindex="<?php $tribe_ecp->tabIndex(); ?>" type="text" name="EventBriteTicketStartDate" value='<?php echo esc_attr( $_EventBriteTicketStartDate ); ?>' class='tribe-datepicker etp-datepicker'/>
 			@
 			<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketStartHours' class="tribe-dropdown">
 				<?php echo Tribe__View_Helpers::getHourOptions( '00:00:00' ); ?>
@@ -315,7 +332,7 @@ jQuery(document).ready(function($){
 			<?php esc_html_e( 'Date to End Ticket Sales', 'tribe-eventbrite' ); ?>:<span class="tec-required">✳</span>
 		</td>
 		<td>
-			<input tabindex="<?php $tribe_ecp->tabIndex(); ?>" type="text" name="EventBriteTicketEndDate" value='<?php echo esc_attr( $_EventBriteTicketEndDate ); ?>' class='tribe-datepicker'/>
+			<input tabindex="<?php $tribe_ecp->tabIndex(); ?>" type="text" name="EventBriteTicketEndDate" value='<?php echo esc_attr( $_EventBriteTicketEndDate ); ?>' class='tribe-datepicker etp-datepicker'/>
 			@
 			<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketEndHours' class="tribe-dropdown">
 				<?php echo Tribe__View_Helpers::getHourOptions( '00:00:00' ); ?>

@@ -1,0 +1,240 @@
+.happyCatMortCalcHidden{
+    display: none;
+}
+.happyCatMortCalcShow{
+    display: block;
+}
+
+.happyCatMortCalcDiv {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  background-color: #fff6f9;
+  max-width: 500px;
+  margin: 1rem auto;
+  border: pink 2px solid;
+  border-radius: 4px;
+}
+
+.happyCatMortCalcHeading {
+  text-align: center;
+  padding-bottom: .5rem;
+  color: black;
+}
+
+.happyCatMortCalcDiv label {
+  color: #969696;
+  margin-bottom: 0;
+  margin-top: .5rem;
+  font-size: .75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.happyCatMortCalcDiv h4 {
+  font-size: .75rem;
+  color: #969696;
+  margin-bottom: 0;
+  margin-top: .5rem;
+  font-weight: 600;
+}
+
+.happyCatMortCalc_price_input {
+  width: 100%;
+}
+
+.happyCatMortCalc_down_input {
+  width: 75%;
+}
+
+.happyCatMortCalc_downPer_input{
+  width: 15%;
+}
+
+.happyCatMortCalc_loan_input {
+  width: 100%;
+}
+
+.happyCatMortCalc_intRate_input {
+  width: 90%;
+}
+
+.happyCatMortCalc_adText {
+  border: 1px solid;
+  border-radius: 4px;
+  padding-left: .15rem;
+  max-width: 4.75rem;
+  cursor: pointer;
+}
+
+.happyCatMortCalc_adText:hover {
+  box-shadow: 0px 1px 4px 0 rgba(171, 171, 171, 0.5);
+}
+
+.happyCatMortCalc_adText:active {
+  box-shadow: none;
+}
+
+.happycatMorgCalcLine {
+    width: 80%;
+    height: 1px;
+    background-color: pink;
+    margin: 1.5rem auto;
+    margin-bottom: 1rem;
+}
+
+.happyCatMortCalc_simpleText {
+  border: 1px solid;
+  border-radius: 4px;
+  padding-left: .15rem;
+  max-width: 6.75rem;
+  cursor: pointer;
+}
+
+.happyCatMortCalc_simpleText:hover {
+  box-shadow: 0px 1px 4px 0 rgba(171, 171, 171, 0.5);
+}
+
+.happyCatMortCalc_simpleText:active {
+  box-shadow: none;
+}
+
+.happyCatMortCalc_tax_input {
+  width: 100%;
+}
+
+.happyCatMortCalc_ins_input {
+  width: 100%;
+}
+
+.happyCatMortCalc_hoa_input {
+  width: 100%;
+}
+
+.happyCatMortCalcResultsTitle {
+  text-align: center;
+}
+
+.happyCatMortCalc_Total {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: .75rem;
+}
+
+.happyCatMortCalc_TotalText {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.happyCatMorcCalc_TotalNo {
+}
+
+.happyCatMortCalc_Total_bottom {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.happyCatMortCalc_PI {
+  display: inline-block;
+  width: 49%;
+}
+
+.happyCatMortCalc_Tax {
+  display: inline-block;
+  width: 49%;
+}
+
+/*-- theme one --*/
+
+.happyCatMortCalcDiv.happyCatMortTheme01 {
+  background-color: #fff6f9;
+  border: pink 2px solid;
+}
+
+.happyCatMortTheme01 .happycatMorgCalcLine {
+  background-color: pink;
+}
+
+.happyCatMortTheme01 .happyCatMortCalc_adText {
+  border-color: pink;
+  color: pink;
+}
+
+.happyCatMortTheme01 .happyCatMortCalc_adText:hover {
+  background-color: pink;
+  color: white;
+}
+
+.happyCatMortTheme01 .happyCatMortCalc_simpleText {
+  border-color: pink;
+  color: pink;
+}
+
+.happyCatMortTheme01 .happyCatMortCalc_simpleText:hover {
+  background-color: pink;
+  color: white;
+}
+
+
+/*-- theme two --*/
+
+.happyCatMortCalcDiv.happyCatMortTheme02 {
+  background-color: #f5fdff;
+  border: deepskyblue 2px solid;
+}
+
+.happyCatMortTheme02 .happycatMorgCalcLine {
+  background-color: deepskyblue;
+}
+
+.happyCatMortTheme02 .happyCatMortCalc_adText {
+  border-color: deepskyblue;
+  color: deepskyblue;
+}
+
+.happyCatMortTheme02 .happyCatMortCalc_adText:hover {
+  background-color: deepskyblue;
+  color: white;
+}
+
+.happyCatMortTheme02 .happyCatMortCalc_simpleText {
+  border-color: deepskyblue;
+  color: deepskyblue;
+}
+
+.happyCatMortTheme02 .happyCatMortCalc_simpleText:hover {
+  background-color: deepskyblue;
+  color: white;
+}
+
+/*-- theme three --*/
+
+.happyCatMortCalcDiv.happyCatMortTheme03 {
+  background-color: #f5f5f5;
+  border-color: grey;
+}
+
+.happyCatMortTheme03 .happycatMorgCalcLine {
+  background-color: grey;
+}
+
+.happyCatMortTheme03 .happyCatMortCalc_adText {
+  border-color: grey;
+  color: grey;
+}
+
+.happyCatMortTheme03 .happyCatMortCalc_adText:hover {
+  background-color: grey;
+  color: white;
+}
+
+.happyCatMortTheme03 .happyCatMortCalc_simpleText {
+  border-color: grey;
+  color: grey;
+}
+
+.happyCatMortTheme03 .happyCatMortCalc_simpleText:hover {
+  background-color: grey;
+  color: white;
+}

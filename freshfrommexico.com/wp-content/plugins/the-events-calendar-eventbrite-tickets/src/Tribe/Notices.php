@@ -96,11 +96,11 @@ class Tribe__Events__Tickets__Eventbrite__Notices {
 
 		// Include a template
 		ob_start();
-		include_once $this->main->pluginPath . 'src/views/eventbrite/eb-admin-notices.php';
+		include_once $this->main->plugin_dir . 'src/views/eventbrite/eb-admin-notices.php';
 		$content = ob_get_clean();
 
 
-		Tribe__Admin__Notices::instance()->render( 'eventbrite-post-notices', $content );
+		Tribe__Admin__Notices::instance()->render( 'eventbrite-sync-notices', $content, false );
 
 		/**
 		 * Allow users to filter the Metakey based on Event Object
@@ -124,7 +124,48 @@ class Tribe__Events__Tickets__Eventbrite__Notices {
 		);
 	}
 
+	/**
+	 * 4.5 Update Notice to encourage connecting to EA
+	 *
+	 * @since 4.5
+	 *
+	 */
+	public function render_ea_connection_notices() {
+
+		// if we have a security token or we just authorized EA then do not show notice
+		$eb_token = tribe_get_option( 'eb_security_key' );
+		if ( ! empty( $eb_token ) || 'new' === tribe_get_request_var( 'ea-eb-token', false ) ) {
+			return;
+		}
+
+		$add_ea_msg = __( 'Thank you for installing Eventbrite Tickets! Be sure to <a href="%s" title="%s">connect your Eventbrite account</a> so that you can start creating and importing events.', 'tribe-eventbrite' );
+		$token      = Tribe__Settings_Manager::get_option( 'eventbrite-app_key', null );
+		if ( ! empty( $token ) ) {
+			$add_ea_msg = __( 'Thank you for updating Eventbrite Tickets! Be sure to <a href="%s" title="%s">connect your Eventbrite account</a> so that your events stay linked to their Eventbrite.com listings.', 'tribe-eventbrite' );
+		}
+
+		$url     = esc_url( admin_url( Tribe__Settings::$parent_page . '&page=tribe-common&tab=addons&post_type=tribe_events' ) );
+		$title   = __( 'Eventbrite Tickets', 'tribe-eventbrite' );
+		$message = sprintf(
+			'<p>' . $add_ea_msg . '</p>',
+			esc_url( $url ),
+			esc_attr( $title )
+		);
+
+		Tribe__Admin__Notices::instance()->render( 'eventbrite-no-ea-connection', $message, false );
+	}
+
+	// @codingStandardsIgnoreStart
+	/**
+	 * Authorization Success
+	 *
+	 * @deprecated
+	 *
+	 * @return bool
+	 */
 	public function auth_success() {
+		_deprecated_function( __METHOD__, '4.5' );
+
 		$api = tribe( 'eventbrite.api' );
 
 		if ( ! $api->is_ready() ) {
@@ -137,7 +178,16 @@ class Tribe__Events__Tickets__Eventbrite__Notices {
 		);
 	}
 
+	/**
+	 * Deauthorized Success
+	 *
+	 * @deprecated
+	 *
+	 * @return bool
+	 */
 	public function deauth_success() {
+		_deprecated_function( __METHOD__, '4.5' );
+
 		if ( ! $this->main->deauth_success() ) {
 			return false;
 		}
@@ -149,7 +199,16 @@ class Tribe__Events__Tickets__Eventbrite__Notices {
 
 	}
 
+	/**
+	 * Invalid Token
+	 *
+	 * @deprecated
+	 *
+	 * @return bool
+	 */
 	public function invalid_token() {
+		_deprecated_function( __METHOD__, '4.5' );
+
 		$url = Tribe__Settings::instance()->get_url( array( 'tab' => 'addons' ) );
 
 		$content = sprintf( __( 'Your Eventbrite token is not valid, check %s page to see how to create a new one.',
@@ -157,4 +216,5 @@ class Tribe__Events__Tickets__Eventbrite__Notices {
 
 		Tribe__Admin__Notices::instance()->render_paragraph( 'eventbrite-invalid-token', $content );
 	}
+	// @codingStandardsIgnoreEnd
 }

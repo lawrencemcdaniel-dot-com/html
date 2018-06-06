@@ -10,13 +10,13 @@
  *
  * @package Tribe__Events__MainEventBrite
  * @since  3.0
- * @version 4.3.3
+ * @version 4.5
  * @author Modern Tribe Inc.
  */
 
 global $userdata;
 if ( get_user_meta( $userdata->ID, 'eventbrite_user_key', true ) && ! $_EventBriteId  ) : ?>
-	<script type="text/javascript" charset="utf-8">
+	<script charset="utf-8">
 		jQuery(document).ready(function($) {
 			// Register event handler for existing event toggle
 			$("input[name='existingEBEvent']").click(function() {

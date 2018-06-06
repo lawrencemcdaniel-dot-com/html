@@ -1,8 +1,8 @@
 <?php
 /*
  Plugin Name: The Events Calendar: Eventbrite Tickets
- Description: Looking to track attendees, sell tickets and more? Eventbrite is a free service that provides the full power of a conference ticketing system. This plugin extends Events Calendar with all the basic Eventbrite controls without ever leaving WordPress. In the absence of Events Calendar, this plugin provides interfaces to easily insert Eventbrite widgets into posts, the sidebar, or anywhere in your template files. Don't have an Eventbrite account? No problem, use the following link to set one up: <a href='http://www.eventbrite.com/r/etp'>http://www.eventbrite.com/r/etp</a>
- Version: 4.4.9
+ Description: Eventbrite Tickets connects the power of The Events Calendar to your account on Eventbrite.com. Send WordPress events to Eventbrite, import existing Eventbrite events, display tickets, and more.
+ Version: 4.5
  Author: Modern Tribe, Inc.
  Author URI: http://m.tri.be/27
  Text Domain: tribe-eventbrite
@@ -55,7 +55,7 @@ function tribe_events_eventbrite_start() {
 		tribe_main_pue_helper();
 	}
 
-	if ( ! $version_ok ) {
+	if ( ! function_exists( 'tribe_singleton' ) || ! $version_ok ) {
 		add_action( 'admin_notices', 'tribe_eventbrite_show_fail_message' );
 		return;
 	}
@@ -65,7 +65,10 @@ function tribe_events_eventbrite_start() {
 	include_once( 'src/functions/deprecated-template-tags.php' );
 
 	tribe_singleton( 'eventbrite.main', new Tribe__Events__Tickets__Eventbrite__Main() );
-	tribe_singleton( 'eventbrite.PUE', new Tribe__Events__Tickets__Eventbrite__PUE( EVENTBRITE_PLUGIN_FILE ) );
+	tribe_singleton( 'eventbrite.pue', new Tribe__Events__Tickets__Eventbrite__PUE( EVENTBRITE_PLUGIN_FILE ) );
+
+	add_action( 'plugins_loaded', array( tribe( 'eventbrite.main' ), 'on_load' ) );
+
 }
 
 

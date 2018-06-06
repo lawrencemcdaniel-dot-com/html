@@ -3,7 +3,7 @@
   Plugin Name: YouTube
   Plugin URI: https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx
   Description: YouTube Embed and YouTube Gallery WordPress Plugin. Embed a responsive video, YouTube channel, playlist gallery, or live stream
-  Version: 11.9.1
+  Version: 11.9.2
   Author: EmbedPlus Team
   Author URI: https://www.embedplus.com
  */
@@ -33,7 +33,7 @@ class YouTubePrefs
 {
 
     public static $curltimeout = 20;
-    public static $version = '11.9.1';
+    public static $version = '11.9.2';
     public static $opt_version = 'version';
     public static $optembedwidth = null;
     public static $optembedheight = null;
@@ -197,6 +197,8 @@ class YouTubePrefs
 
             add_action('wp_enqueue_scripts', array(get_class(), 'ytprefsscript'), 100);
             add_action('wp_enqueue_scripts', array(get_class(), 'fitvids'), 101);
+
+            add_filter('ytprefs_gdpr_consent_message', array(get_class(), 'filter_gdpr_consent_message'));
         }
 
         add_action("wp_ajax_my_embedplus_glance_vids", array(get_class(), 'my_embedplus_glance_vids'));
@@ -2432,7 +2434,8 @@ class YouTubePrefs
         {
             $code1 = '<div ' . $centercode . ' id="_ytid_' . rand(10000, 99999) . '" width="' . self::$defaultwidth . '" height="' . self::$defaultheight . '" ';
             $code2 = ' class="__youtube_prefs__  __youtube_prefs_gdpr__ ' . ($iscontent ? '' : ' __youtube_prefs_widget__') . '" allowfullscreen data-no-lazy="1" data-skipgform_ajax_framebjll="">' .
-                    apply_filters('the_content', wp_kses_post(self::$alloptions[self::$opt_gdpr_consent_message])) .
+                    apply_filters('ytprefs_gdpr_consent_message', wp_kses_post(self::$alloptions[self::$opt_gdpr_consent_message])) .
+                    //apply_filters('the_content', wp_kses_post(self::$alloptions[self::$opt_gdpr_consent_message])) .
                     '<button type="button" class="__youtube_prefs_gdpr__">' . trim(sanitize_text_field(self::$alloptions[self::$opt_gdpr_consent_button])) .
                     '<img src="' . plugins_url('images/icon-check.png', __FILE__) . '" alt="accept" data-no-lazy="1" data-skipgform_ajax_framebjll="" /></button>' .
                     '</div>';
@@ -2451,6 +2454,31 @@ class YouTubePrefs
     public static function gdpr_mode()
     {
         return (bool) self::$alloptions[self::$opt_gdpr_consent] && filter_input(INPUT_COOKIE, self::$gdpr_cookie_name, FILTER_SANITIZE_NUMBER_INT) != 1;
+    }
+
+    public static function filter_gdpr_consent_message($content)
+    {
+        //global $wp_filter;
+        //$the_content_filters_current = $wp_filter['the_content']->callbacks;
+
+        $the_content_filters = array(
+            'wptexturize',
+            'wpautop',
+            'shortcode_unautop',
+            'prepend_attachment',
+            'wp_make_content_images_responsive',
+            'do_shortcode',
+            'convert_smilies'
+        );
+        
+        for ($i = 0; $i < count($the_content_filters); $i++)
+        {
+            if (function_exists($the_content_filters[$i]))
+            {
+                $content = call_user_func($the_content_filters[$i], $content);
+            }
+        }
+        return $content;
     }
 
     public static function debuglog($str)
@@ -2715,12 +2743,12 @@ class YouTubePrefs
         if (!(self::$alloptions[self::$opt_pro] && strlen(trim(self::$alloptions[self::$opt_pro])) > 0))
         {
             //$new_pointer_content .= __("This version updates the API key instructions and simplifies channel embedding for both Free and <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro versions &raquo;</a>");
-            $new_pointer_content .= __("This version adds a new Privacy section with improved GDPR compliance options: YouTube API restrictions, GDPR consent mode, and YouTube no cookie, for both Free and <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro versions &raquo;</a>.");
+            $new_pointer_content .= __("This version makes the GDPR consent message display more compatible with other plugins, in both the Free and <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro versions &raquo;</a>.");
         }
         else
         {
             //$new_pointer_content .= __("This version updates the API key instructions and simplifies channel embedding for both Free and  and Pro versions. " . '<strong>Important message to YouTube Pro users</strong>: From version 11.7 onward, you must <a href="https://www.embedplus.com/youtube-pro/download/?prokey=' . esc_attr(self::$alloptions[self::$opt_pro]) . '" target="_blank">download the separate plugin here</a> to regain your Pro features. All your settings will automatically migrate after installing the separate Pro download. Thank you for your support and patience during this transition.');
-            $new_pointer_content .= __("This version adds a new Privacy section with improved GDPR compliance options: YouTube API restrictions, GDPR consent mode, and YouTube no cookie, for both Free and  <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro versions &raquo;</a> (see <em>Compatibility</em> section). " . '<strong>Important message to YouTube Pro users</strong>: From version 11.7 onward, you must <a href="https://www.embedplus.com/youtube-pro/download/?prokey=' . esc_attr(self::$alloptions[self::$opt_pro]) . '" target="_blank">download the separate plugin here</a> to regain your Pro features. All your settings will automatically migrate after installing the separate Pro download. Thank you for your support and patience during this transition.');
+            $new_pointer_content .= __("This version makes the GDPR consent message display more compatible with other plugins, in both the Free and  <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro versions &raquo;</a> (see <em>Compatibility</em> section). " . '<strong>Important message to YouTube Pro users</strong>: From version 11.7 onward, you must <a href="https://www.embedplus.com/youtube-pro/download/?prokey=' . esc_attr(self::$alloptions[self::$opt_pro]) . '" target="_blank">download the separate plugin here</a> to regain your Pro features. All your settings will automatically migrate after installing the separate Pro download. Thank you for your support and patience during this transition.');
         }
         $new_pointer_content .= '</p>';
 
@@ -3132,6 +3160,7 @@ class YouTubePrefs
             .apikey-video{margin-left: 3%; display: inline-block; width: 50%; position: relative; padding-top: 29%}
             .apikey-video iframe{display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
             #boxnocookie {display: inline-block; border-radius: 3px; padding: 2px 4px 2px 4px; color: red;  <?php echo $all[self::$opt_nocookie] ? '' : 'display: none;' ?>}
+            #box_gdpr_consent { color: red; <?php echo (bool)$all[self::$opt_gdpr_consent] ? 'display: block;' : 'display: none;' ?>}
             .strike {text-decoration: line-through;}
             .upgchecks { padding: 20px; border-radius: 15px; border: 1px dotted #777777; background-color: #fcfcfc; }
             .clearboth {clear: both;}
@@ -3528,14 +3557,6 @@ class YouTubePrefs
                 </p>
                 <div class="ytindent chx">
                     <p>
-                        <b class="chktitle">YouTube API Loading:</b> <sup class="orange">NEW</sup> Choose when to load the YouTube API. The "Restricted" or "Never" options will help with GDPR compliance:
-                    <ul class="indent-option">
-                        <li><label><input type="radio" name="<?php echo self::$opt_ytapi_load ?>" value="light" <?php checked($all[self::$opt_ytapi_load], 'light'); ?> /> <em>Restricted</em> - (Recommended) Only load the API on pages that have a YouTube video.</label></li>
-                        <li><label><input type="radio" name="<?php echo self::$opt_ytapi_load ?>" value="never" <?php checked($all[self::$opt_ytapi_load], 'never'); ?> /> <em>Never</em> - Do not load the YouTube API. Note: The "Never" choice may break features such as Volume Initialization and Gallery Continuous Play.</label></li>
-                        <li><label><input type="radio" name="<?php echo self::$opt_ytapi_load ?>" value="always" <?php checked($all[self::$opt_ytapi_load], 'always'); ?> /> <em>Always</em> - Load the API on all pages. In most cases, the "Always" choice is not necessary.</label></li>
-                    </ul>
-                    </p>
-                    <p>
                         <input name="<?php echo self::$opt_old_script_method; ?>" id="<?php echo self::$opt_old_script_method; ?>" <?php checked($all[self::$opt_old_script_method], 1); ?> type="checkbox" class="checkbox">
                         <label for="<?php echo self::$opt_old_script_method; ?>">
                             <b class="chktitle">Use Legacy Scripts: </b>
@@ -3736,7 +3757,7 @@ class YouTubePrefs
                     Privacy Options
                     <a href="#top" class="totop">&#9650; top</a>
                 </h3>
-                <p>These options will help with privacy restrictions such as GDPR and the EU Cookie Law.</p>
+                <p>These options may help with privacy restrictions such as GDPR and the EU Cookie Law.</p>
                 <div class="ytindent chx">
                     <p>
                         <b class="chktitle">YouTube API Loading:</b> <sup class="orange">NEW</sup> Choose when to load the YouTube API. The "Restricted" or "Never" options will help with GDPR compliance:
@@ -3752,7 +3773,11 @@ class YouTubePrefs
                         <input name="<?php echo self::$opt_gdpr_consent; ?>" id="<?php echo self::$opt_gdpr_consent; ?>" <?php checked($all[self::$opt_gdpr_consent], 1); ?> type="checkbox" class="checkbox">
                         <label for="<?php echo self::$opt_gdpr_consent; ?>">
                             <b class="chktitle">GDPR - Show Consent Message:</b> <sup class="orange">NEW</sup> Ask for consent before loading YouTube content. A message will be displayed in place of the YouTube video, as shown in the screenshot below. You can customize the message text and the button text in the next 2 options.
+                            See this feature demonstrated in <a href="https://www.youtube.com/watch?v=lm_HIic6obw" target="_blank">this video</a>.
                         </label>
+                        <span id="box_gdpr_consent">
+                            Note: If your visitors click a red accept button but your site doesn't reveal the video, you probably have a caching plugin. There should be a setting in your caching plugin to prevent caching the consent cookie. The name of the consent cookie is: <code>ytprefs_gdpr_consent</code>
+                        </span>
                     </p>
 
                     <p>
@@ -4165,6 +4190,18 @@ class YouTubePrefs
                     else
                     {
                         jQuery("#boxnocookie").hide(500);
+                    }
+
+                });
+                jQuery('#<?php echo self::$opt_gdpr_consent; ?>').change(function ()
+                {
+                    if (jQuery(this).is(":checked"))
+                    {
+                        jQuery("#box_gdpr_consent").show(500);
+                    }
+                    else
+                    {
+                        jQuery("#box_gdpr_consent").hide(500);
                     }
 
                 });

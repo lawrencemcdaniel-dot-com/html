@@ -1,4 +1,4 @@
-# BEGIN WP Rocket v3.0.4
+# BEGIN WP Rocket v3.0.5.1
 # Use UTF-8 encoding for anything served text/plain or text/html
 AddDefaultCharset UTF-8
 # Force UTF-8 for a number of file formats
@@ -36,7 +36,7 @@ Header set Access-Control-Allow-Origin "*"
 <IfModule mod_alias.c>
 <FilesMatch "\.(html|htm|rtf|rtx|txt|xsd|xsl|xml)$">
 <IfModule mod_headers.c>
-Header set X-Powered-By "WP Rocket/3.0.4"
+Header set X-Powered-By "WP Rocket/3.0.5.1"
 Header unset Pragma
 Header append Cache-Control "public"
 Header unset Last-Modified
@@ -158,7 +158,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
 # END WordPress
 # Wordfence WAF
 <IfModule mod_php7.c>

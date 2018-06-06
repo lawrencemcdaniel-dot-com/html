@@ -14,7 +14,7 @@
  * @return int the number of tickets for an event
  */
 function tribe_eb_get_ticket_count( $post_id = null, $only_count_available_tickets = false ) {
-	$api = tribe( 'eventbrite.api' );
+	$api = tribe( 'eventbrite.event' );
 	$post_id = Tribe__Events__Main::postIdHelper( $post_id );
 	$event = $api->get_event( $post_id );
 	$count = 0;
@@ -52,7 +52,7 @@ function tribe_eb_get_ticket_count( $post_id = null, $only_count_available_ticke
  * @return int event id, false if no event is associated with post
  */
 function tribe_eb_get_id( $post_id = null ) {
-	$api = tribe( 'eventbrite.api' );
+	$api = tribe( 'eventbrite.event' );
 	return $api->get_event_id( $post_id );
 }
 
@@ -65,7 +65,7 @@ function tribe_eb_get_id( $post_id = null ) {
  * @return bool true if live
  */
 function tribe_eb_is_live_event( $post_id = null ) {
-	$api = tribe( 'eventbrite.api' );
+	$api = tribe( 'eventbrite.event' );
 	return $api->is_live( $post_id );
 }
 
@@ -78,7 +78,7 @@ function tribe_eb_is_live_event( $post_id = null ) {
  * @return string the event status
  */
 function tribe_eb_event_status( $post_id = null ) {
-	$api = tribe( 'eventbrite.api' );
+	$api = tribe( 'eventbrite.event' );
 	return $api->get_event_status( $post_id );
 }
 
@@ -137,18 +137,4 @@ function tribe_event_show_tickets( $post_id = null, $event = null ) {
 	 * @param bool $should_show_form Whether to show the form or not. Defaults to yes.
 	 */
 	return apply_filters( 'tribe_event_show_tickets', $should_show_form );
-}
-
-/**
- * Display the Eventbrite attendee data for a specific event.
- *
- * @deprecated since 3.9.1
- * @todo       remove this function 2 releases after being deprecated
- *
- * @param string $id       Eventbrite event ID (not the ID of the local event post)
- * @param object $user     Eventbrite username
- * @param string $password corresponding password
- */
-function tribe_eb_event_list_attendees( $id, $user, $password ) {
-	_deprecated_function( __FUNCTION__, '3.9.1' );
 }

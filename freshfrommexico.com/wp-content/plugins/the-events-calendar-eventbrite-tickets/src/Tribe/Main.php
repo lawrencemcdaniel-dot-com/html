@@ -20,7 +20,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * The current version of Eventbrite Tickets
 		 */
-		const VERSION = '4.4.9';
+		const VERSION = '4.5';
 
 		/**
 		 * Deprecated property in 4.3. Use VERSION const instead.
@@ -30,12 +30,12 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 *
 		 * @var string
 		 */
-		public static $pluginVersion = '4.4.9';
+		public static $pluginVersion = '4.5';
 
 		/**************************************************************
 		 * EventBrite Configuration
 		 **************************************************************/
-		const REQUIRED_TEC_VERSION = '4.5';
+		const REQUIRED_TEC_VERSION = '4.6.18';
 
 		protected static $instance;
 		public static $errors;
@@ -53,16 +53,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		public $plugin_file;
 
 		/**
-		 * Deprecated camelCase property in 4.3. Use $plugin_file instead
-		 *
-		 * @deprecated
-		 * @since 4.3
-		 *
-		 * @var string
-		 */
-		public $pluginFile;
-
-		/**
 		 * Plugin's slug.
 		 *
 		 * @since 4.3
@@ -70,16 +60,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @var string
 		 */
 		public $plugin_slug;
-
-		/**
-		 * Deprecated camelCase property in 4.3. Use $plugin_slug instead
-		 *
-		 * @deprecated
-		 * @since 4.3
-		 *
-		 * @var string
-		 */
-		public $pluginSlug;
 
 		/**
 		 * Plugin basename folder
@@ -93,16 +73,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		public $plugin_basename;
 
 		/**
-		 * Deprecated camelCase property in 4.3. Use $plugin_basename instead
-		 *
-		 * @deprecated
-		 * @since 4.3
-		 *
-		 * @var string
-		 */
-		public $pluginDir;
-
-		/**
 		 * Absolute path to the plugin directory.
 		 *
 		 * @since 4.3
@@ -112,14 +82,13 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		public $plugin_dir;
 
 		/**
-		 * Deprecated camelCase property in 4.3. Use $plugin_dir instead
+		 * Absolute path to the plugin directory for tribe_assets
 		 *
-		 * @deprecated
-		 * @since 4.3
+		 * @since 4.5
 		 *
 		 * @var string
 		 */
-		public $pluginPath;
+		public $plugin_path;
 
 		/**
 		 * Absolute URL to the plugin directory.
@@ -129,19 +98,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @var string
 		 */
 		public $plugin_url;
-
-		/**
-		 * Deprecated camelCase property in 4.3. Use $plugin_url instead
-		 *
-		 * @deprecated
-		 * @since 4.3
-		 *
-		 * @var string
-		 */
-		public $pluginUrl;
-
-		// @TODO This seems to be unused, consider removing it.
-		public $pluginName;
 
 		protected $cache_expiration = HOUR_IN_SECONDS; // defaults to 1 hour, use $this->get_cache_expiration() to apply filters
 
@@ -203,33 +159,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @author jgabois & Justin Endler
 		 * @return bool
 		 */
-		public static function is_core_active() {
+		public function is_core_active() {
 			return defined( 'Tribe__Events__Main::VERSION' ) && version_compare( Tribe__Events__Main::VERSION, '2.0', '>=' );
-		}
-
-		/**
-		 * A 32bit absolute integer method, returns as String
-		 *
-		 * @param  string $number A numeric Integer
-		 * @since  3.9.6
-		 *
-		 * @return string         Sanitized version of the Absolute Integer
-		 */
-		public static function sanitize_absint( $number = null ) {
-			// If it's not numeric we forget about it
-			if ( ! is_numeric( $number ) ) {
-				return false;
-			}
-
-			$number = preg_replace( '/[^0-9]/', '', $number );
-
-			// After the Replace return false if Empty
-			if ( empty( $number ) ) {
-				return false;
-			}
-
-			// After that it should be good to ship!
-			return $number;
 		}
 
 		/**
@@ -240,25 +171,31 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		public function __construct() {
 
 			// set internal variables
-			$this->pluginPath    = $this->plugin_dir = apply_filters( 'tribe_eb_pluginpath', trailingslashit( EVENTBRITE_PLUGIN_DIR ) );
-			$this->pluginDir     = $this->plugin_basename  = apply_filters( 'tribe_eb_plugindir', trailingslashit( basename( $this->plugin_dir ) ) );
-			$this->pluginFile    = $this->plugin_file = apply_filters( 'tribe_eb_pluginfile', EVENTBRITE_PLUGIN_FILE );
-			$this->pluginUrl     = $this->plugin_url  = apply_filters( 'tribe_eb_pluginurl', plugins_url() . '/' . $this->plugin_basename );
-			$this->pluginSlug    = $this->plugin_slug = 'tribe-eventbrite';
+			$this->plugin_path = $this->plugin_dir = apply_filters( 'tribe_eb_pluginpath', trailingslashit( EVENTBRITE_PLUGIN_DIR ) );
+			$this->plugin_basename  = apply_filters( 'tribe_eb_plugindir', trailingslashit( basename( $this->plugin_dir ) ) );
+			$this->plugin_file = apply_filters( 'tribe_eb_pluginfile', EVENTBRITE_PLUGIN_FILE );
+			$this->plugin_url  = apply_filters( 'tribe_eb_pluginurl', plugins_url() . '/' . $this->plugin_basename );
+			$this->plugin_slug = 'tribe-eventbrite';
 
 			// tie in the notices
 			$this->notices = new Tribe__Events__Tickets__Eventbrite__Notices( $this );
 
 			// bootstrap plugin
 			self::load_domain();
-			add_action( 'plugins_loaded', array( $this, 'check_oauth' ) );
+
 			add_action( 'plugins_loaded', array( $this, 'add_actions' ) );
 			add_action( 'plugins_loaded', array( $this, 'add_filters' ) );
 
-			// register classes in the container
-			tribe_singleton( 'eventbrite.api', 'Tribe__Events__Tickets__Eventbrite__API' );
-
 			$this->register_active_plugin();
+		}
+
+		/**
+		 * Loading the Service Provider
+		 *
+		 * @since 4.5
+		 */
+		public function on_load() {
+			tribe_register_provider( 'Tribe__Events__Tickets__Eventbrite__Service_Provider' );
 		}
 
 
@@ -275,30 +212,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			return tribe_register_plugin( $this->plugin_file, __CLASS__, self::VERSION );
 		}
 
-
-		/**
-		 * Checks if the OAuth token is valid, this method has a Caching system in place
-		 * to avoid doing an external request on every pageload
-		 *
-		 * @return void
-		 */
-		public function check_oauth() {
-			if ( ! is_admin() ) {
-				return;
-			}
-
-			$timer = get_transient( 'tribe_oauth_verification_failed' );
-			if ( ! $timer ) {
-				$api = tribe( 'eventbrite.api' );
-				$response = $api->request( $api->get_base_url( 'users/me' ), 'get' );
-			}
-
-			if ( $timer || ( ! empty( $response->error ) && 'INVALID_AUTH' === $response->error ) ) {
-				$api->valid_oauth = false;
-				tribe_notice( 'eventbrite-invalid-token', array( $this->notices, 'invalid_token' ), array( 'type' => 'error' ) );
-			}
-		}
-
 		/**
 		 * Add Eventbrite Tickets to the list of add-ons to check required version.
 		 *
@@ -309,7 +222,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			$plugins['TribeEB'] = array(
 				'plugin_name' => 'The Events Calendar: Eventbrite Tickets',
 				'required_version' => self::REQUIRED_TEC_VERSION,
-				'current_version' => self::$pluginVersion,
+				'current_version' => self::VERSION,
 				'plugin_dir_file' => basename( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/tribe-eventbrite.php',
 			);
 
@@ -329,78 +242,26 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			} elseif ( $this->is_core_active() ) {
 				$this->register_notices();
 
-				add_action( 'admin_init', array( $this, 'prepopulate' ) );
-				add_action( 'admin_enqueue_scripts', array( $this, 'load_assets' ) );
-				add_action( 'plugin_action_links_' . trailingslashit( $this->pluginDir ) . 'tribe-eventbrite.php', array( $this, 'addLinksToPluginActions' ) );
-				add_action( 'template_redirect', array( $this, 'authorize_redirect' ) );
-				add_action( 'parse_request', array( $this, 'maybe_regenerate_rewrite_rules' ) );
-				add_action( 'tribe_settings_validate_before_checks', array( $this, 'authorize_get_permission_redirect' ) );
-				add_filter( 'tribe_addons_tab_fields', array( $this, 'add_addon_fields' ) );
+				add_action( 'admin_init', array( $this, 'run_updates' ), 10, 0 );
+				add_action( 'plugin_action_links_' . trailingslashit( $this->plugin_basename ) . 'tribe-eventbrite.php', array( $this, 'addLinksToPluginActions' ) );
 				add_filter( 'tribe_aggregator_origins', array( $this, 'filter_inject_eventbrite_origin' ) );
 				add_action( 'tribe_events_pro_recurrence_after_metabox', array( $this, 'get_recurring_event_message' ) );
 
-				if ( tribe( 'eventbrite.api' )->is_ready() ) {
-
-					add_action( 'wp_before_admin_bar_render', array( $this, 'addEventbriteToolbarItems' ), 20 );
-
-					add_action( 'tribe_events_update_meta', array( $this, 'action_sync_event' ), 20 );
-					add_action( 'tribe_events_event_clear', array( $this, 'clear_details' ) );
-					add_action( 'tribe_events_cost_table', array( $this, 'add_metabox' ), 1 );
-					add_action( 'tribe_eventbrite_before_integration_header', array( $this, 'addEventbriteLogo' ) );
-					add_action( 'tribe_events_single_event_after_the_meta', array( $this, 'print_ticket_form' ), 9 );
-
-					add_action( 'tribe_import_render_tab_eventbrite', array( $this, 'include_import_page' ) );
-					add_action( 'wp_ajax_tribe_eb_search_existing', array( $this, 'search_api_events' ) );
-
-				}
+				add_action( 'tribe_events_cost_table', array( $this, 'add_metabox' ), 1 );
+				add_action( 'tribe_eventbrite_before_integration_header', array( $this, 'addEventbriteLogo' ) );
+				add_action( 'tribe_events_single_event_after_the_meta', array( $this, 'print_ticket_form' ), 9 );
 			}
 		}
 
 		public function filter_inject_eventbrite_origin( $origins ) {
-			$is_configured = tribe( 'eventbrite.api' )->is_ready();
-
 			$eventbrite       = new stdClass;
 			$eventbrite->id   = 'eventbrite';
 			$eventbrite->name = 'Eventbrite';
 			$eventbrite->text = 'Eventbrite';
 
-			if ( ! $is_configured ) {
-				$eventbrite->disabled = true;
-				$eventbrite->subtitle = __( 'The API key is not setup yet.', 'tribe-eventbrite' );
-			}
-
 			$origins = Tribe__Main::instance()->array_insert_after_key( 'csv', $origins, array( 'eventbrite' => $eventbrite ) );
 
 			return $origins;
-		}
-
-		/**
-		 * WP connection to the EB API class to search using Select2
-		 *
-		 * @return void
-		 */
-		public function search_api_events() {
-			$response = (object) array(
-				'status' => false,
-				'message' => '',
-			);
-
-			if ( ! isset( $_GET['q'] ) ) {
-				return;
-			}
-
-			$api = tribe( 'eventbrite.api' );
-
-			$term = esc_attr( $_GET['q'] );
-
-			$eb_response = $api->user_events( $term );
-
-			foreach ( $eb_response->events as $key => $event ) {
-				$event->text = $event->name->text;
-				$response->items[] = $event;
-			}
-
-			return wp_send_json( $response );
 		}
 
 		/**
@@ -419,26 +280,484 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			if ( ! class_exists( 'Tribe__Events__Main' ) ) {
 				return;
 			} elseif ( $this->is_core_active() ) {
-				add_filter( 'rewrite_rules_array', array( $this, 'rewrite_rules_array' ) );
-				add_filter( 'query_vars', array( $this, 'query_vars' ) );
 				add_filter( 'tribe_support_registered_template_systems', array( $this, 'add_template_updates_check' ) );
+				tribe_singleton( 'eventbrite.settings', new Tribe__Events__Tickets__Eventbrite__Admin__Settings() );
+			}
+		}
 
-				// Only Apply if Core and API keys are configured
-				if ( tribe( 'eventbrite.api' )->is_ready() ) {
-					add_filter( 'tribe_import_tabs', array( $this, 'add_import_tab' ) );
-					add_filter( 'tribe_import_general_settings', array( $this, 'add_settings_fields' ), 15 );
+		/**
+		 * Register Eventbrite Tickets with the template update checker.
+		 *
+		 * @param array $plugins
+		 *
+		 * @return array
+		 */
+		public function add_template_updates_check( $plugins ) {
+			$plugins[ __( 'Eventbrite Tickets', 'tribe-eventbrite' ) ] = array(
+				self::VERSION,
+				$this->plugin_dir . 'src/views/eventbrite',
+				trailingslashit( get_stylesheet_directory() ) . 'tribe-events/eventbrite',
+			);
+
+			return $plugins;
+		}
+
+		/**
+		 * Apply filters and return the eventbrite cache expiration
+		 *
+		 * @return int number of seconds until the cache should expire
+		 *
+		 */
+		public function get_cache_expiration() {
+			return apply_filters( 'tribe_events_eb_cache_expiration', $this->cache_expiration );
+		}
+
+		/**
+		 * load plugin text domain
+		 *
+		 * @since  1.0
+		 * @author jgabois & Justin Endler
+		 * @return void
+		 */
+		public function load_domain() {
+			$mopath = trailingslashit( basename( dirname( EVENTBRITE_PLUGIN_FILE ) ) ) . 'lang/';
+			$domain = 'tribe-eventbrite';
+
+			// If we don't have Common classes load the old fashioned way
+			if ( ! class_exists( 'Tribe__Main' ) ) {
+				load_plugin_textdomain( $domain, false, $mopath );
+			} else {
+				// This will load `wp-content/languages/plugins` files first
+				Tribe__Main::instance()->load_text_domain( $domain, $mopath );
+			}
+		}
+
+		/**
+		 * Get the Notices from Eventbrite
+		 *
+		 * @param  WP_Post|int $event The Event Object
+		 * @return array        An array of strings with the Notices
+		 */
+		public function get_notices( $event ) {
+			if ( is_numeric( $event ) ) {
+				$event = get_post( $event );
+			}
+
+			if ( ! $event instanceof WP_Post ) {
+				return false;
+			}
+
+			if ( ! tribe_is_event( $event->ID ) ) {
+				return false;
+			}
+
+			/**
+			 * Allow users to filter the Metakey based on Event Object
+			 * @param string $metakey The Meta name
+			 * @param WP_Post $event The Event Object
+			 */
+			$error_metakey = apply_filters( 'tribe_eventbrite_notices_key', '_tribe-eventbrite-notices', $event );
+
+			// Get the Errors
+			$notices = array_filter( (array) get_post_meta( $event->ID, $error_metakey ) );
+
+			$tags = array(
+				'a' => array(
+					'href' => array(),
+					'title' => array(),
+					'target' => array(),
+					'rel' => array(),
+				),
+				'ul' => array(),
+				'ol' => array(),
+				'li' => array(),
+				'br' => array(),
+				'em' => array(),
+				'strong' => array(),
+				'b' => array(),
+				'p' => array(),
+			);
+
+			// Apply the Security
+			foreach ( $notices as $key => $message ) {
+				$notices[ $key ] = wp_kses( $message, $tags );
+			}
+
+			/**
+			 * Allow users to filter the Notices based on the Event
+			 *
+			 * @param array $notices The array of strings that will be printed as notices
+			 * @param WP_Post $event The Post object for the Event
+			 */
+			return apply_filters( 'tribe_eventbrite_notices', $notices, $event );
+		}
+
+		/**
+		 * Adding a new Notice inside of the Eventbrite
+		 *
+		 * @param  WP_Post|int  $event  The Event to add the Notice to
+		 * @param  string  $message     The actual notice
+		 * @param  array   $sent        The sent Data
+		 *
+		 * @return boolean
+		 */
+		public function throw_notice( $event, $message, $sent = array() ) {
+			if ( is_numeric( $event ) ) {
+				$event = get_post( $event );
+			}
+
+			if ( ! $event instanceof WP_Post ) {
+				return false;
+			}
+
+			if ( ! tribe_is_event( $event->ID ) ) {
+				return false;
+			}
+
+			if ( ! empty( $sent ) ) {
+				update_post_meta( $event->ID, self::EB_SAVED_META_DATA, $sent );
+			}
+
+			/**
+			 * Allow users to filter the Metakey based on Event Object
+			 * @param string $metakey The Meta name
+			 * @param WP_Post $event The Event Object
+			 */
+			$error_metakey = apply_filters( 'tribe_eventbrite_notices_key', '_tribe-eventbrite-notices', $event );
+
+			// The errors (flushed on page reload)
+			return add_post_meta( $event->ID, $error_metakey, (string) $message );
+		}
+
+		/**
+		 * Get the ticket costs from Eventbrite
+		 *
+		 * @param $cost the original cost of the event from tribe_get_cost()
+		 * @param $post the TEC event to get the Eventbrite ticket costs from
+		 * @param $withCurrencySymbol whether to add the currency symbol
+		 *
+		 * @return string $cost the cost of the Eventbrite tickets
+		 * @see $this->get_cache_expiration()
+		 */
+		public function filter_get_cost( $cost, $post, $withCurrencySymbol ) {
+			if ( is_null( $post ) ) {
+				$post = get_the_ID();
+			}
+
+			$post = get_post( $post );
+
+			if ( ! is_object( $post ) || ! $post instanceof WP_Post ) {
+				return $cost;
+			}
+
+			$eventbrite_id = tribe_eb_get_id( $post->ID );
+
+			// If this even is not associated with Eventbrite let's do nothing more
+			if ( empty( $eventbrite_id ) ) {
+				return $cost;
+			}
+
+			// if the cache isn't expired we'll use the value stored there
+			$cache_expiration = $this->get_cache_expiration();
+
+			// Check if we already have the cost
+			$cached_cost_key = 'tribe_eventbrite_cost_' . ( $withCurrencySymbol ? 'formatted_' : '' ) . $post->ID;
+			$eb_cost         = $eb_cached_cost = get_transient( $cached_cost_key );
+
+			if ( ! $eb_cached_cost ) {
+				// the transient doesn't exist, check the postmeta (that was the pre 3.10 way of storing it)
+				$postmeta_eb_cached_cost = get_post_meta( $post->ID, '_EventbriteCost', true );
+				if ( ! empty( $postmeta_eb_cached_cost ) ) {
+					if ( time() < $postmeta_eb_cached_cost['timestamp'] + $cache_expiration ) {
+						// the cost is not expired, let's use it
+						$eb_cost = $postmeta_eb_cached_cost['cost'];
+					}
+					// either we found a valid cached cost or we didn't, but delete the postmeta, we're not using it anymore
+					delete_post_meta( $post->ID, '_EventbriteCost' );
 				}
+
+				// at this point, if we didn't get the cost from the postmeta or the transient, let's get it from Eventbrite
+				if ( ! $eb_cost ) {
+					$api     = tribe( 'eventbrite.event' );
+					$eb_cost = $api->get_cost( $post );
+				}
+
+				if ( $eb_cost ) {
+					// Update the transient
+					set_transient( $cached_cost_key, $eb_cost, $cache_expiration );
+				} else {
+					// we didn't find a value from Eventbrite, just return the original value
+					return $cost;
+				}
+			}
+			// If there cost is empty return the EB one
+			if ( empty( $cost ) ) {
+				$cost = $eb_cost;
+			} else {
+				$eb_free_ticket_label     = esc_attr__( 'Free', 'events-eventbrite' );
+				$eb_donation_ticket_label = esc_attr__( 'Donation', 'events-eventbrite' );
+
+				$eb_sorted_mins = array( $eb_free_ticket_label, $eb_donation_ticket_label );
+				$cost_utils     = tribe( 'tec.cost-utils' );
+				$cost           = $cost_utils->merge_cost_ranges(
+					$cost,
+					$eb_cost,
+					$withCurrencySymbol,
+					$eb_sorted_mins
+				);
+			}
+
+			// If there's more than one price, this will make them into a range
+			if ( is_array( $cost ) ) {
+				$cost = implode( apply_filters( 'tribe_eb_event_cost_separator', ' - ' ), $cost );
+			}
+
+			return apply_filters( 'tribe_eb_event_cost', $cost );
+		}
+
+		/**
+		 * the event brite meta box
+		 *
+		 * @global userdata - the current user data
+		 * @param int $postId the ID of the current event
+		 * @return void
+		 */
+		public function add_metabox( $post_id ) {
+			// Fetch the Saved data
+			$saved_raw_data = get_post_meta( $post_id, self::EB_SAVED_META_DATA, true );
+
+			// Set the flag
+			$has_valid_raw_data = false;
+
+			// Make sure it only affects this request
+			delete_post_meta( $post_id, self::EB_SAVED_META_DATA );
+
+			foreach ( self::$metaTags as $tag ) {
+				$name = ltrim( $tag, '_' );
+				if ( ! empty( $saved_raw_data[ $name ] ) ) {
+					$$tag = $saved_raw_data[ $name ];
+					$has_valid_raw_data = true;
+				} elseif ( $post_id ) {
+					$val = get_post_meta( $post_id, $tag, true );
+					$$tag = $val;
+				} else {
+					$$tag = '';
+				}
+			}
+
+			$api = tribe( 'eventbrite.event' );
+			$event = $api->get_event( $post_id );
+
+			$_EventBriteId = ( isset( $event->id ) && is_numeric( $event->id ) ? $event->id : null );
+			$isRegisterChecked = ( $has_valid_raw_data || ( isset( $event->id ) && is_numeric( $event->id ) ) ? true : false );
+			$image_sync_mode = (int) get_post_meta( $post_id, '_eventbrite_image_sync_mode', true );
+
+			$tribe_ecp = Tribe__Events__Main::instance();
+
+			include_once( $this->plugin_dir . 'src/views/eventbrite/eventbrite-meta-box-extension.php' );
+		}
+
+		/**
+		 * displays the Eventbrite ticket form.
+		 *
+		 * @since 1.0
+		 */
+		public static function print_ticket_form() {
+			$ticket_count = tribe_eb_get_ticket_count( null, true );
+
+			/**
+			 * Dictates whether the Eventbrite ticket form should be printed or not.
+			 *
+			 * The default is to only print the ticket form if there are one or more
+			 * Evenntbrite tickets for this event.
+			 *
+			 * @since 4.4.6
+			 *
+			 * @param bool $print_ticket_form
+			 * @param int  $ticket_count
+			 */
+			if ( ! apply_filters( 'tribe_events_eventbrite_print_ticket_form', (bool) $ticket_count, $ticket_count ) ) {
+				return;
+			}
+
+			tribe_get_template_part( 'eventbrite/hooks/ticket-form' );
+			tribe_get_template_part( 'eventbrite/modules/ticket-form' );
+		}
+
+		/**
+		 * Return additional action for the plugin on the plugins page.
+		 *
+		 * @param array $actions
+		 * @since 2.0.8
+		 * @return array
+		 */
+		public function addLinksToPluginActions( $actions ) {
+			if ( class_exists( ' Tribe__Events__Main' ) ) {
+				$actions['settings'] = '<a href="' . esc_url( add_query_arg( array( 'post_type' => Tribe__Events__Main::POSTTYPE, 'page' => 'import-eventbrite-events' ), esc_url( admin_url( 'edit.php' ) ) ) ) .'">' . __( 'Import Events', 'tribe-eventbrite' ) . '</a>';
+			}
+			return $actions;
+		}
+
+		/**
+		 * Adds the Eventbrite logo to the editing events form.
+		 *
+		 * @since 1.0.3
+		 * @author PaulHughes01
+		 * @return void
+		 */
+		public function addEventbriteLogo() {
+			$image_url = trailingslashit( $this->plugin_url ) . 'src/resources/images/eventbritelogo.png';
+			echo '<img class="tribe-eb-logo" src="' . esc_url( $image_url ) . '" />';
+		}
+
+		/**
+		 * Return the forums link as it should appear in the help tab.
+		 *
+		 * @param $content
+		 * @since 1.0.3
+		 * @return string
+		 */
+		public function _link_support_forum( $content ) {
+			$promo_suffix = '?utm_source=helptab&utm_medium=promolink&utm_campaign=plugin';
+			return Tribe__Events__Main::$tribeUrl . 'support/forums/' . $promo_suffix;
+		}
+
+		/**
+		 * Filter template paths to add the eventbrite plugin to the queue
+		 *
+		 * @param array $paths
+		 * @return array $paths
+		 * @author Jessica Yazbek
+		 * @since 3.2.1
+		 */
+		public function add_eventbrite_template_paths( $paths ) {
+			$paths['eventbrite'] = tribe( 'eventbrite.main' )->plugin_dir;
+			return $paths;
+		}
+
+		/**
+		 * Returns the event that's being currently edited.
+		 *
+		 * @return WP_Post|bool Either the event post object or `false` if no event it being edited.
+		 */
+		public function editing_eb_event() {
+			if ( ! empty( $this->event ) ) {
+				return $this->event;
+			}
+
+			global $post_id, $pagenow;
+
+			// Bail if we are not within the post editor
+			if ( 'post.php' !== $pagenow ) {
+				return false;
+			}
+
+			if ( ! tribe_is_event( $post_id ) ) {
+				return false;
+			}
+
+			$api = tribe( 'eventbrite.event' );
+
+			// Bail unless the event is linked to Eventbrite
+			$event = $api->get_event( $post_id );
+
+			$editing_eb_event = $event && ! empty( $event->status ) && ! empty( $event->id ) ? $event : false;
+
+			if ( $editing_eb_event ) {
+				$this->event = $event;
+			}
+
+			return $editing_eb_event;
+		}
+
+		protected function register_notices() {
+
+			tribe_notice(
+				'eventbrite-no-ea-connection',
+				array( $this->notices, 'render_ea_connection_notices' ),
+				array( 'type' => 'warning', 'dismiss' => 1 )
+			);
+
+			tribe_notice(
+				'eventbrite-event-draft',
+				array( $this->notices, 'draft_event' ),
+				array( 'type' => 'error' ),
+				array( $this, 'editing_eb_event' )
+			);
+
+			tribe_notice(
+				'eventbrite-event-no-tickets',
+				array( $this->notices, 'no_tickets' ),
+				array( 'type' => 'error' ),
+				array( $this, 'editing_eb_event' )
+			);
+
+			tribe_notice(
+				'eventbrite-sync-notices',
+				array( $this->notices, 'render_event_notices' ),
+				array( 'type' => 'error', 'dismiss' => 1 )
+			);
+		}
+
+		/**
+		 * Add a message under the Event Series metabox in Pro to warn they are not supported
+		 *
+		 * @since 4.4.7
+		 *
+		 */
+		public function get_recurring_event_message() {
+
+			if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
+				$bumpdown = __( 'Registering a recurring event series is not recommended with Eventbrite. Only the first event in the series will be registered. Please configure your events carefully.', 'tribe-eventbrite' );
+				?>
+				<tr class="tribe-recurrence-eventbrite-message">
+					<td colspan="2" class="tribe-eb-warning">
+						<p>
+							<?php esc_html_e( 'Recurring Events are not supported with Eventbrite', 'tribe-eventbrite' ); ?>
+							<span class="dashicons dashicons-editor-help tribe-bumpdown-trigger"
+							      data-bumpdown="<?php echo esc_attr( $bumpdown ); ?>"
+							      data-bumpdown-class="eventbrite"></span>
+						</p>
+					</td>
+				</tr>
+				<?php
 			}
 		}
 
 
-		public function add_import_tab( $tabs ) {
-			$tabs[ __( 'Eventbrite', 'tribe-eventbrite' ) ] = 'eventbrite';
+		/**
+		 * Make necessary database updates on admin_init
+		 *
+		 * @since 4.5
+		 *
+		 */
+		public function run_updates() {
+			if ( ! class_exists( 'Tribe__Events__Updater' ) ) {
+				return; // core needs to be updated for compatibility
+			}
 
-			return $tabs;
+			$updater = new Tribe__Events__Tickets__Eventbrite__Updater( self::VERSION );
+			if ( $updater->update_required() ) {
+				$updater->do_updates();
+			}
 		}
 
+		/**************************************************************
+		 * Deprecated methods for move of API to Event Aggregator
+		 **************************************************************/
+		// @codingStandardsIgnoreStart
+
+		/**
+		 * deprecated add Settings Field
+		 *
+		 * @deprecated
+		 *
+		 * @param array $fields
+		 *
+		 * @return array
+		 */
 		public function add_settings_fields( $fields = array() ) {
+			_deprecated_function( __METHOD__, '4.5' );
 			$newfields = array(
 				'eventbrite-title' => array(
 					'type' => 'html',
@@ -464,26 +783,79 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		/**
-		 * Register Eventbrite Tickets with the template update checker.
+		 * Checks if the OAuth token is valid, this method has a Caching system in place
+		 * to avoid doing an external request on every pageload
 		 *
-		 * @param array $plugins
+		 * @deprecated
 		 *
-		 * @return array
+		 * @return void
 		 */
-		public function add_template_updates_check( $plugins ) {
-			$plugins[ __( 'Eventbrite Tickets', 'tribe-eventbrite' ) ] = array(
-				self::$pluginVersion,
-				$this->pluginPath . 'src/views/eventbrite',
-				trailingslashit( get_stylesheet_directory() ) . 'tribe-events/eventbrite',
+		public function check_oauth() {
+			_deprecated_function( __METHOD__, '4.5' );
+
+			if ( ! is_admin() ) {
+				return;
+			}
+
+			$timer = get_transient( 'tribe_oauth_verification_failed' );
+			if ( ! $timer ) {
+				$api = tribe( 'eventbrite.api' );
+				$response = $api->request( $api->get_base_url( 'users/me' ), 'get' );
+			}
+
+			if ( $timer || ( ! empty( $response->error ) && 'INVALID_AUTH' === $response->error ) ) {
+				$api->valid_oauth = false;
+				tribe_notice( 'eventbrite-invalid-token', array( $this->notices, 'invalid_token' ), array( 'type' => 'error' ) );
+			}
+		}
+
+		/**
+		 * WP connection to the EB API class to search using Select2
+		 *
+		 * @deprecated
+		 *
+		 * @return void
+		 */
+		public function search_api_events() {
+			_deprecated_function( __METHOD__, '4.5' );
+
+			$response = (object) array(
+				'status' => false,
+				'message' => '',
 			);
 
-			return $plugins;
+			if ( ! isset( $_GET['q'] ) ) {
+				return;
+			}
+
+			$api = tribe( 'eventbrite.api' );
+
+			$term = esc_attr( $_GET['q'] );
+
+			$eb_response = $api->user_events( $term );
+
+			foreach ( $eb_response->events as $key => $event ) {
+				$event->text = $event->name->text;
+				$response->items[] = $event;
+			}
+
+			return wp_send_json( $response );
+		}
+
+		public function add_import_tab( $tabs ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
+			$tabs[ __( 'Eventbrite', 'tribe-eventbrite' ) ] = 'eventbrite';
+
+			return $tabs;
 		}
 
 		/**
 		 * Pre-populates an event with Eventbrite info, shows an error on failure.
 		 */
 		public function prepopulate() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			// Sanity checks
 			if ( ! current_user_can( 'publish_tribe_events' ) || empty( $_REQUEST['import_eventbrite'] ) || ! wp_verify_nonce( $_REQUEST['import_eventbrite'], 'import_eventbrite' ) ) {
 				return;
@@ -503,6 +875,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		public function maybe_regenerate_rewrite_rules() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			// if they don't have any rewrite rules, do nothing
 			if ( ! is_array( $GLOBALS['wp_rewrite']->rules ) ) {
 				return;
@@ -521,11 +895,15 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		public function query_vars( $vars ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			array_push( $vars, 'tribe_oauth' );
 			return $vars;
 		}
 
 		public function rewrite_rules_array( $rules = array() ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			$rule = array(
 				'tribe-oauth/eventbrite/?' => '?index.php?tribe_oauth=eventbrite',
 			);
@@ -533,6 +911,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		public function authorize_redirect() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			// Only move forward if we got a clear oauth for EB
 			if ( 'eventbrite' !== get_query_var( 'tribe_oauth' ) ) {
 				return;
@@ -563,6 +943,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		public function authorize_get_permission_redirect() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			$code = null;
 			$instance = (object) array(
 				'errors' => array(),
@@ -635,169 +1017,10 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		/**
-		 * Apply filters and return the eventbrite cache expiration
-		 *
-		 * @return int number of seconds until the cache should expire
-		 *
-		 */
-		public function get_cache_expiration() {
-			return apply_filters( 'tribe_events_eb_cache_expiration', $this->cache_expiration );
-		}
-
-		/**
-		 * load plugin text domain
-		 *
-		 * @since  1.0
-		 * @author jgabois & Justin Endler
-		 * @return void
-		 */
-		public function load_domain() {
-			$mopath = trailingslashit( basename( dirname( EVENTBRITE_PLUGIN_FILE ) ) ) . 'lang/';
-			$domain = 'tribe-eventbrite';
-
-			// If we don't have Common classes load the old fashioned way
-			if ( ! class_exists( 'Tribe__Main' ) ) {
-				load_plugin_textdomain( $domain, false, $mopath );
-			} else {
-				// This will load `wp-content/languages/plugins` files first
-				Tribe__Main::instance()->load_text_domain( $domain, $mopath );
-			}
-		}
-
-		/**
-		 * enqueue scripts & styles in the admin
-		 *
-		 * @since  1.0
-		 * @author jgabois & Justin Endler
-		 * @return void
-		 */
-		public function load_assets() {
-			wp_enqueue_style(
-				'tribe-eventbrite-admin',
-				$this->pluginUrl . 'src/resources/css/eb-tec-admin.css',
-				array(),
-				apply_filters( 'tribe_eventbrite_css_version', self::$pluginVersion )
-			);
-
-			wp_register_script(
-				'tribe-eventbrite-select-existing',
-				$this->pluginUrl . 'src/resources/js/select-existing.js',
-				array( 'tribe-select2' ),
-				apply_filters( 'tribe_eventbrite_js_version', self::$pluginVersion )
-			);
-
-			if (
-				Tribe__Admin__Helpers::instance()->is_screen( 'tribe_events_page_events-importer' )
-				|| (
-					// use class_exists as a temporary solution until we fully migrate Eventbrite to EA
-					class_exists( 'Tribe__Events__Aggregator' )
-					&& Tribe__Events__Aggregator__Page::instance()->is_screen()
-				)
-			) {
-				wp_enqueue_script( 'tribe-eventbrite-select-existing' );
-			}
-		}
-
-		/**
-		 * Get the Notices from Eventbrite
-		 *
-		 * @param  WP_Post|int $event The Event Object
-		 * @return array        An array of strings with the Notices
-		 */
-		public function get_notices( $event ) {
-			if ( is_numeric( $event ) ){
-				$event = get_post( $event );
-			}
-
-			if ( ! $event instanceof WP_Post ) {
-				return false;
-			}
-
-			if ( ! tribe_is_event( $event->ID ) ) {
-				return false;
-			}
-
-			/**
-			 * Allow users to filter the Metakey based on Event Object
-			 * @param string $metakey The Meta name
-			 * @param WP_Post $event The Event Object
-			 */
-			$error_metakey = apply_filters( 'tribe_eventbrite_notices_key', '_tribe-eventbrite-notices', $event );
-
-			// Get the Errors
-			$notices = array_filter( (array) get_post_meta( $event->ID, $error_metakey ) );
-
-			$tags = array(
-				'a' => array(
-					'href' => array(),
-					'title' => array(),
-					'target' => array(),
-					'rel' => array(),
-				),
-				'ul' => array(),
-				'ol' => array(),
-				'li' => array(),
-				'br' => array(),
-				'em' => array(),
-				'strong' => array(),
-				'b' => array(),
-				'p' => array(),
-			);
-
-			// Apply the Security
-			foreach ( $notices as $key => $message ) {
-				$notices[ $key ] = wp_kses( $message, $tags );
-			}
-
-			/**
-			 * Allow users to filter the Notices based on the Event
-			 *
-			 * @param array $notices The array of strings that will be printed as notices
-			 * @param WP_Post $event The Post object for the Event
-			 */
-			return apply_filters( 'tribe_eventbrite_notices', $notices, $event );
-		}
-
-		/**
-		 * Adding a new Notice inside of the Eventbrite
-		 *
-		 * @param  WP_Post|int  $event  The Event to add the Notice to
-		 * @param  string  $message     The actual notice
-		 * @param  array   $sent        The sent Data
-		 *
-		 * @return boolean
-		 */
-		public function throw_notice( $event, $message, $sent = array() ) {
-			if ( is_numeric( $event ) ) {
-				$event = get_post( $event );
-			}
-
-			if ( !$event instanceof WP_Post ) {
-				return false;
-			}
-
-			if ( !tribe_is_event( $event->ID ) ) {
-				return false;
-			}
-
-			if ( !empty( $sent ) ) {
-				update_post_meta( $event->ID, self::EB_SAVED_META_DATA, $sent );
-			}
-
-			/**
-			 * Allow users to filter the Metakey based on Event Object
-			 * @param string $metakey The Meta name
-			 * @param WP_Post $event The Event Object
-			 */
-			$error_metakey = apply_filters( 'tribe_eventbrite_notices_key', '_tribe-eventbrite-notices', $event );
-
-			// The errors (flushed on page reload)
-			return add_post_meta( $event->ID, $error_metakey, (string) $message );
-		}
-
-		/**
 		 * Updates the Eventbrite information in WordPress and makes the
 		 * API calls to EventBrite to update the listing on their side
+		 *
+		 * @deprecated
 		 *
 		 * @link http://www.eventbrite.com/api/doc/
 		 * @param int $postId the ID of the event being edited
@@ -805,6 +1028,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @return void
 		 */
 		public function action_sync_event( $event ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			$event = get_post( $event );
 
 			if ( ! is_object( $event ) || ! $event instanceof WP_Post ) {
@@ -1029,93 +1254,9 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		/**
-		 * Get the ticket costs from Eventbrite
-		 *
-		 * @param $cost the original cost of the event from tribe_get_cost()
-		 * @param $post the TEC event to get the Eventbrite ticket costs from
-		 * @param $withCurrencySymbol whether to add the currency symbol
-		 *
-		 * @return string $cost the cost of the Eventbrite tickets
-		 * @see $this->get_cache_expiration()
-		 */
-		public function filter_get_cost( $cost, $post, $withCurrencySymbol ) {
-			if ( is_null( $post ) ) {
-				$post = get_the_ID();
-			}
-
-			$post = get_post( $post );
-
-			if ( ! is_object( $post ) || ! $post instanceof WP_Post ) {
-				return $cost;
-			}
-
-			$eventbrite_id = tribe_eb_get_id( $post->ID );
-
-			// If this even is not associated with Eventbrite let's do nothing more
-			if ( empty( $eventbrite_id ) ) {
-				return $cost;
-			}
-
-			// if the cache isn't expired we'll use the value stored there
-			$cache_expiration = $this->get_cache_expiration();
-
-			// Check if we already have the cost
-			$cached_cost_key = 'tribe_eventbrite_cost_' . ( $withCurrencySymbol ? 'formatted_' : '' ) . $post->ID;
-			$eb_cost         = $eb_cached_cost = get_transient( $cached_cost_key );
-
-			if ( ! $eb_cached_cost ) {
-				// the transient doesn't exist, check the postmeta (that was the pre 3.10 way of storing it)
-				$postmeta_eb_cached_cost = get_post_meta( $post->ID, '_EventbriteCost', true );
-				if ( ! empty( $postmeta_eb_cached_cost ) ) {
-					if ( time() < $postmeta_eb_cached_cost['timestamp'] + $cache_expiration ) {
-						// the cost is not expired, let's use it
-						$eb_cost = $postmeta_eb_cached_cost['cost'];
-					}
-					// either we found a valid cached cost or we didn't, but delete the postmeta, we're not using it anymore
-					delete_post_meta( $post->ID, '_EventbriteCost' );
-				}
-
-				// at this point, if we didn't get the cost from the postmeta or the transient, let's get it from Eventbrite
-				if ( ! $eb_cost ) {
-					$api     = tribe( 'eventbrite.api' );
-					$eb_cost = $api->get_cost( $post );
-				}
-
-				if ( $eb_cost ) {
-					// Update the transient
-					set_transient( $cached_cost_key, $eb_cost, $cache_expiration );
-				} else {
-					// we didn't find a value from Eventbrite, just return the original value
-					return $cost;
-				}
-			}
-			// If there cost is empty return the EB one
-			if ( empty( $cost ) ) {
-				$cost = $eb_cost;
-			} else {
-				$eb_free_ticket_label     = esc_attr__( 'Free', 'events-eventbrite' );
-				$eb_donation_ticket_label = esc_attr__( 'Donation', 'events-eventbrite' );
-
-				$eb_sorted_mins = array( $eb_free_ticket_label, $eb_donation_ticket_label );
-				$cost_utils     = tribe( 'tec.cost-utils' );
-				$cost           = $cost_utils->merge_cost_ranges(
-					$cost,
-					$eb_cost,
-					$withCurrencySymbol,
-					$eb_sorted_mins
-				);
-			}
-
-			// If there's more than one price, this will make them into a range
-			if ( is_array( $cost ) ) {
-				$cost = implode( apply_filters( 'tribe_eb_event_cost_separator', ' - ' ), $cost );
-			}
-
-			return apply_filters( 'tribe_eb_event_cost', $cost );
-		}
-
-		/**
 		 * Clears/deletes all Eventbrite meta from an event
+		 *
+		 * @deprecated
 		 *
 		 * @since 1.0
 		 * @author jgabois & Justin Endler
@@ -1124,6 +1265,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @return void
 		 */
 		public function clear_details( $event ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			$event = get_post( $event );
 
 			if ( ! is_object( $event ) || ! $event instanceof WP_Post ) {
@@ -1139,10 +1282,14 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * retrieves data from an existing Eventbrite event
 		 *
+		 * @deprecated
+		 *
 		 * @throws Exception
 		 * @return mixed error on failure / json string of the event on success
 		 */
 		public function import_existing_events() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			add_filter( 'tribe-post-origin', array( $this, 'filter_imported_origin' ) );
 
 			/** @var Tribe__Events__Tickets__Eventbrite__API $api */
@@ -1296,6 +1443,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			 * Whether to obtain the featured image set for the event on eventbrite.com and use it
 			 * as the local featured image (ie, on WordPress).
 			 *
+			 * @deprecated
+			 *
 			 * @var bool $synch     whether to synchronize
 			 * @var int  $event_id  post ID of the event being imported
 			 */
@@ -1325,6 +1474,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * Given a valid datetime string, converts to the local WP timezone then returns the
 		 * corresponding unix timestamp.
 		 *
+		 * @deprecated
+		 *
 		 * Example, with a UTC datetime and assuming America/Vancouver as the local WP timezone:
 		 *
 		 *                 Input:                Output:
@@ -1335,11 +1486,16 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @return int    unix timestamp
 		 */
 		protected function convert_to_local_time( $datetime ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			return strtotime( $datetime ) + ( get_option( 'gmt_offset', 0 ) * HOUR_IN_SECONDS );
 		}
 
+
 		/**
 		 * links existing data with an imported event from Eventbrite
+		 *
+		 * @deprecated
 		 *
 		 * @since 1.0
 		 * @author jgabois & Justin Endler
@@ -1348,6 +1504,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @return void
 		 */
 		public function link_imported_event_data( $event_id, $data ) {
+			_deprecated_function( __METHOD__, '4.5' );
 
 			$eb_event_id = $data['_EventBriteId'];
 			$eb_organizer_id = $data['_OrganizerEventBriteID'];
@@ -1370,11 +1527,16 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 
 		/**
 		 * returns filter value for tribe-post-origin.
+		 *
+		 * @deprecated
+		 *
 		 * @since 1.0
 		 * @author PaulHughes01
 		 * @return string $origin
 		 */
 		public function filter_imported_origin() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			$origin = 'eventbrite-tickets';
 			return $origin;
 		}
@@ -1382,9 +1544,13 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * add the options page for this plugin
 		 *
+		 * @deprecated
+		 *
 		 * @return void
 		 */
 		public function add_option_page() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			add_submenu_page(
 				'/edit.php?post_type=' . Tribe__Events__Main::POSTTYPE,
 				__( 'Import: Eventbrite ', 'tribe-eventbrite' ),
@@ -1398,89 +1564,28 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * include the import page view
 		 *
+		 * @deprecated
+		 *
 		 * @return void
 		 */
 		public function include_import_page() {
-			include_once $this->pluginPath . 'src/views/eventbrite/import-eventbrite-events.php';
-		}
+			_deprecated_function( __METHOD__, '4.5' );
 
-		/**
-		 * the event brite meta box
-		 *
-		 * @global userdata - the current user data
-		 * @param int $postId the ID of the current event
-		 * @return void
-		 */
-		public function add_metabox( $post_id ) {
-			// Fetch the Saved data
-			$saved_raw_data = get_post_meta( $post_id, self::EB_SAVED_META_DATA, true );
-
-			// Set the flag
-			$has_valid_raw_data = false;
-
-			// Make sure it only affects this request
-			delete_post_meta( $post_id, self::EB_SAVED_META_DATA );
-
-			foreach ( self::$metaTags as $tag ) {
-				$name = ltrim( $tag, '_' );
-				if ( ! empty( $saved_raw_data[ $name ] ) ) {
-					$$tag = $saved_raw_data[ $name ];
-					$has_valid_raw_data = true;
-				} elseif ( $post_id ) {
-					$val = get_post_meta( $post_id, $tag, true );
-					$$tag = $val;
-				} else {
-					$$tag = '';
-				}
-			}
-
-			$api = tribe( 'eventbrite.api' );
-			$event = $api->get_event( $post_id );
-
-			$_EventBriteId = ( isset( $event->id ) && is_numeric( $event->id ) ? $event->id : null );
-			$isRegisterChecked = ( $has_valid_raw_data || ( isset( $event->id ) && is_numeric( $event->id ) ) ? true : false );
-			$image_sync_mode = (int) get_post_meta( $post_id, '_eventbrite_image_sync_mode', true );
-
-			$tribe_ecp = Tribe__Events__Main::instance();
-
-			include_once( $this->plugin_dir . 'src/views/eventbrite/eventbrite-meta-box-extension.php' );
-		}
-
-		/**
-		 * displays the Eventbrite ticket form.
-		 *
-		 * @since 1.0
-		 */
-		public static function print_ticket_form() {
-			$ticket_count = tribe_eb_get_ticket_count( null, true );
-
-			/**
-			 * Dictates whether the Eventbrite ticket form should be printed or not.
-			 *
-			 * The default is to only print the ticket form if there are one or more
-			 * Evenntbrite tickets for this event.
-			 *
-			 * @since 4.4.6
-			 *
-			 * @param bool $print_ticket_form
-			 * @param int  $ticket_count
-			 */
-			if ( ! apply_filters( 'tribe_events_eventbrite_print_ticket_form', (bool) $ticket_count, $ticket_count ) ) {
-				return;
-			}
-
-			tribe_get_template_part( 'eventbrite/hooks/ticket-form' );
-			tribe_get_template_part( 'eventbrite/modules/ticket-form' );
+			include_once $this->plugin_dir . 'src/views/eventbrite/import-eventbrite-events.php';
 		}
 
 		/**
 		 * Add the eventbrite importer toolbar item.
+		 *
+		 * @deprecated
 		 *
 		 * @since 1.0.1
 		 * @author PaulHughes01
 		 * @return void
 		 */
 		public function addEventbriteToolbarItems() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			global $wp_admin_bar;
 
 			if ( current_user_can( 'publish_tribe_events' ) ) {
@@ -1511,63 +1616,16 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		/**
-		 * Return additional action for the plugin on the plugins page.
-		 *
-		 * @param array $actions
-		 * @since 2.0.8
-		 * @return array
-		 */
-		public function addLinksToPluginActions( $actions ) {
-			if ( class_exists( ' Tribe__Events__Main' ) ) {
-				$actions['settings'] = '<a href="' . esc_url( add_query_arg( array( 'post_type' => Tribe__Events__Main::POSTTYPE, 'page' => 'import-eventbrite-events' ), esc_url( admin_url( 'edit.php' ) ) ) ) .'">' . __( 'Import Events', 'tribe-eventbrite' ) . '</a>';
-			}
-			return $actions;
-		}
-
-		/**
-		 * Adds the Eventbrite logo to the editing events form.
-		 *
-		 * @since 1.0.3
-		 * @author PaulHughes01
-		 * @return void
-		 */
-		public function addEventbriteLogo() {
-			$image_url = trailingslashit( $this->pluginUrl ) . 'src/resources/images/eventbritelogo.png';
-			echo '<img class="tribe-eb-logo" src="' . esc_url( $image_url ) . '" />';
-		}
-
-		/**
-		 * Return the forums link as it should appear in the help tab.
-		 *
-		 * @param $content
-		 * @since 1.0.3
-		 * @return string
-		 */
-		public function _link_support_forum( $content ) {
-			$promo_suffix = '?utm_source=helptab&utm_medium=promolink&utm_campaign=plugin';
-			return Tribe__Events__Main::$tribeUrl . 'support/forums/' . $promo_suffix;
-		}
-
-		/**
-		 * Filter template paths to add the eventbrite plugin to the queue
-		 *
-		 * @param array $paths
-		 * @return array $paths
-		 * @author Jessica Yazbek
-		 * @since 3.2.1
-		 */
-		public function add_eventbrite_template_paths( $paths ) {
-			$paths['eventbrite'] = tribe( 'eventbrite.main' )->pluginPath;
-			return $paths;
-		}
-
-		/**
 		 * Add the Eventbrite Fields to the Add-ons page on the correct position
+		 *
+		 * @deprecated
 		 *
 		 * @param array $fields The array of existing fields added to the addons page
 		 * @return array
 		 */
 		public function add_addon_fields( $fields = array() ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			$new_fields = array(
 				'eventbrite-title' => array(
 					'type' => 'html',
@@ -1642,9 +1700,14 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		/**
+		 *
+		 * @deprecated
+		 *
 		 * @param $instance
 		 */
 		protected function ensureAuth( $instance ) {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			// check the nonce
 			if ( ! wp_verify_nonce( $_POST['tribe-save-settings'], 'saving' ) ) {
 				$instance->errors[]    = __( 'The request was sent insecurely.', 'tribe-eventbrite' );
@@ -1668,9 +1731,14 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		/**
+		 *
+		 * @deprecated
+		 *
 		 * @return bool
 		 */
 		public function deauth_success() {
+			_deprecated_function( __METHOD__, '4.5' );
+
 			return ! empty( $_GET['success'] )
 			       && ! empty( $_GET['deauth'] )
 			       && ! empty( $_GET['page'] )
@@ -1680,91 +1748,72 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		}
 
 		/**
-		 * Returns the event that's being currently edited.
+		 * enqueue scripts & styles in the admin
 		 *
-		 * @return WP_Post|bool Either the event post object or `false` if no event it being edited.
+		 * @deprecated
+		 *
+		 * @since  1.0
+		 * @author jgabois & Justin Endler
+		 * @return void
 		 */
-		public function editing_eb_event() {
-			if ( ! empty( $this->event ) ) {
-				return $this->event;
-			}
+		public function load_assets() {
+			_deprecated_function( __METHOD__, '4.5' );
 
-			global $post_id, $pagenow;
-
-			// Bail if we are not within the post editor
-			if ( 'post.php' !== $pagenow ) {
-				return false;
-			}
-
-			if ( ! tribe_is_event( $post_id ) ) {
-				return false;
-			}
-
-			$api = tribe( 'eventbrite.api' );
-
-			// Bail unless the event is linked to Eventbrite
-			$event = $api->get_event( $post_id );
-
-			$editing_eb_event = $event && ! empty( $event->status ) && ! empty( $event->id ) ? $event : false;
-
-			if ( $editing_eb_event ) {
-				$this->event = $event;
-			}
-
-			return $editing_eb_event;
-		}
-
-		protected function register_notices() {
-			tribe_notice( 'eventbrite-auth-success', array( $this->notices, 'auth_success' ), array( 'type' => 'success', 'dismiss' => 1 ) );
-
-			tribe_notice( 'eventbrite-deauth-success', array( $this->notices, 'deauth_success' ), array( 'type' => 'success', 'dismiss' => 1 ) );
-
-			tribe_notice(
-				'eventbrite-event-draft',
-				array( $this->notices, 'draft_event' ),
-				array( 'type' => 'error' ),
-				array( $this, 'editing_eb_event' )
+			wp_enqueue_style(
+				'tribe-eventbrite-admin',
+				$this->plugin_url . 'src/resources/css/eb-tec-admin.css',
+				array(),
+				apply_filters( 'tribe_eventbrite_css_version', self::VERSION )
 			);
 
-			tribe_notice(
-				'eventbrite-event-no-tickets',
-				array( $this->notices, 'no_tickets' ),
-				array( 'type' => 'error' ),
-				array( $this, 'editing_eb_event' )
+			wp_register_script(
+				'tribe-eventbrite-select-existing',
+				$this->plugin_url . 'src/resources/js/select-existing.js',
+				array( 'tribe-select2' ),
+				apply_filters( 'tribe_eventbrite_js_version', self::VERSION )
 			);
 
-			tribe_notice(
-				'eventbrite-post-notices',
-				array( $this->notices, 'render_event_notices' ),
-				array( 'type' => 'error', 'dismiss' => 1 )
-			);
+			if (
+				Tribe__Admin__Helpers::instance()->is_screen( 'tribe_events_page_events-importer' )
+				|| (
+					// use class_exists as a temporary solution until we fully migrate Eventbrite to EA
+					class_exists( 'Tribe__Events__Aggregator' )
+					&& Tribe__Events__Aggregator__Page::instance()->is_screen()
+				)
+			) {
+				wp_enqueue_script( 'tribe-eventbrite-select-existing' );
+			}
 		}
 
 		/**
-		 * Add a message under the Event Series metabox in Pro to warn they are not supported
+		 * A 32bit absolute integer method, returns as String
 		 *
-		 * @since 4.4.7
+		 * @deprecated
 		 *
+		 * @param  string $number A numeric Integer
+		 * @since  3.9.6
+		 *
+		 * @return string         Sanitized version of the Absolute Integer
 		 */
-		public function get_recurring_event_message() {
+		public static function sanitize_absint( $number = null ) {
+			_deprecated_function( __METHOD__, '4.5' );
 
-			if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
-				$bumpdown = __( 'Registering a recurring event series is not recommended with Eventbrite. Only the first event in the series will be registered. Please configure your events carefully.', 'tribe-eventbrite' );
-				?>
-				<tr class="tribe-recurrence-eventbrite-message">
-					<td colspan="2" class="tribe-eb-warning">
-						<p>
-							<?php esc_html_e( 'Recurring Events are not supported with Eventbrite', 'tribe-eventbrite' ); ?>
-							<span class="dashicons dashicons-editor-help tribe-bumpdown-trigger"
-							      data-bumpdown="<?php echo esc_attr( $bumpdown ); ?>"
-							      data-bumpdown-class="eventbrite"></span>
-						</p>
-					</td>
-				</tr>
-				<?php
+			// If it's not numeric we forget about it
+			if ( ! is_numeric( $number ) ) {
+				return false;
 			}
-		}
 
+			$number = preg_replace( '/[^0-9]/', '', $number );
+
+			// After the Replace return false if Empty
+			if ( empty( $number ) ) {
+				return false;
+			}
+
+			// After that it should be good to ship!
+			return $number;
+		}
+		// @codingStandardsIgnoreEnd
 
 	} // end Tribe__Events__Tickets__Eventbrite__Main class
 

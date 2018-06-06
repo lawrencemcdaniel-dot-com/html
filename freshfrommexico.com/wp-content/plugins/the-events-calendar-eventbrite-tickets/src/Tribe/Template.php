@@ -49,7 +49,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Template' ) ) {
 		 */
 		public static function the_tickets() {
 			$post_id  = get_the_ID();
-			$api = tribe( 'eventbrite.api' );
+			$api = tribe( 'eventbrite.event' );
 			$event = $api->get_event( $post_id );
 
 			if ( ! $event ) {
@@ -101,12 +101,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Template' ) ) {
 					$iframe_height
 				);
 			}
-
-			/**
-			 * @todo remove in 4.0
-			 * @deprecated 3.9
-			 */
-			$html = apply_filters( 'tribe_template_factory_debug', $html, 'Tribe__Events__Eventbrite__Template::the_tickets' );
 
 			/**
 			 * Allows Eventbrite iframe HTML to be modified.

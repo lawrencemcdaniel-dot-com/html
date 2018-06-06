@@ -1,9 +1,10 @@
 === Plugin Name ===
 Contributors: shahpranaf
+Donate link: https://ko-fi.com/M4M6E3Y9
 Tags: Featured, Image, Hide, Show, Post, Thumbnail, Custom Post Type
 Stable tag: trunk
 Requires at least: 3.0.1
-Tested up to: 4.6.1
+Tested up to: 4.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +43,15 @@ For any query or details please visit [Plugin Home](http://shahpranav.com/2015/0
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Made Plugin Translation ready.
+
+= 1.3 =
+* Made Plugin Translation ready.
+* Modified to support latest WordPress.
+* Fixed Minor bugs and security update.
+* Provided support for Twenty Seventeen Theme 
 
 = 1.2 =
 * Update description and confusing text.

@@ -10,7 +10,7 @@
  *
  * @package Tribe__Events__MainEventBrite
  * @since  3.0
- * @version 4.4.7
+ * @version 4.5
  * @author Modern Tribe Inc.
  */
 ?>
@@ -24,7 +24,7 @@
 		<?php esc_html_e( 'Eventbrite Event ID:', 'tribe-eventbrite' ); ?>
 	</td>
 	<td>
-		<a target="_blank" href="http://www.eventbrite.com/edit?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?></a>
+		<a target="_blank" href="http://www.eventbrite.com/edit?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?></a>
 	</td>
 </tr>
 <tr>
@@ -44,10 +44,10 @@
 			</select>
 			<?php } else { ?>
 				<b><?php echo esc_attr( ucfirst( $event->status ) ); ?></b>
-				<p class="tec_eb_status_cancel_notice"><?php esc_html_e( 'At this time, the event can only be made live again through the Quick Links in the My Events tab of your account dashboard.', 'tribe-eventbrite' ); ?> <a href="http://www.eventbrite.com/myevent?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_html_e( 'Manage Event', 'tribe-eventbrite' ); ?> &raquo;</a></p>
+				<p class="tec_eb_status_cancel_notice"><?php esc_html_e( 'At this time, the event can only be made live again through the Quick Links in the My Events tab of your account dashboard.', 'tribe-eventbrite' ); ?> <a href="http://www.eventbrite.com/myevent?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_html_e( 'Manage Event', 'tribe-eventbrite' ); ?> &raquo;</a></p>
 			<?php } ?>
 		<?php } else { ?>
-			<p><?php esc_html_e( 'This event was created without a ticket. You need to create a ticket before you can change this event\'s status.', 'tribe-eventbrite' ); ?> <a href="http://www.eventbrite.com/myevent?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $_EventBriteId ) ); ?>&ref=etckt"><?php esc_html_e( 'Manage Event', 'tribe-eventbrite' ); ?> &raquo;</a></p>
+			<p><?php esc_html_e( 'This event was created without a ticket. You need to create a ticket before you can change this event\'s status.', 'tribe-eventbrite' ); ?> <a href="http://www.eventbrite.com/myevent?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $_EventBriteId ) ); ?>&ref=etckt"><?php esc_html_e( 'Manage Event', 'tribe-eventbrite' ); ?> &raquo;</a></p>
 		<?php } ?>
 	</td>
 </tr>
@@ -134,12 +134,12 @@
 <tr>
 	<td colspan="2">
 		<ul class='event_links'>
-			<li><a href="http://www.eventbrite.com/myevent?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Manage my Event', 'tribe-eventbrite' ); ?></a></li>
-			<li><a href="http://www.eventbrite.com/discounts?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Manage Discounts', 'tribe-eventbrite' ); ?></a></li>
-			<li><a href="http://www.eventbrite.com/attendees-list?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Manage Attendees', 'tribe-eventbrite' ); ?></a></li>
-			<li><a href="http://www.eventbrite.com/attendees-email?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Email Attendees', 'tribe-eventbrite' ); ?></a></li>
-			<li><a href="http://www.eventbrite.com/attendees-badges?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Print Badges', 'tribe-eventbrite' ); ?></a></li>
-			<li><a href="http://www.eventbrite.com/attendees-list?eid=<?php echo esc_attr( Tribe__Events__Tickets__Eventbrite__Main::sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Print Check-In List', 'tribe-eventbrite' ); ?></a></li>
+			<li><a href="http://www.eventbrite.com/myevent?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Manage my Event', 'tribe-eventbrite' ); ?></a></li>
+			<li><a href="http://www.eventbrite.com/discounts?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Manage Discounts', 'tribe-eventbrite' ); ?></a></li>
+			<li><a href="http://www.eventbrite.com/attendees-list?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Manage Attendees', 'tribe-eventbrite' ); ?></a></li>
+			<li><a href="http://www.eventbrite.com/attendees-email?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Email Attendees', 'tribe-eventbrite' ); ?></a></li>
+			<li><a href="http://www.eventbrite.com/attendees-badges?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Print Badges', 'tribe-eventbrite' ); ?></a></li>
+			<li><a href="http://www.eventbrite.com/attendees-list?eid=<?php echo esc_attr( tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event->id ) ); ?>&ref=etckt"><?php esc_attr_e( 'Print Check-In List', 'tribe-eventbrite' ); ?></a></li>
 		</ul>
 	</td>
 </tr>

@@ -4,8 +4,8 @@ Contributors: ModernTribe, barry.hughes, bordoni, borkweb, brianjessee, brook-tr
 Tags: widget, events, simple, tooltips, grid, month, list, calendar, event, venue, eventbrite, registration, tickets, ticketing, eventbright, api, dates, date, plugin, posts, sidebar, template, theme, time, google maps, google, maps, conference, workshop, concert, meeting, seminar, summit, forum, shortcode, The Events Calendar, The Events Calendar PRO
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
-Tested up to: 4.9.1
-Stable tag: 4.4.9
+Tested up to: 4.9.6
+Stable tag: 4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Eventbrite Tickets extends The Events Calendar with all the basic Eventbrite con
 
 == Description ==
 
-Looking to track attendees, sell tickets and more? Eventbrite is a free service that provides the full power of a conference ticketing system. This plugin adds the ticket-selling abilities of Eventbrite to your Events Calendar events. You can import Eventbrite events into your calendar, or make events in WordPress and link them to their Eventbrite counterparts. Your users can see tickets right on your event page, and easily buy them through Eventbrite. Don't have an Eventbrite account? No problem, use the following link to set one up: <a href='http://www.eventbrite.com/r/etp'>http://www.eventbrite.com/r/etp</a>.
+Eventbrite Tickets connects the power of The Events Calendar to your account on Eventbrite.com. Send WordPress events to Eventbrite, import existing Eventbrite events, display tickets, and more.
 
 = The Events Calendar: Eventbrite Tickets =
 
@@ -200,9 +200,18 @@ Our Premium Plugins:
 
 == Changelog ==
 
-= [4.4.9] 2018-01-10 =
+= [4.5] 2018-06-04 =
 
-* Fix - Fixed broken datepicker fields in the Eventbrite ticket-creation metabox [92871]
+* Add - Syncing of Eventbrite events updates to WordPress [81822]
+* Add - Move the Eventbrite imports to Event Aggregator service [81822]
+* Add - Migration from old Eventbrite Imports to new Event Aggregator standard []
+* Add - Bulk imports from Eventbrite Profile [82749]
+* Add - Prompt on update or install to Eventbrite 4.5 to authorize Event Aggregator EB App  [100224]
+* Tweak - Move Eventbrite settings from Legacy Import to Settings Import Tab [94388]
+* Tweak - Styling of the Eventbrite datepicker to match style of event datepicker [99173]
+* Tweak - EB tickets metabox to hide admin fields if you are not the owner of the event in Eventbrite [94697]
+* Deprecated - Eventbrite authorization interface with replace in Event Aggregator [97239]
+* Deprecated - Eventbrite API class including calls to tribe( ‘eventbrite.api’ ) use tribe( ‘eventbrite.sync.event’ ) or tribe( ‘eventbrite.sync.utilities ) instead [106949]
 
 = [4.4.8] 2017-09-20 =
 
