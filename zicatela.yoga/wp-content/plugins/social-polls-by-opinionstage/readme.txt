@@ -4,7 +4,7 @@ Donate link: http://www.opinionstage.com
 Tags: poll, quiz, survey, form builder, slideshow, story, landing page
 Requires at least: 2.8
 Tested up to: 4.9
-Stable tag: 19.3.2
+Stable tag: 19.3.3
 
 Add a poll, survey, quiz, slideshow, form, story & landing page plugin. 
 
@@ -316,6 +316,8 @@ You can create many different types of quizzes: Trivia quiz, personality quiz, i
 N/A
 
 == Changelog ==
+  = Poll, Survey, Quiz, Slideshow, form, Story & Landing Page Version 19.3.3 =
+  * small text changes
   = Poll, Survey, Quiz, Slideshow, form, Story & Landing Page Version 19.3.2 =
   * readme update
   = Poll, Survey, Quiz, Slideshow, form, Story & Landing Page Version 19.3.1 =
