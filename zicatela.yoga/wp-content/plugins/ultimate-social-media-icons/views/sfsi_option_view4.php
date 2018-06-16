@@ -610,6 +610,9 @@ $hide="display:none;";
     </div>
     <!-- END show/hide counts for all icons section -->
   
+    <?php sfsi_ask_for_help(4); ?>
+
+
     <!-- SAVE BUTTON SECTION   --> 
     <div class="save_button">
 		<img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />

@@ -455,6 +455,9 @@ here what text will be displayed if a user moves his mouse over the icon:
 	</div>
 	<!-- END mouse over text section -->
 
+	<?php sfsi_ask_for_help(5); ?>
+
+
     <!-- SAVE BUTTON SECTION   --> 
     <div class="save_button">
          <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />

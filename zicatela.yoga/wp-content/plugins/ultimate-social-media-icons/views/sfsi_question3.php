@@ -31,6 +31,9 @@
 		In the Premium Plugin you can also <b>exclude icons</b> from showing on certain pages. <a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/"><b>See all features</b></a>
 	</p>
 
+
+	<?php sfsi_ask_for_help(9); ?>
+
     
 	<!-- SAVE BUTTON SECTION   --> 
 	<div class="save_button">

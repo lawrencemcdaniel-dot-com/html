@@ -12,6 +12,8 @@
 <!-- START Admin view for plugin-->
 <div class="wapper sfsi_mainContainer">
     
+    <?php sfsi_language_notice(); ?>
+
     <!-- Get notification bar-->
     <?php if(get_option("show_new_notification") == "yes") { ?>
     <script type="text/javascript">

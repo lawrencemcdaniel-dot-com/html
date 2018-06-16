@@ -240,6 +240,9 @@ $option7['sfsi_Shown_popupOnceTime'] 	= (isset($option7['sfsi_Shown_popupOnceTim
         </div>         
     
     </div>
+
+    <?php sfsi_ask_for_help(7); ?>
+
      <!-- SAVE BUTTON SECTION   --> 
 	<div class="save_button">
 		<img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />

@@ -215,6 +215,42 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 7.10.15 - 2018-06-14 :- Medium priority =
+* Fixed GDPR consent notice bypassed when "prevent other plugins and theme enqueueing maps API" is not set
+
+= 7.10.14 - 2018-06-14 :- Medium priority =
+* Fixed incompatibilities with UGM
+
+= 7.10.13 - 2018-06-13 :- Low priority =
+* Fixed can't save Modern Store Locator
+* Fixed store locator reset not working
+* Fixed disabling map controls not working
+* Fixed store locator radio button
+
+= 7.10.12 - 2018-06-12 :- Low priority =
+* Handed FontAwesome loading over to ScriptLoader module
+* Deprecated global function wpgmza_enqueue_fontawesome
+* Fixed circles and rectangles only working on map ID 1
+ 
+= 7.10.11 - 2018-06-08 :- Low priority =
+* Fixed JS error when passing non-string value to document.write
+* Temporary workaround for "Unexpected token % in JSON"
+* API consent no longer required on back-end
+
+= 7.10.10 - 2018-06-01 :- Medium Priority =
+* Adding setting "Prevent other plugins and theme loading API"
+
+= 7.10.09 - 2018-06-01 :- Medium Priority =
+* Fixed unterminated comment warning
+* Fixed map edit page creating Google places autocomplete when engine is set to OpenLayers
+* Fixed icon not draggable in edit marker location page
+
+= 7.10.08 - 2018-05-31 :- Medium Priority =
+* Fixed cannot edit marker in Basic only
+
+= 7.10.07 - 2018-05-31 :- Medium Priority =
+* Fixed issue where map engine was different on back end
+
 = 7.10.06 - 2018-05-31 :- Medium Priority =
 * Added "require consent before API load" to GDPR settings
 

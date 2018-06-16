@@ -1,4 +1,4 @@
-   function sfsi_update_index(){
+function sfsi_update_index(){
     var s = 1;
     SFSI("ul.icn_listing li.custom").each(function() {
         SFSI(this).children("span.custom-txt").html("Custom " + s), s++;
@@ -1666,6 +1666,21 @@ function create_suscriber_form()
 var global_error = 0;
 
 SFSI(document).ready(function(s) {
+
+    SFSI(document).on("click", ".sfsi-notice-dismiss", function(){
+        
+        SFSI.ajax({
+            url:ajax_object.ajax_url,
+            type:"post",
+            data:{action: "sfsi_dismiss_lang_notice"},
+            success:function(e) {
+                if(false != e){
+                    SFSI(".sfsi-notice-dismiss").parent().remove();
+                }
+            }
+        });
+    });
+
     //changes done {Monad}
 	SFSI(".tab_3_icns").on("click", ".cstomskins_upload", function() {
 		SFSI(".cstmskins-overlay").show("slow", function() {

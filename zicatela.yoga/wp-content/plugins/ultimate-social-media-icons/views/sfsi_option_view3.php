@@ -321,6 +321,8 @@ $option3['sfsi_shuffle_intervalTime'] 	= (isset($option3['sfsi_shuffle_intervalT
         <!--END icon Animation section   start -->
     </div>
     
+    <?php sfsi_ask_for_help(3); ?>
+
 	<!-- SAVE BUTTON SECTION   --> 
 	<div class="save_button tab_3_sav">
 	     <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />

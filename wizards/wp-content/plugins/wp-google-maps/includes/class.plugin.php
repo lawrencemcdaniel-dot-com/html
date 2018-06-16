@@ -2,6 +2,22 @@
 
 namespace WPGMZA;
 
+/*class MyCustomGlobalSettings extends GlobalSettings
+{
+	public function __construct()
+	{
+		GlobalSettings::__construct();
+		
+		var_dump("It works!");
+		exit;
+	}
+	
+	protected static function createInstanceDelegate()
+	{
+		return new MyCustomGlobalSettings();
+	}
+}*/
+
 class Plugin
 {
 	const PAGE_MAP_LIST			= "map-list";
@@ -18,6 +34,8 @@ class Plugin
 	public $settings;
 	
 	protected $scriptLoader;
+	
+	private $cachedVersion = null;
 	private $legacySettings;
 	
 	public function __construct()
@@ -27,6 +45,8 @@ class Plugin
 			$this->legacySettings = array();
 		
 		$settings = $this->getDefaultSettings();
+		
+		// $temp = GlobalSettings::createInstance();
 		
 		// Legacy compatibility
 		global $wpgmza_pro_version;
@@ -118,6 +138,7 @@ class Plugin
 			'settings' 				=> $this->settings,
 			'localized_strings'		=> $strings->getLocalizedStrings(),
 			'api_consent_html'		=> $wpgmzaGDPRCompliance->getConsentPromptHTML(),
+			'basic_version'			=> $this->getBasicVersion(),
 			'_isProVersion'			=> $this->isProVersion()
 		));
 	}
@@ -168,6 +189,18 @@ class Plugin
 	public function isProVersion()
 	{
 		return false;
+	}
+	
+	public function getBasicVersion()
+	{
+		if($this->cachedVersion != null)
+			return $this->cachedVersion;
+		
+		$subject = file_get_contents(plugin_dir_path(__DIR__) . 'wpGoogleMaps.php');
+		if(preg_match('/Version:\s*(.+)/', $subject, $m))
+			$this->cachedVersion = $m[1];
+		
+		return $this->cachedVersion;
 	}
 }
 

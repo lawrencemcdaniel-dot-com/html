@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.10
+Version: 7.10.15
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,28 @@ Domain Path: /languages
 */
 
 /*
+ * 7.10.15 - 2018-06-14 :- Medium priority
+ * Fixed GDPR consent notice bypassed when "prevent other plugins and theme enqueueing maps API" is not set
+ *
+ * 7.10.14 - 2018-06-14 :- Medium priority
+ * Fixed incompatibilities with UGM
+ *
+ * 7.10.13 - 2018-06-13 :- Low priority
+ * Fixed can't save Modern Store Locator
+ * Fixed store locator reset not working
+ * Fixed disabling map controls not working
+ * Fixed store locator radio button
+ *
+ * 7.10.12 - 2018-06-12 :- Low priority
+ * Handed FontAwesome loading over to ScriptLoader module
+ * Deprecated global function wpgmza_enqueue_fontawesome
+ * Fixed circles and rectangles only working on map ID 1
+ *
+ * 7.10.11 - 2018-06-08 :- Low priority
+ * Fixed JS error when passing non-string value to document.write
+ * Temporary workaround for "Unexpected token % in JSON"
+ * API consent no longer required on back-end
+ *
  * 7.10.10 - 2018-06-01 :- Medium Priority
  * Adding setting "Prevent other plugins and theme loading API"
  *
@@ -2710,7 +2732,12 @@ function wpgmaps_tag_basic( $atts ) {
 	if(isset($atts['height']) && $atts['height'] != 'inherit')
 		$map_attributes .= "data-shortcode-height='{$atts["height"]}' ";
 	
-	$map_attributes .= "data-settings='" . esc_attr(json_encode($res)) . "'";
+	// This is a hack and should be fixed by using DOMDocument
+	$escaped = esc_attr(json_encode($res));
+	$attr = str_replace('\\\\%', '%', $escaped);
+	//$attr = stripslashes($attr);
+	
+	$map_attributes = "data-settings='" . $attr . "'";
 	
     if (!$map_align || $map_align == "" || $map_align == "1") { $map_align = "float:left;"; }
     else if ($map_align == "2") { $map_align = "margin-left:auto !important; margin-right:auto; !important; align:center;"; }
@@ -3168,7 +3195,7 @@ function wpgmaps_head() {
         if (isset($_POST['wpgmza_store_locator_restrict'])) { $other_settings['wpgmza_store_locator_restrict'] = sanitize_text_field($_POST['wpgmza_store_locator_restrict']); }
 		
 		if(isset($_POST['store_locator_style']))
-			$other_settings['store_locator_style'] = $_POST['wpgmza_store_locator_style'];
+			$other_settings['store_locator_style'] = $_POST['store_locator_style'];
 		
 		if(isset($_POST['wpgmza_store_locator_radius_style']))
 			$other_settings['wpgmza_store_locator_radius_style'] = $_POST['wpgmza_store_locator_radius_style'];
@@ -5424,7 +5451,7 @@ function wpgmza_basic_menu() {
 										<ul>
 											<li>
 												<input type='radio' 						
-													name='wpgmza_store_locator_style' 
+													name='store_locator_style' 
 													value='legacy'"
 													. ($store_locator_style == 'legacy' ? 'checked="checked"' : '') . 
 													"/>" 
@@ -5433,7 +5460,7 @@ function wpgmza_basic_menu() {
 											</li>
 											<li>
 												<input type='radio' 
-													name='wpgmza_store_locator_style' 
+													name='store_locator_style' 
 													value='modern'"
 													. ($store_locator_style == 'modern' ? 'checked="checked"' : '') . 
 													"/>" 
@@ -8555,9 +8582,14 @@ add_action('init', 'maybe_install_v7_tables_basic');
 
 if(!function_exists('wpgmza_enqueue_fontawesome'))
 {
+	/**
+	 * Enqueues fontawesome
+	 * DEPRECATED :- This functionality has been handed off to the ScriptLoader class
+	 */
 	function wpgmza_enqueue_fontawesome()
 	{
-		$settings = get_option('WPGMZA_OTHER_SETTINGS');
+		// DEPRECATED
+		/*$settings = get_option('WPGMZA_OTHER_SETTINGS');
 		
 		if($settings)
 			$settings = maybe_unserialize($settings);
@@ -8580,7 +8612,7 @@ if(!function_exists('wpgmza_enqueue_fontawesome'))
 			default:
 				wp_enqueue_style('fontawesome', plugins_url('css/font-awesome.min.css', __FILE__));
 				break;
-		}
+		}*/
 	}
 }
 

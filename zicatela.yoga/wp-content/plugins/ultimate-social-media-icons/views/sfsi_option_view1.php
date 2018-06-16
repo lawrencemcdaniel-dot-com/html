@@ -393,6 +393,8 @@
 	<input type="hidden" value="<?php echo SFSI_PLUGURL ?>" id="plugin_url" />
 	<input type="hidden" value=""  id="upload_id" />
  
+    <?php sfsi_ask_for_help(1); ?>
+
     <!-- SAVE BUTTON SECTION   -->
     <div class="save_button tab_1_sav">
         <img src="<?php echo SFSI_PLUGURL ?>images/ajax-loader.gif" class="loader-img" />

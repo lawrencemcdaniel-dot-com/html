@@ -414,6 +414,9 @@ if("id"== $option2['sfsi_youtubeusernameorid'] && isset($option2['sfsi_youtubeus
         </div>  
     </div>
     <!-- END Custom icon section here -->
+
+    <?php sfsi_ask_for_help(2); ?>
+
       
     <!-- SAVE BUTTON SECTION   --> 
     <div class="save_button tab_2_sav">
