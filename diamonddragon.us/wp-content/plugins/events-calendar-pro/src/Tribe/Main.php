@@ -59,7 +59,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		public $shortcodes;
 
 		const REQUIRED_TEC_VERSION = '4.6.12';
-		const VERSION = '4.4.27';
+		const VERSION = '4.4.28';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -187,6 +187,12 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_widget_assets' ) );
 			add_action( 'wp_ajax_tribe_widget_dropdown_terms', array( $this, 'ajax_widget_get_terms' ) );
 
+			// Add this to enqueue widget scripts on Page Builder - otherwose the widget filters don't work as expected
+			// See https://central.tri.be/issues/66031
+			add_action( 'admin_print_scripts-widgets.php', array( $this, 'load_widget_assets' ) );
+			add_action( 'siteorigin_panel_enqueue_admin_scripts', array( $this, 'load_widget_assets' ) );
+			add_action( 'siteorigin_panel_enqueue_admin_scripts', array( $this, 'admin_enqueue_styles' ) );
+
 			// Start the integrations manager
 			Tribe__Events__Pro__Integrations__Manager::instance()->load_integrations();
 
@@ -222,7 +228,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		 * @return void
 		 */
 		public function ajax_widget_get_terms() {
-			$disabled = $_POST['disabled'];
+			$disabled = isset( $_POST['disabled'] ) ? $_POST['disabled'] : array();
 			$search = tribe_get_request_var( 'search', false );
 
 			$taxonomies = get_object_taxonomies( Tribe__Events__Main::POSTTYPE, 'objects' );
@@ -1346,15 +1352,22 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		}
 
 		public function load_widget_assets( $hook = null ) {
-			if ( 'widgets.php' !== $hook && 'customize.php' !== $hook ) {
-				return;
+			/**
+			 * Filter: tribe_allow_widget_on_post_page_edit_screen
+			 * @since 4.4.28
+			 *
+			 * Allows loading widgets on post edit screen
+			 */
+			if ( 'widgets.php' !== $hook && 'customize.php' !== $hook && 'post.php' !== $hook && ! apply_filters( 'tribe_allow_widget_on_post_page_edit_screen', '__return_false' ) ) {
+					return;
 			}
 
-			Tribe__Events__Template_Factory::asset_package( 'select2' );
+			tribe_asset_enqueue( 'tribe-select2' );
 			wp_enqueue_script( 'tribe-admin-widget', tribe_events_pro_resource_url( 'admin-widget.js' ), array( 'jquery', 'underscore' ), apply_filters( 'tribe_events_pro_js_version', self::VERSION ) );
 		}
 
 		public function admin_enqueue_styles() {
+			tribe_asset_enqueue( 'tribe-select2-css' );
 			wp_enqueue_style( Tribe__Events__Main::POSTTYPE . '-premium-admin', tribe_events_pro_resource_url( 'events-admin.css' ), array(), apply_filters( 'tribe_events_pro_css_version', self::VERSION ) );
 		}
 

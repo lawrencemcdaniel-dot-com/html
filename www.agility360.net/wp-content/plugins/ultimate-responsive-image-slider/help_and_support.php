@@ -31,7 +31,7 @@
 			}
 		</style>
 		<div style="background:#EF4238;display:inline-block;">
-		<a class="acl-rate-us" style="text-align:center; text-decoration: none;font:normal 30px/l; " href="https://wordpress.org/plugins/ultimate-responsive-image-slider/" target="_blank" >
+		<a class="acl-rate-us" style="text-align:center; text-decoration: none;font:normal 30px/l; " href="https://wordpress.org/plugins/ultimate-responsive-image-slider/#reviews" target="_blank" >
 			<span class="dashicons dashicons-star-filled"></span>
 			<span class="dashicons dashicons-star-filled"></span>
 			<span class="dashicons dashicons-star-filled"></span>

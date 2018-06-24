@@ -452,21 +452,13 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 	 * @param $distance_in_kms
 	 *
 	 * @return mixed
-	 * @todo remove tribe_formatted_distance filter in 3.11
 	 */
 	function tribe_get_distance_with_unit( $distance_in_kms ) {
-
-		$tec = Tribe__Events__Main::instance();
 
 		$unit     = Tribe__Settings_Manager::get_option( 'geoloc_default_unit', 'miles' );
 		$distance = round( tribe_convert_units( $distance_in_kms, 'kms', $unit ), 2 );
 
-		if ( has_filter( 'tribe_formatted_distance' ) ) {
-			_deprecated_function( "The 'tribe_formatted_distance' filter", '3.9', " the 'tribe_get_distance_with_unit' filter" );
-			$distance = apply_filters( 'tribe_formatted_distance', $distance . ' ' . $unit );
-	}
-
-		return apply_filters( 'tribe_get_distance_with_unit', $distance, $distance_in_kms, $unit );
+		return apply_filters( 'tribe_get_distance_with_unit', $distance . ' ' . $unit, $distance, $distance_in_kms, $unit );
 	}
 
 	/**

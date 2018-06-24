@@ -191,6 +191,7 @@ class Tribe__Events__Tickets__Eventbrite__Migrate {
 			'posts_per_page' => -1,
 			'post_status' => 'any',
 			'fields' => 'ids',
+			'suppress_filters' => true,
 			'meta_query' => array(
 				'relation' => 'AND',
 				array(

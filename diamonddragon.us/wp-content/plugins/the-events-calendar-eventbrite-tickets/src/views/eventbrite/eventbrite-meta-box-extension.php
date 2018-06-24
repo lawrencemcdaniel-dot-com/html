@@ -7,12 +7,32 @@
  *
  *     [your-theme]/tribe-events/eventbrite/eventbrite-meta-box-extension.php
  *
- * @version 4.5
+ * @version 4.5.1
  * @package Tribe__Events__MainEventBrite
  * @since  3.0
  * @author Modern Tribe Inc.
  */
 
+/**
+ * Add Message to Authorize EB and Hide Meta Fields
+ */
+$eb_token = tribe_get_option( 'eb_security_key' );
+if ( empty( $eb_token ) ) {
+	?>
+	<tr>
+		<td colspan="2" class="tribe_sectionheader">
+			<?php do_action( 'tribe_eventbrite_before_integration_header' ); ?>
+			<h4><?php esc_html_e( 'Tickets', 'tribe-eventbrite' ); ?>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div class="tribe-eb-notice"><?php echo tribe( 'eventbrite.main' )->notices->get_ea_connection_message(); ?></div>
+		</td>
+	</tr>
+	<?php
+	return;
+}
 ?>
 <script charset="utf-8">
 jQuery(document).ready(function($){
@@ -401,10 +421,6 @@ endif;
 		<?php endif; ?>
 				<option value='draft'><?php echo esc_html( _x( 'Draft', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
 				<option value='live'><?php echo esc_html( _x( 'Live', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
-				<option value='started'><?php echo esc_html( _x( 'Started', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
-				<option value='canceled'><?php echo esc_html( _x( 'Canceled', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
-				<option value='ended'><?php echo esc_html( _x( 'Ended', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
-				<option value='completed'><?php echo esc_html( _x( 'Completed', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
 			</select>
 		</td>
 	</tr>

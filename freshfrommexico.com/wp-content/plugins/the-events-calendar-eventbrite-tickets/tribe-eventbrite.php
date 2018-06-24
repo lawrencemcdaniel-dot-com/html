@@ -2,7 +2,7 @@
 /*
  Plugin Name: The Events Calendar: Eventbrite Tickets
  Description: Eventbrite Tickets connects the power of The Events Calendar to your account on Eventbrite.com. Send WordPress events to Eventbrite, import existing Eventbrite events, display tickets, and more.
- Version: 4.5
+ Version: 4.5.1
  Author: Modern Tribe, Inc.
  Author URI: http://m.tri.be/27
  Text Domain: tribe-eventbrite
@@ -93,13 +93,34 @@ function tribe_init_eventbrite_autoloading() {
 }
 
 /**
+ * Setup Text Domain
+ *
+ * @since 4.5.1
+ *
+ */
+function eventbrite_setup_textdomain() {
+
+	$mopath = trailingslashit( basename( dirname( __FILE__ ) ) ) . 'lang/';
+	$domain = 'tribe-eventbrite';
+
+	// If we don't have Common classes load the old fashioned way
+	if ( ! class_exists( 'Tribe__Main' ) ) {
+		load_plugin_textdomain( $domain, false, $mopath );
+	} else {
+		// This will load `wp-content/languages/plugins` files first
+		Tribe__Main::instance()->load_text_domain( $domain, $mopath );
+	}
+
+}
+
+/**
  * Bootstrap the plugin
  */
 function Tribe_Eventbrite_Load() {
 	tribe_events_eventbrite_start();
 }
 add_action( 'plugins_loaded', 'Tribe_Eventbrite_Load', 5 );
-
+add_action( 'plugins_loaded', 'eventbrite_setup_textdomain' );
 /**
  * Shows message if the plugin can't load due to TEC not being installed.
  */

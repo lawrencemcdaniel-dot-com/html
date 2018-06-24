@@ -663,7 +663,9 @@
 						$( "div[id*='tribe-events-event-']" ).hide().fadeIn( 'fast' );
 
 						ts.page_title = $( '#tribe-events-header' ).data( 'title' );
+						ts.view_title = $( '#tribe-events-header' ).data( 'viewtitle' );
 						document.title = ts.page_title;
+						$( '.tribe-events-page-title' ).html( ts.view_title );
 
 						// we only want to add query args for Shortcodes and ugly URL sites
 						if (
@@ -689,7 +691,7 @@
 							history.pushState( {
 								"tribe_url_params": ts.url_params,
 								"tribe_params"    : ts.params
-							}, ts.page_title, td.cur_url );
+							}, ts.page_title, td.cur_url + '?' + ts.url_params );
 						}
 
 						/**

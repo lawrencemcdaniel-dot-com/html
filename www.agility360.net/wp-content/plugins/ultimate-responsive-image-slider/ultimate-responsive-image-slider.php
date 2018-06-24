@@ -1,7 +1,7 @@
 <?php
-/**
+/*
  * Plugin Name: Ultimate Responsive Image Slider
- * Version: 3.1.6
+ * Version: 3.1.8
  * Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
  * Author: Weblizar
  * Author URI: https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/
@@ -147,14 +147,14 @@ class WRIS {
 		add_action('plugins_loaded', array(&$this, 'WRIS_Translate'), 1);
 		
 		// CPT Function
-		add_action('init', array(&$this, 'ResponsiveImageSlider'), 1);
+		add_action('init', array(&$this, 'ResponsiveImageSlider'),1);
 		
 		// generate metabox funtion
 		add_action('add_meta_boxes', array(&$this, 'add_all_ris_meta_boxes'));
 		add_action('admin_init', array(&$this, 'add_all_ris_meta_boxes'), 1);
 		
 		//notice
-		add_action('admin_notices', array(&$this, 'review_admin_notice_ris'));
+		add_action('admin_notices', array(&$this, 'review_admin_notice_ris'),2);	
 		
 		// metabox setting save function
 		add_action('save_post', array(&$this, 'add_image_meta_box_save'), 9, 1);
@@ -163,7 +163,7 @@ class WRIS {
 		// add new slide function
 		add_action('wp_ajax_uris_get_thumbnail', array(&$this, 'ajax_get_thumbnail_uris'));
 		
-		add_shortcode('rpggallery', array(&$this, 'shortcode'));			
+		add_shortcode('rpggallery', array(&$this, 'shortcode'));
     }
 	
 	/**
@@ -178,6 +178,14 @@ class WRIS {
 		
 	} */
 	
+	// Alert Message For Offers
+	public function review_admin_notice_ris(){
+		$screen = get_current_screen();
+		if ( $screen->id == 'ris_gallery' ) {
+			include('offers.php');
+		}
+	}
+
 	// Register Custom Post Type
 	public function ResponsiveImageSlider() {
 		$labels = array(
@@ -214,7 +222,7 @@ class WRIS {
 			'rewrite' => false,
 			'capability_type' => 'post'
 		);
-
+        
         register_post_type( 'ris_gallery', $args );
         add_filter( 'manage_edit-ris_gallery_columns', array(&$this, 'ris_gallery_columns' )) ;
         add_action( 'manage_ris_gallery_posts_custom_column', array(&$this, 'ris_gallery_manage_columns' ), 10, 2 );
@@ -264,12 +272,10 @@ class WRIS {
 		</style>
 		<div align="center">
 			<p>Please Review & Rate Us On WordPress</p>
-			<a class="upgrade-to-pro-demo fag-rate-us" style=" text-decoration: none; height: 40px; width: 40px;" href="https://wordpress.org/support/view/plugin-reviews/ultimate-responsive-image-slider?filter=5" target="_blank">
-				<span class="dashicons dashicons-star-filled"></span>
-				<span class="dashicons dashicons-star-filled"></span>
-				<span class="dashicons dashicons-star-filled"></span>
-				<span class="dashicons dashicons-star-filled"></span>
-				<span class="dashicons dashicons-star-filled"></span>
+			<a class="upgrade-to-pro-demo fag-rate-us" style=" text-decoration: none; height: 40px; width: 40px;" href="https://wordpress.org/plugins/ultimate-responsive-image-slider/#reviews" target="_blank">
+				<?php for($star=1;$star<=5;$star++){ ?>
+						<span class="dashicons dashicons-star-filled"></span>
+				<?php } ?>				
 			</a>
 		</div>
 		<div class="upgrade-to-pro" style="text-align:center;margin-bottom:10px;margin-top:10px;">
@@ -292,23 +298,12 @@ class WRIS {
 
 	public	function uris_pro_features(){ ?>
 		<ul style="">
-			<li class="plan-feature">Responsive Design</li>
-			<li class="plan-feature">5 Slider Layout</li>
-			<li class="plan-feature">Unlimited Color Scheme</li>
-			<li class="plan-feature">Touch Slider</li>
-			<li class="plan-feature">Full Screen slideshow</li>
-			<li class="plan-feature">Thumbnail Slider</li>
-			<li class="plan-feature">Lightbox Integrated</li>
-			<li class="plan-feature">External Link Button</li>
-			<li class="plan-feature">Carousel Slider</li>
-			<li class="plan-feature">All Gallery Shortcode</li>
-			<li class="plan-feature">Each Gallery has Unique Shortcode</li>
-			<li class="plan-feature">Drag and Drop image Position</li>
-			<li class="plan-feature">Multiple Image uploader</li>
-			<li class="plan-feature">Shortcode Button on post or page</li>
-			<li class="plan-feature">Unique settings for each gallery</li>
-			<li class="plan-feature">Auto Play Pause</li>
-			<li class="plan-feature">All Browser Compatible</li>
+			<?php
+			$features = array("Responsive Design", "5 Slider Layout", "Unlimited Color Scheme", "Full Screen slideshow","Thumbnail Slider","Lightbox Integrated","External Link Button","Carousel Slider","All Gallery Shortcode","Each Gallery has Unique Shortcode","Drag and Drop image Position","Multiple Image uploader","Shortcode Button on post or page","Unique settings for each gallery","Auto Play Pause","All Browser Compatible");
+			foreach($features as $feature) {
+				echo "<li class='plan-feature'>$feature</li>";
+			}
+			?>
 		</ul>
 		<?php 
 	}
@@ -327,37 +322,39 @@ class WRIS {
 				$i = 0;
 				$TotalImages =  get_post_meta( $post->ID, 'ris_total_images_count', true );
 				if($TotalImages) {
-					foreach($WRIS_AllPhotosDetails as $WRIS_SinglePhotoDetails) {
-						$name = $WRIS_SinglePhotoDetails['rpgp_image_label'];
-						$desc = $WRIS_SinglePhotoDetails['rpgp_image_desc'];						
-						$UniqueString = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
-						$url = $WRIS_SinglePhotoDetails['rpgp_image_url'];
-						$url1 = $WRIS_SinglePhotoDetails['rpggallery_admin_thumb'];
-						$url3 = $WRIS_SinglePhotoDetails['rpggallery_admin_large']; ?>
-						<li class="rpg-image-entry" id="rpg_img">
-							<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  WRIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
-							<div class="rpp-admin-inner-div1" >
-								<img src="<?php echo esc_url ( $url1 ); ?>" class="rpg-meta-image" alt=""  style="">
-								<input type="hidden" id="unique_string[]" name="unique_string[]" value="<?php echo esc_attr( $UniqueString ); ?>" />
-							</div>
-							<div class="rpp-admin-inner-div2" >
-								<input type="text" id="rpgp_image_url[]" name="rpgp_image_url[]" class="rpg_label_text"  value="<?php echo esc_url( $url ); ?>"  readonly="readonly" style="display:none;" />
-								<input type="text" id="rpggallery_admin_thumb[]" name="rpggallery_admin_thumb[]" class="rpg_label_text"  value="<?php echo esc_url( $url1 ); ?>"  readonly="readonly" style="display:none;" />
-								<input type="text" id="rpggallery_admin_large[]" name="rpggallery_admin_large[]" class="rpg_label_text"  value="<?php echo esc_url( $url3 ); ?>"  readonly="readonly" style="display:none;" />
-								<p>
-									<label><?php _e('Slide Title', WRIS_TEXT_DOMAIN); ?></label>
-									<input type="text" id="rpgp_image_label[]" name="rpgp_image_label[]" value="<?php echo esc_attr( $name ); ?>" placeholder="<?php _e('Enter Slide Title', WRIS_TEXT_DOMAIN); ?>" class="rpg_label_text">
-								</p>
-								<p>
-									<label><?php _e('Slide Descriptions', WRIS_TEXT_DOMAIN); ?></label>
-									<textarea rows="4" cols="50" id="rpgp_image_desc[]" name="rpgp_image_desc[]" placeholder="<?php _e('Enter Slide Description', WRIS_TEXT_DOMAIN); ?>" class=" urisp_richeditbox_<?php echo $i; ?> rpg_label_text"><?php echo htmlentities( $desc ); ?></textarea>
-									<button type="button" class="btn btn-md btn-info btn-block" data-toggle="modal" data-target="#myModal" onclick="urisp_richeditor(<?php echo $i; ?>)"><?php _e('Use Rich Text Editor', WRIS_TEXT_DOMAIN); ?> <i class="fa fa-edit"></i></button>
-								</p>
-							</div>
-						</li>
-						<?php
-						$i++;
-					} // end of foreach
+					if(is_array($WRIS_AllPhotosDetails)){
+						foreach($WRIS_AllPhotosDetails as $WRIS_SinglePhotoDetails) {
+							$name = $WRIS_SinglePhotoDetails['rpgp_image_label'];
+							$desc = $WRIS_SinglePhotoDetails['rpgp_image_desc'];						
+							$UniqueString = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
+							$url = $WRIS_SinglePhotoDetails['rpgp_image_url'];
+							$url1 = $WRIS_SinglePhotoDetails['rpggallery_admin_thumb'];
+							$url3 = $WRIS_SinglePhotoDetails['rpggallery_admin_large']; ?>
+							<li class="rpg-image-entry" id="rpg_img">
+								<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  WRIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
+								<div class="rpp-admin-inner-div1" >
+									<img src="<?php echo esc_url ( $url1 ); ?>" class="rpg-meta-image" alt=""  style="">
+									<input type="hidden" id="unique_string[]" name="unique_string[]" value="<?php echo esc_attr( $UniqueString ); ?>" />
+								</div>
+								<div class="rpp-admin-inner-div2" >
+									<input type="text" id="rpgp_image_url[]" name="rpgp_image_url[]" class="rpg_label_text"  value="<?php echo esc_url( $url ); ?>"  readonly="readonly" style="display:none;" />
+									<input type="text" id="rpggallery_admin_thumb[]" name="rpggallery_admin_thumb[]" class="rpg_label_text"  value="<?php echo esc_url( $url1 ); ?>"  readonly="readonly" style="display:none;" />
+									<input type="text" id="rpggallery_admin_large[]" name="rpggallery_admin_large[]" class="rpg_label_text"  value="<?php echo esc_url( $url3 ); ?>"  readonly="readonly" style="display:none;" />
+									<p>
+										<label><?php _e('Slide Title', WRIS_TEXT_DOMAIN); ?></label>
+										<input type="text" id="rpgp_image_label[]" name="rpgp_image_label[]" value="<?php echo esc_attr( $name ); ?>" placeholder="<?php _e('Enter Slide Title', WRIS_TEXT_DOMAIN); ?>" class="rpg_label_text">
+									</p>
+									<p>
+										<label><?php _e('Slide Descriptions', WRIS_TEXT_DOMAIN); ?></label>
+										<textarea rows="4" cols="50" id="rpgp_image_desc[]" name="rpgp_image_desc[]" placeholder="<?php _e('Enter Slide Description', WRIS_TEXT_DOMAIN); ?>" class=" urisp_richeditbox_<?php echo $i; ?> rpg_label_text"><?php echo htmlentities( $desc ); ?></textarea>
+										<button type="button" class="btn btn-md btn-info btn-block" data-toggle="modal" data-target="#myModal" onclick="urisp_richeditor(<?php echo $i; ?>)"><?php _e('Use Rich Text Editor', WRIS_TEXT_DOMAIN); ?> <i class="fa fa-edit"></i></button>
+									</p>
+								</div>
+							</li>
+							<?php
+							$i++;
+						} // end of foreach
+					}	
 				} else {
 					$TotalImages = 0;
 				}
@@ -427,10 +424,10 @@ class WRIS {
 		}
 		</script>
 		<?php
-    }
-	
+    }	
+
 	// Alert Message For Review
-	public function review_admin_notice_ris(){
+	/*public function review_admin_notice_ris(){
 		$screen = get_current_screen();
 		if ( $screen->id == 'ris_gallery' ) {
 			echo '<div class="notice notice-warning is-dismissible review-notice">
@@ -438,13 +435,15 @@ class WRIS {
 			Then please share your feedback about this plugin. Your feedback will be helpful to make plugin more robust. <a href="https://wordpress.org/support/plugin/ultimate-responsive-image-slider/reviews/?filter=5" target="_blank" name="review" id="review" class="button button-primary">Rate Us</a></p>
 			</div>';
 		}
-	}
+	}*/
 	
 	/**
 	 * This function display Add New Image interface
 	 * Also loads all saved gallery photos into photo gallery
 	 */
     public function ris_settings_meta_box_function($post) {
+		/*wp_enqueue_style( 'custom_bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+		wp_enqueue_script( 'custom_bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');*/
 		wp_enqueue_script('uris-bootstrap-js', WRIS_PLUGIN_URL.'js/bootstrap.min.js');
 		wp_enqueue_style('uris-bootstrap-min', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min.css');
 		wp_enqueue_style('uris-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
@@ -642,14 +641,15 @@ function uris_pro_SettingsPage() {
 		require_once("help_and_support.php");
 	}
 	function uris_our_products_function() {
-		wp_enqueue_style('PGPP-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min.css');
-		wp_enqueue_style('PGPP-font-awesome-5', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
+		wp_enqueue_style('wl-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min-product.css');
+		wp_enqueue_style('wl-font-awesome-5', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
     	require_once("our_product.php");
 	}
 	function uris_recommendation_function() {
 		wp_enqueue_style('recom2', WRIS_PLUGIN_URL.'css/recom.css');
     	require_once("recommendations.php");
 	}
+	
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Upgrade To Pro', 'Upgrade To Pro', 'administrator', 'ris_gallery', 'uris_upgrade_pro_function');
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Help and Support', 'Help and Support', 'administrator', 'RIS-Help-page', 'RIS_Help_and_Support_page');
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Our Products', 'Our Products', 'administrator', 'RIS-Our-Products', 'uris_our_products_function');

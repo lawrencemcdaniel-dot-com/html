@@ -119,7 +119,7 @@ class Tribe__Events__Tickets__Eventbrite__Migrate__Queue extends Tribe__Process_
 		$child = $record->get_last_child_post();
 
 		// Load the queue
-		$queue = new Tribe__Events__Aggregator__Record__Queue( $child->ID );
+		$queue = new Tribe__Events__Aggregator__Record__Queue( $child->ID, 'fetch' );
 		$queue->process( 1 );
 
 		$data = get_post_meta( $event->ID, tribe( 'eventbrite.event' )->key_tickets, true );

@@ -980,6 +980,15 @@ tribe_events_pro_admin.recurrence = {
 		var end_count = parseInt( $rule.find( '.recurrence_end_count' ).val(), 10 );
 		var type_text = $el.data( 'plural' );
 
+		// clean the input from other characters and set the int value
+		$rule.find( '.recurrence_end_count' ).val( end_count );
+
+		// prevent the end_count to be empty or a non positive int
+		if ( isNaN( end_count ) || ( 0 >= end_count ) ) {
+			$rule.find( '.recurrence_end_count' ).val( 1 );
+			end_count = 1;
+		}
+
 		if ( 1 === end_count ) {
 			type_text = $el.data( 'single' );
 		}

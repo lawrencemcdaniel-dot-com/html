@@ -3,8 +3,8 @@ Contributors: Access Keys
 Tags: notification bar, bar, responsive bar, notify bar, notify , wordpress notification bars,promo bar, top bar, bottom bar, wordpress, notifications
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
-Tested up to: 4.9.4
-Stable tag: 1.0.1
+Tested up to: 4.9
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -198,6 +198,10 @@ No, It will not affect the loading of the site in anyways.
 23.  Screenshot 23 - Controls Settings : Disable, Show/Hide, Close button
 
 == Changelog ==
+= 1.0.2 =
+* Few CSS refinement.
+* Latest WordPress Version compatible check.
+
 = 1.0.1 =
 * CSS conflict related with external plugin issue resolved.
 * Few Plugin CSS and JS Refining 

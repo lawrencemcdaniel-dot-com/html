@@ -5,7 +5,7 @@ Tags: events, calendar, event, venue, organizer, dates, date, google maps, confe
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
 Tested up to: 4.9.6
-Stable tag: 4.4.27
+Stable tag: 4.4.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -203,6 +203,19 @@ Our Premium Plugins:
 
 == Changelog ==
 
+= [4.4.28] 2018-06-20 =
+
+* Add - Accessibility repair: new title-bar template for loop views included above the filter bar and content containing the page title in a `h1` tag.
+* Fix - Category Title in Photo View Loses Parameter After Navigating Previous/Next [90010]
+* Fix - Make sure the recurring events series "after" field is not empty and a valid number. Thanks @versi for flagging this! [43855]
+* Fix - Resolved customizer inconsistencies with month/week views and full styles [69758]
+* Fix - Resolved the datepicker losing state after visiting an event and hitting the "back" button on week view. Props to Joel for reporting! [69707]
+* Tweak - Accessibility repair: heading hierarchy improvements throughout.
+* Tweak - Accessibility repair: make sure all elements have unique `id` attributes.
+* Tweak - Accessibility repair: remove redundant tab stops on feature image links.
+* Tweak - Accessibility repair: hide Google Map embeds from screen readers.
+* Tweak - Added the unit to the distance output [70874]
+
 = [4.4.27] 2018-05-29 =
 
 * Fix - Resolved problems with date parameter for the week view of `[tribe_events]` [69297]
@@ -217,7 +230,7 @@ Our Premium Plugins:
 * Fix - Prevent week view event links to require "double tap" on iPads (props to @sschuler for reporting this problem!) [66107]
 * Fix - Add Filter Bar checkboxes compatibility (props @barberaprode-nl, @kentyn and others for flagging this!) [106683]
 * Tweak - Correct behavior of State/Province field on Settings > Default Content screen [64631]
-* Tweak - Replaced the address attribute with a street attribute in [tribe_events_list] shortcode and List Widget (Thanks to Sebastien for notifying us!) [73626]
+* Tweak - Replaced the address attribute with a street attribute in `[tribe_events_list]` shortcode and List Widget (Thanks to Sebastien for notifying us!) [73626]
 * Language - 7 new strings added, 126 updated, 1 fuzzied, and 3 obsoleted
 
 = [4.4.26] 2018-05-09 =

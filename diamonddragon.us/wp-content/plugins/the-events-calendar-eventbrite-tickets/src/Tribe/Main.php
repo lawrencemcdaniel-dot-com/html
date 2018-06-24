@@ -20,7 +20,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * The current version of Eventbrite Tickets
 		 */
-		const VERSION = '4.5';
+		const VERSION = '4.5.1';
 
 		/**
 		 * Deprecated property in 4.3. Use VERSION const instead.
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 *
 		 * @var string
 		 */
-		public static $pluginVersion = '4.5';
+		public static $pluginVersion = '4.5.1';
 
 		/**************************************************************
 		 * EventBrite Configuration
@@ -180,9 +180,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			// tie in the notices
 			$this->notices = new Tribe__Events__Tickets__Eventbrite__Notices( $this );
 
-			// bootstrap plugin
-			self::load_domain();
-
 			add_action( 'plugins_loaded', array( $this, 'add_actions' ) );
 			add_action( 'plugins_loaded', array( $this, 'add_filters' ) );
 
@@ -281,7 +278,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 				return;
 			} elseif ( $this->is_core_active() ) {
 				add_filter( 'tribe_support_registered_template_systems', array( $this, 'add_template_updates_check' ) );
-				tribe_singleton( 'eventbrite.settings', new Tribe__Events__Tickets__Eventbrite__Admin__Settings() );
 			}
 		}
 
@@ -310,26 +306,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 */
 		public function get_cache_expiration() {
 			return apply_filters( 'tribe_events_eb_cache_expiration', $this->cache_expiration );
-		}
-
-		/**
-		 * load plugin text domain
-		 *
-		 * @since  1.0
-		 * @author jgabois & Justin Endler
-		 * @return void
-		 */
-		public function load_domain() {
-			$mopath = trailingslashit( basename( dirname( EVENTBRITE_PLUGIN_FILE ) ) ) . 'lang/';
-			$domain = 'tribe-eventbrite';
-
-			// If we don't have Common classes load the old fashioned way
-			if ( ! class_exists( 'Tribe__Main' ) ) {
-				load_plugin_textdomain( $domain, false, $mopath );
-			} else {
-				// This will load `wp-content/languages/plugins` files first
-				Tribe__Main::instance()->load_text_domain( $domain, $mopath );
-			}
 		}
 
 		/**
@@ -549,6 +525,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			$event = $api->get_event( $post_id );
 
 			$_EventBriteId = ( isset( $event->id ) && is_numeric( $event->id ) ? $event->id : null );
+			$_EventRegister = ( isset( $event->id ) && is_numeric( $event->id ) ? 'yes' : 'no' );
 			$isRegisterChecked = ( $has_valid_raw_data || ( isset( $event->id ) && is_numeric( $event->id ) ) ? true : false );
 			$image_sync_mode = (int) get_post_meta( $post_id, '_eventbrite_image_sync_mode', true );
 

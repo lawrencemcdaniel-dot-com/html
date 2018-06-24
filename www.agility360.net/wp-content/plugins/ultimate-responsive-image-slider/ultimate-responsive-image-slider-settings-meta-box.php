@@ -169,8 +169,20 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 		theme : 'blackboard',
 		extraKeys: {"Ctrl-Space": "autocomplete"},
     });
+	jQuery(window).scroll(function(){
+		if (jQuery(this).scrollTop() < 200) {
+			jQuery('#smoothup') .fadeOut();
+		} else {
+			jQuery('#smoothup') .fadeIn();
+		}
+	});
+	jQuery('#smoothup').on('click', function(){
+		jQuery('html, body').animate({scrollTop:0}, 'fast');
+			return false;
+		});		
 });
 </script>
+
 <style>
 .custnote{
     background-color: rgba(23, 31, 22, 0.64);
@@ -189,6 +201,23 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 .caro-pro th, .caro-pro label, .caro-pro h3, .caro-pro {
 	color:#DA5766 !important;
 	font-weight:bold;
+}
+#smoothup {
+	height: 50px;
+	width: 50px;
+	position:fixed;
+	bottom:50px;
+	right:250px;
+	text-indent:-9999px;
+	display:none;
+	background: url("<?php echo WRIS_PLUGIN_URL.'/img/up.png'; ?>");
+	-webkit-transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s; transition-duration: 0.4s;
+}
+
+#smoothup:hover {
+	-webkit-transform: rotate(360deg) }
+	background: url('') no-repeat;
 }
 </style>
 <?php require_once("tooltip.php"); ?>	
@@ -580,3 +609,4 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 		</tr>
 	</tbody>
 </table>
+<a href="#top" id="smoothup" title="Back to top"></a>

@@ -125,18 +125,12 @@ class Tribe__Events__Tickets__Eventbrite__Notices {
 	}
 
 	/**
-	 * 4.5 Update Notice to encourage connecting to EA
+	 * 4.5 Update Message
 	 *
-	 * @since 4.5
+	 * @since 4.5.1
 	 *
 	 */
-	public function render_ea_connection_notices() {
-
-		// if we have a security token or we just authorized EA then do not show notice
-		$eb_token = tribe_get_option( 'eb_security_key' );
-		if ( ! empty( $eb_token ) || 'new' === tribe_get_request_var( 'ea-eb-token', false ) ) {
-			return;
-		}
+	public function get_ea_connection_message() {
 
 		$add_ea_msg = __( 'Thank you for installing Eventbrite Tickets! Be sure to <a href="%s" title="%s">connect your Eventbrite account</a> so that you can start creating and importing events.', 'tribe-eventbrite' );
 		$token      = Tribe__Settings_Manager::get_option( 'eventbrite-app_key', null );
@@ -151,6 +145,25 @@ class Tribe__Events__Tickets__Eventbrite__Notices {
 			esc_url( $url ),
 			esc_attr( $title )
 		);
+
+		return $message;
+	}
+
+	/**
+	 * 4.5 Update Notice to encourage connecting to EA
+	 *
+	 * @since 4.5
+	 *
+	 */
+	public function render_ea_connection_notices() {
+
+		// if we have a security token or we just authorized EA then do not show notice
+		$eb_token = tribe_get_option( 'eb_security_key' );
+		if ( ! empty( $eb_token ) || 'new' === tribe_get_request_var( 'ea-eb-token', false ) ) {
+			return;
+		}
+
+		$message = $this->get_ea_connection_message();
 
 		Tribe__Admin__Notices::instance()->render( 'eventbrite-no-ea-connection', $message, false );
 	}
