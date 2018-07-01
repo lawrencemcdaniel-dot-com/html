@@ -166,6 +166,12 @@ function slide_anything_shortcode($atts) {
 			} else {
 				$slide_data['touch_drag'] = 'false';
 			}
+			$slide_data['auto_height'] = $metadata['sa_auto_height'][0];
+			if ($slide_data['auto_height'] == '1') {
+				$slide_data['auto_height'] = 'true';
+			} else {
+				$slide_data['auto_height'] = 'false';
+			}
 			$slide_data['items_width1'] = $metadata['sa_items_width1'][0];
 			$slide_data['items_width2'] = $metadata['sa_items_width2'][0];
 			$slide_data['items_width3'] = $metadata['sa_items_width3'][0];
@@ -510,6 +516,7 @@ function slide_anything_shortcode($atts) {
 				$output .= "			slideBy : ".esc_attr($slide_data['slide_by']).",\n";
 				$output .= "			mergeFit : true,\n";
 				//$output .= "			URLhashListener : true,\n";
+				$output .= "			autoHeight : ".esc_attr($slide_data['auto_height']).",\n";
 				$output .= "			mouseDrag : ".esc_attr($slide_data['mouse_drag']).",\n";
 				$output .= "			touchDrag : ".esc_attr($slide_data['touch_drag'])."\n";
 				$output .= "		});\n";
@@ -616,6 +623,7 @@ function slide_anything_shortcode($atts) {
 					$output .= "		gallery: { enabled: true, tCounter: '' },\n";
 					$output .= "		mainClass: 'sa_popup',\n";
 					$output .= "		closeBtnInside: true,\n";
+					$output .= "		fixedContentPos: true,\n";
 					$output .= "		callbacks: {\n";
 					$output .= "			open: function() {\n";
 					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('stop.owl.autoplay');\n";

@@ -3,7 +3,7 @@ Contributors: simonpedge
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RP7JLGK6VT252
 Tags: slider, carousel, content slider, responsive slider, html slider, owl carousel
 Requires at least: 4.0
-Tested up to: 4.9.4
+Tested up to: 4.9.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -201,6 +201,9 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 = 2.1.5 =
 * Bug Fix - Issue with using shortcodes within slides. Certain shortcodes can only be displayed on the front-end (i.e. required resources are only loaded on the front-end), so the 'Preview Slider' feature on the Edit Slider page was causing issues for these shortcodes. So I have displayed this 'Preview Slider' feature for sliders where the 'Allow Shortcodes' checkbox is checked.
 
+= 2.1.6 =
+* Added a new 'Auto Height' feature, which automatically resizes the height of the slider according to the current slide's height.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -317,3 +320,6 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 
 = 2.1.5 =
 * Bug Fix - Issue with using shortcodes within slides. Certain shortcodes can only be displayed on the front-end (i.e. required resources are only loaded on the front-end), so the 'Preview Slider' feature on the Edit Slider page was causing issues for these shortcodes. So I have displayed this 'Preview Slider' feature for sliders where the 'Allow Shortcodes' checkbox is checked.
+
+= 2.1.6 =
+* Added a new 'Auto Height' feature, which automatically resizes the height of the slider according to the current slide's height.

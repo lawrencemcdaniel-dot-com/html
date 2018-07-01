@@ -82,6 +82,7 @@ function cpt_slider_plugin_activation() {
 		update_post_meta($cpt_id, 'sa_reverse_order', '0');
 		update_post_meta($cpt_id, 'sa_mouse_drag', '1');
 		update_post_meta($cpt_id, 'sa_touch_drag', '1');
+		update_post_meta($cpt_id, 'sa_auto_height', '0');
 		update_post_meta($cpt_id, 'sa_items_width1', 1);
 		update_post_meta($cpt_id, 'sa_items_width2', 2);
 		update_post_meta($cpt_id, 'sa_items_width3', 3);
@@ -586,6 +587,19 @@ function cpt_slider_settings_content($post) {
 		echo "<input type='checkbox' id='sa_touch_drag' name='sa_touch_drag' value='1'/>";
 	}
 	echo "<em class='sa_tooltip' href='' title='Allow navigation to previous/next slides on mobile devices by touching screen and dragging left/right'></em>\n";
+	echo "</div>\n";
+	// AUTO HEIGHT
+	$auto_height = get_post_meta($post->ID, 'sa_auto_height', true);
+	if ($auto_height == '') {
+		$auto_height = '0';
+	}
+	echo "<div class='sa_setting_checkbox'><span>Auto Height:</span>";
+	if ($auto_height == '1') {
+		echo "<input type='checkbox' id='sa_auto_height' name='sa_auto_height' value='1' checked/>";
+	} else {
+		echo "<input type='checkbox' id='sa_auto_height' name='sa_auto_height' value='1'/>";
+	}
+	echo "<em class='sa_tooltip' title='Only works with 1 item on the screen. When checked the height of slider is automatically changed to match the height for each slide.'></em>";
 	echo "</div>\n";
 	echo "</div>\n";
 	echo "<div style='clear:both; float:none; width:100%; height:1px;'></div>\n";
@@ -1972,6 +1986,11 @@ function cpt_slider_save_postdata() {
 			update_post_meta($post->ID, 'sa_touch_drag', '1');
 		} else {
 			update_post_meta($post->ID, 'sa_touch_drag', '0');
+		}
+		if (isset($_POST['sa_auto_height']) && ($_POST['sa_auto_height'] == '1')) {
+			update_post_meta($post->ID, 'sa_auto_height', '1');
+		} else {
+			update_post_meta($post->ID, 'sa_auto_height', '0');
 		}
 
 		// UPDATE SLIDER ITEMS DISPLAYED

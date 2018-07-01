@@ -154,6 +154,11 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 				'category' => array( 'ecommerce' ),
 				'color'    => '#E53238'
 			),
+            array(
+                'icon'     => 'ello',
+                'category' => array( 'design' ),
+                'color'    => '#000'
+            ),
 			array(
 				'icon'     => 'envato',
 				'category' => array( 'ecommerce' ),
@@ -259,6 +264,11 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 				'category' => array( 'audio' ),
 				'color'    => '#d41316'
 			),
+            array(
+                'icon'     => 'line',
+                'category' => array( 'communication' ),
+                'color'    => '#00BA27'
+            ),
 			array(
 				'icon'     => 'linkedin',
 				'category' => array( 'programming', 'social-media' ),
@@ -9167,10 +9177,10 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 	 */
 	public function admin_scripts() {
 
-		wp_enqueue_style( 'socicon', plugin_dir_url( $this->plugin_file ) . 'assets/css/socicon.css', array(), '20170209' );
-		wp_enqueue_style( 'social-icons-widget-admin', plugin_dir_url( $this->plugin_file ) . 'assets/css/social-icons-widget-admin.css', array( 'socicon' ), '20170209' );
-		wp_enqueue_style( 'genericons', plugin_dir_url( $this->plugin_file ) . 'assets/css/genericons.css', array(), '20170209' );
-		wp_enqueue_style( 'fontawesome', plugin_dir_url( $this->plugin_file ) . 'assets/css/font-awesome.min.css', array(), '20170209' );
+		wp_enqueue_style( 'socicon', plugin_dir_url( $this->plugin_file ) . 'assets/css/socicon.css', array(), '20180625' );
+		wp_enqueue_style( 'social-icons-widget-admin', plugin_dir_url( $this->plugin_file ) . 'assets/css/social-icons-widget-admin.css', array( 'socicon' ), '20180625' );
+		wp_enqueue_style( 'genericons', plugin_dir_url( $this->plugin_file ) . 'assets/css/genericons.css', array(), '20180625' );
+		wp_enqueue_style( 'fontawesome', plugin_dir_url( $this->plugin_file ) . 'assets/css/font-awesome.min.css', array(), '20180625' );
 		wp_enqueue_style( 'dashicons' );
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_media();
@@ -10018,14 +10028,18 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 						<?php if ( ! empty( $instance['icon_padding_size'] ) ) {
 							$style .= '; padding:' . $instance['icon_padding_size'] . 'px';
 						} ?>
+
+                        <?php if ( $instance['show_icon_labels'] === 'false' ) : ?>
+                            <span
+                                class="screen-reader-text"><?php echo esc_html( $field['icon'] ); ?></span>
+                        <?php endif; ?>
+
 						<span class="zoom-social_icons-list-span <?php echo $class ?>"
 							<?php echo $hover_style ?>
 							  style="<?php echo $style ?>"
 						></span>
 
 						<?php
-
-
 						if ( $instance['show_icon_labels'] === 'true' ) : ?>
 							<span
 								class="zoom-social_icons-list__label"><?php echo esc_html( $field['label'] ); ?></span>
@@ -10046,9 +10060,9 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 	 * Scripts & styles for front-end display of widget.
 	 */
 	public function scripts() {
-		wp_enqueue_style( 'socicon', plugin_dir_url( $this->plugin_file ) . 'assets/css/socicon.css', array(), '20170209' );
-		wp_enqueue_style( 'genericons', plugin_dir_url( $this->plugin_file ) . 'assets/css/genericons.css', array(), '20170209' );
-		wp_enqueue_style( 'fontawesome', plugin_dir_url( $this->plugin_file ) . 'assets/css/font-awesome.min.css', array(), '20170209' );
+		wp_enqueue_style( 'socicon', plugin_dir_url( $this->plugin_file ) . 'assets/css/socicon.css', array(), '20180625' );
+		wp_enqueue_style( 'genericons', plugin_dir_url( $this->plugin_file ) . 'assets/css/genericons.css', array(), '20180625' );
+		wp_enqueue_style( 'fontawesome', plugin_dir_url( $this->plugin_file ) . 'assets/css/font-awesome.min.css', array(), '20180625' );
 		wp_enqueue_style( 'dashicons' );
 
 		wp_enqueue_script(

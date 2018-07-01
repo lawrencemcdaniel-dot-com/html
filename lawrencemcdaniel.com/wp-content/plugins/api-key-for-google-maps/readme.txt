@@ -3,8 +3,8 @@ Contributors: stiofansisland, paoltaia
 Tags:  Google Maps, Google Maps KEY, Google Maps API KEY
 Donate link: https://wpgeodirectory.com
 Requires at least: 3.1
-Tested up to: 4.7
-Stable tag: 1.1.0
+Tested up to: 4.9
+Stable tag: 1.2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -53,6 +53,11 @@ Ask and they shall be answered
 3. Copy API KEY, paste in Settings and save.
 
 == Changelog ==
+
+= 1.2.0 =
+
+iframe api generation broken (by Google iframe restrictions) changed to new window popup - FIXED
+Updated Generate API KEY button to add access for all APIs - CHANGED
 
 = 1.1.0 =
 
