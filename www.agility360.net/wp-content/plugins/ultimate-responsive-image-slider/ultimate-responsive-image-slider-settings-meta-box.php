@@ -5,7 +5,7 @@
 $PostId = $post->ID;
 $WRIS_Gallery_Settings_Key = "WRIS_Gallery_Settings_".$PostId;
 $WRIS_Gallery_Settings = unserialize(get_post_meta( $PostId, $WRIS_Gallery_Settings_Key, true));
-if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRIS_L3_Slider_Height']) {
+
 	
 	if(isset($WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'])) 
 			$WRIS_L3_Slider_Scale_Mode   		    = $WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'];
@@ -156,7 +156,7 @@ if($WRIS_Gallery_Settings['WRIS_L3_Slider_Width'] && $WRIS_Gallery_Settings['WRI
 		$WRIS_L3_Navigation_Pointer_Color   = $WRIS_Gallery_Settings['WRIS_L3_Navigation_Pointer_Color'];
 	else
 		$WRIS_L3_Navigation_Pointer_Color   = "#000000";
-}
+
 ?>
 <script type="text/javascript">
 	jQuery(document).ready(function(){

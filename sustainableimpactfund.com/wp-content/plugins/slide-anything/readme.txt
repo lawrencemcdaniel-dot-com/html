@@ -204,6 +204,13 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 = 2.1.6 =
 * Added a new 'Auto Height' feature, which automatically resizes the height of the slider according to the current slide's height.
 
+= 2.1.7 =
+* Minor bug fix with new 'Auto Height' feature
+
+= 2.1.8 =
+* Added the Slide By 'page' option, which is set by setting the 'Slide By' slider input to 0.
+* For Slide Anything PRO YouTube video popups, added the 'rel=0' paramerter so that related videos are not displayed at the end of a video playback. This has been requested quite a bit, and I have modified the 'Magnific Popup' code so that this parameter is added to the iframe code generated.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -323,3 +330,10 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 
 = 2.1.6 =
 * Added a new 'Auto Height' feature, which automatically resizes the height of the slider according to the current slide's height.
+
+= 2.1.7 =
+* Minor bug fix with new 'Auto Height' feature
+
+= 2.1.8 =
+* Added the Slide By 'page' option, which is set by setting the 'Slide By' slider input to 0.
+* For Slide Anything PRO YouTube video popups, added the 'rel=0' paramerter so that related videos are not displayed at the end of a video playback. This has been requested quite a bit, and I have modified the 'Magnific Popup' code so that this parameter is added to the iframe code generated.

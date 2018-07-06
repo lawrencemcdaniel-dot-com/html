@@ -446,7 +446,7 @@ function cpt_slider_settings_content($post) {
 		$slide_duration = 5;
 	}
 	echo "<div class='sa_slider_value'><span>Slide Duration:</span>";
-	echo "<input type='text' id='sa_slide_duration' name='sa_slide_duration' readonly value='".esc_attr($slide_duration)."'><em>seconds</em>";
+	echo "<input type='text' id='sa_slide_duration' name='sa_slide_duration' readonly value='".esc_attr($slide_duration)."'><em>seconds (0 = manual navigation)</em>";
 	echo "<em class='sa_tooltip' href='' title='Set to 0 to disable slider autoplay (manual slider navigation only)'></em></div>\n";
 	echo "<div class='jquery_ui_slider' id='jq_slider_duration'></div><hr/>\n";
 	// SLIDE TRANSITION
@@ -464,8 +464,8 @@ function cpt_slider_settings_content($post) {
 		$slide_by = 1;
 	}
 	echo "<div class='sa_slider_value'><span>Slide By:</span>";
-	echo "<input type='text' id='sa_slide_by' name='sa_slide_by' readonly value='".esc_attr($slide_by)."'><em>slides</em>";
-	echo "<em class='sa_tooltip' href='' title='The number of slides to slide per transition'></em></div>\n";
+	echo "<input type='text' id='sa_slide_by' name='sa_slide_by' readonly value='".esc_attr($slide_by)."'><em>slides (0 = slide by page)</em>";
+	echo "<em class='sa_tooltip' href='' title='The number of slides to slide per transition. Set to 0 to enable the Slide by Page option.'></em></div>\n";
 	echo "<div class='jquery_ui_slider' id='jq_slider_by'></div><hr/>\n";
 	echo "<div class='half_width_column'>\n";
 	// LOOP SLIDER

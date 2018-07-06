@@ -6,6 +6,7 @@ function ResponsiveWWRISroShortCode( $Id ) {
 	// slider js css scripts
 	wp_enqueue_script('ris-jquery-sliderPro-js', WRIS_PLUGIN_URL.'js/jquery.sliderPro.js', array('jquery'), '1.4.0', true);
 	wp_enqueue_style('ris-slider-css', WRIS_PLUGIN_URL.'css/slider-pro.css');
+	wp_enqueue_style('uris-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
 	
 	/**
      * Load Saved Responsive Image Slider Settings

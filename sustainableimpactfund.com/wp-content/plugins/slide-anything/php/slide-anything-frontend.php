@@ -115,6 +115,9 @@ function slide_anything_shortcode($atts) {
 			$slide_data['slide_transition'] = floatval($metadata['sa_slide_transition'][0]) * 1000;
 			if (isset($metadata['sa_slide_by'][0]) && ($metadata['sa_slide_by'][0] != '')) {
 				$slide_data['slide_by'] = $metadata['sa_slide_by'][0];
+				if ($slide_data['slide_by'] == '0') {
+					$slide_data['slide_by'] = 'page';
+				}
 			} else {
 				$slide_data['slide_by'] = 1;
 			}
@@ -166,9 +169,13 @@ function slide_anything_shortcode($atts) {
 			} else {
 				$slide_data['touch_drag'] = 'false';
 			}
-			$slide_data['auto_height'] = $metadata['sa_auto_height'][0];
-			if ($slide_data['auto_height'] == '1') {
-				$slide_data['auto_height'] = 'true';
+			if (isset($metadata['sa_auto_height'])) {
+				$slide_data['auto_height'] = $metadata['sa_auto_height'][0];
+				if ($slide_data['auto_height'] == '1') {
+					$slide_data['auto_height'] = 'true';
+				} else {
+					$slide_data['auto_height'] = 'false';
+				}
 			} else {
 				$slide_data['auto_height'] = 'false';
 			}
@@ -513,7 +520,11 @@ function slide_anything_shortcode($atts) {
 				$output .= "			navText : ['',''],\n";
 				$output .= "			dots : ".esc_attr($slide_data['pagination']).",\n";
 				$output .= "			responsiveRefreshRate : 200,\n";
-				$output .= "			slideBy : ".esc_attr($slide_data['slide_by']).",\n";
+				if ($slide_data['slide_by'] == 'page') {
+					$output .= "			slideBy : 'page',\n";
+				} else {
+					$output .= "			slideBy : ".esc_attr($slide_data['slide_by']).",\n";
+				}
 				$output .= "			mergeFit : true,\n";
 				//$output .= "			URLhashListener : true,\n";
 				$output .= "			autoHeight : ".esc_attr($slide_data['auto_height']).",\n";

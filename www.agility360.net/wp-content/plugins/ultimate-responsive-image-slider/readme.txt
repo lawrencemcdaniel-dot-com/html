@@ -4,7 +4,7 @@ Donate link: https://www.weblizar.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
 Tested up to: 4.9.6
-Stable tag: 3.1.8
+Stable tag: 3.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -195,6 +195,9 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 
 For more information, see Weblizar(https://weblizar.com/)
 
+= V 3.1.9 =
+	- If no slide found in slider show alert message at frontend
+	- Add new products in our product page
 = V 3.1.8 - minor bug fix
 = V 3.1.7 
 	- Add Back to top link at setting page 

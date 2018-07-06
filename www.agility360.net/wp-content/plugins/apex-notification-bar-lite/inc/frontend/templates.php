@@ -534,11 +534,11 @@
                 } else if ($cptype == 'search-form') {
                     $btnname = __('Search', APEXNBL_TD);
                     $search_layout_type = ((isset($edn_bar_data['edn_search_form']['layout_type']) && $edn_bar_data['edn_search_form']['layout_type'] != '') ? $edn_bar_data['edn_search_form']['layout_type'] : 'layout1');
-                    $description = ((isset($edn_bar_data['edn_search_form']['description']) && $edn_bar_data['edn_search_form']['description'] != '') ? $edn_bar_data['edn_search_form']['description'] : '');
+                    $description = ((isset($edn_bar_data['edn_search_form']['description']) && $edn_bar_data['edn_search_form']['description'] != '') ? $edn_bar_data['edn_search_form']['description'] : __('Looking for something?',APEXNBL_TD));
                     $input_placeholder = ((isset($edn_bar_data['edn_search_form']['input_placeholder']) && $edn_bar_data['edn_search_form']['input_placeholder'] != '') ? $edn_bar_data['edn_search_form']['input_placeholder'] : '');
                     $hide_button_text = (isset($edn_bar_data['edn_search_form']['hide_button_text']) && $edn_bar_data['edn_search_form']['hide_button_text'] == 1) ? 1 : 0;
                     $hide_icon = (isset($edn_bar_data['edn_search_form']['hide_icon']) && $edn_bar_data['edn_search_form']['hide_icon'] == 1) ? 1 : 0;
-                    $button_name = ((isset($edn_bar_data['edn_search_form']['button_name']) && $edn_bar_data['edn_search_form']['button_name'] != '') ? $edn_bar_data['edn_search_form']['button_name'] : '');
+                    $button_name = ((isset($edn_bar_data['edn_search_form']['button_name']) && $edn_bar_data['edn_search_form']['button_name'] != '') ? esc_attr($edn_bar_data['edn_search_form']['button_name']) :$btnname);
                     $font_icon = ((isset($edn_bar_data['edn_search_form']['font_icon']) && $edn_bar_data['edn_search_form']['font_icon'] != '') ? $edn_bar_data['edn_search_form']['font_icon'] : '');
                     if ($hide_button_text == 1 && $hide_icon != 1) {
                         $addclasss = "apexnb_show_icononly";
@@ -556,21 +556,14 @@
                             <p class="apex-onscreen-description"><?php echo _x($description, APEXNBL_TD) ?></p>
                             <div class="apex-search-right-section <?php echo $addclasss; ?> clearfix">
                                 <label>
-                                    <?php if ($search_layout_type == "layout1" || $search_layout_type == "layout4") { ?>
-                                        <i class='<?php echo $font_icon; ?>'></i>
-                                    <?php } ?>
+                                 
                                     <input type="search" class="search-field" placeholder="<?php echo esc_attr_x($input_placeholder, APEXNBL_TD) ?>" 
                                            value="<?php echo get_search_query() ?>" name="s" />
                                 </label>
 
                                 <button type='submit' class="btn-search-now">
-                                    <?php if ($hide_icon != 1 && $font_icon != '') { ?>
-                                        <i class='<?php echo $font_icon; ?>'></i>
-                                        <?php
-                                    }
-                                    if ($hide_button_text != 1) {
+                                    <?php 
                                         echo esc_attr_x($button_name, APEXNBL_TD);
-                                    }
                                     ?>
                                 </button>
                             </div>

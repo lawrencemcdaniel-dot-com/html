@@ -116,7 +116,15 @@
 			<a class="btn btn-secondary btn-sm" href="https://wordpress.org/plugins/responsive-gallery-with-lightbox/" target="_new" title="Download Plugin"><i class="fas fa-download"></i></a>
 			<a class="btn btn-secondary btn-sm" href="https://weblizar.com/plugins/responsive-photo-gallery-pro/" target="_new" title="Plugin Details"><i class="fas fa-info"></i></a>
 			<a class="btn btn-secondary btn-sm" href="http://demo.weblizar.com/responsive-photo-gallery-pro/" target="_new" title="Plugin Demo"><i class="fas fa-eye"></i></a>
-		</div>		
+		</div>
+		<div class="col products col-sm-6 col-md-4 p-3">
+			<h4>Clock in Portal</h4>
+			<p class="icon-size"><i class="far fa-clock"></i></p>
+			<a class="btn btn-secondary btn-sm" href="https://wordpress.org/plugins/clock-in-portal/" target="_new" title="Download Plugin"><i class="fas fa-download"></i></a>
+			<a class="btn btn-secondary btn-sm" href="https://weblizar.com/plugins/clockin-pro-plugin/" target="_new" title="Plugin Details"><i class="fas fa-info"></i></a>
+			<a class="btn btn-secondary btn-sm" href="http://demo.weblizar.com/clockin-pro-admin/wp-login.php?redirect_to=http%3A%2F%2Fdemo.weblizar.com%2Fclockin-pro-admin%2Fwp-admin%2F&reauth=1" target="_new" title="Admin Demo"><i class="fas fa-eye"></i></a>
+			<a class="btn btn-secondary btn-sm" href="http://demo.weblizar.com/clockin-pro-admin/wp-login.php?redirect_to=http%3A%2F%2Fdemo.weblizar.com%2Fclockin-pro-admin%2Fwp-admin%2F&reauth=1" target="_new" title="Staff Demo"><i class="fas fa-eye"></i></a>
+		</div>				
 	</div>
 	
 	<!-- Themes -->
@@ -231,7 +239,14 @@
 			<a class="btn btn-secondary btn-sm" href="https://weblizar.com/best-free-wordpress-themes/" target="_new" title="Download Theme"><i class="fas fa-download"></i></a>
 			<a class="btn btn-secondary btn-sm" href="https://weblizar.com/themes/weblizar-premium-theme/" target="_new" title="Theme Details"><i class="fas fa-info"></i></a>
 			<a class="btn btn-secondary btn-sm" href="http://demo.weblizar.com/preview/#weblizar" target="_new" title="Theme Demo"><i class="fas fa-eye"></i></a>
-		</div>		
+		</div>	
+		<div class="col products col-sm-6 col-md-4 p-3">
+			<h4>Love Wedding Premium</h4>
+			<p class="icon-size"><i class="fas fa-heart"></i></p>
+			<a class="btn btn-secondary btn-sm" href="https://weblizar.com/best-free-wordpress-themes/" target="_new" title="Download Theme"><i class="fas fa-download"></i></a>
+			<a class="btn btn-secondary btn-sm" href="https://weblizar.com/themes/love-wedding-premium-theme/" target="_new" title="Theme Details"><i class="fas fa-info"></i></a>
+			<a class="btn btn-secondary btn-sm" href="http://demo.weblizar.com/love-wedding/" target="_new" title="Theme Demo"><i class="fas fa-eye"></i></a>
+		</div>	
 	</div>
 	
 	<!-- footer -->

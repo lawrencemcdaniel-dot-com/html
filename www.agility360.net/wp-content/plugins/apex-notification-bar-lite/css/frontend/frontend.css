@@ -1,14 +1,12 @@
+/*-------
+* Style Version: 1.0.3
+*----------*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,700,400italic,700italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,500);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400);
-/*-------
-Reset css
-* Style Version: 1.0.0 
-*----------*/
-
 .edn-notify-bar * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -102,11 +100,7 @@ hr,
 dl,
 dd,
 table {
-    /*margin: 0;*/
-    /*padding: 0;*/
     border: 0;
-    /*font-size: 100%;*/
-    /*font: inherit;*/
     vertical-align: baseline;
 }
 ul,
@@ -115,7 +109,6 @@ ol {
     margin: 0;
 }
 /* HTML5 display-role reset for older browsers */
-
 article,
 aside,
 details,
@@ -4141,19 +4134,11 @@ template-7 end
     top:32px;
 }
 .admin-bar .edn-top-up-arrow {
-    top: 24px;
+    top: 24px !important;
 }
 .edn-top-up-arrow {
     top: -2px !important;
 }
-/*.edn-postion-top .edn-bottom-down-arrow, 
-.edn-postion-top .edn-top-up-arrow, 
-.edn-position-top_absolute .edn-bottom-down-arrow, 
-.edn-position-top_absolute .edn-top-up-arrow {
-    transform: translateY(0px);
-    -webkit-transform: translateY(0px);
-}*/
-
 .edn-left-arrow,
 .edn-right-arrow {
     width: 30px;
@@ -8881,9 +8866,9 @@ custom
 .edn-custom-design-wrapper .edn-subscribe-form span{
     font-size: 12px;
 }
-.edn-subscribe-form {
+/*.edn-subscribe-form {
     padding: 10px;
-}
+}*/
  .edn-custom-template .edn_error, .edn-error {
             color: red; 
             font-size: 12px;

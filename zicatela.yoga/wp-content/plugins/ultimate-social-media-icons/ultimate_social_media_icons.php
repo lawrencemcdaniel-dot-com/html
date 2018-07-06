@@ -5,11 +5,11 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.0.1
+Version: 2.0.2
 License: GPLv2 or later
 */
 
-error_reporting(0);
+sfsi_error_reporting();
 
 global $wpdb;
 
@@ -55,11 +55,10 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.01)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.02)
 {
 	add_action("init", "sfsi_update_plugin");
 }
-
 
 /* redirect setting page hook */
 add_action('admin_init', 'sfsi_plugin_redirect');
@@ -71,6 +70,25 @@ function sfsi_plugin_redirect()
         wp_redirect(admin_url('admin.php?page=sfsi-options'));
     }
 }
+
+//************************************** Setting error reporting STARTS ****************************************//
+function sfsi_error_reporting(){
+
+	$option5 = unserialize(get_option('sfsi_section5_options',false));
+
+	if(isset($option5['sfsi_icons_suppress_errors']) 
+
+		&& !empty($option5['sfsi_icons_suppress_errors'])
+
+		&& "yes" == $option5['sfsi_icons_suppress_errors']){
+		
+		error_reporting(0);			
+	}	
+}
+
+
+//************************************** Setting error reporting CLOSES ****************************************//
+
 //shortcode for the ultimate social icons {Monad}
 add_shortcode("DISPLAY_ULTIMATE_SOCIAL_ICONS", "DISPLAY_ULTIMATE_SOCIAL_ICONS");
 function DISPLAY_ULTIMATE_SOCIAL_ICONS($args = null, $content = null)
@@ -106,24 +124,30 @@ function sfsi_checkmetas()
 	{
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 	}
+
+	$adding_tags = "yes";
+
 	$all_plugins = get_plugins();
-	foreach($all_plugins as $key => $plugin)
-	{
+	
+	foreach($all_plugins as $key => $plugin):
+
 		if(is_plugin_active($key))
 		{
-			if(preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Name']) || preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Description']))
-			{
-				update_option("adding_tags", "no");
+			if(preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Name']) || preg_match("/(seo|search engine optimization|meta tag|open graph|opengraph|og tag|ogtag)/im", $plugin['Description'])):
+
+				$adding_tags= "no";
+
 				break;
-			}
-			else
-			{
-				update_option("adding_tags", "yes");
-			}
+
+			endif;
 		}
-	}	
+
+	endforeach;
+
+	update_option("adding_tags", $adding_tags);
+
 }
-if ( ! is_admin() )
+if ( is_admin() )
 {
 	sfsi_checkmetas();
 }
@@ -644,6 +668,12 @@ function sfsi_admin_notice()
 		<?php
 		}
 	}
+
+    sfsi_language_notice();
+    
+    sfsi_addThis_removal_notice();
+
+	sfsi_error_reporting_notice();
 }
 add_action('admin_init', 'sfsi_dismiss_admin_notice');
 function sfsi_dismiss_admin_notice()
@@ -965,13 +995,48 @@ add_action( 'wp_ajax_sfsi_dismiss_lang_notice', 'sfsi_dismiss_lang_notice' );
 // ********************************* Link to support forum for different languages CLOSES *******************************//
 
 
+
+// ********************************* Notice for removal of AddThis option STARTS *******************************//
+function sfsi_addThis_removal_notice(){
+
+    if (isset($_GET['page']) && "sfsi-options" == $_GET['page']) : 
+        
+        $sfsi_addThis_removalText    = "We removed Addthis from the plugin due to issues with GDPR, the new EU data protection regulation.";
+
+        $isDismissed   =  get_option('sfsi_addThis_icon_removal_notice_dismissed',false);
+
+        if( false == $isDismissed) { ?>
+                    
+            <div id="sfsi_plus_addThis_removal_notice" class="notice notice-info">
+
+                <p><?php echo $sfsi_addThis_removalText; ?></p>
+
+                <button type="button" class="sfsi-AddThis-notice-dismiss notice-dismiss"></button>
+
+            </div>
+
+        <?php } ?>
+
+    <?php endif;
+}
+
+function sfsi_dismiss_addthhis_removal_notice(){
+	echo (string) update_option('sfsi_addThis_icon_removal_notice_dismissed',true);
+	die;
+}
+
+add_action( 'wp_ajax_sfsi_dismiss_addThis_icon_notice', 'sfsi_dismiss_addthhis_removal_notice' );
+
+// ********************************* Notice for removal of AddThis option CLOSES *******************************//
+
+
 // ********************************* Link to support forum left of every Save button STARTS *******************************//
 
 function sfsi_ask_for_help($viewNumber){ ?>
 
     <div class="sfsi_askforhelp askhelpInview<?php echo $viewNumber; ?>">
 	
-		<img src="<?php echo SFSI_PLUGURL."images/questionmark.png"?>"/>
+		<img src="<?php echo SFSI_PLUGURL."images/questionmark.png";?>"/>
 		
 		<span>Questions? <a target="_blank" href="https://goo.gl/ctiyJM"><b>Ask us</b></a> — we will respond asap!</span>
 
@@ -980,3 +1045,68 @@ function sfsi_ask_for_help($viewNumber){ ?>
 <?php }
 
 // ********************************* Link to support forum left of every Save button CLOSES *******************************//
+
+
+// ********************************* Notice for error reporting STARTS *******************************//
+
+function sfsi_error_reporting_notice(){
+
+    if (is_admin()) : 
+        
+        $sfsi_error_reporting_notice_txt    = 'We noticed that you have set error reporting to "yes" in wp-config. Our plugin (Ultimate Social Media) switches this to "off" so that no errors are displayed (which may also impact error messages from your theme or other plugins). If you don\'t want that, please select the respective option under question 6 (at the bottom).';
+
+        $isDismissed   =  get_option('sfsi_error_reporting_notice_dismissed',false);
+
+        $option5 = unserialize(get_option('sfsi_section5_options',false));
+
+        if(isset($isDismissed) && false == $isDismissed && defined('WP_DEBUG') && false != WP_DEBUG && "yes"== $option5['sfsi_icons_suppress_errors']) { ?>
+                    
+            <div style="padding: 10px;margin-left: 0px;position: relative;" id="sfsi_error_reporting_notice" class="error notice">
+
+                <p><?php echo $sfsi_error_reporting_notice_txt; ?></p>
+
+                <button type="button" class="sfsi_error_reporting_notice-dismiss notice-dismiss"></button>
+
+            </div>
+
+            <script type="text/javascript">
+
+				if(typeof jQuery != 'undefined'){
+
+				    (function sfsi_dismiss_notice(btnClass,ajaxAction){
+				        
+				        var btnClass = "."+btnClass;
+
+						var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+
+				        jQuery(document).on("click", btnClass, function(){
+				            
+				            jQuery.ajax({
+				                url:ajaxurl,
+				                type:"post",
+				                data:{action: ajaxAction},
+				                success:function(e) {
+				                    if(false != e){
+				                        jQuery(btnClass).parent().remove();
+				                    }
+				                }
+				            });
+
+				        });
+
+				    }("sfsi_error_reporting_notice-dismiss","sfsi_dismiss_error_reporting_notice"));
+				}            	
+            </script>
+
+        <?php } ?>
+
+    <?php endif;	
+}
+
+function sfsi_dismiss_error_reporting_notice(){
+	echo (string) update_option('sfsi_error_reporting_notice_dismissed',true);
+	die;
+}
+add_action( 'wp_ajax_sfsi_dismiss_error_reporting_notice', 'sfsi_dismiss_error_reporting_notice' );
+
+// ********************************* Notice for removal of AddThis option STARTS *******************************//

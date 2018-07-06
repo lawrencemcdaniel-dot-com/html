@@ -10,7 +10,6 @@
 		$option5['sfsi_facebookIcon_order']	=> 'facebook',
 		$option5['sfsi_googleIcon_order']	=> 'google',
 		$option5['sfsi_twitterIcon_order']	=> 'twitter',
-		$option5['sfsi_shareIcon_order']	=> 'share',
 		$option5['sfsi_youtubeIcon_order']	=> 'youtube',
 		$option5['sfsi_pinterestIcon_order']=> 'pinterest',
 		$option5['sfsi_linkedinIcon_order']	=> 'linkedin',
@@ -34,28 +33,7 @@
 														: '';
 	$option5['sfsi_icons_ClickPageOpen']		= 	(isset($option5['sfsi_icons_ClickPageOpen']))
 														? sanitize_text_field($option5['sfsi_icons_ClickPageOpen'])
-														:'';
-	// $option5['sfsi_icons_float'] 				= 	(isset($option5['sfsi_icons_float']))
-	// 													? sanitize_text_field($option5['sfsi_icons_float'])
-	// 													: '';
-	// $option5['sfsi_disable_floaticons'] 		= 	(isset($option5['sfsi_disable_floaticons']))
-	// 													? sanitize_text_field($option5['sfsi_disable_floaticons'])
-	// 													: '';
-	// $option5['sfsi_icons_floatPosition'] 		= 	(isset($option5['sfsi_icons_floatPosition']))
-	// 													? sanitize_text_field($option5['sfsi_icons_floatPosition'])
-	// 													:'';
-	// $option5['sfsi_icons_floatMargin_top'] 		= 	(isset($option5['sfsi_icons_floatMargin_top']))
-	// 													? intval($option5['sfsi_icons_floatMargin_top'])
-	// 													: '';
-	// $option5['sfsi_icons_floatMargin_bottom']	= 	(isset($option5['sfsi_icons_floatMargin_bottom']))
-	// 													? intval($option5['sfsi_icons_floatMargin_bottom'])
-	// 													: '';
-	// $option5['sfsi_icons_floatMargin_left']		= 	(isset($option5['sfsi_icons_floatMargin_left']))
-	// 													? intval($option5['sfsi_icons_floatMargin_left'])
-	// 													: '';
-	// $option5['sfsi_icons_floatMargin_right']	= 	(isset($option5['sfsi_icons_floatMargin_right']))
-	// 													? intval($option5['sfsi_icons_floatMargin_right']): '';
-	
+														:'';	
 	$option5['sfsi_icons_stick'] 				= 	(isset($option5['sfsi_icons_stick']))
 														? sanitize_text_field($option5['sfsi_icons_stick'])
 														: '';
@@ -83,13 +61,12 @@
 	$option5['sfsi_youtube_MouseOverText'] 		= 	(isset($option5['sfsi_youtube_MouseOverText']))
 														? sanitize_text_field($option5['sfsi_youtube_MouseOverText'])
 														: '';
-	$option5['sfsi_share_MouseOverText'] 		= 	(isset($option5['sfsi_share_MouseOverText']))
-														? sanitize_text_field($option5['sfsi_share_MouseOverText'])
-														: '';
 	$option5['sfsi_instagram_MouseOverText']	= 	(isset($option5['sfsi_instagram_MouseOverText']))
 														? sanitize_text_field($option5['sfsi_instagram_MouseOverText'])
 														: '';
-	
+	$sfsi_icons_suppress_errors 				=   (isset($option5['sfsi_icons_suppress_errors']))
+														? sanitize_text_field($option5['sfsi_icons_suppress_errors'])
+														: 'no';
 	if(is_array($custom_icons_order) ) 
 	{
 		foreach($custom_icons_order as $data)
@@ -105,7 +82,7 @@
 	<h4>Order of your icons</h4>
     <!-- icon drag drop  section start here -->	
     <ul class="share_icon_order" >
-            <?php 
+        <?php 
 	 	$ctn = 0;
 	 	foreach($icons_order as $index=>$icn) :
           
@@ -137,12 +114,6 @@
           <?php case 'twitter' :?>
           		<li class="twitter_section " data-index="<?php echo $index; ?>" id="sfsi_twitterIcon_order">
                 	<a href="#" title="Twitter" ><img src="<?php echo SFSI_PLUGURL; ?>images/twitter.png" alt="Twitter" /></a>
-                </li>
-          <?php break; ?>
-          
-          <?php case 'share' : ?>
-          		<li class="share_section " data-index="<?php echo $index; ?>"  id="sfsi_shareIcon_order">
-                	<a href="#" title="Share" ><img src="<?php echo SFSI_PLUGURL; ?>images/share.png" alt="Share" /></a>
                 </li>
           <?php break; ?>
           
@@ -222,14 +193,21 @@
     </div>
     
     <div class="row new_wind">
-	<h4>New window</h4>
-	<div class="row_onl"><p>If user clicks on your icons, do you want to open the page in a new window?</p>
-	<ul class="enough_waffling">
-	    <li><input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  /><label>Yes</label></li>
-	<li><input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" /><label>No</label></li>
-      </ul></div>
+		<h4>New window</h4>
+		<div class="row_onl"><p>If user clicks on your icons, do you want to open the page in a new window?</p>
+			<ul class="enough_waffling">
+		    	<li>
+		    		<input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  />
+		    		<label>Yes</label>
+		    	</li>
+				<li>
+					<input name="sfsi_icons_ClickPageOpen" <?php echo ($option5['sfsi_icons_ClickPageOpen']=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" />
+					<label>No</label>
+				</li>
+	      	</ul>
+      	</div>
     </div>
-   <!-- END icon's size and spacing section -->
+
    
      <!-- icon's floating and stick section start here -->	
     <div class="row sticking">
@@ -424,12 +402,6 @@ here what text will be displayed if a user moves his mouse over the icon:
 			<input name="sfsi_instagram_MouseOverText" value="<?php echo ($option5['sfsi_instagram_MouseOverText']!='') ?  $option5['sfsi_instagram_MouseOverText'] : '' ;?>" type="text" />
 		    </div>
 		</div>
-		<!--<div class="clear">
-		<div class="mouseover_field share_section">
-			<label>Share:</label>
-			<input name="sfsi_share_MouseOverText" value="<?php //echo ($option5['sfsi_share_MouseOverText']!='') ?  $option5['sfsi_share_MouseOverText'] : '' ;?>" type="text" />
-		</div>
-		</div> -->
         <div class="clear"> </div>  
 		<div class="custom_m">
         	<?php 
@@ -454,6 +426,22 @@ here what text will be displayed if a user moves his mouse over the icon:
 
 	</div>
 	<!-- END mouse over text section -->
+
+    <div class="row new_wind">
+		<h4>Error reporting</h4>
+		<div class="row_onl"><p>Suppress error messages?</p>
+			<ul class="enough_waffling">
+		    	<li>
+		    		<input name="sfsi_icons_suppress_errors" <?php echo ($sfsi_icons_suppress_errors=='yes') ?  'checked="true"' : '' ;?> type="radio" value="yes" class="styled"  />
+		    		<label>Yes</label>
+		    	</li>
+				<li>
+					<input name="sfsi_icons_suppress_errors" <?php echo ($sfsi_icons_suppress_errors=='no') ?  'checked="true"' : '' ;?> type="radio" value="no" class="styled" />
+					<label>No</label>
+				</li>
+	      	</ul>
+      	</div>
+    </div>
 
 	<?php sfsi_ask_for_help(5); ?>
 

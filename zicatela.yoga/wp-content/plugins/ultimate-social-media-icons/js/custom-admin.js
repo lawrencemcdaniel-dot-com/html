@@ -125,7 +125,6 @@ function sfsi_depened_sections() {
     SFSI("input[name='sfsi_facebook_display']").prop("checked") ? sfsi_section_Display("facebook_section", "show") :sfsi_section_Display("facebook_section", "hide"), 
     SFSI("input[name='sfsi_twitter_display']").prop("checked") ? sfsi_section_Display("twitter_section", "show") :sfsi_section_Display("twitter_section", "hide"), 
     SFSI("input[name='sfsi_google_display']").prop("checked") ? sfsi_section_Display("google_section", "show") :sfsi_section_Display("google_section", "hide"), 
-    SFSI("input[name='sfsi_share_display']").prop("checked") ? sfsi_section_Display("share_section", "show") :sfsi_section_Display("share_section", "hide"), 
     SFSI("input[name='sfsi_youtube_display']").prop("checked") ? sfsi_section_Display("youtube_section", "show") :sfsi_section_Display("youtube_section", "hide"), 
     SFSI("input[name='sfsi_pinterest_display']").prop("checked") ? sfsi_section_Display("pinterest_section", "show") :sfsi_section_Display("pinterest_section", "hide"), 
     SFSI("input[name='sfsi_instagram_display']").prop("checked") ? sfsi_section_Display("instagram_section", "show") :sfsi_section_Display("instagram_section", "hide"), 
@@ -206,7 +205,7 @@ function SFSI_done()
         data:e,
         success:function(msg) {
 			  jQuery("li.cstomskins_upload").children(".icns_tab_3").html(msg);
-			  SFSI("input[name='sfsi_rss_display']").prop("checked") ? sfsi_section_Display("rss_section", "show") :sfsi_section_Display("rss_section", "hide"),SFSI("input[name='sfsi_email_display']").prop("checked") ? sfsi_section_Display("email_section", "show") :sfsi_section_Display("email_section", "hide"),SFSI("input[name='sfsi_facebook_display']").prop("checked") ? sfsi_section_Display("facebook_section", "show") :sfsi_section_Display("facebook_section", "hide"), SFSI("input[name='sfsi_twitter_display']").prop("checked") ? sfsi_section_Display("twitter_section", "show") :sfsi_section_Display("twitter_section", "hide"),SFSI("input[name='sfsi_google_display']").prop("checked") ? sfsi_section_Display("google_section", "show") :sfsi_section_Display("google_section", "hide"), SFSI("input[name='sfsi_share_display']").prop("checked") ? sfsi_section_Display("share_section", "show") :sfsi_section_Display("share_section", "hide"), SFSI("input[name='sfsi_youtube_display']").prop("checked") ? sfsi_section_Display("youtube_section", "show") :sfsi_section_Display("youtube_section", "hide"), SFSI("input[name='sfsi_pinterest_display']").prop("checked") ? sfsi_section_Display("pinterest_section", "show") :sfsi_section_Display("pinterest_section", "hide"), SFSI("input[name='sfsi_instagram_display']").prop("checked") ? sfsi_section_Display("instagram_section", "show") :sfsi_section_Display("instagram_section", "hide"), SFSI("input[name='sfsi_linkedin_display']").prop("checked") ? sfsi_section_Display("linkedin_section", "show") :sfsi_section_Display("linkedin_section", "hide"), SFSI("input[element-type='cusotm-icon']").prop("checked") ? sfsi_section_Display("custom_section", "show") :sfsi_section_Display("custom_section", "hide");
+			  SFSI("input[name='sfsi_rss_display']").prop("checked") ? sfsi_section_Display("rss_section", "show") :sfsi_section_Display("rss_section", "hide"),SFSI("input[name='sfsi_email_display']").prop("checked") ? sfsi_section_Display("email_section", "show") :sfsi_section_Display("email_section", "hide"),SFSI("input[name='sfsi_facebook_display']").prop("checked") ? sfsi_section_Display("facebook_section", "show") :sfsi_section_Display("facebook_section", "hide"), SFSI("input[name='sfsi_twitter_display']").prop("checked") ? sfsi_section_Display("twitter_section", "show") :sfsi_section_Display("twitter_section", "hide"),SFSI("input[name='sfsi_google_display']").prop("checked") ? sfsi_section_Display("google_section", "show") :sfsi_section_Display("google_section", "hide"), SFSI("input[name='sfsi_youtube_display']").prop("checked") ? sfsi_section_Display("youtube_section", "show") :sfsi_section_Display("youtube_section", "hide"), SFSI("input[name='sfsi_pinterest_display']").prop("checked") ? sfsi_section_Display("pinterest_section", "show") :sfsi_section_Display("pinterest_section", "hide"), SFSI("input[name='sfsi_instagram_display']").prop("checked") ? sfsi_section_Display("instagram_section", "show") :sfsi_section_Display("instagram_section", "hide"), SFSI("input[name='sfsi_linkedin_display']").prop("checked") ? sfsi_section_Display("linkedin_section", "show") :sfsi_section_Display("linkedin_section", "hide"), SFSI("input[element-type='cusotm-icon']").prop("checked") ? sfsi_section_Display("custom_section", "show") :sfsi_section_Display("custom_section", "hide");
         	  SFSI(".cstmskins-overlay").hide("slow");
 			  sfsi_update_step3() && sfsicollapse(this);
 		}
@@ -243,14 +242,13 @@ function sfsi_newcustomicon_upload(s) {
 function sfsi_update_step1() {
 	var nonce = SFSI("#sfsi_save1").attr("data-nonce");
     global_error = 0, beForeLoad(), sfsi_depened_sections();
-    var s = !1, i = SFSI("input[name='sfsi_rss_display']:checked").val(), e = SFSI("input[name='sfsi_email_display']:checked").val(), t = SFSI("input[name='sfsi_facebook_display']:checked").val(), n = SFSI("input[name='sfsi_twitter_display']:checked").val(), o = SFSI("input[name='sfsi_google_display']:checked").val(), a = SFSI("input[name='sfsi_share_display']:checked").val(), r = SFSI("input[name='sfsi_youtube_display']:checked").val(), c = SFSI("input[name='sfsi_pinterest_display']:checked").val(), p = SFSI("input[name='sfsi_linkedin_display']:checked").val(), _ = SFSI("input[name='sfsi_instagram_display']:checked").val(), l = SFSI("input[name='sfsi_custom1_display']:checked").val(), S = SFSI("input[name='sfsi_custom2_display']:checked").val(), u = SFSI("input[name='sfsi_custom3_display']:checked").val(), f = SFSI("input[name='sfsi_custom4_display']:checked").val(), d = SFSI("input[name='sfsi_custom5_display']:checked").val(), I = {
+    var s = !1, i = SFSI("input[name='sfsi_rss_display']:checked").val(), e = SFSI("input[name='sfsi_email_display']:checked").val(), t = SFSI("input[name='sfsi_facebook_display']:checked").val(), n = SFSI("input[name='sfsi_twitter_display']:checked").val(), o = SFSI("input[name='sfsi_google_display']:checked").val(), r = SFSI("input[name='sfsi_youtube_display']:checked").val(), c = SFSI("input[name='sfsi_pinterest_display']:checked").val(), p = SFSI("input[name='sfsi_linkedin_display']:checked").val(), _ = SFSI("input[name='sfsi_instagram_display']:checked").val(), l = SFSI("input[name='sfsi_custom1_display']:checked").val(), S = SFSI("input[name='sfsi_custom2_display']:checked").val(), u = SFSI("input[name='sfsi_custom3_display']:checked").val(), f = SFSI("input[name='sfsi_custom4_display']:checked").val(), d = SFSI("input[name='sfsi_custom5_display']:checked").val(), I = {
         action:"updateSrcn1",
         sfsi_rss_display:i,
         sfsi_email_display:e,
         sfsi_facebook_display:t,
         sfsi_twitter_display:n,
         sfsi_google_display:o,
-        sfsi_share_display:a,
         sfsi_youtube_display:r,
         sfsi_pinterest_display:c,
         sfsi_linkedin_display:p,
@@ -416,8 +414,7 @@ function sfsi_showPreviewCounts() {
     s = 1) :SFSI("#sfsi_google_countsDisplay").css("opacity", 0), 1 == SFSI("input[name='sfsi_linkedIn_countsDisplay']").prop("checked") ? (SFSI("#sfsi_linkedIn_countsDisplay").css("opacity", 1), 
     s = 1) :SFSI("#sfsi_linkedIn_countsDisplay").css("opacity", 0), 1 == SFSI("input[name='sfsi_youtube_countsDisplay']").prop("checked") ? (SFSI("#sfsi_youtube_countsDisplay").css("opacity", 1), 
     s = 1) :SFSI("#sfsi_youtube_countsDisplay").css("opacity", 0), 1 == SFSI("input[name='sfsi_pinterest_countsDisplay']").prop("checked") ? (SFSI("#sfsi_pinterest_countsDisplay").css("opacity", 1), 
-    s = 1) :SFSI("#sfsi_pinterest_countsDisplay").css("opacity", 0), 1 == SFSI("input[name='sfsi_shares_countsDisplay']").prop("checked") ? (SFSI("#sfsi_shares_countsDisplay").css("opacity", 1), 
-    s = 1) :SFSI("#sfsi_shares_countsDisplay").css("opacity", 0), 1 == SFSI("input[name='sfsi_instagram_countsDisplay']").prop("checked") ? (SFSI("#sfsi_instagram_countsDisplay").css("opacity", 1), 
+    s = 1) :SFSI("#sfsi_pinterest_countsDisplay").css("opacity", 0),1 == SFSI("input[name='sfsi_instagram_countsDisplay']").prop("checked") ? (SFSI("#sfsi_instagram_countsDisplay").css("opacity", 1), 
     s = 1) :SFSI("#sfsi_instagram_countsDisplay").css("opacity", 0), 0 == s || "no" == SFSI("input[name='sfsi_display_counts']:checked").val() ? SFSI(".sfsi_Cdisplay").hide() :SFSI(".sfsi_Cdisplay").show();
 }
 
@@ -430,7 +427,7 @@ function sfsi_update_step4() {
     var s = !1, i = sfsi_validationStep4();
     if (!i) return global_error = 1, !1;
     beForeLoad();
-    var e = SFSI("input[name='sfsi_display_counts']:checked").val(), t = 1 == SFSI("input[name='sfsi_email_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_email_countsDisplay']:checked").val(), n = 1 == SFSI("input[name='sfsi_email_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_email_countsFrom']:checked").val(), o = SFSI("input[name='sfsi_email_manualCounts']").val(), a = SFSI("input[name='sfsi_google_api_key']").val(), r = 1 == SFSI("input[name='sfsi_rss_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_rss_countsDisplay']:checked").val(), c = SFSI("input[name='sfsi_rss_manualCounts']").val(), p = 1 == SFSI("input[name='sfsi_facebook_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_facebook_countsDisplay']:checked").val(), _ = 1 == SFSI("input[name='sfsi_facebook_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_facebook_countsFrom']:checked").val(), mp = SFSI("input[name='sfsi_facebook_mypageCounts']").val(), l = SFSI("input[name='sfsi_facebook_manualCounts']").val(), S = 1 == SFSI("input[name='sfsi_twitter_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_twitter_countsDisplay']:checked").val(), u = 1 == SFSI("input[name='sfsi_twitter_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_twitter_countsFrom']:checked").val(), f = SFSI("input[name='sfsi_twitter_manualCounts']").val(), d = SFSI("input[name='tw_consumer_key']").val(), I = SFSI("input[name='tw_consumer_secret']").val(), m = SFSI("input[name='tw_oauth_access_token']").val(), F = SFSI("input[name='tw_oauth_access_token_secret']").val(), h = 1 == SFSI("input[name='sfsi_google_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_google_countsDisplay']:checked").val(), v = 1 == SFSI("input[name='sfsi_google_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_google_countsFrom']:checked").val(), g = SFSI("input[name='sfsi_google_manualCounts']").val(), k = 1 == SFSI("input[name='sfsi_linkedIn_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_countsFrom']:checked").val(), y = SFSI("input[name='sfsi_linkedIn_manualCounts']").val(), b = SFSI("input[name='ln_company']").val(), w = SFSI("input[name='ln_api_key']").val(), x = SFSI("input[name='ln_secret_key']").val(), C = SFSI("input[name='ln_oAuth_user_token']").val(), D = 1 == SFSI("input[name='sfsi_linkedIn_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_countsDisplay']:checked").val(), k = 1 == SFSI("input[name='sfsi_linkedIn_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_countsFrom']:checked").val(), y = SFSI("input[name='sfsi_linkedIn_manualCounts']").val(), U = 1 == SFSI("input[name='sfsi_youtube_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_youtube_countsDisplay']:checked").val(), O = 1 == SFSI("input[name='sfsi_youtube_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_youtube_countsFrom']:checked").val(), T = SFSI("input[name='sfsi_youtube_manualCounts']").val(), j = SFSI("input[name='sfsi_youtube_user']").val(), P = 1 == SFSI("input[name='sfsi_pinterest_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_pinterest_countsDisplay']:checked").val(), M = 1 == SFSI("input[name='sfsi_pinterest_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_pinterest_countsFrom']:checked").val(), L = SFSI("input[name='sfsi_pinterest_manualCounts']").val(), B = SFSI("input[name='sfsi_pinterest_user']").val(), E = SFSI("input[name='sfsi_pinterest_board']").val(), z = 1 == SFSI("input[name='sfsi_instagram_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_instagram_countsDisplay']:checked").val(), A = 1 == SFSI("input[name='sfsi_instagram_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_instagram_countsFrom']:checked").val(), N = SFSI("input[name='sfsi_instagram_manualCounts']").val(), H = SFSI("input[name='sfsi_instagram_User']").val(),ha = SFSI("input[name='sfsi_instagram_clientid']").val(),ia = SFSI("input[name='sfsi_instagram_appurl']").val(),ja = SFSI("input[name='sfsi_instagram_token']").val(), R = 1 == SFSI("input[name='sfsi_shares_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_shares_countsDisplay']:checked").val(), W = 1 == SFSI("input[name='sfsi_shares_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_shares_countsFrom']:checked").val(), q = SFSI("input[name='sfsi_shares_manualCounts']").val(), $ = {
+    var e = SFSI("input[name='sfsi_display_counts']:checked").val(), t = 1 == SFSI("input[name='sfsi_email_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_email_countsDisplay']:checked").val(), n = 1 == SFSI("input[name='sfsi_email_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_email_countsFrom']:checked").val(), o = SFSI("input[name='sfsi_email_manualCounts']").val(), a = SFSI("input[name='sfsi_google_api_key']").val(), r = 1 == SFSI("input[name='sfsi_rss_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_rss_countsDisplay']:checked").val(), c = SFSI("input[name='sfsi_rss_manualCounts']").val(), p = 1 == SFSI("input[name='sfsi_facebook_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_facebook_countsDisplay']:checked").val(), _ = 1 == SFSI("input[name='sfsi_facebook_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_facebook_countsFrom']:checked").val(), mp = SFSI("input[name='sfsi_facebook_mypageCounts']").val(), l = SFSI("input[name='sfsi_facebook_manualCounts']").val(), S = 1 == SFSI("input[name='sfsi_twitter_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_twitter_countsDisplay']:checked").val(), u = 1 == SFSI("input[name='sfsi_twitter_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_twitter_countsFrom']:checked").val(), f = SFSI("input[name='sfsi_twitter_manualCounts']").val(), d = SFSI("input[name='tw_consumer_key']").val(), I = SFSI("input[name='tw_consumer_secret']").val(), m = SFSI("input[name='tw_oauth_access_token']").val(), F = SFSI("input[name='tw_oauth_access_token_secret']").val(), h = 1 == SFSI("input[name='sfsi_google_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_google_countsDisplay']:checked").val(), v = 1 == SFSI("input[name='sfsi_google_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_google_countsFrom']:checked").val(), g = SFSI("input[name='sfsi_google_manualCounts']").val(), k = 1 == SFSI("input[name='sfsi_linkedIn_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_countsFrom']:checked").val(), y = SFSI("input[name='sfsi_linkedIn_manualCounts']").val(), b = SFSI("input[name='ln_company']").val(), w = SFSI("input[name='ln_api_key']").val(), x = SFSI("input[name='ln_secret_key']").val(), C = SFSI("input[name='ln_oAuth_user_token']").val(), D = 1 == SFSI("input[name='sfsi_linkedIn_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_countsDisplay']:checked").val(), k = 1 == SFSI("input[name='sfsi_linkedIn_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_countsFrom']:checked").val(), y = SFSI("input[name='sfsi_linkedIn_manualCounts']").val(), U = 1 == SFSI("input[name='sfsi_youtube_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_youtube_countsDisplay']:checked").val(), O = 1 == SFSI("input[name='sfsi_youtube_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_youtube_countsFrom']:checked").val(), T = SFSI("input[name='sfsi_youtube_manualCounts']").val(), j = SFSI("input[name='sfsi_youtube_user']").val(), P = 1 == SFSI("input[name='sfsi_pinterest_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_pinterest_countsDisplay']:checked").val(), M = 1 == SFSI("input[name='sfsi_pinterest_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_pinterest_countsFrom']:checked").val(), L = SFSI("input[name='sfsi_pinterest_manualCounts']").val(), B = SFSI("input[name='sfsi_pinterest_user']").val(), E = SFSI("input[name='sfsi_pinterest_board']").val(), z = 1 == SFSI("input[name='sfsi_instagram_countsDisplay']").prop("disabled") ? "" :SFSI("input[name='sfsi_instagram_countsDisplay']:checked").val(), A = 1 == SFSI("input[name='sfsi_instagram_countsFrom']").prop("disabled") ? "" :SFSI("input[name='sfsi_instagram_countsFrom']:checked").val(), N = SFSI("input[name='sfsi_instagram_manualCounts']").val(), H = SFSI("input[name='sfsi_instagram_User']").val(),ha = SFSI("input[name='sfsi_instagram_clientid']").val(),ia = SFSI("input[name='sfsi_instagram_appurl']").val(),ja = SFSI("input[name='sfsi_instagram_token']").val(), $ = {
         action:"updateSrcn4",
         sfsi_display_counts:e,
         sfsi_email_countsDisplay:t,
@@ -477,9 +474,6 @@ function sfsi_update_step4() {
         sfsi_instagram_clientid:ha,
         sfsi_instagram_appurl:ia,
         sfsi_instagram_token:ja,
-        sfsi_shares_countsDisplay:R,
-        sfsi_shares_countsFrom:W,
-        sfsi_shares_manualCounts:q,
 		nonce:nonce
     };
     return SFSI.ajax({
@@ -521,10 +515,7 @@ function sfsi_update_step5() {
        n = SFSI("#sfsi_icons_Alignment").val(),
         o = SFSI("input[name='sfsi_icons_ClickPageOpen']:checked").val(),
          
-         //a = SFSI("input[name='sfsi_icons_float']:checked").val(),
-          //dsb = SFSI("input[name='sfsi_disable_floaticons']:checked").val(),           
-           //r = SFSI("#sfsi_icons_floatPosition").val(),
-            
+         se = SFSI("input[name='sfsi_icons_suppress_errors']:checked").val(),          
             c = SFSI("input[name='sfsi_icons_stick']:checked").val(),
              p = SFSI("#sfsi_rssIcon_order").attr("data-index"),
               _ = SFSI("#sfsi_emailIcon_order").attr("data-index"),
@@ -534,7 +525,6 @@ function sfsi_update_step5() {
                   f = SFSI("#sfsi_youtubeIcon_order").attr("data-index"),
                    d = SFSI("#sfsi_pinterestIcon_order").attr("data-index"),
                     I = SFSI("#sfsi_instagramIcon_order").attr("data-index"),
-                     m = SFSI("#sfsi_shareIcon_order").attr("data-index"),
                       F = SFSI("#sfsi_linkedinIcon_order").attr("data-index"),
                        h = new Array();
 
@@ -551,7 +541,7 @@ function sfsi_update_step5() {
     //   msl = SFSI("input[name='sfsi_icons_floatMargin_left']").val(),
     //    msr = SFSI("input[name='sfsi_icons_floatMargin_right']").val();
 	
-    var v = 1 == SFSI("input[name='sfsi_rss_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_rss_MouseOverText']").val(), g = 1 == SFSI("input[name='sfsi_email_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_email_MouseOverText']").val(), k = 1 == SFSI("input[name='sfsi_twitter_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_twitter_MouseOverText']").val(), y = 1 == SFSI("input[name='sfsi_facebook_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_facebook_MouseOverText']").val(), b = 1 == SFSI("input[name='sfsi_google_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_google_MouseOverText']").val(), w = 1 == SFSI("input[name='sfsi_linkedIn_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_MouseOverText']").val(), x = 1 == SFSI("input[name='sfsi_youtube_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_youtube_MouseOverText']").val(), C = 1 == SFSI("input[name='sfsi_pinterest_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_pinterest_MouseOverText']").val(), D = 1 == SFSI("input[name='sfsi_instagram_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_instagram_MouseOverText']").val(), U = 1 == SFSI("input[name='sfsi_share_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_share_MouseOverText']").val(), O = {};
+    var v = 1 == SFSI("input[name='sfsi_rss_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_rss_MouseOverText']").val(), g = 1 == SFSI("input[name='sfsi_email_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_email_MouseOverText']").val(), k = 1 == SFSI("input[name='sfsi_twitter_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_twitter_MouseOverText']").val(), y = 1 == SFSI("input[name='sfsi_facebook_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_facebook_MouseOverText']").val(), b = 1 == SFSI("input[name='sfsi_google_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_google_MouseOverText']").val(), w = 1 == SFSI("input[name='sfsi_linkedIn_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_linkedIn_MouseOverText']").val(), x = 1 == SFSI("input[name='sfsi_youtube_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_youtube_MouseOverText']").val(), C = 1 == SFSI("input[name='sfsi_pinterest_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_pinterest_MouseOverText']").val(), D = 1 == SFSI("input[name='sfsi_instagram_MouseOverText']").prop("disabled") ? "" :SFSI("input[name='sfsi_instagram_MouseOverText']").val(), O = {};
     SFSI("input[name='sfsi_custom_MouseOverTexts[]']").each(function() {
         O[SFSI(this).attr("file-id")] = this.value;
     });
@@ -565,15 +555,7 @@ function sfsi_update_step5() {
         sfsi_icons_perRow:e,
         sfsi_icons_spacing:t,
         sfsi_icons_ClickPageOpen:o,
-
-  //       sfsi_icons_float:a,
-		// sfsi_disable_floaticons:dsb,
-  //       sfsi_icons_floatPosition:r,
-		// sfsi_icons_floatMargin_top:mst,
-		// sfsi_icons_floatMargin_bottom:msb,
-		// sfsi_icons_floatMargin_left:msl,
-		// sfsi_icons_floatMargin_right:msr,
-
+        sfsi_icons_suppress_errors:se,
 		sfsi_icons_stick:c,
         sfsi_rss_MouseOverText:v,
         sfsi_email_MouseOverText:g,
@@ -583,7 +565,6 @@ function sfsi_update_step5() {
         sfsi_youtube_MouseOverText:x,
         sfsi_linkedIn_MouseOverText:w,
         sfsi_pinterest_MouseOverText:C,
-        sfsi_share_MouseOverText:U,
         sfsi_instagram_MouseOverText:D,
         sfsi_custom_MouseOverTexts:O,
         sfsi_rssIcon_order:p,
@@ -593,7 +574,6 @@ function sfsi_update_step5() {
         sfsi_googleIcon_order:l,
         sfsi_youtubeIcon_order:f,
         sfsi_pinterestIcon_order:d,
-        sfsi_shareIcon_order:m,
         sfsi_instagramIcon_order:I,
         sfsi_linkedinIcon_order:F,
         sfsi_custom_orders:h,
@@ -1241,18 +1221,6 @@ function sfsi_validationStep4()
             }      
         }
   }
-  /* validate Atthis */
-  if(sfsi_validator(SFSI('input[name="sfsi_shares_countsDisplay"]'),'activte') && sfsi_validator(SFSI('input[name="sfsi_shares_countsDisplay"]'),'checked'))
-  {    
-        if(SFSI('input[name="sfsi_shares_countsFrom"]:checked').val()=='manual' )
-        {   
-            if(!sfsi_validator(SFSI('input[name="sfsi_shares_manualCounts"]'),'blank'))
-            {   showErrorSuc("error","Error : Please Enter Share icon manual counts ",4);
-                SFSI('input[name="sfsi_shares_manualCounts"]').addClass('inputError');
-                return false;
-            }      
-        }
-  }
   return true;
 }
 function sfsi_validationStep5()
@@ -1665,20 +1633,41 @@ function create_suscriber_form()
 
 var global_error = 0;
 
+if(typeof SFSI != 'undefined'){
+
+    function sfsi_dismiss_notice(btnClass,ajaxAction){
+        
+        var btnClass = "."+btnClass;
+
+        SFSI(document).on("click", btnClass, function(){
+            
+            SFSI.ajax({
+                url:ajax_object.ajax_url,
+                type:"post",
+                data:{action: ajaxAction},
+                success:function(e) {
+                    if(false != e){
+                        SFSI(btnClass).parent().remove();
+                    }
+                }
+            });
+        });
+    }
+}
+
 SFSI(document).ready(function(s) {
 
-    SFSI(document).on("click", ".sfsi-notice-dismiss", function(){
-        
-        SFSI.ajax({
-            url:ajax_object.ajax_url,
-            type:"post",
-            data:{action: "sfsi_dismiss_lang_notice"},
-            success:function(e) {
-                if(false != e){
-                    SFSI(".sfsi-notice-dismiss").parent().remove();
-                }
-            }
-        });
+    var arrDismiss = [
+
+        {"btnClass":"sfsi-notice-dismiss","action":"sfsi_dismiss_lang_notice"},
+
+        {"btnClass":"sfsi-AddThis-notice-dismiss","action":"sfsi_dismiss_addThis_icon_notice"},
+
+        {"btnClass":"sfsi_error_reporting_notice-dismiss","action":"sfsi_dismiss_error_reporting_notice"} 
+    ];
+
+    SFSI.each( arrDismiss, function( key, valueObj ) {
+        sfsi_dismiss_notice(valueObj.btnClass,valueObj.action);
     });
 
     //changes done {Monad}
@@ -1719,6 +1708,15 @@ SFSI(document).ready(function(s) {
 					s.parents(".row_tab").next(".row_tab").hide("fast");
 				create_suscriber_form()
 				break;
+            case 'sfsi_icons_suppress_errors':
+
+                SFSI('input[name="sfsi_icons_suppress_errors"]').removeAttr('checked');
+
+                if(s.val() == 'yes')
+                    SFSI('input[name="sfsi_icons_suppress_errors"][value="yes"]').attr('checked','true');
+                else
+                    SFSI('input[name="sfsi_icons_suppress_errors"][value="no"]').attr('checked','true');
+                break;                
 			default:
 		}	
 	});
@@ -1939,13 +1937,6 @@ SFSI(document).ready(function(s) {
 	SFSI(document).click(function(s) {
         var i = SFSI(".sfsi_FrntInner_chg"), e = SFSI(".sfsi_wDiv"), t = SFSI("#at15s");
         i.is(s.target) || 0 !== i.has(s.target).length || e.is(s.target) || 0 !== e.has(s.target).length || t.is(s.target) || 0 !== t.has(s.target).length || i.fadeOut();
-    }),
-	SFSI(".sfsi_outr_div").find(".addthis_button").mousemove(function() {
-        var s = SFSI(".sfsi_outr_div").find(".addthis_button").offset().top + 10;
-        SFSI("#at15s").css({
-            top:s + "px",
-            left:SFSI(".sfsi_outr_div").find(".addthis_button").offset().left + "px"
-        });
     }),
 	SFSI('#sfsi_popup_background_color').wpColorPicker({
 		defaultColor: false,
@@ -2289,11 +2280,7 @@ SFSI(document).ready(function(s) {
         SFSI('input[name="sfsi_instagram_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
         "manual" == SFSI("input[name='sfsi_instagram_countsFrom']:checked").val() ? (SFSI("input[name='sfsi_instagram_manualCounts']").slideDown(), 
         SFSI(".instagram_userLi").slideUp()) :(SFSI("input[name='sfsi_instagram_manualCounts']").slideUp(), 
-        SFSI(".instagram_userLi").slideDown())), 
-        
-        "sfsi_shares_countsFrom" == s.attr("name") && (SFSI('input[name="sfsi_shares_countsDisplay"]').prop("checked", !0), 
-        SFSI('input[name="sfsi_shares_countsDisplay"]').parent().find("span.checkbox").attr("style", "background-position:0px -36px;"), 
-        "manual" == SFSI("input[name='sfsi_shares_countsFrom']:checked").val() ? SFSI("input[name='sfsi_shares_manualCounts']").slideDown() :SFSI("input[name='sfsi_shares_manualCounts']").slideUp());
+        SFSI(".instagram_userLi").slideDown()));
     }),
 	
     sfsi_make_popBox(),

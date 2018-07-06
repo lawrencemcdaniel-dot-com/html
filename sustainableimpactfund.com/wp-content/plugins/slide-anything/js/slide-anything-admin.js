@@ -24,7 +24,7 @@ jQuery(function() {
 	var init_value = jQuery("#sa_slide_by").val();
 	jQuery("#jq_slider_by").slider({
 		range:"max",
-		min:1,
+		min:0,
 		max:12,
 		step:1,
 		value:init_value,

@@ -4,9 +4,9 @@ Donate link: https://www.opinionstage.com
 Tags: poll, quiz, survey, form, slideshow, story, article
 Requires at least: 2.8
 Tested up to: 4.9
-Stable tag: 19.3.4
+Stable tag: 19.3.5
 
-Add a poll, survey, quiz, slideshow, form & story article plugin. 
+Easily add polls, surveys, quizzes, slideshows, forms & story article to your website. 
 
 == Description ==
 
@@ -14,53 +14,23 @@ Easily add engaging & visual interactive content elements such as polls, quizzes
 
 https://www.youtube.com/watch?v=zwcRWGsOxxQ?rel=0&showinfo=0
 
-= Poll Examples: =
-
-For poll examples, checkout the <a href="https://www.opinionstage.com/showcase?o=wp35e8" target="_blank">Poll Showcase.</a>
-
-= Trivia Quiz Example: =
-
-For a trivia quiz example, checkout this <a href="https://www.opinionstage.com/rsacks/test-your-olympic-knowledge?o=wp35e8" target="_blank">Trivia Quiz.</a>
-
-= Personality Quiz Example: =
-
-For a personality quiz example, checkout this <a href="https://www.opinionstage.com/rsacks/how-healthy-are-you?o=wp35e8" target="_blank">Outcome Quiz.</a>
-
-= Survey Example: =
-
-For a survey example, checkout this <a href="https://www.opinionstage.com/opinionstage/help-us-improve-opinion-stage1?o=wp35e8" target="_blank">Survey.</a>
-
-= Form Example: =
-
-For a form example, checkout this <a href="https://www.opinionstage.com/jamiescott935/inquiry-form?o=wp35e8" target="_blank">Form.</a>
-
-= Slideshow Example: =
-
-For a slideshow example, checkout this <a href="https://www.opinionstage.com/maryna_bond/top-reasons-why-to-drink-water-daily?o=wp35e8" target="_blank">Slideshow.</a>
-
-= List Example: =
-
-For a List example, checkout this <a href="https://www.opinionstage.com/polldiscovery/the-5-best-sources-for-great-free-images?o=wp35e8" target="_blank">List.</a>
-
-= Story Example: =
-
-For a Story example, checkout this <a href="https://www.opinionstage.com/quiz/buzzfeed-quiz-create-a-buzzfeed-style-quiz?o=wp35e8" target="_blank">Story.</a>
-
 =  Why use Opinion Stage interactive content tools? =
 
- * Manage all your interactive content (polls, surveys, quizzes, slideshows, forms & stories) from one dashboard
+ * Manage all your interactive content (polls, surveys, quizzes, slideshows, forms & article stories) from one dashboard
  * Opinion Stage makes it easy and fast to create content. It literally takes minutes to get up & going with a poll, quiz, survey or slideshow
  * Create content from scratch or use pre-made content templates to further speed the creation process
  * Boost engagement - polls, surveys, quizzes, slideshows and forms increase participation, time-on-site & page views
  * Drive new traffic from social shares - quizzes, polls & slideshows are known to be one of the most shared types of content on the internet
+ * Supports a social sharing bar that includes sharing buttons to all the popular social networks and an integration with facebook comments
  * Generate revenue by integrating ads in the interactive content - build upon the high engagement rates to increase revenue from your ads
  * Gather more leads by integrating a lead form inside the content (e.g. poll, quiz). This will not only produce more leads, but will also produce leads of higher quality, as the leads will be associated with the answers of the users.
  * Works seamlessly on all environments - Opinion Stage uses responsive design techniques to fully support all platforms & screen sizes, including desktops, tablets and mobile devices. Reach your target audience wherever they are
  * Embed in any location - in the sidebar, inside a post/page, in a section on your site or in a popup
+ * Supports setting the color theme, fonts & sizes & title ortientation of the different contetn formats
+ * White label the content and add your own logo to make it seem as if it was build by your brand
 
 = Main Poll Features: =
 
- * Manage all your polls from one dashboard
  * Create polls with 4 different graphic layouts - standard, images, thumbnails & head-to-head layouts
  * Easily add images & videos into the polls either from your computer or by using an integrated search function
  * Configure if user can select one or more options to vote on
@@ -69,40 +39,26 @@ For a Story example, checkout this <a href="https://www.opinionstage.com/quiz/bu
  * Permit user to vote once every configured time frame (e.g. every hour, day, etc)
  * Display a customized message to the user after he votes
  * Configure to close the poll at a specified time. You can also always manually open or close the poll
- * Add Facebook comments to the poll
  * Redirect users to different landing pages based no what they voted for
- * Generate leads by integrating a lead form inside the poll
  * Configure the order of the sides (e.g. most votes on top, random)
  * Configure if results are displayed before voting, after voting or only to the poll creator
  * Configure how results are displayed to the voters (only percentage, number of votes, both, etc)
  * Configure if users are allowed to change their vote after they voted
- * Set the color theme from a pre-defined list of color themes
- * Set the font to be used in the poll
- * Set the title alignment and whether to add a top border to the poll
- * Use CSS override feature to completely match the poll look & feel to your brand (e.g. size, color, etc)
- * Sharing bar that includes sharing buttons of the most popular social networks (e.g. facebook, twitter, pinterest, etc) to promote social sharing that drives traffic back to your site
  * Configure to request users to follow your facebook handle before viewing the results
  * Configure to offer users to follow your twitter handle when they share the poll in twitter
  * Configure webhooks for sending the information gathered from your poll to any 3rd party application
  * Configure to integrate ads inside the poll to increase ad-revenue from your site
- * White label the poll and add your own logo to the poll
  * Get reports of number of views and leads gathered with your polls
  * View graphic presentations of the results including pie & chart bars that show the break down of votes in the different sides
  * View a detailed result table of all votes (e.g. vote side, vote timestamp, etc)
  * Export the results to an xls or csv file
+ * Checkout the <a href="https://www.opinionstage.com/showcase?o=wp35e8" target="_blank">Poll Showcase</a>
 
  = Main Quiz Features: =
 
- * Manage all your quizzes from one dashboard
  * Create personality quizzes or trivia quizzes
  * Integrate images & videos in the quizzes either from your computer or using online search capabilities
- * Get the quiz shared in social networks via the quiz sharing bar, driving social traffic to your quiz and site
- * Generate leads by integrating a lead form inside the quiz - this results with more leads compared to standard static forms and leads of higher quality as the leads are associated with answers
- * Set the look & feel of the quiz, including the color theme, font, sizes, and more
- * Use CSS override to fully match the quiz interface to your site or brand
- * White label the quiz and add your own logo
  * Set the image shared in social networks
- * Configure facebook comments on the bottom of the quiz
  * Configure to request users to like your facebook page before they view the results
  * Configure the facebook & twitter sharing message
  * Configure webhooks for sending all the information gathered in the quiz to any 3rd party application
@@ -118,64 +74,55 @@ For a Story example, checkout this <a href="https://www.opinionstage.com/quiz/bu
  * Support for randomizing answers to improve validity of results
  * Support for call-to-action buttons at the end of the quiz
  * Support sending to different landing pages based on the quiz outcome
+ * Checkout this <a href="https://www.opinionstage.com/rsacks/test-your-olympic-knowledge?o=wp35e8" target="_blank">Trivia Quiz Example</a>
+ * Checkout this <a href="https://www.opinionstage.com/rsacks/how-healthy-are-you?o=wp35e8" target="_blank">Personality Quiz Example</a>
 
  = Main Survey Features: =
 
- * Manage all your surveys from one dashboard
  * Integrate images & videos to make the survey appealing & engaging. You can either upload images from your computer or use online search to locate free-to-use images
  * Support both single selection and multiple selection questions and supports allowing users to add their own answer
  * Support open ended questions of different types
  * Supports informative cards that can be displayed inside the survey
- * Supports integrating a lead form in the survey for gathering contact information from users filling the survey (e.g. email, name, phone, etc)
  * Supports a call-to-action action at the end of the survey
  * Supports branch logic that lets you determine which question is asked next based on the answer to the last question
  * Supports setting variables that can be set based on answers of users (for example saving their name to use in following questions)
- * Supports white labeling the survey and adding your own logo to it
- * Supports setting different color themes, fonts, sizes and more
- * Supports full customization using  a CSS override feature
  * Supports social integrations, such as adding a social sharing bar, integrations with facebook like box and facebook comments and twitter message customization
  * Supports sending submissions via email to the survey creator
  * Supports webhooks for sending all the gathered information to a 3rd party tool
  * Naive integrations with mailchimp & hubspot
  * Integration with pixels to optimize ad-campaigns focused on getting relevant audience to the survey
- * Overview statics that include number of views, starts, completions, # of engagement, average time on survey and # of leads gathered
+ * Overview statistics that include number of views, starts, completions, # of engagement, average time on survey and # of leads gathered
  * Detailed response table, each response with all the answers and meta data such as timestamp of submission
  * Graphic display (pie chart & bar chart) of answers to each one of the questions
  * Drop off report to help optimize the survey for maximum completion rates
+ * Checkout this <a href="https://www.opinionstage.com/opinionstage/help-us-improve-opinion-stage1?o=wp35e8" target="_blank">Survey Example</a>
 
  = Main Slideshow Features: =
 
- * Manage all your slideshows from one dashboard
  * Add slideshows using images, videos & text
- * Collect leads by using a lead form integrated inside the slide show. You can send the gathered leads to any 3rd part software using webhooks
- * Add a call for action at the end of the slideshow
- * White label the slideshow and add your own logo
- * Customize the color theme, font, sizes and more
- * Use a CSS override feature to fully match the look & feel of the slideshow to your brand
- * Integrate facebook comments component to the slideshow
+ * Add a call to action at the end of the slideshow
+ * View Statistics that incldue how many people viewed, started and completed the slideshow and a drop-off report to optimize the slideshow for completion
+ * Checkout this <a href="https://www.opinionstage.com/maryna_bond/top-reasons-why-to-drink-water-daily?o=wp35e8" target="_blank">Slideshow Example</a>
 
  = Main Form Features: =
 
- * Manage all your forms from one dashboard
  * Supports Short & long text fields
  * Supports Email fields including 2 approval checkboxes
  * Support phone number field
  * Supports drop-down field
- * Customize the look and feel of the form including setting the color theme, fonts, sizes. Use CSS override to fully customize the form
  * Configure to send an email to form creator on each submission
  * Support sending all the gathered information to a 3rd party application using webhooks
  * Supports native integrations with mailchimp and hubspot
  * View statistics on # of views vs. # of submissions
  * View all submissions including the all field entries and meta data such as timestamp of submission
+ * Checkout this <a href="https://www.opinionstage.com/jamiescott935/inquiry-form?o=wp35e8" target="_blank">Form Example</a>
 
  = Main Story Article Features: =
 
  * Create an interactive article that includes visual & interactive elements
  * Supports adding polls, personality quizzes, trivia quizzes, forms, slideshows & surveys into the story article
  * Supports adding text, images & videos to the story article, including an image search function that lets you locate free images
- * Supports white labeling the story article
- * Supports setting the color theme, fonts & sizes. You can use a css override feature to fully match the tool to your brand or site
- * Supports a social sharing bar that includes sharing buttons to all the popular social networks and an integration with facebook comments
+ * Checkout this <a href="https://www.opinionstage.com/quiz/buzzfeed-quiz-create-a-buzzfeed-style-quiz?o=wp35e8" target="_blank">Story Article Example</a>
 
  = Placements: =
 
@@ -222,6 +169,8 @@ Yes, all content created with Opinion Stage is fully responsive, and designed to
 N/A
 
 == Changelog ==
+  = 19.3.5 =
+  * more updates to readme.txt file
   = 19.3.4 =
   * rename plugin
   * update to readme.txt file

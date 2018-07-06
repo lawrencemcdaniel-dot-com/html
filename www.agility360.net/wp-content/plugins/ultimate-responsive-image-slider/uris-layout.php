@@ -207,116 +207,130 @@ jQuery( document ).ready(function() {
 		display: none;
 	}
 }
+.fnf{
+	background-color: #a92929;
+	border-radius: 5px;
+	color: #fff;
+	font-family: initial;
+	text-align: center;
+	padding:12px;
+}
 /* Custom CSS */
 <?php echo $WRIS_L3_Custom_CSS; ?>
 </style>
 <?php  if($WRIS_L3_Slide_Title) { ?>
 <h3 class="uris-slider-title uris-title"><?php echo get_the_title( $post_id ); ?></h3>
-<?php } ?>
-<div id="example3_<?php echo $post_id; ?>" class="slider-pro">
-	<!---- slides div start ---->
-	<div class="sp-slides">
-		<?php 
-		foreach($RPGP_AllPhotosDetails as $RPGP_SinglePhotoDetails) {
-		$Title = $RPGP_SinglePhotoDetails['rpgp_image_label'];
-		$Desc = $RPGP_SinglePhotoDetails['rpgp_image_desc'];
-		$Url = $RPGP_SinglePhotoDetails['rpgp_image_url'];
-		$i++;
-		if($Title == "") {
-			// if slide title blank then
-			global $wpdb;
-			$post_table_name = $wpdb->prefix. "posts";
-			if(count($attachment = $wpdb->get_col($wpdb->prepare("SELECT `post_title` FROM `$post_table_name` WHERE `guid` LIKE '%s'", $Url)))) { 
-				// attachment title as alt
-				$slide_alt = $attachment[0];
-				if(empty($attachment[0])) {
-					// post title as alt
-					$slide_alt = get_the_title( $post_id );
-				}
-			}
-		} else {
-			// slide title as alt
-			$slide_alt = $Title;
-		}
-		?>			
-		<div class="sp-slide">
-			<img class="sp-image" alt="<?php echo esc_attr($slide_alt); ?>" src="<?php echo WRIS_PLUGIN_URL; ?>css/images/blank.gif" data-src="<?php echo esc_url($Url); ?>" />
-
-			<?php if($Title != "") { ?>
-			<p class="sp-layer sp-white sp-padding title-in title-in-bg hide-small-screen" 
-				data-position="centerCenter"
-				data-vertical="-14%"
-				data-show-transition="left" data-show-delay="500">
-				<?php // set slide title as a custom title
-					if($WRIS_L3_Set_slide_Title==0){
-						if(strlen($Title) > 100 ) echo substr($Title,0,100); else echo esc_html( $Title ); 
-					}else{ // set slide title as a file title
+<?php } 
+	if($TotalImages>0){ 
+?>
+		<div id="example3_<?php echo $post_id; ?>" class="slider-pro">
+			<!---- slides div start ---->
+			<div class="sp-slides">
+				<?php 
+					if(is_array($RPGP_AllPhotosDetails)){
+						foreach($RPGP_AllPhotosDetails as $RPGP_SinglePhotoDetails) {
+						$Title = $RPGP_SinglePhotoDetails['rpgp_image_label'];
+						$Desc = $RPGP_SinglePhotoDetails['rpgp_image_desc'];
+						$Url = $RPGP_SinglePhotoDetails['rpgp_image_url'];
+						$i++;
+						if($Title == "") {
+							// if slide title blank then
 							global $wpdb;
 							$post_table_name = $wpdb->prefix. "posts";
 							if(count($attachment = $wpdb->get_col($wpdb->prepare("SELECT `post_title` FROM `$post_table_name` WHERE `guid` LIKE '%s'", $Url)))) { 
-							// attachment title as slide title
-							echo $Title = $attachment[0];
-							if(empty($attachment[0])) {
-								// post title as slide title
-								echo $Title = get_the_title( $post_id );
+								// attachment title as alt
+								$slide_alt = $attachment[0];
+								if(empty($attachment[0])) {
+									// post title as alt
+									$slide_alt = get_the_title( $post_id );
+								}
 							}
-						}	
-					}
-				?>
-			</p>
-			<?php } 
-			?>
-
-			<?php if($Title == "" && $WRIS_L3_Set_slide_Title==1 ) { ?>
-			<p class="sp-layer sp-white sp-padding title-in title-in-bg hide-small-screen" 
-				data-position="centerCenter"
-				data-vertical="-14%"
-				data-show-transition="left" data-show-delay="500">
-				<?php // set slide title as a custom title
-					if($WRIS_L3_Set_slide_Title==1){
-							global $wpdb;
-							$post_table_name = $wpdb->prefix. "posts";
-							if(count($attachment = $wpdb->get_col($wpdb->prepare("SELECT `post_title` FROM `$post_table_name` WHERE `guid` LIKE '%s'", $Url)))) { 
-							// attachment title as slide title
-							echo $Title = $attachment[0];
-							if(empty($attachment[0])) {
-								// post title as slide title
-								echo $Title = get_the_title( $post_id );
-							}
+						} else {
+							// slide title as alt
+							$slide_alt = $Title;
 						}
-					}	
-					
-				?>
-			</p>
-			<?php } 
-			?>
+						?>			
+						<div class="sp-slide">
+							<img class="sp-image" alt="<?php echo esc_attr($slide_alt); ?>" src="<?php echo WRIS_PLUGIN_URL; ?>css/images/blank.gif" data-src="<?php echo esc_url($Url); ?>" />
 
-			<?php if($Desc != "") { ?>
-			<p class="sp-layer sp-black sp-padding desc-in desc-in-bg hide-medium-screen" 
-				data-position="centerCenter"
-				data-vertical="14%"
-				data-show-transition="right" data-show-delay="500">
-				<?php if(strlen($Desc) > 300 ) echo substr($Desc,0,300)."..."; else echo $Desc; ?>
-			</p>
+							<?php if($Title != "") { ?>
+							<p class="sp-layer sp-white sp-padding title-in title-in-bg hide-small-screen" 
+								data-position="centerCenter"
+								data-vertical="-14%"
+								data-show-transition="left" data-show-delay="500">
+								<?php // set slide title as a custom title
+									if($WRIS_L3_Set_slide_Title==0){
+										if(strlen($Title) > 100 ) echo substr($Title,0,100); else echo esc_html( $Title ); 
+									}else{ // set slide title as a file title
+											global $wpdb;
+											$post_table_name = $wpdb->prefix. "posts";
+											if(count($attachment = $wpdb->get_col($wpdb->prepare("SELECT `post_title` FROM `$post_table_name` WHERE `guid` LIKE '%s'", $Url)))) { 
+											// attachment title as slide title
+											echo $Title = $attachment[0];
+											if(empty($attachment[0])) {
+												// post title as slide title
+												echo $Title = get_the_title( $post_id );
+											}
+										}	
+									}
+								?>
+							</p>
+							<?php } 
+							?>
+
+							<?php if($Title == "" && $WRIS_L3_Set_slide_Title==1 ) { ?>
+							<p class="sp-layer sp-white sp-padding title-in title-in-bg hide-small-screen" 
+								data-position="centerCenter"
+								data-vertical="-14%"
+								data-show-transition="left" data-show-delay="500">
+								<?php // set slide title as a custom title
+									if($WRIS_L3_Set_slide_Title==1){
+											global $wpdb;
+											$post_table_name = $wpdb->prefix. "posts";
+											if(count($attachment = $wpdb->get_col($wpdb->prepare("SELECT `post_title` FROM `$post_table_name` WHERE `guid` LIKE '%s'", $Url)))) { 
+											// attachment title as slide title
+											echo $Title = $attachment[0];
+											if(empty($attachment[0])) {
+												// post title as slide title
+												echo $Title = get_the_title( $post_id );
+											}
+										}
+									}	
+									
+								?>
+							</p>
+							<?php } 
+							?>
+
+							<?php if($Desc != "") { ?>
+							<p class="sp-layer sp-black sp-padding desc-in desc-in-bg hide-medium-screen" 
+								data-position="centerCenter"
+								data-vertical="14%"
+								data-show-transition="right" data-show-delay="500">
+								<?php if(strlen($Desc) > 300 ) echo substr($Desc,0,300)."..."; else echo $Desc; ?>
+							</p>
+							<?php } ?>
+						</div>
+						<?php } //end for each 
+					}//end of is_array ?>		
+			</div>
+			
+			<!---- slides div end ---->
+			<?php 
+			if($WRIS_L3_Slider_Navigation == 1) {
+			?>
+			<!-- slides thumbnails div start -->
+			<div class="sp-thumbnails">
+				<?php 
+				if(is_array($RPGP_AllPhotosDetails)){
+					foreach($RPGP_AllPhotosDetails as $RPGP_SinglePhotoDetails) {
+						$ThumbUrl = $RPGP_SinglePhotoDetails['rpggallery_admin_thumb'];
+						$j++; ?>
+						<img class="sp-thumbnail" src="<?php echo WRIS_PLUGIN_URL; ?>img/loading.gif" data-src="<?php echo esc_url($ThumbUrl); ?>"/>
+					<?php } // end of foreach 
+				}// end of is_array ?>
+			</div>
 			<?php } ?>
+			<!-- slides thumbnails div end -->	
 		</div>
-		<?php } //end for each ?>		
-	</div>
-	
-	<!---- slides div end ---->
-	<?php 
-	if($WRIS_L3_Slider_Navigation == 1) {
-	?>
-	<!-- slides thumbnails div start -->
-	<div class="sp-thumbnails">
-		<?php 
-		foreach($RPGP_AllPhotosDetails as $RPGP_SinglePhotoDetails) {
-			$ThumbUrl = $RPGP_SinglePhotoDetails['rpggallery_admin_thumb'];
-			$j++; ?>
-			<img class="sp-thumbnail" src="<?php echo WRIS_PLUGIN_URL; ?>img/loading.gif" data-src="<?php echo esc_url($ThumbUrl); ?>"/>
-		<?php } ?>
-	</div>
-	<?php } ?>
-	<!-- slides thumbnails div end -->	
-</div>
-<?php endwhile; ?>
+<?php } else { ?> <div class="fnf"><i class="far fa-times-circle"></i> No Slide Found In Slider.</div> <?php } endwhile; ?>

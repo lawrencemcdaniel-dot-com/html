@@ -403,21 +403,6 @@ function sfsi_validationStep4()
             }      
         }
   }
-  /* validate Atthis */
-  if(sfsi_validator(SFSI('input[name="sfsi_shares_countsDisplay"]'),'activte') && sfsi_validator(SFSI('input[name="sfsi_shares_countsDisplay"]'),'checked'))
-  {    
-        
-       
-        if(SFSI('input[name="sfsi_shares_countsFrom"]:checked').val()=='manual' )
-        {   
-            
-          if(!sfsi_validator(SFSI('input[name="sfsi_shares_manualCounts"]'),'blank'))
-            {   showErrorSuc("error","Error : Please Enter Share icon manual counts ",4);
-                SFSI('input[name="sfsi_shares_manualCounts"]').addClass('inputError');
-                return false;
-            }      
-        }
-  }
   
   
     return true;

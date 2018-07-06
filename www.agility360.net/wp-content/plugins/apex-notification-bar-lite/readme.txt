@@ -4,7 +4,7 @@ Tags: notification bar, bar, responsive bar, notify bar, notify , wordpress noti
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -198,6 +198,10 @@ No, It will not affect the loading of the site in anyways.
 23.  Screenshot 23 - Controls Settings : Disable, Show/Hide, Close button
 
 == Changelog ==
+= 1.0.3 =
+* Default value set for search button and description if left empty issue fixed.
+* Few JS refinement done.
+
 = 1.0.2 =
 * Few CSS refinement.
 * Latest WordPress Version compatible check.

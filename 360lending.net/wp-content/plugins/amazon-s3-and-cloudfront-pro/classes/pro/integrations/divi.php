@@ -12,14 +12,14 @@ class Divi extends Integration {
 	public function is_installed() {
 		$theme_info = wp_get_theme();
 
-		if ( esc_html( $theme_info->get( 'Name' ) ) === 'Divi' ) {
+		if ( ! empty( $theme_info ) && is_a( $theme_info, 'WP_Theme' ) && ( $theme_info->get( 'Name' ) ) === 'Divi' ) {
 			return true;
 		}
 
 		if ( is_child_theme() ) {
 			$parent_info = $theme_info->parent();
 
-			if ( esc_html( $parent_info->get( 'Name' ) ) === 'Divi' ) {
+			if ( ! empty( $parent_info ) && is_a( $parent_info, 'WP_Theme' ) && esc_html( $parent_info->get( 'Name' ) ) === 'Divi' ) {
 				return true;
 			}
 		}
