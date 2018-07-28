@@ -3,7 +3,7 @@ Contributors: simonpedge
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RP7JLGK6VT252
 Tags: slider, carousel, content slider, responsive slider, html slider, owl carousel
 Requires at least: 4.0
-Tested up to: 4.9.6
+Tested up to: 4.9.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -211,6 +211,12 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 * Added the Slide By 'page' option, which is set by setting the 'Slide By' slider input to 0.
 * For Slide Anything PRO YouTube video popups, added the 'rel=0' paramerter so that related videos are not displayed at the end of a video playback. This has been requested quite a bit, and I have modified the 'Magnific Popup' code so that this parameter is added to the iframe code generated.
 
+= 2.1.9 =
+* Added a new 'Use window.onload event' checkbox setting. By default, Slide Anything loads it JavaSctipt/jQuery code during the 'document.ready' event. If this new option is checked, then the JavaSctipt/jQuery code is loaded during the 'window.onload' event, and this event is only executed after all the assets for the page have been loaded - all images, CSS etc. Using this option solves an issue that sometimes occurs when inserting a Slide Anything slider into a Visual Composer full-width section, and these full-width containers are created/calculated dynamically by adding negative left/right margins to the container after the SA JavaScript/jQuery code is executed.
+
+= 2.1.10 =
+* Minor bug fix for the new 'Use window.onload event' checkbox setting.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -337,3 +343,9 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 = 2.1.8 =
 * Added the Slide By 'page' option, which is set by setting the 'Slide By' slider input to 0.
 * For Slide Anything PRO YouTube video popups, added the 'rel=0' paramerter so that related videos are not displayed at the end of a video playback. This has been requested quite a bit, and I have modified the 'Magnific Popup' code so that this parameter is added to the iframe code generated.
+
+= 2.1.9 =
+* Added a new 'Use window.onload event' checkbox setting. By default, Slide Anything loads it JavaSctipt/jQuery code during the 'document.ready' event. If this new option is checked, then the JavaSctipt/jQuery code is loaded during the 'window.onload' event, and this event is only executed after all the assets for the page have been loaded - all images, CSS etc. Using this option solves an issue that sometimes occurs when inserting a Slide Anything slider into a Visual Composer full-width section, and these full-width containers are created/calculated dynamically by adding negative left/right margins to the container after the SA JavaScript/jQuery code is executed.
+
+= 2.1.10 =
+* Minor bug fix for the new 'Use window.onload event' checkbox setting.

@@ -2078,6 +2078,9 @@ class Essential_Grid_Youtube {
 	 */
 	private $transient_sec;
 
+
+	private $enable_youtube_nocookie;
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -2088,6 +2091,7 @@ class Essential_Grid_Youtube {
 		$this->api_key = $api_key;
 		$this->channel_id = $channel_id;
 		$this->transient_sec = $transient_sec;
+		$this->enable_youtube_nocookie = get_option('tp_eg_enable_youtube_nocookie', 'false');
 	}
 
 
@@ -2334,6 +2338,7 @@ class Essential_Grid_Youtube {
 				$stream['custom-type'] = 'youtube'; //image, vimeo, youtube, soundcloud, html
 				$stream['custom-youtube'] = $video->snippet->resourceId->videoId;
 				$stream['post-link'] = 'https://www.youtube.com/watch?v='.$video->snippet->resourceId->videoId;
+				if($this->enable_youtube_nocookie!="false") $stream['post-link'] = 'https://www.youtube-nocookie.com/embed/'.$video->snippet->resourceId->videoId;
 				$stream['title'] = $video->snippet->title;
 				$stream['channel_title'] = $video->snippet->channelTitle;
 				$url = '~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i';
@@ -2395,6 +2400,7 @@ class Essential_Grid_Youtube {
 				$stream['custom-type'] = 'youtube'; //image, vimeo, youtube, soundcloud, html
 				$stream['custom-youtube'] = $video->id->videoId;
 				$stream['post-link'] = 'https://www.youtube.com/watch?v='.$video->id->videoId;
+				if($this->enable_youtube_nocookie!="false") $stream['post-link'] = 'https://www.youtube-nocookie.com/embed/'.$video->id->videoId;
 				$stream['title'] = $video->snippet->title;
 				$stream['channel_title'] = $video->snippet->channelTitle;
 				$url = '~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i';

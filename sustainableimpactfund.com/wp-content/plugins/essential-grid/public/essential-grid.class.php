@@ -5,7 +5,7 @@
  * @package   Essential_Grid
  * @author    ThemePunch <info@themepunch.com>
  * @link      http://www.themepunch.com/essential/
- * @copyright 2016 ThemePunch
+ * @copyright 2018 ThemePunch
  */
 
 if( !defined( 'ABSPATH') ) exit();
@@ -20,7 +20,7 @@ class Essential_Grid {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	const VERSION = '2.2.4.2';
+	const VERSION = '2.2.5';
 	const TABLE_GRID = 'eg_grids';
 	const TABLE_ITEM_SKIN = 'eg_item_skins';
 	const TABLE_ITEM_ELEMENTS = 'eg_item_elements';
@@ -97,6 +97,7 @@ class Essential_Grid {
 				add_action('init', array($this, 'remove_wp_gallery'));
 				add_action('init', array($this,'add_ess_grid_gallery'));
 			}
+			add_filter('post_gallery', array($this,'use_ess_grid_gallery'), 10, 2);
 			
 			//Woo Add to Cart Updater
 			add_filter('woocommerce_add_to_cart_fragments', array('Essential_Grid_Woocommerce','woocommerce_header_add_to_cart_fragment'));
@@ -774,7 +775,8 @@ class Essential_Grid {
 		
 		if(function_exists('is_multisite') && is_multisite() && $networkwide){ //do for each existing site
 		
-			$old_blog = $wpdb->blogid;
+			// 2.2.5
+			// $old_blog = $wpdb->blogid;
 			
             // Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -782,9 +784,13 @@ class Essential_Grid {
             foreach($blogids as $blog_id){
 				switch_to_blog($blog_id);
 				self::_create_tables();
+				
+				// 2.2.5
+				restore_current_blog();
             }
 			
-            switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+            // switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{  //no multisite, do normal installation
 		
@@ -3791,6 +3797,7 @@ class Essential_Grid {
     
     
     public function output_grid_javascript($load_lightbox = false, $is_demo = false){
+
 		global $esg_grid_serial;
 		
         $base = new Essential_Grid_Base();
@@ -3827,7 +3834,39 @@ class Essential_Grid {
         
         $space = $base->getVar($this->grid_params, 'spacings', 0, 'i');
         $page_animation = $base->getVar($this->grid_params, 'grid-animation', 'scale');
-        $anim_speed = $base->getVar($this->grid_params, 'grid-animation-speed', 800, 'i');
+		
+		$layout_sizing = $base->getVar($this->grid_params, 'layout-sizing', 'boxed');
+        $layout_offset_container = $base->getVar($this->grid_params, 'fullscreen-offset-container', '');
+		
+		// 2.2.5
+		$start_animation = $base->getVar($this->grid_params, 'grid-start-animation', 'reveal');
+		$start_animation_speed = $base->getVar($this->grid_params, 'grid-start-animation-speed', 1000, 'i');
+		$start_animation_delay = $base->getVar($this->grid_params, 'grid-start-animation-delay', 100, 'i');
+		$start_animation_type = $base->getVar($this->grid_params, 'grid-start-animation-type', 'item');
+		$animation_type = $base->getVar($this->grid_params, 'grid-animation-type', 'item');
+		
+		// 2.2.5
+		$in_viewport = $base->getVar($this->grid_params, 'start-anime-in-viewport', 'off') === 'off' ? 'true' : 'false';
+		$viewport_buffer = $base->getVar($this->grid_params, 'start-anime-viewport-buffer', 20, 'i');
+		$viewport_buffer = intval($viewport_buffer);
+		$viewport_buffer = max($viewport_buffer, 0);
+		$viewport_buffer = min($viewport_buffer, 80);
+		
+		if($start_animation === 'reveal' || $start_animation === 'none') $in_viewport = 'true';
+		if($start_animation === 'reveal') {
+			if($layout_sizing !== 'fullscreen') {
+				$start_animation = 'none';
+				$hide_markup_before_load = 'on';
+			}
+			else {
+				$start_animation = 'scale';
+				$start_animation_delay = 0;
+				$hide_markup_before_load = 'off';
+			}
+			
+		}
+        
+		$anim_speed = $base->getVar($this->grid_params, 'grid-animation-speed', 800, 'i');
         $delay_basic = $base->getVar($this->grid_params, 'grid-animation-delay', 1, 'i');
         $delay_hover = $base->getVar($this->grid_params, 'hover-animation-delay', 1, 'i');
         $filter_type = $base->getVar($this->grid_params, 'filter-arrows', 'single');
@@ -3861,11 +3900,13 @@ class Essential_Grid {
 		// 2.2 Deeplinking
 		$filter_deep_linking = $base->getVar($this->grid_params, 'filter-deep-link', 'off');
 		
+		// 2.2.5 Mobile Filter Conversion
+		$single_filters = $base->getVar($this->grid_params, 'filter-arrows', 'single');
+		$filter_mobile_conversion = $single_filters === 'single' && wp_is_mobile() ? $base->getVar($this->grid_params, 'convert-mobile-filters', 'off') : false;
+		$filter_mobile_conversion = $filter_mobile_conversion === 'on' ? 'true' : 'false';
+		
 		if(!is_array($lb_featured_margin) || count($lb_featured_margin) !== 4) $lb_featured_margin = array('0', '0', '0', '0');
 		$lb_featured_margin = implode('|', $lb_featured_margin);
-		
-        $layout_sizing = $base->getVar($this->grid_params, 'layout-sizing', 'boxed');
-        $layout_offset_container = $base->getVar($this->grid_params, 'fullscreen-offset-container', '');
         
         $aspect_ratio_x = $base->getVar($this->grid_params, 'x-ratio', 4, 'i');
         $aspect_ratio_y = $base->getVar($this->grid_params, 'y-ratio', 3, 'i');
@@ -3977,7 +4018,7 @@ class Essential_Grid {
 		$cookie_pagination = $base->getVar($this->grid_params, 'cookie-save-pagination', 'off');
 		
 		$js_to_footer = (get_option('tp_eg_js_to_footer', 'false') == 'true') ? true : false;
-		
+
 		//add inline style into the footer
 		if($js_to_footer && $is_demo == false){
 			ob_start();
@@ -4036,7 +4077,7 @@ class Essential_Grid {
 			echo '		else'."\n";
 			echo '			return lastamount;'."\n";
 			echo '	}'."\n";
-	        echo 'if ("'.$layout.'"=="even") {'."\n";
+	        // echo 'if ("'.$layout.'"=="even") {'."\n";
 			echo '	var coh=0,'."\n";
 			echo '		container = jQuery("#esg-grid-'.$this->grid_div_name.'-'.$esg_grid_serial.'");'."\n";
 			if($layout_sizing == 'fullscreen'){
@@ -4051,11 +4092,12 @@ class Essential_Grid {
 					echo '} catch(e) {}'."\n";
 				}
 			} else {
-				echo '	var	cwidth = container.width(),'."\n";
+				echo '	var	cwidth = "' . $layout_sizing . '" == "boxed" ? container.width() : jQuery(window).width(),'."\n";
 				echo '		ar = "'.$aspect_ratio_x.':'.$aspect_ratio_y.'",'."\n";
-				echo '		gbfc = eggbfc(jQuery(window).width(),"id"),'."\n";
+				echo '		gbfc = eggbfc(cwidth,"id"),'."\n";
 				if($rows_unlimited == 'on'){
-					echo '	row = 2;'."\n";
+					$load_more_start = $base->getVar($this->grid_params, 'load-more-start', 3, 'i');
+					echo '	row = Math.ceil(' . $load_more_start . ' / gbfc.column);'."\n";
 				} else {
 					echo '	row = '.$rows.';'."\n";
 				}
@@ -4066,7 +4108,7 @@ class Essential_Grid {
 			}
 			echo '	var ul = container.find("ul").first();'."\n";
 			echo '	ul.css({display:"block",height:coh+"px"});'."\n";
-			echo '}'."\n";
+			// echo '}'."\n";
 		}
 		
         echo 'var essapi_'.$this->grid_api_name.';'."\n";
@@ -4149,6 +4191,13 @@ class Essential_Grid {
         echo '        space:'.$space.','."\n";
         echo '        pageAnimation:"'.$page_animation.'",'."\n";
 		
+		// 2.2.5
+		echo '        startAnimation: "' . $start_animation . '",'."\n";
+		echo '        startAnimationSpeed: ' . $start_animation_speed . ','."\n";
+		echo '        startAnimationDelay: ' . $start_animation_delay . ','."\n";
+		echo '        startAnimationType: "' . $start_animation_type . '",'."\n";
+		echo '        animationType: "' . $animation_type . '",'."\n";
+		
 		if($pagination_numbers == 'full')
 			echo '        smartPagination:"off",'."\n";
 		
@@ -4218,9 +4267,16 @@ class Essential_Grid {
         echo '        filterGroupClass:"esg-fgc-'.$this->grid_id.'",'."\n";
 		
         // 2.2
-
         echo '        filterNoMatch:"'.$no_filter_match_message.'",'."\n";
         echo '        filterDeepLink:"'.$filter_deep_linking.'",'."\n";
+		
+		// 2.2.5
+		echo '        hideMarkups: "' . $hide_markup_before_load . '",' . "\n";
+		echo '        inViewport: ' . $in_viewport . ',' . "\n";
+		echo '        viewportBuffer: ' . $viewport_buffer . ',' . "\n";
+        echo '        youtubeNoCookie:"'.get_option('tp_eg_enable_youtube_nocookie', 'false').'",'."\n";
+		echo '        convertFilterMobile:' . $filter_mobile_conversion . ',' . "\n";
+
 
 		if($wait_for_fonts === 'true'){
 			$tf_fonts = new ThemePunch_Fonts();
@@ -4814,6 +4870,7 @@ class Essential_Grid {
 		if(isset($layout['pagination']) || isset($layout['left']) || isset($layout['right'])) return $max_entries;
 		
 		$rows_unlimited = $grid->get_param_by_handle('rows-unlimited', 'on');
+		
 		$load_more = $grid->get_param_by_handle('load-more', 'none');
         $rows = intval($grid->get_param_by_handle('rows', '3'));
 		
@@ -4887,7 +4944,8 @@ class Essential_Grid {
 		if(function_exists('is_multisite') && is_multisite() && $networkwide){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// 2.2.5
+			// $old_blog = $wpdb->blogid;
 			
             // Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -4900,9 +4958,13 @@ class Essential_Grid {
 					update_option('tp_eg_'.$opt, $val);
 				}
 				
+				// 2.2.5
+				restore_current_blog();
+				
             }
 			
-            switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+            // switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 		
@@ -4967,6 +5029,10 @@ class Essential_Grid {
             $columns_width = $base->set_basic_colums_height($columns_width);
 			$columns_height = $base->set_basic_colums_height($columns_height);
 			
+			// 2.2.5
+			if(!is_array($columns_width)) $columns_width = array(0, 0, 0, 0, 0, 0);
+			if(!is_array($columns_height)) $columns_height = array(0, 0, 0, 0, 0, 0);
+			
 			$col_height = array_reverse($columns_height); //reverse to start with lowest value
             $col_width = array_reverse($columns_width); //reverse to start with lowest value
 			
@@ -5016,7 +5082,8 @@ class Essential_Grid {
 		if(function_exists('is_multisite') && is_multisite() && $networkwide){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// 2.2.5
+			// $old_blog = $wpdb->blogid;
 			
             // Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -5026,9 +5093,13 @@ class Essential_Grid {
 				switch_to_blog($blog_id);
 				self::_uninstall_plugin();
 				
+				// 2.2.5
+				restore_current_blog();
+				
             }
 			
-            switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+            // switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 			self::_uninstall_plugin();
@@ -5495,12 +5566,22 @@ class Essential_Grid {
 	}
 
 	/**
-	 * Adds EssGrid as Gallery Shortcode
+	 * Adds EssGrid instead of Gallery Shortcode
 	 *
 	 * @since    2.1.5
 	 */
 	public function add_ess_grid_gallery(){
 		add_shortcode('gallery', array($this,'ess_grid_addon_gallery'),10,2);
+	}
+
+	/**
+	 * Returns EssGrid for WP Gallery Shortcode Filter
+	 *
+	 * @since    2.1.5
+	 */
+	public function use_ess_grid_gallery($attr, $instance){
+
+		if(!empty($instance['ess_grid_gal'])) return $this->ess_grid_addon_gallery($instance,$instance);
 	}
 	
 	/**
@@ -5524,15 +5605,14 @@ class Essential_Grid {
 			shuffle($ids);
 			$output['ids'] = implode(",", $ids);
 		}
-		
+
 		// Parse for Attributes
 		$return = array();
 		foreach($output as $attr_key => $attr_value){
-			$return[] = $attr_key.'="'.$attr_value.'"';
+			if(!in_array($attr_key, array("order_by","include") ))
+				$return[] = $attr_key.'="'.$attr_value.'"';
 		}
 		$return = implode(" ", $return);
-		
-
 
 		if( !empty($grid) ){
 			if($grid=="nogrid"){

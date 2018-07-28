@@ -173,13 +173,17 @@ class CS_Menu_Item_Custom_Fields_Map {
           </label>
         </p>
 
-      <?php elseif ( $data['type'] == 'icon' ) : ?>
+      <?php elseif ( $data['type'] == 'icon' ) :
+
+        $value = CS()->common()->resolveFontAlias( $value );
+
+        ?>
 
         <p class="description description-<?php echo $data['size']; ?> <?php echo esc_attr( $class ); ?>">
           <label for="<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $data['label'] ); ?><br>
             <select id="<?php echo esc_attr( $id ); ?>" class="widefat <?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $name ); ?>">
               <!-- <option value="" <?php echo selected( '', $value, false ); ?>>&mdash; No Icon Assigned &mdash;</option> -->
-              <?php foreach ( fa_all_unicode() as $fa_slug => $fa_unicode ) : ?>
+              <?php foreach ( cs_fa_all() as $fa_slug ) : ?>
                 <option value="<?php echo $fa_slug ?>" <?php echo selected( $fa_slug, $value, false ); ?>><?php echo $fa_slug; ?></option>
               <?php endforeach; ?>
             </select>

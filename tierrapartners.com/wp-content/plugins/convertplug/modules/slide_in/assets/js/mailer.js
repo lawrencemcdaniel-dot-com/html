@@ -97,6 +97,7 @@
         var query_string = '';
         var submit_status = true;
         var redirect_with =''; 
+        var cf_response = '';
         form.find('.cp-input').each( function(index) {
             var $this = jQuery(this);
 
@@ -128,6 +129,7 @@
         var fail = 0;
         var fail_log = '';
         form.find( 'select, textarea, input' ).each(function(i, el ){
+        	
             if( jQuery( el ).prop( 'required' )){
 
                 var type = jQuery( el ).attr("type");
@@ -205,6 +207,11 @@
 
 					if( typeof obj.status != 'undefined' && obj.status != null ) {
 						cls = obj.status;
+					}
+
+					if( typeof obj.cf_response != 'undefined' && obj.cf_response != null ) {
+						cf_response = obj.cf_response;
+						jQuery(document).trigger("cp_cf_response_done",[this,slidein,cf_response]);
 					}
 
 					//	is valid - Email MX Record

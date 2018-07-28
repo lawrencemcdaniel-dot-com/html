@@ -33,6 +33,13 @@ function x_element_builder_setup_content_area_modal() {
     'controls_adv'       => x_controls_element_content_area_modal( true ),
     'control_groups'     => x_control_groups_element_content_area_modal(),
     'control_groups_adv' => x_control_groups_element_content_area_modal( true ),
+    'options' => array(
+      'inline' => array(
+        'modal_content' => array(
+          'selector' => '.x-modal-content'
+        ),
+      )
+    )
   );
 }
 

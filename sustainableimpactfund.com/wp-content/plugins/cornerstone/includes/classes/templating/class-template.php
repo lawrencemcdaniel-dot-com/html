@@ -120,10 +120,6 @@ class Cornerstone_Template {
 
   public function save() {
 
-    if ( ! current_user_can( 'manage_options' ) ) {
-      throw new Exception( 'Unauthorized' );
-    }
-
     $args = array(
       'post_title'   => sanitize_text_field( $this->get_title() ),
       'post_type'    => 'cs_template',
@@ -246,10 +242,6 @@ class Cornerstone_Template {
   }
 
   public function delete() {
-
-    if ( ! current_user_can( 'manage_options' ) ) {
-      throw new Exception( 'Unauthorized' );
-    }
 
     do_action('cornerstone_delete_template', $this->id, $this->type );
 

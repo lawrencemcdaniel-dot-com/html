@@ -35,7 +35,7 @@ if ( X_REVOLUTION_SLIDER_IS_ACTIVE || X_LAYERSLIDER_IS_ACTIVE ) :
         </style>
 
         <a href="#" class="x-slider-scroll-bottom above <?php echo $anchor_alignment; ?>">
-          <i class="x-icon-angle-down" data-x-icon="&#xf107;" aria-hidden="true"></i>
+          <i class="x-icon-angle-down" data-x-icon-s="&#xf107;" aria-hidden="true"></i>
         </a>
 
       <?php endif; ?>

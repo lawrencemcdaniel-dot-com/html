@@ -57,12 +57,14 @@ class Essential_Grid_Global_Css {
 		if(function_exists('is_multisite') && is_multisite() && $networkwide){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// 2.2.5
+			// $old_blog = $wpdb->blogid;
 			
             // Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
 			
             foreach($blogids as $blog_id){
+				
 				switch_to_blog($blog_id);
 				
 				if(get_option('tp_eg_custom_css_imported', 'false') == 'true') continue;
@@ -71,9 +73,13 @@ class Essential_Grid_Global_Css {
 				
 				self::set_global_css_styles(apply_filters('essgrid_propagate_default_global_css_multisite', $css, $blog_id));
 				
+				// 2.2.5
+				restore_current_blog();
+				
             }
 			
-            switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+            // switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 			if(get_option('tp_eg_custom_css_imported', 'false') == 'false'){

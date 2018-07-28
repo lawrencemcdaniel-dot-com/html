@@ -4,7 +4,7 @@
 	Plugin URI: https://www.convertplug.com/plus
 	Author: Brainstorm Force
 	Author URI: https://www.brainstormforce.com
-	Version: 3.3.0
+	Version: 3.3.1
 	Description: Welcome to Convert Plus - the easiest WordPress plugin to convert website traffic into leads. Convert Plus will help you build email lists, drive traffic, promote videos, offer coupons and much more!
 	Text Domain: smile
 	License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -16,7 +16,7 @@
 	defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 if ( ! defined( 'CP_VERSION' ) ) {
-	define( 'CP_VERSION', '3.3.0' );
+	define( 'CP_VERSION', '3.3.1' );
 }
 
 if ( ! defined( 'CP_BASE_DIR' ) ) {
@@ -223,7 +223,6 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 		 * @since 3.1.0
 		 */
 		function cp_skip_brainstorm_menu( $products ) {
-
 			$products = array(
 				14058953,
 				'connects-contact-form-7',
@@ -234,6 +233,7 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 				'connects-wp-comment-form',
 				'connects-totalsend',
 				'connects-sendreach',
+				'connects-ontraport',
 			);
 
 			return $products;

@@ -333,4 +333,4 @@ jQuery( document ).ready(function() {
 			<?php } ?>
 			<!-- slides thumbnails div end -->	
 		</div>
-<?php } else { ?> <div class="fnf"><i class="far fa-times-circle"></i> No Slide Found In Slider.</div> <?php } endwhile; ?>
+<?php } else { ?> <div class="fnf"><i class="fa fa-times-circle"></i> No Slide Found In Slider.</div> <?php } endwhile; ?>

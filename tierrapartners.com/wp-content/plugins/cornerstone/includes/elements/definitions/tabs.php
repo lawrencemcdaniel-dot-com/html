@@ -40,6 +40,16 @@ function x_element_builder_setup_tabs() {
     'controls_adv'       => x_controls_element_tabs( true ),
     'control_groups'     => x_control_groups_element_tabs(),
     'control_groups_adv' => x_control_groups_element_tabs( true ),
+    'options' => array(
+      'inline' => array(
+        'tab_label_content' => array(
+          'selector' => '.x-tabs-list button span'
+        ),
+        'tab_content' => array(
+          'selector' => '.x-tabs-panel'
+        )
+      )
+    )
   );
 }
 

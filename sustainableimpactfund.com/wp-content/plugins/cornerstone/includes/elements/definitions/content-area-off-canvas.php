@@ -33,6 +33,13 @@ function x_element_builder_setup_content_area_off_canvas() {
     'controls_adv'       => x_controls_element_content_area_off_canvas( true ),
     'control_groups'     => x_control_groups_element_content_area_off_canvas(),
     'control_groups_adv' => x_control_groups_element_content_area_off_canvas( true ),
+    'options' => array(
+      'inline' => array(
+        'off_canvas_content' => array(
+          'selector' => '.x-off-canvas-content'
+        ),
+      )
+    )
   );
 }
 

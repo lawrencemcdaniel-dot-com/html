@@ -52,6 +52,7 @@ iframe.__youtube_prefs__
     opacity: 1;
     float: left;
     padding: 0 8px 10px 8px;
+    height: auto;
 }
 
 
@@ -59,6 +60,7 @@ iframe.__youtube_prefs__
     position: relative;
     opacity: 1;
     transition: opacity ease-out .3s;
+    height: auto;
 }
 
 .epyt-gallery-img-box {
@@ -167,7 +169,7 @@ iframe.__youtube_prefs__
 
 
 .epyt-pagination.epyt-hide-pagination * {
-   display: none !important;
+    display: none !important;
 }
 
 
@@ -370,3 +372,9 @@ body .epyt-gallery-img-gdpr {
     background-image: linear-gradient(to bottom, #000, #444);    
 }
 
+
+/********* YTVI */
+.ytvi-story-container {
+    display: block;
+    max-width: 100%;
+}

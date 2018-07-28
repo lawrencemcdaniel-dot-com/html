@@ -1376,7 +1376,6 @@ class RevSliderSlide extends RevSliderElementsBase{
 			$this->arrLayers[$key] = $layer;
 		}
 		
-		
 		/*$params = $this->getParams();
 		
 		foreach($params as $key => $param){ //set metas on all params except arrays
@@ -1400,10 +1399,59 @@ class RevSliderSlide extends RevSliderElementsBase{
 			$this->setParam($p, $pa);
 		}
 		
+		
+		
+		//do the same to the children + layer
+		if(!empty($this->arrChildren)){
+			foreach($this->arrChildren as $k => $child){
+				if(isset($child->arrLayers) && !empty($child->arrLayers)){
+					foreach($child->arrLayers as $key=>$layer){
+						
+						$text = RevSliderFunctions::getVal($layer, "text");
+						$text = apply_filters('revslider_mod_meta', $text, $postID, $postData); //option to add your own filter here to modify meta to your likings
+						
+						$text = $this->set_post_data($text, $attr, $postID);
+						
+						$layer["text"] = $text;
+						
+						$all_actions = RevSliderFunctions::getVal($layer, 'layer_action', array());
+						if(!empty($all_actions)){
+							$a_image_link = RevSliderFunctions::cleanStdClassToArray(RevSliderFunctions::getVal($all_actions, 'image_link', array()));
+							if(!empty($a_image_link)){
+								foreach($a_image_link as $ik => $ilink){
+									$ilink = $this->set_post_data($ilink, $attr, $postID);
+									$a_image_link[$ik] = $ilink;
+								}
+								$layer['layer_action']->image_link = $a_image_link;
+							}
+						}
+						
+						$child->arrLayers[$key] = $layer;
+					}
+					$this->arrChildren[$k]->arrLayers = $child->arrLayers;
+				}
+				
+				
+				for($mi=1;$mi<=10;$mi++){ //set params to the post data
+					$pa = $this->arrChildren[$k]->getParam('params_'.$mi, '');
+					$pa = $this->arrChildren[$k]->set_post_data($pa, $attr, $postID);
+					$this->arrChildren[$k]->setParam('params_'.$mi, $pa);
+				}
+				
+				$param_list = array('id_attr', 'class_attr', 'data_attr');
+				//set params to the stream data
+				foreach($param_list as $p){
+					$pa = $this->arrChildren[$k]->getParam($p, '');
+					$pa = $this->arrChildren[$k]->set_post_data($pa, $attr, $postID);
+					$this->arrChildren[$k]->setParam($p, $pa);
+				}
+			}
+		}
 	}
 	
 	
 	public function set_post_data($text, $attr, $post_id){
+		
 		$img_sizes = RevSliderBase::get_all_image_sizes();
 		$title = (isset($attr['title'])) ? $attr['title'] : '';
 		$excerpt = (isset($attr['excerpt'])) ? $attr['excerpt'] : '';
@@ -3006,7 +3054,8 @@ class RevSliderSlide extends RevSliderElementsBase{
 				$this->arrLayers[$key]['video_data'] = $video_data;
 			}elseif(isset($type) && $type == 'svg'){
 				$svg_val = RevSliderFunctions::getVal($layer, 'svg', false);
-				if (!empty($svg_val) && sizeof($svg_val)>0) {
+				$svg_val_arr = (array)$svg_val;
+				if (!empty($svg_val_arr) && is_array($svg_val_arr) && sizeof($svg_val_arr)>0) {
 					$svg_val->{'src'} = str_replace($urlFrom, $urlTo, $svg_val->{'src'});
 					
 					$this->arrLayers[$key]['svg'] = $svg_val;

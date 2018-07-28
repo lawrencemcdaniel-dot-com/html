@@ -483,6 +483,13 @@ function avada_options_section_extra( $sections ) {
 						'default'     => '#ffffff',
 						'type'        => 'color-alpha',
 					),
+					'form_text_size' => array(
+						'label'       => esc_html__( 'Form Font Size', 'Avada' ),
+						'description' => esc_html__( 'Controls the size of the form text.', 'Avada' ),
+						'id'          => 'form_text_size',
+						'default'     => '13px',
+						'type'        => 'dimension',
+					),
 					'form_text_color' => array(
 						'label'       => esc_html__( 'Form Text Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the color of the form text.', 'Avada' ),

@@ -11,40 +11,42 @@ if ( ! $fusion_settings ) {
 	$fusion_settings = Fusion_Settings::get_instance();
 }
 
-$featured_image_width = get_post_meta( $post->ID, 'pyre_fimg_width', true );
+$featured_image_width  = get_post_meta( $post->ID, 'pyre_fimg_width', true );
 $featured_image_height = get_post_meta( $post->ID, 'pyre_fimg_height', true );
+$blog_loop_id          = isset( $atts['loop-id'] ) ? $atts['loop-id'] : '#post-';
+$article_class         = $blog_loop_id . absint( $post->ID );
 ?>
 <?php if ( 'grid' != $atts['layout'] && 'timeline' != $atts['layout'] ) : ?>
 	<style type="text/css">
 		<?php if ( $featured_image_width && 'auto' !== $featured_image_width ) : ?>
-			#post-<?php echo absint( $post->ID ); ?> .fusion-post-slideshow {
+			<?php echo $article_class; // WPCS: XSS ok. ?> .fusion-post-slideshow {
 				max-width: <?php echo esc_attr( $featured_image_width ); ?> !important;
 			}
 		<?php endif; ?>
 
 		<?php if ( $featured_image_height && 'auto' !== $featured_image_height ) : ?>
-			#post-<?php echo absint( $post->ID ); ?> .fusion-post-slideshow,
-			#post-<?php echo absint( $post->ID ); ?> .fusion-post-slideshow .fusion-image-wrapper img {
+			<?php echo $article_class; // WPCS: XSS ok. ?> .fusion-post-slideshow,
+			<?php echo $article_class; // WPCS: XSS ok. ?> .fusion-post-slideshow .fusion-image-wrapper img {
 				max-height: <?php echo esc_attr( $featured_image_height ); ?> !important;
 			}
 		<?php endif; ?>
 
 		<?php if ( $featured_image_width && 'auto' === $featured_image_width ) : ?>
-			#post-<?php echo absint( $post->ID ); ?> .fusion-post-slideshow .fusion-image-wrapper img {
+			<?php echo $article_class; // WPCS: XSS ok. ?> .fusion-post-slideshow .fusion-image-wrapper img {
 				width: auto;
 			}
 		<?php endif; ?>
 
 		<?php if ( $featured_image_height && 'auto' === $featured_image_height ) : ?>
-			#post-<?php echo absint( $post->ID ); ?> .fusion-post-slideshow .fusion-image-wrapper img {
+			<?php echo $article_class; // WPCS: XSS ok. ?> .fusion-post-slideshow .fusion-image-wrapper img {
 				height: auto;
 			}
 		<?php endif; ?>
 
 		<?php if ( $featured_image_height && $featured_image_width && 'auto' !== $featured_image_height && 'auto' !== $featured_image_width ) : ?>
 			@media only screen and (max-width: 479px){
-				#post-<?php echo absint( $post->ID ); ?> .fusion-post-slideshow,
-				#post-<?php echo absint( $post->ID ); ?> .fusion-post-slideshow .fusion-image-wrapper img {
+				<?php echo $article_class; // WPCS: XSS ok. ?> .fusion-post-slideshow,
+				<?php echo $article_class; // WPCS: XSS ok. ?> .fusion-post-slideshow .fusion-image-wrapper img {
 					width :auto !important;
 					height :auto !important;
 				}
@@ -152,7 +154,7 @@ $post_video = fusion_get_page_option( 'video', get_the_ID() );
 			<?php $fusion_library->images->set_grid_image_meta( array() ); ?>
 		</ul>
 	</div>
-<?php
+	<?php
 endif;
 
 /* Omit closing PHP tag to avoid "Headers already sent" issues. */

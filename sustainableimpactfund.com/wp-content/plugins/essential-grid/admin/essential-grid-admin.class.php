@@ -119,10 +119,8 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 		
 		add_action('admin_head', array($this, 'add_tinymce_editor'));
 
-		$gallery = get_option('tp_eg_overwrite_gallery','');
-		if( !empty($gallery) && $gallery != "off"  ){
-			add_action( 'print_media_templates', array($this, 'ess_grid_addon_media_form' ) );
-		}
+		add_action( 'print_media_templates', array($this, 'ess_grid_addon_media_form' ) );
+		
 
 		// Privacy
 		add_action( 'admin_init', array( $this, 'add_suggested_privacy_content'), 15 );
@@ -355,7 +353,6 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 			
 			wp_enqueue_script( 'tp-tools', plugins_url( '../public/assets/js/jquery.themepunch.tools.min.js', __FILE__ ), array('jquery'), Essential_Grid::VERSION );
 			wp_enqueue_script( $this->plugin_slug . '-essential-grid-script', plugins_url( '../public/assets/js/jquery.themepunch.essential.min.js', __FILE__ ), array('jquery'), Essential_Grid::VERSION );
-			
 			wp_enqueue_media();
 		}
 		
@@ -1609,6 +1606,8 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 						update_option('tp_eg_global_enable_fontello', @$data['enable_fontello']);
 						update_option('tp_eg_global_enable_font_awesome', @$data['enable_font_awesome']);
 
+						update_option('tp_eg_enable_youtube_nocookie', @$data['nable_youtube_nocookie']);
+
 
 						
 						if(@$data['use_lightbox'] === 'jackbox'){
@@ -2459,8 +2458,7 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 	public function ess_grid_addon_media_form(){
 		$grids = new Essential_Grid();
 		$arrGrids = $grids->get_essential_grids();
-		$defGrid = get_option('tp_eg_overwrite_gallery','');
-		
+		$defGrid = get_option('tp_eg_overwrite_gallery','');	
 	?>
 		<script type="text/html" id="tmpl-ess-grid-gallery-setting">
 		    <h3 style="z-index: -1;">___________________________________________________________________________________________</h3>
@@ -2470,6 +2468,7 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 		      <span><?php _e('Essential Grid',EG_TEXTDOMAIN); ?></span>
 		      <select class="specific_post_select" data-setting="ess_grid_gal">
 		      	<?php
+		      		if(empty($defGrid) || $defGrid == "off") echo '<option value="">'. __('Don\'t use EssGrid',EG_TEXTDOMAIN) .'</option>';
 		        	foreach($arrGrids as $grid){
 		        		echo '<option value="'.$grid->handle.'">'. $grid->name . '</option>';
 					}

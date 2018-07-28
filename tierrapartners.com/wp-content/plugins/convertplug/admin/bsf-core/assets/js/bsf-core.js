@@ -1,11 +1,9 @@
 jQuery( document ).on('click', '.bsf-envato-form-activation', function(event) {
-	submitButton 	 		= jQuery( this ).parent('.submit-button-wrap');
-	console.log(submitButton);
-	product_id 				= submitButton.siblings( 'form input[name="product_id"]' ).val();
-	url 					= submitButton.siblings( 'form input[name="url"]' ).val();
-	redirect 				= submitButton.siblings( 'form input[name="redirect"]' ).val();
-	privacyConsent 			= submitButton.siblings( 'input#bsf-license-privacy-consent').val();
-	termsConditionConsent 	= submitButton.siblings( 'input#bsf-license-terms-conditions-consent').val();
+	form 	 	= jQuery( this );
+	product_id 	= form.siblings( 'form input[name="product_id"]' ).val();
+	url 		= form.siblings( 'form input[name="url"]' ).val();
+	redirect 	= form.siblings( 'form input[name="redirect"]' ).val();
+	consent 	= form.siblings( '.bsf-license-consent-container' ).children('input#bsf-license-consent').is(":checked");
 
 	jQuery.ajax({
 		url: ajaxurl,
@@ -15,8 +13,7 @@ jQuery( document ).on('click', '.bsf-envato-form-activation', function(event) {
 			product_id: product_id,
 			url: url,
 			redirect: redirect,
-			privacy_consent: privacyConsent,
-			terms_conditions_consent: termsConditionConsent,
+			consent: consent
 		}
 	})
 	.done(function( response ) {

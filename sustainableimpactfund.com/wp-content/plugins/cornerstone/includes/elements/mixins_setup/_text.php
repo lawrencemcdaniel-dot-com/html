@@ -272,7 +272,8 @@ $control_text_content_standard = array(
   'type'    => 'text-editor',
   'title'   => __( 'Text', '__x__' ),
   'options' => array(
-    'height' => $is_adv ? 1 : 5,
+    'height' => 1,//$is_adv ? 1 : 5,
+    'disable_input_preview' => true
   ),
 );
 
@@ -282,8 +283,9 @@ $control_text_content_headline = array(
   'title'      => __( 'Text', '__x__' ),
   'conditions' => $conditions_text_typing_off,
   'options'    => array(
-    'height' => $is_adv ? 1 : 4,
+    'height' => 1,//$is_adv ? 1 : 4,
     'mode'   => 'html',
+    'disable_input_preview' => true
   ),
 );
 

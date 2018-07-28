@@ -33,6 +33,13 @@ function x_element_builder_setup_button() {
     'controls_adv'       => x_controls_element_button( true ),
     'control_groups'     => x_control_groups_element_button(),
     'control_groups_adv' => x_control_groups_element_button( true ),
+    'options' => array(
+      'inline' => array(
+        'anchor_text_primary_content' => array(
+          'selector' => '.x-anchor-text-primary'
+        )
+      )
+    )
   );
 }
 

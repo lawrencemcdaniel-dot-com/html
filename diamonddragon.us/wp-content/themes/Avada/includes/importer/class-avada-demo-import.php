@@ -1013,7 +1013,6 @@ class Avada_Demo_Import {
 
 		$this->content_tracker->set( 'general_data', 'imported' );
 
-		update_option( 'avada_imported_demo', 'true' );
 	}
 }
 

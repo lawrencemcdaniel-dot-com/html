@@ -33,6 +33,16 @@ function x_element_builder_setup_headline() {
     'controls_adv'       => x_controls_element_headline( true ),
     'control_groups'     => x_control_groups_element_headline(),
     'control_groups_adv' => x_control_groups_element_headline( true ),
+    'options' => array(
+      'inline' => array(
+        'text_content' => array(
+          'selector' => '.x-text-content-text-primary'
+        ),
+        'text_subheadline_content' => array(
+          'selector' => '.x-text-content-text-subheadline'
+        ),
+      )
+    )
   );
 }
 

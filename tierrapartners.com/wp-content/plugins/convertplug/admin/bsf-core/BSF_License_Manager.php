@@ -157,8 +157,10 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 			$product_id  = esc_attr( $_POST['bsf_license_manager']['product_id'] );
 			$user_name   = isset( $_POST['bsf_license_manager']['user_name'] ) ? esc_attr( $_POST['bsf_license_manager']['user_name'] ) : '';
 			$user_email  = isset( $_POST['bsf_license_manager']['user_email'] ) ? esc_attr( $_POST['bsf_license_manager']['user_email'] ) : '';
-			$privacy_consent 			= ( isset( $_POST['bsf_license_manager']['privacy_consent'] ) && 'true' === $_POST['bsf_license_manager']['privacy_consent'] ) ? true : false;
-			$terms_conditions_consent 	= ( isset( $_POST['bsf_license_manager']['terms_conditions_consent'] ) && 'true' === $_POST['bsf_license_manager']['terms_conditions_consent'] ) ? true : false;
+			$consent   	 = isset( $_POST['bsf_license_manager']['consent'] ) ? true : false;
+
+			// Save logged'in user's consent default value.
+			update_user_meta( get_current_user_id(), 'bsf-license-consent', $consent );
 
 			// update product license key
 			$args = array(
@@ -176,16 +178,15 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 			// Using Brainstorm API v2
 			$data = array(
-				'action'       				=> 'bsf_activate_license',
-				'purchase_key' 				=> $license_key,
-				'product_id'   				=> $product_id,
-				'user_name'    				=> $user_name,
-				'user_email'   				=> $user_email,
-				'privacy_consent'      		=> $privacy_consent,
-				'terms_conditions_consent'	=> $terms_conditions_consent,
-				'site_url'     				=> get_site_url(),
-				'is_edd'       				=> $is_edd,
-				'referer'      				=> 'customer'
+				'action'       => 'bsf_activate_license',
+				'purchase_key' => $license_key,
+				'product_id'   => $product_id,
+				'user_name'    => $user_name,
+				'user_email'   => $user_email,
+				'consent'      => $consent,
+				'site_url'     => get_site_url(),
+				'is_edd'       => $is_edd,
+				'referer'      => 'customer'
 			);
 
 			$data     = apply_filters( 'bsf_activate_license_args', $data );
@@ -209,7 +210,6 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 			if ( ! is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) === 200 ) {
 				$result = json_decode( wp_remote_retrieve_body( $response ), true );
-				
 				if ( isset( $result['success'] ) && $result['success'] == true ) {
 					// update license saus to the product
 					$_POST['bsf_license_activation']['success'] = $result['success'];
@@ -355,16 +355,13 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 			$bsf_license_allow_email      = ( isset( $args['bsf_license_allow_email'] ) && ! is_null( $args['bsf_license_allow_email'] ) ) ? $args['bsf_license_allow_email'] : true;
 			$license_form_title           = ( isset( $args['license_form_title'] ) && ! is_null( $args['license_form_title'] ) ) ? $args['license_form_title'] : 'Updates & Support Registration - ';
 
-			$is_active   = self::bsf_is_active_license( $product_id );
-			$license_key = $this->bsf_get_product_info( $product_id, 'purchase_key' );
+			$consent_message = apply_filters( "bsf_license_consent_message_{$product_id}", 'Save my name, email, in order to receive important updates.' );
 
-			if ( $bsf_license_allow_email == true ) {
-				$form_class .= ' license-form-allow-email ';
-
-				if ( ! $is_active ) {
-					$button_text_activate = 'Sign Up & Activate';
-					$submit_button_class .= ' button-primary button-hero ';
-				}
+			// Get current previously saved user consent.
+			$consent_default = get_user_meta( get_current_user_id(), 'bsf-license-consent', true );
+			$consent = '';
+			if ( true == $consent_default ) {
+				$consent = 'checked="checked"';
 			}
 
 			// Forcefully disable the subscribe options for uabb.
@@ -381,6 +378,9 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 			// License activation messages
 			$current_status = $current_message = '';
+
+			$is_active   = self::bsf_is_active_license( $product_id );
+			$license_key = $this->bsf_get_product_info( $product_id, 'purchase_key' );
 
 			if ( isset( $_POST['bsf_license_activation']['success'] ) && isset( $_POST['bsf_license_manager']['product_id'] ) && $product_id == $_POST['bsf_license_manager']['product_id'] ) {
 				$current_status     = esc_attr( $_POST['bsf_license_activation']['success'] );
@@ -409,14 +409,7 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 				$license_status_class = "bsf-license-not-active-" . $product_id;
 				$not_activate = '';
 				$html .= apply_filters( "bsf_license_not_activate_message_{$product_id}", $not_activate, $license_status_class, $license_not_activate_message );
-
-				if ( $bsf_license_allow_email == true ) {
-					$popup_license_subtitle = apply_filters( "bsf_license_key_form_inactive_subtitle_{$product_id}", __( '<p>Enter your purchase key and activate automatic updates.</p>', 'bsf' ) );
-				} else {
-					$popup_license_subtitle = apply_filters( "bsf_license_key_form_inactive_subtitle_{$product_id}", __( '<p>Click on the button below to activate your license and subscribe to our newsletter.</p>', 'bsf' ) );
-				}
-
-				
+				$popup_license_subtitle = apply_filters( "bsf_license_key_form_inactive_subtitle_{$product_id}", __( '<p>Enter your purchase key and activate automatic updates.</p>', 'bsf' ) );
 			} else {
 				$form_class .= " form-submited-{$product_id}";
 				$popup_license_subtitle = apply_filters( "bsf_license_key_form_active_subtitle_{$product_id}", '' );
@@ -459,12 +452,12 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 					$html .= '<span class="license-form-field">';
 					$html .= '<h4>Your Name</h4>';
-					$html .= '<input type="text" class="' . $size . '-text" id="bsf_license_manager[user_name]" name="bsf_license_manager[user_name]" value=""/>';
+					$html .= '<input type="text" class="' . $size . '-text" id="bsf_license_manager[user_name]" name="bsf_license_manager[user_name]" value="" required/>';
 					$html .= '</span>';
 
 					$html .= '<span class="license-form-field">';
 					$html .= '<h4>Your Email Address</h4>';
-					$html .= '<input type="email" class="' . $size . '-text" id="bsf_license_manager[user_email]" name="bsf_license_manager[user_email]" value=""/>';
+					$html .= '<input type="email" class="' . $size . '-text" id="bsf_license_manager[user_email]" name="bsf_license_manager[user_email]" value="" required/>';
 					$html .= '</span>';
 
 					$html .= '<span class="license-form-field">';
@@ -486,30 +479,20 @@ if ( ! class_exists( 'BSF_License_Manager' ) ) {
 
 				do_action( "bsf_before_license_activation_submit_button_{$product_id}" );
 
-				$html .= '<input id="bsf-license-privacy-consent" name="bsf_license_manager[privacy_consent]" type="hidden" value="true" />';
-				$html .= '<input id="bsf-license-terms-conditions-consent" name="bsf_license_manager[terms_conditions_consent]" type="hidden" value="true" />';
+				$html .= '<p class="bsf-license-consent-container"><input id="bsf-license-consent" name="bsf_license_manager[consent]" type="checkbox" value="yes"' . $consent . ' /> <label for="bsf-license-consent">' . $consent_message . '</label></p>';
 
-				$html .= '<div class="submit-button-wrap">';
 				$html .= '<input type="submit" class="button ' . $submit_button_class . '" name="bsf_activate_license" value="' . esc_attr__( $button_text_activate, 'bsf' ) . '"/>';
+				
+				$get_license_message = apply_filters( "bsf_get_license_message_{$product_id}", "<p>If you don't have a license, you can <a target='_blank' href='$purchase_url'>get it here »</a></p>", $purchase_url );
 
-				if ( $bsf_license_allow_email == true ) {
-					$get_license_message = "<p class='purchase-license'><a target='_blank' href='$purchase_url'>Purchase License »</a></p>";
-				} else {
-					$get_license_message = "<p>If you don't have a license, you can <a target='_blank' href='$purchase_url'>get it here »</a></p>";
-				}
-
-				$html .= apply_filters( "bsf_get_license_message_{$product_id}", $get_license_message, $purchase_url );
-				$html .= "</div>";
+				$html .= $get_license_message;
 			}
 
 			$html .= '</form>';
 
 			do_action( "bsf_after_license_activation_form_{$product_id}" );
 
-			$html = apply_filters( 'bsf_inlne_license_envato_after_form', $html, $product_id );
-
 			$html .= '</div> <!-- envato-license-registration -->';
-
 
 			if ( isset( $_GET['debug'] ) ) {
 				$html .= get_bsf_systeminfo();

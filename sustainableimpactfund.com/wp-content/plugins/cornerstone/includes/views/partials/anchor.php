@@ -127,9 +127,12 @@ if ( $anchor_type == 'menu-item' && isset( $anchor_sub_indicator ) && $anchor_su
 
     $anchor_sub_indicator_atts = array(
       'class'       => 'x-anchor-sub-indicator',
-      'data-x-icon' => '&#x' . fa_unicode( $anchor_sub_indicator_icon ) . ';',
       'aria-hidden' => 'true',
     );
+
+    $icon_data = fa_get_attr( $anchor_sub_indicator_icon );
+
+    $anchor_sub_indicator_atts[$icon_data['attr']] = $icon_data['entity'];
 
     if ( isset( $anchor_sub_menu_trigger_location ) && $anchor_sub_menu_trigger_location === 'sub-indicator' ) {
       $anchor_sub_indicator_atts['data-x-toggle-nested-trigger'] = true;

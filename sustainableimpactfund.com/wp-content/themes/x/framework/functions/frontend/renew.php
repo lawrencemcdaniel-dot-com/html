@@ -143,7 +143,7 @@ if ( ! function_exists( 'x_renew_portfolio_tags' ) ) :
 
     echo '<ul class="x-ul-icons">';
     foreach( $terms as $term ) {
-      echo '<li class="x-li-icon"><a href="' . get_term_link( $term->slug, 'portfolio-tag' ) . '"><i class="x-icon-chevron-right" data-x-icon="&#xf054;"></i>' . $term->name . '</a></li>';
+      echo '<li class="x-li-icon"><a href="' . get_term_link( $term->slug, 'portfolio-tag' ) . '"><i class="x-icon-chevron-right" data-x-icon-s="&#xf054;"></i>' . $term->name . '</a></li>';
     };
     echo '</ul>';
 
@@ -192,7 +192,7 @@ if ( ! function_exists( 'x_renew_comment' ) ) :
         ?>
         <?php if ( ! x_is_product() ) : ?>
         <div class="x-reply">
-          <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span class="comment-reply-link-after"><i class="x-icon-reply" data-x-icon="&#xf112;"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+          <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span class="comment-reply-link-after"><i class="x-icon-reply" data-x-icon-s="&#xf3e5;"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
         </div>
         <?php endif; ?>
         <div class="x-comment-wrap">
@@ -216,7 +216,7 @@ if ( ! function_exists( 'x_renew_comment' ) ) :
                 get_comment_time()
               )
             );
-            edit_comment_link( __( '<i class="x-icon-edit" data-x-icon="&#xf044;"></i> Edit', '__x__' ) );
+            edit_comment_link( __( '<i class="x-icon-edit" data-x-icon-s="&#xf044;"></i> Edit', '__x__' ) );
             ?>
           </header>
           <?php if ( '0' == $comment->comment_approved ) : ?>

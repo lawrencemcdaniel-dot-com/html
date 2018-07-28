@@ -47,6 +47,11 @@ wp_enqueue_script('essential-grid-item-editor-script', EG_PLUGIN_URL.'admin/asse
 							'grid-animation' => 'fade',
 							'grid-animation-speed' => 800,
 							'grid-animation-delay' => 5,
+							'grid-start-animation' => 'reveal',
+							'grid-start-animation-speed' => '800',
+							'grid-start-animation-delay' => 0,
+							'grid-start-animation-type' => 'item',
+							'grid-animation-type' => 'item',
 							'x-ratio' => 4,
 							'y-ratio' => 3,
 						   );
@@ -123,7 +128,6 @@ wp_enqueue_script('essential-grid-item-editor-script', EG_PLUGIN_URL.'admin/asse
 			echo $skins_html;
 
 			$grid_c->output_grid_post();
-			
 			echo '<div style="text-align: center;">';
 			echo $navigation_c->output_pagination(true);
 			echo '</div>';
@@ -136,7 +140,7 @@ wp_enqueue_script('essential-grid-item-editor-script', EG_PLUGIN_URL.'admin/asse
 	
 	<?php
 	$grid_c->output_grid_javascript(false, true);
-	
+
 	echo $skins_css;
 	
 	Essential_Grid_Global_Css::output_global_css_styles_wrapped();

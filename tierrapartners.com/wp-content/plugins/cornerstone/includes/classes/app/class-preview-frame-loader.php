@@ -102,8 +102,26 @@ class Cornerstone_Preview_Frame_Loader extends Cornerstone_Plugin_Component {
   }
 
   public function enqueue() {
+
     $this->plugin->component( 'App' )->register_app_scripts( $this->plugin->settings(), true );
     wp_enqueue_script( 'mediaelement' );
+
+    add_filter( 'user_can_richedit', '__return_true' );
+
+    ob_start();
+    wp_editor( '%%PLACEHOLDER%%','cspreviewwpeditor', array(
+      'quicktags' => false,
+      'tinymce'=> array(
+        'toolbar1' => 'bold,italic,strikethrough,underline,bullist,numlist,forecolor,cs_media,wp_adv',
+        'toolbar2' => 'link,unlink,alignleft,aligncenter,alignright,alignjustify,outdent,indent',
+        'toolbar3' => 'formatselect,pastetext,removeformat,charmap,undo,redo'
+      ),
+      'media_buttons' => false,
+      'editor_class'  => 'cs-preview-wp-editor',
+      'drag_drop_upload' => true
+    ) );
+    ob_clean();
+
     wp_enqueue_script( 'cs-app' );
     wp_enqueue_style( 'cs-preview', $this->plugin->css( 'preview', true ), null, $this->plugin->version() );
   }

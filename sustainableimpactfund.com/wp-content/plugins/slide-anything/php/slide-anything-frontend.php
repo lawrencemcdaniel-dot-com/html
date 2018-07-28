@@ -218,6 +218,13 @@ function slide_anything_shortcode($atts) {
 			if ($slide_data['slide_icons_color'] != 'black') {
 				$slide_data['slide_icons_color'] = 'white';
 			}
+			$slide_data['sa_window_onload'] = '0';
+			if (isset($metadata['sa_window_onload'])) {
+				$slide_data['sa_window_onload'] = $metadata['sa_window_onload'][0];
+				if ($slide_data['sa_window_onload'] != '1') {
+					$slide_data['sa_window_onload'] = '0';
+				}
+			}
 
 			// REVERSE THE ORDER OF THE SLIDES IF 'Random Order' CHECKBOX IS CHECKED OR
 			// RE-ORDER SLIDES IN A RANDOM ORDER IF 'Random Order' CHECKBOX IS CHECKED
@@ -456,7 +463,11 @@ function slide_anything_shortcode($atts) {
 					$single_item = 0;
 				}
 				$output .= "<script type='text/javascript'>\n";
-				$output .= "	jQuery(document).ready(function() {\n";
+				if ($slide_data['sa_window_onload'] == '1') {
+					$output .= "	jQuery(window).load(function() {\n";
+				} else {
+					$output .= "	jQuery(document).ready(function() {\n";
+				}
 
 				// JQUERY CODE FOR OWN CAROUSEL
 				$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."').owlCarousel({\n";

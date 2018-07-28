@@ -593,11 +593,12 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 			<div class="<?php echo ( $global_cont_class ); ?>" <?php echo  $global_cont_data; ?>  style=" <?php echo esc_attr( $overlay_style ); ?>" >
 				<?php if( !$is_inline ){ ?><div class="cp-overlay-background" style=" <?php echo esc_attr( $overlay_color_style ); ?>"></div><?php } ?>
 				<?php if ( isset( $a['modal_size'] ) && 'cp-modal-custom-size' !== $a['modal_size'] ) { ?>
-				<div class="cp-modal-body-overlay cp_fs_overlay" style="<?php echo esc_attr( $modal_body_css ); ?>;<?php echo esc_attr( $inset ); ?>;"></div>
+				
 				<?php } ?>
 				<div class="cp-modal <?php echo esc_attr( $a['modal_size'] ); ?>" style="<?php echo esc_attr( $modal_size_style ); ?>">
 					<div class="cp-animate-container" <?php echo $overaly_setting; ?> data-exit-animation="<?php echo esc_attr( $exit_animation ); ?>">
-						<div class="cp-modal-content <?php echo $cp_modal_content_class; ?>" style="<?php echo esc_attr( $css_style ); ?>;<?php echo esc_attr( $windowcss ); ?>">			
+						<div class="cp-modal-content <?php echo $cp_modal_content_class; ?>" style="<?php echo esc_attr( $css_style ); ?>;<?php echo esc_attr( $windowcss ); ?>">	
+						<div class="cp-modal-body-overlay cp_fs_overlay" style="<?php echo esc_attr( $modal_body_css ); ?>;<?php echo esc_attr( $inset ); ?>;"></div>		
 							<div class="cp-modal-body <?php echo $style_class . ' ' . esc_attr( $el_class ); ?>" style="<?php echo esc_attr( $customcss ); ?>">
 								<?php if ( 'cp-modal-custom-size' === $a['modal_size'] ) { ?>
 								<div class="cp-modal-body-overlay cp_cs_overlay" style="<?php echo esc_attr( $modal_body_css ); ?>;<?php echo esc_attr( $inset ); ?>;"></div>

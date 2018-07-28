@@ -1174,6 +1174,22 @@ return array(
       '700'
     )
   ),
+  'blackandwhitepicture' => array(
+    'source' => 'google',
+    'family' => 'Black And White Picture',
+    'stack' => '"Black And White Picture", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
+  'blackhansans' => array(
+    'source' => 'google',
+    'family' => 'Black Han Sans',
+    'stack' => '"Black Han Sans", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
   'blackopsone' => array(
     'source' => 'google',
     'family' => 'Black Ops One',
@@ -2037,6 +2053,14 @@ return array(
       '700i'
     )
   ),
+  'cutefont' => array(
+    'source' => 'google',
+    'family' => 'Cute Font',
+    'stack' => '"Cute Font", display',
+    'weights' => array(
+      '400'
+    )
+  ),
   'cutive' => array(
     'source' => 'google',
     'family' => 'Cutive',
@@ -2193,6 +2217,22 @@ return array(
       '400'
     )
   ),
+  'dohyeon' => array(
+    'source' => 'google',
+    'family' => 'Do Hyeon',
+    'stack' => '"Do Hyeon", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
+  'dokdo' => array(
+    'source' => 'google',
+    'family' => 'Dokdo',
+    'stack' => '"Dokdo", handwriting',
+    'weights' => array(
+      '400'
+    )
+  ),
   'domine' => array(
     'source' => 'google',
     'family' => 'Domine',
@@ -2285,6 +2325,14 @@ return array(
     'source' => 'google',
     'family' => 'Eagle Lake',
     'stack' => '"Eagle Lake", handwriting',
+    'weights' => array(
+      '400'
+    )
+  ),
+  'eastseadokdo' => array(
+    'source' => 'google',
+    'family' => 'East Sea Dokdo',
+    'stack' => '"East Sea Dokdo", handwriting',
     'weights' => array(
       '400'
     )
@@ -2941,6 +2989,16 @@ return array(
       '400'
     )
   ),
+  'gaegu' => array(
+    'source' => 'google',
+    'family' => 'Gaegu',
+    'stack' => '"Gaegu", handwriting',
+    'weights' => array(
+      '300',
+      '400',
+      '700'
+    )
+  ),
   'gafata' => array(
     'source' => 'google',
     'family' => 'Gafata',
@@ -2969,6 +3027,14 @@ return array(
     'source' => 'google',
     'family' => 'Galindo',
     'stack' => '"Galindo", display',
+    'weights' => array(
+      '400'
+    )
+  ),
+  'gamjaflower' => array(
+    'source' => 'google',
+    'family' => 'Gamja Flower',
+    'stack' => '"Gamja Flower", handwriting',
     'weights' => array(
       '400'
     )
@@ -3102,6 +3168,22 @@ return array(
       '700'
     )
   ),
+  'gothica1' => array(
+    'source' => 'google',
+    'family' => 'Gothic A1',
+    'stack' => '"Gothic A1", sans-serif',
+    'weights' => array(
+      '100',
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '800',
+      '900'
+    )
+  ),
   'goudybookletter1911' => array(
     'source' => 'google',
     'family' => 'Goudy Bookletter 1911',
@@ -3166,6 +3248,14 @@ return array(
       '400',
       '400i',
       '700'
+    )
+  ),
+  'gugi' => array(
+    'source' => 'google',
+    'family' => 'Gugi',
+    'stack' => '"Gugi", display',
+    'weights' => array(
+      '400'
     )
   ),
   'gurajada' => array(
@@ -3291,6 +3381,14 @@ return array(
       '400'
     )
   ),
+  'himelody' => array(
+    'source' => 'google',
+    'family' => 'Hi Melody',
+    'stack' => '"Hi Melody", handwriting',
+    'weights' => array(
+      '400'
+    )
+  ),
   'hind' => array(
     'source' => 'google',
     'family' => 'Hind',
@@ -3373,6 +3471,90 @@ return array(
     'stack' => '"Homenaje", sans-serif',
     'weights' => array(
       '400'
+    )
+  ),
+  'ibmplexmono' => array(
+    'source' => 'google',
+    'family' => 'IBM Plex Mono',
+    'stack' => '"IBM Plex Mono", monospace',
+    'weights' => array(
+      '100',
+      '100i',
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
+  'ibmplexsans' => array(
+    'source' => 'google',
+    'family' => 'IBM Plex Sans',
+    'stack' => '"IBM Plex Sans", sans-serif',
+    'weights' => array(
+      '100',
+      '100i',
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
+  'ibmplexsanscondensed' => array(
+    'source' => 'google',
+    'family' => 'IBM Plex Sans Condensed',
+    'stack' => '"IBM Plex Sans Condensed", sans-serif',
+    'weights' => array(
+      '100',
+      '100i',
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
+  'ibmplexserif' => array(
+    'source' => 'google',
+    'family' => 'IBM Plex Serif',
+    'stack' => '"IBM Plex Serif", serif',
+    'weights' => array(
+      '100',
+      '100i',
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
     )
   ),
   'imfelldwpica' => array(
@@ -3674,6 +3856,14 @@ return array(
       '400'
     )
   ),
+  'jua' => array(
+    'source' => 'google',
+    'family' => 'Jua',
+    'stack' => '"Jua", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
   'judson' => array(
     'source' => 'google',
     'family' => 'Judson',
@@ -3916,6 +4106,14 @@ return array(
       '600',
       '700',
       '800'
+    )
+  ),
+  'kiranghaerang' => array(
+    'source' => 'google',
+    'family' => 'Kirang Haerang',
+    'stack' => '"Kirang Haerang", display',
+    'weights' => array(
+      '400'
     )
   ),
   'kiteone' => array(
@@ -4500,6 +4698,17 @@ return array(
       '400'
     )
   ),
+  'markazitext' => array(
+    'source' => 'google',
+    'family' => 'Markazi Text',
+    'stack' => '"Markazi Text", serif',
+    'weights' => array(
+      '400',
+      '500',
+      '600',
+      '700'
+    )
+  ),
   'markoone' => array(
     'source' => 'google',
     'family' => 'Marko One',
@@ -4748,6 +4957,15 @@ return array(
     'stack' => '"Miltonian Tattoo", display',
     'weights' => array(
       '400'
+    )
+  ),
+  'mina' => array(
+    'source' => 'google',
+    'family' => 'Mina',
+    'stack' => '"Mina", sans-serif',
+    'weights' => array(
+      '400',
+      '700'
     )
   ),
   'miniver' => array(
@@ -6006,6 +6224,14 @@ return array(
       '400'
     )
   ),
+  'poorstory' => array(
+    'source' => 'google',
+    'family' => 'Poor Story',
+    'stack' => '"Poor Story", display',
+    'weights' => array(
+      '400'
+    )
+  ),
   'poppins' => array(
     'source' => 'google',
     'family' => 'Poppins',
@@ -7217,6 +7443,14 @@ return array(
       '400'
     )
   ),
+  'songmyung' => array(
+    'source' => 'google',
+    'family' => 'Song Myung',
+    'stack' => '"Song Myung", serif',
+    'weights' => array(
+      '400'
+    )
+  ),
   'sonsieone' => array(
     'source' => 'google',
     'family' => 'Sonsie One',
@@ -7444,6 +7678,14 @@ return array(
       '400'
     )
   ),
+  'stylish' => array(
+    'source' => 'google',
+    'family' => 'Stylish',
+    'stack' => '"Stylish", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
   'sueellenfrancisco' => array(
     'source' => 'google',
     'family' => 'Sue Ellen Francisco',
@@ -7466,6 +7708,16 @@ return array(
     'stack' => '"Sumana", serif',
     'weights' => array(
       '400',
+      '700'
+    )
+  ),
+  'sunflower' => array(
+    'source' => 'google',
+    'family' => 'Sunflower',
+    'stack' => '"Sunflower", sans-serif',
+    'weights' => array(
+      '300',
+      '500',
       '700'
     )
   ),
@@ -7533,6 +7785,20 @@ return array(
     'weights' => array(
       '400',
       '700'
+    )
+  ),
+  'tajawal' => array(
+    'source' => 'google',
+    'family' => 'Tajawal',
+    'stack' => '"Tajawal", sans-serif',
+    'weights' => array(
+      '200',
+      '300',
+      '400',
+      '500',
+      '700',
+      '800',
+      '900'
     )
   ),
   'tangerine' => array(
@@ -8117,6 +8383,14 @@ return array(
     'source' => 'google',
     'family' => 'Yellowtail',
     'stack' => '"Yellowtail", handwriting',
+    'weights' => array(
+      '400'
+    )
+  ),
+  'yeonsung' => array(
+    'source' => 'google',
+    'family' => 'Yeon Sung',
+    'stack' => '"Yeon Sung", display',
     'weights' => array(
       '400'
     )

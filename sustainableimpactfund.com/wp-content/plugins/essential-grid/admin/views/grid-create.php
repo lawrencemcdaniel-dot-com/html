@@ -82,9 +82,11 @@ $entry_skins = Essential_Grid_Item_Skin::get_essential_item_skins();
 $entry_skin_choosen = $base->getVar($grid['params'], 'entry-skin', '0');
 
 $grid_animations = $base->get_grid_animations();
+$start_animations = $base->get_start_animations();
 $grid_item_animations = $base->get_grid_item_animations();
 $hover_animations = $base->get_hover_animations();
 $grid_animation_choosen = $base->getVar($grid['params'], 'grid-animation', 'fade');
+$grid_start_animation_choosen = $base->getVar($grid['params'], 'grid-start-animation', 'reveal');
 $grid_item_animation_choosen = $base->getVar($grid['params'], 'grid-item-animation', 'none');
 $grid_item_animation_other = $base->getVar($grid['params'], 'grid-item-animation-other', 'none');
 $hover_animation_choosen = $base->getVar($grid['params'], 'hover-animation', 'fade');

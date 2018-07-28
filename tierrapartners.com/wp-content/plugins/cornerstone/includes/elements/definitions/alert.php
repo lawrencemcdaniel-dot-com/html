@@ -33,6 +33,13 @@ function x_element_builder_setup_alert() {
     'controls_adv'       => x_controls_element_alert( true ),
     'control_groups'     => x_control_groups_element_alert(),
     'control_groups_adv' => x_control_groups_element_alert( true ),
+    'options' => array(
+      'inline' => array(
+        'alert_content' => array(
+          'selector' => '.x-alert-content'
+        )
+      )
+    )
   );
 }
 

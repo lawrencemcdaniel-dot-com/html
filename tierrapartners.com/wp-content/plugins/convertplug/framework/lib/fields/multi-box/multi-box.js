@@ -21,12 +21,12 @@
 	}
 	$('.cp_mb_input[name="input_name"]').bind('blur',function(){
 		var t = $(this);
-		apply_regexp_for_name( t );
+		//apply_regexp_for_name( t );
 	});
 	$(document).on('multiBoxUpdated', function() {
 		$('.cp_mb_input[name="input_name"]').bind('blur',function(){
 			var t = $(this);
-			apply_regexp_for_name( t );
+			//apply_regexp_for_name( t );
 		});
 	});
 
@@ -34,7 +34,7 @@
 
 		$('.cp_mb_input').bind('blur',function(){
 			var t = $(this);
-			avoid_cp_concate_chars( t );
+			//avoid_cp_concate_chars( t );
 			refresh_multi_box();
 		});
 
@@ -73,8 +73,9 @@
 
 				//	set the name field for [hidden]
 				var temp_type = $(box).find('[name="input_type"] option:selected').val() || '';
+				//temp_type = temp_type.toLowerCase().replace(/\b[a-z]/g, function(letter) { return letter.toUpperCase(); });
 				temp_type = temp_type.toLowerCase().replace(/\b[a-z]/g, function(letter) { return letter.toUpperCase(); });
-
+				
 				switch( temp_type ) {
 					case 'dropdown': 	temp_val = (temp_name !== '') ? temp_name : '';
 						break;

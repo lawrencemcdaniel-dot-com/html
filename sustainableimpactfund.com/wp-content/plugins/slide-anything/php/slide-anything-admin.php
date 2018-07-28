@@ -1659,6 +1659,24 @@ function cpt_slider_style_content($post) {
 	}
 	echo "</select></div>\n";
 
+	echo "<h4 style='margin-top:10px !important;'>Other Settings:</h4>";
+
+	// USE 'window.onload' EVENT (checkbox)
+	$window_onload = get_post_meta($post->ID, 'sa_window_onload', true);
+	if ($window_onload == '') {
+		$window_onload = '0';
+	}
+	$tooltip =  'Use window.onload event (not document.ready). Use this option if your slider is ';
+	$tooltip .= 'not being sized correctly within your page container (sometimes occurs with Visual Composer full-width sections).';
+	echo "<div id='sa_window_onload_line'>";
+	echo "<span class='sa_tooltip' title='".$tooltip."'></span>Use 'window.onload' event:";
+	if ($window_onload == '1') {
+		echo "<input type='checkbox' id='sa_window_onload' name='sa_window_onload' value='1' checked/>";
+	} else {
+		echo "<input type='checkbox' id='sa_window_onload' name='sa_window_onload' value='1'/>";
+	}
+	echo "</div>\n";
+
 	echo "</div>\n";
 }
 
@@ -2032,6 +2050,13 @@ function cpt_slider_save_postdata() {
 			update_post_meta($post->ID, 'sa_slide_icons_visible', '1');
 		} else {
 			update_post_meta($post->ID, 'sa_slide_icons_visible', '0');
+		}
+
+		// OTHER SETTINGS
+		if (isset($_POST['sa_window_onload']) && ($_POST['sa_window_onload'] == '1')) {
+			update_post_meta($post->ID, 'sa_window_onload', '1');
+		} else {
+			update_post_meta($post->ID, 'sa_window_onload', '0');
 		}
 	}
 }

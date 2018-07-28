@@ -12,7 +12,7 @@ function sfsi_update_plugin()
     }
     
     //Install version
-    update_option("sfsi_pluginVersion", "2.02");
+    update_option("sfsi_pluginVersion", "2.03");
 
     if(!get_option('sfsi_serverphpVersionnotification'))
     {
@@ -222,7 +222,7 @@ function sfsi_update_plugin()
         }
 
 
-        if(!isset($option5['sfsi_icons_suppress_errors'])){
+        if(!isset($option5['sfsi_pplus_icons_suppress_errors'])){
         	
         	$sup_errors = "no";
         	$sup_errors_banner_dismissed = true;
@@ -232,8 +232,8 @@ function sfsi_update_plugin()
             	$sup_errors_banner_dismissed = false;
         	}
 
-            $option5['sfsi_icons_suppress_errors'] = $sup_errors;
-            update_option('sfsi_error_reporting_notice_dismissed',$sup_errors_banner_dismissed);            
+            $option5['sfsi_pplus_icons_suppress_errors'] = $sup_errors;
+            update_option('sfsi_pplus_error_reporting_notice_dismissed',$sup_errors_banner_dismissed);            
         }		        
     }
 

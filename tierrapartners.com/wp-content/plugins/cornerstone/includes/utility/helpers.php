@@ -9,12 +9,8 @@ function e_csi18n( $key ) {
 	echo csi18n( $key );
 }
 
-/**
- * Get all the Font Awesome unicode values
- * @return array Hash list of icon aliases and unicode values
- */
-function fa_all_unicode() {
-	return CS()->common()->getFontIcons();
+function cs_fa_all() {
+  return CS()->common()->getFontIds();
 }
 
 /**
@@ -23,7 +19,8 @@ function fa_all_unicode() {
  * @return string      String containing unicode reference for the requested icon
  */
 function fa_unicode( $key ) {
-	return CS()->common()->getFontIcon( $key );
+  $icon = CS()->common()->getFontIcon( $key );
+  return is_array($icon) ? $icon[1] : '';
 }
 
 
@@ -36,15 +33,28 @@ function fa_entity( $key ) {
 	return '&#x' . fa_unicode( $key ) . ';';
 }
 
+function fa_get_attr( $key ) {
+  $icon = CS()->common()->getFontIcon( $key );
+  return array(
+    'attr' => 'data-x-icon-' . $icon[0],
+    'unicode' => $icon[1],
+    'entity'  => '&#x' . $icon[1] . ';'
+  );
+}
+
 /**
  * Template function that returns a data attribute for an icon
  * @param  string $key Icon to lookup
  * @return string      Data attribute string that can be placed inside an element tag
  */
 function fa_data_icon( $key ) {
-	return 'data-x-icon="' . fa_unicode( $key ) . '"';
+  $icon = fa_get_attr( $key );
+  return $icon['attr']. '="' . $icon['entity'] . '"';
 }
 
+function fa_locate_from_unicode( $unicode ) {
+  return CS()->common()->getFontIconKeyFromUnicode( $unicode );
+}
 
 /**
  * Alternate for wp_localize_script that outputs a function to return the data

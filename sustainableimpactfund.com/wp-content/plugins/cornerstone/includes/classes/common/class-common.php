@@ -51,12 +51,46 @@ class Cornerstone_Common extends Cornerstone_Plugin_Component {
     return __( 'Cornerstone', 'cornerstone' );
   }
 
+  public function resolveFontAlias( $key ) {
+    return isset( $this->font_icons['aliases'][$key] ) ? $this->font_icons['aliases'][$key] : $key;
+  }
+
   /**
    * Get Font Icon Unicode Value as a string
    * @return string
    */
   public function getFontIcon( $key ) {
-    return ( isset( $this->font_icons[ $key] ) ) ? $this->font_icons[$key] : 'f00d';
+
+    $key = $this->resolveFontAlias( $key );
+
+    $set = 's';
+
+    if ( 0 === strpos($key, 'o-' ) ) {
+      $key = substr( $key, 2 );
+      if ( in_array($key, $this->font_icons['outlines']) ) {
+        $set = 'o';
+      }
+    }
+
+    if ( in_array($key, $this->font_icons['brands']) ) {
+      $set = 'b';
+    }
+
+    $icon = ( isset( $this->font_icons['icons'][ $key] ) ) ? $this->font_icons['icons'][$key] : 'f00d';
+
+    return array( $set, $icon );
+  }
+
+  function getFontIconKeyFromUnicode( $unicode ) {
+
+    static $flipped = array();
+
+    if ( empty( $flipped ) ) {
+      $flipped = array_flip( $this->font_icons['icons'] );
+    }
+
+    return isset( $flipped[$unicode] ) ? $flipped[$unicode] : 'remove';
+
   }
 
   /**
@@ -64,6 +98,26 @@ class Cornerstone_Common extends Cornerstone_Plugin_Component {
    * @return array
    */
   public function getFontIcons() {
+    return $this->font_icons['icons'];
+  }
+
+  /**
+   * Return font icon cache
+   * @return array
+   */
+  public function getFontIds() {
+
+    $ids = array_keys( $this->font_icons['icons'] );
+
+    foreach ($this->font_icons['outlines'] as $key) {
+      $ids[] = "o-$key";
+    }
+
+    return $ids;
+
+  }
+
+  public function getFontIconsData() {
     return $this->font_icons;
   }
 

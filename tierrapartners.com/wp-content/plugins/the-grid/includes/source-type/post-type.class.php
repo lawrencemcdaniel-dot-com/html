@@ -1143,8 +1143,8 @@ class The_Grid_Post_Type {
 				});
 
 			}
-
-			if ( empty( $matched ) || ! $args->publicly_queryable || ! $args->public ) {
+			
+			if ( empty( $matched ) || ( ! $args->publicly_queryable && ! $args->public && ! $args->show_ui && ! $args->show_tagcloud ) ) {
 				continue;
 			}
 

@@ -118,6 +118,7 @@ return array(
   'permissions.edit-custom-js'         => __( 'Edit Custom JS', 'cornerstone' ),
   'permissions.settings'               => __( 'Access Settings', 'cornerstone' ),
   'permissions.skeleton-mode'          => __( 'Skeleton Mode', 'cornerstone' ),
+  'permissions.inline-edit'            => __( 'Inline Editing', 'cornerstone' ),
 
   'permissions.import'                 => __( 'Import', 'cornerstone' ),
   'permissions.download'               => __( 'Download', 'cornerstone' ),

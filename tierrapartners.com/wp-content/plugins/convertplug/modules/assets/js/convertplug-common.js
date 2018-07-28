@@ -1866,12 +1866,12 @@ function cp_is_triggered( elem ){
     exit_intent   = elem.data("exit-intent"),
     condition     = true;
     if( module_type == 'modal' ){
-        var class_id           = elem.data("class-id");
-        modal              = $('.'+class_id);
+        var class_id           = elem.data("class-id"),
+        modal              = $('.'+class_id),
         condition = (modal.hasClass('cp-open') || modal.hasClass('cp-visited-popup'));
     }else if( module_type == 'slide_in'){
-        var class_id           = elem.data("class-id");
-        slide_in              = $('.'+class_id);
+        var class_id           = elem.data("class-id"),
+        slide_in              = $('.'+class_id),
         condition = slide_in.hasClass('si-open');
     }else if( module_type == 'info-bar'){
         condition = elem.hasClass('ib-display');

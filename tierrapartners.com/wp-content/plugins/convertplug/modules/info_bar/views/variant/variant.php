@@ -125,6 +125,9 @@ if ( 0 < count( $variants ) ) {
 													$style_settings = unserialize( $style['style_settings'] );
 													$theme          = $style_settings['style'];
 													$live           = (int) $style_settings['live'];
+													if( $live == ''){
+														$live = 0;
+													}
 													$status         = '';
 													if ( 1 === $live ) {
 														$status .= '<span class="change-status"><span data-live="1" class="cp-status"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></span>';
@@ -189,10 +192,13 @@ if ( 0 < count( $variants ) ) {
 												$style_settings = unserialize( $variant_test['style_settings'] );
 												$theme          = $style_settings['style'];
 												$live           = $style_settings['live'];
+												if( $live == ''){
+													$live = 0;
+												}
 												$status         = '';
-												if ( 1 === $live ) {
+												if ( 1 === $live || '1' === $live ) {
 													$status .= '<span class="change-status"><span data-live="1" class="cp-status"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></span>';
-												} elseif ( 0 === $live ) {
+												} elseif ( 0 === $live || '0' === $live) {
 													$status .= '<span class="change-status"><span data-live="0" class="cp-status"><i class="connects-icon-pause"></i><span>' . __( 'Pause', 'smile' ) . '</span></span>';
 												} else {
 													$status .= '<span class="change-status"><span data-live="2" class="cp-status"><i class="connects-icon-clock"></i><span>' . __( 'Scheduled', 'smile' ) . '</span></span>';
@@ -201,7 +207,7 @@ if ( 0 < count( $variants ) ) {
 												if ( 1 !== $live && '1' !== $live ) {
 													$status .= '<li><a href="#" class="change-status" data-style-id="' . $style_id . '" data-variant="info_bar_variant_tests" data-live="1" data-option="info_bar_variant_tests"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></a></li>';
 												}
-												if ( 0 !== $live && '' !== $live && '0' !== $live ) {
+												if ( ( 0 !== $live && '0' !== $live ) && '' !== $live ) {
 													$status .= '<li><a href="#" class="change-status" data-style-id="' . $style_id . '" data-variant="info_bar_variant_tests" data-live="0" data-option="info_bar_variant_tests"><i class="connects-icon-pause"></i><span>' . __( 'Pause', 'smile' ) . '</span></a></li>';
 												}
 												if ( 2 !== $live && '2' !== $live ) {

@@ -214,7 +214,7 @@
                             if (window._EPYT_.ytapi_load !== 'never' && (window._EPYT_.ytapi_load === 'always' || $('iframe[src*="youtube.com/embed/"]').length))
                             {
                                 var iapi = document.createElement('script');
-                                iapi.src = "//www.youtube.com/iframe_api";
+                                iapi.src = "https://www.youtube.com/iframe_api";
                                 iapi.type = "text/javascript";
                                 document.getElementsByTagName('head')[0].appendChild(iapi);
                             }
@@ -332,7 +332,6 @@
                                         showTitle: $(this).data('showtitle'),
                                         showPaging: $(this).data('showpaging'),
                                         autonext: $(this).data('autonext'),
-                                        hidethumbimg: $(this).data('hidethumbimg'),
                                         thumbplay: $(this).data('thumbplay')
                                     }
                                 };

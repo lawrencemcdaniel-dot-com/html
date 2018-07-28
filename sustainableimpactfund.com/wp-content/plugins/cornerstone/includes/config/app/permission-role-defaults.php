@@ -34,6 +34,8 @@ return array(
     'headers.customize_controls' => true,
     'headers.edit_custom_css' => true,
     'headers.edit_custom_js' => true,
+    'headers.skeleton_mode' => true,
+    'headers.inline_edit' => true,
 
     'footers.create' => true,
     'footers.create_from_template' => true,
@@ -52,6 +54,8 @@ return array(
     'footers.customize_controls' => true,
     'footers.edit_custom_css' => true,
     'footers.edit_custom_js' => true,
+    'footers.skeleton_mode' => true,
+    'footers.inline_edit' => true,
 
     'templates.import' => true,
     'templates.download' => true,
@@ -98,6 +102,7 @@ return array(
     'content.{post-type}.edit_custom_js' => true,
     'content.{post-type}.settings' => true,
     'content.{post-type}.skeleton_mode' => true,
+    'content.{post-type}.inline_edit' => true,
 
     'element.{id}.inspect'            => true,
     'element.{id}.apply_preset'       => true,

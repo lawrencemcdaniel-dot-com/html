@@ -125,11 +125,11 @@ if ( ! function_exists( 'x_entry_navigation' ) ) :
   $stack = x_get_stack();
 
   if ( $stack == 'ethos' ) {
-    $left_icon  = '<i class="x-icon-chevron-left" data-x-icon="&#xf053;"></i>';
-    $right_icon = '<i class="x-icon-chevron-right" data-x-icon="&#xf054;"></i>';
+    $left_icon  = '<i class="x-icon-chevron-left" data-x-icon-s="&#xf053;"></i>';
+    $right_icon = '<i class="x-icon-chevron-right" data-x-icon-s="&#xf054;"></i>';
   } else {
-    $left_icon  = '<i class="x-icon-arrow-left" data-x-icon="&#xf060;"></i>';
-    $right_icon = '<i class="x-icon-arrow-right" data-x-icon="&#xf061;"></i>';
+    $left_icon  = '<i class="x-icon-arrow-left" data-x-icon-s="&#xf060;"></i>';
+    $right_icon = '<i class="x-icon-arrow-right" data-x-icon-s="&#xf061;"></i>';
   }
 
   $is_ltr    = ! is_rtl();
@@ -199,7 +199,7 @@ if ( ! function_exists( 'x_scroll_top_anchor' ) ) :
     if ( x_get_option( 'x_footer_scroll_top_display' ) == '1' ) : ?>
 
       <a class="x-scroll-top <?php echo x_get_option( 'x_footer_scroll_top_position' ); ?> fade" title="<?php esc_attr_e( 'Back to Top', '__x__' ); ?>">
-        <i class="x-icon-angle-up" data-x-icon="&#xf106;"></i>
+        <i class="x-icon-angle-up" data-x-icon-s="&#xf106;"></i>
       </a>
 
       <script>
@@ -279,7 +279,7 @@ if ( ! function_exists( 'x_legacy_header_widget_areas' ) ) :
     </div>
 
     <a href="#" id="x-btn-widgetbar" class="x-btn-widgetbar collapsed" data-x-toggle="collapse-b" data-x-toggleable="x-widgetbar" aria-selected="false" aria-expanded="false" aria-controls="x-widgetbar">
-      <i class="x-icon-plus-circle" data-x-icon="&#xf055;"><span class="visually-hidden"><?php _e( 'Toggle the Widgetbar', '__x__' ); ?></span></i>
+      <i class="x-icon-plus-circle" data-x-icon-s="&#xf055;"><span class="visually-hidden"><?php _e( 'Toggle the Widgetbar', '__x__' ); ?></span></i>
     </a>
 
     <?php

@@ -36,6 +36,17 @@ function x_element_builder_setup_accordion_item() {
     'controls_adv'       => x_controls_element_accordion_item( true ),
     'control_groups'     => x_control_groups_element_accordion_item(),
     'control_groups_adv' => x_control_groups_element_accordion_item( true ),
+    'options' => array(
+      'inline' => array(
+        'accordion_item_content' => array(
+          'selector' => '.x-acc-content'
+        ),
+        'accordion_item_header_content' => array(
+          'selector'       => '.x-acc-header',
+          'editing_target' => '.x-acc-header-text'
+        )
+      )
+    )
   );
 }
 

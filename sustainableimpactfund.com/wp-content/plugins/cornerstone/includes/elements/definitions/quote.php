@@ -33,6 +33,16 @@ function x_element_builder_setup_quote() {
     'controls_adv'       => x_controls_element_quote( true ),
     'control_groups'     => x_control_groups_element_quote(),
     'control_groups_adv' => x_control_groups_element_quote( true ),
+    'options' => array(
+      'inline' => array(
+        'quote_content' => array(
+          'selector' => '.x-quote-text'
+        ),
+        'quote_cite_content' => array(
+          'selector' => '.x-quote-cite-text'
+        )
+      )
+    )
   );
 }
 

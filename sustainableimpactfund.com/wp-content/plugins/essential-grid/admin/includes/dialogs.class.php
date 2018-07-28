@@ -601,8 +601,9 @@ class Essential_Grid_Dialogs {
 		<div id="edit-custom-element-dialog-wrap" class="essential-dialog-wrap" title="<?php _e('Element Settings', EG_TEXTDOMAIN); ?>"  style="display: none; padding:15px 0px;">
 			<form id="edit-custom-element-form">
 				<input type="hidden" name="custom-type" value="" />
-				<div class="eg-elset-title esg-item-skin-media-title">
+				<div class="eg-elset-title esg-item-skin-media-title" data-collapse="esg-item-skin-elements-media">
 					<?php _e('Media:', EG_TEXTDOMAIN); ?>
+					<i class="eg-icon-up-dir"></i>
 				</div>
 				<div id="esg-item-skin-elements-media">
 					<div class="eg-elset-row esg-item-skin-elements" id="esg-item-skin-elements-media-sound">
@@ -637,74 +638,73 @@ class Essential_Grid_Dialogs {
 						</select>
 					</div>
 				</div>
-				<div id="">
+				<div>
 					
 					<?php
-					$custom_meta = $meta->get_all_meta(false);
-					if(!empty($custom_meta)){
-						echo '<div class="eg-elset-title">';				
-						_e('Custom Meta:', EG_TEXTDOMAIN);
-						echo '</div>';
 					
-						foreach($custom_meta as $cmeta){
-							?>
-							<div class="eg-elset-row"><div class="eg-elset-label"  class="eg-mb-label"><?php echo $cmeta['name']; ?>:</div>
-								<?php
-								switch($cmeta['type']){
-									case 'text':
-										echo '<input type="text" name="eg-'.$cmeta['handle'].'" value="" />';
-									break;
-									case 'select':
-									case 'multi-select':
-										$do_array = ($cmeta['type'] == 'multi-select') ? '[]' : '';
-										$el = $meta->prepare_select_by_string($cmeta['select']);
-										echo '<select name="eg-'.$cmeta['handle'].$do_array.'"';
-										if($cmeta['type'] == 'multi-select') echo ' multiple="multiple" size="5"';
-										echo '>';
-										if(!empty($el) && is_array($el)){
-											if($cmeta['type'] == 'multi-select'){
-												echo '<option value="">'.__('---', EG_TEXTDOMAIN).'</option>';
-											}
-											foreach($el as $ele){
-												echo '<option value="'.$ele.'">'.$ele.'</option>';
-											}
-										}
-										echo '</select>';
-									break;
-									case 'image':
-										$var_src = '';
-										?>
-										<input type="hidden" value="" name="eg-<?php echo $cmeta['handle']; ?>" id="eg-<?php echo $cmeta['handle'].'-cm'; ?>" />
-										<a class="button-primary revblue eg-image-add" href="javascript:void(0);" data-setto="eg-<?php echo $cmeta['handle'].'-cm'; ?>"><?php _e('Choose Image', EG_TEXTDOMAIN); ?></a>
-										<a class="button-primary revred eg-image-clear" href="javascript:void(0);" data-setto="eg-<?php echo $cmeta['handle'].'-cm'; ?>"><?php _e('Remove Image', EG_TEXTDOMAIN); ?></a>
-										<div>
-											<img id="eg-<?php echo $cmeta['handle'].'-cm'; ?>-img" src="<?php echo $var_src; ?>" <?php echo ($var_src == '') ? 'style="max-width:200px; display: none;margin:20px 0px 0px 250px;"' : ''; ?>>
-										</div>
-										<?php
-									break;
-								}
-								?>
-							</div>
+					echo '<div class="eg-elset-title" data-collapse="esg-item-skin-elements-settings">';	
+					_e('Item Settings', EG_TEXTDOMAIN);
+					echo '<i class="eg-icon-up-dir"></i>';
+					echo '</div>';
+					echo '<div id="esg-item-skin-elements-settings">';
+					echo '<div class="eg-elset-row"><div class="eg-elset-label"  for="post-link">'.__('Link To:', EG_TEXTDOMAIN).':</div><input name="post-link" value="" /></div>';
+					
+					echo '<div class="eg-elset-row"><div class="eg-elset-label"  for="custom-filter">'.__('Filter(s) (comma seperated)', EG_TEXTDOMAIN).':</div><input name="custom-filter" value="" /></div>';
+					?>
+					<div class="eg-elset-row">
+						<div class="eg-elset-label" for="cobbles">
+							<?php _e('Cobbles Element Size:', EG_TEXTDOMAIN); ?>
+						</div>
+						<select name="cobbles-size">
+							<option value="1:1"><?php _e('width 1, height 1', EG_TEXTDOMAIN); ?></option>
+							<option value="1:2"><?php _e('width 1, height 2', EG_TEXTDOMAIN); ?></option>
+							<option value="1:3"><?php _e('width 1, height 3', EG_TEXTDOMAIN); ?></option>
+							<option value="2:1"><?php _e('width 2, height 1', EG_TEXTDOMAIN); ?></option>
+							<option value="2:2"><?php _e('width 2, height 2', EG_TEXTDOMAIN); ?></option>
+							<option value="2:3"><?php _e('width 2, height 3', EG_TEXTDOMAIN); ?></option>
+							<option value="3:1"><?php _e('width 3, height 1', EG_TEXTDOMAIN); ?></option>
+							<option value="3:2"><?php _e('width 3, height 2', EG_TEXTDOMAIN); ?></option>
+							<option value="3:3"><?php _e('width 3, height 3', EG_TEXTDOMAIN); ?></option>
+						</select>
+					</div>
+					<div class="eg-elset-row">
+						<?php
+						$skins = Essential_Grid_Item_Skin::get_essential_item_skins('all', false);
+						?>
+						<div class="eg-elset-label" for="use-skin">
+							<?php _e('Alternate Item Skin:', EG_TEXTDOMAIN); ?>
+						</div>
+						<select name="use-skin">
+							<option value="-1"><?php _e('-- Default Skin --', EG_TEXTDOMAIN); ?></option>
 							<?php
-						}
-					}else{
-						_e('No metas available yet. Add some through the Custom Meta menu of Essential Grid.', EG_TEXTDOMAIN);
-						?><div style="clear:both; height:20px"></div><?php 			
-					}
+							if(!empty($skins)){
+								foreach($skins as $skin){
+									echo '<option value="'.$skin['id'].'">'.$skin['name'].'</option>'."\n";
+								}
+							}
+							?>
+						</select>
+					</div>
+					</div>
+					<?php 
 					
 					$elements = $item_elements->getElementsForDropdown();
-					$p_lang = array('post' => __('Post', EG_TEXTDOMAIN), 'woocommerce' => __('WooCommerce', EG_TEXTDOMAIN));
+					$p_lang = array('post' => __('Item Data', EG_TEXTDOMAIN), 'woocommerce' => __('WooCommerce', EG_TEXTDOMAIN));
 					
 					foreach($elements as $type => $element){
 						?>
-						<div class="eg-elset-title">
+						<div class="eg-elset-title collapse" data-collapse="esg-item-skin-elements-<?php echo $type; ?>">
 							<?php echo $p_lang[$type]; ?>
+							<i class="eg-icon-down-dir"></i>
 						</div>
+						<div id="esg-item-skin-elements-<?php echo $type; ?>" style="display: none">
 						<?php
 						foreach($element as $handle => $itm){
+
+							if(!isset($itm['type'])) $itm['type'] = "empty";
 							
 							switch($itm['type']) {
-								
+									
 								case 'image';
 								
 									echo '<div class="eg-elset-row"><div class="eg-elset-label"  for="'.$handle.'">'.$itm['name'].':</div>';
@@ -772,53 +772,73 @@ class Essential_Grid_Dialogs {
 							}
 							
 						}
-					}
-					echo '<div class="eg-elset-title">';	
-					_e('Link To:', EG_TEXTDOMAIN);
-					echo '</div>';
-					
-					echo '<div class="eg-elset-row"><div class="eg-elset-label"  for="post-link">'.__('Post Link', EG_TEXTDOMAIN).':</div><input name="post-link" value="" /></div>';
-					
-					echo '<div class="eg-elset-title">';	
-					_e('Other:', EG_TEXTDOMAIN);
-					echo '</div>';
-					
-					echo '<div class="eg-elset-row"><div class="eg-elset-label"  for="custom-filter">'.__('Filter (comma seperated)', EG_TEXTDOMAIN).':</div><input name="custom-filter" value="" /></div>';
-					?>
-					<div class="eg-elset-row">
-						<div class="eg-elset-label" for="cobbles">
-							<?php _e('Cobbles Element Size:', EG_TEXTDOMAIN); ?>
-						</div>
-						<select name="cobbles-size">
-							<option value="1:1"><?php _e('width 1, height 1', EG_TEXTDOMAIN); ?></option>
-							<option value="1:2"><?php _e('width 1, height 2', EG_TEXTDOMAIN); ?></option>
-							<option value="1:3"><?php _e('width 1, height 3', EG_TEXTDOMAIN); ?></option>
-							<option value="2:1"><?php _e('width 2, height 1', EG_TEXTDOMAIN); ?></option>
-							<option value="2:2"><?php _e('width 2, height 2', EG_TEXTDOMAIN); ?></option>
-							<option value="2:3"><?php _e('width 2, height 3', EG_TEXTDOMAIN); ?></option>
-							<option value="3:1"><?php _e('width 3, height 1', EG_TEXTDOMAIN); ?></option>
-							<option value="3:2"><?php _e('width 3, height 2', EG_TEXTDOMAIN); ?></option>
-							<option value="3:3"><?php _e('width 3, height 3', EG_TEXTDOMAIN); ?></option>
-						</select>
-					</div>
-					<div class="eg-elset-row">
-						<?php
-						$skins = Essential_Grid_Item_Skin::get_essential_item_skins('all', false);
-						?>
-						<div class="eg-elset-label" for="use-skin">
-							<?php _e('Choose Specific Skin:', EG_TEXTDOMAIN); ?>
-						</div>
-						<select name="use-skin">
-							<option value="-1"><?php _e('-- Default Skin --', EG_TEXTDOMAIN); ?></option>
-							<?php
-							if(!empty($skins)){
-								foreach($skins as $skin){
-									echo '<option value="'.$skin['id'].'">'.$skin['name'].'</option>'."\n";
-								}
-							}
+						
+						echo '</div>';
+						
+					}				
+
+					$custom_meta = $meta->get_all_meta(false);
+					if(!empty($custom_meta)){
+						echo '<div class="eg-elset-title collapse" data-collapse="esg-item-skin-elements-meta">';				
+						_e('Custom Meta', EG_TEXTDOMAIN);
+						echo '<i class="eg-icon-down-dir"></i>';
+						echo '</div>';
+						
+						echo '<div id="esg-item-skin-elements-meta" style="display: none">';
+						foreach($custom_meta as $cmeta){
 							?>
-						</select>
-					</div>
+							<div class="eg-elset-row"><div class="eg-elset-label"  class="eg-mb-label"><?php echo $cmeta['name']; ?>:</div>
+								<?php
+								switch($cmeta['type']){
+									case 'text':
+										echo '<input type="text" name="eg-'.$cmeta['handle'].'" value="" />';
+									break;
+									case 'select':
+									case 'multi-select':
+										$do_array = ($cmeta['type'] == 'multi-select') ? '[]' : '';
+										$el = $meta->prepare_select_by_string($cmeta['select']);
+										echo '<select name="eg-'.$cmeta['handle'].$do_array.'"';
+										if($cmeta['type'] == 'multi-select') echo ' multiple="multiple" size="5"';
+										echo '>';
+										if(!empty($el) && is_array($el)){
+											if($cmeta['type'] == 'multi-select'){
+												echo '<option value="">'.__('---', EG_TEXTDOMAIN).'</option>';
+											}
+											foreach($el as $ele){
+												echo '<option value="'.$ele.'">'.$ele.'</option>';
+											}
+										}
+										echo '</select>';
+									break;
+									case 'image':
+										$var_src = '';
+										?>
+										<input type="hidden" value="" name="eg-<?php echo $cmeta['handle']; ?>" id="eg-<?php echo $cmeta['handle'].'-cm'; ?>" />
+										<a class="button-primary revblue eg-image-add" href="javascript:void(0);" data-setto="eg-<?php echo $cmeta['handle'].'-cm'; ?>"><?php _e('Choose Image', EG_TEXTDOMAIN); ?></a>
+										<a class="button-primary revred eg-image-clear" href="javascript:void(0);" data-setto="eg-<?php echo $cmeta['handle'].'-cm'; ?>"><?php _e('Remove Image', EG_TEXTDOMAIN); ?></a>
+										<div>
+											<img id="eg-<?php echo $cmeta['handle'].'-cm'; ?>-img" src="<?php echo $var_src; ?>" <?php echo ($var_src == '') ? 'style="max-width:200px; display: none;margin:20px 0px 0px 250px;"' : ''; ?>>
+										</div>
+										<?php
+									break;
+								}
+								?>
+							</div>
+							<?php
+						}
+					}else{
+						_e('No metas available yet. Add some through the Custom Meta menu of Essential Grid.', EG_TEXTDOMAIN);
+						?><div style="clear:both; height:20px"></div><?php 			
+					}
+					
+					echo '</div>';
+					
+					echo '<div class="eg-elset-title collapse" data-collapse="esg-item-skin-elements-other">';	
+					_e('Other', EG_TEXTDOMAIN);
+					echo '<i class="eg-icon-down-dir"></i>';
+					echo '</div>';
+					?>
+					<div id="esg-item-skin-elements-other" style="display: none">
 					<div class="eg-elset-row">
 						<div class="eg-elset-label" for="image-fit">
 							<?php _e('Image Fit:', EG_TEXTDOMAIN); ?>
@@ -901,6 +921,25 @@ class Essential_Grid_Dialogs {
 					jQuery('#esg-custom-image-img').hide();
 					return false; 
 				});
+				
+				jQuery('.eg-elset-title').click(function() {
+					
+					var $this = jQuery(this);
+					if($this.hasClass('collapse')) {
+						
+						$this.removeClass('collapse').find('i').attr('class', 'eg-icon-up-dir');
+						jQuery('#' + $this.attr('data-collapse')).slideDown();
+						
+					}
+					else {
+						
+						$this.addClass('collapse').find('i').attr('class', 'eg-icon-down-dir');
+						jQuery('#' + $this.attr('data-collapse')).slideUp();
+						
+					}
+					
+				});
+				
 				<?php
 				do_action('essgrid_edit_custom_element_dialog_script');
 				?>
@@ -921,7 +960,7 @@ class Essential_Grid_Dialogs {
 		
 		$grids = Essential_Grid::get_grids_short_vc();
 		?>
-		<div id="ess-grid-tiny-mce-dialog" tabindex="-1" action="" class="essential-dialog-wrap" title="<?php _e('Shortcode Generator', EG_TEXTDOMAIN); ?>" style="display: none; ">
+		<div id="ess-grid-tiny-mce-dialog" tabindex="-1" action="" class="essential-dialog-wrap" title="" style="display: none; ">
 			<script type="text/javascript">
 				var token = '<?php echo wp_create_nonce("Essential_Grid_actions"); ?>';
 			</script>
@@ -930,9 +969,9 @@ class Essential_Grid_Dialogs {
 				<!-- STEP 1 -->
 				<div id="ess-grid-tiny-dialog-step-1">
 					<div class="ess-top_half">
-						<p class="ess-quicktitle"><?php _e('Choose Predefined Grid:', EG_TEXTDOMAIN); ?></p>
+						<p class="ess-quicktitle"><?php _e('Predefined Grids:', EG_TEXTDOMAIN); ?></p>
 						<select name="ess-grid-existing-grid">
-							<option value="-1"><?php _e('--- Choose Grid ---', EG_TEXTDOMAIN); ?></option>
+							<option value="-1"><?php _e('--- Select Grid ---', EG_TEXTDOMAIN); ?></option>
 							<?php
 							if(!empty($grids)){
 								foreach($grids as $title => $alias){
@@ -942,31 +981,40 @@ class Essential_Grid_Dialogs {
 							?>
 						</select>
 						<div style="margin-top:20px">
-							<a href="javascript:void(0);" class="button-primary ess-revgreen" id="eg-add-predefined-grid"><?php _e('Add Selected Grid', EG_TEXTDOMAIN); ?></a>
-							<a href="<?php echo Essential_Grid_Base::getViewUrl(Essential_Grid_Admin::VIEW_GRID_CREATE, 'create=true'); ?>" target="_blank" class="button-primary ess-revgreen" id="eg-create-predefined-grid"><?php _e('Create Full Grid', EG_TEXTDOMAIN); ?></a>
+							<a href="javascript:void(0);" class="button-primary ess-revgreen" id="eg-add-predefined-grid"><?php _e('Insert Shortcode', EG_TEXTDOMAIN); ?></a>
+							<!--a href="<?php echo Essential_Grid_Base::getViewUrl(Essential_Grid_Admin::VIEW_GRID_CREATE, 'create=true'); ?>" target="_blank" class="button-primary ess-revgreen" id="eg-create-predefined-grid"><?php _e('Create Full Grid', EG_TEXTDOMAIN); ?></a-->
 						</div>
 					</div>
 					<div class="ess-bottom_half">
-						<p class="ess-quicktitle"><?php _e('Create a Quick Grid:', EG_TEXTDOMAIN); ?></p>
-						<a href="javascript:void(0);" class="" id="eg-create-custom-grid">
+						<p class="ess-quicktitle"><?php _e('Custom Quick Grids:', EG_TEXTDOMAIN); ?></p>
+						
+						<a href="javascript:void(0);" class="" id="eg-create-wp-gallery">
 							<div class="ess-customgridwrap">
 								<div class="dashicons dashicons-format-gallery ess-customgridicon"></div>
-								<div class="ess-customonbutton"><?php _e('Add Custom', EG_TEXTDOMAIN); ?></div>
+								<div class="ess-customonbutton" id="shift8_portfolio_gallery_button"><?php _e('WordPress Gallery', EG_TEXTDOMAIN); ?></div>
+							</div>
+						</a>
+
+						<a href="javascript:void(0);" class="" id="eg-create-custom-grid">
+							<div class="ess-customgridwrap">
+								<div class="dashicons dashicons-admin-media ess-customgridicon"></div>
+								<div class="ess-customonbutton"><?php _e('Create Custom Grid', EG_TEXTDOMAIN); ?></div>
 							</div>
 						</a>
 						
 						<a href="javascript:void(0);" class="" id="eg-edit-custom-grid">
 							<div class="ess-customgridwrap">
-								<div class="dashicons dashicons-format-gallery ess-customgridicon"></div>
-								<div class="ess-customonbutton"><?php _e('Edit Custom', EG_TEXTDOMAIN); ?></div>
+								<div class="dashicons dashicons-admin-media ess-customgridicon"></div>
+								<div class="ess-customonbutton"><?php _e('Edit Custom Grid', EG_TEXTDOMAIN); ?></div>
 							</div>
 						</a>
 						
-						
+						<div class="ess-rowdivider"></div>
+
 						<a href="javascript:void(0);" class="" id="eg-create-popularpost-grid">
 							<div class="ess-customgridwrap">
 								<div class="dashicons dashicons-groups ess-customgridicon"></div>
-								<div class="ess-customonbutton"><?php _e('Popular Post', EG_TEXTDOMAIN); ?></div>
+								<div class="ess-customonbutton"><?php _e('Popular Posts', EG_TEXTDOMAIN); ?></div>
 							</div>
 						</a>
 
@@ -974,21 +1022,21 @@ class Essential_Grid_Dialogs {
 						<a href="javascript:void(0);" class="" id="eg-create-recentpost-grid">
 							<div class="ess-customgridwrap">
 								<div class="dashicons dashicons-calendar ess-customgridicon"></div>
-								<div class="ess-customonbutton"><?php _e('Recent Post', EG_TEXTDOMAIN); ?></div>
+								<div class="ess-customonbutton"><?php _e('Recent Posts', EG_TEXTDOMAIN); ?></div>
 							</div>
 						</a>
 						
 						<a href="javascript:void(0);" class="" id="eg-create-relatedpost-grid">
 							<div class="ess-customgridwrap">
 								<div class="dashicons dashicons-tickets ess-customgridicon"></div>
-								<div class="ess-customonbutton"><?php _e('Related Post', EG_TEXTDOMAIN); ?></div>
+								<div class="ess-customonbutton"><?php _e('Related Posts', EG_TEXTDOMAIN); ?></div>
 							</div>
 						</a>
 						
 					</div>
 					
 					<div class="ess-stepnavigator">
-						<span class="ess-currentstep"><?php _e('STEP 1 - Choose Grid', EG_TEXTDOMAIN); ?></span>
+						<span class="ess-currentstep"><?php _e('STEP 1 - Select Grid', EG_TEXTDOMAIN); ?></span>
 					</div>
 				</div>
 				

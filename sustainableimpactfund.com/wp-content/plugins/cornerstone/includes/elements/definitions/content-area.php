@@ -33,6 +33,13 @@ function x_element_builder_setup_content_area() {
     'controls_adv'       => x_controls_element_content_area( true ),
     'control_groups'     => x_control_groups_element_content_area(),
     'control_groups_adv' => x_control_groups_element_content_area( true ),
+    'options' => array(
+      'inline' => array(
+        'content' => array(
+          'selector' => 'root'
+        ),
+      )
+    )
   );
 }
 

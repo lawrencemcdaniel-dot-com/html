@@ -81,7 +81,11 @@ class Cornerstone_Element_Manager extends Cornerstone_Plugin_Component {
     ) );
 
     $this->register_element('root', array( 'options' => array( 'private' => true )) );
-    $this->register_element('region', array( 'options' => array( 'private' => true )) );
+
+    $this->register_element('region', array(
+      'title'   => csi18n('elements.region-title'),
+      'options' => array( 'private' => true )
+    ) );
 
     $this->register_element('bar', array(
       'title' => csi18n('elements.bar-title')

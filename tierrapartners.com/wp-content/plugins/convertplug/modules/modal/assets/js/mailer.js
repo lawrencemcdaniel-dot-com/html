@@ -92,6 +92,8 @@
 		var query_string = '';
         var submit_status = true;
         var redirect_with = '';
+        var cf_response = '';
+
         form.find('.cp-input').each( function(index) {
             var $this = jQuery(this);
 
@@ -123,6 +125,8 @@
         var fail = 0;
         var fail_log = '';
         form.find( 'select, textarea, input ' ).each(function(i, el ){
+        	var prop_name = jQuery( el ).attr('name');
+
             if( jQuery( el ).prop( 'required' )){
             	var type = jQuery( el ).attr("type");
 				if ( type == 'checkbox' && $(this).prop("checked") == false ) {
@@ -194,6 +198,12 @@
 					if( typeof obj.status != 'undefined' && obj.status != null ) {
 						cls = obj.status;
 					}
+
+					if( typeof obj.cf_response != 'undefined' && obj.cf_response != null ) {
+						cf_response = obj.cf_response;
+						jQuery(document).trigger("cp_cf_response_done",[this,modal,cf_response]);
+					}
+					//console.log('cf_response: ' + result );
 
 					//	is valid - Email MX Record
 					if( obj.email_status ) {
@@ -350,8 +360,7 @@
 				if( !jQuery(this).hasClass('cp-disabled') ){
 					modal_process_cp_form(this);
 					jQuery(document).trigger("cp_conversion_done",[this,style_id]);
-
-					//	Redirect after conversion
+										//	Redirect after conversion
 					var redirect_link 			= jQuery(this).attr('data-redirect-link') || '';
 					var redirect_link_target	= jQuery(this).attr('data-redirect-link-target') || '_blank';
 					if( redirect_link != 'undefined' && redirect_link != '' ) {						

@@ -48,18 +48,27 @@ function getExecutionOrder() {
  */
 
 function mashsbGetShareObj( $url ) {
-        if( !class_exists( 'RollingCurlX' ) ){
-            require_once MASHSB_PLUGIN_DIR . 'includes/libraries/RolingCurlX.php';
-        }
-        if( !class_exists( 'mashengine' ) ){
-            require_once(MASHSB_PLUGIN_DIR . 'includes/mashengine.php');
-        }
+   global $mashsb_options;
 
-        //mashdebug()->info( 'mashsbGetShareObj() url: ' . $url );
-        MASHSB()->logger->info( 'mashsbGetShareObj() url: ' . $url );
-        $mashsbSharesObj = new mashengine( $url );
-        return $mashsbSharesObj;
+   // Sharedcount.com is default option
+   $mashengine = isset( $mashsb_options['mashsb_sharemethod'] ) && $mashsb_options['mashsb_sharemethod'] === 'mashengine' ? true : false;
+   if( !$mashengine ) {
+      require_once(MASHSB_PLUGIN_DIR . 'includes/sharedcount.class.php');
+      $apikey = isset( $mashsb_options['mashsharer_apikey'] ) ? $mashsb_options['mashsharer_apikey'] : '';
+      $mashsbSharesObj = new mashsbSharedcount( $url, 10, $apikey );
+      return $mashsbSharesObj;
+   }
 
+   if( !class_exists( 'RollingCurlX' ) ) {
+      require_once MASHSB_PLUGIN_DIR . 'includes/libraries/RolingCurlX.php';
+   }
+   if( !class_exists( 'mashengine' ) ) {
+      require_once(MASHSB_PLUGIN_DIR . 'includes/mashengine.php');
+   }
+
+   MASHSB()->logger->info( 'mashsbGetShareObj() url: ' . $url );
+   $mashsbSharesObj = new mashengine( $url );
+   return $mashsbSharesObj;
 }
 
 /*

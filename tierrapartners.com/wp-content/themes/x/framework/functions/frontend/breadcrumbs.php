@@ -28,15 +28,15 @@ if ( ! function_exists( 'x_breadcrumbs' ) ) :
       'label_after'      => '',
       'delimiter_before' => ' <span class="delimiter">',
       'delimiter_after'  => '</span> ',
-      'delimiter_ltr'    => '<i class="x-icon-angle-right" data-x-icon="&#xf105;"></i>',
-      'delimiter_rtl'    => '<i class="x-icon-angle-left" data-x-icon="&#xf104;"></i>',
+      'delimiter_ltr'    => '<i class="x-icon-angle-right" data-x-icon-s="&#xf105;"></i>',
+      'delimiter_rtl'    => '<i class="x-icon-angle-left" data-x-icon-s="&#xf104;"></i>',
       'current_class'    => 'current',
       'anchor_atts'      => array(),
       'include_meta'     => false,
     );
 
     $args_data = array(
-      'home_label' => '<span class="home"><i class="x-icon-home" data-x-icon="&#xf015;"></i></span>',
+      'home_label' => '<span class="home"><i class="x-icon-home" data-x-icon-s="&#xf015;"></i></span>',
     );
 
     if ( x_get_option( 'x_breadcrumb_display' ) ) {
@@ -60,13 +60,13 @@ else :
   if ( ! function_exists( 'x_get_breadcrumb_delimiter' ) ) :
     function x_get_breadcrumb_delimiter() {
       $is_ltr = ! is_rtl();
-      return ' <span class="delimiter"><i class="x-icon-angle-' . ( ( $is_ltr ) ? 'right' : 'left' ) . '" data-x-icon="&#x' . ( ( $is_ltr ) ? 'f105' : 'f104' ) . ';"></i></span> ';
+      return ' <span class="delimiter"><i class="x-icon-angle-' . ( ( $is_ltr ) ? 'right' : 'left' ) . '" data-x-icon-s="&#x' . ( ( $is_ltr ) ? 'f105' : 'f104' ) . ';"></i></span> ';
     }
   endif;
 
   if ( ! function_exists( 'x_get_breadcrumb_home_text' ) ) :
     function x_get_breadcrumb_home_text() {
-      return '<span class="home"><i class="x-icon-home" data-x-icon="&#xf015;"></i></span>';
+      return '<span class="home"><i class="x-icon-home" data-x-icon-s="&#xf015;"></i></span>';
     }
   endif;
 
@@ -215,7 +215,7 @@ if ( ! function_exists( 'x_breadcrumbs_data' ) ) :
       '404_label'             => __( '404 (Page Not Found)', '__x__' ),
       'shop_label'            => $shop_label,
       'portfolio_label'       => x_get_parent_portfolio_title(),
-      'events_label'          => $events_label, 
+      'events_label'          => $events_label,
       'archive_default_label' => __( 'Archives', '__x__' ),
     ) ) );
 

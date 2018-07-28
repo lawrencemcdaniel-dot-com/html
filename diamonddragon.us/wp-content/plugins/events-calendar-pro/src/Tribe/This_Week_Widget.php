@@ -47,10 +47,24 @@ class Tribe__Events__Pro__This_Week_Widget extends WP_Widget {
 	 * @param $instance
 	 */
 	public function widget( $args, $instance ) {
+
 		// Initialize defaults. When the widget is added via the Customizer, the widget is rendered
 		// prior to being saved and the instance is empty. This ensures that $instance holds the
 		// defaults so the behavior is expected and doesn't throw notices.
 		$instance = $this->instance_defaults( $instance );
+
+		/**
+		 * Do things pre-render like: optionally enqueue assets if we're not in a sidebar
+		 * This has to be done in widget() because we have to be able to access
+		 * the queried object for some plugins
+		 *
+		 * @since 4.4.29
+		 *
+		 * @param string __CLASS__ the widget class
+		 * @param array  $args     the widget args
+		 * @param array  $instance the widget instance
+		 */
+		do_action( 'tribe_events_pro_widget_render', __CLASS__, $args, $instance );
 
 		//Disable Tooltips
 		$ecp = Tribe__Events__Pro__Main::instance();

@@ -248,23 +248,6 @@ if ( ! function_exists( 'x_buddypress_groups_invites_list_item_header' ) ) :
 endif;
 
 
-//
-// JavaScript to alter the "value" of the submit button on the group forums
-// setting page.
-//
-
-if ( ! function_exists( 'x_buddypress_group_forum_settings_js_output' ) ) :
-  function x_buddypress_group_forum_settings_js_output() { ?>
-
-    <script>
-      jQuery(document).ready(function(jq) {
-        jq('.x-manage-forums-form input[type="submit"]').val('Save');
-      });
-    </script>
-
-  <?php }
-  add_action( 'bp_after_group_admin_content', 'x_buddypress_group_forum_settings_js_output' );
-endif;
 
 // Disable cover images for groups
 add_filter( 'bp_is_groups_cover_image_active', '__return_false' );
@@ -452,33 +435,33 @@ if ( ! function_exists( 'x_buddypress_navbar_menu' ) ) :
       $submenu_items  = '';
 
       if ( bp_is_active( 'activity' ) ) {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activity_directory_permalink() . '" class="cf"><i class="x-icon-thumbs-up" data-x-icon="&#xf164;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_activity_title' ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activity_directory_permalink() . '" class="cf"><i class="x-icon-thumbs-up" data-x-icon-s="&#xf164;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_activity_title' ) . '</span></a></li>';
       }
 
       if ( bp_is_active( 'groups' ) ) {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_groups_directory_permalink() . '" class="cf"><i class="x-icon-sitemap" data-x-icon="&#xf0e8;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_groups_title' ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_groups_directory_permalink() . '" class="cf"><i class="x-icon-sitemap" data-x-icon-s="&#xf0e8;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_groups_title' ) . '</span></a></li>';
       }
 
       if ( is_multisite() && bp_is_active( 'blogs' ) ) {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_blogs_directory_permalink() . '" class="cf"><i class="x-icon-file" data-x-icon="&#xf15b;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_blogs_title' ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_blogs_directory_permalink() . '" class="cf"><i class="x-icon-file" data-x-icon-s="&#xf15b;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_blogs_title' ) . '</span></a></li>';
       }
 
-      $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_members_directory_permalink() . '" class="cf"><i class="x-icon-male" data-x-icon="&#xf183;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_members_title' ) . '</span></a></li>';
+      $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_members_directory_permalink() . '" class="cf"><i class="x-icon-male" data-x-icon-s="&#xf183;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_members_title' ) . '</span></a></li>';
 
       if ( ! is_user_logged_in() ) {
         if ( bp_get_signup_allowed() ) {
-          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_signup_page() . '" class="cf"><i class="x-icon-pencil" data-x-icon="&#xf040;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_register_title' ) . '</span></a></li>';
-          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activation_page() . '" class="cf"><i class="x-icon-key" data-x-icon="&#xf084;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_activate_title' ) . '</span></a></li>';
+          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_signup_page() . '" class="cf"><i class="x-icon-pencil" data-x-icon-s="&#xf303;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_register_title' ) . '</span></a></li>';
+          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activation_page() . '" class="cf"><i class="x-icon-key" data-x-icon-s="&#xf084;" aria-hidden="true"></i> <span>' . x_get_option( 'x_buddypress_activate_title' ) . '</span></a></li>';
         }
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . wp_login_url() . '" class="cf"><i class="x-icon-sign-in" data-x-icon="&#xf090;" aria-hidden="true"></i> <span>' . __( 'Log in', '__x__' ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . wp_login_url() . '" class="cf"><i class="x-icon-sign-in" data-x-icon-s="&#xf2f6;" aria-hidden="true"></i> <span>' . __( 'Log in', '__x__' ) . '</span></a></li>';
       } else {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_loggedin_user_domain() . '" class="cf"><i class="x-icon-cog" data-x-icon="&#xf013;" aria-hidden="true"></i> <span>' . __( 'Profile', '__x__' ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_loggedin_user_domain() . '" class="cf"><i class="x-icon-cog" data-x-icon-s="&#xf013;" aria-hidden="true"></i> <span>' . __( 'Profile', '__x__' ) . '</span></a></li>';
       }
 
       if ( $args->theme_location == 'primary' ) {
         $items .= '<li class="menu-item current-menu-parent menu-item-has-children x-menu-item x-menu-item-buddypress">'
                   . '<a href="' . $top_level_link . '" class="x-btn-navbar-buddypress">'
-                    . '<span><i class="x-icon-user" data-x-icon="&#xf007;" aria-hidden="true"></i><span class="x-hidden-desktop"> ' . __( 'Social', '__x__' ) . '</span></span>'
+                    . '<span><i class="x-icon-user" data-x-icon-s="&#xf007;" aria-hidden="true"></i><span class="x-hidden-desktop"> ' . __( 'Social', '__x__' ) . '</span></span>'
                   . '</a>'
                   . '<ul class="sub-menu">'
                     . $submenu_items

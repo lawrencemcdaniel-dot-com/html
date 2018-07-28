@@ -435,8 +435,9 @@ tribe_events_pro_admin.recurrence = {
 
 		$rule.find( '.tribe-datepicker' ).datepicker( tribe_datepicker_opts );
 		$rule.insertBefore( this.$exclusion_staging );
+		this.set_recurrence_end_min_date();
 
-		this.set_recurrence_data_attributes($rule);
+		this.set_recurrence_data_attributes( $rule );
 		this.maybe_relocate_end_date( $rule );
 		this.adjust_rule_helper_text( $rule );
 		this.update_rule_recurrence_text( $rule );
@@ -1037,7 +1038,7 @@ tribe_events_pro_admin.recurrence = {
 	 */
 	my.event.recurrence_end_count_changed = function() {
 		var $el = $( this );
-		var $rule = $el.closest( '.tribe-event-recurrence' );
+		var $rule = $el.closest( '.tribe-event-recurrence, .tribe-event-exclusion' );
 
 		$rule.find( '[data-field="type"]' ).change();
 	};

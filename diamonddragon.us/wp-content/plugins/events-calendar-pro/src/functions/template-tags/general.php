@@ -42,7 +42,6 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			$post_id = Tribe__Events__Main::postIdHelper( $post_id );
 
 			if ( empty( $post_id ) ) {
-				_doing_it_wrong( __FUNCTION__, 'You need to pass a post ID or use it in the loop.', '3.10' );
 				return false;
 			}
 
@@ -516,7 +515,12 @@ if ( class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		$offset = 7 - get_option( 'start_of_week', 0 );
 
 		if ( tribe_is_ajax_view_request() ) {
+
 			$date = is_null( $date ) ? $_REQUEST['eventDate'] : $date;
+
+			// get the first value if we receiv an array
+			$date = is_array( $date ) ? Tribe__Utils__Array::get( $date, array( 0 ) ) : $date;
+
 		} else {
 			$date = is_null( $date ) && ! is_null( $wp_query ) ? $wp_query->get( 'start_date' ) : $date;
 		}

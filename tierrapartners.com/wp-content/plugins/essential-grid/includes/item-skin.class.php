@@ -671,7 +671,7 @@ class Essential_Grid_Item_Skin {
 		if(function_exists('is_multisite') && is_multisite() && $networkwide){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// $old_blog = $wpdb->blogid;
 			
             // Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -682,9 +682,12 @@ class Essential_Grid_Item_Skin {
 				$skins = apply_filters('essgrid_propagate_default_item_skins_multisite', $skins, $blog_id);
 				
 				self::insert_default_item_skins($skins);
+				
+				// 2.2.5
+				restore_current_blog();
             }
 			
-            switch_to_blog($old_blog); //go back to correct blog
+            // switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 		
@@ -912,40 +915,71 @@ class Essential_Grid_Item_Skin {
 			
 			/* 2.1.6 */
 			if(empty($force_show_cover) || $force_show_cover === 'false') {
-				$cover_animation_center = ' esg-'.$base->getVar($this->params, 'cover-animation-center', 'fade').$base->getVar($this->params, 'cover-animation-center-type', '');
+				$cover_animation_center = 'esg-'.$base->getVar($this->params, 'cover-animation-center', 'fade').$base->getVar($this->params, 'cover-animation-center-type', '');
 			}
 			else {
-				$cover_animation_center = ' esg-none';
+				$cover_animation_center = 'esg-none';
 			}
             
-            if($cover_animation_center != ' esg-none' && $cover_animation_center != ' esg-noneout')
+            if($cover_animation_center != 'esg-none' && $cover_animation_center != ' esg-noneout')
                 $cover_animation_delay_center = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-center', 0, 'i') / 100, 2).'"';
-			
             
         }else{
             
 			/* 2.1.6 */
 			if(empty($force_show_cover) || $force_show_cover === 'false') {
-				$cover_animation_top = ' esg-'.$base->getVar($this->params, 'cover-animation-top', 'fade').$base->getVar($this->params, 'cover-animation-top-type', '');
-				$cover_animation_center = ' esg-'.$base->getVar($this->params, 'cover-animation-center', 'fade').$base->getVar($this->params, 'cover-animation-center-type', '');
-				$cover_animation_bottom = ' esg-'.$base->getVar($this->params, 'cover-animation-bottom', 'fade').$base->getVar($this->params, 'cover-animation-bottom-type', '');
+				$cover_animation_top = 'esg-'.$base->getVar($this->params, 'cover-animation-top', 'fade').$base->getVar($this->params, 'cover-animation-top-type', '');
+				$cover_animation_center = 'esg-'.$base->getVar($this->params, 'cover-animation-center', 'fade').$base->getVar($this->params, 'cover-animation-center-type', '');
+				$cover_animation_bottom = 'esg-'.$base->getVar($this->params, 'cover-animation-bottom', 'fade').$base->getVar($this->params, 'cover-animation-bottom-type', '');
 			}
 			else {
-				$cover_animation_top = ' esg-none';
-				$cover_animation_center = ' esg-none';
-				$cover_animation_bottom = ' esg-none';
+				$cover_animation_top = 'esg-none';
+				$cover_animation_center = 'esg-none';
+				$cover_animation_bottom = 'esg-none';
 			}
 			
-            if($cover_animation_top != ' esg-none' && $cover_animation_top != ' esg-noneout')
+            if($cover_animation_top != 'esg-none' && $cover_animation_top != ' esg-noneout')
                 $cover_animation_delay_top = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-top', 0, 'i') / 100, 2).'"';
 			
-            if($cover_animation_center != ' esg-none' && $cover_animation_center != ' esg-noneout')
+            if($cover_animation_center != 'esg-none' && $cover_animation_center != ' esg-noneout')
                 $cover_animation_delay_center = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-center', 0, 'i') / 100, 2).'"';
             
-            if($cover_animation_bottom != ' esg-none' && $cover_animation_bottom != ' esg-noneout')
+            if($cover_animation_bottom != 'esg-none' && $cover_animation_bottom != ' esg-noneout')
                 $cover_animation_delay_bottom = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-bottom', 0, 'i') / 100, 2).'"';
 			
         }
+		
+		// 2.2.5
+		if($cover_animation_top) {
+			
+			$data_transition_top = ' data-transition="' . $cover_animation_top . '"';
+			$cover_animation_top = ' esg-transition';
+			
+		}
+		else {
+			$data_transition_top = '';
+		}
+		
+		if($cover_animation_center) {
+			
+			$data_transition_center = ' data-transition="' . $cover_animation_center . '"';
+			$cover_animation_center = ' esg-transition';
+			
+		}
+		else {
+			$data_transition_center = '';
+		}
+		
+		if($cover_animation_bottom) {
+			
+			$data_transition_bottom = ' data-transition="' . $cover_animation_bottom . '"';
+			$cover_animation_bottom = ' esg-transition';
+			
+		}
+		else {
+			$data_transition_bottom = '';
+		}
+
 		
 		/*  2.1.6
 			the following moved up a bit in the function so we can do more things in the foreach loop
@@ -997,21 +1031,32 @@ class Essential_Grid_Item_Skin {
         
 		/* 2.1.6 */
 		if(empty($disable_group_animation)) {
-			$cover_group_animation = ' esg-'.$base->getVar($this->params, 'cover-group-animation', 'fade');
+			$cover_group_animation = 'esg-'.$base->getVar($this->params, 'cover-group-animation', 'fade');
 		}
 		else {
-			$cover_group_animation = ' esg-none';
+			$cover_group_animation = 'esg-none';
 		}
 		
-        if($cover_group_animation != ' esg-none')
+        if($cover_group_animation != 'esg-none')
             $cover_group_animation_delay = ' data-delay="'.round($base->getVar($this->params, 'cover-group-animation-delay', 0, 'i') / 100, 2).'"';
         else
             $cover_group_animation = '';
+		
+		// 2.2.5
+		if($cover_group_animation) {
+			
+			$data_transition_group = ' data-transition="' . $cover_group_animation . '"';
+			$cover_group_animation = ' esg-transition';
+			
+		}
+		else {
+			$data_transition_group = '';
+		}
         
         //media is for media container
         $media_animation_delay = '';
-        $media_animation = ' esg-'.$base->getVar($this->params, 'media-animation', 'fade');
-        if($media_animation != ' esg-none')
+        $media_animation = 'esg-'.$base->getVar($this->params, 'media-animation', 'fade');
+        if($media_animation != 'esg-none')
             $media_animation_delay = ' data-delay="'.round($base->getVar($this->params, 'media-animation-delay', 0, 'i') / 100, 2).'"';
         else
             $media_animation = '';
@@ -1113,6 +1158,10 @@ class Essential_Grid_Item_Skin {
 			$cl = ($demo == 'skinchoose') ? 'esg-screenselect-toolbar eg-tooltip-wrap' : ''; //show only in grid editor at skin chooser
 			$cltitle = ($demo == 'skinchoose') ? 'title="'.__('Select Skin', EG_TEXTDOMAIN).'"' :''; //Show Title only at Skin Chooser
 			
+			if($demo == 'skinchoose') {
+				echo '<a href="admin.php?page=essential-grid&view=grid-item-skin-editor&create=' . $this->id . '" class="eg-edit-skin-button eg-overview-button revyellow eg-tooltip-wrap" target="_blank" title="' . __('Edit Skin', EG_TEXTDOMAIN) . '"><i class="eg-icon-tint"></i></a>';
+			}
+			
             echo '<div '.$cltitle.' class="'.$cl.'" style="display:block !important;width:100%;height:30px;top:0px;left:0px;position:relative;z-index:10;background-color: #3498DB; padding: 0;">'."\n";
             echo '          <div class="btn-wrap-item-skin-overview-'.$this->id.'">'."\n";
             echo '<div class="eg-item-skin-overview-name">'.$this->name.$showid."</div>\n";
@@ -1120,12 +1169,12 @@ class Essential_Grid_Item_Skin {
 			if($demo == 'overview'){
 				$fav_class = (!isset($this->settings['favorite']) || $this->settings['favorite'] == false) ? 'eg-icon-star-empty' : 'eg-icon-star';
 				
-				echo '<a href="javascript:void(0);" title="'.__('Mark as Favorit', EG_TEXTDOMAIN).'" class="eg-ov-1 eg-overview-button eg-btn-star-item-skin revyellow eg-tooltip-wrap" id="eg-star-'. $this->id .'"><i class="'.$fav_class.'"></i></a>';
+				echo '<a href="javascript:void(0);" title="'.__('Mark as Favorite', EG_TEXTDOMAIN).'" class="eg-ov-1 eg-overview-button eg-btn-star-item-skin revyellow eg-tooltip-wrap" id="eg-star-'. $this->id .'"><i class="'.$fav_class.'"></i></a>';
 				echo '<a href="'.Essential_Grid_Base::getViewUrl(Essential_Grid_Admin::VIEW_ITEM_SKIN_EDITOR, 'create='.$this->id).'" title="'.__('Edit Skin', EG_TEXTDOMAIN).'" class="eg-tooltip-wrap eg-ov-2 eg-overview-button revgreen "><i class="eg-icon-cog"></i></a>';
 				echo '<a href="javascript:void(0);" title="'.__('Duplicate Skin', EG_TEXTDOMAIN).'" class="eg-ov-3 eg-overview-button eg-btn-duplicate-item-skin revcarrot eg-tooltip-wrap " id="eg-duplicate-'. $this->id .'"><i class="eg-icon-picture"></i></a>';
 				echo '<a href="javascript:void(0);" title="'.__('Delete Skin', EG_TEXTDOMAIN).'" class="eg-ov-4 eg-overview-button eg-btn-delete-item-skin revred eg-tooltip-wrap " id="eg-delete-'. $this->id .'"><i class="eg-icon-trash"></i></a>';
 			}elseif($demo == 'skinchoose'){
-				echo '<div title="'.__('Select Skin', EG_TEXTDOMAIN).'" class="eg-tooltip-wrap eg-fakeinput "></div>';
+				echo '<div title="'.__('Select Skin', EG_TEXTDOMAIN).'" class="eg-fakeinput"></div>';
 				echo '<input class="eg-tooltip-wrap " style="position: absolute; right: 0; top: 0;" type="radio" value="'.$this->id.'" title="'. __('Choose Skin', EG_TEXTDOMAIN).'" name="entry-skin"';
 				if($choosen_skin == '-1')
 					echo ' checked="checked"';
@@ -1143,7 +1192,7 @@ class Essential_Grid_Item_Skin {
 			$vis_icon = ($is_visible) ? 'eg-icon-eye' : 'eg-icon-eye-off';
 			$vis_icon_color = ($is_visible) ? 'revblue' : 'revred';			
 			
-			echo '<div class="esg-atoolbar" style="display:block !important;width:100%;height:30px;top:0px;left:0px;position:absolute;z-index:10; padding: 0;">'."\n";
+			echo '<div class="esg-atoolbar" style="display:block;width:100%;height:30px;top:0px;left:0px;position:absolute;z-index:10; padding: 0;">'."\n";
             echo '          <div class="btn-wrap-item-skin-overview-'.$this->post['ID'].'">'."\n";
             echo '<div class="eg-item-skin-overview-name">';
 			echo '<a href="javascript:void(0);" class="eg-ov-2 eg-overview-button eg-btn-activate-post-item '.$vis_icon_color.' eg-tooltip-wrap" title="'.__('Show/Hide from Grid', EG_TEXTDOMAIN).'" id="eg-act-post-item-'. $this->post['ID'] .'"><i class="'.$vis_icon.'"></i></a>';
@@ -1181,7 +1230,7 @@ class Essential_Grid_Item_Skin {
 			echo '<input type="hidden" name="layers[]" value="'.$custom_layer_data.'" />'; //has the values for this entry
 			echo '<div class="esg-data-handler" data-exists="'.$custom_layer_elements.'" style="display: none;"></div>'; //has the information on what exists as layers in the skin #3498DB
 			
-			echo '<div class="esg-atoolbar" style="display:block !important;width:100%;height:30px;top:0px;left:0px;position:absolute;z-index:10;background-color: transparent; padding: 0;">'."\n";
+			echo '<div class="esg-atoolbar" style="display:block;width:100%;height:30px;top:0px;left:0px;position:absolute;z-index:10;background-color: transparent; padding: 0;">'."\n";
 			echo '          <div class="btn-wrap-item-skin-overview-0">'."\n";
 			echo '<div class="eg-item-skin-overview-name">';
 			
@@ -1389,9 +1438,9 @@ class Essential_Grid_Item_Skin {
 			if(!empty($hover_image) && $hover_image !== 'false' && !empty($this->media_sources) && isset($this->media_sources['alternate-image']) && !empty($this->media_sources['alternate-image'])) {	
 				
 				$hover_image = $this->media_sources['alternate-image'];
-				$hover_image_animation = ' esg-'.$base->getVar($this->params, 'hover-image-animation', 'fade');
+				$hover_image_animation = 'esg-'.$base->getVar($this->params, 'hover-image-animation', 'fade');
 				
-				if($hover_image_animation != ' esg-none') {
+				if($hover_image_animation != 'esg-none') {
 					$hover_image_animation_delay = ' data-delay="'.round($base->getVar($this->params, 'hover-image-animation-delay', 0, 'i') / 100, 2).'"';
 				}
 				else {
@@ -1399,7 +1448,18 @@ class Essential_Grid_Item_Skin {
 					$hover_image_animation_delay = '';
 				}
 				
-				$echo_media .= '<div class="esg-hover-image' . $hover_image_animation . '" data-src="' . $hover_image . '"' . $hover_image_animation_delay . '></div>';
+				// 2.2.5
+				if($hover_image_animation) {
+					
+					$data_transition_hover = ' data-transition="' . $hover_image_animation . '"';
+					$hover_image_animation = ' esg-transition';
+					
+				}
+				else {
+					$data_transition_hover = '';
+				}
+				
+				$echo_media .= '<div class="esg-hover-image' . $hover_image_animation . '" data-src="' . $hover_image . '"' . $hover_image_animation_delay . $data_transition_hover . '></div>';
 			}
 
 		}
@@ -1528,22 +1588,27 @@ class Essential_Grid_Item_Skin {
 								else{
 									
 									switch($order){
+										
 										case 'featured-image':
 										case 'alternate-image':
 										case 'content-image':
-											if($order == 'content-image')
-												$lb_source = $this->media_sources[$order];
-											else
-												$lb_source = $this->media_sources[$order.'-full'];
+											
+											// 2.2.5
+											$imgsource = explode('-', $order);
+											$imgsource = $imgsource[0];
+											
+											if($order == 'content-image') $lb_source = $this->media_sources[$order];
+											else $lb_source = $this->media_sources[$order.'-full'];
 											$lb_class = ' esgbox';
 											
-											if(isset($this->media_sources['featured-image-full-width'])) $lb_owidth = ' data-width="' . $this->media_sources['featured-image-full-width'] . '" ';
-											if(isset($this->media_sources['featured-image-full-height'])) $lb_oheight = ' data-height="' . $this->media_sources['featured-image-full-height'] . '" ';
-
+											if(isset($this->media_sources[$imgsource . '-image-full-width'])) $lb_owidth = ' data-width="' . $this->media_sources[$imgsource . '-image-full-width'] . '" ';
+											if(isset($this->media_sources[$imgsource . '-image-full-height'])) $lb_oheight = ' data-height="' . $this->media_sources[$imgsource . '-image-full-height'] . '" ';
+											
 										break;
+											
 										case 'youtube':
 											$http = (is_ssl()) ? 'https' : 'http';
-											$lb_source = $http.'://www.youtube.com/watch?v='.$this->media_sources[$order];
+											$lb_source = $enable_youtube_nocookie!='false' ? $http.'://www.youtube-nocookie.com/embed/'.$this->media_sources[$order] : $lb_source = $http.'://www.youtube.com/watch?v='.$this->media_sources[$order];
 											$lb_addition = ($this->video_ratios['youtube'] == '1') ? '' : ' data-ratio="4:3"';
 											$lb_class = ' esgbox';
 										break;
@@ -1796,13 +1861,24 @@ class Essential_Grid_Item_Skin {
 		if(isset($hover_image) && !empty($hover_image) && $hover_image !== 'false') 
 			$media_animation = '';
 		
+		// 2.2.5
+		if($media_animation) {
+			
+			$data_transition_media = ' data-transition="' . $media_animation . '"';
+			$media_animation = ' esg-transition';
+			
+		}
+		else {
+			$data_transition_media = '';
+		}
+		
         //echo '    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->'."\n";
         echo '    <div class="esg-media-cover-wrapper">'."\n";
         //echo '            <!-- THE MEDIA OF THE ENTRY -->'."\n";
 		if($demo == 'overview' || $demo == 'skinchoose'){
 			echo '            <div class="esg-entry-media'.$media_animation.'"'.$media_animation_delay.'><img src="'.EG_PLUGIN_URL.'admin/assets/images/'.$this->cover_image.'"></div>'."\n\n";
 		}else{
-			$echo_media = '<div class="esg-entry-media'.$media_animation.'"'.$media_animation_delay.'>'.$echo_media.'</div>'."\n\n";
+			$echo_media = '<div class="esg-entry-media'.$media_animation.'"'.$media_animation_delay.$data_transition_media.'>'.$echo_media.'</div>'."\n\n";
 			//echo media from top here
 			if($link_set_to == 'media' && $link_type_link !== 'none'){ //set link on whole media
 				$echo_media = str_replace('%REPLACE%', $echo_media, $link_wrapper);
@@ -1820,7 +1896,7 @@ class Essential_Grid_Item_Skin {
 				if($link_set_to == 'cover' && $link_type_link !== 'none')
 					$cover_attr = ' data-clickable="on"';
 				
-				echo '            <div class="esg-entry-cover'.$cover_group_animation.'"'.$cover_group_animation_delay.$cover_attr.'>'."\n\n";
+				echo '            <div class="esg-entry-cover'.$cover_group_animation.'"'.$cover_group_animation_delay.$cover_attr.$data_transition_group.'>'."\n\n";
 				//echo '                <!-- THE COLORED OVERLAY -->'."\n";
 				
 				if($link_set_to == 'cover' && $link_type_link !== 'none'){
@@ -1833,28 +1909,28 @@ class Essential_Grid_Item_Skin {
 				}
 			}
 			if($cover_type == 'full'){
-				$echo_c = '                <div class="esg-overlay'.$cover_animation_center.$container_class.'"'.$cover_animation_delay_center.$meta_cover_style.'></div>'."\n\n";
+				$echo_c = '                <div class="esg-overlay'.$cover_animation_center.$container_class.'"'.$cover_animation_delay_center.$meta_cover_style.$data_transition_center.'></div>'."\n\n";
 				if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 					$echo_c = str_replace('%REPLACE%', $echo_c, $link_wrapper);
 				}
 				echo $echo_c;
 			}else{
 				if($t_layer > 0){
-					$echo_t = '                <div class="esg-overlay esg-top'.$cover_animation_top.$container_class.'"'.$cover_animation_delay_top.$meta_cover_style.'></div>'."\n\n";
+					$echo_t = '                <div class="esg-overlay esg-top'.$cover_animation_top.$container_class.'"'.$cover_animation_delay_top.$meta_cover_style.$data_transition_top.'></div>'."\n\n";
 					if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 						$echo_t = str_replace('%REPLACE%', $echo_t, $link_wrapper);
 					}
 					echo $echo_t;
 				}
 				if($c_layer > 0){
-					$echo_c = '                <div class="esg-overlay esg-center'.$cover_animation_center.$container_class.'"'.$cover_animation_delay_center.$meta_cover_style.'></div>'."\n\n";
+					$echo_c = '                <div class="esg-overlay esg-center'.$cover_animation_center.$container_class.'"'.$cover_animation_delay_center.$meta_cover_style.$data_transition_center.'></div>'."\n\n";
 					if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 						$echo_c = str_replace('%REPLACE%', $echo_c, $link_wrapper);
 					}
 					echo $echo_c;
 				}
 				if($b_layer > 0){
-					$echo_b = '                <div class="esg-overlay esg-bottom'.$cover_animation_bottom.$container_class.'"'.$cover_animation_delay_bottom.$meta_cover_style.'></div>'."\n\n";
+					$echo_b = '                <div class="esg-overlay esg-bottom'.$cover_animation_bottom.$container_class.'"'.$cover_animation_delay_bottom.$meta_cover_style.$data_transition_bottom.'></div>'."\n\n";
 					if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 						$echo_b = str_replace('%REPLACE%', $echo_b, $link_wrapper);
 					}
@@ -1973,16 +2049,16 @@ class Essential_Grid_Item_Skin {
 			<div class="esg-media-cover-wrapper">
 				<div class="esg-entry-media"><img src="'. EG_PLUGIN_URL .'public/assets/images/300x200transparent.png"></div>
 				<div class="esg-entry-cover">
-					<div class="esg-overlay esg-fade eg-addnewitem-container" data-delay="0.18"></div>
-					<div id="esg-add-new-custom-youtube" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-rotatescale" data-delay="0"><i class="eg-icon-youtube-squared"></i></div>
-					<div class="esg-absolute eg-addnewitem-element-3 esg-falldownout" data-delay="0.1"><i class="eg-icon-plus"></i></div>
-					<div class="esg-bottom eg-addnewitem-element-2 esg-flipup" data-delay="0.1">'. __('CHOOSE YOUR ITEM', EG_TEXTDOMAIN) .'</div>
-					<div id="esg-add-new-custom-vimeo" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-5 esg-rotatescale" data-delay="0.1"><i class="eg-icon-vimeo-squared"></i></div>
-					<div id="esg-add-new-custom-html5" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-rotatescale" data-delay="0.2"><i class="eg-icon-video"></i></div>
+					<div class="esg-overlay esg-transition eg-addnewitem-container" data-transition="esg-fade" data-delay="0.18"></div>
+					<div id="esg-add-new-custom-youtube" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0"><i class="eg-icon-youtube-squared"></i></div>
+					<div class="esg-absolute eg-addnewitem-element-3 esg-transition" data-transition="esg-falldownout" data-delay="0.1"><i class="eg-icon-plus"></i></div>
+					<div class="esg-bottom eg-addnewitem-element-2 esg-transition" data-transition="esg-flipup" data-delay="0.1">'. __('CHOOSE YOUR ITEM', EG_TEXTDOMAIN) .'</div>
+					<div id="esg-add-new-custom-vimeo" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-5 esg-transition" data-transition="esg-slideup" data-delay="0.1"><i class="eg-icon-vimeo-squared"></i></div>
+					<div id="esg-add-new-custom-html5" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0.2" style="visibility: hidden"><i class="eg-icon-video"></i></div>
 					<div class="esg-center eg-addnewitem-element-4 esg-none esg-clear" style="height: 5px; visibility: hidden;"></div>
-					<div id="esg-add-new-custom-image" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-rotatescale" data-delay="0.3"><i class="eg-icon-picture-1"></i></div>
-					<div id="esg-add-new-custom-soundcloud" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-5 esg-rotatescale" data-delay="0.4"><i class="eg-icon-soundcloud"></i></div>
-					<div id="esg-add-new-custom-text" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-rotatescale" data-delay="0.5"><i class="eg-icon-font"></i></div>
+					<div id="esg-add-new-custom-image" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0.3"><i class="eg-icon-picture-1"></i></div>
+					<div id="esg-add-new-custom-soundcloud" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-5 esg-transition" data-transition="esg-slideup" data-delay="0.4"><i class="eg-icon-soundcloud"></i></div>
+					<div id="esg-add-new-custom-text" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0.5"><i class="eg-icon-font"></i></div>
 				</div>
 			</div>
 		</li>');
@@ -3738,6 +3814,7 @@ class Essential_Grid_Item_Skin {
 		
 		$base = new Essential_Grid_Base();
 		$m = new Essential_Grid_Meta();
+		$enable_youtube_nocookie = get_option('tp_eg_enable_youtube_nocookie', 'false');
 		
 		$is_post = (!empty($this->layer_values)) ? false : true;
 
@@ -3816,15 +3893,16 @@ class Essential_Grid_Item_Skin {
 		if($masonry){
 			$transition = '';
 			//$transition_split = '';
+			$data_transition_transition = '';
 		}else{
-			$transition = ' esg-'.esc_attr($base->getVar($layer['settings'], 'transition', 'fade')).esc_attr($base->getVar($layer['settings'], 'transition-type', ''));
+			$transition = 'esg-'.esc_attr($base->getVar($layer['settings'], 'transition', 'fade')).esc_attr($base->getVar($layer['settings'], 'transition-type', ''));
 			//$transition_split = ' data-split="'.$base->getVar($layer['settings'], 'split', 'line').'"';
 			
 			if(isset($layer['id'])) $meta_tran = esc_attr($this->get_meta_element_change($layer['id'], 'transition')); //check if we have meta transition set
 			else $meta_tran = false;
 			if($meta_tran !== false && trim($meta_tran) !== '') $transition = ' esg-'.$meta_tran;
 			
-			if($transition == ' esg-none' || $transition == ' esg-noneout' || $base->getVar($layer['settings'], 'transition-type', '') == 'always'){ //no transition
+			if($transition == 'esg-none' || $transition == 'esg-noneout' || $base->getVar($layer['settings'], 'transition-type', '') == 'always'){ //no transition
 				$transition = '';
 				//$transition_split = '';
 			}else{
@@ -3836,6 +3914,18 @@ class Essential_Grid_Item_Skin {
 					$delay = ' data-delay="'.round($meta_tran_delay / 100, 2).'"';
 				
 			}
+			
+			// 2.2.5
+			if($transition) {
+				
+				$data_transition_transition = ' data-transition="' . $transition . '"';
+				$transition = ' esg-transition';
+				
+			}
+			else {
+				$data_transition_transition = '';
+			}
+			
 		}
 		
 		$text = '';
@@ -4136,21 +4226,23 @@ class Essential_Grid_Item_Skin {
 									case 'featured-image':
 									case 'alternate-image':
 									case 'content-image':
-									
-										if($order == 'content-image')
-											$lb_source = $this->media_sources[$order];
-										else {	
-											$lb_source = $this->media_sources[$order.'-full'];
-										}
+										
+										// 2.2.5
+										$imgsource = explode('-', $order);
+										$imgsource = $imgsource[0];
+										
+										if($order == 'content-image') $lb_source = $this->media_sources[$order];
+										else $lb_source = $this->media_sources[$order.'-full'];
 										$lb_class = ' esgbox';
 										
-										if(isset($this->media_sources['featured-image-full-width'])) $lb_owidth = ' data-width="' . $this->media_sources['featured-image-full-width'] . '" ';
-										if(isset($this->media_sources['featured-image-full-height'])) $lb_oheight = ' data-height="' . $this->media_sources['featured-image-full-height'] . '" ';
+										if(isset($this->media_sources[$imgsource . '-image-full-width'])) $lb_owidth = ' data-width="' . $this->media_sources[$imgsource . '-image-full-width'] . '" ';
+										if(isset($this->media_sources[$imgsource . '-image-full-height'])) $lb_oheight = ' data-height="' . $this->media_sources[$imgsource . '-image-full-height'] . '" ';
 										
 									break;
 									case 'youtube':
 										$http = (is_ssl()) ? 'https' : 'http';
-										$lb_source = $http.'://www.youtube.com/watch?v='.$this->media_sources[$order];
+										$lb_source = $enable_youtube_nocookie!='false' ? $http.'://www.youtube-nocookie.com/embed/'.$this->media_sources[$order] : $lb_source = $http.'://www.youtube.com/watch?v='.$this->media_sources[$order];
+										
 										$lb_class = ' esgbox';
 										$is_video = true;
 										$lb_addition = ($this->video_ratios['youtube'] == '1') ? '' : ' data-ratio="4:3"';
@@ -4658,7 +4750,7 @@ class Essential_Grid_Item_Skin {
 			$use_tag = $base->getVar($layer['settings'], 'tag-type', 'div');
 			echo '				<'.$use_tag.' class="esg-'.$class.$post_class.$video_play.$ajax_class.' '.$hideunderClass.$unique_class.$transition.'"'.$ajax_attr.$transition_split.$delay.$hideunderHTML;
 			echo ($demo == 'custom') ? $demo_element_type : '';
-			echo '>';
+			echo $data_transition_transition . '>';
 			
 			echo $text;
 			

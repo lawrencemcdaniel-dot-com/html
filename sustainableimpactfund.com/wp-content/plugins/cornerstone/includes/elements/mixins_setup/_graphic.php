@@ -67,7 +67,7 @@ $conditions_graphic_toggle    = array_merge( $conditions, array( array( $k_pre .
 
 $options_graphic_type_choices = array(
   array( 'value' => 'icon',  'icon' => 'flag' ),
-  array( 'value' => 'image', 'icon' => 'picture-o' ),
+  array( 'value' => 'image', 'icon' => 'image' ),
 );
 
 if ( $has_toggle ) {

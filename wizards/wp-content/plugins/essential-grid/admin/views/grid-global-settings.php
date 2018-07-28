@@ -30,6 +30,7 @@ if( !defined( 'ABSPATH') ) exit();
 	$enable_fontello = get_option('tp_eg_global_enable_fontello', 'backfront');
 	$enable_font_awesome = get_option('tp_eg_global_enable_font_awesome', 'false');
 	$enable_pe7 = get_option('tp_eg_global_enable_pe7', 'false');
+	$enable_youtube_nocookie = get_option('tp_eg_enable_youtube_nocookie', 'false');
 	
 	if(empty($global_default_img)) {
 		$display_global_img = 'hidden';
@@ -150,7 +151,7 @@ if( !defined( 'ABSPATH') ) exit();
 	</div>
 	<div class="esg-global-setting">
 		<div class="esg-gs-tc">
-			<label><?php echo _e('WP Gallery Default Grid', EG_TEXTDOMAIN); ?>:</label>
+			<label><?php echo _e('Convert WP Galleries', EG_TEXTDOMAIN); ?>:</label>
 		</div>
 		<div class="esg-gs-tc">
 			<select name="overwrite_gallery">
@@ -165,7 +166,7 @@ if( !defined( 'ABSPATH') ) exit();
 			</select>
 		</div>
 		<div class="esg-gs-tc">		
-			<i style=""><?php echo _e('If selected <strong>all</strong> WordPress Galleries will be displayed with Essential Grid. Select a grid in each gallery setting individually. Galleries with no grid setting will use this default grid.', EG_TEXTDOMAIN); ?></i>								 
+			<i style=""><?php echo _e('If selected <strong>all</strong> original WordPress Galleries in the content will be displayed with Essential Grid. Select a grid in each gallery setting individually. Galleries with no grid setting will use this default grid.', EG_TEXTDOMAIN); ?></i>								 
 		</div>
 	</div>
 	<div class="esg-global-setting">
@@ -280,6 +281,21 @@ if( !defined( 'ABSPATH') ) exit();
 		<div class="esg-gs-tc">	
 			<i style=""><?php echo _e('Normally filter selections would always return a result, but if you are using multiple Filter Groups with "AND" set for the Category Relation
 this custom message will be displayed to the user.', EG_TEXTDOMAIN); ?></i>								 
+		</div>
+	</div>
+
+	<div class="esg-global-setting">
+		<div class="esg-gs-tc">
+			<label><?php echo _e('Enable YouTube NoCookie', EG_TEXTDOMAIN); ?>:</label>
+		</div>
+		<div class="esg-gs-tc">
+			<select name="enable_youtube_nocookie">
+				<option <?php echo ($enable_youtube_nocookie == 'true') ?  'selected="selected" ' : '';?>value="true"><?php _e('On', EG_TEXTDOMAIN); ?></option>
+				<option <?php echo ($enable_youtube_nocookie == 'false') ? 'selected="selected" ' : '';?>value="false"><?php _e('Off', EG_TEXTDOMAIN); ?></option>
+			</select>
+		</div>
+		<div class="esg-gs-tc">	
+			<i style=""><?php echo _e('This enables changing all YouTube embeds to the youtube-nocookie.com url to save no cookies.', EG_TEXTDOMAIN); ?></i>								 
 		</div>
 	</div>
 

@@ -145,7 +145,7 @@ class Cornerstone_Front_End extends Cornerstone_Plugin_Component {
 
 
 
-		if ( apply_filters( '_cornerstone_custom_css', isset( $this->postSettings['custom_css'] ) ) ) {
+		if ( is_singular() && apply_filters( '_cornerstone_custom_css', isset( $this->postSettings['custom_css'] ) ) ) {
 			echo '<style id="cornerstone-custom-page-css">';
 				echo $this->postSettings['custom_css'];
 				do_action( 'cornerstone_custom_page_css' );
@@ -178,7 +178,7 @@ class Cornerstone_Front_End extends Cornerstone_Plugin_Component {
       }
 		}
 
-		if ( isset( $this->postSettings['custom_js'] ) && $this->postSettings['custom_js'] ) {
+		if ( is_singular() && isset( $this->postSettings['custom_js'] ) && $this->postSettings['custom_js'] ) {
       $inline_scripts->add_script('cornerstone-custom-content-js', $this->postSettings['custom_js'] );
 		}
 

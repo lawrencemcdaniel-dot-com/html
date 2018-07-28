@@ -91,10 +91,10 @@
 
             //for link color change
             cp_color_for_list_tag();
-
-            cp_column_equilize();
+            
          }, 500 );
 
+        cp_column_equilize();
         // hide image for small devices
     	hide_image_on_smalldevice();
 
@@ -113,11 +113,6 @@
         form_sep_position();
 
         cp_set_width_svg();
-
-        setTimeout(function() {
-            cp_column_equilize();
-
-        }, 300);
 
         cp_social_responsive();
 
@@ -153,13 +148,14 @@
         free_ebook_download_hide_img();
 
         // Equalize two columns content vertically center
-        setTimeout(function() {
-            cp_column_equilize();
+        setTimeout(function() {           
 
             // Equalize blank style content vertically center
             cp_row_equilize();
 
         }, 300);
+
+        cp_column_equilize();
 
         cp_form_sep_top();
 
@@ -298,6 +294,7 @@ function cp_column_equilize() {
                 var childClasses = Array();
                 jQuery(this).children('.cp-column-equalized-center').each(function () {
                     var contHeight = jQuery(this).outerHeight();
+                    jQuery(this).addClass('cp-center');
                     childClasses.push(contHeight);
                 });
 
@@ -316,14 +313,15 @@ function cp_column_equilize() {
                 var maxHeight = Math.max.apply(Math, childClasses) + tot_padding;
                 maxHeight = maxHeight-count;
 
-                if( wh > 768 ) {
+                if( wh > 768 ) {                    
+                    //jQuery(this).animate({height:maxHeight},100);
                     jQuery(this).css( 'height', maxHeight );
                 } else {
                     jQuery(this).css( 'height', 'auto' );
                 }
             }
         });
-    }, 200 );
+    }, 100 );
 }
 
 /**

@@ -353,10 +353,10 @@ if ( ! function_exists( 'x_woocommerce_navbar_cart_ajax_notification' ) ) :
     if ( x_is_product_index() && get_option( 'woocommerce_enable_ajax_add_to_cart' ) == 'yes' ) {
       $notification = '<div class="x-cart-notification">'
                       . '<div class="x-cart-notification-icon loading">'
-                        . '<i class="x-icon-cart-arrow-down" data-x-icon="&#xf218;" aria-hidden="true"></i>'
+                        . '<i class="x-icon-cart-arrow-down" data-x-icon-s="&#xf218;" aria-hidden="true"></i>'
                       . '</div>'
                       . '<div class="x-cart-notification-icon added">'
-                        . '<i class="x-icon-check" data-x-icon="&#xf00c;" aria-hidden="true"></i>'
+                        . '<i class="x-icon-check" data-x-icon-s="&#xf00c;" aria-hidden="true"></i>'
                       . '</div>'
                     . '</div>';
     } else {
@@ -384,7 +384,7 @@ if ( ! function_exists( 'x_woocommerce_navbar_cart' ) ) :
     $cart_inner  = x_get_option( 'x_woocommerce_header_cart_content_inner' );
 
     $data = array(
-      'icon'  => '<i class="x-icon-shopping-cart" data-x-icon="&#xf07a;" aria-hidden="true"></i>',
+      'icon'  => '<i class="x-icon-shopping-cart" data-x-icon-s="&#xf07a;" aria-hidden="true"></i>',
       'total' => WC()->cart->get_cart_total(),
       'count' => sprintf( _n( '%d Item', '%d Items', WC()->cart->cart_contents_count, '__x__' ), WC()->cart->cart_contents_count )
     );

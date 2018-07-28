@@ -1,5 +1,5 @@
 <?php
- 
+
 // =============================================================================
 // FUNCTIONS/GLOBAL/ADMIN/CUSTOMIZER/OUTPUT/WIDGETS.PHP
 // -----------------------------------------------------------------------------
@@ -46,7 +46,7 @@
   }
 
   .widget_archive .h-widget:before {
-    content: "\f040";
+    content: "\f303";
     top: -0.045em;
     font-size: 0.925em;
   }
@@ -75,7 +75,8 @@
   }
 
   .widget_pages .h-widget:before {
-    content: "\f0f6";
+    font-family: "FontAwesomeOutline";
+    content: "\f15c";
     top: -0.065em;
     font-size: 0.85em;
   }
@@ -212,7 +213,7 @@
   }
 
   .widget_archive .h-widget:after {
-    content: "\f040";
+    content: "\f303";
     top: -0.045em;
     font-size: 0.925em;
   }
@@ -241,7 +242,8 @@
   }
 
   .widget_pages .h-widget:after {
-    content: "\f0f6";
+    font-family: "FontAwesomeOutline";
+    content: "\f15c";
     top: -0.065em;
     font-size: 0.85em;
   }

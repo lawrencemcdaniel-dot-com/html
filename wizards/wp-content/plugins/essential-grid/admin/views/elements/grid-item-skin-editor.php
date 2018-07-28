@@ -1870,7 +1870,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 		<div class="inside" style="margin:0; padding:0;">
 
 			<!-- GRID WRAPPER FOR CONTAINER SIZING   HERE YOU CAN SET THE CONTAINER SIZE AND CONTAINER SKIN-->
-			<article class="backend-flat">
+			<article id="eg-elements-container-grid-wrap" class="backend-flat myportfolio-container eg-startheight">
 
 				<!-- THE GRID ITSELF WITH FILTERS, PAGINATION,  SORTING ETC... -->
 				<div id="eg-elements-container-grid" class="esg-grid" style="text-align:center;">
@@ -1902,6 +1902,13 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 					<!-- The Pagination Container. Page Buttons will be added on demand Automatically !! -->
 					<article style="background: #FFF;z-index: 100;-webkit-backface-visibility: hidden;" class="esg-pagination"></article>
 				</div>
+				
+				<!-- 2.2.5 -->
+				<style type="text/css">
+				
+					#eg-elements-container-grid-wrap.eg-startheight {height: 351px};
+				
+				</style>
 
 			</article>
 

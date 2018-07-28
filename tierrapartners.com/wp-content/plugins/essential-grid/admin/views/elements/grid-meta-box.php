@@ -253,9 +253,9 @@ wp_nonce_field('eg_meta_box_nonce', 'essential_grid_meta_box_nonce');
 	.eg-options-tab.selected	{	display:block;}
 	
 	.eg-option-tabber			{	display:inline-block; margin:0px 5px 0px 0px;padding:10px 15px; line-height: 18px; background:#d1d1d1; cursor: pointer;}
-	.eg-option-tabber.selected 	{	background:#fff;}
+	.eg-option-tabber.selected 	{	background:#FFF }
 	
-	.eg-option-tabber-wrapper	{	 margin: -7px -12px 30px; background: #F1F1F1;padding-top:10px;}
+	.eg-option-tabber-wrapper	{margin: -7px -12px 30px; background: #F1F1F1; padding-top: 10px}
 </style>
 
 <ul class="eg-option-tabber-wrapper">
@@ -263,7 +263,7 @@ wp_nonce_field('eg_meta_box_nonce', 'essential_grid_meta_box_nonce');
 	$selectedtab = "selected";
 	if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are in preview mode
 		?>
-		<li class="eg-option-tabber selected" data-target="#eg-my-cobbles-options"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-align-center"></span><?php _e('Cobbles Element Size', EG_TEXTDOMAIN); ?></li>
+		<li class="eg-option-tabber selected" data-target="#eg-my-cobbles-options"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-align-center"></span><?php _e('Item Settings', EG_TEXTDOMAIN); ?></li>
 		<?php
 		$selectedtab = "";
 	}
@@ -277,7 +277,7 @@ wp_nonce_field('eg_meta_box_nonce', 'essential_grid_meta_box_nonce');
 	<?php
 	}
 	?>
-	<li class="eg-option-tabber" data-target="#eg-featured-grid-options"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-screenoptions"></span><?php _e('Featured Grid', EG_TEXTDOMAIN); ?></li>
+	<li class="eg-option-tabber" data-target="#eg-featured-grid-options" style="margin-right: 0"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-screenoptions"></span><?php _e('Featured Grid', EG_TEXTDOMAIN); ?></li>
 </ul>
 <?php
 $selectedtab = "selected";
@@ -481,15 +481,15 @@ if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are
 	</p>
 	<p>
 		<div class="eg-cs-row" style="float:left"><label class="eg-mb-label"><?php _e('MP4 / Audio', EG_TEXTDOMAIN); ?></label> <input type="text" name="eg_sources_html5_mp4" id="eg_sources_html5_mp4" style="margin-right:20px" value="<?php echo $eg_sources_html5_mp4; ?>" /></div>
-		<div class="eg-cs-row" style="float:left"><label class="eg-mb-label" style="min-width:0"><?php _e('OGV', EG_TEXTDOMAIN); ?></label> <input type="text" name="eg_sources_html5_ogv" id="eg_sources_html5_ogv" style="margin-right:20px" value="<?php echo $eg_sources_html5_ogv; ?>" /></div>
-		<div class="eg-cs-row" style="float:left"><label class="eg-mb-label" style="min-width:0"><?php _e('WEBM', EG_TEXTDOMAIN); ?></label> <input type="text" name="eg_sources_html5_webm" id="eg_sources_html5_webm" style="margin-right:20px" value="<?php echo $eg_sources_html5_webm; ?>" /></div>
 		<div class="eg-cs-row" style="float:left">		
-			<label class="eg-mb-label eg-tooltip-wrap" title="<?php _e('Choose the Video Ratio', EG_TEXTDOMAIN); ?>" style="min-width:0"><?php _e('Video Ratio:', EG_TEXTDOMAIN); ?></label>
+			<label class="eg-mb-label eg-tooltip-wrap" title="<?php _e('Choose the Video Ratio', EG_TEXTDOMAIN); ?>"><?php _e('Video Ratio:', EG_TEXTDOMAIN); ?></label>
 			<select id="eg-html5-ratio" name="eg_html5_ratio">
 				<option value="1"<?php selected($eg_html5_ratio, '1'); ?>>16:9</option>	
 				<option value="0"<?php selected($eg_html5_ratio, '0'); ?>>4:3</option>
 			</select>
 		</div>
+		<div class="eg-cs-row" style="clear: both"><label class="eg-mb-label"><?php _e('OGV', EG_TEXTDOMAIN); ?></label> <input type="text" name="eg_sources_html5_ogv" id="eg_sources_html5_ogv" style="margin-right:20px" value="<?php echo $eg_sources_html5_ogv; ?>" /></div>
+		<div class="eg-cs-row"><label class="eg-mb-label"><?php _e('WEBM', EG_TEXTDOMAIN); ?></label> <input type="text" name="eg_sources_html5_webm" id="eg_sources_html5_webm" style="margin-right:20px" value="<?php echo $eg_sources_html5_webm; ?>" /></div>
 		
 		<div style="clear:both"></div>
 	</p>

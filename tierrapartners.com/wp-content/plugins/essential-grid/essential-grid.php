@@ -3,13 +3,13 @@
  * @package   Essential_Grid
  * @author    ThemePunch <info@themepunch.com>
  * @link      http://codecanyon.net/item/essential-grid-wordpress-plugin/7563340
- * @copyright 2017 ThemePunch
+ * @copyright 2018 ThemePunch
  *
  * @wordpress-plugin
  * Plugin Name:       Essential Grid
  * Plugin URI:        https://essential.themepunch.com
  * Description:       Essential Grid - The Original Premium Grid Plugin
- * Version:           2.2.4.2
+ * Version:           2.2.5
  * Author:            ThemePunch
  * Author URI:        https://themepunch.com
  * Text Domain:       essential-grid
@@ -182,7 +182,7 @@ if(is_admin()){ // && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX )
 	
 	require_once(EG_PLUGIN_PATH . '/admin/includes/newsletter.class.php');
 
-	require_once(EG_PLUGIN_PATH . 'admin/includes/addon-admin.class.php');
+	// require_once(EG_PLUGIN_PATH . 'admin/includes/addon-admin.class.php');
 	
 	add_action('plugins_loaded', array( 'Essential_Grid_Admin', 'do_update_checks' )); //add update checks
 	

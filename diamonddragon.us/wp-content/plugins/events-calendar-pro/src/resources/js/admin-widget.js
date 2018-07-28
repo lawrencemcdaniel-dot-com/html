@@ -383,7 +383,7 @@
 	$body.on( 'click.widgets-toggle', tribeWidget.setup );
 
 
-	// Pass the pagebuilder panel as the "widget"
+	// Pass the pagebuilder panel as the "widget" so we can set up filters correctly
 	$( document ).on(
 		'panelsopen',
 		function ( e ) {
@@ -392,7 +392,7 @@
 				// If we haven't already set up the widget
 				if ( ! $this.hasClass( 'widget' ) ) {
 					// get the ID from the title input
-					var $id = $this.find( '[id^="widget-tribe-events-adv-list-widget-"]' ).filter( '[id$="-title"]' ).attr( 'id' );
+					var $id = $this.find( '[id^="widget-tribe-"]' ).filter( '[id$="-title"]' ).attr( 'id' );
 
 					if ( ! $id ) {
 						return;

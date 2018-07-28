@@ -18,6 +18,15 @@ html.wp-toolbar {padding: 0px;}
     font-style: italic;
 }
 
+.ui-widget,
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-family: inherit; 
+}
+
+
 .ui-accordion .ui-accordion-header {
     margin-top: 15px;
     font-weight: bold;
@@ -26,6 +35,10 @@ html.wp-toolbar {padding: 0px;}
 .ui-accordion .ui-accordion-content.header-go-content {
     display: none !important;
     height: 0 !important;
+}
+
+.ui-widget-content a {
+    color: #0073aa;
 }
 
 input.ui-widget[type=text] {
@@ -101,10 +114,11 @@ input.ui-widget[type=text] {
 .epyt-search-results .moviecontainer {
     margin-bottom: 40px;
     margin-top: -30px;
+    clear: both;
 }
 
 .epyt-search-results .closeme {
-     right: 110px;
+    right: 110px;
     top: -10px;
     position: absolute;
     font-weight: bold;
@@ -188,4 +202,8 @@ a.ythealth .tip {
 
 a.ythealth:hover .tip {
     display: block;
+}
+
+.h3_vi_monetize-content {
+    background-color: #f0f0f0;
 }

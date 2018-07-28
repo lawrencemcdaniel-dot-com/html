@@ -20,7 +20,7 @@
 					
 					//reset all options and settings
 					esg_tiny_reset_all();
-					
+					jQuery('#eg-create-wp-gallery').show();
 					jQuery('#ess-grid-tiny-dialog-step-1').show();
 					jQuery('#ess-grid-tiny-dialog-step-2').hide();
 					jQuery('#ess-grid-tiny-dialog-step-3').hide();

@@ -33,7 +33,7 @@ class Essential_Grid_Base {
 	 */
 	public static function getVar($arr,$key,$default = "", $type=""){
 		$val = $default;
-		if(isset($arr[$key])) $val = $arr[$key];
+		if(isset($arr[$key]) && !empty($arr[$key])) $val = $arr[$key];
 
 		switch($type){
 			case 'i': //int
@@ -359,7 +359,7 @@ class Essential_Grid_Base {
 			'selectyouritem' => __('Select Your Item', EG_TEXTDOMAIN),
 			'add_at_least_one_element' => __('Please add at least one element in Custom Grid mode', EG_TEXTDOMAIN),
 			'essential_grid_shortcode_creator' => __('Essential Grid Shortcode Creator', EG_TEXTDOMAIN),
-			'shortcode_generator' => __('Shortcode Generator', EG_TEXTDOMAIN),
+//			'shortcode_generator' => __('Shortcode Generator', EG_TEXTDOMAIN),
 			'shortcode_could_not_be_correctly_parsed' => __('Shortcode could not be parsed.', EG_TEXTDOMAIN),
 			'please_add_at_least_one_layer' => __('Please add at least one Layer.', EG_TEXTDOMAIN),
 			'shortcode_parsing_successfull' => __('Shortcode parsing successfull. Items can be found in step 3', EG_TEXTDOMAIN),
@@ -402,6 +402,37 @@ class Essential_Grid_Base {
 		);
 
 		return apply_filters('essgrid_get_grid_animations', $animations);
+
+	}
+	
+	/**
+	 * get grid animations
+	 */
+	public static function get_start_animations(){
+
+		$animations = array(
+			'none' =>  __('None', EG_TEXTDOMAIN),
+			'reveal' =>  __('Reveal', EG_TEXTDOMAIN),
+			'fade' =>  __('Fade', EG_TEXTDOMAIN),
+			'scale' =>  __('Scale', EG_TEXTDOMAIN),
+			'slideup' => __('Slide Up (short)', EG_TEXTDOMAIN),
+			'covergrowup' =>  __('Slide Up (long)', EG_TEXTDOMAIN),
+			'slideleft' => __('Slide Left', EG_TEXTDOMAIN),
+			'slidedown' => __('Slide Down', EG_TEXTDOMAIN),
+			'flipvertical' => __('Flip Vertical', EG_TEXTDOMAIN),
+			'fliphorizontal' => __('Flip Horizontal', EG_TEXTDOMAIN),
+			'flipup' => __('Flip Up', EG_TEXTDOMAIN),
+			'flipdown' => __('Flip Down', EG_TEXTDOMAIN),
+			'flipright' => __('Flip Right', EG_TEXTDOMAIN),
+			'flipleft' => __('Flip Left', EG_TEXTDOMAIN),
+			'skewleft' => __('Skew', EG_TEXTDOMAIN),
+			'flipleft' => __('Flip Left', EG_TEXTDOMAIN),
+			'zoomin' => __('Rotate Zoom', EG_TEXTDOMAIN),
+			'flyleft' => __('Fly Left', EG_TEXTDOMAIN),
+			'flyright' => __('Fly Right', EG_TEXTDOMAIN)
+		);
+
+		return apply_filters('essgrid_get_grid_start_animations', $animations);
 
 	}
 	
@@ -2012,10 +2043,10 @@ class Essential_Grid_Base {
 			$ret['alternate-image'] = ($alt_img !== false) ? $alt_img['0'] : '';
 			$ret['alternate-image-full'] = ($alt_img_full !== false) ? $alt_img_full['0'] : '';
 			$ret['alternate-image-alt'] = ($alt_img_text !== '') ? $alt_img_text : '';
-			$ret['alternate-image-width'] = ($alt_img !== false) ? $alt_img['0'] : '';
-			$ret['alternate-image-full-width'] = ($alt_img_full !== false) ? $alt_img_full['0'] : '';
-			$ret['alternate-image-height'] = ($alt_img !== false) ? $alt_img['0'] : '';
-			$ret['alternate-image-full-height'] = ($alt_img_full !== false) ? $alt_img_full['0'] : '';
+			$ret['alternate-image-width'] = ($alt_img !== false) ? $alt_img['1'] : '';
+			$ret['alternate-image-full-width'] = ($alt_img_full !== false) ? $alt_img_full['1'] : '';
+			$ret['alternate-image-height'] = ($alt_img !== false) ? $alt_img['2'] : '';
+			$ret['alternate-image-full-height'] = ($alt_img_full !== false) ? $alt_img_full['2'] : '';
 		}else{
 			$ret['alternate-image'] = '';
 		}

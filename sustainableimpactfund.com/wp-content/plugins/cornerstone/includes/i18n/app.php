@@ -79,6 +79,7 @@ return array(
   'controls-previous-missing'                 => __( 'Previous Value Unavailable', 'cornerstone' ),
   'controls-font-family-select'               => __( '{{family}} ({{source}})', 'cornerstone' ),
   'controls-text-editor-click-to-edit'        => __( 'Click to Edit', 'cornerstone' ),
+  'controls-text-editor-edit-text'            => __( 'Edit Text', 'cornerstone' ),
   'controls-text-editor-html-mode-label'      => __( 'HTML', 'cornerstone' ),
   'controls-text-editor-rich-text-mode-label' => __( 'Rich Text', 'cornerstone' ),
 
@@ -232,5 +233,8 @@ return array(
   'preferences.description'    => __('Configure how Cornerstone should look and behave. These settings are specific to your user account.', 'cornerstone'),
   'preferences.wp-toolbar-on'  => __('The WordPress toolbar will be shown on next reload.', 'cornerstone'),
   'preferences.wp-toolbar-off' => __('The WordPress toolbar will be hidden on next reload.', 'cornerstone'),
+
+  // Skeleton Mode
+  'skeleton-item-handle' => __("{{type}} - {{title}}", 'cornerstone')
 
 );

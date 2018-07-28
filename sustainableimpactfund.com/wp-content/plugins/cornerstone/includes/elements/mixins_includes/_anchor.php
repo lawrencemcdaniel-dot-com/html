@@ -355,8 +355,8 @@ function x_values_anchor( $settings = array() ) {
       $values = array_merge(
         $values,
         array(
-          $k_pre . 'anchor_text_primary_content'   => x_module_value( __( 'Learn More', '__x__' ), 'all', true ),
-          $k_pre . 'anchor_text_secondary_content' => x_module_value( '', 'all', true ),
+          $k_pre . 'anchor_text_primary_content'   => x_module_value( __( 'Learn More', '__x__' ), 'all:html', true ),
+          $k_pre . 'anchor_text_secondary_content' => x_module_value( '', 'all:html', true ),
         )
       );
     }

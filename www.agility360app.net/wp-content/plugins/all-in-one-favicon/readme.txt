@@ -2,8 +2,8 @@
 Contributors: techotronic  
 Tags: theme, favicon, admin, blog, wordpress, image, images, graphic, graphics, icon, iphone, multisite  
 Requires at least: 2.8  
-Tested up to: 4.7
-Stable tag: 4.6
+Tested up to: 4.9
+Stable tag: 4.7
 
 Easily add a Favicon to your site and the WordPress admin pages. Complete with upload functionality. Supports all three Favicon types (ico,png,gif).
 
@@ -92,6 +92,10 @@ Go to the settings page and and upload your Favicon(s) or add the path/URL to al
 
 
 == Changelog ==
+
+= 4.7 (2018-07-23) =
+* Resolve XSS vulnerabilities.
+* Improve upload functionality and flow on settings page.
 
 = 4.6 (2017-04-08) =
 * Use __construct() for all class constructors.

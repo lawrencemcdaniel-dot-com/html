@@ -494,7 +494,7 @@ if ( true !== $reg_menu_hide ) {
 										$is_storage_checked = ( $disable_storage ) ? ' checked="checked" ' : '';
 										$uniq             = uniqid();
 										?>
-										<label for="plugin-support" style="width:340px; display: inline-block;"><strong><?php _e( 'Disable data storage', 'smile' ); ?></strong>
+										<label for="plugin-support" style="width:340px; display: inline-block;font-size:14px;"><strong><?php _e( 'Disable data storage', 'smile' ); ?></strong>
 											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to do not store information of the user to your site database after submission.', 'smile' ); ?>">
 												<i class="dashicons dashicons-editor-help"></i>
 											</span>
@@ -512,6 +512,34 @@ if ( true !== $reg_menu_hide ) {
 							</p>
 						</div>
 
+						<!-- Disable Honeypot -->
+						<div class="debug-section">
+							<p>
+								<table>
+									<tr>
+										<td style="vertical-align: top;">
+										<?php
+										$disable_pot     = isset( $data['cp-disable-pot'] ) ? $data['cp-disable-pot'] : 1;
+										$is_pot_checked = ( $disable_pot ) ? ' checked="checked" ' : '';
+										$uniq             = uniqid();
+										?>
+										<label for="plugin-support" style="width:340px; display: inline-block;font-size:14px;"><strong><?php _e( 'Honeypot Protection', 'smile' ); ?></strong>
+											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to protect your site from spam attack.', 'smile' ); ?>">
+												<i class="dashicons dashicons-editor-help"></i>
+											</span>
+										</label>
+									</td>
+								<td>
+								<label class="switch-wrapper" style="display: inline-block;margin: 0;height: 20px;">
+									<input type="text"  id="cp-disable-pot" class="form-control smile-input smile-switch-input"  name="cp-disable-pot" value="<?php echo $disable_pot; ?>" />
+									<input type="checkbox" <?php echo $is_pot_checked; ?> id="smile_cp-disable-pot_btn_<?php echo $uniq; ?>"  class="ios-toggle smile-input smile-switch-input switch-checkbox smile-switch " value="<?php echo $disable_pot; ?>" >
+									<label class="smile-switch-btn checkbox-label" data-on="ON"  data-off="OFF" data-id="cp-disable-pot" for="smile_cp-disable-pot_btn_<?php echo $uniq; ?>"></label>
+								</label>
+							</td>
+						</tr>
+					</table>
+							</p>
+						</div>
 								</form>
 								<button type="button" class="button button-primary button-update-settings"><?php _e( 'Save Settings', 'smile' ); ?></button>
 							</div>

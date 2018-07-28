@@ -58,8 +58,8 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		 */
 		public $shortcodes;
 
-		const REQUIRED_TEC_VERSION = '4.6.12';
-		const VERSION = '4.4.28';
+		const REQUIRED_TEC_VERSION = '4.6.20';
+		const VERSION = '4.4.29.2';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -186,12 +186,6 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_widget_assets' ) );
 			add_action( 'wp_ajax_tribe_widget_dropdown_terms', array( $this, 'ajax_widget_get_terms' ) );
-
-			// Add this to enqueue widget scripts on Page Builder - otherwose the widget filters don't work as expected
-			// See https://central.tri.be/issues/66031
-			add_action( 'admin_print_scripts-widgets.php', array( $this, 'load_widget_assets' ) );
-			add_action( 'siteorigin_panel_enqueue_admin_scripts', array( $this, 'load_widget_assets' ) );
-			add_action( 'siteorigin_panel_enqueue_admin_scripts', array( $this, 'admin_enqueue_styles' ) );
 
 			// Start the integrations manager
 			Tribe__Events__Pro__Integrations__Manager::instance()->load_integrations();
@@ -544,13 +538,48 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 						// retrieve event object
 						$get_recurrence_event = new WP_Query( $recurrence_check );
 						// if a reccurence event actually exists then proceed with redirection
-						if ( ! empty( $get_recurrence_event->posts ) && tribe_is_recurring_event( $get_recurrence_event->posts[0]->ID ) && get_post_status( $get_recurrence_event->posts[0] ) == 'publish' ) {
+						if (
+							! empty( $get_recurrence_event->posts )
+							&& tribe_is_recurring_event( $get_recurrence_event->posts[0]->ID )
+							&& 'publish' === get_post_status( $get_recurrence_event->posts[0] )
+						) {
 							$problem = _x( 'invalid date', 'debug recurrence', 'tribe-events-calendar-pro' )
 									 . empty( $wp_query->query['eventDate'] ) ? '' : ': ' . $wp_query->query['eventDate'];
 
 							$current_url = Tribe__Events__Main::instance()->getLink( 'all', $get_recurrence_event->posts[0]->ID );
 						}
 						break;
+					}
+
+					// We are receiving the event date
+					if ( ! empty( $wp_query->query['eventDate'] ) ) {
+						$event_id = get_the_id();
+						// if is a recurring event
+						if ( tribe_is_recurring_event( $event_id ) ) {
+
+							$event = get_post( $event_id );
+							// if no post parent (ether the post parent or inexistent)
+							if ( ! $event->post_parent ) {
+								// get all the recursive event dates
+								$dates = tribe_get_recurrence_start_dates( $event_id );
+
+								$exist = false;
+								foreach ( $dates as $date ) {
+									// check if the date exists in any of the recurring event set
+									if ( 0 === strpos( $date, $wp_query->query['eventDate'] ) ) {
+										$exist = true;
+										break;
+									}
+								}
+
+								// if the event date coming on the URL doesn't exist, display the /all/ page
+								if ( ! $exist ) {
+									$problem = _x( 'incorrect slug', 'debug recurrence', 'tribe-events-calendar-pro' );
+									$current_url = Tribe__Events__Main::instance()->getLink( 'all', $event_id );
+									break;
+								}
+							}
+						}
 					}
 
 					// A child event should be using its parent's slug. If it's using its own, redirect.
@@ -782,8 +811,8 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 						array(
 							'tribeEventsShortcodeBeforeHTML' => array(
 								'type'            => 'checkbox_bool',
-								'label'           => __( 'Enable the Before HTML (below) on shortcodes.', 'the-events-calendar' ),
-								'tooltip'         => __( 'Check this to show the Before HTML from the text area below on events displayed via shortcode.', 'the-events-calendar' ),
+								'label'           => __( 'Enable the Before HTML (below) on shortcodes.', 'tribe-events-calendar-pro' ),
+								'tooltip'         => __( 'Check this to show the Before HTML from the text area below on events displayed via shortcode.', 'tribe-events-calendar-pro' ),
 								'default'         => false,
 								'validation_type' => 'boolean',
 							),
@@ -795,8 +824,8 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 						array(
 							'tribeEventsShortcodeAfterHTML' => array(
 								'type'            => 'checkbox_bool',
-								'label'           => __( 'Enable the After HTML (below) on shortcodes.', 'the-events-calendar' ),
-								'tooltip'         => __( 'Check this to show the After HTML from the text area below on events displayed via shortcode.', 'the-events-calendar' ),
+								'label'           => __( 'Enable the After HTML (below) on shortcodes.', 'tribe-events-calendar-pro' ),
+								'tooltip'         => __( 'Check this to show the After HTML from the text area below on events displayed via shortcode.', 'tribe-events-calendar-pro' ),
 								'default'         => false,
 								'validation_type' => 'boolean',
 							),
@@ -1352,13 +1381,21 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		}
 
 		public function load_widget_assets( $hook = null ) {
-			/**
-			 * Filter: tribe_allow_widget_on_post_page_edit_screen
-			 * @since 4.4.28
-			 *
-			 * Allows loading widgets on post edit screen
-			 */
-			if ( 'widgets.php' !== $hook && 'customize.php' !== $hook && 'post.php' !== $hook && ! apply_filters( 'tribe_allow_widget_on_post_page_edit_screen', '__return_false' ) ) {
+
+			if (
+				'widgets.php' !== $hook
+				&& 'customize.php' !== $hook
+
+				/**
+				 * Filter the screen widgets assets will load
+				 *
+				 * @since 4.4.28
+				 *
+				 * @param boolean false by default assets will not load
+				 * @param string $hook a string of current page php file such as post.php
+				 */
+				&& ! apply_filters( 'tribe_allow_widget_on_post_page_edit_screen', false, $hook )
+			) {
 					return;
 			}
 
@@ -1471,46 +1508,49 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		 * @return boolean
 		 */
 		public function should_hide_recurrence( $query = null ) {
-			// let's not hide recurrence if we are showing all recurrence events
+			$hide = false;
+
 			if ( tribe_is_showing_all() ) {
-				return false;
-			}
-
-			// let's not hide recurrence if we are showing all recurrence events via AJAX
-			if ( ! empty( $_GET['tribe_post_parent'] ) ) {
-				return false;
-			}
-
-			// let's not hide recurrence if we are showing all recurrence events via AJAX
-			if ( ! empty( $_POST['tribe_post_parent'] ) ) {
-				return false;
-			}
-
-			// let's not hide recurrence if we are on month or week view
-			if (
+				// let's not hide recurrence if we are showing all recurrence events
+				$hide = false;
+			} elseif ( defined( 'REST_REQUEST' ) && true === REST_REQUEST ) {
+				// let's not hide recurrence if we are processing a REST request
+				$hide = false;
+			} elseif ( ! empty( $_GET['tribe_post_parent'] ) ) {
+				// let's not hide recurrence if we are showing all recurrence events via AJAX
+				$hide = false;
+			} elseif ( ! empty( $_POST['tribe_post_parent'] ) ) {
+				// let's not hide recurrence if we are showing all recurrence events via AJAX
+				$hide = false;
+			} elseif (
 				is_object( $query )
 				&& ! empty( $query->query['eventDisplay'] )
 				&& in_array( $query->query['eventDisplay'], array( 'month', 'week' ) )
 			) {
-				return false;
+				// let's not hide recurrence if we are on month or week view
+				$hide = false;
+			} elseif ( tribe_get_option( 'hideSubsequentRecurrencesDefault', false ) ) {
+				// let's HIDE recurrence events if we've set the option
+				$hide = true;
+			} elseif ( isset( $_GET['tribeHideRecurrence'] ) && 1 == $_GET['tribeHideRecurrence'] ) {
+				// let's HIDE recurrence events if tribeHideRecurrence via GET
+				$hide = true;
+			} elseif ( isset( $_POST['tribeHideRecurrence'] ) && 1 == $_POST['tribeHideRecurrence'] ) {
+				// let's HIDE recurrence events if tribeHideRecurrence via POST
+				$hide = true;
 			}
 
-			// let's HIDE recurrence events if we've set the option
-			if ( tribe_get_option( 'hideSubsequentRecurrencesDefault', false ) ) {
-				return true;
-			}
+			/**
+			 * Filters whether recurring event instances should be hidden or not.
+			 *
+			 * @since 4.4.29
+			 *
+			 * @param bool $hide
+			 * @param WP_Query|null $query
+			 */
+			$hide = apply_filters( 'tribe_events_pro_should_hide_recurrence', $hide, $query );
 
-			// let's HIDE recurrence events if tribeHideRecurrence via GET
-			if ( isset( $_GET['tribeHideRecurrence'] ) && 1 == $_GET['tribeHideRecurrence'] ) {
-				return true;
-			}
-
-			// let's HIDE recurrence events if tribeHideRecurrence via POST
-			if ( isset( $_POST['tribeHideRecurrence'] ) && 1 == $_POST['tribeHideRecurrence'] ) {
-				return true;
-			}
-
-			return false;
+			return (bool) $hide;
 		}
 
 		/**

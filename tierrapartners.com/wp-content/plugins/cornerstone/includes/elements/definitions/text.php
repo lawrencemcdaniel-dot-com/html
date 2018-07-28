@@ -33,6 +33,13 @@ function x_element_builder_setup_text() {
     'controls_adv'       => x_controls_element_text( true ),
     'control_groups'     => x_control_groups_element_text(),
     'control_groups_adv' => x_control_groups_element_text( true ),
+    'options' => array(
+      'inline' => array(
+        'text_content' => array(
+          'selector' => 'root'
+        ),
+      )
+    )
   );
 }
 

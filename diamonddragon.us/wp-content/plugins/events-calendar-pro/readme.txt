@@ -5,7 +5,7 @@ Tags: events, calendar, event, venue, organizer, dates, date, google maps, confe
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
 Tested up to: 4.9.6
-Stable tag: 4.4.28
+Stable tag: 4.4.29.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -149,6 +149,7 @@ The plugin is produced by <a href="http://m.tri.be/45">Modern Tribe Inc</a>.
 <a href="https://profiles.wordpress.org/roblagatta">Rob La Gatta</a>
 <a href="https://profiles.wordpress.org/reid.peifer">Reid Peifer</a>
 <a href="https://profiles.wordpress.org/shane.pearlman">Shane Pearlman</a>
+<a href="https://profiles.wordpress.org/camwyn">Stephen Page</a>
 <a href="https://profiles.wordpress.org/thatdudebutch">Wayne Stratton</a>
 <a href="https://profiles.wordpress.org/zbtirrell">Zachary Tirrell</a>
 
@@ -202,6 +203,23 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
 
 == Changelog ==
+
+= [4.4.29.2] 2018-07-12 =
+
+* Fix - A conflict with select2 loading on the editors for WooCommerce Membership causing an ‘ajax’ error in the console [110441]
+
+= [4.4.29.1] 2018-07-10 =
+
+* Fix - Fix week view pagination not working [110276]
+
+= [4.4.29] 2018-07-09 =
+
+* Fix - Redirect to the main event series page when trying to access a nonexistent event recurrence [64294]
+* Fix - Display the time of recurring event when previewing the event. Thanks Sumaiya for flagging this! [62459]
+* Fix - Integrate the events list and mini calendar widgets with Site Origin's Page Builder. Thanks @tommy, @simon, and @david.longdon for flagging this! [95542][66031]
+* Fix - Add validation to the recurrence exclusion "on" and "after" fields. Thanks James for reporting! [73912]
+* Fix - Make sure recurring event instances will always show in REST API responses [89571]
+* Tweak - Harden the sanitizing of values on the mini calendar [106000]
 
 = [4.4.28] 2018-06-20 =
 

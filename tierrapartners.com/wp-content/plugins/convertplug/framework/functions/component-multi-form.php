@@ -997,11 +997,9 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 									$all         = explode( ';', $a['form_fields'] );
 									$parent_last = end( $all );
 									$data_value  = array();
-
 									foreach ( $all as $parent_key => $parent_value ) {
 
 										$single = explode( '|', $parent_value );
-
 										$single_1 = ( isset( $single[1] ) ) ? $single[1] : '';
 
 										if ( '' !== $single && ! (false !== strpos( $single_1, 'hidden' ) )) {
@@ -1028,11 +1026,10 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 											$s[1] = ( isset( $s[1] ) ) ? $s[1] : '';
 
 											// remove all slashes from string.
-											$s[1] = stripslashes_deep( $s[1] );
-
+											$s[1] = stripslashes_deep( $s[1] );											
 											// Sanitize string.
 											// avoided drop down values from sanitize.
-											if ( 'dropdown_options' !== $s[0] ) {
+											if ( 'dropdown_options' !== $s[0] && 'input_name' !== $s[0] && 'input_label' !== $s[0] ) {
 												$s[1] = sanitize_text_field( $s[1] );
 											}
 
@@ -1182,6 +1179,8 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 															}
 															break;
 														case 'checkbox':        // checkbox.
+														$label = do_shortcode( html_entity_decode( stripcslashes( htmlspecialchars( $label ) ) ) );
+
 															echo '<label class="cp-label"><input class="cp-input cp-' . $type . '"'
 															. ' type="' . $type . '"'
 															. ' name="param[' . $name . ']"'

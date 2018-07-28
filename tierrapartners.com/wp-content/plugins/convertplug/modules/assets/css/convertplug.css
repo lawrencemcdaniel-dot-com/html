@@ -1116,4 +1116,24 @@ input.cp-input.cp-checkbox {
 .cp-empty-content{
   display: inherit;
 }
+.cp-center {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+span.cp-chbx-label {
+  pointer-events: all;
+}
+.cp-form input[name="cp_set_hp"] {
+  display: none;
+}
 
+.default-form input.cp-number[type=number]::-webkit-inner-spin-button,
+.default-form  input.cp-number[type=number]::-webkit-outer-spin-button,
+input.cp-input.cp-number[type=number]::-webkit-inner-spin-button,
+input.cp-input.cp-number[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;    
+}

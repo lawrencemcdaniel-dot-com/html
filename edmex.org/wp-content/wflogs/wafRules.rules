@@ -32,6 +32,7 @@ whitelistParam(url='/\/wp-admin\/(?:network\/)?(?:(?:plugin|theme)-editor|admin-
 whitelistParam(url='/\/wp-admin\/admin-ajax\.php$/i', param=request.body['widget-text'])
 whitelistParam(url='/\/wp-admin\/admin-ajax\.php$/i', param=request.body['widget-custom_html'])
 whitelistParam(url='/.{0,1}/', param=request.queryString['_wp_http_referer'])
+whitelistParam(url='/.*/', param=request.body['_wp_http_referer'], rules=[13])
 whitelistParam(url='/\/wp-admin\/(?:network\/)?plugins\.php$/i', param=request.queryString['plugin'])
 whitelistParam(url='/\/wp-admin\/(?:network\/)?plugins\.php$/i', param=request.queryString['action'])
 whitelistParam(url='/\/wp-admin\/(?:network\/)?plugins\.php$/i', param=request.queryString['checked'])
@@ -296,7 +297,7 @@ if ((match('#/delete\-all\-comments/delete\-all\-comments\.php$#i', server.scrip
 if ((match('#wp-json/wp/v\d+/posts/#i', request.path) or match('#/wp/v\d+/posts/#i', request.queryString.rest_route)) and match('/[^0-9]/', request.queryString.id)):
 	block(id=84, category='auth-bypass', description='WordPress 4.7.0-4.7.1 - Authentication Bypass: Page/Post Content Modification via REST API')
 
-if ((match('#wp-json/wp/v\d+/posts/#i', request.path) or match('#/wp/v\d+/posts/#i', request.queryString.rest_route) or match('#/wp/v\d+/posts/#i', request.body.rest_route)) and (match('/^(post|patch|put)$/i', server.request_method) or match('/^(post|patch|put)$/i', request.headers['X-Http-Method-Override']) or match('/^(post|patch|put)$/i', request.queryString._method)) and currentUserIsNot('administrator', server.empty) and currentUserIsNot('editor', server.empty) and currentUserIsNot('author', server.empty)):
+if ((match('#wp-json/wp/v\d+/posts/#i', request.path) or match('#/wp/v\d+/posts/#i', request.queryString.rest_route) or match('#/wp/v\d+/posts/#i', request.body.rest_route)) and (match('/^(post|patch|put)$/i', server.request_method) or match('/^(post|patch|put)$/i', request.headers['X-Http-Method-Override']) or match('/^(post|patch|put)$/i', request.queryString._method)) and currentUserIsNot('administrator', server.empty) and currentUserIsNot('editor', server.empty) and currentUserIsNot('author', server.empty) and currentUserIsNot('contributor', server.empty)):
 	block(id=85, category='auth-bypass', description='WordPress 4.7.0-4.7.1 - Authentication Bypass')
 
 if (match('/iwp_action/i', base64decode(request.rawBody)) and match('/(^|;|{|})O:+?\+*[0-9]+:(?!"stdClass")/i', base64decode(request.rawBody))):

@@ -250,10 +250,24 @@ background:#3498db;
 width: 25px !important;
 height: 25px !important;
 border: none !important;
-top:0px !important;right:-0px !important;
+top:0px !important;right: 33px !important;
 position:absolute;
 cursor: pointer;
 }
+
+#eg-wrap #eg-selected-skins-wrapper .eg-edit-skin-button {
+	
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+	right: 0;
+	font-size: 16px;
+	line-height: 25px;
+	z-index: 999;
+	
+}
+
 
 #eg-wrap #eg-selected-skins-wrapper .eg-fakeinput:before {
 	content:"\e80a";
@@ -1179,8 +1193,13 @@ vertical-align: top;
 .eg-ov-12	{	left:60px; }
 .eg-ov-13	{	left:90px; }
 
-.eg-overview-button:hover, .eg-overview-button:visited{
+.eg-overview-button:hover, .eg-overview-button:visited {
     color: #FFF;
+}
+
+.eg-overview-button:focus {
+	box-shadow: none;
+	color: #FFF;
 }
 
 .font_headline {
@@ -2256,14 +2275,46 @@ div.star_red:before { content: '\f155'; font-family: "dashicons"; color:#e03301;
 }
 
 #eg-form-item-skin-layout-settings label {vertical-align: top}
-
 body.hide-custom-options .eg-addnewitem-wrapper {display: none !important}
+
+/* 2.2.5 */
+.wp-core-ui #edit-custom-element-dialog-wrap .button-primary,
+.wp-core-ui #edit-custom-element-dialog-wrap .button-primary.focus, 
+.wp-core-ui #edit-custom-element-dialog-wrap .button-primary:focus,
+.wp-core-ui #edit-custom-element-dialog-wrap .button-primary.active, 
+.wp-core-ui #edit-custom-element-dialog-wrap .button-primary.active:focus, 
+.wp-core-ui #edit-custom-element-dialog-wrap .button-primary.active:hover, 
+.wp-core-ui #edit-custom-element-dialog-wrap .button-primary:active {
+    box-shadow: none;
+    text-shadow: none;
+    vertical-align: bottom
+}
+
+/*
 .esg-entry-cover .esg-open-edit-dialog {opacity: 0}
 .esg-entry-cover:hover .esg-open-edit-dialog {transition: opacity 0.2s ease 0.2s; opacity: 1}
+*/
 
 /* 2.2 */
 .featured-img-hideable {display: none; margin-left: 30px}
 .show-featured-img-settings .featured-img-hideable {display: block}
 
+/* 2.2.5 */
+.eg-elset-title {position: relative; cursor: pointer}
+.eg-elset-title i {
+	
+	position: absolute;
+	right: 18px;
+	top: 8px;
+	color: #666;
+	
+}
+
+/* 2.2.5 */
+.hide-esg-item-settings .esg-atoolbar {
+	
+	display: none !important;
+	
+}
 
 

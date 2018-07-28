@@ -228,11 +228,10 @@ class Cornerstone_App_Permissions extends Cornerstone_Plugin_Component {
 
     if ( ! isset( $this->_content_types ) ) {
 
-      $post_types = get_post_types( array(
+      $post_types = get_post_types( apply_filters( 'cs_get_content_types_args', array(
         'public'   => true,
         'show_ui' => true,
-        'exclude_from_search' => false
-      ), 'objects' );
+      ) ), 'objects' );
 
       unset( $post_types['attachment'] );
 

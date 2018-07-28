@@ -195,12 +195,14 @@ if ( ! function_exists( 'update_variant_test_settings' ) ) {
 				$settings[ $pair[0] ] = $pair[1];
 			}
 		}
-
+		
 		$theme_name = ucwords( str_replace( '_', ' ', $settings['style'] ) );
 
 		$option                      = $settings['option'];
 		$style                       = $settings['style'];
 		$variant_style               = $settings['style_id'];
+		$v_action 					 = isset($settings['variant-action']) ? $settings['variant-action']: '';		
+
 		$prev_styles                 = get_option( $option );
 		$variant_arrays              = isset( $prev_styles[ $variant_style ] ) ? $prev_styles[ $variant_style ] : array();
 		$new_style                   = array();
@@ -208,6 +210,12 @@ if ( ! function_exists( 'update_variant_test_settings' ) ) {
 		$dynamic_style_name          = 'cp_id_' . $rand;
 		$style_id                    = isset( $settings['variant-style'] ) && '' !== $settings['variant-style'] ? $settings['variant-style'] : $theme_name;
 		$style_name                  = isset( $settings['new_style'] ) && '' !== $settings['new_style'] ? $settings['new_style'] : $theme_name;
+
+		if( $v_action == 'new' ){
+			unset($settings['live']);
+			$settings['live'] = '0';
+		}
+
 		$style_settings              = serialize( $settings );
 		$key                         = ! empty( $variant_arrays ) ? search_style( $variant_arrays, $style_id ) : null;
 		$impressions                 = isset( $variant_arrays[ $key ]['impressions'] ) ? $variant_arrays[ $key ]['impressions'] : 0;
@@ -215,7 +223,7 @@ if ( ! function_exists( 'update_variant_test_settings' ) ) {
 		$new_style['style_name']     = stripslashes( $style_name );
 		$new_style['style_id']       = $style_id;
 		$new_style['style_settings'] = $style_settings;
-
+	
 		if ( is_array( $variant_arrays ) && ! empty( $variant_arrays ) ) {
 			$ar_key = false;
 			foreach ( $variant_arrays as $key => $array ) {
@@ -981,15 +989,20 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 		$cp_settings     = get_option( 'convert_plug_settings' );
 
 		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;		
-
 		$store = false; 
+		$cp_set_hp         = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';	
+		if( $cp_set_hp ){
+			if ( wp_doing_ajax() ) {
+				wp_die( -1, 403 );
+			} else {
+				die( '-1' );
+			}
+		}
+
 		if( '1' !== $disable_storage ){					
 			$store = true;
 		}
-		/*if ( is_array( $cp_settings ) ) {
-			$banneduser = explode( ',', $cp_settings['cp-user-role'] );
-		}*/
-
+	
 		if ( isset( $_POST['message'] ) ) {
 			$on_success = 'message';
 		} elseif ( isset( $_POST['redirect'] ) ) {
@@ -1148,7 +1161,7 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 		$data        = get_option( $option );
 		$index       = false;
 		$updated     = false;
-
+		$only_conversion = isset( $_POST['only_conversion'] ) ? true : false;
 		$email = isset( $subscriber['email'] ) ? strtolower( $subscriber['email'] ) : '';
 		if ( $data ) {
 			$index = cp_check_in_array( $email, $data, 'email' );
@@ -1158,6 +1171,15 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 
 		$cp_settings = get_option( 'convert_plug_settings' );
 		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;
+
+		$cp_set_hp         = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';	
+		if( $cp_set_hp ){
+			if ( wp_doing_ajax() ) {
+				wp_die( -1, 403 );
+			} else {
+				die( '-1' );
+			}
+		}
 
 		if ( false !== $index ) {
 			unset( $data[ $index ] );
@@ -3243,6 +3265,24 @@ if ( ! function_exists( 'cp_export_modal_action' ) ) {
 				copy( $form_bg_image, $dir . '/' . $form_bg_image_name );
 
 				$media['form_bg_image'] = $dir . '/' . $form_bg_image;
+			}
+
+			if ( '' !== $overlay_bg_image ) {
+				$overlay_bg_image = str_replace( '%7C', '|', $overlay_bg_image );
+				if ( false !== strpos( $overlay_bg_image, 'http' ) ) {
+					$overlay_bg_image = explode( '|', $overlay_bg_image );
+					$overlay_bg_image = $overlay_bg_image[0];
+					$overlay_bg_image = urldecode( $overlay_bg_image );
+				} else {
+					$overlay_bg_image = explode( '|', $overlay_bg_image );
+					$overlay_bg_image = wp_get_attachment_image_src( $overlay_bg_image[0], $overlay_bg_image[1] );
+					$overlay_bg_image = $overlay_bg_image[0];
+				}
+
+				$overlay_bg_image_name = basename( $overlay_bg_image );
+				copy( $overlay_bg_image, $dir . '/' . $overlay_bg_image_name );
+
+				$media['overlay_bg_image'] = $dir . '/' . $overlay_bg_image;
 			}
 
 			if ( ! empty( $media ) ) {

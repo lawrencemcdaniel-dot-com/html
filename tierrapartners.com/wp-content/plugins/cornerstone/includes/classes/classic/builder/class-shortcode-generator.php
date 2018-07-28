@@ -1030,7 +1030,7 @@ class Cornerstone_Shortcode_Generator extends Cornerstone_Plugin_Component {
 		        'heading'     => __( 'Type', 'cornerstone' ),
 		        'description' => __( 'Select your icon.', 'cornerstone' ),
 		        'type'        => 'dropdown',
-		        'value'       => array_keys( fa_all_unicode() )
+		        'value'       => cs_fa_all()
 		      ),
 		      self::map_default_id(),
 		      self::map_default_class(),
@@ -1899,7 +1899,7 @@ class Cornerstone_Shortcode_Generator extends Cornerstone_Plugin_Component {
 		        'description' => __( 'Optionally enter the button icon.', 'cornerstone' ),
 		        'type'        => 'dropdown',
 
-		        'value'       => array_keys( fa_all_unicode() )
+		        'value'       => cs_fa_all()
 		      ),
 		      array(
 		        'param_name'  => 'circle',
@@ -2059,7 +2059,7 @@ class Cornerstone_Shortcode_Generator extends Cornerstone_Plugin_Component {
 		        'description' => __( 'Optionally enter the button icon.', 'cornerstone' ),
 		        'type'        => 'dropdown',
 
-		        'value'       => array_keys( fa_all_unicode() )
+		        'value'       => cs_fa_all()
 		      ),
 		      array(
 		        'param_name'  => 'circle',
@@ -2417,7 +2417,7 @@ class Cornerstone_Shortcode_Generator extends Cornerstone_Plugin_Component {
 		        'description' => __( 'Select the icon to use with your feature headline.', 'cornerstone' ),
 		        'type'        => 'dropdown',
 
-		        'value'       => array_keys( fa_all_unicode() )
+		        'value'       => cs_fa_all()
 		      ),
 		      self::map_default_id(),
 		      self::map_default_class(),

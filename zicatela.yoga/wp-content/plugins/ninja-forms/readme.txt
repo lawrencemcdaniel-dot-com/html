@@ -3,7 +3,7 @@ Contributors: wpninjasllc, kstover, jameslaws, kbjohnson90, klhall1987, krmoorho
 Tags: form, forms, contact form, custom form, form builder, form creator, form manager, form creation, contact forms, custom forms, forms builder, forms creator, forms manager, forms creation, form administration,
 Requires at least: 4.7
 Tested up to: 4.9
-Stable tag: 3.3.8
+Stable tag: 3.3.11
 License: GPLv2 or later
 
 Drag and drop fields in an intuitive UI to create contact forms, email subscription forms, order forms, payment forms, send emails and more!
@@ -111,21 +111,39 @@ For help and video tutorials, please visit our website: [Ninja Forms Documentati
 
 == Upgrade Notice ==
 
-= 3.3.8 (2 July 2018) =
-
-*Bugs:*
-
-* The styling of the Ninja Forms settings page has been corrected.
-* Forms can once again be previewed before they have been published.
-* Resolved an issue that was sometimes causing submission expiration to not register properly on publish.
-* The submission expiration setting will no longer accept a negative number as valid input.
+= 3.3.11 (23 July 2018) =
 
 *Changes:*
 
-* Ninja Forms has migrated to GitLab! All repository links should now be updated.
-* Added an expired submissions cleanup button to our settings page to supplement cleanup on sites with a large number of submissions.
+* Updated save methods for form settings to reduce potential encoding errors.
 
 == Changelog ==
+
+= 3.3.11 (23 July 2018) =
+
+*Changes:*
+
+* Updated save methods for form settings to reduce potential encoding errors.
+
+= 3.3.10 (16 July 2018) =
+
+*Bugs:*
+
+* (Beta) The Ninja Forms Gutenberg block should now work properly on the newest version of Gutenberg.
+* Min and max values for number fields should once more accept decimal values.
+* Resolved an issue that was sometimes causing a description text block to be output, even if it contained no text.
+* Radio lists should now properly display the default value when using our opinionated styles.
+
+= 3.3.9 (6 July 2018) =
+
+*Security:*
+
+* Patched a vulnerability that could allow certain Export Personal Data requests to retrieve unrelated submission data.
+
+*Bugs:*
+
+* Fixed a broken image link in the Edit User Profile template.
+* Resolved an issue that was very rarely causing the conversion process to run again after upgrade, removing all forms but the default Contact Me.
 
 = 3.3.8 (2 July 2018) =
 

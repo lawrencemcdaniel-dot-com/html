@@ -4547,97 +4547,104 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 						</script>
 					</div>
 
-					<div class="setting_box rs-cm-refresh" id="v_goo_fo">
-						<h3 class="box_closed"><i class="rs-rp-accordion-icon eg-icon-font"></i>
-							<div class="setting_box-arrow"></div>
-							<span><?php _e('Google Fonts', 'revslider');?></span>
-						</h3>
-
-						<div class="inside" style="display:none">
-
-							<div class="rs-gf-listing">
-								<?php
-								$subsets = RevSliderFunctions::getVal($arrFieldsParams, 'subsets', array());
-								
-								$gf = array();
-								if ($is_edit) {
-									if(!empty($sliderID)) {
-										$gf = $slider->getUsedFonts();
-									}
-								}
-								if(!empty($gf)){
-									echo '<h4 style="margin-top:0px;margin-bottom:8px">'.__('Dynamically Registered Google Fonts', 'revslider').'</h4>';
-									
-									foreach($gf as $mgf => $mgv){
-										echo '<div class="single-google-font-item">';
-										echo '<span class="label font-name-label">'.$mgf.':';
-										if(!empty($mgv['variants'])){
-											$mgfirst = true;
-											foreach($mgv['variants'] as $mgvk => $mgvv){
-												if(!$mgfirst) echo ',';
-												echo $mgvk;
-												$mgfirst = false;
-											}
-										}	
-										echo '</span>';
-										echo '<div class="single-font-setting-wrapper">';
-										if(!empty($mgv['slide'])){
-											echo '<span class="label">Used in Slide:</span>';
-											echo '<select class="google-font-slide-link-list">';
-											echo '<option value="blank">Edit Slide(s)</option>';
-											foreach($mgv['slide'] as $mgskey => $mgsval){
-												echo '<option value="'.self::getViewUrl(RevSliderAdmin::VIEW_SLIDE,'id='.$mgsval['id'].'&slider='.intval($sliderID)).'">'.__('Edit:', 'revslider').' '.esc_attr($mgsval['title']).'</option>';
-											}
-											echo '</select>';
-											
-										}
-										
-										if(!empty($mgv['subsets'])){
-											echo '<div class="clear"></div>';
-											
-											foreach($mgv['subsets'] as $ssk => $ssv){
-												echo '<span class="label subsetlabel">'.$ssv.'</span>';
-												echo '<input class="tp-moderncheckbox" type="checkbox" data-useval="true" value="'.esc_attr($mgf.'+'.$ssv).'" name="subsets[]" ';
-												if(array_search(esc_attr($mgf.'+'.$ssv), $subsets) !== false){
-													echo 'checked="checked"';
-												}
-												echo '> ';
-											}
-										}
-										echo '</div>';
-										echo '</div>';
-									}
-								} else {
-									echo '<h4 style="margin-top:0px;">'.__('No dynamic fonts registered', 'revslider').'</h4>';
-								}
-								
-								?>
-							</div>
-							<script>
-								jQuery('.google-font-slide-link-list').on('change', function() {
-									var t = jQuery(this),
-										v = t.find('option:selected').val();
-
-									if (v!="blank") {
-										var win = window.open(v,'_blank');
-										if (win) {
-											win.focus();
-										} else {
-											alert('<?php _e('Link to Slide Editor is Blocked ! Please Allow Pop Ups for this Site !', 'revslider'); ?>');
-										}
-									}
-									t.val("blank");
-									
-								});
-							</script>
-							<!--h4><?php _e("Deprecated Google Font Import",'revslider');?></h4>
-							<div id="rs-google-fonts">
-							
-							</div-->
-						</div>
-					</div>
-					
 					<?php
+					$glob_vals = RevSliderOperations::getGeneralSettingsValues();
+					$dl_fonts = RevSliderFunctions::getVal($glob_vals, 'load_google_fonts', 'off');
+					if($dl_fonts === 'off'){
+						?>
+						<div class="setting_box rs-cm-refresh" id="v_goo_fo">
+							<h3 class="box_closed"><i class="rs-rp-accordion-icon eg-icon-font"></i>
+								<div class="setting_box-arrow"></div>
+								<span><?php _e('Google Fonts', 'revslider');?></span>
+							</h3>
+
+							<div class="inside" style="display:none">
+
+								<div class="rs-gf-listing">
+									<?php
+									$subsets = RevSliderFunctions::getVal($arrFieldsParams, 'subsets', array());
+									
+									$gf = array();
+									if ($is_edit) {
+										if(!empty($sliderID)) {
+											$gf = $slider->getUsedFonts();
+										}
+									}
+									if(!empty($gf)){
+										echo '<h4 style="margin-top:0px;margin-bottom:8px">'.__('Dynamically Registered Google Fonts', 'revslider').'</h4>';
+										
+										foreach($gf as $mgf => $mgv){
+											echo '<div class="single-google-font-item">';
+											echo '<span class="label font-name-label">'.$mgf.':';
+											if(!empty($mgv['variants'])){
+												$mgfirst = true;
+												foreach($mgv['variants'] as $mgvk => $mgvv){
+													if(!$mgfirst) echo ',';
+													echo $mgvk;
+													$mgfirst = false;
+												}
+											}	
+											echo '</span>';
+											echo '<div class="single-font-setting-wrapper">';
+											if(!empty($mgv['slide'])){
+												echo '<span class="label">Used in Slide:</span>';
+												echo '<select class="google-font-slide-link-list">';
+												echo '<option value="blank">Edit Slide(s)</option>';
+												foreach($mgv['slide'] as $mgskey => $mgsval){
+													echo '<option value="'.self::getViewUrl(RevSliderAdmin::VIEW_SLIDE,'id='.$mgsval['id'].'&slider='.intval($sliderID)).'">'.__('Edit:', 'revslider').' '.esc_attr($mgsval['title']).'</option>';
+												}
+												echo '</select>';
+												
+											}
+											
+											if(!empty($mgv['subsets'])){
+												echo '<div class="clear"></div>';
+												
+												foreach($mgv['subsets'] as $ssk => $ssv){
+													echo '<span class="label subsetlabel">'.$ssv.'</span>';
+													echo '<input class="tp-moderncheckbox" type="checkbox" data-useval="true" value="'.esc_attr($mgf.'+'.$ssv).'" name="subsets[]" ';
+													if(array_search(esc_attr($mgf.'+'.$ssv), $subsets) !== false){
+														echo 'checked="checked"';
+													}
+													echo '> ';
+												}
+											}
+											echo '</div>';
+											echo '</div>';
+										}
+									} else {
+										echo '<h4 style="margin-top:0px;">'.__('No dynamic fonts registered', 'revslider').'</h4>';
+									}
+									
+									?>
+								</div>
+								<script>
+									jQuery('.google-font-slide-link-list').on('change', function() {
+										var t = jQuery(this),
+											v = t.find('option:selected').val();
+
+										if (v!="blank") {
+											var win = window.open(v,'_blank');
+											if (win) {
+												win.focus();
+											} else {
+												alert('<?php _e('Link to Slide Editor is Blocked ! Please Allow Pop Ups for this Site !', 'revslider'); ?>');
+											}
+										}
+										t.val("blank");
+										
+									});
+								</script>
+								<!--h4><?php _e("Deprecated Google Font Import",'revslider');?></h4>
+								<div id="rs-google-fonts">
+								
+								</div-->
+							</div>
+						</div>
+						
+						<?php
+					}
+					
 					$revslider_addon = apply_filters('revslider_slider_addons', array(), $arrFieldsParams);
 					if(!empty($revslider_addon)){
 						foreach($revslider_addon as $addon_handle => $addon_values){

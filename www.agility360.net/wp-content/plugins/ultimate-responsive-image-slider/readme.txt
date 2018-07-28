@@ -3,8 +3,8 @@ Contributors: weblizar
 Donate link: https://www.weblizar.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
-Tested up to: 4.9.6
-Stable tag: 3.1.9
+Tested up to: 4.9.7
+Stable tag: 3.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ Ultimate responsive image slider plugin is by far the most advanced and responsi
 Ultimate responsive image slider a fully responsive slider photo gallery plugin for WordPress blog users. You can add infinite image slides in a single slider using multiple image uploader. You can publish unlimited slider on your blog. The slider image gallery it creates provides a beautiful aura on your website.
 This responsive slider plugin has various settings like customizable height and width, auto play slides, slide thumbnails, navigation buttons and much more. You can configure each image slider gallery setting individually and accordingly to you. You can show slider within the Page or Post content.
 
-**How to use [URIS id=album id] shortcode?**
+**How to use [URIS id=123] shortcode?**
 
 Copy and paste [URIS id=123] shortcode, you can publish this responsive image slider plugin on any Page or Post on your WordPress website.
 
@@ -195,6 +195,9 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 
 For more information, see Weblizar(https://weblizar.com/)
 
+= V 3.2.0 =
+	- Compatible with Page elementor plugin
+	- Version Update + Compatible upto wp 4.9.7
 = V 3.1.9 =
 	- If no slide found in slider show alert message at frontend
 	- Add new products in our product page
@@ -205,7 +208,6 @@ For more information, see Weblizar(https://weblizar.com/)
 	- Add plugin version number in css
 	- Add Some code as a dynamic
 	- Bug Fixed - Invalid argument supplied in foreach loop
-
 V 3.1.6 - Custom CSS Editor Fix
 V 3.1.5 - update Font-awesome + update bootstrap + update slider pro js and css 1.4.0 + Modify Custom CSS editor + Add new setting - set slide title as file name + update basic font family + Add recommendation and our product page + compatible upto wp 4.9.5
 V 3.1.4 - New: range slider for autoplay slider settings + autoplay tips typos fixed +compatible upto wp 4.9.1

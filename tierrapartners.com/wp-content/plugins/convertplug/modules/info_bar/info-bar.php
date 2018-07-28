@@ -175,13 +175,13 @@ if ( ! class_exists( 'Smile_Info_Bars' ) ) {
 					function stopclock (){
 						if(timerRunning) clearTimeout(timerID);
 						timerRunning = false;
-						document.cookie="time=0";
+						//document.cookie="time=0";
 					}
 					function showtime () {
 						var now = new Date();
 						var my = now.getTime() ;
 						now = new Date(my-diffms) ;
-						document.cookie="time="+now.toLocaleString();
+						//document.cookie="time="+now.toLocaleString();
 						timerID = setTimeout('showtime()',10000);
 						timerRunning = true;
 					}

@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Ultimate Responsive Image Slider
- * Version: 3.1.9
+ * Version: 3.2.0
  * Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
  * Author: Weblizar
  * Author URI: https://weblizar.com/plugins/
@@ -10,6 +10,7 @@
 
 //Constant Variable
 define("WRIS_TEXT_DOMAIN", "W_R_I_S" );
+define("WRIS_PLUGIN_VERSION", "3.2.0" );
 define("WRIS_PLUGIN_URL", plugin_dir_url(__FILE__));
 
 // Apply default settings on activation
@@ -85,7 +86,6 @@ function admin_content_wpse_144936() {
 			font-size: 18px;
 			padding: 0 0 15px 15px;
 		}
-
 		.wlTBlock a{
 			text-decoration: none !important;
 		}

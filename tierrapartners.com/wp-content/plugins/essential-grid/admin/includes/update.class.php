@@ -193,10 +193,12 @@ class Essential_Grid_Update {
 			if(isset($version_info->dashboard)){
 				update_option('essential-dashboard', $version_info->dashboard);
 			}
-
+			
+			/*
 			if(isset($version_info->addons)){
 				update_option('essential-addons', $version_info->addons);
 			}
+			*/
 			
 			update_option('tp_eg_latest-version', $version_info->version);
 			

@@ -61,6 +61,8 @@ if ( ! function_exists( 'cp_get_form_hidden_fields' ) ) {
 
 		$user_role = isset( $a['cp_new_user_role'] ) ? $a['cp_new_user_role'] :'None';
 
+		$data                 = get_option( 'convert_plug_settings' );
+		$is_enable_pot = isset( $data['cp-disable-pot'] ) ? $data['cp-disable-pot'] : '1';
 		?>
 		<input type="hidden" id="<?php echo rand();?>_wpnonce" name="_wpnonce" value="<?php echo $nonce;?>">
 		<input type="hidden" name="cp-page-url" value="<?php echo esc_url( $current_url ); ?>" />
@@ -74,7 +76,11 @@ if ( ! function_exists( 'cp_get_form_hidden_fields' ) ) {
 		<input type="hidden" name="<?php echo $on_success; ?>" value="<?php echo esc_attr( $on_success_action ); ?>" />		
 		<input type="hidden" name="cp_module_name" value="<?php echo esc_attr( $style_name ); ?>" />
 		<input type="hidden" name="cp_set_user" value="<?php echo esc_attr( $user_role ); ?>" />
-		<?php	
+		
+		<?php if( '1' === $is_enable_pot ){ ?>
+		<input type="text" name="cp_set_hp" value="" />
+		<?php } 
+
 		$html = ob_get_clean();
 		echo $html;
 	}

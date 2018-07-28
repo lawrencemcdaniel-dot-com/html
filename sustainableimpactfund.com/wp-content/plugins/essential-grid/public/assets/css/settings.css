@@ -130,8 +130,10 @@ font-family: star;
 
 
 .esg-grid * { -webkit-font-smoothing:antialiased; font-smoothing: antialiased;}
-.esg-container ul,
-.esg-container li {
+
+/* 2.2.5 */
+.esg-grid ul,
+.esg-grid li {
 	list-style: none;
 	margin:0;
 	padding:0;
@@ -385,7 +387,7 @@ font-family: star;
 .esg-filters.esg-navbutton-solo-right		{	position:absolute;right:0px;top:50%; z-index: 800;}
 
 .esg-navigationbutton.esg-right,
-.esg-navigationbutton.esg-left				{	margin-left:0px !important; margin-right:0px !important; -webkit-transform-style: flat; -webkit-transform: translateZ(5000px);}
+.esg-navigationbutton.esg-left				{	margin-left:0px !important; margin-right:0px !important; -webkit-transform-style: flat; -webkit-transform: translateZ(5000px)}
 
 
 /*************************************************
@@ -868,11 +870,11 @@ Blur and Grayscale filters
 .grayscale {-webkit-filter: grayscale(100%); filter: grayscale(100%)}
 
 /* 2.1.6.2 */
-.esg-itm-anime:not(.esg-anime-blur) .esg-overflowtrick {overflow: visible !important}
-.esg-itm-anime .tp-esg-item {-webkit-mask-image: none !important}
-.esg-itm-anime .tp-esg-item:hover {z-index: 9999 !important; transform: none !important}
-.esg-anime-blur .esg-entry-media {transform: scale(1.15, 1.15) !important; transform-origin: center center !important}
-.esg-anime-item:before {
+/* 2.2.5 */
+.esg-revealed .esg-itm-anime:not(.esg-anime-blur) .esg-overflowtrick {overflow: visible !important}
+.esg-revealed .esg-itm-anime .tp-esg-item {-webkit-mask-image: none !important}
+.esg-revealed .esg-itm-anime .tp-esg-item:hover {z-index: 9999 !important; transform: none !important}
+.esg-revealed .esg-anime-item:before {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -881,10 +883,11 @@ Blur and Grayscale filters
 	content: "";
 }
 
+.esg-anime-blur .esg-entry-media {transform: scale(1.15, 1.15) !important; transform-origin: center center !important}
+
 /* 2.2 */
 .eg-invisiblebutton {box-shadow: none !important; height: inherit !important; display: block}
 .esg-lb-dummy {max-width: none !important; box-shadow: none !important; position: absolute; display: none}
-
 
 /* post content layout */
 @media screen and (max-width: 736px) {
@@ -934,6 +937,12 @@ Blur and Grayscale filters
 
 .esgbox-container button:hover, 
 .esgbox-container button:focus {background: transparent}
+
+/* 2.2.5 */
+.esg-filter-wrapper {visibility: hidden}
+.esg-mobile-filter-button {display: none}
+.esg-mobile-filter-wrap {visibility: visible}
+.esg-mobile-filter-wrap .esg-dropdown-wrapper {display: none !important; visibility: hidden !important}
 
 /** 
 INSTAGRAM FILTERS BY UNA 

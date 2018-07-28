@@ -1,0 +1,384 @@
+0000.000 (0) Opened log file at time: Wed, 18 Jul 2018 16:40:44 +0000 on https://safestructures.us
+0000.006 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.14.12 WP: 4.9.7 PHP: 7.0.30 (apache2handler, Linux ip-172-31-16-55 4.14.51-60.38.amzn1.x86_64 #1 SMP Tue Jun 26 23:06:43 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.33 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.30 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 61.2M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.013 (0) Free space on disk containing Updraft's temporary directory: 89036.5 MB
+0000.020 (0) Tasks: Backup files: 1 (schedule: weekly) Backup DB: 1 (schedule: weekly)
+0000.037 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.062 (0) Set semaphore last lock (fd) time to 2018-07-18 16:40:44
+0000.068 (0) Semaphore lock (fd) complete
+0000.090 (0) Backup run: resumption=0, nonce=cfee5a38645e, begun at=1531932044 (0s ago), job type=backup
+0000.103 (0) Scheduling a resumption (1) after 300 seconds (1531932344) in case this run gets aborted
+0000.121 (0) Checking if we have a zip executable available
+0000.128 (0) Testing: /usr/bin/zip
+0000.139 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.145 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.151 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.159 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.167 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.178 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.188 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.198 (0) Working binary zip found: /usr/bin/zip
+0000.210 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.216 (0) Creation of backups of directories: beginning
+0000.238 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.319 (0) Total entities for the zip file: 1180 directories, 6229 files (0 skipped as non-modified), 83.2 MB
+0000.334 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.342 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.349 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.356 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.364 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.370 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.8 MB, 6229 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.890 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: size is now: 3.90 MB
+0000.905 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 600 files added (on-disk size: 3968 KB)
+0000.913 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 700 files added (on-disk size: 3968 KB)
+0000.921 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 800 files added (on-disk size: 3968 KB)
+0000.929 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 900 files added (on-disk size: 3968 KB)
+0000.936 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1000 files added (on-disk size: 3968 KB)
+0000.942 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.2 MB, 6229 files batched, 501 (1002) added so far); re-opening (prior size: 3968 KB)
+0001.163 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: size is now: 5.60 MB
+0001.179 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1100 files added (on-disk size: 5743.8 KB)
+0001.188 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1200 files added (on-disk size: 5743.8 KB)
+0001.195 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1300 files added (on-disk size: 5743.8 KB)
+0001.202 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1400 files added (on-disk size: 5743.8 KB)
+0001.210 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1500 files added (on-disk size: 5743.8 KB)
+0001.216 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.2 MB, 6229 files batched, 501 (1503) added so far); re-opening (prior size: 5743.8 KB)
+0001.417 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: size is now: 7.20 MB
+0001.432 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1600 files added (on-disk size: 7384.3 KB)
+0001.441 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1700 files added (on-disk size: 7384.3 KB)
+0001.450 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1800 files added (on-disk size: 7384.3 KB)
+0001.465 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 1900 files added (on-disk size: 7384.3 KB)
+0001.474 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2000 files added (on-disk size: 7384.3 KB)
+0001.488 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2 MB, 6229 files batched, 501 (2004) added so far); re-opening (prior size: 7384.3 KB)
+0001.596 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2100 files added (on-disk size: 8208.4 KB)
+0001.604 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2200 files added (on-disk size: 8208.4 KB)
+0001.610 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2300 files added (on-disk size: 8208.4 KB)
+0001.617 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2400 files added (on-disk size: 8208.4 KB)
+0001.624 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2500 files added (on-disk size: 8208.4 KB)
+0001.630 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (12.2 MB, 6229 files batched, 501 (2505) added so far); re-opening (prior size: 8208.4 KB)
+0002.119 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: size is now: 11.80 MB
+0002.133 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2600 files added (on-disk size: 12068.9 KB)
+0002.141 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2700 files added (on-disk size: 12068.9 KB)
+0002.147 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2800 files added (on-disk size: 12068.9 KB)
+0002.155 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 2900 files added (on-disk size: 12068.9 KB)
+0002.161 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3000 files added (on-disk size: 12068.9 KB)
+0002.169 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5 MB, 6229 files batched, 501 (3006) added so far); re-opening (prior size: 12068.9 KB)
+0002.334 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3100 files added (on-disk size: 13891.5 KB)
+0002.340 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3200 files added (on-disk size: 13891.5 KB)
+0002.347 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3300 files added (on-disk size: 13891.5 KB)
+0002.354 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3400 files added (on-disk size: 13891.5 KB)
+0002.361 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3500 files added (on-disk size: 13891.5 KB)
+0002.367 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.5 MB, 6229 files batched, 501 (3507) added so far); re-opening (prior size: 13891.5 KB)
+0002.776 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: size is now: 16.70 MB
+0002.790 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3600 files added (on-disk size: 17070.4 KB)
+0002.797 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3700 files added (on-disk size: 17070.4 KB)
+0002.804 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3800 files added (on-disk size: 17070.4 KB)
+0002.811 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 3900 files added (on-disk size: 17070.4 KB)
+0002.818 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4000 files added (on-disk size: 17070.4 KB)
+0002.824 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.4 MB, 6229 files batched, 501 (4008) added so far); re-opening (prior size: 17070.4 KB)
+0002.977 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4100 files added (on-disk size: 18161.4 KB)
+0002.985 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4200 files added (on-disk size: 18161.4 KB)
+0002.991 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4300 files added (on-disk size: 18161.4 KB)
+0002.998 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4400 files added (on-disk size: 18161.4 KB)
+0003.005 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4500 files added (on-disk size: 18161.4 KB)
+0003.012 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (19.2 MB, 6229 files batched, 501 (4509) added so far); re-opening (prior size: 18161.4 KB)
+0003.771 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: size is now: 23.10 MB
+0003.786 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4600 files added (on-disk size: 23607.4 KB)
+0003.794 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4700 files added (on-disk size: 23607.4 KB)
+0003.802 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4800 files added (on-disk size: 23607.4 KB)
+0003.809 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 4900 files added (on-disk size: 23607.4 KB)
+0003.817 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5000 files added (on-disk size: 23607.4 KB)
+0003.823 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.1 MB, 6229 files batched, 501 (5010) added so far); re-opening (prior size: 23607.4 KB)
+0003.981 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5100 files added (on-disk size: 24605.6 KB)
+0004.010 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5200 files added (on-disk size: 24605.6 KB)
+0004.032 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5300 files added (on-disk size: 24605.6 KB)
+0004.039 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5400 files added (on-disk size: 24605.6 KB)
+0004.046 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5500 files added (on-disk size: 24605.6 KB)
+0004.052 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.3 MB, 6229 files batched, 501 (5511) added so far); re-opening (prior size: 24605.6 KB)
+0004.187 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5600 files added (on-disk size: 25585 KB)
+0004.195 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5700 files added (on-disk size: 25585 KB)
+0004.209 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5800 files added (on-disk size: 25585 KB)
+0004.246 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 5900 files added (on-disk size: 25585 KB)
+0004.253 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 6000 files added (on-disk size: 25585 KB)
+0004.259 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.9 MB, 6229 files batched, 501 (6012) added so far); re-opening (prior size: 25585 KB)
+0004.489 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 6100 files added (on-disk size: 26661 KB)
+0004.497 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip.tmp: 6200 files added (on-disk size: 26661 KB)
+0004.875 (0) Created plugins zip (0) - 27170.6 KB in 4.6 s (5868 KB/s) (sha1: ac234ddae0e5e2c23cfc09faebe60f979ccc4d7d, sha256: c60b8009580db640a820bfb78e375c309b8eecf6219b76c0dcd26f991a8effa7)
+0004.889 (0) Beginning creation of dump of themes (split every: 400 MB)
+0004.919 (0) Total entities for the zip file: 238 directories, 1627 files (0 skipped as non-modified), 20 MB
+0004.926 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0004.933 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0004.941 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0004.947 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0004.954 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0004.960 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.7 MB, 1627 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0005.049 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: size is now: 2.80 MB
+0005.063 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 600 files added (on-disk size: 2849.8 KB)
+0005.070 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 700 files added (on-disk size: 2849.8 KB)
+0005.077 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 800 files added (on-disk size: 2849.8 KB)
+0005.085 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 900 files added (on-disk size: 2849.8 KB)
+0005.095 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 1000 files added (on-disk size: 2849.8 KB)
+0005.102 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.2 MB, 1627 files batched, 501 (1002) added so far); re-opening (prior size: 2849.8 KB)
+0005.477 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: size is now: 6.40 MB
+0005.491 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 1100 files added (on-disk size: 6513 KB)
+0005.503 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 1200 files added (on-disk size: 6513 KB)
+0005.510 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 1300 files added (on-disk size: 6513 KB)
+0005.518 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 1400 files added (on-disk size: 6513 KB)
+0005.524 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 1500 files added (on-disk size: 6513 KB)
+0005.531 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.5 MB, 1627 files batched, 501 (1503) added so far); re-opening (prior size: 6513 KB)
+0005.690 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: size is now: 7.70 MB
+0005.704 (0) Zip: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip.tmp: 1600 files added (on-disk size: 7870.9 KB)
+0005.865 (0) Created themes zip (0) - 8238.3 KB in 1 s (8499.2 KB/s) (sha1: 28c07a211c157f52fa1a437a273dae6cb4b08842, sha256: 940533662067b1c87eb540ce05075edb25d2b5a36d2ed90763d91f597d9cc01a)
+0005.879 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0005.885 (0) Looking for candidates to backup in: /var/www/html/safestructures.us/wp-content/uploads
+0005.891 (0) finding files: 2018: adding to list (1)
+0005.897 (0) finding files: backup: skipping: excluded by options (glob)
+0005.904 (0) finding files: fusion-styles: adding to list (2)
+0005.910 (0) finding files: fusion-scripts: adding to list (3)
+0005.918 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0005.930 (0) Total entities for the zip file: 4 directories, 2 files (0 skipped as non-modified), 1.2 MB
+0005.976 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-uploads.zip.tmp: size is now: 0.30 MB
+0006.005 (0) Created uploads zip (0) - 268.2 KB in 0.1 s (3308.6 KB/s) (sha1: abf747f5326c209fc186faf195f58e13c92bcae2, sha256: 308eee129b6adcac5fb75f530ed73113e55b01b10a30e1dbd433cf7079e0c1a8)
+0006.018 (0) Beginning backup of other directories found in the content directory (index: 0)
+0006.024 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0006.030 (0) Looking for candidates to backup in: /var/www/html/safestructures.us/wp-content
+0006.036 (0) finding files: wflogs: adding to list (1)
+0006.041 (0) finding files: index.php: adding to list (2)
+0006.047 (0) finding files: upgrade: skipping: excluded by options
+0006.053 (0) finding files: updraft: skipping: this is the updraft directory
+0006.058 (0) finding files: themes: skipping: this is the themes directory
+0006.065 (0) finding files: advanced-cache.php: adding to list (3)
+0006.072 (0) finding files: uploads: skipping: this is the uploads directory
+0006.077 (0) finding files: cache: skipping: excluded by options
+0006.083 (0) finding files: wp-rocket-config: adding to list (4)
+0006.089 (0) finding files: plugins: skipping: this is the plugins directory
+0006.103 (0) Total entities for the zip file: 2 directories, 10 files (0 skipped as non-modified), 4.4 MB
+0006.470 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-others.zip.tmp: size is now: 2.20 MB
+0006.519 (0) Created others zip (0) - 2234.4 KB in 0.4 s (5266.7 KB/s) (sha1: f0b70afe56c12ddcc31a08440b46030ce3b1b496, sha256: 512b286be5f9f3a1647232a5e7b49a31925873e2863ce43f04e8ce8a926ea842)
+0006.547 (0) Saving backup status to database (elements: 8)
+0006.561 (0) Beginning creation of database dump (WordPress DB)
+0006.574 (0) Testing: /usr/bin/mysqldump
+0006.623 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1209 bytes total)
+0006.634 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0006.658 (0) Table wp_options: Total expected rows (approximate): 363
+0006.727 (0) Table wp_options: Total rows added: 366 in 0.06 seconds
+0006.736 (0) Table wp_options: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_options.table.gz - 255.1 KB)
+0006.759 (0) Table wp_users: Total expected rows (approximate): 1
+0006.770 (0) Table wp_users: Total rows added: 1 in 0.00 seconds
+0006.776 (0) Table wp_users: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_users.table.gz - 0.5 KB)
+0006.798 (0) Table wp_usermeta: Total expected rows (approximate): 24
+0006.808 (0) Table wp_usermeta: Total rows added: 24 in 0.00 seconds
+0006.815 (0) Table wp_usermeta: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_usermeta.table.gz - 1.6 KB)
+0006.836 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0006.845 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0006.851 (0) Table wp_commentmeta: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0006.873 (0) Table wp_comments: Total expected rows (approximate): 1
+0006.883 (0) Table wp_comments: Total rows added: 1 in 0.00 seconds
+0006.890 (0) Table wp_comments: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_comments.table.gz - 0.7 KB)
+0006.924 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0006.935 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0006.951 (0) Table wp_imagify_files: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0006.972 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0006.981 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0006.988 (0) Table wp_imagify_folders: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0007.013 (0) Table wp_links: Total expected rows (approximate): 0
+0007.023 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0007.031 (0) Table wp_links: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_links.table.gz - 0.4 KB)
+0007.052 (0) Table wp_postmeta: Total expected rows (approximate): 8
+0007.064 (0) Table wp_postmeta: Total rows added: 8 in 0.00 seconds
+0007.071 (0) Table wp_postmeta: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_postmeta.table.gz - 1.1 KB)
+0007.092 (0) Table wp_posts: Total expected rows (approximate): 5
+0007.103 (0) Table wp_posts: Total rows added: 5 in 0.00 seconds
+0007.110 (0) Table wp_posts: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_posts.table.gz - 3.4 KB)
+0007.133 (0) Table wp_term_relationships: Total expected rows (approximate): 1
+0007.143 (0) Table wp_term_relationships: Total rows added: 1 in 0.00 seconds
+0007.151 (0) Table wp_term_relationships: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0007.171 (0) Table wp_term_taxonomy: Total expected rows (approximate): 1
+0007.181 (0) Table wp_term_taxonomy: Total rows added: 1 in 0.00 seconds
+0007.189 (0) Table wp_term_taxonomy: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_term_taxonomy.table.gz - 0.4 KB)
+0007.212 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0007.221 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0007.227 (0) Table wp_termmeta: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_termmeta.table.gz - 0.4 KB)
+0007.250 (0) Table wp_terms: Total expected rows (approximate): 1
+0007.260 (0) Table wp_terms: Total rows added: 1 in 0.00 seconds
+0007.267 (0) Table wp_terms: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_terms.table.gz - 0.4 KB)
+0007.294 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 0
+0007.304 (0) Table wp_yoast_seo_links: Total rows added: 0 in 0.00 seconds
+0007.312 (0) Table wp_yoast_seo_links: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_yoast_seo_links.table.gz - 0.4 KB)
+0007.333 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 3
+0007.343 (0) Table wp_yoast_seo_meta: Total rows added: 3 in 0.00 seconds
+0007.351 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_yoast_seo_meta.table.gz - 0.3 KB)
+0007.372 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0007.381 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0007.388 (0) Table wp_wfBadLeechers: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0007.407 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0007.416 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0007.423 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0007.443 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 0
+0007.452 (0) Table wp_wfBlockedIPLog: Total rows added: 0 in 0.00 seconds
+0007.458 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBlockedIPLog.table.gz - 0.3 KB)
+0007.482 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0007.490 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0007.501 (0) Table wp_wfBlocks7: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0007.522 (0) Table wp_wfConfig: Total expected rows (approximate): 237
+0007.556 (0) Table wp_wfConfig: Total rows added: 237 in 0.03 seconds
+0007.563 (0) Table wp_wfConfig: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfConfig.table.gz - 356.4 KB)
+0007.586 (0) Table wp_wfCrawlers: Total expected rows (approximate): 0
+0007.595 (0) Table wp_wfCrawlers: Total rows added: 0 in 0.00 seconds
+0007.601 (0) Table wp_wfCrawlers: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfCrawlers.table.gz - 0.3 KB)
+0007.622 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0007.631 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0007.642 (0) Table wp_wfFileChanges: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0007.664 (0) Table wp_wfFileMods: Total expected rows (approximate): 4442
+0007.756 (0) Table wp_wfFileMods: Total rows added: 4419 in 0.09 seconds
+0007.768 (0) Table wp_wfFileMods: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfFileMods.table.gz - 376.5 KB)
+0007.787 (0) Table wp_wfHits: Total expected rows (approximate): 20
+0007.798 (0) Table wp_wfHits: Total rows added: 20 in 0.00 seconds
+0007.806 (0) Table wp_wfHits: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfHits.table.gz - 1.5 KB)
+0007.826 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0007.835 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0007.842 (0) Table wp_wfHoover: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0007.863 (0) Table wp_wfIssues: Total expected rows (approximate): 0
+0007.874 (0) Table wp_wfIssues: Total rows added: 0 in 0.00 seconds
+0007.882 (0) Table wp_wfIssues: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfIssues.table.gz - 0.4 KB)
+0007.902 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 4430
+0007.952 (0) Table wp_wfKnownFileList: Total rows added: 4419 in 0.04 seconds
+0007.960 (0) Table wp_wfKnownFileList: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfKnownFileList.table.gz - 43.2 KB)
+0007.995 (0) Table wp_wfLeechers: Total expected rows (approximate): 2
+0008.009 (0) Table wp_wfLeechers: Total rows added: 2 in 0.00 seconds
+0008.020 (0) Table wp_wfLeechers: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLeechers.table.gz - 0.4 KB)
+0008.043 (0) Table wp_wfLiveTrafficHuman: Total expected rows (approximate): 1
+0008.053 (0) Table wp_wfLiveTrafficHuman: Total rows added: 1 in 0.00 seconds
+0008.060 (0) Table wp_wfLiveTrafficHuman: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLiveTrafficHuman.table.gz - 0.4 KB)
+0008.081 (0) Table wp_wfLocs: Total expected rows (approximate): 1
+0008.098 (0) Table wp_wfLocs: Total rows added: 1 in 0.01 seconds
+0008.104 (0) Table wp_wfLocs: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLocs.table.gz - 0.5 KB)
+0008.125 (0) Table wp_wfLogins: Total expected rows (approximate): 2
+0008.136 (0) Table wp_wfLogins: Total rows added: 2 in 0.00 seconds
+0008.143 (0) Table wp_wfLogins: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLogins.table.gz - 0.6 KB)
+0008.166 (0) Table wp_wfNotifications: Total expected rows (approximate): 2
+0008.176 (0) Table wp_wfNotifications: Total rows added: 2 in 0.00 seconds
+0008.183 (0) Table wp_wfNotifications: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfNotifications.table.gz - 0.5 KB)
+0008.204 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0008.214 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0008.220 (0) Table wp_wfPendingIssues: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0008.243 (0) Table wp_wfReverseCache: Total expected rows (approximate): 1
+0008.253 (0) Table wp_wfReverseCache: Total rows added: 1 in 0.00 seconds
+0008.260 (0) Table wp_wfReverseCache: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0008.283 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0008.294 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0008.301 (0) Table wp_wfSNIPCache: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0008.322 (0) Table wp_wfScanners: Total expected rows (approximate): 0
+0008.331 (0) Table wp_wfScanners: Total rows added: 0 in 0.00 seconds
+0008.348 (0) Table wp_wfScanners: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfScanners.table.gz - 0.3 KB)
+0008.369 (0) Table wp_wfStatus: Total expected rows (approximate): 197
+0008.380 (0) Table wp_wfStatus: Total rows added: 197 in 0.01 seconds
+0008.387 (0) Table wp_wfStatus: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfStatus.table.gz - 4.3 KB)
+0008.407 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0008.416 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0008.423 (0) Table wp_wfVulnScanners: finishing file (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0008.443 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_options.table.gz (1/39): adding to final database dump
+0008.492 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_users.table.gz (2/39): adding to final database dump
+0008.501 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_usermeta.table.gz (3/39): adding to final database dump
+0008.508 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_commentmeta.table.gz (4/39): adding to final database dump
+0008.514 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_comments.table.gz (5/39): adding to final database dump
+0008.521 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_imagify_files.table.gz (6/39): adding to final database dump
+0008.527 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_imagify_folders.table.gz (7/39): adding to final database dump
+0008.533 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_links.table.gz (8/39): adding to final database dump
+0008.541 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_postmeta.table.gz (9/39): adding to final database dump
+0008.547 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_posts.table.gz (10/39): adding to final database dump
+0008.554 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_term_relationships.table.gz (11/39): adding to final database dump
+0008.560 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_term_taxonomy.table.gz (12/39): adding to final database dump
+0008.566 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_termmeta.table.gz (13/39): adding to final database dump
+0008.572 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_terms.table.gz (14/39): adding to final database dump
+0008.577 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_yoast_seo_links.table.gz (15/39): adding to final database dump
+0008.584 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_yoast_seo_meta.table.gz (16/39): adding to final database dump
+0008.590 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBadLeechers.table.gz (17/39): adding to final database dump
+0008.596 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBlockedCommentLog.table.gz (18/39): adding to final database dump
+0008.603 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBlockedIPLog.table.gz (19/39): adding to final database dump
+0008.609 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfBlocks7.table.gz (20/39): adding to final database dump
+0008.615 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfConfig.table.gz (21/39): adding to final database dump
+0008.635 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfCrawlers.table.gz (22/39): adding to final database dump
+0008.641 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfFileChanges.table.gz (23/39): adding to final database dump
+0008.647 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfFileMods.table.gz (24/39): adding to final database dump
+0008.684 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfHits.table.gz (25/39): adding to final database dump
+0008.691 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfHoover.table.gz (26/39): adding to final database dump
+0008.697 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfIssues.table.gz (27/39): adding to final database dump
+0008.703 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfKnownFileList.table.gz (28/39): adding to final database dump
+0008.717 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLeechers.table.gz (29/39): adding to final database dump
+0008.723 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLiveTrafficHuman.table.gz (30/39): adding to final database dump
+0008.737 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLocs.table.gz (31/39): adding to final database dump
+0008.744 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfLogins.table.gz (32/39): adding to final database dump
+0008.749 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfNotifications.table.gz (33/39): adding to final database dump
+0008.755 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfPendingIssues.table.gz (34/39): adding to final database dump
+0008.761 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfReverseCache.table.gz (35/39): adding to final database dump
+0008.767 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfSNIPCache.table.gz (36/39): adding to final database dump
+0008.773 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfScanners.table.gz (37/39): adding to final database dump
+0008.779 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfStatus.table.gz (38/39): adding to final database dump
+0008.786 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db-table-wp_wfVulnScanners.table.gz (39/39): adding to final database dump
+0008.791 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db.gz: finished writing out complete database file (1032 KB)
+0008.827 (0) Total database tables backed up: 39 (backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db.gz, size: 1071747, sha256)
+0008.860 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0008.865 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0008.872 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0008.878 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-others.zip: others: This file has not yet been successfully uploaded: will queue
+0008.884 (0) backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db.gz: db: This file has not yet been successfully uploaded: will queue
+0008.891 (0) Saving backup history. Total backup size: 38 MB
+0008.907 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0008.926 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0008.932 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-78cc543433a4ac7dc59a365115257d7d)
+0009.302 (0) Set region: us-west-2
+0009.309 (0) S3 upload (us-west-2): backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip (chunks: 6) -> s3://safestructures.us/backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip
+0009.349 (0) S3 chunked upload: got multipart ID: gP6VYxi913FIxe6Q1vC.FKs238uHVtRR9MkgsgtFe9KVzl79h7pMBu4AQkz3_FJ1enMwc5uWGBz8LiKDKxgdtGeXgLRrQJeClkxXLfYkPaHAFAxIfWZsM_tIHB879zRN
+0009.658 (0) S3 chunked upload: 16.7 % uploaded (1, "e55daacd11f0279c7cb5cba041798951")
+0009.978 (0) S3 chunked upload: 33.3 % uploaded (2, "a44f7be2ed7cf5f0871730446e824055")
+0010.303 (0) S3 chunked upload: 50 % uploaded (3, "9d7342eeb3575a01c87b247ff1807d34")
+0010.637 (0) S3 chunked upload: 66.7 % uploaded (4, "28c50d656a19385bb35bcd1286c6caa4")
+0010.883 (0) S3 chunked upload: 83.3 % uploaded (5, "1ea2d518cd7eae02fdd5740a7178f795")
+0010.964 (0) S3 chunked upload: 100 % uploaded (6, "583d8164852eb3a481ca2b54dbd0a46c")
+0010.984 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0011.122 (0) S3 upload (plugins0): re-assembly succeeded
+0011.137 (0) Recording as successfully uploaded: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip (b9771cbe3d4718313e32ade2d7de7940)
+0011.169 (0) Deleting local file: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-plugins.zip: OK
+0011.175 (0) S3 upload (us-west-2): backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip (chunks: 2) -> s3://safestructures.us/backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip
+0011.187 (0) S3 chunked upload: got multipart ID: 08ZKBGvUeuLhSFIc01FotAJYn1XWCjMm01nnOOTub9umpkLG_GfAuo_YmmiXondKFER_YBOxEK.x5Qk_FKPi49EuTO5.eHblerecySFG.nHY3znXRunb4oCl82pCdWRM
+0011.472 (0) S3 chunked upload: 50 % uploaded (1, "79e47d3ca8e65882ae5ea89ac3835e9c")
+0011.861 (0) S3 chunked upload: 100 % uploaded (2, "216936b8d887a8dd2562a2ca0604eb3d")
+0011.882 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0011.966 (0) S3 upload (themes0): re-assembly succeeded
+0011.981 (0) Recording as successfully uploaded: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip (e23e2c7a967bd20f6eaeb50a0d7687d0)
+0012.002 (0) Deleting local file: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-themes.zip: OK
+0012.008 (0) S3 upload (us-west-2): backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-uploads.zip (chunks: 1) -> s3://safestructures.us/backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-uploads.zip
+0012.099 (0) S3 regular upload: success
+0012.114 (0) Recording as successfully uploaded: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-uploads.zip (ee028c95d91e4cc2317f3aab35dd01b7)
+0012.135 (0) Deleting local file: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-uploads.zip: OK
+0012.141 (0) S3 upload (us-west-2): backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-others.zip (chunks: 1) -> s3://safestructures.us/backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-others.zip
+0012.223 (0) S3 regular upload: success
+0012.237 (0) Recording as successfully uploaded: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-others.zip (3c40f58e01d5f91c5274a5c0b99299e8)
+0012.260 (0) Deleting local file: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-others.zip: OK
+0012.265 (0) S3 upload (us-west-2): backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db.gz (chunks: 1) -> s3://safestructures.us/backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db.gz
+0012.455 (0) S3 regular upload: success
+0012.469 (0) Recording as successfully uploaded: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db.gz (5e0949647081c299b85096ca170d2e1f)
+0012.489 (0) Deleting local file: backup_2018-07-18-1640_SafeSustainableStructures_cfee5a38645e-db.gz: OK
+0012.505 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=20, retain_db=20
+0012.514 (0) Number of backup sets in history: 2; groups (db): 1
+0012.521 (0) Examining (for databases) backup set with group_id=0, nonce=cfee5a38645e, datestamp=1531932044 (Jul 18 2018 16:40:44)
+0012.529 (0) This backup set is the backup set just made, so will not be deleted.
+0012.529 (0) Examining (for databases) backup set with group_id=0, nonce=e84c3317b23b, datestamp=1531927842 (Jul 18 2018 15:30:42)
+0012.529 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0012.535 (0) Number of backup sets in history: 2; groups (files): 1
+0012.542 (0) Examining (for files) backup set with nonce=cfee5a38645e, datestamp=1531932044 (Jul 18 2018 16:40:44)
+0012.542 (0) This backup set is the backup set just made, so will not be deleted.
+0012.548 (0) This backup set is the backup set just made, so will not be deleted.
+0012.548 (0) This backup set is the backup set just made, so will not be deleted.
+0012.548 (0) This backup set is the backup set just made, so will not be deleted.
+0012.549 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0012.557 (0) Examining (for files) backup set with nonce=e84c3317b23b, datestamp=1531927842 (Jul 18 2018 15:30:42)
+0012.557 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0012.557 (0) Retain: saving new backup history (sets now: 2) and finishing retain operation
+0012.572 (0) Resume backup (cfee5a38645e, 0): finish run
+0012.596 (0) Decremented the semaphore (fd) by 1
+0012.607 (0) Semaphore (fd) unlocked
+0012.612 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0012.633 (0) Fetching RSS news feed
+0012.654 (0) Fetched RSS news feed; result is a: SimplePie
+0012.663 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: syste...
+0013.060 (0) The backup apparently succeeded and is now complete

@@ -658,7 +658,7 @@ class Essential_Grid_Plugin_Update {
 		if(function_exists('is_multisite') && is_multisite()){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// $old_blog = $wpdb->blogid;
 			
 			// Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -669,9 +669,13 @@ class Essential_Grid_Plugin_Update {
 				$skins = apply_filters('essgrid_propagate_default_item_skins_multisite_update_to_210', $skins, $blog_id);
 				
 				Essential_Grid_Item_Skin::insert_default_item_skins($skins);
+				
+				// 2.2.5
+				restore_current_blog();
 			}
 			
-			switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+			// switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 		
@@ -712,7 +716,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 		if(function_exists('is_multisite') && is_multisite()){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// 2.2.5
+			// $old_blog = $wpdb->blogid;
 			
 			// Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -724,9 +729,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 				
 				Essential_Grid_Global_Css::set_global_css_styles(apply_filters('essgrid_propagate_default_global_css_multisite_update_to_210', $css.$new_css, $blog_id));
 				
+				// 2.2.5
+				restore_current_blog();
+				
 			}
 			
-			switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+			// switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 			$css = Essential_Grid_Global_Css::get_global_css_styles();
@@ -787,7 +796,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 		if(function_exists('is_multisite') && is_multisite()){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// 2.2.5
+			// $old_blog = $wpdb->blogid;
 			
 			// Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -798,9 +808,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 				$skins = Essential_Grid_Item_Skin::get_essential_item_skins();
 				$this->addDefaultSkinParam($skins, $paramsToPush);
 				
+				// 2.2.5
+				restore_current_blog();
+				
 			}
 			
-			switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+			// switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 		
@@ -1007,7 +1021,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 		if(function_exists('is_multisite') && is_multisite()){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// $old_blog = $wpdb->blogid;
 			
 			// Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -1018,9 +1032,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 				$skins = Essential_Grid_Item_Skin::get_essential_item_skins();
 				$this->process_update_216($skins);
 				
+				// 2.2.5
+				restore_current_blog();
+				
 			}
 			
-			switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+			// switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 		
@@ -1051,7 +1069,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 		if(function_exists('is_multisite') && is_multisite()){ //do for each existing site
 			global $wpdb;
 			
-			$old_blog = $wpdb->blogid;
+			// $old_blog = $wpdb->blogid;
 			
 			// Get all blog ids and create tables
 			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
@@ -1065,9 +1083,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 				$css = str_replace('.esg-entry-media img', '.esg-media-poster', $css);
 				Essential_Grid_Global_Css::set_global_css_styles(apply_filters('essgrid_propagate_default_global_css_multisite_update_to_220', $css, $blog_id));
 				
+				// 2.2.5
+				restore_current_blog();
+				
 			}
 			
-			switch_to_blog($old_blog); //go back to correct blog
+			// 2.2.5
+			// switch_to_blog($old_blog); //go back to correct blog
 			
 		}else{
 			$css = Essential_Grid_Global_Css::get_global_css_styles();
@@ -1077,6 +1099,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 			Essential_Grid_Global_Css::set_global_css_styles(apply_filters('essgrid_propagate_default_global_css_update_to_220', $css));
 		}
 		
+		$this->update_version('2.2');
+		$this->set_version('2.2');
 	}
 	
 }

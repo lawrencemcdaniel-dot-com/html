@@ -1,7 +1,23 @@
 *** WooCommerce Subscriptions Changelog ***
 
+2018.07.24 - version 2.3.3
+* Fix: Prevent infinite loops while generating variable product min and max data. PR#2810
+* Fix: Filter renewal order cart shipping packages, removing one time shipping products from shipping calculations. PR#2811
+* Fix: Only generate persistent related order and customer subscription caches via the Transients API to avoid the possibility of retrieving out of date data stored in the option. PR#2823
+* Fix: Update WC_Subscriptions_Order::maybe_autocomplete_order() to allow for it to handle orders before they have an ID (before they are inserted). PR#2784
+* Fix: Adjust for possible differences in billing cycles because of rounding when calculating prorated totals for switch requests. PR#2617
+* Tweak: Improve UX for variation selection when limited variable product is in cart. PR#2683
+* Tweak: Remove code which supported for WC 2.5. PR#2806
+* Tweak: Enforce array return value for `pre_get_users_subscriptions` filter. PR#2814
+
+2018.07.10 - version 2.3.2
+* Fix: Extend the next payment date after early renewal if there's no end date. PR#2804
+* Fix: Prevent throwing type hinting errors when getting related orders from cache. RR#2805
+* Tweak: Don't copying `_created_via` meta from subscriptions to related orders as this overrides the value set when the order was created. PR#2794
+* Tweak: Make `wcs_get_subscriptions_for_order()` the canonical function for retrieving subscriptions for a given order (regardless of type). PR#2805
+
 2018.07.06 - version 2.3.1
-* Fix: catchable fatal error from function parameter hinting. PR#2797
+* Fix: Catchable fatal error from function parameter hinting. PR#2797
 
 2018.07.04 - version 2.3.0
 * New: Allow store managers to link an order with a subscription using the parent order relationship via a UI on the admin edit subscription screen. PR#2272

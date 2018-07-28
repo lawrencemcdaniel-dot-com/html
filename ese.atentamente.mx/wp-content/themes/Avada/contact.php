@@ -32,7 +32,7 @@ $avada_contact = new Avada_Contact();
 					<?php if ( shortcode_exists( 'fusion_alert' ) ) : ?>
 						<?php echo do_shortcode( '[fusion_alert type="error"]' . esc_html__( 'Form email address is not set in Theme Options. Please fill in a valid address to make contact form work.', 'Avada' ) . '[/fusion_alert]' ); ?>
 					<?php else : ?>
-						<h2 style="color:#b94a48;"><?php esc_html_e( 'Form email address is not set in Theme Options. Please fill in a valid address to make contact form work.', 'Avada' ); ?></h2>
+						<h3 style="color:#b94a48;"><?php esc_html_e( 'Form email address is not set in Theme Options. Please fill in a valid address to make contact form work.', 'Avada' ); ?></h3>
 					<?php endif; ?>
 					<br />
 				<?php endif; ?>
@@ -104,8 +104,8 @@ $avada_contact = new Avada_Contact();
 					}
 
 					$button_shape = $fusion_settings->get( 'button_shape' );
-					$button_size = $fusion_settings->get( 'button_size' );
-					$button_type = $fusion_settings->get( 'button_type' );
+					$button_size  = $fusion_settings->get( 'button_size' );
+					$button_type  = $fusion_settings->get( 'button_type' );
 					?>
 					<input name="submit" type="submit" id="submit" value="<?php esc_html_e( 'Submit Form', 'Avada' ); ?>" class="comment-submit fusion-button fusion-button-default fusion-button-default-size fusion-button-<?php echo esc_attr( strtolower( $button_size ) ); ?> fusion-button-<?php echo esc_attr( strtolower( $button_shape ) ); ?> fusion-button-<?php echo esc_attr( strtolower( $button_type ) ); ?>">
 				</div>

@@ -207,28 +207,8 @@ class Widget_Video extends Widget_Base {
 				'label' => __( 'Start Time', 'elementor' ),
 				'type' => Controls_Manager::NUMBER,
 				'description' => __( 'Specify a start time (in seconds)', 'elementor' ),
-				'conditions' => [
-					'relation' => 'or',
-					'terms' => [
-						[
-							'name' => 'video_type',
-							'operator' => '!=',
-							'value' => 'hosted',
-						],
-						[
-							'relation' => 'and',
-							'terms' => [
-								[
-									'name' => 'video_type',
-									'value' => 'hosted',
-								],
-								[
-									'name' => 'loop',
-									'value' => '',
-								],
-							],
-						],
-					],
+				'condition' => [
+					'loop' => '',
 				],
 			]
 		);
@@ -239,27 +219,9 @@ class Widget_Video extends Widget_Base {
 				'label' => __( 'End Time', 'elementor' ),
 				'type' => Controls_Manager::NUMBER,
 				'description' => __( 'Specify an end time (in seconds)', 'elementor' ),
-				'conditions' => [
-					'relation' => 'or',
-					'terms' => [
-						[
-							'name' => 'video_type',
-							'value' => 'youtube',
-						],
-						[
-							'relation' => 'and',
-							'terms' => [
-								[
-									'name' => 'video_type',
-									'value' => 'hosted',
-								],
-								[
-									'name' => 'loop',
-									'value' => '',
-								],
-							],
-						],
-					],
+				'condition' => [
+					'loop' => '',
+					'video_type' => [ 'youtube', 'hosted' ],
 				],
 			]
 		);
@@ -544,6 +506,14 @@ class Widget_Video extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'css_filters',
+				'selector' => '{{WRAPPER}} .elementor-wrapper',
+			]
+		);
+
 		$this->add_control(
 			'play_icon_title',
 			[
@@ -553,6 +523,7 @@ class Widget_Video extends Widget_Base {
 					'show_image_overlay' => 'yes',
 					'show_play_icon' => 'yes',
 				],
+				'separator' => 'before',
 			]
 		);
 
@@ -564,7 +535,6 @@ class Widget_Video extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .elementor-custom-embed-play i' => 'color: {{VALUE}}',
 				],
-				'separator' => 'before',
 				'condition' => [
 					'show_image_overlay' => 'yes',
 					'show_play_icon' => 'yes',

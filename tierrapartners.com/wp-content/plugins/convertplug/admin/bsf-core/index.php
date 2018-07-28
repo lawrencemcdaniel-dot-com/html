@@ -1107,10 +1107,7 @@ if ( ! function_exists( 'bsf_set_options' ) ) {
 			'astra-addon',
 			'astra-pro-sites',
 			'wp-schema-pro',
-			'6892199', // UAVC
-			'10395942', // iMedica
-			'14058953', // Convert Plus
-			'5159016', // Baslider
+			'6892199',
 			'astra-sites-showcase',
 			'uael',
 			'brainstorm-updater',
@@ -1491,11 +1488,19 @@ function bsf_envato_redirect_url_callback() {
 
 	$form_data = array();
 
-	$form_data['product_id'] 				= isset( $_GET['product_id'] ) ? esc_attr( $_GET['product_id'] ) : '';
-	$form_data['url'] 						= isset( $_GET['url'] ) ? esc_url_raw( $_GET['url'] ) : '';
-	$form_data['redirect'] 					= isset( $_GET['redirect'] ) ? rawurlencode( $_GET['redirect'] ) : '';
-	$form_data['privacy_consent'] 			= ( isset( $_GET['privacy_consent'] ) && 'true' === $_GET['privacy_consent'] ) ? true : false;
-	$form_data['terms_conditions_consent'] 	= ( isset( $_GET['terms_conditions_consent'] ) && 'true' === $_GET['terms_conditions_consent'] ) ? true : false;
+	$form_data['product_id'] 	= isset( $_GET['product_id'] ) ? esc_attr( $_GET['product_id'] ) : '';
+	$form_data['url'] 			= isset( $_GET['url'] ) ? esc_url_raw( $_GET['url'] ) : '';
+	$form_data['redirect'] 		= isset( $_GET['redirect'] ) ? rawurlencode( $_GET['redirect'] ) : '';
+	$form_data['consent']   	= isset( $_GET['consent'] ) ? esc_attr( $_GET['consent'] ) : false;
+
+	if ( 'false' === $form_data['consent'] ) {
+		$form_data['consent'] = false;
+	} elseif ( 'true' === $form_data['consent'] ) {
+		$form_data['consent'] = true;
+	}
+
+	// Save logged'in user's consent default value.
+	update_user_meta( get_current_user_id(), 'bsf-license-consent', $form_data['consent'] );
 
 	$url = $envato_activate->envato_activation_url( $form_data );
 

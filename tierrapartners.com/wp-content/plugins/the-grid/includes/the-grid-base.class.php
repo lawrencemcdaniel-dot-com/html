@@ -151,7 +151,7 @@ class The_Grid_Base {
 				// for each taxonomy slug
 				foreach ($taxonomies as $taxonomy => $settings) {
 
-					if ( !$settings->publicly_queryable || !$settings->public ) {
+					if ( ! $settings->publicly_queryable && ! $settings->public && ! $settings->show_ui && ! $settings->show_tagcloud ) {
 						unset( $taxonomies[ $taxonomy ] );
 						continue;
 					}

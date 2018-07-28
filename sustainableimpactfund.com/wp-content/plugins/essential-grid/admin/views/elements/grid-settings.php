@@ -629,6 +629,7 @@ $all_metas = $eg_meta->get_all_meta();
 							?>
 							</div>
 							<script type="text/javascript">
+
 								jQuery('#esg-grid-even-1').tpessential({
 									layout:"masonry",
 									forceFullWidth:"off",
@@ -644,6 +645,9 @@ $all_metas = $eg_meta->get_all_meta();
 														{ width:480,amount:2}
 														],
 									pageAnimation:"scale",
+									startAnimation:"none",
+									startAnimationSpeed: 0,
+									startAnimationDelay: 0,
 									animSpeed:800,
 									animDelay:"on",
 									delayBasic:0.4,
@@ -664,12 +668,86 @@ $all_metas = $eg_meta->get_all_meta();
 			<div class="">
 				<div class="eg-creative-settings">
 					<div class="eg-cs-tbc-left">
-						<h3 class="box-closed"><span><?php _e('Grid Animations', EG_TEXTDOMAIN); ?></span></h3>
+						<h3 class="box-closed"><span><?php _e('Start Animation', EG_TEXTDOMAIN); ?></span></h3>
 					</div>
 					<div class="eg-cs-tbc">
 						<p>
-							<label for="grid-animation" class="eg-tooltip-wrap" title="<?php _e('Select the Animations for the  Filter, Page Change and Start Effects', EG_TEXTDOMAIN); ?>"><?php _e('Start and Filter Animations', EG_TEXTDOMAIN); ?></label>
-							<select id="grid-animation-select" name="grid-animation" >
+							<label for="grid-start-animation" class="eg-tooltip-wrap" title="<?php _e('Select the Animation for the Start Effect', EG_TEXTDOMAIN); ?>"><?php _e('Animation Type', EG_TEXTDOMAIN); ?></label>
+							<select id="grid-start-animation" name="grid-start-animation" style="width: 152px">
+								<?php
+								foreach($start_animations as $handle => $name){
+									?>
+									<option value="<?php echo $handle; ?>"<?php selected($grid_start_animation_choosen, $handle); ?>><?php echo $name; ?></option>
+									<?php
+								}
+								?>
+							</select>
+							<input type="hidden" id="hide-markup-before-load" name="hide-markup-before-load" value="<?php echo $base->getVar($grid['params'], 'hide-markup-before-load', 'off'); ?>"> 
+							
+						</p>
+						<p id="start-animation-speed-wrap">
+							<label for="grid-start-animation-speed" class="eg-tooltip-wrap" title="<?php _e('Animation Speed (per item)', EG_TEXTDOMAIN); ?>"><?php _e('Transition Speed', EG_TEXTDOMAIN); ?></label>
+							<span id="slider-grid-start-animation-speed" class="slider-settings"></span>
+							<input class="input-settings-small" type="text" id="grid-start-animation-speed" name="grid-start-animation-speed" value="<?php echo $base->getVar($grid['params'], 'grid-start-animation-speed', '1000', 'i'); ?>" readonly="true" /> ms
+						</p>
+						<div id="start-animation-delay-wrap">
+							<p>
+								<label for="grid-start-animation-delay" class="eg-tooltip-wrap" title="<?php _e('Create staggered animations by adding a delay value', EG_TEXTDOMAIN); ?>"><?php _e('Transition Delay', EG_TEXTDOMAIN); ?></label>
+								<span id="slider-grid-start-animation-delay" class="slider-settings"></span>
+								<input class="input-settings-small" type="text" id="grid-start-animation-delay" name="grid-start-animation-delay" value="<?php echo $base->getVar($grid['params'], 'grid-start-animation-delay', '100', 'i'); ?>" readonly="true" />
+							</p>
+							
+							<p>
+								<label for="grid-start-animation-type" class="eg-tooltip-wrap" title="<?php _e('Animate columns, rows or items individually', EG_TEXTDOMAIN); ?>"><?php _e('Apply Delay to', EG_TEXTDOMAIN); ?></label>
+								
+								<?php $start_animation_type = $base->getVar($grid['params'], 'grid-start-animation-type', 'item'); ?>
+								<input type="radio" name="grid-start-animation-type" value="item" class="firstinput" <?php checked($start_animation_type, 'item'); ?>>
+								<span class="eg-tooltip-wrap tooltipstered">Items</span>
+								
+								<input type="radio" name="grid-start-animation-type" value="col" <?php checked($start_animation_type, 'col'); ?>>
+								<span class="eg-tooltip-wrap tooltipstered">Columns</span>
+								
+								<input type="radio" name="grid-start-animation-type" value="row" <?php checked($start_animation_type, 'row'); ?>>
+								<span class="eg-tooltip-wrap tooltipstered">Rows</span>
+								
+							</p>
+							
+						</div>
+						<div id="start-animation-viewport-wrap">
+						
+							<p>
+								<label for="grid-start-animation-type" class="eg-tooltip-wrap" title="<?php _e('Animate when the grid is scrolled into view', EG_TEXTDOMAIN); ?>"><?php _e('Wait for viewport', EG_TEXTDOMAIN); ?></label>
+								
+								<?php $start_anime_viewport = $base->getVar($grid['params'], 'start-anime-in-viewport', 'off'); ?>
+								<input type="radio" name="start-anime-in-viewport" value="on" class="firstinput start-anime-viewport" <?php checked($start_anime_viewport, 'on'); ?>>
+								<span class="eg-tooltip-wrap tooltipstered">On</span>
+								
+								<input type="radio" name="start-anime-in-viewport" value="off" class="start-anime-viewport" <?php checked($start_anime_viewport, 'off'); ?>>
+								<span class="eg-tooltip-wrap tooltipstered">Off</span>
+								
+							</p>
+							
+							<p id="start-animation-viewport-buffer">
+								<label for="start-anime-viewport-buffer" class="eg-tooltip-wrap" title="<?php _e('Wait for grid to be (x)% in view', EG_TEXTDOMAIN); ?>"><?php _e('Viewport buffer', EG_TEXTDOMAIN); ?></label>
+								<input style="display: inline-block; vertical-align: middle; margin-left: 0" id="start-anime-viewport-buffer" class="input-settings-small eg-tooltip-wrap" type="text" name="start-anime-viewport-buffer" value="<?php echo $base->getVar($grid['params'], 'start-anime-viewport-buffer', '20'); ?>" title="<?php _e('Zoom Out Percentage (0-100)', EG_TEXTDOMAIN); ?>" /> %
+							</p>
+						
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="divider1"></div>
+				
+				<div class="eg-creative-settings">
+					<div class="eg-cs-tbc-left">
+						<h3 class="box-closed"><span><?php _e('Filter/Pagination Animation', EG_TEXTDOMAIN); ?></span></h3>
+					</div>
+					<div class="eg-cs-tbc">
+					
+						<p>
+							<label for="grid-animation" class="eg-tooltip-wrap" title="<?php _e('Select the Animation for the Filter Page Change Effects', EG_TEXTDOMAIN); ?>"><?php _e('Animation Type', EG_TEXTDOMAIN); ?></label>
+							<select id="grid-animation-select" name="grid-animation" style="width: 152px">
 								<?php
 								foreach($grid_animations as $handle => $name){
 									?>
@@ -678,18 +756,36 @@ $all_metas = $eg_meta->get_all_meta();
 								}
 								?>
 							</select>
+							
 						</p>
 						<p>
-							<label for="grid-animation-speed" class="eg-tooltip-wrap" title="<?php _e('Animation Speed (per item)', EG_TEXTDOMAIN); ?>"><?php _e('Animation Speed', EG_TEXTDOMAIN); ?></label>
+							<label for="grid-animation-speed" class="eg-tooltip-wrap" title="<?php _e('Filter Animation Speed (per item)', EG_TEXTDOMAIN); ?>"><?php _e('Transition Speed', EG_TEXTDOMAIN); ?></label>
 							<span id="slider-grid-animation-speed" class="slider-settings"></span>
-							<input class="input-settings-small" type="text" name="grid-animation-speed" value="<?php echo $base->getVar($grid['params'], 'grid-animation-speed', '1000', 'i'); ?>" /> ms
+							<input class="input-settings-small" type="text" name="grid-animation-speed" value="<?php echo $base->getVar($grid['params'], 'grid-animation-speed', '1000', 'i'); ?>" readonly="true" /> ms
 						</p>
 						<p>
-							<label for="grid-animation-delay" class="eg-tooltip-wrap" title="<?php _e('Delay between the item animations. If many items visible on the same page, decrease this value.', EG_TEXTDOMAIN); ?>"><?php _e('Animation Delay', EG_TEXTDOMAIN); ?></label>
+							<label for="grid-animation-delay" class="eg-tooltip-wrap" title="<?php _e('Create staggered animations by adding a delay value', EG_TEXTDOMAIN); ?>"><?php _e('Transition Delay', EG_TEXTDOMAIN); ?></label>
 							<span id="slider-grid-animation-delay" class="slider-settings"></span>
 							<input class="input-settings-small" type="text" name="grid-animation-delay" value="<?php echo $base->getVar($grid['params'], 'grid-animation-delay', '1', 'i'); ?>" readonly="true" />
 						</p>
+						
+						<p id="animation-delay-type-wrap">
+							<label for="grid-animation-type" class="eg-tooltip-wrap" title="<?php _e('Animate columns, rows or items individually', EG_TEXTDOMAIN); ?>"><?php _e('Apply Delay to', EG_TEXTDOMAIN); ?></label>
+							
+							<?php $animation_type = $base->getVar($grid['params'], 'grid-animation-type', 'item'); ?>
+							<input type="radio" name="grid-animation-type" value="item" class="firstinput" <?php checked($animation_type, 'item'); ?>>
+							<span class="eg-tooltip-wrap tooltipstered">Items</span>
+							
+							<input type="radio" name="grid-animation-type" value="col" <?php checked($animation_type, 'col'); ?>>
+							<span class="eg-tooltip-wrap tooltipstered">Columns</span>
+							
+							<input type="radio" name="grid-animation-type" value="row" <?php checked($animation_type, 'row'); ?>>
+							<span class="eg-tooltip-wrap tooltipstered">Rows</span>
+							
+						</p>
+					
 					</div>
+					
 				</div>
 
 				<div class="divider1"></div>
@@ -776,11 +872,6 @@ $all_metas = $eg_meta->get_all_meta();
 								</select>
 								<input style="display: inline-block; vertical-align: middle" id="grid-item-other-shift-amount" class="input-settings-small eg-tooltip-wrap" type="text" name="grid-item-other-shift-amount" value="<?php echo $base->getVar($grid['params'], 'grid-item-other-shift-amount', '10'); ?>" title="<?php _e('Shift Amount in pixels', EG_TEXTDOMAIN); ?>" /> px
 							</span>
-						</p>
-						<p>
-							<label for="hover-animation-delay" class="eg-tooltip-wrap" title="<?php _e('Delay before the Hover effect starts on an item', EG_TEXTDOMAIN); ?>"><?php _e('Hover Animation Delay', EG_TEXTDOMAIN); ?></label>
-							<span id="slider-hover-animation-delay" class="slider-settings"></span>
-							<input class="input-settings-small" type="text" name="hover-animation-delay" value="<?php echo $base->getVar($grid['params'], 'hover-animation-delay', '1', 'i'); ?>" readonly="true" />
 						</p>
 					</div>
 				</div>
@@ -1054,11 +1145,21 @@ $all_metas = $eg_meta->get_all_meta();
 							<input type="radio" name="filter-deep-link" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'filter-deep-link', 'off'), 'on'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Deep Linking with #slug possible', EG_TEXTDOMAIN); ?>"><?php _e('On', EG_TEXTDOMAIN); ?></span>
 							<input type="radio" name="filter-deep-link" value="off" <?php checked($base->getVar($grid['params'], 'filter-deep-link', 'off'), 'off'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('No Deep Linking with #slug', EG_TEXTDOMAIN); ?>"><?php _e('Off', EG_TEXTDOMAIN); ?></span>
 						</p>
+						
 						<p>
 							<label for="filter-show-on"><?php _e('Dropdown Elements on', EG_TEXTDOMAIN); ?></label>
 							<input type="radio" name="filter-show-on" value="click" class="firstinput" <?php checked($base->getVar($grid['params'], 'filter-show-on', 'hover'), 'click'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Filter in Dropdown will be shown on click', EG_TEXTDOMAIN); ?>"><?php _e('Click', EG_TEXTDOMAIN); ?></span>
 							<input type="radio" name="filter-show-on" value="hover" <?php checked($base->getVar($grid['params'], 'filter-show-on', 'hover'), 'hover'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Filter in Dropdown will be shown on hover', EG_TEXTDOMAIN); ?>"><?php _e('Hover', EG_TEXTDOMAIN); ?></span>
 						</p>
+						
+						<p id="convert_mobile_filters">
+							<label for="convert-mobile-filters"><?php _e('Mobile Filter Conversion', EG_TEXTDOMAIN); ?></label>
+							<input type="radio" name="convert-mobile-filters" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'convert-mobile-filters', 'off'), 'on'); ?>> 
+							<span class="eg-tooltip-wrap" title="<?php _e('Choose to convert "Inline" filter layouts to "Dropdown" on mobile', EG_TEXTDOMAIN); ?>"><?php _e('On', EG_TEXTDOMAIN); ?></span>
+							<input type="radio" name="convert-mobile-filters" value="off" <?php checked($base->getVar($grid['params'], 'convert-mobile-filters', 'off'), 'off'); ?>> 
+							<span class="eg-tooltip-wrap" title="<?php _e('Choose to convert "Inline" filter layouts to "Dropdown" on mobile', EG_TEXTDOMAIN); ?>"><?php _e('Off', EG_TEXTDOMAIN); ?></span>
+						</p>
+						
 						<!--<div style="float: left; width: 170px;">
 							<p><?php _e('Filter All Text', EG_TEXTDOMAIN); ?></p>
 							<p><?php _e('Layout Option', EG_TEXTDOMAIN); ?></p>
@@ -1280,10 +1381,11 @@ $all_metas = $eg_meta->get_all_meta();
 
 							if(!empty($f_meta) && is_array($f_meta)){
 								foreach($f_meta as $fmeta){
-									if($fmeta['type'] == 'multi-select'){
+									// 2.2.5
+									// if($fmeta['type'] == 'multi-select'){
 										?>eg_meta_handles['meta-<?php echo $fmeta['handle']; ?>'] = '<?php echo $fmeta['name']; ?>';
 										<?php
-									}
+									// }
 								}
 							}
 							?>
@@ -1481,7 +1583,7 @@ $all_metas = $eg_meta->get_all_meta();
 										<div id="lbo-<?php echo $lb_handle; ?>" class="eg-media-source-order revblue button-primary">
 											<i style="float:left; margin-right:10px;" class="eg-icon-<?php echo $lb_source_list[$lb_handle]['type']; ?>"></i>
 											<span style="float:left"><?php echo $lb_source_list[$lb_handle]['name']; ?></span>
-											<input style="float:right;margin: 5px 4px 0 0;" class="eg-get-val" type="checkbox" name="lb-source-order[]" checked="checked" value="<?php echo $lb_handle; ?>" />
+											<input style="float:right;margin: 5px 4px 0 0;" class="eg-get-val eg-lb-source-list" type="checkbox" name="lb-source-order[]" checked="checked" value="<?php echo $lb_handle; ?>" />
 											<div style="clear:both"></div>
 										</div>
 										<?php
@@ -1495,7 +1597,7 @@ $all_metas = $eg_meta->get_all_meta();
 										<div id="lbo-<?php echo $lb_handle; ?>" class="eg-media-source-order revblue button-primary">
 											<i style="float:left; margin-right:10px;" class="eg-icon-<?php echo $lb_set['type']; ?>"></i>
 											<span style="float:left"><?php echo $lb_set['name']; ?></span>
-											<input style="float:right;margin: 5px 4px 0 0;" class="eg-get-val" type="checkbox" name="lb-source-order[]" value="<?php echo $lb_handle; ?>" />
+											<input style="float:right;margin: 5px 4px 0 0;" class="eg-get-val eg-lb-source-list" type="checkbox" name="lb-source-order[]" value="<?php echo $lb_handle; ?>" />
 											<div style="clear:both"></div>
 										</div>
 										<?php
@@ -1572,7 +1674,7 @@ $all_metas = $eg_meta->get_all_meta();
 				<div class="eg-hide-if-jackbox-is-enabled" <?php echo ($use_lightbox == 'jackbox') ? ' style="display: none;"' : ''; ?>>
 					<div class="eg-creative-settings">
 						<div class="eg-cs-tbc-left">
-							<h3 class="box-closed"><span><?php _e('Item Title', EG_TEXTDOMAIN); ?></span></h3>
+							<h3 class="box-closed"><span><?php _e('Title / Spacings', EG_TEXTDOMAIN); ?></span></h3>
 						</div>
 
 						<div class="eg-cs-tbc">
@@ -1581,15 +1683,6 @@ $all_metas = $eg_meta->get_all_meta();
 								<input type="radio" name="lightbox-title" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'lightbox-title', 'off'), 'on'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Display Item Title', EG_TEXTDOMAIN); ?>"><?php _e('On', EG_TEXTDOMAIN); ?></span>
 								<input type="radio" name="lightbox-title" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-title', 'off'), 'off'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Do not display Item Title', EG_TEXTDOMAIN); ?>"><?php _e('Off', EG_TEXTDOMAIN); ?></span>
 							</p>
-						</div>
-					</div>
-					<div class="divider1"></div>
-					<div class="eg-creative-settings">
-						<div class="eg-cs-tbc-left">
-							<h3 class="box-closed"><span><?php _e('Item Spacing', EG_TEXTDOMAIN); ?></span></h3>
-						</div>
-
-						<div class="eg-cs-tbc">
 							<p>
 								<?php
 								$lbox_padding = $base->getVar($grid['params'], 'lbox-padding', '0');
@@ -1804,110 +1897,112 @@ $all_metas = $eg_meta->get_all_meta();
 					</div>
 					<!-- end buttons -->
 					
-					<div class="divider1"></div>
+					<div id="eg-post-content-options">
 					
-					<!-- 2.1.6 -->
-					<div class="eg-creative-settings">
-						<div class="eg-cs-tbc-left">
-							<h3 class="box-closed"><span><?php _e('Post Content', EG_TEXTDOMAIN); ?></span></h3>
-						</div>
-
-						<div class="eg-cs-tbc">
-							
-							<p>
-								<label for="lightbox-post-content-min-width" class="eg-tooltip-wrap" title="<?php _e('percentage or pixel based', EG_TEXTDOMAIN); ?>"><?php _e('Content Min Width', EG_TEXTDOMAIN); ?></label>
-								<input class="input-settings-small firstinput" type="text" name="lightbox-post-content-min-width" value="<?php echo $base->getVar($grid['params'], 'lightbox-post-content-min-width', '75'); ?>" />
-								<input type="radio" name="lightbox-post-content-min-perc" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-min-perc', 'on'), 'on'); ?>> <?php _e('%', EG_TEXTDOMAIN); ?>
-								<input type="radio" name="lightbox-post-content-min-perc" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-min-perc', 'on'), 'off'); ?>> <?php _e('px', EG_TEXTDOMAIN); ?>
-							</p>
-							
-							<p>
-								<label for="lightbox-post-content-max-width" class="eg-tooltip-wrap" title="<?php _e('percentage or pixel based', EG_TEXTDOMAIN); ?>"><?php _e('Content Max Width', EG_TEXTDOMAIN); ?></label>
-								<input class="input-settings-small firstinput" type="text" name="lightbox-post-content-max-width" value="<?php echo $base->getVar($grid['params'], 'lightbox-post-content-max-width', '75'); ?>" />
-								<input type="radio" name="lightbox-post-content-max-perc" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-max-perc', 'on'), 'on'); ?>> <?php _e('%', EG_TEXTDOMAIN); ?>
-								<input type="radio" name="lightbox-post-content-max-perc" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-max-perc', 'on'), 'off'); ?>> <?php _e('px', EG_TEXTDOMAIN); ?>
-							</p>
-							
-							<p>
-								<label for="lightbox-post-content-overflow" class="eg-tooltip-wrap" title="<?php _e('allow content scrolling', EG_TEXTDOMAIN); ?>"><?php _e('Content Overflow', EG_TEXTDOMAIN); ?></label>
-								<input type="radio" name="lightbox-post-content-overflow" class="firstinput" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-overflow', 'on'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
-								<input type="radio" name="lightbox-post-content-overflow" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-overflow', 'on'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
-							</p>
-							
-							<p>
-								<?php
-								$lbox_post_img_padding = $base->getVar($grid['params'], 'lbox-content_padding', '0');
-								if(!is_array($lbox_post_img_padding)) $lbox_post_img_padding = array('0', '0', '0', '0');
-								?>
-								<label><?php _e('Post Content Padding', EG_TEXTDOMAIN); ?></label>
-								<span class="eg-tooltip-wrap" title="<?php _e('Padding Top (px)', EG_TEXTDOMAIN); ?>">Top</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[0]; ?>" />
-								<span class="eg-tooltip-wrap" title="<?php _e('Padding Right (px)', EG_TEXTDOMAIN); ?>">Right</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[1]; ?>" />
-								<span class="eg-tooltip-wrap" title="<?php _e('Padding Bottom (px)', EG_TEXTDOMAIN); ?>">Bottom</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[2]; ?>" />
-								<span class="eg-tooltip-wrap" title="<?php _e('Padding Left (px)', EG_TEXTDOMAIN); ?>">Left</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[3]; ?>" />
-							</p>
+						<div class="divider1"></div>
 						
-							<p>
-								<label class="eg-tooltip-wrap" title="<?php _e('Show spinner preloader on item while content loads', EG_TEXTDOMAIN); ?>"><?php _e('Show Preloader', EG_TEXTDOMAIN); ?></label>
-								<input type="radio" name="lightbox-post-spinner" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'lightbox-post-spinner', 'off'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
-								<input type="radio" name="lightbox-post-spinner" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-spinner', 'off'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
-							</p>
-							<p>
-								<label class="eg-tooltip-wrap" title="<?php _e('Include Featured Image from Post', EG_TEXTDOMAIN); ?>"><?php _e('Include Featured Image', EG_TEXTDOMAIN); ?></label>
-								<input type="radio" class="lightbox-post-content-img firstinput" name="lightbox-post-content-img" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-img', 'off'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
-								<input type="radio" class="lightbox-post-content-img" name="lightbox-post-content-img" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-img', 'off'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
-							</p>
-							<p class="featured-img-hideable">
-								<label class="eg-tooltip-wrap" title="<?php _e('Featured Image position in relation to the content', EG_TEXTDOMAIN); ?>"><?php _e('Featured Image Position', EG_TEXTDOMAIN); ?></label>
-								<select id="lightbox-post-content-img-position" name="lightbox-post-content-img-position">
-									<option value="top"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'top'); ?>><?php _e('Top', EG_TEXTDOMAIN); ?></option>
-									<option value="right"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'right'); ?>><?php _e('Right', EG_TEXTDOMAIN); ?></option>
-									<option value="bottom"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'bottom'); ?>><?php _e('Bottom', EG_TEXTDOMAIN); ?></option>
-									<option value="left"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'left'); ?>><?php _e('Left', EG_TEXTDOMAIN); ?></option>
-								</select>
-							</p>
-							<?php
-								$lbMaxWidthDisplay = $base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top');
-								$lbMaxWidthDisplay = $lbMaxWidthDisplay === 'left' || $lbMaxWidthDisplay === 'right' ? 'block' : 'none';
-							?>
-							<div class="featured-img-hideable">
-								<p id="lightbox-post-content-img-width" style="display: <?php echo $lbMaxWidthDisplay; ?>">
-									<label for="lightbox-post-content-img-width" class="eg-tooltip-wrap" title="<?php _e('Percentage based on Lightbox Default Width above', EG_TEXTDOMAIN); ?>"><?php _e('Featured Image Max Width', EG_TEXTDOMAIN); ?></label>
-									<input class="input-settings-small firstinput" type="text" name="lightbox-post-content-img-width" value="<?php echo $base->getVar($grid['params'], 'lightbox-post-content-img-width', '50'); ?>" /> %
-								</p>
+						<!-- 2.1.6 -->
+						<div class="eg-creative-settings">
+							<div class="eg-cs-tbc-left">
+								<h3 class="box-closed"><span><?php _e('Post Content', EG_TEXTDOMAIN); ?></span></h3>
 							</div>
-							<p class="featured-img-hideable">
+
+							<div class="eg-cs-tbc">
+								
+								<p>
+									<label for="lightbox-post-content-min-width" class="eg-tooltip-wrap" title="<?php _e('percentage or pixel based', EG_TEXTDOMAIN); ?>"><?php _e('Content Min Width', EG_TEXTDOMAIN); ?></label>
+									<input class="input-settings-small firstinput" type="text" name="lightbox-post-content-min-width" value="<?php echo $base->getVar($grid['params'], 'lightbox-post-content-min-width', '75'); ?>" />
+									<input type="radio" name="lightbox-post-content-min-perc" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-min-perc', 'on'), 'on'); ?>> <?php _e('%', EG_TEXTDOMAIN); ?>
+									<input type="radio" name="lightbox-post-content-min-perc" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-min-perc', 'on'), 'off'); ?>> <?php _e('px', EG_TEXTDOMAIN); ?>
+								</p>
+								
+								<p>
+									<label for="lightbox-post-content-max-width" class="eg-tooltip-wrap" title="<?php _e('percentage or pixel based', EG_TEXTDOMAIN); ?>"><?php _e('Content Max Width', EG_TEXTDOMAIN); ?></label>
+									<input class="input-settings-small firstinput" type="text" name="lightbox-post-content-max-width" value="<?php echo $base->getVar($grid['params'], 'lightbox-post-content-max-width', '75'); ?>" />
+									<input type="radio" name="lightbox-post-content-max-perc" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-max-perc', 'on'), 'on'); ?>> <?php _e('%', EG_TEXTDOMAIN); ?>
+									<input type="radio" name="lightbox-post-content-max-perc" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-max-perc', 'on'), 'off'); ?>> <?php _e('px', EG_TEXTDOMAIN); ?>
+								</p>
+								
+								<p>
+									<label for="lightbox-post-content-overflow" class="eg-tooltip-wrap" title="<?php _e('allow content scrolling', EG_TEXTDOMAIN); ?>"><?php _e('Content Overflow', EG_TEXTDOMAIN); ?></label>
+									<input type="radio" name="lightbox-post-content-overflow" class="firstinput" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-overflow', 'on'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
+									<input type="radio" name="lightbox-post-content-overflow" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-overflow', 'on'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
+								</p>
+								
+								<p>
+									<?php
+									$lbox_post_img_padding = $base->getVar($grid['params'], 'lbox-content_padding', '0');
+									if(!is_array($lbox_post_img_padding)) $lbox_post_img_padding = array('0', '0', '0', '0');
+									?>
+									<label><?php _e('Post Content Padding', EG_TEXTDOMAIN); ?></label>
+									<span class="eg-tooltip-wrap" title="<?php _e('Padding Top (px)', EG_TEXTDOMAIN); ?>">Top</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[0]; ?>" />
+									<span class="eg-tooltip-wrap" title="<?php _e('Padding Right (px)', EG_TEXTDOMAIN); ?>">Right</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[1]; ?>" />
+									<span class="eg-tooltip-wrap" title="<?php _e('Padding Bottom (px)', EG_TEXTDOMAIN); ?>">Bottom</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[2]; ?>" />
+									<span class="eg-tooltip-wrap" title="<?php _e('Padding Left (px)', EG_TEXTDOMAIN); ?>">Left</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lbox-content_padding[]" value="<?php echo @$lbox_post_img_padding[3]; ?>" />
+								</p>
+							
+								<p>
+									<label class="eg-tooltip-wrap" title="<?php _e('Show spinner preloader on item while content loads', EG_TEXTDOMAIN); ?>"><?php _e('Show Preloader', EG_TEXTDOMAIN); ?></label>
+									<input type="radio" name="lightbox-post-spinner" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'lightbox-post-spinner', 'off'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
+									<input type="radio" name="lightbox-post-spinner" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-spinner', 'off'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
+								</p>
+								<p>
+									<label class="eg-tooltip-wrap" title="<?php _e('Include Featured Image from Post', EG_TEXTDOMAIN); ?>"><?php _e('Include Featured Image', EG_TEXTDOMAIN); ?></label>
+									<input type="radio" class="lightbox-post-content-img firstinput" name="lightbox-post-content-img" value="on" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-img', 'off'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
+									<input type="radio" class="lightbox-post-content-img" name="lightbox-post-content-img" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-img', 'off'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
+								</p>
+								<p class="featured-img-hideable">
+									<label class="eg-tooltip-wrap" title="<?php _e('Featured Image position in relation to the content', EG_TEXTDOMAIN); ?>"><?php _e('Featured Image Position', EG_TEXTDOMAIN); ?></label>
+									<select id="lightbox-post-content-img-position" name="lightbox-post-content-img-position">
+										<option value="top"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'top'); ?>><?php _e('Top', EG_TEXTDOMAIN); ?></option>
+										<option value="right"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'right'); ?>><?php _e('Right', EG_TEXTDOMAIN); ?></option>
+										<option value="bottom"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'bottom'); ?>><?php _e('Bottom', EG_TEXTDOMAIN); ?></option>
+										<option value="left"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top'), 'left'); ?>><?php _e('Left', EG_TEXTDOMAIN); ?></option>
+									</select>
+								</p>
 								<?php
-								$lbox_post_img_margin = $base->getVar($grid['params'], 'lightbox-post-content-img-margin', '0');
-								if(!is_array($lbox_post_img_margin)) $lbox_post_img_margin = array('0', '0', '0', '0');
+									$lbMaxWidthDisplay = $base->getVar($grid['params'], 'lightbox-post-content-img-position', 'top');
+									$lbMaxWidthDisplay = $lbMaxWidthDisplay === 'left' || $lbMaxWidthDisplay === 'right' ? 'block' : 'none';
 								?>
-								<label for="lightbox-post-content-img-margin"><?php _e('Featured Image Margin', EG_TEXTDOMAIN); ?></label>
-								<span class="eg-tooltip-wrap" title="<?php _e('Margin Top of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Top</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[0]; ?>" />
-								<span class="eg-tooltip-wrap" title="<?php _e('Margin Right of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Right</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[1]; ?>" />
-								<span class="eg-tooltip-wrap" title="<?php _e('Margin Bottom of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Bottom</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[2]; ?>" />
-								<span class="eg-tooltip-wrap" title="<?php _e('Margin Left of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Left</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[3]; ?>" />
-							</p>
-							<p>
-								<label class="eg-tooltip-wrap" title="<?php _e('Include Post Title Before Content', EG_TEXTDOMAIN); ?>"><?php _e('Prepend Post Title', EG_TEXTDOMAIN); ?></label>
-								<input type="radio" name="lightbox-post-content-title" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-title', 'off'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
-								<input type="radio" name="lightbox-post-content-title" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-title', 'off'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
-							</p>
-							<p>
-								<label class="eg-tooltip-wrap" title="<?php _e('The tag for the Post Title', EG_TEXTDOMAIN); ?>"><?php _e('Post Title HTML Tag', EG_TEXTDOMAIN); ?></label>
-								<select name="lightbox-post-content-title-tag">
-									<option value="h1"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h1'); ?>><?php _e('h1', EG_TEXTDOMAIN); ?></option>
-									<option value="h2"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h2'); ?>><?php _e('h2', EG_TEXTDOMAIN); ?></option>
-									<option value="h3"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h3'); ?>><?php _e('h3', EG_TEXTDOMAIN); ?></option>
-									<option value="h4"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h4'); ?>><?php _e('h4', EG_TEXTDOMAIN); ?></option>
-									<option value="p"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'p'); ?>><?php _e('p', EG_TEXTDOMAIN); ?></option>
-								</select>
-							</p>
-							<!--<p><span style="font-style: italic">The lightbox container's id for post content is "eg-lightbox-post-content".  Below is an example which could be added to the plugin's <a href="https://www.themepunch.com/faq/where-to-add-custom-css-javascript/" target="_blank">Custom CSS section</a></span>.
-<pre><code>/* styling the lightbox post title */
- #eg-lightbox-post-content h2 {font-size: 24px; color: #333333}</code></pre>
-							</p>-->
+								<div class="featured-img-hideable">
+									<p id="lightbox-post-content-img-width" style="display: <?php echo $lbMaxWidthDisplay; ?>">
+										<label for="lightbox-post-content-img-width" class="eg-tooltip-wrap" title="<?php _e('Percentage based on Lightbox Default Width above', EG_TEXTDOMAIN); ?>"><?php _e('Featured Image Max Width', EG_TEXTDOMAIN); ?></label>
+										<input class="input-settings-small firstinput" type="text" name="lightbox-post-content-img-width" value="<?php echo $base->getVar($grid['params'], 'lightbox-post-content-img-width', '50'); ?>" /> %
+									</p>
+								</div>
+								<p class="featured-img-hideable">
+									<?php
+									$lbox_post_img_margin = $base->getVar($grid['params'], 'lightbox-post-content-img-margin', '0');
+									if(!is_array($lbox_post_img_margin)) $lbox_post_img_margin = array('0', '0', '0', '0');
+									?>
+									<label for="lightbox-post-content-img-margin"><?php _e('Featured Image Margin', EG_TEXTDOMAIN); ?></label>
+									<span class="eg-tooltip-wrap" title="<?php _e('Margin Top of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Top</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[0]; ?>" />
+									<span class="eg-tooltip-wrap" title="<?php _e('Margin Right of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Right</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[1]; ?>" />
+									<span class="eg-tooltip-wrap" title="<?php _e('Margin Bottom of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Bottom</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[2]; ?>" />
+									<span class="eg-tooltip-wrap" title="<?php _e('Margin Left of the Featured Image (px)', EG_TEXTDOMAIN); ?>">Left</span> <input class="input-settings-small firstinput" type="text" style="margin-right:10px" name="lightbox-post-content-img-margin[]" value="<?php echo @$lbox_post_img_margin[3]; ?>" />
+								</p>
+								<p>
+									<label class="eg-tooltip-wrap" title="<?php _e('Include Post Title Before Content', EG_TEXTDOMAIN); ?>"><?php _e('Prepend Post Title', EG_TEXTDOMAIN); ?></label>
+									<input type="radio" name="lightbox-post-content-title" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-title', 'off'), 'on'); ?>> <?php _e('On', EG_TEXTDOMAIN); ?>
+									<input type="radio" name="lightbox-post-content-title" value="off" <?php checked($base->getVar($grid['params'], 'lightbox-post-content-title', 'off'), 'off'); ?>> <?php _e('Off', EG_TEXTDOMAIN); ?>
+								</p>
+								<p>
+									<label class="eg-tooltip-wrap" title="<?php _e('The tag for the Post Title', EG_TEXTDOMAIN); ?>"><?php _e('Post Title HTML Tag', EG_TEXTDOMAIN); ?></label>
+									<select name="lightbox-post-content-title-tag">
+										<option value="h1"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h1'); ?>><?php _e('h1', EG_TEXTDOMAIN); ?></option>
+										<option value="h2"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h2'); ?>><?php _e('h2', EG_TEXTDOMAIN); ?></option>
+										<option value="h3"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h3'); ?>><?php _e('h3', EG_TEXTDOMAIN); ?></option>
+										<option value="h4"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'h4'); ?>><?php _e('h4', EG_TEXTDOMAIN); ?></option>
+										<option value="p"<?php selected($base->getVar($grid['params'], 'lightbox-post-content-title-tag', 'h2'), 'p'); ?>><?php _e('p', EG_TEXTDOMAIN); ?></option>
+									</select>
+								</p>
+								<!--<p><span style="font-style: italic">The lightbox container's id for post content is "eg-lightbox-post-content".  Below is an example which could be added to the plugin's <a href="https://www.themepunch.com/faq/where-to-add-custom-css-javascript/" target="_blank">Custom CSS section</a></span>.
+	<pre><code>/* styling the lightbox post title */
+	 #eg-lightbox-post-content h2 {font-size: 24px; color: #333333}</code></pre>
+								</p>-->
+							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 			<div class="eg-hide-if-lightbox-is-enabled" <?php echo ($use_lightbox == 'jackbox' || $use_lightbox == 'sg') ? '' : ' style="display: none;"'; ?>>
@@ -2206,11 +2301,6 @@ $all_metas = $eg_meta->get_all_meta();
 									<input type="text" class="inputColorPicker" id="spinner_color" name="spinner-color" value="<?php echo $base->getVar($grid['params'], 'spinner-color', '#FFFFFF'); ?>" />
 								</p>
 							</div>
-							<p>
-								<label for="filter-arrows" class="eg-tooltip-wrap" title="<?php _e("Choose 'Off' to designate vertical space on the page before the grid loads", EG_TEXTDOMAIN); ?>"><?php _e('Hide Markups before Load', EG_TEXTDOMAIN); ?></label>
-								<input type="radio" name="hide-markup-before-load" value="on" class="firstinput" <?php checked($base->getVar($grid['params'], 'hide-markup-before-load', 'off'), 'on'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Hide all content before items are loaded.', EG_TEXTDOMAIN); ?>"><?php _e('On', EG_TEXTDOMAIN); ?></span>
-								<input type="radio" name="hide-markup-before-load" value="off" <?php checked($base->getVar($grid['params'], 'hide-markup-before-load', 'off'), 'off'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Show all content before items are loaded.', EG_TEXTDOMAIN); ?>"><?php _e('Off', EG_TEXTDOMAIN); ?></span>
-							</p>
 						<div style="width:100%;height:15px"></div>
 					</div>
 				</div>
@@ -2286,29 +2376,15 @@ $all_metas = $eg_meta->get_all_meta();
 							</div>
 						</p>
 						<p>
-							<label><?php _e('Lightbox Video API:', EG_TEXTDOMAIN); ?></label>
+							<label><?php _e('Lightbox Custom Options:', EG_TEXTDOMAIN); ?></label>
 							<div style="margin-left: 170px;">
-<pre><code>jQuery('.esgbox').click(function() {
-	setTimeout(function() {
-		var lvideo = jQuery('.esgbox-overlay').find('video');
-		console.log(lvideo);
-		lvideo.on("canplay",function() {
-			console.log("video is loaded");
-		});
-		lvideo.on("play",function() {
-			console.log("video is playing");
-			// Add Controls on play:
-			//lvideo.attr("controls","true");
-		});
-		lvideo.on("ended",function(){
-			console.log("Video ended");
-			// Auto Close Window on Video End :
-			//jQuery('.esgbox-item.esgbox-close').click();
-			// Next Item on Video End:
-			//jQuery('.esgbox-nav.esgbox-next').click();
-		});
-	},500);
-});</code></pre>
+<pre><code>
+// http://fancyapps.com/fancybox/3/docs/
+var customLightboxOptions = {
+	hideScrollbar: true,
+	hash: false
+};
+jQuery.extend(true, {}, lightboxOptions);</code></pre>
 							</div>
 						</p>
 					</div>

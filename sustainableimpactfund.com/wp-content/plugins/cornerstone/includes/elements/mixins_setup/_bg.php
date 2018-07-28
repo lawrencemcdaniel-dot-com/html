@@ -66,7 +66,7 @@ $options_bg_type = array(
   'choices' => array(
     array( 'value' => 'none',  'icon' => 'ban'        ),
     array( 'value' => 'color', 'icon' => 'eyedropper' ),
-    array( 'value' => 'image', 'icon' => 'picture-o'  ),
+    array( 'value' => 'image', 'icon' => 'image'  ),
     array( 'value' => 'video', 'icon' => 'film'       ),
   )
 );
@@ -288,7 +288,7 @@ $control_bg_lower_parallax_direction_and_reverse = array(
       'key'     => $k_pre . 'bg_lower_parallax_direction',
       'type'    => 'choose',
       'options' => $options_bg_parallax_direction,
-    ), 
+    ),
     array(
       'keys' => array(
         'lower_parallax_reverse' => $k_pre . 'bg_lower_parallax_reverse',

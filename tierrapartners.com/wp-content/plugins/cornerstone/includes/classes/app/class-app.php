@@ -136,7 +136,7 @@ class Cornerstone_App extends Cornerstone_Plugin_Component {
       'common_i18n'               => $this->plugin->i18n_group( 'common' ),
       'app_i18n'                  => $this->plugin->i18n_group( 'app' ),
       'permissions'               => $this->plugin->component('App_Permissions')->get_user_permissions(),
-      'fontAwesome'               => $this->plugin->common()->getFontIcons(),
+      'fontAwesome'               => $this->plugin->common()->getFontIconsData(),
       'iconMaps'                  => $icon_maps,
       'isPreview'                 => $isPreview,
       'previewData'               => $this->plugin->component( 'Preview_Frame_Loader' )->data(),
@@ -312,10 +312,6 @@ class Cornerstone_App extends Cornerstone_Plugin_Component {
   public function font_data() {
     $font_data = $this->plugin->config_group( 'common/font-data' );
     return apply_filters( 'cs_font_data', $font_data );
-  }
-
-  public function font_awesome() {
-    return $this->plugin->common()->getFontIcons();
   }
 
 }
