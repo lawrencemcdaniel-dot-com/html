@@ -540,7 +540,81 @@ if ( true !== $reg_menu_hide ) {
 					</table>
 							</p>
 						</div>
-								</form>
+
+						<!-- Disable Domain -->
+						<div class="debug-section">
+							<p>
+								<table>
+									<tr>
+										<td style="vertical-align: top;">
+										<?php
+										$disable_domain     = isset( $data['cp-disable-domain'] ) ? $data['cp-disable-domain'] : 0;
+										$is_domain_checked = ( $disable_domain ) ? ' checked="checked" ' : '';
+										$uniq             = uniqid();
+										?>
+										<label for="plugin-support" style="width:340px; display: inline-block;font-size:14px;"><strong><?php _e( 'Disable Domain', 'smile' ); ?></strong>
+											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to disallow some email domains to fill the form.', 'smile' ); ?>">
+												<i class="dashicons dashicons-editor-help"></i>
+											</span>
+										</label>
+										</td>
+										<td>
+										<label class="switch-wrapper" style="display: inline-block;margin: 0;height: 20px;">
+											<input type="text"  id="cp-disable-domain" class="form-control smile-input smile-switch-input"  name="cp-disable-domain" value="<?php echo $disable_domain; ?>" />
+											<input type="checkbox" <?php echo $is_domain_checked; ?> id="smile_cp-disable-domain_btn_<?php echo $uniq; ?>"  class="ios-toggle smile-input smile-switch-input switch-checkbox smile-switch " value="<?php echo $disable_domain; ?>" >
+											<label class="smile-switch-btn checkbox-label" data-on="ON"  data-off="OFF" data-id="cp-disable-domain" for="smile_cp-disable-domain_btn_<?php echo $uniq; ?>"></label>
+										</label>
+										</td>
+									</tr>
+								</table>								
+							</p>
+							<?php
+							$domain_name  = isset( $data['cp-domain-name'] ) ? $data['cp-domain-name'] :'';
+							?>
+							<p 
+							<?php
+							if ( 1 === $domain_name  ) {
+							echo "style='display:none;'"; }
+							?>
+							>
+							<label for="hide-options" style="width:340px; vertical-align: top; display: inline-block;"><strong><?php _e( 'Enter Domain Names', 'smile' ); ?></strong>
+							<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enter the email domain name to block the form submission. You cam use comma to seperate out domain names.', 'smile' ); ?>">
+							<i class="dashicons dashicons-editor-help"></i>
+							</span>
+							</label>
+							<textarea id="cp-domain-name" name="cp-domain-name" cols="40" rows="5"><?php echo stripslashes( $domain_name ); ?></textarea>
+							</p><!-- Domain names -->
+						</div>
+
+						<!-- Lazy load images -->
+						<div class="debug-section">
+							<p>
+								<table>
+									<tr>
+										<td style="vertical-align: top;">
+										<?php
+										$lazy_load_img     = isset( $data['cp-lazy-img'] ) ? $data['cp-lazy-img'] : 0;
+										$is_lazy_checked = ( $lazy_load_img ) ? ' checked="checked" ' : '';
+										$uniq             = uniqid();
+										?>
+										<label for="plugin-support" style="width:340px; display: inline-block;"><strong><?php _e( 'Lazy Load images', 'smile' ); ?></strong>
+											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to load images aynchronously', 'smile' ); ?>">
+												<i class="dashicons dashicons-editor-help"></i>
+											</span>
+										</label>
+										</td>
+										<td>
+										<label class="switch-wrapper" style="display: inline-block;margin: 0;height: 20px;">
+											<input type="text"  id="cp-lazy-img" class="form-control smile-input smile-switch-input"  name="cp-lazy-img" value="<?php echo $lazy_load_img; ?>" />
+											<input type="checkbox" <?php echo $is_lazy_checked; ?> id="smile_cp-lazy-img_btn_<?php echo $uniq; ?>"  class="ios-toggle smile-input smile-switch-input switch-checkbox smile-switch " value="<?php echo $lazy_load_img; ?>" >
+											<label class="smile-switch-btn checkbox-label" data-on="ON"  data-off="OFF" data-id="cp-lazy-img" for="smile_cp-lazy-img_btn_<?php echo $uniq; ?>"></label>
+										</label>
+									</td>
+								</tr>
+							</table>
+						</p>
+					</div>
+				</form>
 								<button type="button" class="button button-primary button-update-settings"><?php _e( 'Save Settings', 'smile' ); ?></button>
 							</div>
 						</div>
@@ -640,6 +714,15 @@ if ( true !== $reg_menu_hide ) {
 			}
 		});
 	});
+
+	//  Toggle Domain Names.
+	jQuery('#cp-disable-domain').siblings('.smile-switch-btn').each(function(index, el) {
+		var self = jQuery(el);
+		toggle_domain_names( self );
+		self.click(function(event) {
+			jQuery("#cp-domain-name").parent('p').slideToggle();
+		});
+	});
 });
 
 //  Toggle Response Messages.
@@ -651,6 +734,18 @@ function toggle_response_messages( self ) {
 		jQuery("#cp-already-subscribed").parent('p').slideDown();
 	} else {
 		jQuery("#cp-already-subscribed").parent('p').slideUp();
+	}
+}
+
+//  Toggle toggle_domain_names
+function toggle_domain_names( self ) {
+	var id = self.data('id');
+	var value = self.parents(".switch-wrapper").find("#"+id).val();
+
+	if( value == 1 || value == '1' ) {
+		jQuery("#cp-domain-name").parent('p').slideDown();
+	} else {
+		jQuery("#cp-domain-name").parent('p').slideUp();
 	}
 }
 

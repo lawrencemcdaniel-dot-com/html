@@ -4,6 +4,18 @@ function ubermenu_load_textdomain(){
 	load_plugin_textdomain( 'ubermenu' , false , UBERMENU_BASEDIR.'/languages' );
 }
 
+
+add_filter( 'wp' , 'ubermenu_wp_actions' );
+function ubermenu_wp_actions(){
+
+	//Exclude UberMenu Advanced Items from other menus
+	if( ubermenu_op( 'exclude_advanced_ubermenu_items' , 'general' ) === 'on' ){
+		add_filter( 'wp_nav_menu_objects' , 'ubermenu_exclude_advanced_items' , 20, 2 );
+	}
+
+}
+
+
 function ubermenu_load_assets(){
 
 	$assets = UBERMENU_URL . 'assets/';
@@ -33,12 +45,12 @@ function ubermenu_load_assets(){
 	$load_fa_all = 					$load_fa_solid && $load_fa_brands && $load_fa_regular;
 
 
-	if( $load_fa_all )				wp_enqueue_style( 'ubermenu-font-awesome-all' , 	UBERMENU_URL .'assets/fontawesome/fonts/css/fontawesome-all.min.css' , false , false );
+	if( $load_fa_all )				wp_enqueue_style( 'ubermenu-font-awesome-all' , 	UBERMENU_URL .'assets/fontawesome/css/all.min.css' , false , false );
 	else{
-		if( $load_fa_core ) 		wp_enqueue_style( 'ubermenu-font-awesome-core' , 	UBERMENU_URL .'assets/fontawesome/fonts/css/fontawesome.min.css' , false , false );
-		if( $load_fa_solid ) 		wp_enqueue_style( 'ubermenu-font-awesome-solid' , UBERMENU_URL .'assets/fontawesome/fonts/css/fa-solid.min.css' , false , false );
-		if( $load_fa_brands ) 	wp_enqueue_style( 'ubermenu-font-awesome-brands' , UBERMENU_URL .'assets/fontawesome/fonts/css/fa-brands.min.css' , false , false );
-		if( $load_fa_regular ) 	wp_enqueue_style( 'ubermenu-font-awesome-regular' , UBERMENU_URL .'assets/fontawesome/fonts/css/fa-regular.min.css' , false , false );
+		if( $load_fa_core ) 		wp_enqueue_style( 'ubermenu-font-awesome-core' , 	UBERMENU_URL .'assets/fontawesome/css/fontawesome.min.css' , false , false );
+		if( $load_fa_solid ) 		wp_enqueue_style( 'ubermenu-font-awesome-solid' , UBERMENU_URL .'assets/fontawesome/css/solid.min.css' , false , false );
+		if( $load_fa_brands ) 	wp_enqueue_style( 'ubermenu-font-awesome-brands' , UBERMENU_URL .'assets/fontawesome/css/brands.min.css' , false , false );
+		if( $load_fa_regular ) 	wp_enqueue_style( 'ubermenu-font-awesome-regular' , UBERMENU_URL .'assets/fontawesome/css/regular.min.css' , false , false );
 	}
 
 	//Font Awesome SVG
@@ -48,13 +60,13 @@ function ubermenu_load_assets(){
 	$load_fasvg_core = 			$load_fasvg_solid || $load_fasvg_brands || $load_fasvg_regular;
 	$load_fasvg_all = 			$load_fasvg_solid && $load_fasvg_brands && $load_fasvg_regular;
 
-	if( $load_fasvg_all )		wp_enqueue_script( 'ubermenu-font-awesome-js-all' , UBERMENU_URL.'assets/fontawesome/svg/js/fontawesome-all.min.js' , false , false , false );
+	if( $load_fasvg_all )		wp_enqueue_script( 'ubermenu-font-awesome-js-all' , UBERMENU_URL.'assets/fontawesome/js/all.min.js' , false , false , false );
 	else{
-		if( $load_fasvg_solid ) 	wp_enqueue_script( 'ubermenu-font-awesome-js-solid' , UBERMENU_URL.'assets/fontawesome/svg/js/fa-solid.min.js' , false , false , false );
-		if( $load_fasvg_brands ) 	wp_enqueue_script( 'ubermenu-font-awesome-js-brands' , UBERMENU_URL.'assets/fontawesome/svg/js/fa-brands.min.js' , false , false , false );
-		if( $load_fasvg_regular ) wp_enqueue_script( 'ubermenu-font-awesome-js-regular' , UBERMENU_URL.'assets/fontawesome/svg/js/fa-regular.min.js' , false , false , false );
+		if( $load_fasvg_solid ) 	wp_enqueue_script( 'ubermenu-font-awesome-js-solid' , UBERMENU_URL.'assets/fontawesome/js/solid.min.js' , false , false , false );
+		if( $load_fasvg_brands ) 	wp_enqueue_script( 'ubermenu-font-awesome-js-brands' , UBERMENU_URL.'assets/fontawesome/js/brands.min.js' , false , false , false );
+		if( $load_fasvg_regular ) wp_enqueue_script( 'ubermenu-font-awesome-js-regular' , UBERMENU_URL.'assets/fontawesome/js/regular.min.js' , false , false , false );
 		//Core needs to be loaded last
-		if( $load_fasvg_core ) 		wp_enqueue_script( 'ubermenu-font-awesome-js-core' , UBERMENU_URL.'assets/fontawesome/svg/js/fontawesome.min.js' , false , false , false );
+		if( $load_fasvg_core ) 		wp_enqueue_script( 'ubermenu-font-awesome-js-core' , UBERMENU_URL.'assets/fontawesome/js/fontawesome.min.js' , false , false , false );
 	}
 
 	//Font Awesome 4 shim
@@ -92,11 +104,34 @@ function ubermenu_load_assets(){
 
 	//Google Maps
 	if( ubermenu_op( 'load_google_maps' , 'general' ) == 'on' ){
-		$api_key = ubermenu_op( 'google_maps_api_key' , 'general' );
-		if( $api_key ) $api_key = '?key='.$api_key;
-		$gmaps_uri = '//maps.googleapis.com/maps/api/js'.$api_key;
-		//wp_enqueue_script( 'google-maps', $gmaps_uri , array( 'jquery' ), null , true );
-		wp_register_script( 'google-maps', $gmaps_uri , array( 'jquery' ), null , true );
+		//Google Maps API
+    $gmaps_uri = '//maps.googleapis.com/maps/api/js';
+
+    $query_params = array();
+
+    //API Key
+    $api_key = trim( ubermenu_op( 'google_maps_api_key' , 'general' ) );
+    if( $api_key ){
+      $query_params['key'] = $api_key;
+    }
+
+    //Language
+    $language = trim( ubermenu_op( 'google_maps_language' , 'general' ) );
+    if( $language ){
+      $query_params['language'] = $language;
+    }
+
+    //Region
+    $region = trim( ubermenu_op( 'google_maps_region' , 'general' ) );
+    if( $region ){
+      $query_params['region'] = $region;
+    }
+
+    $query = http_build_query( $query_params );
+
+    $gmaps_uri.= '?'.$query;
+
+    wp_enqueue_script( 'google-maps', $gmaps_uri , array( 'jquery' ), null , true );
 	}
 
 	//UberMenu JS
@@ -137,6 +172,7 @@ function ubermenu_load_assets(){
 		'aria_hidden'	=> ubermenu_op( 'aria_hidden' , 'general' ),
 		'aria_controls' => ubermenu_op( 'aria_controls' , 'general' ),
 		'aria_responsive_toggle' => ubermenu_op( 'aria_responsive_toggle' , 'general' ),
+		'icon_tag' => ubermenu_op( 'icon_tag', 'main' ), // grab from main since no global
 
 		//info
 		'theme_locations' => get_registered_nav_menus(),
@@ -1560,4 +1596,86 @@ add_filter( 'conditional_menus_theme_location', 'ubermenu_restore_conditional_me
 function ubermenu_restore_conditional_menus_theme_location( $theme_loc , $new_menu, $args ){
    //uberp( $args );
    return $args['theme_location'];
+}
+
+
+
+
+/*
+ * The strategy is to find all the UberMenu items, remove them, and move their children up a level
+ *
+ * 1. Make a map of parent > child relationships
+ * 2. Determine which items are UberMenu advanced items.
+ *    - Take the children of these items, and change their parent IDs to that of the UberMenu item
+ *    - Mark the UberMenu item for deletion by recording their index
+ * 3. Remove the UberMenu items by unsetting their indexes.
+ *    - We can't do it simultaneuously in step 2, as that would alter the index and break the algorithm
+ *
+ * Note: if there is an UberMenu top level item with children, all those children will become top level items
+ *    - One option would be to have a "disable child items that would become top level items" setting.
+ */
+function ubermenu_exclude_advanced_items( $sorted_menu_items, $args ) {
+
+//uberp( $sorted_menu_items , 3 );
+
+  if( is_admin() ) return $sorted_menu_items;
+
+  //Ignore UberMenu and ShiftNav
+  if( isset( $args->uber_instance ) ||
+			isset( $args->shiftnav ) ){
+    return $sorted_menu_items;
+  }
+
+  //uberp( $items ,3 );
+  $items = $sorted_menu_items;
+  //uberp( $args );
+
+  $child_map = array(); //$parent => array of children
+
+  //First we have to track parents
+  foreach ( $items as $index => $item ) {
+    $parent_id = $item->menu_item_parent;
+    $item_id = $item->ID;
+
+    if( !isset( $child_map[$parent_id] ) ){
+      $child_map[$parent_id] = array();
+    }
+    $child_map[$parent_id][] = array( 'id'  => $item_id , 'index' => $index );
+  }
+
+  //uberp( $child_map , 3 );
+
+  $index_trash = array();
+
+  //Now search for UberMenu items, but keep all the indexes intact
+  foreach ( $items as $index => $item ) {
+    if( $item->object == 'ubermenu-custom' ){
+
+      //Does this item have children?
+      if( isset( $child_map[$item->ID] ) ){
+        //Send the kiddos to grandma's house
+        foreach( $child_map[$item->ID] as $k => $child_data ){
+          //Update items
+          $items[$child_data['index']]->menu_item_parent = $item->menu_item_parent;
+          //Update child map - no, if we do that we break this loop
+          //$child_map[$item->menu_item_parent]
+        }
+      }
+
+      //Keep track of indexes to unset
+      $index_trash[] = $index;
+      //unset( $items[$key] );
+    }
+  }
+
+  //Finally, remove all items that are from UberMenu
+  foreach( $index_trash as $k => $index ){
+    unset( $items[$index] );
+  }
+
+
+  //uberp( $item );
+    //if ( $item->object_id == 168 ) unset( $items[$key] );
+
+  return $items;
 }

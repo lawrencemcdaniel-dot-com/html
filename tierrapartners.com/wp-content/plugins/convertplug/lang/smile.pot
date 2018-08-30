@@ -1,10 +1,10 @@
 # Copyright (C) 2018 Brainstorm Force
-# This file is distributed under the same license as the Convert Plus package.
+# This file is distributed under the GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html.
 msgid ""
 msgstr ""
-"Project-Id-Version: Convert Plus 3.3.0\n"
+"Project-Id-Version: Convert Plus 3.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/convertplug\n"
-"POT-Creation-Date: 2018-05-25 07:09:49+00:00\n"
+"POT-Creation-Date: 2018-07-24 11:26:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,51 +48,51 @@ msgstr ""
 msgid "6"
 msgstr ""
 
-#: admin/ajax-actions.php:638 admin/ajax-actions.php:734
+#: admin/ajax-actions.php:646 admin/ajax-actions.php:742
 msgid "Unable to delete the style. Please Try again."
 msgstr ""
 
-#: admin/ajax-actions.php:764
+#: admin/ajax-actions.php:772
 msgid "Modules Updated!"
 msgstr ""
 
-#: admin/ajax-actions.php:772 admin/ajax-actions.php:2170
-#: admin/ajax-actions.php:2203
+#: admin/ajax-actions.php:780 admin/ajax-actions.php:2339
+#: admin/ajax-actions.php:2372
 msgid "No settings were updated. Try again!"
 msgstr ""
 
-#: admin/ajax-actions.php:797 admin/contacts/views/contacts.php:337
-#: admin/contacts/views/dashboard.php:480
+#: admin/ajax-actions.php:805 admin/contacts/views/contacts.php:337
+#: admin/contacts/views/dashboard.php:490
 msgid "Something went wrong! Please try again."
 msgstr ""
 
-#: admin/ajax-actions.php:916
+#: admin/ajax-actions.php:924
 msgid "Campaign with same name already exists"
 msgstr ""
 
-#: admin/ajax-actions.php:1003
+#: admin/ajax-actions.php:1038
 #: modules/info_bar/functions/functions.common.php:1508
 #: modules/modal/functions/functions.common.php:2680
 #: modules/slide_in/functions/functions.common.php:2838
 msgid "Please enter correct email address."
 msgstr ""
 
-#: admin/ajax-actions.php:1004 admin/ajax-actions.php:1064
+#: admin/ajax-actions.php:1039 admin/ajax-actions.php:1099
 #: modules/info_bar/functions/functions.common.php:1372
 #: modules/modal/functions/functions.common.php:2543
 #: modules/slide_in/functions/functions.common.php:2702
 msgid "Thank you."
 msgstr ""
 
-#: admin/ajax-actions.php:1054 admin/settings.php:133
+#: admin/ajax-actions.php:1089 admin/settings.php:133
 msgid "Already Subscribed...!"
 msgstr ""
 
-#: admin/ajax-actions.php:1309
+#: admin/ajax-actions.php:1375
 msgid "No contacts available to export."
 msgstr ""
 
-#: admin/ajax-actions.php:2162 admin/ajax-actions.php:2195
+#: admin/ajax-actions.php:2331 admin/ajax-actions.php:2364
 msgid "Settings Updated!"
 msgstr ""
 
@@ -113,41 +113,41 @@ msgid "Product id is missing."
 msgstr ""
 
 #: admin/bsf-core/BSF_License_Manager.php:414
-msgid "<p>Enter your purchase key and activate automatic updates.</p>"
-msgstr ""
-
-#: admin/bsf-core/BSF_License_Manager.php:416
 msgid ""
 "<p>Click on the button below to activate your license and subscribe to our "
 "newsletter.</p>"
+msgstr ""
+
+#: admin/bsf-core/BSF_License_Manager.php:416
+msgid "<p>Enter your purchase key and activate automatic updates.</p>"
 msgstr ""
 
 #: admin/bsf-core/BSF_License_Manager.php:445
 msgid "Your license is active."
 msgstr ""
 
-#: admin/bsf-core/BSF_License_Manager.php:558
-#: admin/bsf-core/BSF_License_Manager.php:573
+#: admin/bsf-core/BSF_License_Manager.php:557
+#: admin/bsf-core/BSF_License_Manager.php:572
 msgid "Activate License"
 msgstr ""
 
-#: admin/bsf-core/BSF_License_Manager.php:561
+#: admin/bsf-core/BSF_License_Manager.php:560
 msgid "License"
 msgstr ""
 
-#: admin/bsf-core/BSF_License_Manager.php:574
+#: admin/bsf-core/BSF_License_Manager.php:573
 msgid "Deactivate License"
 msgstr ""
 
-#: admin/bsf-core/BSF_License_Manager.php:576
+#: admin/bsf-core/BSF_License_Manager.php:575
 msgid "Your license is not active!"
 msgstr ""
 
-#: admin/bsf-core/BSF_License_Manager.php:577
+#: admin/bsf-core/BSF_License_Manager.php:576
 msgid "Your license is activated!"
 msgstr ""
 
-#: admin/bsf-core/BSF_License_Manager.php:617
+#: admin/bsf-core/BSF_License_Manager.php:616
 msgid "Close"
 msgstr ""
 
@@ -162,37 +162,41 @@ msgstr ""
 msgid " <i>Click <a href=\"%1$s\">here</a> to activate your license.</i>"
 msgstr ""
 
-#: admin/bsf-core/BSF_Update_Manager.php:569
-#: admin/bsf-core/BSF_Update_Manager.php:591
+#: admin/bsf-core/BSF_Update_Manager.php:573
+#: admin/bsf-core/BSF_Update_Manager.php:602
 msgid ""
 "Click <a target=\"_blank\" href=\"%1s\">here</a> to activate license of "
 "<i>%2s</i> to receive automatic updates."
 msgstr ""
 
-#: admin/bsf-core/BSF_Update_Manager.php:575
+#: admin/bsf-core/BSF_Update_Manager.php:579
+msgid "Activate license of <i>%2s</i> to receive automatic updates."
+msgstr ""
+
+#: admin/bsf-core/BSF_Update_Manager.php:586
 msgid ""
 "This plugin is came bundled with the <i>%1s</i>. For receiving updates, you "
 "need to register license of <i>%2s</i> <a target=\"_blank\" "
 "href=\"%3s\">here</a>."
 msgstr ""
 
-#: admin/bsf-core/auto-update/admin-functions.php:631
+#: admin/bsf-core/auto-update/admin-functions.php:632
 msgid "Please"
 msgstr ""
 
-#: admin/bsf-core/auto-update/admin-functions.php:631
+#: admin/bsf-core/auto-update/admin-functions.php:632
 msgid "activate"
 msgstr ""
 
-#: admin/bsf-core/auto-update/admin-functions.php:631
+#: admin/bsf-core/auto-update/admin-functions.php:632
 msgid "your copy of the"
 msgstr ""
 
-#: admin/bsf-core/auto-update/admin-functions.php:631
+#: admin/bsf-core/auto-update/admin-functions.php:632
 msgid "to get update notifications, access to support features & other resources!"
 msgstr ""
 
-#: admin/bsf-core/auto-update/admin-functions.php:677
+#: admin/bsf-core/auto-update/admin-functions.php:678
 msgid "Something went wrong. Please try again!"
 msgstr ""
 
@@ -321,54 +325,54 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: admin/bsf-core/index.php:180 admin/bsf-core/index.php:181
+#: admin/bsf-core/index.php:200 admin/bsf-core/index.php:201
 msgid "Extensions"
 msgstr ""
 
-#: admin/bsf-core/index.php:317
+#: admin/bsf-core/index.php:337
 msgid "iMedica Extensions"
 msgstr ""
 
-#: admin/bsf-core/index.php:830
+#: admin/bsf-core/index.php:837
 msgid " requires following plugins to be active : "
 msgstr ""
 
-#: admin/bsf-core/index.php:840
+#: admin/bsf-core/index.php:847
 msgid " requires following plugins to be installed and activated : "
 msgstr ""
 
-#: admin/bsf-core/index.php:849
+#: admin/bsf-core/index.php:856
 msgid "Begin activating plugins"
 msgstr ""
 
-#: admin/bsf-core/index.php:853
+#: admin/bsf-core/index.php:860
 msgid "Begin installing plugins"
 msgstr ""
 
-#: admin/bsf-core/index.php:856
+#: admin/bsf-core/index.php:863
 msgid "Dismiss This Notice"
 msgstr ""
 
-#: admin/bsf-core/index.php:883
+#: admin/bsf-core/index.php:890
 msgid ""
 "Looks like you are on a WordPress Multisite, you will need to install and "
 "network activate %1$s Brainstorm Updater for Multisite %2$s plugin. "
 "Download it from %3$s here %4$s"
 msgstr ""
 
-#: admin/bsf-core/index.php:1213
+#: admin/bsf-core/index.php:1217
 msgid "WordPress Environment"
 msgstr ""
 
-#: admin/bsf-core/index.php:1317
+#: admin/bsf-core/index.php:1321
 msgid "Server Environment"
 msgstr ""
 
-#: admin/bsf-core/index.php:1418
+#: admin/bsf-core/index.php:1422
 msgid "Theme Information"
 msgstr ""
 
-#: admin/bsf-core/index.php:1438
+#: admin/bsf-core/index.php:1442
 msgid "Installed Plugins"
 msgstr ""
 
@@ -442,15 +446,15 @@ msgstr ""
 
 #: admin/contacts/views/analytics.php:39 admin/contacts/views/contacts.php:133
 #: admin/contacts/views/dashboard.php:146
-#: admin/contacts/views/dashboard.php:293
-#: admin/contacts/views/dashboard.php:319 admin/get-started.php:89
-#: modules/info_bar/views/main.php:172 modules/info_bar/views/main.php:426
-#: modules/info_bar/views/main.php:427
+#: admin/contacts/views/dashboard.php:303
+#: admin/contacts/views/dashboard.php:329 admin/get-started.php:89
+#: modules/info_bar/views/main.php:172 modules/info_bar/views/main.php:430
+#: modules/info_bar/views/main.php:431
 #: modules/info_bar/views/variant/variant.php:73
-#: modules/modal/views/main.php:174 modules/modal/views/main.php:430
-#: modules/modal/views/main.php:431 modules/modal/views/variant/variant.php:75
-#: modules/slide_in/views/main.php:175 modules/slide_in/views/main.php:429
-#: modules/slide_in/views/main.php:430
+#: modules/modal/views/main.php:174 modules/modal/views/main.php:435
+#: modules/modal/views/main.php:436 modules/modal/views/variant/variant.php:75
+#: modules/slide_in/views/main.php:175 modules/slide_in/views/main.php:435
+#: modules/slide_in/views/main.php:436
 #: modules/slide_in/views/variant/variant.php:75
 msgid "Analytics"
 msgstr ""
@@ -470,21 +474,22 @@ msgid "All Campaigns"
 msgstr ""
 
 #: admin/contacts/views/analytics.php:81
-#: modules/info_bar/views/analytics.php:92 modules/modal/views/analytics.php:94
-#: modules/slide_in/views/analytics.php:93
+#: modules/info_bar/views/analytics.php:96 modules/modal/views/analytics.php:99
+#: modules/slide_in/views/analytics.php:97
 msgid "Start Date <span class=\"cp-analatics-italic\">(dd-mm-yyyy)</span>"
 msgstr ""
 
 #: admin/contacts/views/analytics.php:85
-#: modules/info_bar/views/analytics.php:96 modules/modal/views/analytics.php:98
-#: modules/slide_in/views/analytics.php:97
+#: modules/info_bar/views/analytics.php:100
+#: modules/modal/views/analytics.php:103
+#: modules/slide_in/views/analytics.php:101
 msgid "End Date <span class=\"cp-analatics-italic\">(dd-mm-yyyy)</span>"
 msgstr ""
 
 #: admin/contacts/views/analytics.php:89
-#: modules/info_bar/views/analytics.php:100
-#: modules/modal/views/analytics.php:102
-#: modules/slide_in/views/analytics.php:101
+#: modules/info_bar/views/analytics.php:104
+#: modules/modal/views/analytics.php:107
+#: modules/slide_in/views/analytics.php:105
 msgid "Graph Type"
 msgstr ""
 
@@ -502,13 +507,16 @@ msgid "Date"
 msgstr ""
 
 #: admin/contacts/views/contacts.php:130
+#: modules/info_bar/views/analytics.php:168
+#: modules/modal/views/analytics.php:171
+#: modules/slide_in/views/analytics.php:168
 msgid "Export CSV"
 msgstr ""
 
 #: admin/contacts/views/contacts.php:138 admin/contacts/views/dashboard.php:155
 #: modules/info_bar/views/main.php:181 modules/modal/views/main.php:183
-#: modules/modal/views/main.php:479 modules/slide_in/views/main.php:184
-#: modules/slide_in/views/main.php:477
+#: modules/modal/views/main.php:484 modules/slide_in/views/main.php:184
+#: modules/slide_in/views/main.php:483
 msgid "Search"
 msgstr ""
 
@@ -547,12 +555,12 @@ msgid "Subscribed On"
 msgstr ""
 
 #: admin/contacts/views/contacts.php:172 admin/contacts/views/contacts.php:195
-#: admin/contacts/views/dashboard.php:294
+#: admin/contacts/views/dashboard.php:304
 msgid "Delete"
 msgstr ""
 
-#: admin/contacts/views/contacts.php:203 modules/info_bar/views/main.php:396
-#: modules/modal/views/main.php:400 modules/slide_in/views/main.php:399
+#: admin/contacts/views/contacts.php:203 modules/info_bar/views/main.php:400
+#: modules/modal/views/main.php:405 modules/slide_in/views/main.php:405
 msgid "No results available."
 msgstr ""
 
@@ -564,7 +572,7 @@ msgstr ""
 msgid "No contacts available."
 msgstr ""
 
-#: admin/contacts/views/contacts.php:223 admin/contacts/views/dashboard.php:342
+#: admin/contacts/views/contacts.php:223 admin/contacts/views/dashboard.php:352
 msgid "Search Contacts:"
 msgstr ""
 
@@ -572,7 +580,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: admin/contacts/views/contacts.php:283 admin/contacts/views/dashboard.php:389
+#: admin/contacts/views/contacts.php:283 admin/contacts/views/dashboard.php:399
 msgid "Are you sure?"
 msgstr ""
 
@@ -580,17 +588,17 @@ msgstr ""
 msgid "You will not be able to recover this Contact!"
 msgstr ""
 
-#: admin/contacts/views/contacts.php:288 admin/contacts/views/dashboard.php:394
-#: convertplug.php:835
+#: admin/contacts/views/contacts.php:288 admin/contacts/views/dashboard.php:404
+#: convertplug.php:838
 msgid "Yes, delete it!"
 msgstr ""
 
-#: admin/contacts/views/contacts.php:289 admin/contacts/views/dashboard.php:395
-#: convertplug.php:836
+#: admin/contacts/views/contacts.php:289 admin/contacts/views/dashboard.php:405
+#: convertplug.php:839
 msgid "No, cancel it!"
 msgstr ""
 
-#: admin/contacts/views/contacts.php:298 admin/contacts/views/dashboard.php:404
+#: admin/contacts/views/contacts.php:298 admin/contacts/views/dashboard.php:414
 msgid "Cancelled"
 msgstr ""
 
@@ -598,7 +606,7 @@ msgstr ""
 msgid "Your contact is safe :)"
 msgstr ""
 
-#: admin/contacts/views/contacts.php:328 admin/contacts/views/dashboard.php:471
+#: admin/contacts/views/contacts.php:328 admin/contacts/views/dashboard.php:481
 msgid "Removed!"
 msgstr ""
 
@@ -606,27 +614,27 @@ msgstr ""
 msgid "The contact you have selected is removed."
 msgstr ""
 
-#: admin/contacts/views/contacts.php:336 admin/contacts/views/dashboard.php:433
-#: admin/contacts/views/dashboard.php:479 admin/contacts/views/new-list.php:362
-#: admin/contacts/views/new-list.php:375 admin/debug.php:260
-#: admin/settings.php:610
+#: admin/contacts/views/contacts.php:336 admin/contacts/views/dashboard.php:443
+#: admin/contacts/views/dashboard.php:489 admin/contacts/views/new-list.php:367
+#: admin/contacts/views/new-list.php:380 admin/debug.php:260
+#: admin/settings.php:712
 msgid "Error!"
 msgstr ""
 
 #: admin/contacts/views/dashboard.php:140
 #: admin/contacts/views/dashboard.php:161 admin/resources.php:38
-#: convertplug.php:606 convertplug.php:607
+#: convertplug.php:609 convertplug.php:610
 msgid "Connects"
 msgstr ""
 
 #: admin/contacts/views/dashboard.php:140
-#: admin/contacts/views/dashboard.php:305
+#: admin/contacts/views/dashboard.php:315
 msgid "Create new campaign"
 msgstr ""
 
 #: admin/contacts/views/dashboard.php:140
 #: admin/contacts/views/dashboard.php:143
-#: admin/contacts/views/dashboard.php:318 admin/contacts/views/new-list.php:10
+#: admin/contacts/views/dashboard.php:328 admin/contacts/views/new-list.php:10
 msgid "Create New Campaign"
 msgstr ""
 
@@ -665,48 +673,48 @@ msgstr ""
 msgid "Contact list is empty."
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:290 modules/modal/views/main.php:377
+#: admin/contacts/views/dashboard.php:300 modules/modal/views/main.php:382
 msgid "Export"
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:303
+#: admin/contacts/views/dashboard.php:313
 msgid "No results available. "
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:303
+#: admin/contacts/views/dashboard.php:313
 msgid "back to campaign list"
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:305 modules/info_bar/views/main.php:404
-#: modules/modal/views/main.php:408 modules/slide_in/views/main.php:407
+#: admin/contacts/views/dashboard.php:315 modules/info_bar/views/main.php:408
+#: modules/modal/views/main.php:413 modules/slide_in/views/main.php:413
 msgid "First time being here?"
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:305
+#: admin/contacts/views/dashboard.php:315
 msgid "Awesome! Let's start with your first campaign"
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:318
+#: admin/contacts/views/dashboard.php:328
 msgid "Create new list"
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:390
+#: admin/contacts/views/dashboard.php:400
 msgid "You will not be able to recover this list!"
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:404
+#: admin/contacts/views/dashboard.php:414
 msgid "Your campaign is safe :)"
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:435
+#: admin/contacts/views/dashboard.php:445
 msgid "You can not delete this campaign as it is being used in "
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:435
+#: admin/contacts/views/dashboard.php:445
 msgid "Please change submission settings of above and try again."
 msgstr ""
 
-#: admin/contacts/views/dashboard.php:472
+#: admin/contacts/views/dashboard.php:482
 msgid "The campaign list you have selected is removed."
 msgstr ""
 
@@ -734,19 +742,19 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: admin/contacts/views/new-list.php:240
+#: admin/contacts/views/new-list.php:245
 msgid "Authenticate ' + jQuery(this).attr('data-mailerslug') + '"
 msgstr ""
 
-#: admin/contacts/views/new-list.php:354
+#: admin/contacts/views/new-list.php:359
 msgid "Added!"
 msgstr ""
 
-#: admin/contacts/views/new-list.php:355
+#: admin/contacts/views/new-list.php:360
 msgid "The campaign you just created, is added to the list."
 msgstr ""
 
-#: admin/contacts/views/new-list.php:363 admin/contacts/views/new-list.php:376
+#: admin/contacts/views/new-list.php:368 admin/contacts/views/new-list.php:381
 msgid "Error adding the campaign to the list. Please try again."
 msgstr ""
 
@@ -761,7 +769,7 @@ msgstr ""
 
 #: admin/cp-import.php:187 admin/debug.php:66 admin/get-started.php:37
 #: admin/knowledge-base.php:29 admin/modules.php:56 admin/settings.php:62
-#: convertplug.php:866
+#: convertplug.php:869
 msgid "Version"
 msgstr ""
 
@@ -775,8 +783,8 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: admin/cp-import.php:200 modules/info_bar/views/main.php:614
-#: modules/modal/views/main.php:618 modules/slide_in/views/main.php:613
+#: admin/cp-import.php:200 modules/info_bar/views/main.php:618
+#: modules/modal/views/main.php:623 modules/slide_in/views/main.php:619
 msgid "Import"
 msgstr ""
 
@@ -796,7 +804,7 @@ msgstr ""
 #: admin/debug.php:57
 msgid ""
 "Below are some settings that will help you to debug the js and css and some "
-"extra functionality.\r\n"
+"extra functionality.\n"
 "\t\t\t\t\t"
 msgstr ""
 
@@ -806,8 +814,8 @@ msgid "knowledge Base"
 msgstr ""
 
 #: admin/debug.php:79 admin/get-started.php:50 admin/knowledge-base.php:41
-#: admin/modules.php:68 admin/settings.php:75 convertplug.php:654
-#: convertplug.php:655
+#: admin/modules.php:68 admin/settings.php:75 convertplug.php:657
+#: convertplug.php:658
 msgid "Knowledge Base"
 msgstr ""
 
@@ -903,11 +911,11 @@ msgstr ""
 msgid "Enable this option to display debug info in HTML comments."
 msgstr ""
 
-#: admin/debug.php:231 admin/settings.php:516
+#: admin/debug.php:231 admin/settings.php:618
 msgid "Save Settings"
 msgstr ""
 
-#: admin/debug.php:255 admin/settings.php:605
+#: admin/debug.php:255 admin/settings.php:707
 msgid "Updated!"
 msgstr ""
 
@@ -1028,7 +1036,7 @@ msgstr ""
 msgid "Resources!"
 msgstr ""
 
-#: admin/resources.php:50 convertplug.php:1345 convertplug.php:1346
+#: admin/resources.php:50 convertplug.php:1360 convertplug.php:1361
 msgid "Addons"
 msgstr ""
 
@@ -1141,7 +1149,7 @@ msgid ""
 "strings within braces. eg: {{list_name}}, {{content}}, etc."
 msgstr ""
 
-#: admin/settings.php:246 convertplug.php:646
+#: admin/settings.php:246 convertplug.php:649
 #: modules/info_bar/functions/functions.common.php:63
 #: modules/modal/functions/functions.common.php:70
 #: modules/slide_in/functions/functions.common.php:125
@@ -1257,41 +1265,77 @@ msgid ""
 "your site database after submission."
 msgstr ""
 
-#: convertplug.php:616 convertplug.php:617
+#: admin/settings.php:526
+msgid "Honeypot Protection"
+msgstr ""
+
+#: admin/settings.php:527
+msgid "Enable this option if you wish to protect your site from spam attack."
+msgstr ""
+
+#: admin/settings.php:555
+msgid "Disable Domain"
+msgstr ""
+
+#: admin/settings.php:556
+msgid ""
+"Enable this option if you wish to disallow some email domains to fill the "
+"form."
+msgstr ""
+
+#: admin/settings.php:580
+msgid "Enter Domain Names"
+msgstr ""
+
+#: admin/settings.php:581
+msgid ""
+"Enter the email domain name to block the form submission. You cam use comma "
+"to seperate out domain names."
+msgstr ""
+
+#: admin/settings.php:600
+msgid "Lazy Load images"
+msgstr ""
+
+#: admin/settings.php:601
+msgid "Enable this option if you wish to load images aynchronously"
+msgstr ""
+
+#: convertplug.php:619 convertplug.php:620
 msgid "Resources"
 msgstr ""
 
-#: convertplug.php:645
+#: convertplug.php:648
 msgid "Google Font Manager"
 msgstr ""
 
-#: convertplug.php:834
+#: convertplug.php:837
 msgid "You will not be able to recover this selected"
 msgstr ""
 
-#: convertplug.php:837
+#: convertplug.php:840
 msgid "Style you have selected has been deleted."
 msgstr ""
 
-#: convertplug.php:1365
+#: convertplug.php:1380
 msgid "Convert Plus Add-ons"
 msgstr ""
 
-#: convertplug.php:1519
+#: convertplug.php:1534
 msgid ""
 "License registration and extensions are not part of plugin/theme anymore. "
 "Kindly download and install \"BSF CORE\" plugin to manage your licenses and "
 "extensins."
 msgstr ""
 
-#: convertplug.php:1549
+#: convertplug.php:1564
 msgid ""
 "Your server seems to be running outdated, unsupported and vulnerable "
 "version of PHP. You are advised to contact your host and upgrade to PHP 5.6 "
 "or greater."
 msgstr ""
 
-#: convertplug.php:1587
+#: convertplug.php:1602
 #. translators:%s plugin slug %s site URL.
 msgid ""
 "Howdy! ConvertPlug is now rebranded as %1$s. Please read the announcement "
@@ -1299,54 +1343,54 @@ msgid ""
 "rel=\"noopener\">here</a>."
 msgstr ""
 
-#: framework/classes/class.style-framework.php:372
+#: framework/classes/class.style-framework.php:385
 msgid "Start Customizing"
 msgstr ""
 
-#: framework/classes/class.style-framework.php:409
+#: framework/classes/class.style-framework.php:422
 msgid "Use This"
 msgstr ""
 
-#: framework/classes/class.style-framework.php:413
+#: framework/classes/class.style-framework.php:426
 msgid "Import This"
 msgstr ""
 
-#: framework/classes/class.style-framework.php:428
+#: framework/classes/class.style-framework.php:441
 msgid "Live Preview"
 msgstr ""
 
-#: framework/classes/class.style-framework.php:433
+#: framework/classes/class.style-framework.php:446
 msgid "Customize"
 msgstr ""
 
-#: framework/classes/class.style-framework.php:515
+#: framework/classes/class.style-framework.php:531
 #. translators:%s module name
 msgid "Create New %s "
 msgstr ""
 
-#: framework/classes/class.style-framework.php:570
+#: framework/classes/class.style-framework.php:586
 msgid "Name This Design"
 msgstr ""
 
-#: framework/classes/class.style-framework.php:572
+#: framework/classes/class.style-framework.php:588
 msgid ""
 "A unique & descriptive name will help you in future as it would appear in "
 "the dashboard, analytics, etc."
 msgstr ""
 
-#: framework/classes/class.style-framework.php:640
+#: framework/classes/class.style-framework.php:656
 msgid ""
 "Responsive preview here is roughly displayed and might not be 100% correct. "
 "For accurate preview, please check output on the actual device."
 msgstr ""
 
-#: framework/classes/class.style-framework.php:654
+#: framework/classes/class.style-framework.php:670
 #: modules/info_bar/views/new-style.php:17 modules/modal/views/new-style.php:20
 #: modules/slide_in/views/new-style.php:17
 msgid "Search Template"
 msgstr ""
 
-#: framework/classes/class.style-framework.php:750
+#: framework/classes/class.style-framework.php:766
 #. translators:%s module name
 msgid "What would you like to do with current %s ? "
 msgstr ""
@@ -2393,39 +2437,39 @@ msgstr ""
 msgid "Select Size"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:103
+#: framework/lib/fields/multi-box/multi-box.php:102
 msgid "Field Type"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:128
+#: framework/lib/fields/multi-box/multi-box.php:127
 msgid "Field Label"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:134
+#: framework/lib/fields/multi-box/multi-box.php:133
 msgid "Field Name (Required)"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:143
+#: framework/lib/fields/multi-box/multi-box.php:142
 msgid "Placeholder"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:148
+#: framework/lib/fields/multi-box/multi-box.php:147
 msgid "Enter Your Options Here"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:152
+#: framework/lib/fields/multi-box/multi-box.php:151
 msgid "Dropdown Choice Options"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:163
+#: framework/lib/fields/multi-box/multi-box.php:162
 msgid "Textarea Height"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:171
+#: framework/lib/fields/multi-box/multi-box.php:170
 msgid "Required Field"
 msgstr ""
 
-#: framework/lib/fields/multi-box/multi-box.php:179
+#: framework/lib/fields/multi-box/multi-box.php:178
 msgid "Field Value"
 msgstr ""
 
@@ -3923,9 +3967,10 @@ msgstr ""
 #: modules/modal/functions/functions.common.php:2484
 #: modules/slide_in/functions/functions.common.php:2643
 msgid ""
-"Enter the URL where you would like to redirect the user after successfully "
-"added to the list.<br/><br/> Please add http / https prefix to URL. e.g. "
-"https://www.convertplug.com/plus"
+"Enter the URL where you would like to redirect user after successful "
+"submission.<br/><p>You can also add the link of the downloadable "
+"file/files. <br/></p>Separate multiple links with a comma.Please add "
+"complete URLs (with http / https)"
 msgstr ""
 
 #: modules/info_bar/functions/functions.common.php:1329
@@ -5221,23 +5266,23 @@ msgstr ""
 msgid "Stay tuned for something Amazingly breathtaking "
 msgstr ""
 
-#: modules/info_bar/views/analytics.php:28
+#: modules/info_bar/views/analytics.php:32
 msgid "Info Bar Analytics"
 msgstr ""
 
-#: modules/info_bar/views/analytics.php:28
+#: modules/info_bar/views/analytics.php:32
 #: modules/info_bar/views/variant/variant.php:67
 #: modules/info_bar/views/variant/variant.php:76
 msgid "Back to Info Bar List"
 msgstr ""
 
-#: modules/info_bar/views/analytics.php:51
+#: modules/info_bar/views/analytics.php:55
 msgid "Select Info Bar"
 msgstr ""
 
-#: modules/info_bar/views/analytics.php:129
-#: modules/modal/views/analytics.php:131
-#: modules/slide_in/views/analytics.php:130
+#: modules/info_bar/views/analytics.php:133
+#: modules/modal/views/analytics.php:136
+#: modules/slide_in/views/analytics.php:134
 msgid "Comparison Factor"
 msgstr ""
 
@@ -5260,8 +5305,8 @@ msgid "Info Bar Designer"
 msgstr ""
 
 #: modules/info_bar/views/main.php:164 modules/info_bar/views/main.php:169
-#: modules/info_bar/views/main.php:404 modules/info_bar/views/main.php:423
-#: modules/info_bar/views/main.php:424
+#: modules/info_bar/views/main.php:408 modules/info_bar/views/main.php:427
+#: modules/info_bar/views/main.php:428
 msgid "Create New Info Bar"
 msgstr ""
 
@@ -5275,7 +5320,7 @@ msgstr ""
 msgid "Import Style"
 msgstr ""
 
-#: modules/info_bar/views/main.php:175 modules/info_bar/views/main.php:608
+#: modules/info_bar/views/main.php:175 modules/info_bar/views/main.php:612
 msgid "Import Info Bar"
 msgstr ""
 
@@ -5299,150 +5344,150 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: modules/info_bar/views/main.php:277 modules/info_bar/views/main.php:305
-#: modules/info_bar/views/variant/variant.php:130
-#: modules/info_bar/views/variant/variant.php:138
-#: modules/info_bar/views/variant/variant.php:194
-#: modules/info_bar/views/variant/variant.php:202
-#: modules/modal/views/main.php:278 modules/modal/views/main.php:309
-#: modules/modal/views/variant/variant.php:132
-#: modules/modal/views/variant/variant.php:140
-#: modules/modal/views/variant/variant.php:196
-#: modules/modal/views/variant/variant.php:204
-#: modules/slide_in/views/main.php:281 modules/slide_in/views/main.php:309
-#: modules/slide_in/views/variant/variant.php:134
-#: modules/slide_in/views/variant/variant.php:142
-#: modules/slide_in/views/variant/variant.php:198
-#: modules/slide_in/views/variant/variant.php:206
+#: modules/info_bar/views/main.php:281 modules/info_bar/views/main.php:309
+#: modules/info_bar/views/variant/variant.php:133
+#: modules/info_bar/views/variant/variant.php:141
+#: modules/info_bar/views/variant/variant.php:200
+#: modules/info_bar/views/variant/variant.php:208
+#: modules/modal/views/main.php:283 modules/modal/views/main.php:314
+#: modules/modal/views/variant/variant.php:135
+#: modules/modal/views/variant/variant.php:143
+#: modules/modal/views/variant/variant.php:202
+#: modules/modal/views/variant/variant.php:210
+#: modules/slide_in/views/main.php:287 modules/slide_in/views/main.php:315
+#: modules/slide_in/views/variant/variant.php:137
+#: modules/slide_in/views/variant/variant.php:145
+#: modules/slide_in/views/variant/variant.php:204
+#: modules/slide_in/views/variant/variant.php:212
 msgid "Live"
 msgstr ""
 
-#: modules/info_bar/views/main.php:279 modules/info_bar/views/main.php:308
-#: modules/info_bar/views/variant/variant.php:132
-#: modules/info_bar/views/variant/variant.php:141
-#: modules/info_bar/views/variant/variant.php:196
-#: modules/info_bar/views/variant/variant.php:205
-#: modules/modal/views/main.php:280 modules/modal/views/main.php:312
-#: modules/modal/views/variant/variant.php:134
-#: modules/modal/views/variant/variant.php:143
-#: modules/modal/views/variant/variant.php:198
-#: modules/modal/views/variant/variant.php:207
-#: modules/slide_in/views/main.php:283 modules/slide_in/views/main.php:312
-#: modules/slide_in/views/variant/variant.php:136
-#: modules/slide_in/views/variant/variant.php:145
-#: modules/slide_in/views/variant/variant.php:200
-#: modules/slide_in/views/variant/variant.php:209
+#: modules/info_bar/views/main.php:283 modules/info_bar/views/main.php:312
+#: modules/info_bar/views/variant/variant.php:135
+#: modules/info_bar/views/variant/variant.php:144
+#: modules/info_bar/views/variant/variant.php:202
+#: modules/info_bar/views/variant/variant.php:211
+#: modules/modal/views/main.php:285 modules/modal/views/main.php:317
+#: modules/modal/views/variant/variant.php:137
+#: modules/modal/views/variant/variant.php:146
+#: modules/modal/views/variant/variant.php:204
+#: modules/modal/views/variant/variant.php:213
+#: modules/slide_in/views/main.php:289 modules/slide_in/views/main.php:318
+#: modules/slide_in/views/variant/variant.php:139
+#: modules/slide_in/views/variant/variant.php:148
+#: modules/slide_in/views/variant/variant.php:206
+#: modules/slide_in/views/variant/variant.php:215
 msgid "Pause"
 msgstr ""
 
-#: modules/info_bar/views/main.php:295
-#: modules/info_bar/views/variant/variant.php:134
-#: modules/info_bar/views/variant/variant.php:198
-#: modules/modal/views/main.php:299 modules/modal/views/variant/variant.php:136
-#: modules/modal/views/variant/variant.php:200
-#: modules/modules-functions.php:710 modules/slide_in/views/main.php:299
-#: modules/slide_in/views/variant/variant.php:138
-#: modules/slide_in/views/variant/variant.php:202
+#: modules/info_bar/views/main.php:299
+#: modules/info_bar/views/variant/variant.php:137
+#: modules/info_bar/views/variant/variant.php:204
+#: modules/modal/views/main.php:304 modules/modal/views/variant/variant.php:139
+#: modules/modal/views/variant/variant.php:206
+#: modules/modules-functions.php:719 modules/slide_in/views/main.php:305
+#: modules/slide_in/views/variant/variant.php:141
+#: modules/slide_in/views/variant/variant.php:208
 msgid "Scheduled"
 msgstr ""
 
-#: modules/info_bar/views/main.php:311
-#: modules/info_bar/views/variant/variant.php:144
-#: modules/info_bar/views/variant/variant.php:208
-#: modules/modal/views/main.php:315 modules/modal/views/variant/variant.php:146
-#: modules/modal/views/variant/variant.php:210
-#: modules/slide_in/views/main.php:315
-#: modules/slide_in/views/variant/variant.php:148
-#: modules/slide_in/views/variant/variant.php:212
+#: modules/info_bar/views/main.php:315
+#: modules/info_bar/views/variant/variant.php:147
+#: modules/info_bar/views/variant/variant.php:214
+#: modules/modal/views/main.php:320 modules/modal/views/variant/variant.php:149
+#: modules/modal/views/variant/variant.php:216
+#: modules/slide_in/views/main.php:321
+#: modules/slide_in/views/variant/variant.php:151
+#: modules/slide_in/views/variant/variant.php:218
 msgid "Schedule"
 msgstr ""
 
-#: modules/info_bar/views/main.php:335 modules/modal/views/main.php:339
-#: modules/slide_in/views/main.php:338
+#: modules/info_bar/views/main.php:339 modules/modal/views/main.php:344
+#: modules/slide_in/views/main.php:344
 msgid "See Variants"
 msgstr ""
 
-#: modules/info_bar/views/main.php:337 modules/modal/views/main.php:341
-#: modules/slide_in/views/main.php:340
+#: modules/info_bar/views/main.php:341 modules/modal/views/main.php:346
+#: modules/slide_in/views/main.php:346
 msgid "Create Variant"
 msgstr ""
 
-#: modules/info_bar/views/main.php:342
+#: modules/info_bar/views/main.php:346
 msgid "Duplicate Info bar"
 msgstr ""
 
-#: modules/info_bar/views/main.php:363
-#: modules/info_bar/views/variant/variant.php:159
-#: modules/info_bar/views/variant/variant.php:222
-#: modules/modal/views/main.php:367 modules/modal/views/variant/variant.php:161
-#: modules/modal/views/variant/variant.php:224
-#: modules/slide_in/views/main.php:366
-#: modules/slide_in/views/variant/variant.php:163
-#: modules/slide_in/views/variant/variant.php:226
+#: modules/info_bar/views/main.php:367
+#: modules/info_bar/views/variant/variant.php:162
+#: modules/info_bar/views/variant/variant.php:228
+#: modules/modal/views/main.php:372 modules/modal/views/variant/variant.php:164
+#: modules/modal/views/variant/variant.php:230
+#: modules/slide_in/views/main.php:372
+#: modules/slide_in/views/variant/variant.php:166
+#: modules/slide_in/views/variant/variant.php:232
 msgid "View Analytics"
 msgstr ""
 
-#: modules/info_bar/views/main.php:378 modules/slide_in/views/main.php:376
+#: modules/info_bar/views/main.php:382 modules/slide_in/views/main.php:382
 msgid "Export Settings"
 msgstr ""
 
-#: modules/info_bar/views/main.php:382
-#: modules/info_bar/views/variant/variant.php:163
+#: modules/info_bar/views/main.php:386
+#: modules/info_bar/views/variant/variant.php:166
 msgid "Delete Info Bar"
 msgstr ""
 
-#: modules/info_bar/views/main.php:396
+#: modules/info_bar/views/main.php:400
 msgid "Back to info_bar list"
 msgstr ""
 
-#: modules/info_bar/views/main.php:397
+#: modules/info_bar/views/main.php:401
 msgid "Back to Info Bar list"
 msgstr ""
 
-#: modules/info_bar/views/main.php:405
+#: modules/info_bar/views/main.php:409
 msgid "Awesome! Let's start with your first info bar"
 msgstr ""
 
-#: modules/info_bar/views/main.php:431
+#: modules/info_bar/views/main.php:435
 msgid "Delete Selected Infobar"
 msgstr ""
 
-#: modules/info_bar/views/main.php:472 modules/modal/views/main.php:477
-#: modules/slide_in/views/main.php:475
+#: modules/info_bar/views/main.php:476 modules/modal/views/main.php:482
+#: modules/slide_in/views/main.php:481
 msgid "Search Contacts"
 msgstr ""
 
-#: modules/info_bar/views/main.php:514
-#: modules/info_bar/views/variant/variant.php:260
+#: modules/info_bar/views/main.php:518
+#: modules/info_bar/views/variant/variant.php:266
 msgid "Schedule This Info Bar"
 msgstr ""
 
-#: modules/info_bar/views/main.php:524
-#: modules/info_bar/views/variant/variant.php:270
-#: modules/modal/views/main.php:528 modules/modal/views/variant/variant.php:272
-#: modules/slide_in/views/main.php:523
-#: modules/slide_in/views/variant/variant.php:274
+#: modules/info_bar/views/main.php:528
+#: modules/info_bar/views/variant/variant.php:276
+#: modules/modal/views/main.php:533 modules/modal/views/variant/variant.php:278
+#: modules/slide_in/views/main.php:529
+#: modules/slide_in/views/variant/variant.php:280
 msgid "Enter Starting Time"
 msgstr ""
 
-#: modules/info_bar/views/main.php:538
-#: modules/info_bar/views/variant/variant.php:284
-#: modules/modal/views/main.php:542 modules/modal/views/variant/variant.php:286
-#: modules/slide_in/views/main.php:537
-#: modules/slide_in/views/variant/variant.php:288
+#: modules/info_bar/views/main.php:542
+#: modules/info_bar/views/variant/variant.php:290
+#: modules/modal/views/main.php:547 modules/modal/views/variant/variant.php:292
+#: modules/slide_in/views/main.php:543
+#: modules/slide_in/views/variant/variant.php:294
 msgid "Enter Ending Time"
 msgstr ""
 
-#: modules/info_bar/views/main.php:559
-#: modules/info_bar/views/variant/variant.php:305
+#: modules/info_bar/views/main.php:563
+#: modules/info_bar/views/variant/variant.php:311
 msgid "Schedule Info Bar"
 msgstr ""
 
-#: modules/info_bar/views/main.php:562
-#: modules/info_bar/views/variant/variant.php:308
-#: modules/modal/views/main.php:566 modules/modal/views/variant/variant.php:310
-#: modules/slide_in/views/main.php:561
-#: modules/slide_in/views/variant/variant.php:312
+#: modules/info_bar/views/main.php:566
+#: modules/info_bar/views/variant/variant.php:314
+#: modules/modal/views/main.php:571 modules/modal/views/variant/variant.php:316
+#: modules/slide_in/views/main.php:567
+#: modules/slide_in/views/variant/variant.php:318
 msgid "Cancel"
 msgstr ""
 
@@ -5498,13 +5543,13 @@ msgstr ""
 
 #: modules/info_bar/views/variant/variant.php:65
 #: modules/info_bar/views/variant/variant.php:70
-#: modules/info_bar/views/variant/variant.php:245
+#: modules/info_bar/views/variant/variant.php:251
 #: modules/modal/views/variant/variant.php:67
 #: modules/modal/views/variant/variant.php:72
-#: modules/modal/views/variant/variant.php:247
+#: modules/modal/views/variant/variant.php:253
 #: modules/slide_in/views/variant/variant.php:67
 #: modules/slide_in/views/variant/variant.php:72
-#: modules/slide_in/views/variant/variant.php:249
+#: modules/slide_in/views/variant/variant.php:255
 msgid "Create New Variant"
 msgstr ""
 
@@ -5514,33 +5559,33 @@ msgstr ""
 msgid "Variant Name"
 msgstr ""
 
-#: modules/info_bar/views/variant/variant.php:156
+#: modules/info_bar/views/variant/variant.php:159
 msgid "Duplicate Info Bar"
 msgstr ""
 
-#: modules/info_bar/views/variant/variant.php:219
+#: modules/info_bar/views/variant/variant.php:225
 msgid "Duplicate Variant"
 msgstr ""
 
-#: modules/info_bar/views/variant/variant.php:226
+#: modules/info_bar/views/variant/variant.php:232
 msgid "Delete  Variant"
 msgstr ""
 
-#: modules/info_bar/views/variant/variant.php:235
-#: modules/modal/views/variant/variant.php:237
-#: modules/slide_in/views/variant/variant.php:239
+#: modules/info_bar/views/variant/variant.php:241
+#: modules/modal/views/variant/variant.php:243
+#: modules/slide_in/views/variant/variant.php:245
 msgid "FIRST TIME BEING HERE?"
 msgstr ""
 
-#: modules/info_bar/views/variant/variant.php:236
-#: modules/modal/views/variant/variant.php:238
-#: modules/slide_in/views/variant/variant.php:240
+#: modules/info_bar/views/variant/variant.php:242
+#: modules/modal/views/variant/variant.php:244
+#: modules/slide_in/views/variant/variant.php:246
 msgid "Awesome! Let's start with your first variant"
 msgstr ""
 
-#: modules/info_bar/views/variant/variant.php:244
-#: modules/modal/views/variant/variant.php:246
-#: modules/slide_in/views/variant/variant.php:248
+#: modules/info_bar/views/variant/variant.php:250
+#: modules/modal/views/variant/variant.php:252
+#: modules/slide_in/views/variant/variant.php:254
 msgid "Create New variant"
 msgstr ""
 
@@ -6758,37 +6803,37 @@ msgstr ""
 msgid "GET IT NOW!"
 msgstr ""
 
-#: modules/modal/views/analytics.php:30
+#: modules/modal/views/analytics.php:34
 msgid "Modal Analytics"
 msgstr ""
 
-#: modules/modal/views/analytics.php:30
+#: modules/modal/views/analytics.php:34
 #: modules/modal/views/variant/variant.php:69
 #: modules/modal/views/variant/variant.php:78
 msgid "Back to Modal List"
 msgstr ""
 
-#: modules/modal/views/analytics.php:53
+#: modules/modal/views/analytics.php:58
 msgid "Select Modal"
 msgstr ""
 
-#: modules/modal/views/analytics.php:134
-#: modules/slide_in/views/analytics.php:133
+#: modules/modal/views/analytics.php:139
+#: modules/slide_in/views/analytics.php:137
 msgid "Impression Vs Conversion"
 msgstr ""
 
-#: modules/modal/views/analytics.php:141
-#: modules/slide_in/views/analytics.php:140
+#: modules/modal/views/analytics.php:146
+#: modules/slide_in/views/analytics.php:144
 msgid "Impression"
 msgstr ""
 
-#: modules/modal/views/analytics.php:147
-#: modules/slide_in/views/analytics.php:146
+#: modules/modal/views/analytics.php:152
+#: modules/slide_in/views/analytics.php:150
 msgid "Conversion"
 msgstr ""
 
-#: modules/modal/views/analytics.php:153
-#: modules/slide_in/views/analytics.php:152
+#: modules/modal/views/analytics.php:158
+#: modules/slide_in/views/analytics.php:156
 msgid "Conversion Rate"
 msgstr ""
 
@@ -6801,12 +6846,12 @@ msgid "Modal Designer"
 msgstr ""
 
 #: modules/modal/views/main.php:166 modules/modal/views/main.php:171
-#: modules/modal/views/main.php:408 modules/modal/views/main.php:427
-#: modules/modal/views/main.php:428
+#: modules/modal/views/main.php:413 modules/modal/views/main.php:432
+#: modules/modal/views/main.php:433
 msgid "Create New Modal"
 msgstr ""
 
-#: modules/modal/views/main.php:177 modules/modal/views/main.php:612
+#: modules/modal/views/main.php:177 modules/modal/views/main.php:617
 msgid "Import Modal"
 msgstr ""
 
@@ -6814,38 +6859,38 @@ msgstr ""
 msgid "Modal Name"
 msgstr ""
 
-#: modules/modal/views/main.php:346 modules/modal/views/variant/variant.php:158
-#: modules/modal/views/variant/variant.php:221
+#: modules/modal/views/main.php:351 modules/modal/views/variant/variant.php:161
+#: modules/modal/views/variant/variant.php:227
 msgid "Duplicate Modal"
 msgstr ""
 
-#: modules/modal/views/main.php:386 modules/modal/views/variant/variant.php:165
-#: modules/modal/views/variant/variant.php:228
+#: modules/modal/views/main.php:391 modules/modal/views/variant/variant.php:168
+#: modules/modal/views/variant/variant.php:234
 msgid "Delete Modal"
 msgstr ""
 
-#: modules/modal/views/main.php:400 modules/modal/views/main.php:401
+#: modules/modal/views/main.php:405 modules/modal/views/main.php:406
 msgid "Back to modal list"
 msgstr ""
 
-#: modules/modal/views/main.php:409
+#: modules/modal/views/main.php:414
 msgid "Awesome! Let's start with your first modal"
 msgstr ""
 
-#: modules/modal/views/main.php:435
+#: modules/modal/views/main.php:440
 msgid "Delete Selected Modal"
 msgstr ""
 
-#: modules/modal/views/main.php:518 modules/modal/views/variant/variant.php:262
+#: modules/modal/views/main.php:523 modules/modal/views/variant/variant.php:268
 msgid "Schedule This Modal"
 msgstr ""
 
-#: modules/modal/views/main.php:563 modules/modal/views/variant/variant.php:307
+#: modules/modal/views/main.php:568 modules/modal/views/variant/variant.php:313
 msgid "Schedule Modal"
 msgstr ""
 
-#: modules/modal/views/variant/variant.php:237
-#: modules/slide_in/views/variant/variant.php:239
+#: modules/modal/views/variant/variant.php:243
+#: modules/slide_in/views/variant/variant.php:245
 msgid "Create new variant Test"
 msgstr ""
 
@@ -7256,17 +7301,17 @@ msgstr ""
 msgid "Slide In Image"
 msgstr ""
 
-#: modules/slide_in/views/analytics.php:29
+#: modules/slide_in/views/analytics.php:33
 msgid "Slide In Analytics"
 msgstr ""
 
-#: modules/slide_in/views/analytics.php:29
+#: modules/slide_in/views/analytics.php:33
 #: modules/slide_in/views/variant/variant.php:69
 #: modules/slide_in/views/variant/variant.php:78
 msgid "Back to Slide In List"
 msgstr ""
 
-#: modules/slide_in/views/analytics.php:52
+#: modules/slide_in/views/analytics.php:56
 msgid "Select Slide In"
 msgstr ""
 
@@ -7279,12 +7324,12 @@ msgid "Slide In Designer"
 msgstr ""
 
 #: modules/slide_in/views/main.php:167 modules/slide_in/views/main.php:172
-#: modules/slide_in/views/main.php:407 modules/slide_in/views/main.php:426
-#: modules/slide_in/views/main.php:427
+#: modules/slide_in/views/main.php:413 modules/slide_in/views/main.php:432
+#: modules/slide_in/views/main.php:433
 msgid "Create New Slide In"
 msgstr ""
 
-#: modules/slide_in/views/main.php:178 modules/slide_in/views/main.php:607
+#: modules/slide_in/views/main.php:178 modules/slide_in/views/main.php:613
 msgid "Import Slide In"
 msgstr ""
 
@@ -7292,37 +7337,37 @@ msgstr ""
 msgid "Slide In Name"
 msgstr ""
 
-#: modules/slide_in/views/main.php:345
-#: modules/slide_in/views/variant/variant.php:160
-#: modules/slide_in/views/variant/variant.php:223
+#: modules/slide_in/views/main.php:351
+#: modules/slide_in/views/variant/variant.php:163
+#: modules/slide_in/views/variant/variant.php:229
 msgid "Duplicate Slide In"
 msgstr ""
 
-#: modules/slide_in/views/main.php:385
-#: modules/slide_in/views/variant/variant.php:167
-#: modules/slide_in/views/variant/variant.php:230
+#: modules/slide_in/views/main.php:391
+#: modules/slide_in/views/variant/variant.php:170
+#: modules/slide_in/views/variant/variant.php:236
 msgid "Delete Slide In"
 msgstr ""
 
-#: modules/slide_in/views/main.php:399 modules/slide_in/views/main.php:400
+#: modules/slide_in/views/main.php:405 modules/slide_in/views/main.php:406
 msgid "Back to Slide In list"
 msgstr ""
 
-#: modules/slide_in/views/main.php:408
+#: modules/slide_in/views/main.php:414
 msgid "Awesome! Let's start with your first Slide In"
 msgstr ""
 
-#: modules/slide_in/views/main.php:434
+#: modules/slide_in/views/main.php:440
 msgid "Delete Selected Slide In"
 msgstr ""
 
-#: modules/slide_in/views/main.php:513
-#: modules/slide_in/views/variant/variant.php:264
+#: modules/slide_in/views/main.php:519
+#: modules/slide_in/views/variant/variant.php:270
 msgid "Schedule This Slide In"
 msgstr ""
 
-#: modules/slide_in/views/main.php:558
-#: modules/slide_in/views/variant/variant.php:309
+#: modules/slide_in/views/main.php:564
+#: modules/slide_in/views/variant/variant.php:315
 msgid "Schedule Slide In"
 msgstr ""
 

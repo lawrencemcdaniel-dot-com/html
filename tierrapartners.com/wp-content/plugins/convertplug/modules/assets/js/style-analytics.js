@@ -10,13 +10,19 @@ function renderChart() {
         styleid: a,
         startDate: e,
         endDate: t
-    }, n = jQuery.ajax({
+    };     
+    var n = jQuery.ajax({
         url: ajaxurl,
         data: o,
         method: "POST",
         dataType: "JSON",
-        async: !1
+        async: !1,
+        success: function(response){
+            var val = JSON.stringify(response);
+            jQuery('#cp-module-data').val(val);
+        },
     }).responseText;
+    //console.log(jQuery.parseJSON(n));
     setTimeout(function() {
         jQuery(".cp-analytics-filter-section").fadeIn(1e3);
         var e = jQuery(".analytics-form .col-sm-2").width();
@@ -66,7 +72,7 @@ function renderChart() {
                 scaleFontFamily: "'Open Sans',sans-serif",
                 scaleFontColor: "#444",
                 tooltipTitleFontFamily: "'Open Sans',sans-serif",
-                tooltipTitleFontSize: 12
+                tooltipTitleFontSize: 12,
             };
             ("bar" == l || "line" == l) && (o.tooltipTemplate = "<%= label %>: <%= datasetLabel %>: <%= value %>", 
             o.multiTooltipTemplate = "<%= datasetLabel %>: <%= value %>"), "bar" == l ? (o.legendTemplate = '<ul class="legend-list"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].strokeColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%>: <%=datasets[i].bars[0].tpl_var_count%><%}%></li><%}%></ul>', 

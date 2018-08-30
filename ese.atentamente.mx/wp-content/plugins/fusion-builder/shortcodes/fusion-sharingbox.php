@@ -310,7 +310,7 @@ if ( fusion_is_element_enabled( 'fusion_sharing' ) ) {
 				}
 
 				if ( $fusion_settings->get( 'nofollow_social_links' ) ) {
-					$attr['rel'] = 'nofollow';
+					$attr['rel'] = ( isset( $attr['rel'] ) ) ? $attr['rel'] . ' nofollow' : 'nofollow';
 				}
 
 				$attr['style'] = ( $args['icon_color'] ) ? 'color:' . $args['icon_color'] . ';' : '';

@@ -179,7 +179,7 @@ class Fusion_Builder_Admin {
 	protected static function admin_tab( $title, $page ) {
 
 		if ( isset( $_GET['page'] ) ) {
-			$active_page = $_GET['page'];
+			$active_page = sanitize_text_field( wp_unslash( $_GET['page'] ) );
 		}
 
 		if ( $active_page == $page ) {

@@ -78,7 +78,7 @@ if ( ! function_exists( 'cp_get_form_hidden_fields' ) ) {
 		<input type="hidden" name="cp_set_user" value="<?php echo esc_attr( $user_role ); ?>" />
 		
 		<?php if( '1' === $is_enable_pot ){ ?>
-		<input type="text" name="cp_set_hp" value="" />
+		<input type="text" name="cp_set_hp" value="" style="display: none;"/>
 		<?php } 
 
 		$html = ob_get_clean();
@@ -464,8 +464,11 @@ function cp_is_style_visible( $settings ) {
 
 		$style_id = $settings['style_id'];
 
-		// filter target page settings.
+		// Filter target page settings.
 		$display = apply_filters( 'cp_target_page_settings', $display, $style_id );
+
+		// Filter to check URL Settings.
+		$display = apply_filters( 'cp_target_url_settings', $display, $style_id );
 
 		return $display;
 	} else {
@@ -1142,7 +1145,9 @@ if ( ! function_exists( 'cp_enqueue_google_fonts' ) ) {
 
 		// Register & Enqueue selected - Google Fonts.
 		if ( ! empty( $gfonts ) && $is_gf_enable ) {
-			echo "<link rel='stylesheet' type='text/css' id='cp-google-fonts' href='https://fonts.googleapis.com/css?family=" . $gfonts . "'>";
+			$media = '"all"';
+
+			echo "<link rel='stylesheet' type='text/css' id='cp-google-fonts' href='https://fonts.googleapis.com/css?family=" . $gfonts . "' media='none' onload = 'if(media!=".$media.")media=".$media."'>";
 		}
 	}
 }
@@ -1219,7 +1224,7 @@ if ( ! function_exists( 'generate_border_css' ) ) {
 		}
 
 		$css_code1 = '';
-		if ( isset( $result['br_type'] ) && '1' === $result['br_type'] ) {
+		if ( isset( $result['br_type'] ) && ( '1' === $result['br_type'] || 1 === $result['br_type'] ) ) {
 			$css_code1 .= $result['br_tl'] . 'px ' . $result['br_tr'] . 'px ' . $result['br_br'] . 'px ';
 			$css_code1 .= $result['br_bl'] . 'px';
 		} else {
@@ -1235,7 +1240,7 @@ if ( ! function_exists( 'generate_border_css' ) ) {
 		$text                  .= 'border-color: ' . $result['color'] . ';';
 		$text                  .= 'border-width: ' . $result['border_width'] . 'px;';
 
-		if ( isset( $result['bw_type'] ) && '1' === $result['bw_type'] ) {
+		if ( isset( $result['bw_type'] ) && ('1' === $result['bw_type']  || 1 === $result['bw_type'])) {
 			$text .= 'border-top-width:' . $result['bw_t'] . 'px;';
 			$text .= 'border-left-width:' . $result['bw_l'] . 'px;';
 			$text .= 'border-right-width:' . $result['bw_r'] . 'px;';
@@ -1763,5 +1768,96 @@ if ( ! function_exists( 'cp_get_custom_slector_class_init' ) ) {
 		$custom_selector  = str_replace( ',', ' ', trim( $custom_selector ) );
 		$custom_selector  = trim( $custom_selector );
 		return $custom_selector;
+	}
+}
+
+add_filter( 'cp_get_timezone', 'cp_get_timezone_init' );
+
+if ( ! function_exists( 'cp_get_timezone_init' ) ) {
+	/**
+	 * Function Name: cp_get_timezone_init return timezone.
+	 *
+	 * @return string  string parameter.
+	 * @since 3.3.2
+	 */
+	function cp_get_timezone_init( ) {
+		
+		$timezone = '';
+		$timezone = get_option( 'timezone_string' );
+		if ( '' === $timezone ) {
+			$toffset  = get_option( 'gmt_offset' );
+			$timezone = '' . $toffset . '';
+		}
+		return $timezone;
+
+	}
+}
+
+if ( ! function_exists( 'cp_get_form_process_html' ) ) {
+	/**
+	 * Name: cp_get_form_process_html return form html.
+	 * @param  string $style css.
+	 * @return string        css and html.
+	 */
+	function cp_get_form_process_html( $style ){
+
+		$op = '<div class ="cp-form-processing" >
+			<div class="smile-absolute-loader" style="visibility: visible;">
+				<div class="smile-loader" style = "'.$style.'" >
+					<div class="smile-loading-bar"></div>
+					<div class="smile-loading-bar"></div>
+					<div class="smile-loading-bar"></div>
+					<div class="smile-loading-bar"></div>
+				</div>
+			</div>
+		</div>';
+		return $op;
+	}
+}
+
+if ( ! function_exists( 'cp_get_close_adj_position' ) ) {
+/**
+ * Nmae: cp_get_close_adj_position Return adjacent close position.
+ * @param  string $position posiiton.
+ * @return string           posiiton.
+ */
+function cp_get_close_adj_position( $position ){
+	$close_adj_class = '';
+	switch ( $position ) {
+		case 'top_left':
+			$close_adj_class .= ' cp-adjacent-left';
+			break;
+		case 'top_right':
+			$close_adj_class .= ' cp-adjacent-right';
+			break;
+		case 'bottom_left':
+			$close_adj_class .= ' cp-adjacent-bottom-left';
+			break;
+		case 'bottom_right':
+			$close_adj_class .= ' cp-adjacent-bottom-right';
+			break;
+	}
+	return $close_adj_class;
+}
+
+}
+
+if ( ! function_exists( 'cp_get_tooltip_position' ) ) {
+	/**
+	 * Name: cp_get_tooltip_position .
+	 * @param  string $close_adjacent_position.
+	 * @return string.                         
+	 */
+	function cp_get_tooltip_position( $close_adjacent_position ){		
+		$position = '';
+		switch ( $close_adjacent_position ) {
+				case 'top_left':
+					$position = 'right';
+					break;
+				case 'top_right':
+					$position = 'left';
+					break;
+			}
+			return $position;
 	}
 }

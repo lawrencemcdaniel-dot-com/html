@@ -1027,6 +1027,8 @@ jQuery(document).on('smile_customizer_field_change',function(e, single_data){
 		cp_update_bg_image( smile_global_data, ".cp-slidein-body", "", 'slide_in_bg_image', 'slide_in_bg_image_src' );
 	}
 
+	
+
 	//	Background Image - 	repeat
 	var opt_bg_rpt = single_data.opt_bg_rpt || null;
 	if( 'opt_bg_rpt' in single_data ) {
@@ -1236,6 +1238,10 @@ parent.jQuery(window.parent.document).on('cp-image-change', function( e, name, u
 		cp_change_bg_img( smile_global_data, '.cp-slidein-body' , '' , name, 'opt_bg', url, val );
 	}
 
+	var slide_in_bg_image  = jQuery('.cp-slidein-body');
+	console.log(slide_in_bg_image);
+
+
 	//	Slidein - Image
 	// Process for modal image - for variable 'slidein_image'
 	if( name == 'slidein_image' && name != 'undefined' && name != null ) {
@@ -1338,7 +1344,6 @@ parent.jQuery(window.parent.document).on('cp-image-default', function( e, name, 
 			slidein_img.attr( "src", url);
 		}
 	}
-
 });
 
 

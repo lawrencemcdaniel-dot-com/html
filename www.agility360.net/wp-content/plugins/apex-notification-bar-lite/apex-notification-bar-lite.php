@@ -3,7 +3,7 @@
   Plugin Name: Apex Notification Bar Lite
   Plugin URI:  https://accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/
   Description: An advanced notification bar plugin used to create attractive single notification bar with specific position for your site.
-  Version:     1.0.3
+  Version:     1.0.5
   Author:      AccessPress Themes
   Author URI:  http://accesspressthemes.com
   License:     GPL2
@@ -21,7 +21,7 @@ defined('APEXNBL_CSS_DIR') or define('APEXNBL_CSS_DIR', plugin_dir_url(__FILE__)
 defined('APEXNBL_CLASS_DIR') or define('APEXNBL_CLASS_DIR', dirname(__FILE__) . '/class');
 defined('APEXNBL_CLASS_DIR_PAGINATION') or define('APEXNBL_CLASS_DIR_PAGINATION', plugin_dir_url(__FILE__) . 'inc/backend/main_setup/');
 defined('APEXNBL_PLUGIN_FILE') or define('APEXNBL_PLUGIN_FILE', __FILE__);
-defined('APEXNBL_VERSION') or define('APEXNBL_VERSION', '1.0.3');
+defined('APEXNBL_VERSION') or define('APEXNBL_VERSION', '1.0.5');
 defined('APEXNBL_TITLE') or define('APEXNBL_TITLE', 'APEX NOTIFICATION BAR LITE');
 defined('APEXNBL_TD') or define('APEXNBL_TD', 'apexnb-lite');
 defined('APEXNBL_BXSLIDER_VERSION') or define('APEXNBL_BXSLIDER_VERSION', '4.1.2');

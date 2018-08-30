@@ -565,7 +565,7 @@ function fusion_load_custom_elements() {
 
 	if ( isset( $_POST['cat'] ) && '' !== $_POST['cat'] ) {
 
-		$cat = $_POST['cat'];
+		$cat = wp_unslash( $_POST['cat'] ); // WPCS: sanitization ok.
 
 		// Query elements.
 		$query = fusion_cached_query(
@@ -690,8 +690,8 @@ function fusion_builder_load_demo() {
 	}
 
 	$data      = array();
-	$page_name = $_POST['page_name'];
-	$demo_name = $_POST['demo_name'];
+	$page_name = sanitize_text_field( wp_unslash( $_POST['page_name'] ) );
+	$demo_name = sanitize_text_field( wp_unslash( $_POST['demo_name'] ) );
 	$post_id   = (int) $_POST['post_id'];
 
 	$fusion_builder_demos = apply_filters( 'fusion_builder_get_demo_pages', array() );
@@ -730,7 +730,7 @@ function fusion_builder_save_layout() {
 
 	if ( isset( $_POST['fusion_layout_name'] ) && '' !== $_POST['fusion_layout_name'] ) {
 
-		$layout_name = $_POST['fusion_layout_name'];
+		$layout_name = sanitize_text_field( wp_unslash( $_POST['fusion_layout_name'] ) );
 		$taxonomy    = 'element_category';
 		$term        = '';
 		$meta        = array();
@@ -744,28 +744,28 @@ function fusion_builder_save_layout() {
 
 		if ( isset( $_POST['fusion_layout_post_type'] ) && '' !== $_POST['fusion_layout_post_type'] ) {
 
-			$post_type = $_POST['fusion_layout_post_type'];
+			$post_type = sanitize_text_field( wp_unslash( $_POST['fusion_layout_post_type'] ) );
 
 			if ( isset( $_POST['fusion_current_post_id'] ) && '' !== $_POST['fusion_current_post_id'] ) {
-				$post_id = $_POST['fusion_current_post_id'];
+				$post_id = sanitize_text_field( wp_unslash( $_POST['fusion_current_post_id'] ) );
 			}
 
 			if ( isset( $_POST['fusion_layout_element_type'] ) && '' !== $_POST['fusion_layout_element_type'] ) {
-				$meta['_fusion_element_type'] = $_POST['fusion_layout_element_type'];
-				$layout_type = ' fusion-element-type-' . $_POST['fusion_layout_element_type'];
+				$meta['_fusion_element_type'] = sanitize_text_field( wp_unslash( $_POST['fusion_layout_element_type'] ) );
+				$layout_type = ' fusion-element-type-' . sanitize_text_field( wp_unslash( $_POST['fusion_layout_element_type'] ) );
 			}
 
-			if ( 'fusion_template' == $post_type ) {
+			if ( 'fusion_template' === $post_type ) {
 				$meta['fusion_builder_status'] = 'active';
 
 				// Save custom css.
 				if ( isset( $_POST['fusion_custom_css'] ) && '' !== $_POST['fusion_custom_css'] ) {
-					$meta['_fusion_builder_custom_css'] = $_POST['fusion_custom_css'];
+					$meta['_fusion_builder_custom_css'] = wp_unslash( $_POST['fusion_custom_css'] ); // WPCS: sanitization ok.
 				}
 
 				// Save page template.
 				if ( isset( $_POST['fusion_page_template'] ) && '' !== $_POST['fusion_page_template'] ) {
-					$meta['_wp_page_template'] = $_POST['fusion_page_template'];
+					$meta['_wp_page_template'] = wp_unslash( $_POST['fusion_page_template'] ); // WPCS: sanitization ok.
 				}
 
 				// Save globals. @codingStandardsIgnoreLine
@@ -779,28 +779,28 @@ function fusion_builder_save_layout() {
 			} else {
 				$position = false;
 				if ( isset( $_POST['fusion_layout_content'] ) ) {
-					$position = strpos( $_POST['fusion_layout_content'], 'fusion_global' );
+					$position = strpos( $_POST['fusion_layout_content'], 'fusion_global' ); // WPCS: sanitization ok.
 				}
 
 				if ( false !== $position ) {
-					// Remove fusion_global attributes from content if it is simple library element. @codingStandardsIgnoreLine
-					$_POST['fusion_layout_content'] = preg_replace( '/fusion_global=[^][^][0-9]*[^][^]/' , '', $_POST['fusion_layout_content'] );
+					// Remove fusion_global attributes from content if it is simple library element.
+					$_POST['fusion_layout_content'] = preg_replace( '/fusion_global=[^][^][0-9]*[^][^]/', '', wp_unslash( $_POST['fusion_layout_content'] ) ); // WPCS: sanitization ok.
 				}
 			}
 
 			// Add Fusion Options to meta data.
-			if ( isset( $_POST['fusion_options'] ) && '' !== $_POST['fusion_options'] && is_array( $_POST['fusion_options'] ) ) {
-				foreach ( $_POST['fusion_options'] as $option ) {
+			if ( isset( $_POST['fusion_options'] ) && '' !== $_POST['fusion_options'] && is_array( wp_unslash( $_POST['fusion_options'] ) ) ) { // WPCS: sanitization ok.
+				foreach ( wp_unslash( $_POST['fusion_options'] ) as $option ) { // WPCS: sanitization ok.
 					$meta[ $option[0] ] = $option[1];
 				}
 			}
 			// Post category.
 			if ( isset( $_POST['fusion_layout_new_cat'] ) && '' !== $_POST['fusion_layout_new_cat'] ) {
-				$term = $_POST['fusion_layout_new_cat'];
+				$term = wp_unslash( $_POST['fusion_layout_new_cat'] ); // WPCS: sanitization ok.
 				$global_type = $global_type[ $term ];
 			}
 
-			$post_fusion_layout_content = ( isset( $_POST['fusion_layout_content'] ) ) ? $_POST['fusion_layout_content'] : '';
+			$post_fusion_layout_content = ( isset( $_POST['fusion_layout_content'] ) ) ? wp_unslash( $_POST['fusion_layout_content'] ) : ''; // WPCS: sanitization ok.
 			$new_layout_id = fusion_builder_create_layout( $post_type, $layout_name, $post_fusion_layout_content, $meta, $taxonomy, $term );
 			?>
 
@@ -853,8 +853,8 @@ function fusion_builder_update_layout() {
 
 	if ( isset( $_POST['fusion_layout_id'] ) && '' !== $_POST['fusion_layout_id'] ) {
 
-		$layout_id  = $_POST['fusion_layout_id'];
-		$content    = isset( $_POST['fusion_layout_content'] ) ? $_POST['fusion_layout_content'] : '';
+		$layout_id  = wp_unslash( $_POST['fusion_layout_id'] ); // WPCS: sanitization ok.
+		$content    = isset( $_POST['fusion_layout_content'] ) ? wp_unslash( $_POST['fusion_layout_content'] ) : ''; // WPCS: sanitization ok.
 
 		$to_replace = addslashes( ' fusion_global="' . $layout_id . '"' );
 		$content    = str_replace( $to_replace, '', $content );
@@ -885,7 +885,7 @@ function fusion_builder_get_image_url() {
 	}
 
 	$data      = array();
-	$image_ids = $_POST['fusion_image_ids'];
+	$image_ids = wp_unslash( $_POST['fusion_image_ids'] ); // WPCS: sanitization ok.
 	foreach ( $image_ids as $image_id ) {
 		if ( '' !== $image_id ) {
 			$image_url = wp_get_attachment_url( $image_id, 'thumbnail' );

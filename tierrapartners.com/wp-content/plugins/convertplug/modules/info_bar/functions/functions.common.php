@@ -1310,7 +1310,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'opts'         => array(
 				'title'       => __( 'Redirect URL', 'smile' ),
 				'value'       => '',
-				'description' => __( 'Enter the URL where you would like to redirect the user after successfully added to the list.<br/><br/> Please add http / https prefix to URL. e.g. https://www.convertplug.com/plus', 'smile' ),
+				'description' => __( 'Enter the URL where you would like to redirect user after successful submission.<br/><p>You can also add the link of the downloadable file/files. <br/></p>Separate multiple links with a comma.Please add complete URLs (with http / https)', 'smile' ),
 			),
 			'panel'        => __( 'Form Setup', 'smile' ),
 			'dependency'   => array(

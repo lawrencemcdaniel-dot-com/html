@@ -20,7 +20,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * The current version of Eventbrite Tickets
 		 */
-		const VERSION = '4.5.1';
+		const VERSION = '4.5.2';
 
 		/**
 		 * Deprecated property in 4.3. Use VERSION const instead.
@@ -30,12 +30,12 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 *
 		 * @var string
 		 */
-		public static $pluginVersion = '4.5.1';
+		public static $pluginVersion = '4.5.2';
 
 		/**************************************************************
 		 * EventBrite Configuration
 		 **************************************************************/
-		const REQUIRED_TEC_VERSION = '4.6.18';
+		const REQUIRED_TEC_VERSION = '4.6.21';
 
 		protected static $instance;
 		public static $errors;

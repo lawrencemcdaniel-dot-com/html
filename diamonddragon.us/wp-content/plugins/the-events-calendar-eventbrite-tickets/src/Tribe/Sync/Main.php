@@ -38,6 +38,19 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Main {
 			$data = $_POST;
 		}
 
+		// if event not owned by user make changes to show tickets and image sync and then return
+		if (  ! empty( $data['eventbrite_import_not_owner'] ) ) {
+			// local Eventbrite setting to show tickets
+			$show_tickets = ( ! empty( $data['EventShowTickets'] ) ? esc_attr( $data['EventShowTickets'] ) : 'yes' );
+			update_post_meta( $event->ID, '_EventShowTickets', $show_tickets );
+
+			// local Eventbrite setting for image sync
+			$image_sync_mode = ( isset( $data['EventBriteImageSyncMode'] ) ? (int) $data['EventBriteImageSyncMode'] : 1 );
+			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', $image_sync_mode );
+
+			return false;
+		}
+
 		// Clean if Register Event is not Yes
 		if ( empty( $data['EventRegister'] ) || 'yes' !== $data['EventRegister'] ) {
 			tribe( 'eventbrite.sync.utilities' )->clear_details( $event );

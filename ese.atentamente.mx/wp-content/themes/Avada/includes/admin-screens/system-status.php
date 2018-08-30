@@ -739,7 +739,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
 			});
 		}
-		});
 	</script>
 <?php endif; ?>
 

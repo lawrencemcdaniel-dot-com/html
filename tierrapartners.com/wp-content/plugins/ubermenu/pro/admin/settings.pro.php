@@ -309,7 +309,7 @@ function ubermenu_pro_instance_settings( $settings , $config_id ){
 	/* Menu Items Alignment */
 	$settings[180] = array(
 		'name'	=> 'header_position_menu_items',
-		'label'	=> __( 'Menu Items' , 'ubermenu' ),
+		'label'	=> __( 'Top Level Menu Items' , 'ubermenu' ),
 		'type'	=> 'header',
 		'group'	=> 'position',
 	);
@@ -323,8 +323,9 @@ function ubermenu_pro_instance_settings( $settings , $config_id ){
 			'left' 	=> __( 'Left', 'ubermenu' ),
 			'center'=> __( 'Center', 'ubermenu' ),
 			'right'	=> __( 'Right', 'ubermenu' ),
+			'flex'	=> __( 'Flex (Justify)', 'ubermenu' ),
 		),
-		'desc'	=> __( 'The alignment of the top level menu items within the menu bar.  Automatic will align left/right based on the current language direction LTR/RTL' , 'ubermenu' ),
+		'desc'	=> __( 'The alignment of the top level menu items within the menu bar.  Please note that the menu item alignment will only have an effect if the menu bar is wider than the menu items.  <br/><strong>Automatic</strong> will align left/right based on the current language direction LTR/RTL.  <br/><strong>Flex (Justify)</strong> will use Flexbox styling to evenly distribute any extra space in the menu bar evenly over the items.' , 'ubermenu' ),
 		'default' 	=> 'auto',
 		'group'	=> 'position',
 		'customizer'	=> true,
@@ -1346,6 +1347,21 @@ function ubermenu_pro_instance_settings( $settings , $config_id ){
 
 	);
 
+	$settings[872]	= array(
+		'name'	=> 'style_tabs_font_weight',
+		'label'	=> __( 'Tab Toggles Font Weight' , 'ubermenu' ),
+		'type'	=> 'select',
+		'options'	=> array(
+			''			=> '&mdash;',
+			'normal'	=> 'Normal',
+			'bold'		=> 'Bold',
+		),
+		'group'	=> 'style_customizations',
+		'custom_style'	=> 'tabs_font_weight',
+		'customizer'	=> true,
+		'customizer_section' => 'tabs',
+	);
+
 	$settings[873]	= array(
 		'name'	=> 'style_tabs_color',
 		'label'	=> __( 'Tab Toggles Font Color' , 'ubermenu' ),
@@ -2182,7 +2198,24 @@ function ubermenu_settings_panel_fields_pro( $all_fields = array() ){
 	$fields[104] = array(
 		'name' 		=> 'google_maps_api_key',
 		'label' 	=> __( 'Google Maps API Key', 'ubermenu' ),
-		'desc' 		=> __( 'Enter your Google Maps API Key.', 'ubermenu' ) . '  <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Get a key</a>',
+		'desc' 		=> __( 'Enter your Google Maps API Key.  As of July 2018, this is required by Google.', 'ubermenu' ) . '  <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Get a key</a>',
+		'type' 		=> 'text',
+		'default' 	=> '',
+		'group'		=> 'assets',
+	);
+
+	$fields[105] = array(
+		'name' 		=> 'google_maps_language',
+		'label' 	=> __( 'Google Maps Language', 'ubermenu' ),
+		'desc' 		=> __( 'It is generally recommended to let Google Maps determine this automatically for the user, but you can override the language here if you want to.  ', 'ubermenu'). ' <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/localization">Google Maps Localization',
+		'type' 		=> 'text',
+		'default' 	=> '',
+		'group'		=> 'assets',
+	);
+	$fields[106] = array(
+		'name' 		=> 'google_maps_region',
+		'label' 	=> __( 'Google Maps Region', 'ubermenu' ),
+		'desc' 		=> __( 'It is generally recommended to let Google Maps determine this automatically for the user, but you can override the language here if you want to.  ', 'ubermenu'). ' <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/localization">Google Maps Localization',
 		'type' 		=> 'text',
 		'default' 	=> '',
 		'group'		=> 'assets',
@@ -2334,7 +2367,7 @@ function ubermenu_settings_panel_fields_pro( $all_fields = array() ){
 		'label' => __( 'Theme Integration / Interference' , 'ubermenu' ),
 		'type'	=> 'header',
 		'group'	=> array( 'misc', 'theme_integration' ),
-		'desc'	=> __( 'Settings to help tame misbehaving themes.  See also: ' , 'ubermenu' ) . '<a href="https://sevenspark.com/docs/ubermenu-3/integration/theme-interference" target="_blank">Theme Interference</a>',
+		'desc'	=> __( 'Settings to help tame misbehaving or complex themes.  See also: ' , 'ubermenu' ) . '<a href="https://sevenspark.com/docs/ubermenu-3/integration/theme-interference" target="_blank">Theme Interference</a>',
 	);
 
 	$fields[295] = array(
@@ -2370,6 +2403,15 @@ function ubermenu_settings_panel_fields_pro( $all_fields = array() ){
 		'type'	=> 'checkbox',
 		'default'	=> 'off',
 		'desc'	=> __( 'A custom walker allows the theme or another plugin to take over control of the output of the menu item markup in Appearance > Menus.  In most cases, this is not an issue.  But certain themes choose to alter the structures within the menu items and can cause interference, breaking the UberMenu Menu Item Settings.  Enable this setting to try to disable the walker (and revert to the standard WordPress walker).  Note that this would disable plugins that rely on a custom admin walker, such as Nav Menu Roles.', 'ubermenu' ),
+		'group'	=> array( 'misc' , 'theme_integration' ),
+	);
+
+	$fields[299]	= array(
+		'name'	=> 'exclude_advanced_ubermenu_items',
+		'label'	=> __( 'Exclude UberMenu Advanced Items from other menus [Experimental]' , 'ubermenu' ),
+		'type'	=> 'checkbox',
+		'default'	=> 'off',
+		'desc'	=> __( 'We do not recommend using UberMenu Advanced Items (Custom Content, Widgets, Rows, Columns, etc) in non-UberMenu menus (from your theme or another plugin), as those menus will not process UberMenu Advanced Items properly.  However, if you need to reuse an UberMenu in another menu, you can enable this setting, which will attempt to strip out the Advanced UberMenu items when other menus are generated.', 'ubermenu' ),
 		'group'	=> array( 'misc' , 'theme_integration' ),
 	);
 

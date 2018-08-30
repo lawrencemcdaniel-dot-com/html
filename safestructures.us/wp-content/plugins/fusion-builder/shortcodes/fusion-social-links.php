@@ -215,7 +215,7 @@ if ( fusion_is_element_enabled( 'fusion_social_links' ) ) {
 
 				$attr['target'] = $this->args['linktarget'];
 
-				if ( '_blank' == $attr['target'] ) {
+				if ( '_blank' === $attr['target'] ) {
 					$attr['rel'] = 'noopener noreferrer';
 				}
 
@@ -227,7 +227,7 @@ if ( fusion_is_element_enabled( 'fusion_social_links' ) ) {
 				$attr['href'] = $link;
 
 				if ( $fusion_settings->get( 'nofollow_social_links' ) ) {
-					$attr['rel'] = 'nofollow';
+					$attr['rel'] = ( isset( $attr['rel'] ) ) ? $attr['rel'] . ' nofollow' : 'nofollow';
 				}
 
 				if ( $args['icon_color'] ) {

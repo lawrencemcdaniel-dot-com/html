@@ -251,7 +251,12 @@ if ( $prev_styles ) {
 															foreach ( $style_settings as $title => $value ) {
 																if ( ! is_array( $value ) ) {
 																	$value                  = urldecode( $value );
-																	$exp_settings[ $title ] = htmlentities( stripslashes( utf8_encode( $value ) ), ENT_QUOTES );
+																	
+																	if(is_callable('utf8_encode')){
+																		$exp_settings[ $title ] = htmlentities( stripslashes( utf8_encode( $value ) ), ENT_QUOTES );
+																	}else{
+																		$exp_settings[ $title ] = htmlentities( stripslashes( html_entity_decode( $value ) ), ENT_QUOTES );
+																	}
 																} else {
 																	foreach ( $value as $ex_title => $ex_val ) {
 																		$val[ $ex_title ] = $ex_val;

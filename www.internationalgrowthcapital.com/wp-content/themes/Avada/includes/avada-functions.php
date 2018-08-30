@@ -1299,7 +1299,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 
 		} else {
 			$uber_menu_class = '';
-			if ( function_exists( 'ubermenu_get_menu_instance_by_theme_location' ) ) {
+			if ( function_exists( 'ubermenu_get_menu_instance_by_theme_location' ) && ubermenu_get_menu_instance_by_theme_location( 'main_navigation' ) ) {
 				$uber_menu_class = ' fusion-ubermenu';
 			}
 

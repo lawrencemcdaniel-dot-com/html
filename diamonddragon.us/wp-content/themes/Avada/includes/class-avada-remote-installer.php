@@ -29,7 +29,7 @@ class Avada_Remote_Installer {
 	 * @access private
 	 * @var string
 	 */
-	private $api_url = 'http://updates.theme-fusion.com/';
+	private $api_url = 'https://updates.theme-fusion.com/';
 
 	/**
 	 * The constructor.

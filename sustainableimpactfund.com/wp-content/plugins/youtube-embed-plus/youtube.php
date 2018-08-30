@@ -1,9 +1,9 @@
 <?php
 /*
   Plugin Name: YouTube
-  Plugin URI: https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx
+  Plugin URI: https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx?ref=plugin
   Description: YouTube Embed and YouTube Gallery WordPress Plugin. Embed a responsive video, YouTube channel, playlist gallery, or live stream
-  Version: 12.0.1
+  Version: 12.1
   Author: EmbedPlus Team
   Author URI: https://www.embedplus.com
  */
@@ -34,7 +34,7 @@ class YouTubePrefs
 
     public static $folder_name = 'youtube-embed-plus';
     public static $curltimeout = 30;
-    public static $version = '12.0.1';
+    public static $version = '12.1';
     public static $opt_version = 'version';
     public static $optembedwidth = null;
     public static $optembedheight = null;
@@ -265,7 +265,7 @@ class YouTubePrefs
     public static function my_plugin_action_links($links)
     {
         $links[] = '<a href="' . esc_url(admin_url('admin.php?page=youtube-my-preferences')) . '">Settings</a>';
-        $links[] = '<a href="https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx" target="_blank">Pro Version</a>';
+        $links[] = '<a href="https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx?ref=actionlinks" target="_blank">Pro Version</a>';
         return $links;
     }
 
@@ -508,7 +508,7 @@ class YouTubePrefs
                             else
                             {
                                 $thehtml .= '<p class="center bold orange">This <a target="_blank" href="' . $postlink . '">post/page</a> contains a video that has been removed from YouTube.';
-                                $thehtml .= '<br><a target="_blank" href="https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx">Activate delete video tracking to catch these cases &raquo;</a>';
+                                $thehtml .= '<br><a target="_blank" href="https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx?ref=glancevids">Activate delete video tracking to catch these cases &raquo;</a>';
                                 $thehtml .= '</strong>';
                             }
                         }
@@ -540,7 +540,7 @@ class YouTubePrefs
                             else
                             {
                                 $thehtml .= '<p class="center bold orange">This <a target="_blank" href="' . $postlink . '">post/page</a> contains a video that has been removed from YouTube.';
-                                $thehtml .= '<br><a target="_blank" href="https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx">Activate delete video tracking to catch these cases &raquo;</a>';
+                                $thehtml .= '<br><a target="_blank" href="https://www.embedplus.com/dashboard/pro-easy-video-analytics.aspx?ref=glancevids">Activate delete video tracking to catch these cases &raquo;</a>';
                                 $thehtml .= '</strong>';
                             }
                         }
@@ -636,18 +636,18 @@ class YouTubePrefs
             <?php
             $form_valid = true;
             $acc_expand = '';
-            $get_pro_link = self::$epbase . '/dashboard/pro-easy-video-analytics.aspx';
+            $get_pro_link = self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=wizard';
 
 
 
             $step1_video_errors = '';
-            $step1_video_error_invalid = 'Sorry, that does not seem to be a link to an existing video. Please confirm that the link works in your browser, and then copy that full link in your address bar to paste here.';
+            $step1_video_error_invalid = 'Sorry, that does not seem to be a link to an existing video. Please confirm that the link works in your browser, and that <em>the owner of the video allowed embed sharing permissions (otherwise, contact the owner of the video to allow embedding)</em>. Then copy that full link in your address bar to paste here.';
             $step1_playlist_errors = '';
-            $step1_playlist_error_invalid = 'Sorry, that does not seem to be a link to an existing playlist. Please confirm that the link works in your browser, and then copy that full link in your address bar to paste here.';
+            $step1_playlist_error_invalid = 'Sorry, that does not seem to be a link to an existing playlist. Please confirm that the link works in your browser, and that <em>the owner of the playlist allowed embed sharing permissions (otherwise, contact the owner of the video to allow embedding)</em>. Then copy that full link in your address bar to paste here.';
             $step1_channel_errors = '';
-            $step1_channel_error_invalid = 'Sorry, that does not seem to be a link to an existing video. Please confirm that the link works in your browser, and then copy that full link in your address bar to paste here. If you are sure your link is correct, then your API key may be too restrictive (<a target="_blank" href="https://console.developers.google.com/apis/credentials">https://console.developers.google.com/apis/credentials</a>).';
+            $step1_channel_error_invalid = 'Sorry, that does not seem to be a link to an existing video. Please confirm that the link works in your browser, and that <em>the owner of the video allowed embed sharing permissions (otherwise, contact the owner of the video to allow embedding)</em>. Then copy that full link in your address bar to paste here. If you are sure your link is correct, then your API key may be too restrictive (<a target="_blank" href="https://console.developers.google.com/apis/credentials">https://console.developers.google.com/apis/credentials</a>).';
             $step1_live_errors = '';
-            $step1_live_error_invalid = 'Sorry, that does not seem to be a valid link to an existing video or channel. Please confirm that the link works in your browser, and then copy that full link in your address bar to paste here. If you are sure your link is correct, then your API key may be too restrictive (<a target="_blank" href="https://console.developers.google.com/apis/credentials">https://console.developers.google.com/apis/credentials</a>).';
+            $step1_live_error_invalid = 'Sorry, that does not seem to be a valid link to an existing video or channel. Please confirm that the link works in your browser, and that <em>the owner of the video allowed embed sharing permissions (otherwise, contact the owner of the video to allow embedding)</em>. Then copy that full link in your address bar to paste here. If you are sure your link is correct, then your API key may be too restrictive (<a target="_blank" href="https://console.developers.google.com/apis/credentials">https://console.developers.google.com/apis/credentials</a>).';
             $if_live_preview = false;
 
             $theytid = null;
@@ -1218,15 +1218,9 @@ class YouTubePrefs
                         <?php
                     }
                     ?>
-                    <h3 class="header-go"> <a href="<?php echo self::$epbase . '/dashboard/pro-easy-video-analytics.aspx'; ?>">Check my performance, blocked countries, deleted videos, etc. (PRO) </a></h3>
+                    <h3 class="header-go"> <a href="<?php echo self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=wizardacc'; ?>">Check my performance, blocked countries, deleted videos, etc. (PRO) </a></h3>
                     <div class="header-go-content"></div>
                 </div>
-                <a id="lnkYthealth" class="ythealth imglink" href="<?php echo self::$epbase ?>/dashboard/pro-easy-video-analytics.aspx" target="_blank">
-                    <img src="<?php echo plugins_url('/images/ythealth.png', __FILE__) ?>">
-                    <div class="tip">
-                        <span class=orange>(PRO)</span> Click to request an instant YouTube diagnostic report to see what (if any) important service problems that Google/YouTube may be having right now that might affect your embeds and playlists.
-                    </div>
-                </a>
                 <?php
             }
             ?>
@@ -1456,7 +1450,7 @@ class YouTubePrefs
 
     public static function get_search_result_html($thumb, $options)
     {
-        $get_pro_link = self::$epbase . '/dashboard/pro-easy-video-analytics.aspx';
+        $get_pro_link = self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=searchresult';
         $escId = esc_attr($thumb->id);
         $code = '';
 
@@ -1673,7 +1667,7 @@ class YouTubePrefs
 
         //vanilla defaults
         $_center = 0;
-        $_glance = 1;
+        $_glance = 0;
         $_autoplay = 0;
         $_cc_load_policy = 0;
         $_iv_load_policy = 1;
@@ -1755,7 +1749,7 @@ class YouTubePrefs
         if ($arroptions !== false)
         {
             $_center = self::tryget($arroptions, self::$opt_center, 0);
-            $_glance = self::tryget($arroptions, self::$opt_glance, 1);
+            $_glance = self::tryget($arroptions, self::$opt_glance, $_glance);
             $_autoplay = self::tryget($arroptions, self::$opt_autoplay, 0);
             $_debugmode = self::tryget($arroptions, self::$opt_debugmode, 0);
             $_old_script_method = self::tryget($arroptions, self::$opt_old_script_method, 0);
@@ -2495,7 +2489,7 @@ class YouTubePrefs
         $code1 = '<iframe ' . $centercode . ' id="_ytid_' . rand(10000, 99999) . '" width="' . self::$defaultwidth . '" height="' . self::$defaultheight .
                 '" src="https://www.' . $youtubebaseurl . '.com/embed/' . $videoidoutput . '?';
         $code2 = '" class="__youtube_prefs__' . ($iscontent ? '' : ' __youtube_prefs_widget__') .
-                '"' . $voloutput . $acctitle . $galleryid_ifm_data . ' allowfullscreen data-no-lazy="1" data-skipgform_ajax_framebjll=""></iframe>';
+                '"' . $voloutput . $acctitle . $galleryid_ifm_data . ' allow="autoplay; encrypted-media" allowfullscreen data-no-lazy="1" data-skipgform_ajax_framebjll=""></iframe>';
 
         $origin = '';
 
@@ -2853,12 +2847,12 @@ class YouTubePrefs
         if (!(self::$alloptions[self::$opt_pro] && strlen(trim(self::$alloptions[self::$opt_pro])) > 0))
         {
             //$new_pointer_content .= "This version improves the admin interface, and includes a new optional feature for users that want to monetize their sites through <a target=\"_blank\" href=\"https://www.vi.ai?aid=WP_embedplus&utm_source=Wordpress&utm_medium=WP_embedplus\">contextual video &raquo;</a> (Free and <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro &raquo;</a>).";
-            $new_pointer_content .= "This update forces the YouTube API (if enabled) to be secured with https, and makes the wizard more compatible with smaller screens for both Free and <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro &raquo;</a> versions.";
+            $new_pointer_content .= "This update includes:<ul class=ul-disc><li>Improved autoplay compatibility</li><li>Improved sign-up process for the <a target=\"_blank\" href=\"" . admin_url('admin.php?page=youtube-ep-vi') . "\">new monetization feature &raquo;</a></li></ul>";
         }
         else
         {
             //$new_pointer_content .= "This version improves the admin interface, and includes a new optional feature for users that want to monetize their sites through <a target=\"_blank\" href=\"https://www.vi.ai?aid=WP_embedplus&utm_source=Wordpress&utm_medium=WP_embedplus\">contextual video &raquo;</a> (Free and <a target=_blank href=" . self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=frompointer' . ">Pro &raquo;</a>)." . '<strong>Important message to YouTube Pro users</strong>: From version 11.7 onward, you must <a href="https://www.embedplus.com/youtube-pro/download/?prokey=' . esc_attr(self::$alloptions[self::$opt_pro]) . '" target="_blank">download the separate plugin here</a> to regain your Pro features. All your settings will automatically migrate after installing the separate Pro download. Thank you for your support and patience during this transition.';
-            $new_pointer_content .= "This update forces the YouTube API (if enabled) to be secured with https, and makes the wizard more compatible with smaller screens for both Free and Pro versions." . '<strong>Important message to YouTube Pro users</strong>: From version 11.7 onward, you must <a href="https://www.embedplus.com/youtube-pro/download/?prokey=' . esc_attr(self::$alloptions[self::$opt_pro]) . '" target="_blank">download the separate plugin here</a> to regain your Pro features. All your settings will automatically migrate after installing the separate Pro download. Thank you for your support and patience during this transition.';
+            $new_pointer_content .= "This update includes:<ul class=ul-disc><li>Improved autoplay compatibility</li><li>Improved sign-up process for the <a target=\"_blank\" href=\"https://www.vi.ai?aid=WP_embedplus&utm_source=Wordpress&utm_medium=WP_embedplus\">new monetization feature &raquo;</a></li></ul>" . '<strong>Important message to YouTube Pro users</strong>: From version 11.7 onward, you must <a href="https://www.embedplus.com/youtube-pro/download/?prokey=' . esc_attr(self::$alloptions[self::$opt_pro]) . '" target="_blank">download the separate plugin here</a> to regain your Pro features. All your settings will automatically migrate after installing the separate Pro download. Thank you for your support and patience during this transition.';
         }
         $new_pointer_content .= '</p>';
 
@@ -3652,10 +3646,10 @@ class YouTubePrefs
                             Each embed code will have an "Insert Into Editor" button that you can click to directly embed the desired video link to your post without having to copy and paste.
                         </p>
                         <p>
-                            <a href="<?php echo self::$epbase ?>/dashboard/pro-easy-video-analytics.aspx" target="_blank" style=""><b>Even more options are available to PRO users!</b></a> If you download our PRO version, you can simply click the <a href="<?php echo self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=protab' ?>" target="_blank" class="button-primary cuz">&#9658; Customize</a> button within the wizard to further personalize your embeds without having to enter special codes yourself. The customize button will allow you to easily override most of the above default options for that embed.
+                            <a href="<?php echo self::$epbase ?>/dashboard/pro-easy-video-analytics.aspx?ref=wizdirections" target="_blank" style=""><b>Even more options are available to PRO users!</b></a> If you download our PRO version, you can simply click the <a href="<?php echo self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=wizdirections' ?>" target="_blank" class="button-primary cuz">&#9658; Customize</a> button within the wizard to further personalize your embeds without having to enter special codes yourself. The customize button will allow you to easily override most of the above default options for that embed.
                             <br>
                             <br>
-                            <a href="<?php echo self::$epbase ?>/dashboard/pro-easy-video-analytics.aspx" target="_blank" style="text-decoration: none;"><img style="width: 500px; margin: 0 auto; display: block;" src="<?php echo plugins_url('images/ssprowizard.png', __FILE__) ?>" ></a>
+                            <a href="<?php echo self::$epbase ?>/dashboard/pro-easy-video-analytics.aspx?ref=wizdirections" target="_blank" style="text-decoration: none;"><img style="width: 500px; margin: 0 auto; display: block;" src="<?php echo plugins_url('images/ssprowizard.png', __FILE__) ?>" ></a>
                         </p>
 
                     </section>
@@ -3936,7 +3930,7 @@ class YouTubePrefs
                         </h3>
                         <p>
                             Suppose you have a few videos that need to be different from the above defaults. You can add options to the end of a link as displayed below to override the above defaults. Each option should begin with '&'.
-                            <br><span class="orange">PRO users: You can use the big <a href="<?php echo self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=protab' ?>" target="_blank">customize</a> buttons that you will see inside the wizard, instead of memorizing the following codes.</span>
+                            <br><span class="orange">PRO users: You can use the big <a href="<?php echo self::$epbase . '/dashboard/pro-easy-video-analytics.aspx?ref=manual' ?>" target="_blank">customize</a> buttons that you will see inside the wizard, instead of memorizing the following codes.</span>
                         </p>
                         <?php
                         _e('<ul class="reglist">');
@@ -4081,7 +4075,7 @@ class YouTubePrefs
                         </p>
                         <div class="hr"></div>
                         <p>
-                            <a href="<?php echo self::$epbase ?>/dashboard/pro-easy-video-analytics.aspx" target="_blank">Purchase and download the PRO plugin to get the above and several other features &raquo;</a>
+                            <a href="<?php echo self::$epbase ?>/dashboard/pro-easy-video-analytics.aspx?ref=protabfooter" target="_blank">Purchase and download the PRO plugin to get the above and several other features &raquo;</a>
                         </p>                    
                         <div class="clearboth"></div>
                     </div>
@@ -4590,7 +4584,7 @@ class YouTubePrefs
                             <li><label><input type="checkbox" data-obfilter="yob-standalone" /> Self-contained playlists or channels (no thumbnails, just YouTube's standard playlist player).</label></li>
                             <li><label><input type="checkbox" data-obfilter="yob-live" /> Live streams.</label></li>
                             <li style="display:none;"><label><input type="checkbox" data-obfilter="yob-privacy" /> With GDPR / privacy features.</label></li>
-                            <li><label><input type="checkbox" data-obfilter="yob-monetize" /> Relevant video ads that earn revenue for me (up to 10 times higher CPMs revenue than display advertising).</label></li>
+                            <li><label><input type="checkbox" data-obfilter="yob-monetize" /> Relevant video ads that earn me up to 10x higher CPMs (revenue) than display advertising.</label></li>
                         </ul>
                         <div class="ytprefs-ob-nav">
                             <button type="button" class="button-secondary ytprefs-ob-nav-close">Cancel</button>
@@ -5717,6 +5711,25 @@ class YouTubePrefs
         return $abs_root;
     }
 
+    public static function vi_adstxt_lookup()
+    {
+        $request = esc_url_raw(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        if ('/ads.txt' === $request)
+        {
+            if (function_exists('tenup_display_ads_txt'))
+            {
+                $post_id = get_option('adstxt_post');
+                if (!empty($post_id))
+                {
+                    $post = get_post($post_id);
+                    header('Content-Type: text/plain');
+                    echo esc_html($post->post_content);
+                    die();
+                }
+            }
+        }
+    }
+
     public static function vi_adstxt_download()
     {
         $inp_key = filter_input(INPUT_GET, 'key');
@@ -6074,7 +6087,8 @@ class YouTubePrefs
                             <tr class="form-field">
                                 <th valign="top" scope="row">
                                     <label for="<?php echo self::$opt_vi_js_settings ?>[keywords]">Keywords</label>
-                                    <small>Enter in a few keywords that describe the content on your website, separated by commas.</small>
+                                    <small>Enter a few keywords that describe topics your visitors are likely to be interested in. Separate by commas. 
+                                        Try to avoid terms that have multiple meanings; e.g., just the word "record" can refer to music records and even sports records.</small>
                                 </th>
                                 <td>
                                     <input id="<?php echo self::$opt_vi_js_settings ?>[keywords]" name="<?php echo self::$opt_vi_js_settings ?>[keywords]" value="<?php echo esc_attr($item[self::$opt_vi_js_settings]['keywords']) ?>"
@@ -6867,6 +6881,15 @@ margin: 0 auto;
                             </p>
                         </li>
                         <li>
+                            <h3>When will I start seeing ads within the vi story?</h3>
+                            <p>
+                                It can vary depending on which countries the bulk of your traffic is coming from.  Here’s a table from vi.ai. that offers some insight:
+                            </p>
+                            <p>
+                                <img src="<?php echo plugins_url(self::$folder_name . '/images/vi-demand-estimates.png') ?>"/>
+                            </p>
+                        </li>
+                        <li>
                             <h3>How do I change the number of ads that are shown for each vi story I embed?</h3>
                             <p>
                                 vi manages the maximum number of ads and time between them based on each publisher. This is to optimize the fill rates and monetization.  If you would like some custom settings, please <a href="#jumpsupport">contact support</a>.
@@ -7253,8 +7276,8 @@ margin: 0 auto;
 // constants
 define('EPYT_BASE_URL', rtrim(plugins_url('', __FILE__), "\\/") . '/');
 define('EPYTVI_INCLUDES_PATH', rtrim(dirname(__FILE__), "\\/") . '/includes/vi/');
-//define('EPYTVI_ENDPOINTS_URL', 'https://dashboard-api-test.vidint.net/v1/api/widget/settings');
-define('EPYTVI_ENDPOINTS_URL', 'https://dashboard-api.vidint.net/v1/api/widget/settings');
+if (!defined('EPYTVI_ENDPOINTS_URL'))
+    define('EPYTVI_ENDPOINTS_URL', 'https://dashboard-api.vidint.net/v1/api/widget/settings');
 
 $youtubeplgplus = new YouTubePrefs();
 

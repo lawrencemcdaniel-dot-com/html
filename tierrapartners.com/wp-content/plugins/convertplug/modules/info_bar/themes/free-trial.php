@@ -94,10 +94,17 @@ if ( ! function_exists( 'info_bar_theme_free_trial' ) ) {
 			$img_class .= 'cp_ifb_hide_img';
 		}
 
+		$convert_plug_settings    = get_option( 'convert_plug_settings' );
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;
+
 		?>
 		<?php if ( '' !== $info_bar_image ) { ?>
 		<div class="cp-image-container">
-			<img style="<?php echo esc_attr( $imagestyle ); ?>" src="<?php echo esc_attr( $info_bar_image ); ?>" class="cp-image <?php echo esc_attr( $img_class ); ?>" <?php echo $info_bar_alt; ?> >
+			<?php if( $images_on_load ){?>
+				<img style="<?php echo esc_attr( $imagestyle ); ?>" data-src="<?php echo esc_attr( $info_bar_image ); ?>" class="cp-image <?php echo esc_attr( $img_class ); ?>" <?php echo $info_bar_alt; ?> >
+			<?php }else{ ?>
+				<img style="<?php echo esc_attr( $imagestyle ); ?>" src="<?php echo esc_attr( $info_bar_image ); ?>" class="cp-image <?php echo esc_attr( $img_class ); ?>" <?php echo $info_bar_alt; ?> >
+			<?php } ?>			
 		</div> <?php } ?>
 		<div class="cp-sub-container">
 			<div class="cp-msg-container <?php echo ( '' === trim( $a['infobar_title'] ) ? 'cp-empty' : '' ); ?>">

@@ -4,7 +4,7 @@
 Plugin Name: Fusion Builder
 Plugin URI: http://www.theme-fusion.com
 Description: ThemeFusion Page Builder Plugin
-Version: 1.6.1
+Version: 1.6.2
 Author: ThemeFusion
 Author URI: http://www.theme-fusion.com
 */
@@ -21,7 +21,7 @@ if ( ! defined( 'FUSION_BUILDER_DEV_MODE' ) ) {
 
 // Plugin version.
 if ( ! defined( 'FUSION_BUILDER_VERSION' ) ) {
-	define( 'FUSION_BUILDER_VERSION', '1.6.1' );
+	define( 'FUSION_BUILDER_VERSION', '1.6.2' );
 }
 // Plugin Folder Path.
 if ( ! defined( 'FUSION_BUILDER_PLUGIN_DIR' ) ) {
@@ -152,15 +152,16 @@ if ( ! class_exists( 'FusionBuilder' ) ) :
 			global $wp_rich_edit, $is_gecko, $is_opera, $is_safari, $is_chrome, $is_IE, $is_edge;
 
 			if ( ! isset( $wp_rich_edit ) ) {
+				// @codingStandardsIgnoreLine WordPress.WP.GlobalVariablesOverride.OverrideProhibited
 				$wp_rich_edit = false;
 
 				// @codingStandardsIgnoreLine
 				if ( 'true' == @get_user_option( 'rich_editing' ) || ! @is_user_logged_in() ) { // default to 'true' for logged out users.
 					if ( $is_safari ) {
-						// @codingStandardsIgnoreLine
-						$wp_rich_edit = ! wp_is_mobile() || ( preg_match( '!AppleWebKit/(\d+)!', $_SERVER['HTTP_USER_AGENT'], $match ) && intval( $match[1] ) >= 534 );
-					// @codingStandardsIgnoreLine
+						// @codingStandardsIgnoreLine WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+						$wp_rich_edit = ! wp_is_mobile() || ( preg_match( '!AppleWebKit/(\d+)!', $_SERVER['HTTP_USER_AGENT'], $match ) && intval( $match[1] ) >= 534 ); // WPCS: CSRF ok, sanitization ok.
 					} elseif ( $is_gecko || $is_chrome || $is_IE || $is_edge || ( $is_opera && ! wp_is_mobile() ) ) {
+						// @codingStandardsIgnoreLine WordPress.WP.GlobalVariablesOverride.OverrideProhibited
 						$wp_rich_edit = true;
 					}
 				}
@@ -662,7 +663,7 @@ if ( ! class_exists( 'FusionBuilder' ) ) :
 				return $post_id;
 			}
 
-			if ( ! isset( $_POST['fusion_settings_nonce'] ) || ! wp_verify_nonce( $_POST['fusion_settings_nonce'], basename( __FILE__ ) ) ) {
+			if ( ! isset( $_POST['fusion_settings_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['fusion_settings_nonce'] ) ), basename( __FILE__ ) ) ) {
 				return $post_id;
 			}
 
@@ -672,7 +673,7 @@ if ( ! class_exists( 'FusionBuilder' ) ) :
 			}
 
 			if ( isset( $_POST['fusion_use_builder'] ) ) {
-				update_post_meta( $post_id, 'fusion_builder_status', sanitize_text_field( $_POST['fusion_use_builder'] ) );
+				update_post_meta( $post_id, 'fusion_builder_status', sanitize_text_field( wp_unslash( $_POST['fusion_use_builder'] ) ) );
 			} else {
 				delete_post_meta( $post_id, 'fusion_builder_status' );
 			}

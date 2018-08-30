@@ -142,8 +142,9 @@
 }
 
 /* Submit Button */
-button#submit-query {
-  display: block;
+button#submit-query,
+button#cp_export_analytics {
+  display:inline-block;
   padding: 9px 17px;
   font-size: 14px !important;
   font-weight: 400 !important;
@@ -251,4 +252,26 @@ p.cp-empty-graph {
 .bend-content-wrap .chartjs-tooltip-value {
     font-size: 12px;
     font-weight: bold;
+}
+form.cp-export-analytics {
+    /*//float: right;*/
+}
+
+a.action-list.action-download-analytics {
+    position: relative;
+}
+.cp-export-analytics span.action-tooltip { 
+    position: absolute;
+	color: #777;
+	font-size: 12px;
+	left: -15px;
+    top: -30px;
+    width: 60px;
+	opacity: 0;
+	-webkit-transition: all 200ms linear;
+	-moz-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+a.action-list.action-download-analytics.bsf-analytics-download-csv {
+    display: block;
 }

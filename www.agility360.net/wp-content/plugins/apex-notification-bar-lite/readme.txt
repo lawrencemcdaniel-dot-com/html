@@ -4,7 +4,7 @@ Tags: notification bar, bar, responsive bar, notify bar, notify , wordpress noti
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 1.0.3
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,22 @@ For complete information and documentation regarding plugin,please visit below l
 
 [Browse More WordPress Resources here!](http://wpall.club/)
 
+== Themes Compatible with the Plugin: ==
+
+<strong>Apex Notification Bar Lite </strong> works best with every WordPress theme. Its even more remarkable when used with popular themes like VMagazine and AccessPress Parallax.
+
+AND IF THIS PLUGIN HAS IMPRESSED YOU, THEN YOU WOULD ENJOY OUR OTHER PROJECTS TOO. DO CHECK THESE OUT :
+
+[WPAll Club](https://wpall.club/) -  A complete WordPress resources club. WordPress tutorials, blogs, curated free and premium themes and plugins, WordPress deals, offers, hosting info and more.
+ 
+[Premium WordPress Themes](https://themeforest.net/user/accesskeys/portfolio) -   6 premium WordPress themes well suited for all sort of websites. Professional, well coded and highly configurable themes for you. 
+
+[Premium WordPress Plugins](https://codecanyon.net/user/accesskeys/portfolio?Ref=AccessKeys) - 45+ premium WordPress plugins of many different types. High user ratings, great quality and best sellers in CodeCanyon marketplace. 
+
+[AccessPress Themes](https://accesspressthemes.com/) - AccessPress Themes has 50+ beautiful and elegant, fully responsive, multipurpose themes to meet your need for free and commercial basis.
+
+[8Degree Themes](https://8degreethemes.com/) - 8Degree Themes offers 15+ free WordPress themes and 16+ premium WordPress themes  carefully crafted with creativity.
+
 == Installation ==
 1. Unzip apex-notification-bar-lite.zip
 2. Upload all the files to the /wp-content/plugins/apex-notification-bar-lite
@@ -198,6 +214,13 @@ No, It will not affect the loading of the site in anyways.
 23.  Screenshot 23 - Controls Settings : Disable, Show/Hide, Close button
 
 == Changelog ==
+= 1.0.5 =
+* Added some promo content in the backend of the plugin.
+
+= 1.0.4 =
+* How to Use Page Translation Checked.
+* Few Frontend CSS refinement done.
+
 = 1.0.3 =
 * Default value set for search button and description if left empty issue fixed.
 * Few JS refinement done.

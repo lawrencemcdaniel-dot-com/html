@@ -586,7 +586,7 @@ parent.jQuery(window.parent.document).on('cp-image-default', function( e, name, 
 	if( name == 'modal_bg_image' && name != 'undefined' && name != null ) {
 		cp_change_bg_img( smile_global_data, '.cp-modal-body' , '.cp-modal-content' , name, 'opt_bg', url, val );
 	}
-
+	
 	if( name == 'form_bg_image' && name != 'undefined' && name != null ) {
 		cp_change_bg_img( smile_global_data, '.cp-form-section', '', name, 'form_opt_bg', url, val );
 	}

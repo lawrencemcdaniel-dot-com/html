@@ -246,7 +246,7 @@ class UberMenuItemDynamicPosts extends UberMenuItemDynamic{
 
 			$this->post_count = count( $posts );
 
-			if( empty( $posts ) ){
+			if( empty( $posts ) && $this->getSetting('dp_ignore_empty_results') !== 'on' ){
 				$this->notice = '<strong>'.$this->item->title.' ('.$this->ID.')</strong>: '.__( 'No results found' , 'ubermenu' );
 
 				$this->notice.= '<br/><em>'.__( 'Query Arguments' , 'ubermenu' ).':</em>';
@@ -399,7 +399,9 @@ class UberMenuItemDynamicPosts extends UberMenuItemDynamic{
 		}
 		$this->settings['submenu_type_calc'] = $submenu_type; // 'dynamic-terms';
 
-		$html = "<!-- begin Dynamic Posts: ".$this->item->title." ID[$this->ID] count[$this->post_count] -->";
+		$html = "<!-- begin Dynamic Posts: ".$this->item->title." ID[$this->ID] count[$this->post_count] ";
+		if( $this->getSetting('dp_ignore_empty_results') === 'on' && $this->post_count === 0 ) $html.= "[ignore empty]";
+		$html.= " -->";
 
 		if( $this->post_count == 0 ){
 			$empty_results_message = $this->getSetting( 'empty_results_message' );
@@ -436,7 +438,10 @@ class UberMenuItemDynamicPosts extends UberMenuItemDynamic{
 				if( $term_id ){
 					//$term_url = get_term_link( $term_id , $view_all_taxonomy );
 					$term_url = get_term_link( intval( $term_id ) , $view_all_taxonomy );	//Some servers misinterpret as non-int?
-					$view_all_link_text = 'View all <i class="fas fa-angle-double-right"></i>';
+
+					$icon_tag = $this->get_menu_op( 'icon_tag' );
+					if( !$icon_tag ) $icon_tag = 'i';
+					$view_all_link_text = 'View all <'.$icon_tag.' class="fas fa-angle-double-right"></'.$icon_tag.'>';
 					if( $this->getSetting( 'dp_view_all_text' ) != '' ){
 						$view_all_link_text_setting = $this->getSetting( 'dp_view_all_text' );
 						$view_all_link_text = $view_all_link_text_setting;
@@ -551,7 +556,10 @@ class UberMenuItemDynamicPost extends UberMenuItemDefault{
 		$icon = $this->getSetting( 'icon' );
 		if( $icon ){
 			$atts['class'] .= ' ubermenu-target-with-icon';
-			$icon = '<i class="ubermenu-icon '.$icon.'"></i>';
+
+			$icon_tag = $this->get_menu_op( 'icon_tag' );
+			if( !$icon_tag ) $icon_tag = 'i';
+			$icon = '<'.$icon_tag.' class="ubermenu-icon '.$icon.'"></'.$icon_tag.'>';
 		}
 
 
@@ -779,7 +787,9 @@ class UberMenuItemDynamicPost extends UberMenuItemDefault{
 		//Submenu indicator
 		$submenu_type = $this->get_submenu_type();
 		if( $display_submenu_indicators && !$disable_submenu_indicator && $submenu_type && in_array( $submenu_type , array( 'mega' , 'flyout' , 'tab-content-panel' ) ) ){
-			$a.= '<i class="ubermenu-sub-indicator fas fa-angle-down"></i>';
+			$indicator_tag = $this->get_menu_op( 'icon_tag' );
+			if( !$indicator_tag ) $indicator_tag = 'i';
+			$a.= "<$indicator_tag class='ubermenu-sub-indicator fas fa-angle-down'></$indicator_tag>";
 		}
 
 		if( isset( $this->args->link_after ) ) $a .= $this->args->link_after;

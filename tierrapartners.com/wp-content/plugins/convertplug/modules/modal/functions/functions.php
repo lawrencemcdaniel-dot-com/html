@@ -13,10 +13,10 @@ if ( ! function_exists( 'cp_generate_style_css' ) ) {
 	 */
 	function cp_generate_style_css( $a ) {
 
-		// custom css.
+		// Custom css.
 		$style_id = 'content-' . $a['uid'];
 		$style    = '';
-		// custom height only for blank style.
+		// Custom height only for blank style.
 		if ( isset( $a['cp_custom_height'] ) && isset( $a['cp_modal_height'] ) && '1' === $a['cp_custom_height'] ) {
 			$style .= '';
 			$style .= '.' . $style_id . ' .cp-modal-body { '
@@ -150,9 +150,6 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		$timezone                 = '';
 		$referrer_data            = '';
 		$style_type               = '';
-		$bg_repeat                = '';
-		$bg_pos                   = '';
-		$bg_size                  = '';
 		$bg_setting               = '';
 		$el_class                 = '';
 		$module_bg_gradient       = '';
@@ -181,14 +178,17 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		$overlay_effect           = '';
 		$hide_image               = '';
 		$placeholder_font         = '';
-		$cp_modal_content_class   = '';
 		$impression_disable_class = '';
 		$cp_modal_content_class   = '';
 		$form_data_onsubmit       = '';
+		$lazy_custom_load_css 	  = '';
+		$lazy_window_load_css     = '';
+		$modal_body_css 		  = '';
 		$style_id                 = ( isset( $a['style_id'] ) ) ? $a['style_id'] : '';
 		$a['image_resp_width']    = '768';
 		$convert_plug_settings    = get_option( 'convert_plug_settings' );
 		$style_details            = get_style_details( $style_id, 'modal' );
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;
 
 		if ( ! isset( $a['modal_size'] ) ) {
 			$a['modal_size'] = 'cp-modal-custom-size';
@@ -224,31 +224,19 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		}
 
 		// Time Zone.
-		$timezone_name = ! isset( $convert_plug_settings['cp-timezone'] ) ? 'WordPress' : $convert_plug_settings['cp-timezone'];
-
-		if ( '' !== $timezone_name && 'system' !== $timezone_name ) {
-
-			$timezone = get_option( 'timezone_string' );
-			if ( '' === $timezone ) {
-				$toffset  = get_option( 'gmt_offset' );
-				$timezone = '' . $toffset . '';
-			}
-		} else {
-			$timezone = get_option( 'timezone_string' );
-			if ( '' === $timezone ) {
-				$toffset  = get_option( 'gmt_offset' );
-				$timezone = '' . $toffset . '';
-			}
-		}
+		$timezone = cp_get_timezone_init();
+		$timezone_name = ! isset( $convert_plug_settings['cp-timezone'] ) ? 'WordPress' : $convert_plug_settings['cp-timezone'];		
 
 		// Modal - Padding.
 		if ( isset( $a['content_padding'] ) && ! empty( $a['content_padding'] ) ) {
 			$el_class .= ' cp-no-padding ';
 		}
+
 		// check modal_back_type - gradient/simple/image.
 		$module_bg_color_type = ( isset( $a['module_bg_color_type'] ) ) ? $a['module_bg_color_type'] : '';
 		$bg_type_set          = false;
 		$old_user             = true;
+
 		if ( '' !== $module_bg_color_type ) {
 			$module_bg_gradient = ( isset( $a['module_bg_gradient'] ) ) ? $a['module_bg_gradient'] : '';
 			$bg_type_set        = true;
@@ -256,27 +244,22 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		}
 
 		// Modal - Background Image & Background Color.
-		$modal_bg_color = ( isset( $a['modal_bg_color'] ) ) ? $a['modal_bg_color'] : '';	
-		$modal_bg_image = '';
-		$modal_bg_image_new = isset( $a['modal_bg_image'] ) ?  $a['modal_bg_image'] :'';
-		$modal_bg_image_src = isset( $a['modal_bg_image_src'] ) ? $a['modal_bg_image_src']  :'upload_img';
+		$modal_bg_color 	       = ( isset( $a['modal_bg_color'] ) ) ? $a['modal_bg_color'] : '';	
+		$modal_bg_image_new        = isset( $a['modal_bg_image'] ) ?  $a['modal_bg_image'] :'';
+		$modal_bg_image_src        = isset( $a['modal_bg_image_src'] ) ? $a['modal_bg_image_src']  :'upload_img';
 		$modal_bg_image_custom_url = isset( $a['modal_bg_image_custom_url'] ) ?  $a['modal_bg_image_custom_url']  :'';
 
 		if ( isset( $modal_bg_image_src ) && ! empty( $modal_bg_image_src ) ) {
 			$modal_bg_image = cp_get_module_images_new( $modal_bg_image_new, $modal_bg_image_src, $modal_bg_image_custom_url );
 		}
+
 		if ( '' !== $modal_bg_image ) {
-			if ( $bg_type_set && 'image' === $module_bg_color_type ) {
+			if ( ( $bg_type_set && 'image' === $module_bg_color_type ) || $old_user ) {				
 				$customcss .= 'background-image:url(' . $modal_bg_image . ');' . $bg_setting . ';';
 				$windowcss .= 'background-image:url(' . $modal_bg_image . ');' . $bg_setting . ';';
-			} elseif ( $old_user ) {
-				$customcss .= 'background-image:url(' . $modal_bg_image . ');' . $bg_setting . ';';
-				$windowcss .= 'background-image:url(' . $modal_bg_image . ');' . $bg_setting . ';';
-			}
-		}
+			} 
+		}		
 		
-		$gradient_css   = '';
-		$modal_body_css = '';
 		if ( ! $old_user && 'gradient' === $module_bg_color_type && $bg_type_set && 'countdown' !== $a['style'] ) {
 			$modal_body_css = generate_back_gradient( $module_bg_gradient );
 		} else {
@@ -295,12 +278,12 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		}
 
 		// Check 'has_content_border' is set for that style and add border to modal content (optional).
-		// This option is style dependent - Developer will disable it by adding this variable.
 		if ( ! isset( $a['has_content_border'] ) || ( isset( $a['has_content_border'] ) && $a['has_content_border'] ) ) {
 			if ( isset( $a['border'] ) && '' !== $a['border'] ) {
 				$css_style .= generate_border_css( $a['border'] );
 			}
 		}
+
 		if ( 'cp-modal-custom-size' === $a['modal_size'] ) {
 			$modal_size_style  = cp_add_css( 'width', '100', '%' );
 			$modal_ht          = isset( $a['cp_modal_height'] ) ? $a['cp_modal_height'] : 'auto';
@@ -310,6 +293,14 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		} else {
 			$customcss  = 'max-width: ' . $a['cp_modal_width'] . 'px';
 			$windowcss .= $box_shadow_str;
+		}	
+
+		if( $images_on_load ){
+			$lazy_custom_load_css = 'data-custom-style = "'.$customcss.'"';
+			$lazy_window_load_css = 'data-window-style = "'.$css_style.''.$windowcss.'"';
+		}else{
+			$lazy_custom_load_css = 'style = "'.$customcss.'"';
+			$lazy_window_load_css = 'style = "'.$windowcss.''.$css_style.'"';
 		}
 
 		// {START} - SAME FOR BEFORE & AFTER NEED TO CREATE FUNCTION IT's TEMP.
@@ -317,6 +308,8 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		$close_img       = $close_img_prop['close_img'];
 		$close_img_class = $close_img_prop['close_img_class'];
 		$close_alt       = $close_img_prop['close_alt'];
+
+		$data_debug = get_option( 'convert_plug_debug' );
 
 		if ( '' !== $close_alt ) {
 			$close_alt = 'alt="' . $close_alt . '"';
@@ -330,10 +323,15 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 			}
 			$close_html = '<span style="color:' . $a['close_text_color'] . ';' . $font_family . '">' . $a['close_txt'] . '</span>';
 		} elseif ( 'close_img' === $a['close_modal'] ) {
-			$close_html = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . ' />';
+			if( $images_on_load ){
+				$close_html = '<img data-src ="'.$close_img.'"  class="cp-close-img ' . $close_img_class  . $close_alt . ' />';
+			}else{
+				$close_html = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . ' />';
+			}
 		} else {
 			$close_class = ' do_not_close ';
 		}
+
 		// {END} - SAME FOR BEFORE & AFTER NEED TO CREATE FUNCTION IT's TEMP.
 		if ( '1' === $a['autoload_on_scroll'] ) {
 			$load_after_scroll = $a['load_after_scroll'];
@@ -421,7 +419,6 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		if ( '' === $schedular_tmz_offset ) {
 			$schedular_tmz_offset = get_offset_by_time_zone( get_option( 'timezone_string' ) );
 		}
-		$data_debug = get_option( 'convert_plug_debug' );
 
 		// Container Classes.
 		if ( isset( $a['mailer'] ) && ( 'custom-form' === $a['mailer'] ) ) {
@@ -512,7 +509,7 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		$overlay_show_data .= 'data-load-on-refresh = "' . esc_attr( $load_on_refresh ) . '"';
 		$overlay_show_data .= 'data-dev-mode = "' . esc_attr( $dev_mode ) . '"';
 		$overlay_show_data .= 'data-custom-selector = "' . esc_attr( $custom_selector ) . '"';
-
+	
 		$onload_class       = '';
 		$onload_class      .= 'overlay-show ' . $cp_onload . ' ' . esc_attr( $custom_class );
 
@@ -552,17 +549,16 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		$global_cont_class .= esc_attr( $global_class ) . ' ';
 		$global_cont_class .= esc_attr( $close_class ) . ' ';
 		$global_cont_class .= esc_attr( $impression_disable_class ) . ' ';
-		$custom_css_class = isset( $a['custom_css_class'] ) ? $a['custom_css_class'] :'';// Custom class for specific module.
+		$custom_css_class 	= isset( $a['custom_css_class'] ) ? $a['custom_css_class'] :'';// Custom class for specific module.
 
-		$overlay_style = '';
+		$overlay_style       = '';
 		$overlay_color_style = '';
-		$overlay_type = isset( $a['module_overlay_color_type'] ) ? $a['module_overlay_color_type'] :'';
-		$overlay_color = isset( $a['modal_overlay_bg_color'] ) ? $a['modal_overlay_bg_color'] :'';
-		$overlay_img = isset( $a['overlay_bg_image'] ) ? $a['overlay_bg_image'] :'';
-		$overlay_custom_url = isset( $a['overlay_bg_image_custom_url'] ) ? $a['overlay_bg_image_custom_url'] :'';
-		$overlay_img_src = isset( $a['overlay_bg_image_src'] ) ? $a['overlay_bg_image_src'] :'';
-		$overlay_img_color = isset( $a['modal_img_overlay_bg_color'] ) ? $a['modal_img_overlay_bg_color'] :'';
-
+		$overlay_type        = isset( $a['module_overlay_color_type'] ) ? $a['module_overlay_color_type'] :'';
+		$overlay_color       = isset( $a['modal_overlay_bg_color'] ) ? $a['modal_overlay_bg_color'] :'';
+		$overlay_img         = isset( $a['overlay_bg_image'] ) ? $a['overlay_bg_image'] :'';
+		$overlay_custom_url  = isset( $a['overlay_bg_image_custom_url'] ) ? $a['overlay_bg_image_custom_url'] :'';
+		$overlay_img_src     = isset( $a['overlay_bg_image_src'] ) ? $a['overlay_bg_image_src'] :'';
+		$overlay_img_color   = isset( $a['modal_img_overlay_bg_color'] ) ? $a['modal_img_overlay_bg_color'] :'';
 		$overlay_color_style = 'background-color:'.$overlay_color.';';
 
 		if( 'image' === $overlay_type ){
@@ -592,20 +588,21 @@ if ( ! function_exists( 'cp_modal_global_before_init' ) ) {
 		<div <?php echo $data_form_layout; ?> class="<?php echo esc_attr( $overlay_class ); ?> " data-style-id ="<?php echo $style_id; ?>"  data-module-name ="modal" >
 			<div class="<?php echo ( $global_cont_class ); ?>" <?php echo  $global_cont_data; ?>  style=" <?php echo esc_attr( $overlay_style ); ?>" >
 				<?php if( !$is_inline ){ ?><div class="cp-overlay-background" style=" <?php echo esc_attr( $overlay_color_style ); ?>"></div><?php } ?>
-				<?php if ( isset( $a['modal_size'] ) && 'cp-modal-custom-size' !== $a['modal_size'] ) { ?>
 				
-				<?php } ?>
 				<div class="cp-modal <?php echo esc_attr( $a['modal_size'] ); ?>" style="<?php echo esc_attr( $modal_size_style ); ?>">
 					<div class="cp-animate-container" <?php echo $overaly_setting; ?> data-exit-animation="<?php echo esc_attr( $exit_animation ); ?>">
-						<div class="cp-modal-content <?php echo $cp_modal_content_class; ?>" style="<?php echo esc_attr( $css_style ); ?>;<?php echo esc_attr( $windowcss ); ?>">	
-						<div class="cp-modal-body-overlay cp_fs_overlay" style="<?php echo esc_attr( $modal_body_css ); ?>;<?php echo esc_attr( $inset ); ?>;"></div>		
-							<div class="cp-modal-body <?php echo $style_class . ' ' . esc_attr( $el_class ); ?>" style="<?php echo esc_attr( $customcss ); ?>">
+						<div class="cp-modal-content <?php echo $cp_modal_content_class; ?>"   <?php echo ( $lazy_window_load_css ); ?> >	
+						<?php if ( isset( $a['modal_size'] ) && 'cp-modal-custom-size' !== $a['modal_size'] ) { ?>
+							<div class="cp-modal-body-overlay cp_fs_overlay" style="<?php echo esc_attr( $modal_body_css ); ?>;<?php echo esc_attr( $inset ); ?>;"></div>
+							<?php } ?>		
+							<div class="cp-modal-body <?php echo $style_class . ' ' . esc_attr( $el_class ); ?>" <?php echo ( $lazy_custom_load_css ); ?> >
 								<?php if ( 'cp-modal-custom-size' === $a['modal_size'] ) { ?>
 								<div class="cp-modal-body-overlay cp_cs_overlay" style="<?php echo esc_attr( $modal_body_css ); ?>;<?php echo esc_attr( $inset ); ?>;"></div>
 								<?php } ?>
 								<?php
 	}
 }
+
 
 add_filter( 'cp_modal_global_before', 'cp_modal_global_before_init' );
 
@@ -657,6 +654,8 @@ if ( ! function_exists( 'cp_modal_global_after_init' ) ) {
 		$close_img_class   = $close_img_prop['close_img_class'];
 		$close_alt         = $close_img_prop['close_alt'];
 		$close_alt         = ( '' !== $close_alt ) ? 'alt="' . $close_alt . '"' : 'close-link';
+		$convert_plug_settings    = get_option( 'convert_plug_settings' );
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;	
 
 		if ( isset( $a['content_padding'] ) && $a['content_padding'] ) {
 			$el_class .= 'cp-no-padding ';
@@ -675,7 +674,11 @@ if ( ! function_exists( 'cp_modal_global_after_init' ) ) {
 			$close_html = '<span style="color:' . $a['close_text_color'] . ';' . $font_family . '">' . $a['close_txt'] . '</span>';
 		} elseif ( 'close_img' === $a['close_modal'] ) {
 			$close_class .= 'cp-image-close';
-			$close_html   = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . ' />';
+			if( $images_on_load ){
+				$close_html   = '<img data-src ="'.$close_img.'" class="cp-close-img ' . $close_img_class . '"' . $close_alt . ' />';
+			}else{
+				$close_html   = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . ' />';
+			}
 		} else {
 			$close_class = 'do_not_close';
 		}
@@ -690,36 +693,16 @@ if ( ! function_exists( 'cp_modal_global_after_init' ) ) {
 			$tooltip_position = 'top';
 		}
 
-		$close_adjacent_position = ( isset( $a['adjacent_close_position'] ) ? $a['adjacent_close_position'] : 'cp-adjacent-right' );
-		$close_position          = ( isset( $a['close_position'] ) ? $a['close_position'] : '' );
-		if ( '' !== $close_adjacent_position ) {
-			switch ( $close_adjacent_position ) {
-				case 'top_left':
-					$tooltip_position = 'right';
-					break;
-				case 'top_right':
-					$tooltip_position = 'left';
-					break;
-			}
+		$close_adjacent_position = ( isset( $a['adjacent_close_position'] ) ? $a['adjacent_close_position'] : 'cp-adjacent-right' );		
+		if ( '' !== $close_adjacent_position ) {			
+			$tooltip_position = cp_get_tooltip_position( $close_adjacent_position );			
 		}
 
-		$tooltip_class = '';
-		$tooltip_style = '';
-		if ( '1' === $a['close_modal_tooltip'] ) {
-			$tooltip_class .= 'cp_closewith_tooltip';
-			$tooltip_style .= 'color:' . $a['tooltip_title_color'] . ';background-color:' . $a['tooltip_background'] . ';border-top-color: ' . $a['tooltip_background'] . ';';
-		}
+		$close_position          = ( isset( $a['close_position'] ) ? $a['close_position'] : '' );
+
 		$affiliate_fullsize = '';
 		if ( 'cp-modal-custom-size' !== $a['modal_size'] ) {
 			$affiliate_fullsize = 'cp-affiliate-fullsize';
-		}
-
-		// Generate border radius for form processing.
-		$pairs  = explode( '|', $a['border'] );
-		$result = array();
-		foreach ( $pairs as $pair ) {
-			$pair               = explode( ':', $pair );
-			$result[ $pair[0] ] = $pair[1];
 		}
 
 		$css_code1 = '';
@@ -727,7 +710,6 @@ if ( ! function_exists( 'cp_modal_global_after_init' ) ) {
 			$css_code1 .= generate_border_css( $a['border'] );
 		}
 
-		$result['border_width'] = ' ';
 		$form_process_css       = '';
 		$form_process_css       = $css_code1 . ';';
 		$form_process_css      .= 'border-width: 0px;';
@@ -738,12 +720,10 @@ if ( ! function_exists( 'cp_modal_global_after_init' ) ) {
 		if ( $is_inline ) {
 			$a['close_modal'] = 'do_not_close';
 		}
-
-		?>
-
-		<?php
+		
 		// add nounce field to modal.
 		$nonce = wp_create_nonce( 'cp-impress-nonce' );
+
 		?>
 		<input type="hidden" class="cp-impress-nonce" name="cp-impress-nonce" value="<?php echo $nonce; ?>">
 
@@ -767,15 +747,10 @@ if ( ! function_exists( 'cp_modal_global_after_init' ) ) {
 <?php if ( isset( $a['form_layout'] ) && 'cp-form-layout-4' !== $a['form_layout'] ) { ?>
 <div class="cp-form-processing-wrap" style="<?php echo esc_attr( $form_process_css ); ?>;">
 	<div class="cp-form-after-submit">
-		<div class ="cp-form-processing" style="">
-			<div class="smile-absolute-loader" style="visibility: visible;">
-				<div class="smile-loader">
-					<div class="smile-loading-bar"></div>
-					<div class="smile-loading-bar"></div>
-					<div class="smile-loading-bar"></div>
-					<div class="smile-loading-bar"></div>
-				</div>
-			</div>
+		<div class ="cp-form-processing">
+			<?php $form_css ='';
+			echo cp_get_form_process_html($form_css);
+			?>
 		</div>
 		<div class ="cp-msg-on-submit" style="color:<?php echo esc_attr( $msg_color ); ?>"></div>
 	</div>
@@ -785,20 +760,8 @@ if ( ! function_exists( 'cp_modal_global_after_init' ) ) {
 <?php
 $close_adj_class         = '';
 $close_adjacent_position = ( isset( $a['adjacent_close_position'] ) ? $a['adjacent_close_position'] : 'cp-adjacent-right' );
-switch ( $close_adjacent_position ) {
-	case 'top_left':
-		$close_adj_class .= ' cp-adjacent-left';
-		break;
-	case 'top_right':
-		$close_adj_class .= ' cp-adjacent-right';
-		break;
-	case 'bottom_left':
-		$close_adj_class .= ' cp-adjacent-bottom-left';
-		break;
-	case 'bottom_right':
-		$close_adj_class .= ' cp-adjacent-bottom-right';
-		break;
-}
+
+$close_adj_class .= cp_get_close_adj_position( $close_adjacent_position );
 
 if ( 'close_img' === $a['close_modal'] && 'out_modal' !== $a['close_position'] ) {
 	?>
@@ -917,4 +880,3 @@ if ( ! function_exists( 'cp_close_image_setup' ) ) {
 
 	}
 }
-

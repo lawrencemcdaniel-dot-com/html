@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the The Events Calendar: Eventbrite Tickets package.
 msgid ""
 msgstr ""
-"Project-Id-Version: The Events Calendar: Eventbrite Tickets 4.5\n"
+"Project-Id-Version: The Events Calendar: Eventbrite Tickets 4.5.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/events-"
 "eventbrite\n"
-"POT-Creation-Date: 2018-06-15 20:05:10+00:00\n"
+"POT-Creation-Date: 2018-07-27 19:07:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-15 20:05\n"
+"PO-Revision-Date: 2018-07-27 19:07\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 
@@ -66,7 +66,7 @@ msgid "Unable to get authorization from the Eventbrite API: %s"
 msgstr ""
 
 #: src/Tribe/Main.php:1038 src/Tribe/Sync/Event.php:30
-#: src/Tribe/Sync/Main.php:59
+#: src/Tribe/Sync/Main.php:72
 #: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:774
 msgid "This Event is a revision and cannot sync to Eventbrite."
 msgstr ""
@@ -100,12 +100,12 @@ msgid "Ticket Name"
 msgstr ""
 
 #: src/Tribe/Main.php:1097 src/Tribe/Sync/Event.php:286
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:331
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:332
 msgid "Date to Start Ticket Sales"
 msgstr ""
 
 #: src/Tribe/Main.php:1098 src/Tribe/Sync/Event.php:287
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:352
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:353
 msgid "Date to End Ticket Sales"
 msgstr ""
 
@@ -333,16 +333,16 @@ msgstr ""
 msgid "Ticket sales end date cannot be before today"
 msgstr ""
 
-#: src/Tribe/Sync/Main.php:114
+#: src/Tribe/Sync/Main.php:127
 msgid ""
 "An Unknown Error Occurred and the event may not have synced to Eventbrite."
 msgstr ""
 
-#: src/Tribe/Sync/Main.php:120
+#: src/Tribe/Sync/Main.php:133
 msgid "Eventbrite Event Not Owned."
 msgstr ""
 
-#: src/Tribe/Sync/Main.php:188
+#: src/Tribe/Sync/Main.php:201
 msgid "An Unknown Error Occurred and syncing from Eventbrite is not enabled."
 msgstr ""
 
@@ -507,13 +507,13 @@ msgid "Eventbrite Event Status:"
 msgstr ""
 
 #: src/views/eventbrite/eventbrite-events-table.php:41
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:422
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:423
 msgctxt "Eventbrite status"
 msgid "Draft"
 msgstr ""
 
 #: src/views/eventbrite/eventbrite-events-table.php:42
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:423
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:424
 msgctxt "Eventbrite status"
 msgid "Live"
 msgstr ""
@@ -569,7 +569,7 @@ msgid "Ticket"
 msgstr ""
 
 #: src/views/eventbrite/eventbrite-events-table.php:83
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:385
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:386
 msgid "Cost"
 msgstr ""
 
@@ -680,135 +680,135 @@ msgid ""
 "Eventbrite.com."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:230
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:265
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:231
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:266
 msgid "Display tickets on event page?"
-msgstr ""
-
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:232
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:259
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:267
-msgid "Yes"
 msgstr ""
 
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:233
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:260
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:268
+msgid "Yes"
+msgstr ""
+
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:234
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:261
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:269
 msgid "No"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:237
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:272
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:238
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:273
 msgid ""
 "When this post is updated, how do you want the featured image to be handled?"
-msgstr ""
-
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:240
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:276
-msgctxt "image sync"
-msgid "Import the event image from eventbrite.com and overwrite the local one"
 msgstr ""
 
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:241
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:277
 msgctxt "image sync"
+msgid "Import the event image from eventbrite.com and overwrite the local one"
+msgstr ""
+
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:242
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:278
+msgctxt "image sync"
 msgid "Never synchronize the images"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:253
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:254
 msgid "Register this event with eventbrite.com?"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:255
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:256
 msgid "Leave this event associated with eventbrite.com?"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:275
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:276
 msgctxt "image sync"
 msgid ""
 "Try to update eventbrite.com so it shares the same image as used locally"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:284
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:285
 msgid ""
 "Note: The Eventbrite API does not yet support recurring events, so all "
 "instances of recurring events will be associated with a single Eventbrite "
 "event."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:287
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:288
 msgid ""
 "Note: Eventbrite requires you enter an organizer. If you neglect to enter an "
 "organizer, your display name will be passed as the organizer name to "
 "Eventbrite."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:293
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:294
 msgid "Set up your first ticket"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:295
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:296
 msgid ""
 "To create multiple tickets per event, submit this form, then follow the link "
 "to Eventbrite."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:305
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:306
 msgid "Name"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:319
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:320
 msgid "Examples: Member, Non-member, Student, Early Bird"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:323
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:324
 msgid "Description"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:374
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:375
 msgid "Type"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:377
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:378
 msgid " Set Price"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:379
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:380
 msgid " Donation Based"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:381
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:382
 msgid " Free"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:390
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:391
 msgid "Quantity"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:397
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:398
 msgid "Fee"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:400
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:401
 msgid "Add Service Fee on top of price"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:402
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:403
 msgid " Include Service fee in price"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:407
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:408
 msgid "Publish this post to create the Event with Eventbrite.com"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:408
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:409
 msgid ""
 "When you <strong>publish</strong> this post, an event will be created for "
 "you at Eventbrite. Before you publish, you can choose whether this event "
 "will save as a draft or live event using the Eventbrite status below."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:414
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:415
 msgid "Eventbrite Event Status"
 msgstr ""
 

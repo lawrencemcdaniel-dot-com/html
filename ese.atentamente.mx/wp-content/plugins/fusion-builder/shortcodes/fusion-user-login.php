@@ -134,7 +134,7 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 				$html = '<div ' . FusionBuilder::attributes( 'login-shortcode' ) . '>' . $styles;
 
 				if ( ! is_user_logged_in() ) {
-					$user_login = ( isset( $_GET['log'] ) ) ? $_GET['log'] : '';
+					$user_login = ( isset( $_GET['log'] ) ) ? $_GET['log'] : ''; // WPCS: sanitization ok.
 
 					$html .= ( $heading ) ? '<h3 class="fusion-login-heading">' . $heading . '</h3>' : '';
 					$html .= ( $caption ) ? '<div class="fusion-login-caption">' . $caption . '</div>' : '';
@@ -453,7 +453,7 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 			 */
 			public function login_init() {
 				check_admin_referer( 'fusion-login' );
-				$action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : 'login';
+				$action = isset( $_REQUEST['action'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['action'] ) ) : 'login';
 
 				$action = 'reauth';
 				if ( isset( $_POST['wp-submit'] ) ) {
@@ -492,11 +492,11 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 				$redirection_link = '';
 
 				if ( $error && isset( $_REQUEST['_wp_http_referer'] ) ) {
-					$redirection_link = $_REQUEST['_wp_http_referer'];
+					$redirection_link = $_REQUEST['_wp_http_referer']; // WPCS: sanitization ok.
 				} elseif ( isset( $_REQUEST['redirect_to'] ) ) {
-					$redirection_link = $_REQUEST['redirect_to'];
+					$redirection_link = $_REQUEST['redirect_to']; // WPCS: sanitization ok.
 				} elseif ( isset( $_SERVER ) && isset( $_SERVER['HTTP_REFERER'] ) && $_SERVER['HTTP_REFERER'] ) {
-					$referer_array = wp_parse_url( $_SERVER['HTTP_REFERER'] );
+					$referer_array = wp_parse_url( $_SERVER['HTTP_REFERER'] ); // WPCS: sanitization ok.
 					$referer = $referer_array['scheme'] . '://' . $referer_array['host'] . $referer_array['path'];
 
 					// If there's a valid referrer, and it's not the default log-in screen.
@@ -629,14 +629,14 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 						$redirection_link = add_query_arg( array( 'empty_login' => '1' ), $redirection_link );
 						// Check email.
 					} elseif ( strpos( $_POST['user_login'], '@' ) ) {
-						$user_data = get_user_by( 'email', trim( $_POST['user_login'] ) );
+						$user_data = get_user_by( 'email', trim( $_POST['user_login'] ) ); // WPCS: sanitization ok.
 						// Error - invalid email.
 						if ( empty( $user_data ) ) {
 							$redirection_link = add_query_arg( array( 'unregistered_mail' => '1' ), $redirection_link );
 						}
 					} else {
 						// Check username.
-						$login = trim( $_POST['user_login'] );
+						$login = trim( $_POST['user_login'] ); // WPCS: sanitization ok.
 						$user_data = get_user_by( 'login', $login );
 
 						// Error - invalid username.

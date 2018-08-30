@@ -365,7 +365,10 @@ class UberMenuItemTab extends UberMenuItemDefault{
 
 		//Anchor
 		$atts = $this->anchor_atts(); //Attributes
-		//$atts['data-ubermenu-toggle-target'] = '#ubermenu-panel-'.$this->ID;
+		//If a tab needs to be toggleable, then we need to give it a tabindex so that disabled links (spans) become accessible
+		if( $this->has_children && $this->getSetting( 'disable_link' ) == 'on' ){
+			$atts['tabindex'] = 0;
+		}
 		$item_output .= $this->get_anchor( $atts );
 
 		//Custom Content

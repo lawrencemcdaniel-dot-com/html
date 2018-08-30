@@ -225,9 +225,10 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 			},
 
 			unglobalize: function( event ) {
-				var cid = jQuery( event.currentTarget ).data( 'cid' ),
-					view = FusionPageBuilderViewManager.getView( cid ),
+				var cid    = jQuery( event.currentTarget ).data( 'cid' ),
+					view   = FusionPageBuilderViewManager.getView( cid ),
 					params = view.model.get( 'params' ),
+					type   = view.model.get( 'element_type' ),
 					r;
 
 					r = confirm( fusionBuilderText.are_you_sure_you_want_to_remove_global );
@@ -242,6 +243,10 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 					view.$el.removeClass( 'fusion-global-element fusion-global-container fusion-global-column' );
 					jQuery( event.currentTarget ).remove();
 					view.$el.removeAttr( 'fusion-global-layout' );
+
+					if ( 'fusion_builder_container' === type ) {
+						view.$el.find( '.fusion-builder-container-content > .fusion-builder-section-content' ).removeAttr( 'fusion-global-layout' );
+					}
 
 					fusionHistoryManager.turnOnTracking();
 					fusionHistoryState = fusionBuilderText.removed_global; // jshint ignore:line

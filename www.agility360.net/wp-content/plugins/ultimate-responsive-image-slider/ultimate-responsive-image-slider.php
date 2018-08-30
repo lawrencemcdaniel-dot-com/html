@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Ultimate Responsive Image Slider
- * Version: 3.2.0
+ * Version: 3.2.2
  * Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
  * Author: Weblizar
  * Author URI: https://weblizar.com/plugins/
@@ -10,7 +10,6 @@
 
 //Constant Variable
 define("WRIS_TEXT_DOMAIN", "W_R_I_S" );
-define("WRIS_PLUGIN_VERSION", "3.2.0" );
 define("WRIS_PLUGIN_URL", plugin_dir_url(__FILE__));
 
 // Apply default settings on activation
@@ -283,6 +282,7 @@ class WRIS {
 		</div>
 		<?php
 	}
+	
 	public function uris_upgrade_to_pro_function(){ ?>
 		<div class="upgrade-to-pro-demo" style="text-align:center;margin-bottom:10px;margin-top:10px;">
 			<a href="http://demo.weblizar.com/ultimate-responsive-image-slider-pro/"  target="_new" class="button button-primary button-hero">View Live Demo</a>
@@ -636,20 +636,22 @@ function uris_pro_SettingsPage() {
 		wp_enqueue_style('wl-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
 		require_once("get-uris-pro.php");
 	}
+	
 	function RIS_Help_and_Support_page() {
 		wp_enqueue_style('bootstrap-admin.css', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
 		require_once("help_and_support.php");
 	}
+	
 	function uris_our_products_function() {
 		wp_enqueue_style('wl-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min-product.css');
 		wp_enqueue_style('wl-font-awesome-5', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
     	require_once("our_product.php");
 	}
+	
 	function uris_recommendation_function() {
 		wp_enqueue_style('recom2', WRIS_PLUGIN_URL.'css/recom.css');
     	require_once("recommendations.php");
-	}
-	
+	}	
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Upgrade To Pro', 'Upgrade To Pro', 'administrator', 'ris_gallery', 'uris_upgrade_pro_function');
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Help and Support', 'Help and Support', 'administrator', 'RIS-Help-page', 'RIS_Help_and_Support_page');
 	add_submenu_page('edit.php?post_type=ris_gallery', 'Our Products', 'Our Products', 'administrator', 'RIS-Our-Products', 'uris_our_products_function');

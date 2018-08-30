@@ -155,10 +155,34 @@ function ubermenu_sandbox_interface(){
     </div>
 
   <?php
-    //Footer
-    $api_key = ubermenu_op( 'google_maps_api_key' , 'general' );
-		if( $api_key ) $api_key = '?key='.$api_key;
-		$gmaps_uri = '//maps.googleapis.com/maps/api/js'.$api_key;
+
+    //Google Maps API
+    $gmaps_uri = '//maps.googleapis.com/maps/api/js';
+
+    $query_params = array();
+
+    //API Key
+    $api_key = trim( ubermenu_op( 'google_maps_api_key' , 'general' ) );
+    if( $api_key ){
+      $query_params['key'] = $api_key;
+    }
+
+    //Language
+    $language = trim( ubermenu_op( 'google_maps_language' , 'general' ) );
+    if( $language ){
+      $query_params['language'] = $language;
+    }
+
+    //Region
+    $region = trim( ubermenu_op( 'google_maps_region' , 'general' ) );
+    if( $region ){
+      $query_params['region'] = $region;
+    }
+
+    $query = http_build_query( $query_params );
+
+    $gmaps_uri.= '?'.$query;
+
     wp_enqueue_script( 'google-maps', $gmaps_uri , array( 'jquery' ), null , true );
 
     wp_print_footer_scripts();

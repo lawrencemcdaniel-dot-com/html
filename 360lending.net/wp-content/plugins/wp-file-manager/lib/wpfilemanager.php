@@ -6,10 +6,65 @@ $wp_fm_theme = get_transient( 'wp_fm_theme' );
 $current_user = wp_get_current_user(); 
 $vle_nonce = wp_create_nonce( 'verify-filemanager-email' );
 ?>
+<script src="<?php echo plugins_url( 'codemirror/lib/codemirror.js', __FILE__ ); ?>"></script>
+<link rel="stylesheet" href="<?php echo plugins_url( 'codemirror/lib/codemirror.css', __FILE__ ); ?>">
+<link rel="stylesheet" href="<?php echo plugins_url( 'codemirror/theme/3024-day.css', __FILE__ ); ?>">
+<script src="<?php echo plugins_url( 'codemirror/mode/javascript/javascript.js', __FILE__ ); ?>"></script>
 <script>
 var security_key = "<?php echo $fm_nonce;?>";
 var fmlang = "<?php echo isset($_GET['lang']) ? $_GET['lang'] : ($wp_fm_lang !== false) ? $wp_fm_lang : 'en';?>";
 var vle_nonce = "<?php echo $vle_nonce;?>";
+jQuery(document).ready(function() {	
+var ajaxurl = "<?php echo admin_url('admin-ajax.php');?>"
+				jQuery('#wp_file_manager').elfinder({
+					url : ajaxurl,
+					customData : {action: 'mk_file_folder_manager', _wpnonce: security_key },
+					uploadMaxChunkSize : 1048576000000,
+					defaultView : 'list',
+					height: 500,
+					lang : fmlang,
+					/* Start */
+					handlers : {},
+							
+							commandsOptions: {
+									edit : {
+						
+											mimes : [],
+											
+											editors : [{
+											
+											mimes : ['text/plain', 'text/html', 'text/javascript', 'text/css', 'text/x-php', 'application/x-php'],
+											
+											load : function(textarea) {																							
+					
+										   var mimeType = this.file.mime;
+												  return CodeMirror.fromTextArea(textarea, {
+													mode: mimeType,
+													indentUnit: 4,
+													lineNumbers: true,													
+													theme: "3024-day",
+													viewportMargin: Infinity,
+													lineWrapping: true
+												  });
+					
+												
+											},										
+											close : function(textarea, instance) {
+					                        this.myCodeMirror = null;
+					                        },				
+											
+											save: function(textarea, editor) {
+													  jQuery(textarea).val(editor.getValue());					  
+													}
+											
+											} ]
+											},
+											
+							}
+											
+					/* END */
+				}).elfinder('instance');	
+});				
 </script>
 <?php
 $this->load_custom_assets();
@@ -19,11 +74,11 @@ $this->load_help_desk();
 <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,900" rel="stylesheet"> 
 
 <div class="wp_fm_lang" style="float:left">
-<h2 class="fm_heading"><span class="fm_head_icon"><img src="<?php echo plugins_url( 'images/wp_file_manager-color.png', dirname(__FILE__) ); ?>"></span> <span class="fm_head_txt"> <?php  _e('WP File Manager', 'wp-file-manager'); ?> </span> <a href="http://filemanager.webdesi9.com/product/file-manager" class="button button-primary fm_pro_btn" target="_blank" title="Click to Buy PRO"><?php  _e('Buy PRO', 'wp-file-manager'); ?></a></h2>
+<h3 class="fm_heading"><span class="fm_head_icon"><img src="<?php echo plugins_url( 'images/wp_file_manager-color.png', dirname(__FILE__) ); ?>"></span> <span class="fm_head_txt"> <?php  _e('WP File Manager', 'wp-file-manager'); ?> </span> <a href="http://filemanager.webdesi9.com/product/file-manager" class="button button-primary fm_pro_btn" target="_blank" title="Click to Buy PRO"><?php  _e('Buy PRO', 'wp-file-manager'); ?></a></h3>
 </div>
 
 <div class="wp_fm_lang" style="float:right">
-<h2 class="fm-topoption">
+<h3 class="fm-topoption">
 
 <span class="switch_txt_theme">Change Theme Here:</span>
 
@@ -38,7 +93,7 @@ $this->load_help_desk();
 <?php foreach($this->fm_languages() as $name => $lang) { ?>
 <option value="<?php echo $lang;?>" <?php echo (isset($_GET['lang']) && $_GET['lang'] == $lang) ? 'selected="selected"' : ($wp_fm_lang !== false) && $wp_fm_lang == $lang ? 'selected="selected"' : '';?>><?php echo $name;?></option>
 <?php } ?>
-</select></h2>
+</select></h3>
 </div><div style="clear:both"></div>
 <div id="wp_file_manager"><center><img src="<?php echo plugins_url( 'images/loading.gif', dirname(__FILE__) ); ?>" class="wp_fm_loader" /></center></div>
 
@@ -82,7 +137,7 @@ get_option('verify_filemanager_lname_'.$current_user->ID)) ? $current_user->user
           <span class="btn-text-icon">
             <img src="<?php echo plugins_url( 'images/btn-arrow-icon.png', dirname(__FILE__) ); ?>"/>
           </span></button>
-<button class="lokhal_cancel button">No Thanks</button>
+<button class="lokhal_cancel button"><?php  _e('No Thanks', 'wp-file-manager'); ?></button>
 </div>
 </form>
 </div>

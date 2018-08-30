@@ -416,7 +416,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'name'         => 'slide_in_bg_image',
 			'opts'         => array(
 				'title'       => __( 'Background Image', 'smile' ),
-				'value'       => '',
+				'value'       =>'',
 				'description' => __( "You can provide an image that would be appear behind the content in the Slide In box area. For this setting to work, the background color you've chosen must be transparent.", 'smile' ),
 			),
 			'panel'        => __( 'Background', 'smile' ),
@@ -2640,7 +2640,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'opts'         => array(
 				'title'       => __( 'Redirect URL', 'smile' ),
 				'value'       => '',
-				'description' => __( 'Enter the URL where you would like to redirect the user after successfully added to the list.<br/><br/> Please add http / https prefix to URL. e.g. https://www.convertplug.com/plus', 'smile' ),
+				'description' => __( 'Enter the URL where you would like to redirect user after successful submission.<br/><p>You can also add the link of the downloadable file/files. <br/></p>Separate multiple links with a comma.Please add complete URLs (with http / https)', 'smile' ),
 			),
 			'panel'        => 'Form Setup',
 			'dependency'   => array(
@@ -3383,6 +3383,22 @@ if ( function_exists( 'smile_update_settings' ) ) {
 		)
 	);
 
+	smile_update_options(
+		'Smile_Slide_Ins', 'subscriber_newsletter',
+		array_merge(
+			$name,
+			$cp_form,		
+			$background,
+			$slidein_img,
+			$close_link,
+			$animations,
+			$adv_design_options,
+			$behavior,
+			$submission
+		)
+	);
+
+
 }
 
 // update default values of optin.
@@ -3590,6 +3606,51 @@ if ( function_exists( 'smile_update_default' ) ) {
 	foreach ( $free_widget_default as $option => $value ) {
 		smile_update_default( 'Smile_Slide_Ins', 'free_widget', $option, $value );
 	}
+	//diet_plan
+	$subscriber_newsletter_default = array(
+		'form_fields'              => 'order->0|input_type->email|input_label->Email|input_name->email|input_placeholder->Enter Email Address|input_require->true',
+		'form_layout'              => 'cp-form-layout-2',
+		'form_input_align'         => 'center',
+		'form_submit_align'        => 'cp-submit-wrap-full',
+		'form_grid_structure'      => 'cp-form-grid-structure-2',
+		'form_lable_font_size'     => 14,
+		'form_input_font_size'     => 14,
+		'submit_button_tb_padding' => 13,
+		'submit_button_lr_padding' => 20,
+		'form_input_padding_tb'    => 11,
+		'form_input_padding_lr'    => 20,
+		'slidein_short_desc1'      => 'Sign up with your email address to receive  tips and updates',
+		'slidein_title1'           => 'Fear Of Missing Out?',
+		'slidein_confidential'     => 'Terms and Conditions apply',
+		'button_title'             => 'SUBSCRIBE NOW',
+		'button_bg_color'          => '#000000',
+		'button_border_color'      => '#000000',
+		'cp_slidein_width'         => '400',
+		'cp_close_image_width'     =>  20,
+		'border'                => 'br_all:0|br_tl:0|br_tr:0|br_br:0|br_bl:0|style:none|color:rgb(186,186,186)|bw_all:1|bw_t:1|bw_l:1|bw_r:1|bw_b:1',
+		'btn_disp_next_line'       => false,
+		'close_position'           => 'adj_slidein',
+		'slidein_title_color'      => '#ffffff',
+		'slidein_bg_color'		   => '#f4f4f4',
+		'slidein_desc_color'       => '#ffffff',
+		'tip_color'                => '#ffffff',
+		'placeholder_text'         => 'Enter Your Email Here',
+		'name_text'                => 'Enter Your Name',
+		'overlay_effect'           => 'smile-slideInUp',
+		'exit_animation'           => 'smile-slideOutDown',
+		'close_slidein'            => 'close_img',
+		'close_text_color'         => '#898989',
+		'toggle_btn'               => true,
+		'btn_border_radius'        => 5,
+		'image_size'               => 100,
+		'slidein_bg_color'         => 'rgba(251,251,251,0.68)',
+		'slidein_image'           => CP_PLUGIN_URL . 'modules/slide_in/functions/config/img/newsletter.png',
+		'slidein_bg_gradient'     => 1,
+		'module_bg_gradient'      =>'#d930ff|#6a82fb|0|100|linear|bottom_center',
+	);
+	foreach ( $subscriber_newsletter_default as $option => $value ) {
+		smile_update_default( 'Smile_Slide_Ins', 'subscriber_newsletter', $option, $value );
+	}
 }
 
 // Remove option.
@@ -3605,6 +3666,8 @@ if ( function_exists( 'smile_remove_option' ) ) {
 
 	// social_widget_box.
 	smile_remove_option( 'Smile_Slide_Ins', 'social_widget_box', array( 'btn_disp_next_line', 'hide_animation_width', 'disable_overlay_effect', 'exit_animation', 'overlay_effect', 'content_padding' ) );
+
+	smile_remove_option( 'Smile_Slide_Ins', 'subscriber_newsletter', array( 'image_position' ) );
 }
 
 /**

@@ -228,6 +228,12 @@ if ( fusion_is_element_enabled( 'fusion_separator' ) ) {
 					$attr['style'] .= 'background-color:' . $this->args['icon_circle_color'] . ';';
 				}
 
+				$styles = explode( '|', $this->args['style_type'] );
+				if ( in_array( 'single', $styles ) ) {
+					$margin_top = (int) str_replace( 'px', '', $this->args['border_size'] );
+					$attr['style'] .= 'margin-top:-' . ( $margin_top / 2 ) . 'px';
+				}
+
 				return $attr;
 
 			}

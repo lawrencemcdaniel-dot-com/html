@@ -932,7 +932,10 @@ class Avada_Scripts {
 		// Output as CSS file.
 		header( 'Content-type: text/css', true );
 
-		$styles = explode( ',', $_GET['mq'] ); // WPCS: CSRF ok sanitization ok.
+		$styles = array();
+		if ( isset( $_GET['mq'] ) ) {
+			$styles = explode( ',', $_GET['mq'] ); // WPCS: CSRF ok sanitization ok.
+		}
 		foreach ( $styles as $style ) {
 			$style = trim( $style );
 			if ( file_exists( Avada::$template_dir_path . "/assets/css/media/{$style}.min.css" ) ) {

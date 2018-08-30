@@ -218,7 +218,7 @@ if ( ! class_exists( 'Fusion_Slider' ) ) {
 			$post_type = '';
 
 			if ( isset( $_GET['post'] ) && wp_unslash( $_GET['post'] ) ) {
-				$post_type = get_post_type( wp_unslash( $_GET['post'] ) );
+				$post_type = get_post_type( wp_unslash( $_GET['post'] ) ); // WPCS: sanitization ok.
 			}
 
 			if ( ( isset( $_GET['taxonomy'] ) && 'slide-page' === $_GET['taxonomy'] ) || ( isset( $_GET['post_type'] ) && 'slide' === $_GET['post_type'] ) || 'slide' === $post_type ) {
@@ -325,10 +325,10 @@ if ( ! class_exists( 'Fusion_Slider' ) ) {
 				if ( isset( $_POST['term_meta'] ) ) {
 					$t_id      = $term_id;
 					$term_meta = get_option( 'taxonomy_' . $t_id );
-					$cat_keys  = array_keys( wp_unslash( $_POST['term_meta'] ) );
+					$cat_keys  = array_keys( wp_unslash( $_POST['term_meta'] ) ); // WPCS: sanitization ok.
 					foreach ( $cat_keys as $key ) {
 						if ( isset( $_POST['term_meta'][ $key ] ) ) {
-							$term_meta[ $key ] = wp_unslash( $_POST['term_meta'][ $key ] );
+							$term_meta[ $key ] = wp_unslash( $_POST['term_meta'][ $key ] ); // WPCS: sanitization ok.
 						}
 					}
 					// Save the option array.
@@ -344,7 +344,7 @@ if ( ! class_exists( 'Fusion_Slider' ) ) {
 		 */
 		public function fs_export_import_settings() {
 			if ( $_FILES && isset( $_FILES['import'] ) && isset( $_FILES['import']['tmp_name'] ) ) {
-				$this->import_sliders( wp_unslash( $_FILES['import']['tmp_name'] ) );
+				$this->import_sliders( wp_unslash( $_FILES['import']['tmp_name'] ) ); // WPCS: sanitization ok.
 			}
 			include FUSION_CORE_PATH . '/fusion-slider/templates/export-import-settings.php';
 		}
@@ -360,7 +360,7 @@ if ( ! class_exists( 'Fusion_Slider' ) ) {
 
 				check_admin_referer( 'fs_export' );
 
-				if ( ! wp_unslash( $_POST['fusion_slider_export_button'] ) ) {
+				if ( ! wp_unslash( $_POST['fusion_slider_export_button'] ) ) { // WPCS: sanitization ok.
 					return;
 				}
 
@@ -791,7 +791,7 @@ if ( ! class_exists( 'Fusion_Slider' ) ) {
 		 */
 		public function save_as_new_slider() {
 			if ( isset( $_REQUEST['_fusion_slider_clone_nonce'] ) && isset( $_REQUEST['slider_id'] ) && check_admin_referer( 'clone_slider', '_fusion_slider_clone_nonce' ) && current_user_can( 'manage_options' ) ) {
-				$term_id            = wp_unslash( $_REQUEST['slider_id'] );
+				$term_id            = wp_unslash( $_REQUEST['slider_id'] ); // WPCS: sanitization ok.
 				$term_tax           = 'slide-page';
 				$original_term      = get_term( $term_id, $term_tax );
 				$original_term_meta = get_option( 'taxonomy_' . $term_id );
@@ -872,7 +872,7 @@ if ( ! class_exists( 'Fusion_Slider' ) ) {
 			if ( isset( $_REQUEST['_fusion_slide_clone_nonce'] ) && check_admin_referer( 'clone_slide', '_fusion_slide_clone_nonce' ) && current_user_can( 'manage_options' ) ) {
 
 				// Get the post being copied.
-				$id   = isset( $_GET['post'] ) ? wp_unslash( $_GET['post'] ) : wp_unslash( $_POST['post'] );
+				$id   = isset( $_GET['post'] ) ? wp_unslash( $_GET['post'] ) : wp_unslash( $_POST['post'] ); // WPCS: sanitization ok.
 				$post = get_post( $id );
 
 				// Copy the post and insert it.

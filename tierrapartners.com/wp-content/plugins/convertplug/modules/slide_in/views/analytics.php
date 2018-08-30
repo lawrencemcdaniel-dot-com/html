@@ -17,10 +17,14 @@ if ( isset( $_GET['style'] ) && ! empty( $_GET['style'] ) ) {
 $smile_variant_tests = get_option( 'slide_in_variant_tests' );
 
 
-$s_date      = ( isset( $_GET['sd'] ) && ! empty( $_GET['sd'] ) ) ? sanitize_text_field( $_GET['sd'] ) : $cp_analytics_start_time;
-$e_date      = ( isset( $_GET['ed'] ) && ! empty( $_GET['ed'] ) ) ? sanitize_text_field( $_GET['ed'] ) : $cp_analytics_end_time;
-$chart_type  = ( isset( $_GET['cType'] ) && ! empty( $_GET['cType'] ) ) ? sanitize_text_field( $_GET['cType'] ) : 'line';
-$comp_factor = ( isset( $_GET['compFactor'] ) && ! empty( $_GET['compFactor'] ) ) ? sanitize_text_field( $_GET['compFactor'] ) : 'imp';
+$s_date          = ( isset( $_GET['sd'] ) && ! empty( $_GET['sd'] ) ) ? sanitize_text_field( $_GET['sd'] ) : $cp_analytics_start_time;
+$e_date          = ( isset( $_GET['ed'] ) && ! empty( $_GET['ed'] ) ) ? sanitize_text_field( $_GET['ed'] ) : $cp_analytics_end_time;
+$chart_type      = ( isset( $_GET['cType'] ) && ! empty( $_GET['cType'] ) ) ? sanitize_text_field( $_GET['cType'] ) : 'line';
+$comp_factor     = ( isset( $_GET['compFactor'] ) && ! empty( $_GET['compFactor'] ) ) ? sanitize_text_field( $_GET['compFactor'] ) : 'imp';
+
+$export_an_nonce = wp_create_nonce( 'cp-export-analytics');
+$form_action     = admin_url( 'admin-post.php?action=cp_export_analytics' );
+
 ?>
 
 <div class="wrap about-wrap bsf-connect bsf-connect-list bend">
@@ -152,8 +156,18 @@ $comp_factor = ( isset( $_GET['compFactor'] ) && ! empty( $_GET['compFactor'] ) 
 																	><?php _e( 'Conversion Rate', 'smile' ); ?></option>
 																</select>
 															</div>
-															<div class="col-sm-2">
-																<button class="button-primary cp-chart-submit" type="submit" id="submit-query">Submit</button>
+															<div class="col-sm-2 cp-exp-anltcs">
+																<button class="col-sm-8 button-primary cp-chart-submit" type="submit" id="submit-query">Submit</button>
+																<!-- Export Analytics -->			
+																<form method="post" class="col-sm-4 cp-export-analytics" action="<?php echo esc_url( $form_action ); ?>">					
+																	<input type="hidden" name="an_data" id ="cp-module-data" value="" />
+																	<input type="hidden" name="_wpnonce" id ="_wpnonce" value="<?php echo $export_an_nonce ;?>" />
+																	
+																	<input type="hidden" name="comp_factor" id ="comp_factor" value="<?php echo $comp_factor ;?>" />
+
+																	<a class="action-list action-download-analytics " href="#" target="_top" style="margin-right: 25px !important;" data-comp-factor = "<?php echo $comp_factor;?>"><i style="line-height: 30px;font-size: 30px;" class="connects-icon-download"></i><span class="action-tooltip"><?php _e( 'Export CSV', 'smile' ); ?></span></a>				
+																</form>			
+																<!-- Export Analytics -->	
 															</div>
 														</div>
 														<!-- .form-container -->
@@ -182,3 +196,14 @@ $comp_factor = ( isset( $_GET['compFactor'] ) && ! empty( $_GET['compFactor'] ) 
 											<!-- .wrap-container -->
 										</div>
 										<!-- .wrap -->
+										<script type="text/javascript">		
+											jQuery(".action-download-analytics ").click(function(e){
+												e.preventDefault();
+												var form = jQuery(this).parents('form');
+												form.submit();
+											});
+											jQuery("#cp-chart-comp-type").change(function () {
+										        var end = this.value;
+										        jQuery('#comp_factor').val(end);
+										    });
+										</script>

@@ -345,7 +345,8 @@ MYMAP.init = function(selector, latLng, zoom) {
 		if(event.target instanceof WPGMZA.Marker)
 			return;
 		
-        infoWindow.close();
+		if(window.infoWindow)
+			infoWindow.close();
     });
     
     window.addEventListener("keydown", function(e) {
@@ -358,6 +359,10 @@ MYMAP.init = function(selector, latLng, zoom) {
 //var infoWindow = new google.maps.InfoWindow();
 var infoWindow;
 jQuery(document).ready(function() {
+	
+	if(!window.WPGMZA || !window.WPGMZA.googleAPIStatus || window.WPGMZA.googleAPIStatus.code != "ENQUEUED")
+		return;
+	
 	infoWindow = WPGMZA.InfoWindow.createInstance();
 	if (typeof wpgmaps_localize_global_settings['wpgmza_settings_infowindow_width'] !== "undefined" && wpgmaps_localize_global_settings['wpgmza_settings_infowindow_width'] !== "") { infoWindow.setOptions({maxWidth:wpgmaps_localize_global_settings['wpgmza_settings_infowindow_width']}); }
 });
@@ -367,14 +372,14 @@ jQuery(document).ready(function() {
     MYMAP.map.setCenter(myLatLng);
 });*/
 
-if(!window.WPGMZA)
+/*if(!window.WPGMZA)
 	window.WPGMZA = {};
 
 WPGMZA.KM_PER_MILE = 1.60934;
 WPGMZA.MILE_PER_KM = 0.621371;
 
 WPGMZA.UNITS_MILES = 1;
-WPGMZA.UNITS_KM = 2;
+WPGMZA.UNITS_KM = 2;*/
 
 function wpgmza_get_zoom_from_radius(radius, units)
 {
@@ -800,10 +805,22 @@ function searchLocations(map_id) {
 	
 	geocoder.geocode(options, function(results, status) {
 		
+		var event = {
+			type: 		"storelocatorgeocodecomplete",
+			results:	results,
+			status:		status
+		};
+		
+		MYMAP.map.trigger(event);
+		
 		if(status == WPGMZA.Geocoder.SUCCESS)
+		{
 			searchLocationsNear(map_id,results[0].geometry.location);
+		}
 		else
+		{
 			alert(address + ' not found');
+		}
 		
 	});
 }
@@ -833,6 +850,13 @@ function searchLocationsNear(mapid,center_searched) {
 		marker_sl.setMap(null);
 	}
     MYMAP.placeMarkers(wpgmaps_markerurl+'?u='+UniqueCode,wpgmaps_localize[wpgmaps_mapid].id,radius,center_searched,distance_type);
+	
+	var event = {
+		type: 		"storelocatorresult",
+		position:	center_searched
+	};
+	
+	MYMAP.map.trigger(event);
 }
 
 function toRad(Value) {
@@ -843,7 +867,7 @@ function toRad(Value) {
 (function($) {
 	
 	if(!window.WPGMZA)
-		window.WPGMZA = {};
+		return;
 	
 	WPGMZA.hexToRgba = function(hex) {
 		var c;
@@ -868,28 +892,7 @@ function toRad(Value) {
 		return "rgba(" + rgba.r + ", " + rgba.g + ", " + rgba.b + ", " + rgba.a + ")";
 	}
 
-	WPGMZA.GoogleAPIErrorHandler = function() {
-		
-		if(WPGMZA.settings.engine != "google-maps")
-			return;
-		
-		var _error = console.error;
-		
-		console.error = function(message)
-		{
-			var m = message.match(/^Google Maps API error: (\w+) (.+)/);
-			
-			if(m)
-			{
-				var friendlyMessage = m[1].replace(/([A-Z])/g, " $1") + " - See " + m[2] + " for more information";
-				alert(friendlyMessage);
-			}
-			
-			_error.apply(this, arguments);
-		}
-	}
-	
-	WPGMZA.googleAPIErrorHandler = new WPGMZA.GoogleAPIErrorHandler();
+	// GoogleAPIErrorHandler moved to /js/v8/google-api-error-handler.js
 	
 })(jQuery);
 

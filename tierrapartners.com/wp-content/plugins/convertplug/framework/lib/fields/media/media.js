@@ -38,6 +38,7 @@ jQuery(document).ready(function(jQuery){
 
 			button.text('Change Image');
 
+
 			//  Partial Refresh
             //  -   Apply background, background-color, color etc.
             var css_preview = a.attr('data-css-preview') || '';
@@ -50,6 +51,8 @@ jQuery(document).ready(function(jQuery){
 
             jQuery(document).trigger('cp-image-change', [name,url, val] );
 			jQuery("#"+id).trigger('change');
+
+			
 		});
 		uploader.open(button);
 		return false;

@@ -5,7 +5,7 @@ Tags: widget, events, simple, tooltips, grid, month, list, calendar, event, venu
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
 Tested up to: 4.9.6
-Stable tag: 4.5.1
+Stable tag: 4.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ Eventbrite Tickets connects the power of The Events Calendar to your account on 
 
 * Sell tickets from your event's page via Eventbrite
 * Create tickets in your WordPress dashboard
-* Import Eventbrite events manually or automatically
+* Import Eventbrite events by ID
 
 If you make a new account with Eventbrite, please use our referral code: <a href='http://www.eventbrite.com/r/etp'>http://www.eventbrite.com/r/etp</a>.
 
@@ -40,13 +40,24 @@ Just follow these steps:
 
 = Activate =
 
-After downloading and installing the plugin you will need to get your website connected to your Eventbrite account. Since Eventbrite Tickets 4.5 the connection is quick and easy:
-1. Navigate to your WP Admin —> Events —> Settings —> APIs tab and click the Connect to Eventbrite button.
-2. You will be redirected to your Eventbrite.com account.
-3. After logging in, you will be asked to allow our ea.theeventscalendar.com application to access your account.
-4. Once you click Allow, your site will be connected and you’ll be redirected to your imports page where you can import your first event from Eventbrite.
+After downloading and installing the plugin, you'll need to add your Eventbrite App Key + Client Secret to activate all of the great Eventbrite Tickets features. This is how the system knows to link your WordPress site with your Eventbrite account.
 
-And that’s it! From there, you’re ready to begin creating events.
+1. Install and activate the latest version of The Events Calendar alongside Eventbrite Tickets v 3.9.6 or newer.
+2. In another tab, log into Eventbrite.com — if you don’t already have an account, create one.
+3. Within Eventbrite.com, navigate to the Account page and find App Management towards the bottom of the left-hand sidebar.
+4. Hit the appropriate button to create a new app, and fill in the fields appropriately. Contact Information asks for basic information about who you are and should be quick to complete.
+5. Application Details ask you to provide information specific to the app you’re creating. Here’s a quick guide to what goes in each:
+** Application URL: The frontend URL for the WordPress site where you’ll be running the plugin.
+** OAuth Redirect URI: This field doesn’t have a red asterisk, but it IS required to get Eventbrite Tickets working properly. If you don’t know what it is, don’t worry: just navigate to Events —> Settings —> Eventbrite on the dashboard of your site, and copy the OAuth Redirect URL we’ve provided for you.
+** Application Name and Application Description should have a straightforward name and summary that will make this app easy to identify as your list of apps within Eventbrite.com grows over time.
+6. Agree to the terms of service, and click the big green “Create Key” button. Let the system work its magic and wait to be redirected back to your App Management page.
+7. You’ll see the key you just created, along with a link to view your client secret. First copy the key and plug it into the “Application Key” field under Events —> Settings —> Eventbrite on your WordPress site, then do the same for the “Client Secret.”
+8. When all is said and done, hit Save Changes and let the page reload. But you’re not done yet!
+9. Once the page refreshes and the App Key and Client Secret are saved in the system, you’ll notice a “Get Authorization” button that wasn’t previously showing.
+10. Click it, and wait to be redirected to a page on Eventbrite.com asking you to allow or deny the authorization.
+11. Allow it, wait a moment, and you’ll be redirected back to Events —> Settings —> Eventbrite on your WordPress site, with a “Success” message confirming that you’re good to go.
+
+That’s it! If you are unsure about the process or want to see a video documenting it, see our knowledgebase article on the App Key / Client Secret process at http://m.tri.be/vr.
 
 = Requirements =
 
@@ -189,7 +200,11 @@ Our Premium Plugins:
 
 == Changelog ==
 
-= [4.5.1] 2018-06-19 =
+= [4.5.2] 2018-08-01 =
+
+* Fix - In certain cases when updating an event in the admin stops the tickets from showing on the front end, thanks to Scott for reporting [110791]
+
+= [4.5.1] 2018-06-20 =
 
 * Add - A message before the Eventbrite metabox and hide the fields if there the app has not been authorized to import [86346]
 * Tweak - The EB 4.5 migration process to better detect events for migration and insure all fields are migrated [106623]

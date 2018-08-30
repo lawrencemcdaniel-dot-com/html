@@ -90,7 +90,10 @@
      url_arr             = '',
      ajax_run            = true,
      custom_selector     = '',
-     floating_status     = 0 ;
+     floating_status     = 0 ,
+     close_img           = '',
+     custom_style        = '',
+     window_style        = '';
 
      var ConvertPlus = {
         /**
@@ -101,14 +104,14 @@
          init: function( e, element, event ) {
 
             var body               = $('body');
-            $this              = element,
-            class_id           = element.data("class-id"),
-            module_type        = element.data("module-type");
-            dev_mode           = element.data("dev-mode"),
-            exit               = element.data("exit-intent"),
-            opt                = element.data('option'),
-            modal              = $('.'+class_id),
-            delay_set          = element.data("onload-delay"),
+                $this              = element,
+                class_id           = element.data("class-id"),
+                module_type        = element.data("module-type");
+                dev_mode           = element.data("dev-mode"),
+                exit               = element.data("exit-intent"),
+                opt                = element.data('option'),
+                modal              = $('.'+class_id),
+                delay_set          = element.data("onload-delay"),
                 delay              = delay_set * 1000,  // convert delay time from seconds to miliseconds
                 load_on_refresh    = element.data('load-on-refresh'),
                 scrollTill         = element.data("onscroll-value"),
@@ -129,7 +132,8 @@
                 custom_selector    = element.data('custom-selector'),
                 ib_id              = element.attr("id"),
                 iframes            = modal.find('iframe'),
-                disabled_upto      = modal.data('load-on-count');
+                disabled_upto      = modal.data('load-on-count'),
+                close_img          = modal.find('.cp-close-img').data('close-scr');
 
                 if( module_type == 'info-bar' ){
                     cookieName        = element.data('info_bar-id'),
@@ -145,6 +149,7 @@
                     disabled_upto     = element.data('load-on-count');
                     ConvertPlus._infoBarPos( info_bar ); //set inofbar position
                     scheduled          = ConvertPlus._isScheduled( info_bar );
+                    close_img          = info_bar.find('.cp-close-img').data('close-scr');
                     setTimeout(function() {
                      ib_height = infobar_container.outerHeight();
                  }, 100 );
@@ -153,8 +158,10 @@
                     parent_id          = modal.data('parent-style'),
                     cookieName         = element.data('modal-id'),
                     style              = element.data('modal-style'),
-                    scheduled          = ConvertPlus._isScheduled( modal );
+                    scheduled          = ConvertPlus._isScheduled( modal ),
                     module             = modal;
+                    custom_style       = modal.find('.cp-modal-body').data('custom-style'),
+                    window_style       = modal.find('.cp-modal-content').data('window-style');
                 }else if( module_type == 'slide_in'){
                     slidein             = $('.'+class_id),
                     cookieName          = slidein.data('slidein-id'),
@@ -163,8 +170,10 @@
                     afterpost           = element.hasClass('si-after-post'),
                     slidein_container   = element.closest('.cp-slidein-popup-container'),
                     module              = $('.'+class_id),
-                    scheduled          = ConvertPlus._isScheduled( slidein );
-                    parent_id           = slidein.data('parent-style');
+                    scheduled           = ConvertPlus._isScheduled( slidein ),
+                    parent_id           = slidein.data('parent-style'),
+                    custom_style        = slidein.find('.cp-slidein-body').data('custom-style'),
+                    close_img           = slidein.find('.cp-close-img').data('close-scr');
                 }
                 if( module_type == 'modal' && module.hasClass('cp-window-size')){ modal.windowSize(); }
 
@@ -180,7 +189,7 @@
                         this._CploadEvent();
                     }
                     this._CpCustomClass();
-                    //this._CpCustomSelector();
+                    this._CpLoadImages();
 
                     this._CpIframe();
                     if( module_type == 'slide_in'){
@@ -538,7 +547,33 @@
                     }
                 });
             }            
-        },       
+        },      
+        _CpLoadImages: function(){
+            var md      = module,
+            type        = module_type,
+            image       = close_img,
+            c_style     = custom_style,
+            w_style     = window_style; 
+           
+            if( 'modal'== type ){                
+                if( 'undefined' != typeof c_style ){
+                    md.find('.cp-modal-body').attr( 'style', c_style );
+                    md.find('.cp-modal-body').removeAttr('data-custom-style');
+                }
+
+                if( 'undefined' != typeof w_style ){
+                    md.find('.cp-modal-content').attr( 'style', w_style );
+                    md.find('.cp-modal-content').removeAttr('data-window-style');
+                }
+            }else if( 'slide_in'== type ){
+                if( 'undefined' != typeof c_style ){
+                    md.find('.cp-slidein-body').attr( 'style', c_style );
+                    md.find('.cp-slidein-body').removeAttr('data-custom-style');
+                }
+            }
+
+            //md.find('.cp-image').
+        }, 
         /**
          * Check video popup 
          * @return nothing
@@ -1893,31 +1928,6 @@ $( document ).on( 'mouseleave', function( event ) {
  });
 } );
 
-/* Scroll Event */
-$( document ).scroll( function(event) {
-
-    clearTimeout($.data(this, 'CP_scrollEvent'));
-    $.data(this, 'CP_scrollEvent', setTimeout(function() {
-        $(".cp-global-load").each( function(t) {
-            var element = $( this ),
-            scroll_chk   = element.data('onscroll-value'),
-            scroll_class = element.data('scroll-class'),
-            scrollValue  = element.data("after-content-value");
-            var after_post = ( element.hasClass("cp-after-post") || element.hasClass("ib-after-post") ||   element.hasClass("si-after-post") );
-
-            if( (typeof scroll_class !== 'undefined' && scroll_class !== '') || (scroll_chk !=='') || after_post ){
-                var result = cp_is_triggered( element );
-                if( result == false ){
-                    ConvertPlus.init( event, element, 'scroll' );
-                }
-            }
-
-            ConvertPlus._count_inline_impressions( $( this ) );
-
-        });
-    },200));
-} );
-
 /* Idle Event */
 jQuery(document).on( "idle.idleTimer", function(event, elem, obj){
     $(".cp-global-load").each( function(t) {
@@ -1958,6 +1968,14 @@ jQuery(window).on('load', function (e) {
     if (agentID) {     
         jQuery('html').addClass('cp-iphone-browser');
     }
+
+    // load images after page load.
+    [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+      img.setAttribute('src', img.getAttribute('data-src'));
+      img.onload = function() {
+        img.removeAttribute('data-src');
+      };
+    });
 
 }, 1000));
 
@@ -2002,302 +2020,322 @@ jQuery(document).on("cp_conversion_done", function(e, $this, style_id){
    }
 });
 
-    // Custom class impression count
-    jQuery(document).on("cp_custom_class_clicked", function(e, $this){
-       jQuery($this).addClass('cp-disabled');
-   });
+// Custom class impression count
+jQuery(document).on("cp_custom_class_clicked", function(e, $this){
+   jQuery($this).addClass('cp-disabled');
+});
 
-    // Close modal on click of close button
-    jQuery(document).on("click", ".cp-form-submit-error", function(e){
-        var $this                   = jQuery(this),
-        cp_form_processing_wrap = $this.find(".cp-form-processing-wrap") ,
-        cp_tooltip              = $this.find(".cp-tooltip-icon").data('classes'),
-        cp_msg_on_submit        = $this.find(".cp-msg-on-submit");
+// Close modal on click of close button
+jQuery(document).on("click", ".cp-form-submit-error", function(e){
+    var $this                   = jQuery(this),
+    cp_form_processing_wrap = $this.find(".cp-form-processing-wrap") ,
+    cp_tooltip              = $this.find(".cp-tooltip-icon").data('classes'),
+    cp_msg_on_submit        = $this.find(".cp-msg-on-submit");
 
-        cp_form_processing_wrap.hide();
-        $this.removeClass('cp-form-submit-error');
-        cp_msg_on_submit.html('');
-        cp_msg_on_submit.removeAttr("style");
-        jQuery('head').append('<style class="cp-tooltip-css">.tip.'+cp_tooltip+'{display:block }</style>');
-
-    });
-
-    jQuery(".cp-overlay").on( "idle.idleTimer", function(event, elem, obj){        
-        var modal = jQuery(".cp-overlay");
-        jQuery(document).trigger('closeModal',[modal]);
-        var cp_tooltip  =  modal.find(".cp-tooltip-icon").data('classes');
-        setTimeout(function(){
-            jQuery('head').append('<style id="cp-tooltip-close-css">.tip.'+cp_tooltip+'{ display:none; }</style>');
-        },1000);
-    });
-
-    jQuery(document).on( "idle.idleTimer", function(event, elem, obj){ 
-        if( jQuery(".ib-display").hasClass('cp-close-after-x')){
-            var info_bar = jQuery(".ib-display");
-            jQuery(document).trigger('cp_close_info_bar',[info_bar]);
-        }
-
-        if( jQuery(".slidein-overlay").hasClass('cp-close-after-x')){
-            var slidein = jQuery(".slidein-overlay");            
-            jQuery(document).trigger('closeSlideIn',[slidein]);
-        }
-    });
-
-    //close modal on cp-close class
-    jQuery(document).on("click", ".cp-close", function(e){
-        if( !jQuery(this).parents(".cp-overlay").hasClass('do_not_close') ){
-            var modal       =  jQuery(this).parents(".cp-overlay");
-            jQuery(document).trigger('closeModal',[modal]);
-        }
-    });
-
-     //close modal on cp-inner-close class
-     jQuery(document).on("click", ".cp-inner-close", function(e){
-        var modal       =  jQuery(this).parents(".cp-overlay");
-        jQuery(document).trigger('closeModal',[modal]);
-    });
-
-    // Close modal on click of close button
-    jQuery(document).on("closeModal", function(event,modal){
-        var id          =  modal.data("class"),
-        overlay     =  $( '.cp-global-load[data-class-id=' + id + ']' );
-        ConvertPlus.init( event, overlay, 'closepopup' );
-    });
-
-    jQuery(document).on("cp_close_info_bar", function( event, info_bar ) {
-        var id          =  info_bar.data("class"),
-        overlay     =  $( '.cp-ib-onload[data-class-id=' + id + ']' );
-        ConvertPlus.init( event, info_bar, 'closepopup' );
-    });
-
-       //set cookies for optin widget style
-       jQuery("body").on("click", ".cp-slidein-head .cp-widget-open", function(e){
-        var slidein     = jQuery(this).parents(".slidein-overlay"),
-        cookieTime  = slidein.data('closed-cookie-time'),
-        cookieName  = slidein.data('slidein-id'),
-        cp_animate  = slidein.find('.cp-animate-container'),
-        entry_anim  = slidein.data('overlay-animation'),
-        exit_anim   = cp_animate.data('exit-animation'),
-        conversion  = slidein.data('conversion-cookie-time'),
-        temp_cookie = "temp_"+cookieName;
-
-        ConvertPlus._createCookie(temp_cookie,true,1);
-
-        var cookie      = ConvertPlus._getCookie(cookieName);
-
-        if(!cookie){
-            if(cookieTime){
-                slidein.addClass("cp-always-minimize-widget");
-                ConvertPlus._createCookie(cookieName,true,cookieTime);
-            }
-        }
-
-    });
-
-          // Close Slide In on click of close button
-          jQuery(document).on("closeSlideIn", function(event,slidein){
-            var container   =  slidein.parents(".cp-slidein-popup-container"),
-            id      =  slidein.data("class"),
-            overlay =  $( '.si-onload[data-class-id=' + id + ']' );
-            ConvertPlus.init( event, overlay, 'closepopup' );
-        });
-    //set tab index for input
-    jQuery(".smile-optin-form").each(function() {
-        var last_input = jQuery(this).find( "input.cp-input" ).last();
-        if( last_input.hasClass("cp-input")){
-            last_input.addClass("cp-last-field");
-        }
-    });
-
-    jQuery("input.cp-input").keydown(function(e) {
-        var keyCode = (window.event) ? e.which : e.keyCode;
-        if (keyCode == 9 && jQuery(this).hasClass("cp-last-field")){
-            e.preventDefault();
-            var form = jQuery(this).parents(".smile-optin-form");
-            form.find(".cp-submit").attr("tabindex",-1).focus();
-        }
-    });
-
-
-    //Add compatibility support for avada theme push page down
-    $( document ).scroll( function(event) {        
-
-        clearTimeout($.data(this, 'CP_scrollTimer'));
-        $.data(this, 'CP_scrollTimer', setTimeout(function() {
-            $(".cp-ib-onload.cp-pos-top").each( function(t) {  
-                var element = $( this ), 
-                ht = element.outerHeight(), 
-                page_push_down    = element.data('push-down') || null;
-                var data_toggle = element.data("toggle-visible");                
-                
-                if( page_push_down && element.hasClass("ib-display") && element.hasClass("ib-fixed") ){
-                    var is_avada_header = jQuery(".fusion-header-wrapper").find(".fusion-sticky-menu-");
-                    var is_avada_sticky_menu = '';
-                    if( typeof is_avada_header !== 'undefined' ){
-                        is_avada_sticky_menu = is_avada_header.length;
-                    }
-
-                    if( is_avada_sticky_menu > 0 ){
-                        var fusion_class = '.fusion-header';
-                        if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
-                            fusion_class = '.fusion-secondary-main-menu';
-                        }
-                        var admin_bar_height  = jQuery('#wpadminbar').outerHeight();
-                        var total_ht = ht + admin_bar_height;  
-                        jQuery(fusion_class).addClass("cp-fusion-header");
-                        jQuery(".cp_fusion_css").remove();
-                        
-                        if( element.find(".cp-ifb-toggle-btn").hasClass("cp-ifb-show") ){
-                            var fixed_css = ".cp-fusion-header{top:"+admin_bar_height+"px !important}";
-                            $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
-                        }else{
-                            var fixed_css = ".cp-fusion-header{top:"+total_ht+"px !important}";
-                            $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
-                        }                      
-                        
-                        jQuery(fusion_class).addClass("cp-scroll-start");        
-                    }
-                }else{
-
-                 var fusion_class = '.fusion-header';
-                 if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
-                    fusion_class = '.fusion-secondary-main-menu';
-                }
-                jQuery(fusion_class).addClass("cp-fusion-header");
-                var admin_bar_height  = jQuery('#wpadminbar').outerHeight(); 
-                var fixed_css = ".cp-fusion-header{top:"+admin_bar_height+"px !important}";
-                $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
-
-            }
-
-        });
-
-        }, 100));
-
-    });
-
-    //Add compatibility support for avada theme push page down
-    jQuery(document).on("infobarOpen", function(e,data) {  
-        var element = data, 
-        ht      = element.outerHeight(),  
-        page_push_down    = element.data('push-down') || null;
-
-        var is_avada_sticky_menu = jQuery(".fusion-header-wrapper").find(".fusion-sticky-menu-").length;
-        if( is_avada_sticky_menu && page_push_down ){
-            var fusion_class = '.fusion-header';
-            if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
-                fusion_class = '.fusion-secondary-main-menu';
-            }
-
-            var admin_bar_height  = jQuery('#wpadminbar').outerHeight(),
-            total_ht = ht + admin_bar_height,
-            old_top = jQuery(fusion_class).css("top");
-
-            jQuery(fusion_class).attr( "data-old-top", old_top );
-            var data_toggle = element.data("toggle-visible");                
-            if( !data_toggle  && element.hasClass("ib-fixed") ){ 
-                jQuery(".cp_fusion_css").remove();
-                jQuery(fusion_class).addClass("cp-fusion-header");
-                var fixed_css = ".cp-fusion-header{top:"+total_ht+"px !important}";
-                $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
-
-                jQuery(fusion_class).addClass("cp-scroll-start");   
-            }               
-        }
-
-    });
-
-    //Add compatibility support for avada theme push page down
-    jQuery(document).on("cp_close_info_bar", function( event, info_bar ) {
-        var element = info_bar, 
-        ht      = element.outerHeight(),      
-        page_push_down    = element.data('push-down') || null;
-
-        if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
-            var fusion_class = '.fusion-secondary-main-menu';
-        }else{
-            var fusion_class = '.fusion-header';
-        }
-
-        if( page_push_down ){
-            var old_top = jQuery(fusion_class).attr("data-old-top");  
-            jQuery(".cp_fusion_css").remove();  
-        }
-
-        info_bar.addClass("cp-stop-scroll");
-        jQuery(fusion_class).removeClass("cp-scroll-start");    
-        $('.cp-push-page-css').remove();
+    cp_form_processing_wrap.hide();
+    $this.removeClass('cp-form-submit-error');
+    cp_msg_on_submit.html('');
+    cp_msg_on_submit.removeAttr("style");
+    jQuery('head').append('<style class="cp-tooltip-css">.tip.'+cp_tooltip+'{display:block }</style>');
 
 });
 
-    //close gravity form & Custom analytics for Contact form.
-    jQuery(document).bind('gform_confirmation_loaded', function(event, form_id){ 
-        var form     = jQuery('#gf_'+form_id),        
-            style_id = form.parents(".cp-module").data("style-id"),
-            style_name  = form.parents(".cp-module").data("module-name");  
+jQuery(".cp-overlay").on( "idle.idleTimer", function(event, elem, obj){        
+    var modal = jQuery(".cp-overlay");
+    jQuery(document).trigger('closeModal',[modal]);
+    var cp_tooltip  =  modal.find(".cp-tooltip-icon").data('classes');
+    setTimeout(function(){
+        jQuery('head').append('<style id="cp-tooltip-close-css">.tip.'+cp_tooltip+'{ display:none; }</style>');
+    },1000);
+});
+
+jQuery(document).on( "idle.idleTimer", function(event, elem, obj){ 
+    if( jQuery(".ib-display").hasClass('cp-close-after-x')){
+        var info_bar = jQuery(".ib-display");
+        jQuery(document).trigger('cp_close_info_bar',[info_bar]);
+    }
+
+    if( jQuery(".slidein-overlay").hasClass('cp-close-after-x')){
+        var slidein = jQuery(".slidein-overlay");            
+        jQuery(document).trigger('closeSlideIn',[slidein]);
+    }
+});
+
+//close modal on cp-close class
+jQuery(document).on("click", ".cp-close", function(e){
+    if( !jQuery(this).parents(".cp-overlay").hasClass('do_not_close') ){
+        var modal       =  jQuery(this).parents(".cp-overlay");
+        jQuery(document).trigger('closeModal',[modal]);
+    }
+});
+
+//close modal on cp-inner-close class
+jQuery(document).on("click", ".cp-inner-close", function(e){
+    var modal       =  jQuery(this).parents(".cp-overlay");
+    jQuery(document).trigger('closeModal',[modal]);
+});
+
+// Close modal on click of close button
+jQuery(document).on("closeModal", function(event,modal){
+    var id          =  modal.data("class"),
+    overlay     =  $( '.cp-global-load[data-class-id=' + id + ']' );
+    ConvertPlus.init( event, overlay, 'closepopup' );
+});
+
+jQuery(document).on("cp_close_info_bar", function( event, info_bar ) {
+    var id          =  info_bar.data("class"),
+    overlay     =  $( '.cp-ib-onload[data-class-id=' + id + ']' );
+    ConvertPlus.init( event, info_bar, 'closepopup' );
+});
+
+//set cookies for optin widget style
+jQuery("body").on("click", ".cp-slidein-head .cp-widget-open", function(e){
+    var slidein     = jQuery(this).parents(".slidein-overlay"),
+    cookieTime  = slidein.data('closed-cookie-time'),
+    cookieName  = slidein.data('slidein-id'),
+    cp_animate  = slidein.find('.cp-animate-container'),
+    entry_anim  = slidein.data('overlay-animation'),
+    exit_anim   = cp_animate.data('exit-animation'),
+    conversion  = slidein.data('conversion-cookie-time'),
+    temp_cookie = "temp_"+cookieName;
+
+    ConvertPlus._createCookie(temp_cookie,true,1);
+
+    var cookie      = ConvertPlus._getCookie(cookieName);
+
+    if(!cookie){
+        if(cookieTime){
+            slidein.addClass("cp-always-minimize-widget");
+            ConvertPlus._createCookie(cookieName,true,cookieTime);
+        }
+    }
+
+});
+
+// Close Slide In on click of close button
+jQuery(document).on("closeSlideIn", function(event,slidein){
+    var container   =  slidein.parents(".cp-slidein-popup-container"),
+    id      =  slidein.data("class"),
+    overlay =  $( '.si-onload[data-class-id=' + id + ']' );
+    ConvertPlus.init( event, overlay, 'closepopup' );
+});
+
+//set tab index for input
+jQuery(".smile-optin-form").each(function() {
+    var last_input = jQuery(this).find( "input.cp-input" ).last();
+    if( last_input.hasClass("cp-input")){
+        last_input.addClass("cp-last-field");
+    }
+});
+
+jQuery("input.cp-input").keydown(function(e) {
+    var keyCode = (window.event) ? e.which : e.keyCode;
+    if (keyCode == 9 && jQuery(this).hasClass("cp-last-field")){
+        e.preventDefault();
+        var form = jQuery(this).parents(".smile-optin-form");
+        form.find(".cp-submit").attr("tabindex",-1).focus();
+    }
+});
+
+
+$( document ).scroll( function(event) {    
+
+    //scroll event trigger
+    clearTimeout($.data(this, 'CP_scrollEvent'));
+    $.data(this, 'CP_scrollEvent', setTimeout(function() {
+        $(".cp-global-load").each( function(t) {
+            var element = $( this ),
+            scroll_chk   = element.data('onscroll-value'),
+            scroll_class = element.data('scroll-class'),
+            scrollValue  = element.data("after-content-value");
+            var after_post = ( element.hasClass("cp-after-post") || element.hasClass("ib-after-post") ||   element.hasClass("si-after-post") );
+
+            if( (typeof scroll_class !== 'undefined' && scroll_class !== '') || (scroll_chk !=='') || after_post ){
+                var result = cp_is_triggered( element );
+                if( result == false ){
+                    ConvertPlus.init( event, element, 'scroll' );
+                }
+            }
+
+            ConvertPlus._count_inline_impressions( $( this ) );
+
+        });
+    },200));    
+
+    //Add compatibility support for avada theme push page down    
+    clearTimeout($.data(this, 'CP_scrollTimer'));
+    $.data(this, 'CP_scrollTimer', setTimeout(function() {
+        $(".cp-ib-onload.cp-pos-top").each( function(t) {  
+            var element = $( this ), 
+            ht = element.outerHeight(), 
+            page_push_down    = element.data('push-down') || null;
+            var data_toggle = element.data("toggle-visible");                
+            
+            if( page_push_down && element.hasClass("ib-display") && element.hasClass("ib-fixed") ){
+                var is_avada_header = jQuery(".fusion-header-wrapper").find(".fusion-sticky-menu-");
+                var is_avada_sticky_menu = '';
+                if( typeof is_avada_header !== 'undefined' ){
+                    is_avada_sticky_menu = is_avada_header.length;
+                }
+
+                if( is_avada_sticky_menu > 0 ){
+                    var fusion_class = '.fusion-header';
+                    if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
+                        fusion_class = '.fusion-secondary-main-menu';
+                    }
+                    var admin_bar_height  = jQuery('#wpadminbar').outerHeight();
+                    var total_ht = ht + admin_bar_height;  
+                    jQuery(fusion_class).addClass("cp-fusion-header");
+                    jQuery(".cp_fusion_css").remove();
+                    
+                    if( element.find(".cp-ifb-toggle-btn").hasClass("cp-ifb-show") ){
+                        var fixed_css = ".cp-fusion-header{top:"+admin_bar_height+"px !important}";
+                        $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
+                    }else{
+                        var fixed_css = ".cp-fusion-header{top:"+total_ht+"px !important}";
+                        $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
+                    }                      
+                    
+                    jQuery(fusion_class).addClass("cp-scroll-start");        
+                }
+            }else{
+
+             var fusion_class = '.fusion-header';
+             if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
+                fusion_class = '.fusion-secondary-main-menu';
+            }
+            jQuery(fusion_class).addClass("cp-fusion-header");
+            var admin_bar_height  = jQuery('#wpadminbar').outerHeight(); 
+            var fixed_css = ".cp-fusion-header{top:"+admin_bar_height+"px !important}";
+            $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
+
+        }
+    });
+
+    }, 100));
+
+});
+
+//Add compatibility support for avada theme push page down
+jQuery(document).on("infobarOpen", function(e,data) {  
+    var element = data, 
+    ht      = element.outerHeight(),  
+    page_push_down    = element.data('push-down') || null;
+
+    var is_avada_sticky_menu = jQuery(".fusion-header-wrapper").find(".fusion-sticky-menu-").length;
+    if( is_avada_sticky_menu && page_push_down ){
+        var fusion_class = '.fusion-header';
+        if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
+            fusion_class = '.fusion-secondary-main-menu';
+        }
+
+        var admin_bar_height  = jQuery('#wpadminbar').outerHeight(),
+        total_ht = ht + admin_bar_height,
+        old_top = jQuery(fusion_class).css("top");
+
+        jQuery(fusion_class).attr( "data-old-top", old_top );
+        var data_toggle = element.data("toggle-visible");                
+        if( !data_toggle  && element.hasClass("ib-fixed") ){ 
+            jQuery(".cp_fusion_css").remove();
+            jQuery(fusion_class).addClass("cp-fusion-header");
+            var fixed_css = ".cp-fusion-header{top:"+total_ht+"px !important}";
+            $('head').append("<style class='cp_fusion_css' type='text/css'>"+fixed_css+"</style>");
+
+            jQuery(fusion_class).addClass("cp-scroll-start");   
+        }               
+    }
+
+});
+
+//Add compatibility support for avada theme push page down
+jQuery(document).on("cp_close_info_bar", function( event, info_bar ) {
+    var element = info_bar, 
+    ht      = element.outerHeight(),      
+    page_push_down    = element.data('push-down') || null;
+
+    if( jQuery("body").hasClass("fusion-header-layout-v4") || jQuery("body").hasClass("fusion-header-layout-v5") ){
+        var fusion_class = '.fusion-secondary-main-menu';
+    }else{
+        var fusion_class = '.fusion-header';
+    }
+
+    if( page_push_down ){
+        var old_top = jQuery(fusion_class).attr("data-old-top");  
+        jQuery(".cp_fusion_css").remove();  
+    }
+
+    info_bar.addClass("cp-stop-scroll");
+    jQuery(fusion_class).removeClass("cp-scroll-start");    
+    $('.cp-push-page-css').remove();
+});
+
+//close gravity form & Custom analytics for Contact form.
+jQuery(document).bind('gform_confirmation_loaded', function(event, form_id){ 
+    var form     = jQuery('#gf_'+form_id),        
+        style_id = form.parents(".cp-module").data("style-id"),
+        style_name  = form.parents(".cp-module").data("module-name");  
+
+    jQuery(document).trigger('cp_custom_analytics',[style_id]);
+    jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+});
+
+//Custom analytics for Contact form.
+document.addEventListener( 'wpcf7submit', function( event ) {
+    var status = event.detail.status;
+    var form_id = event.detail.id;
+
+    if( status == 'mail_sent'){
+        var form = jQuery('#'+form_id );
+        var style_id    = form.parents(".cp-module").data("style-id"),
+            style_name  = form.parents(".cp-module").data("module-name");
 
         jQuery(document).trigger('cp_custom_analytics',[style_id]);
         jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
-    });
+    }       
+}, false );
 
+//custom analytics for ninja form.    
+jQuery( document ).on( 'nfFormSubmitResponse', function( event, response ) {
+    var error       = response.response.errors,
+        form_id     = 'nf-form-'+response.id+'-cont',
+        form        = jQuery('#'+form_id),
+        style_id    = form.parents(".cp-module").data("style-id"),
+        style_name  = form.parents(".cp-module").data("module-name");
 
-    //Custom analytics for Contact form.
-    document.addEventListener( 'wpcf7submit', function( event ) {
-        var status = event.detail.status;
-        var form_id = event.detail.id;
-    
-        if( status == 'mail_sent'){
-            var form = jQuery('#'+form_id );
-            var style_id    = form.parents(".cp-module").data("style-id"),
-                style_name  = form.parents(".cp-module").data("module-name");
+        jQuery(document).trigger('cp_custom_analytics',[style_id]);
+        jQuery(document).trigger('cp_custom_close_module',[form, style_name] );
+});
 
-            jQuery(document).trigger('cp_custom_analytics',[style_id]);
-            jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
-        }       
-    }, false );
+//close module after custom conversion
+jQuery(window).on("cp_custom_close_module", function( e, form, style_name ) {
+    if( style_name == 'modal' ){
+        var modal       =  form.parents(".cp-open");
+        jQuery(document).trigger('closeModal',[modal]);
+    }else if( style_name == 'slidein' ){
+        var slidein       =  form.parents(".slidein-overlay");
+        jQuery(document).trigger('closeSlideIn',[slidein]);
+    }else if( style_name == 'infobar' ){
+        var info_bar = form.parents(".cp-info-bar");
+        jQuery(document).trigger("cp_close_info_bar",[info_bar]);
+    }    
+});
 
-   //custom analytics for ninja form.    
-    jQuery( document ).on( 'nfFormSubmitResponse', function( event, response ) {
-        var error       = response.response.errors,
-            form_id     = 'nf-form-'+response.id+'-cont',
-            form        = jQuery('#'+form_id),
-            style_id    = form.parents(".cp-module").data("style-id"),
-            style_name  = form.parents(".cp-module").data("module-name");
-
-            jQuery(document).trigger('cp_custom_analytics',[style_id]);
-            jQuery(document).trigger('cp_custom_close_module',[form, style_name] );
-    });
-
-    //close module after custom conversion
-    jQuery(window).on("cp_custom_close_module", function( e, form, style_name ) {
-        if( style_name == 'modal' ){
-            var modal       =  form.parents(".cp-open");
-            jQuery(document).trigger('closeModal',[modal]);
-        }else if( style_name == 'slidein' ){
-            var slidein       =  form.parents(".slidein-overlay");
-            jQuery(document).trigger('closeSlideIn',[slidein]);
-        }else if( style_name == 'infobar' ){
-            var info_bar = form.parents(".cp-info-bar");
-            jQuery(document).trigger("cp_close_info_bar",[info_bar]);
-        }    
-    });
-
-    //Custom conversion
-    jQuery(window).on("cp_custom_analytics", function(e,style_id) {
-        setTimeout(function() {
-            var nounce = jQuery(".cp-impress-nonce").val(),
-            data = {action:'smile_update_custom_conversions',conversion:true,style_id:style_id,option:'smile_modal_styles',security:nounce};
-            jQuery.ajax({
-                url:smile_ajax.url,
-                data: data,
-                type: "POST",
-                dataType:"HTML",
-                security:jQuery(".cp-impress-nonce").val(),
-                beforeSend: function(result){// do your stuff
-                    ajax_run = false;
-                }
-            });
-        },  2000); 
-    });
+//Custom conversion
+jQuery(window).on("cp_custom_analytics", function(e,style_id) {
+    setTimeout(function() {
+        var nounce = jQuery(".cp-impress-nonce").val(),
+        data = {action:'smile_update_custom_conversions',conversion:true,style_id:style_id,option:'smile_modal_styles',security:nounce};
+        jQuery.ajax({
+            url:smile_ajax.url,
+            data: data,
+            type: "POST",
+            dataType:"HTML",
+            security:jQuery(".cp-impress-nonce").val(),
+            beforeSend: function(result){// do your stuff
+                ajax_run = false;
+            }
+        });
+    },  2000); 
+});
 
 })(jQuery);

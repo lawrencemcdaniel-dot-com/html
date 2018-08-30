@@ -99,10 +99,11 @@
     window._EPYTA_.adstxtLookup = function ()
     {
         $.ajax({
-            url: location.protocol + "//" + location.hostname + "/ads.txt?c=" + Math.random(),
+            url: location.protocol + "//" + location.hostname + "/ads.txt", //?c=" + Math.random(),
             dataType: 'text',
             type: 'get',
             async: true,
+            cache: false,
             statusCode: {
                 200: function (response)
                 {

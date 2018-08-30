@@ -1341,6 +1341,13 @@ h4.ubermenu-radio-group-title{
 	z-index:40;
 	background:#444;
 }
+.ubermenu-admin-notice td{
+	vertical-align:top;
+}
+.ubermenu-admin-notice td.infotip{
+	color:#999;
+	font-style:italic;
+}
 .ubermenu-admin-notice:hover:after{
 	display:block;
 }
@@ -1349,9 +1356,11 @@ h4.ubermenu-radio-group-title{
 }
 .ubermenu-admin-notice table td{
 	padding:4px 10px;
-	border:1px solid #eee;
+	border:1px solid #ddd;
 }
-
+.ubermenu-admin-notice table td.um-td-150{
+	width:150px;
+}
 
 
 .ubermenu-radio-subgroup-col-group2{

@@ -435,7 +435,7 @@
 				$icon_set.show();
 			}
 			else{
-				$icon_set.filter( ':not( [data-ubermenu-search-terms*=' +val+ '] )' ).hide();
+				$icon_set.filter( ':not( [data-ubermenu-search-terms*="' +val+ '"] )' ).hide();
 				//console.log( 'not( [data-ubermenu-search-terms*=' +$(this).val().toLowerCase()+ '] )' );
 			}
 		});

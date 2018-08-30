@@ -205,6 +205,11 @@ jQuery(document).ready(function() {
 					jQuery(".bsf-cnlist-mailer-help").hide();
 				}
 
+				if( val == 'convertfox'){
+					jQuery(".bsf-cnlist-mailer-help").show();
+					jQuery(".bsf-cnlist-mailer-help").css('top','10px');
+				}
+
 				jQuery(".bsf-cnlist-mailer-help a").attr('href',result.helplink);
 				jQuery('.bsf-cnlist-mailer-data').html(result.data);
 				jQuery('.bsf-cnlist-mailer-data').slideDown(300);
@@ -450,6 +455,11 @@ jQuery(document).on('click', '.wizard-next', function(e){
 					jQuery(".bsf-cnlist-mailer-help a").attr('href',result.helplink);
 				} else {
 					jQuery(".bsf-cnlist-mailer-help").hide();
+				}
+
+				if( val == 'convertfox'){
+					jQuery(".bsf-cnlist-mailer-help").show();
+					jQuery(".bsf-cnlist-mailer-help").css('top','10px');
 				}
 		
 				jQuery('.bsf-cnlist-mailer-data').html(result.data);

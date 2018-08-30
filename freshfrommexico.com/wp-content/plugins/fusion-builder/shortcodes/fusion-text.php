@@ -64,11 +64,11 @@ if ( fusion_is_element_enabled( 'fusion_text' ) ) {
 					), $args
 				);
 
-				if ( 'default' === $this->args['rule_style'] ) {
-					$this->args['rule_style'] = $fusion_settings->get( 'title_style_type' );
-				}
-
 				$this->args = $defaults;
+
+				if ( 'default' === $this->args['rule_style'] ) {
+					$this->args['rule_style'] = $fusion_settings->get( 'text_rule_style' );
+				}
 
 				$html = '<div ' . FusionBuilder::attributes( 'text-element-wrapper' ) . '>' . wpautop( $content, false ) . '</div>';
 

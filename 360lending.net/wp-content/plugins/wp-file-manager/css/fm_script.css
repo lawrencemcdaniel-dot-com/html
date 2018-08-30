@@ -220,22 +220,22 @@ padding: 0 5px;
 	border:2px solid #016cb0;
 	background:#fff;
 }
-.wp_fm_lang h2.fm_heading{
+.wp_fm_lang h3.fm_heading{
 }
-.wp_fm_lang h2.fm_heading .fm_head_icon {
+.wp_fm_lang h3.fm_heading .fm_head_icon {
 	float: left;
 	margin-right: 10px;
 	padding-top: 6px;
 }
-.wp_fm_lang h2.fm_heading .fm_head_icon img{
+.wp_fm_lang h3.fm_heading .fm_head_icon img{
 	margin-top:-3px;
 }
-.wp_fm_lang h2.fm_heading .fm_head_txt {
+.wp_fm_lang h3.fm_heading .fm_head_txt {
 	margin-right: 10px;
 	padding-top: 6px;
 	display: inline-block;
 }
-.wp_fm_lang h2.fm_heading .fm_pro_btn {
+.wp_fm_lang h3.fm_heading .fm_pro_btn {
 	border: none;
 	border-radius: 5px;
 	margin-top: 0;
@@ -244,7 +244,7 @@ padding: 0 5px;
 	line-height: 30px;
 	background: #1774f0;
 }
-h2.fm-topoption .switch_txt_theme {
+h3.fm-topoption .switch_txt_theme {
 	font-size: 12px;
 	padding-top: 6px;
 	display: inline-block;
@@ -290,3 +290,24 @@ margin-right: 25px;
 }
 /****/
 /**custom scroller**/
+.elfinder div.elfinder-bottomtray {
+	position: absolute !important;
+	bottom: 30px !important;
+    z-index:1;
+}
+.ui-front.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-draggable.std42-dialog.touch-punch.elfinder-dialog.ui-resizable.elfinder-dialog-edit.elfinder-to-editing.elfinder-frontmost.elfinder-dialog-active.elfinder-maximized.ui-draggable-disabled.ui-resizable-disabled {
+	position: absolute !important;
+}
+.elfinder-quicklook-titlebar-icon .ui-icon.ui-icon-closethick {
+	margin: 0px 1px 0 0 !important;
+}
+
+.elfinder-quicklook-titlebar-icon .ui-front.ui-icon.ui-icon-plusthick.elfinder-icon-full {
+	margin: -18px 26px 0 1px;
+}
+.mac .elfinder-quicklook-titlebar-icon .ui-front.ui-icon.ui-icon-plusthick.elfinder-icon-full{
+margin: -18px 26px 0 23px;
+}
+.mac .elfinder-quicklook-titlebar-icon span.ui-front.ui-icon.ui-icon-minusthick.elfinder-icon-minimize{
+margin: -18px 0px 0 23px;
+}

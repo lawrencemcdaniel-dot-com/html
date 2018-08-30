@@ -3,9 +3,9 @@ Contributors: mndpsingh287
 Donate link: http://www.webdesi9.com/donate/?plugin=wp-file-manager
 Tags: wp-file-manager, elfinder,file manager, ftp, wordpress file manager,file manager, Upload Files, WP File Manager, File Manage, Edit Files, Delete Files, FTP, filemanager, wpfilemanager, ftp, file transfer, update, create, delete, view, rename, editor, Cpanel, Control Panel, Admin, Shortcode, explorer, file explorer
 Requires at least: 4.0
-Tested up to: 4.9.5
+Tested up to: 4.9.8
 Requires PHP: 5.2.4
-Stable tag: 2.8
+Stable tag: 2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,17 @@ Yes, You can archieve any files and folders as zip then simple download it. Plea
 13. Grey Theme View
 14. Window 10 Theme View
 15. Edit Root Directory Path
+
+
+== Changelog ==
+
+= 2.9 (27th Aug ,2018) =
+
+Russian Translations added. Credit: @ivan192
+
+Code editor lines number added.
+
+Minimized window buttons collapsing issue fixed
 
 == Changelog ==
 

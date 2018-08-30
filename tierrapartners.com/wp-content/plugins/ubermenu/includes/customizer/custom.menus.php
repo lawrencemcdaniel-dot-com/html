@@ -1160,6 +1160,18 @@ function ubermenu_get_menu_style_tabs_font_size( $field , $menu_id , &$menu_styl
 		$menu_styles[$selector]['font-size'] = $val;
 	}
 }
+
+/*
+ * TABS FONT WEIGHT
+ */
+function ubermenu_get_menu_style_tabs_font_weight( $field , $menu_id , &$menu_styles ){
+
+	$val = ubermenu_op( $field['name'] , $menu_id );
+	if( $val ){
+		$selector = ".ubermenu.ubermenu-$menu_id .ubermenu-tabs .ubermenu-tabs-group > .ubermenu-tab > .ubermenu-target";
+		$menu_styles[$selector]['font-weight'] = $val;
+	}
+}
 /*
  * TABS GROUP BACKGROUND COLOR
  */

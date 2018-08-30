@@ -86,14 +86,14 @@ function ubermenu_generate_custom_styles(){
 
 
 	//Menu Styles
-	global $wp_customize;
-	if( !isset( $wp_customize ) ){
+	// global $wp_customize;
+	// if( !isset( $wp_customize ) ){
 		$menu_styles = ubermenu_generate_all_menu_styles();
 		if( $menu_styles ){
 			$menu_styles = "\n/** UberMenu Custom Menu Styles (Customizer) **/\n".$menu_styles;
 			$styles[20] = $menu_styles;
 		}
-	}
+	// }
 
 
 	//Menu Item Styles

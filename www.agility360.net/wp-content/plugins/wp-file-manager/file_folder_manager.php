@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/wp-file-manager
   Description: Manage your WP files.
   Author: mndpsingh287
-  Version: 2.8
+  Version: 2.9
   Author URI: https://profiles.wordpress.org/mndpsingh287
   License: GPLv2
 **/
@@ -29,7 +29,6 @@ if(!class_exists('mk_file_folder_manager')):
 			 */
 			 add_action( 'wp_ajax_mk_filemanager_verify_email', array(&$this, 'mk_filemanager_verify_email_callback'));
 			 add_action( 'wp_ajax_verify_filemanager_email', array(&$this, 'verify_filemanager_email_callback') );
-
 		}
 		
    		/* Verify Email*/
@@ -400,6 +399,13 @@ if(!class_exists('mk_file_folder_manager')):
 		   echo "<link rel='stylesheet' href='".plugins_url('css/fm_script.css', __FILE__)."' type='text/css' media='all' />
 		   ";
 	   }
+	   /*
+	    custom_css
+	   */
+	    public function custom_css() {
+		   echo "<link rel='stylesheet' href='".plugins_url('css/fm_custom.css', __FILE__)."' type='text/css' media='all' />
+		   ";
+	   }
 	  /* Languages */
 	  public function fm_languages() {
 		  $langs =  array('English'=>'en', 
@@ -446,30 +452,22 @@ if(!class_exists('mk_file_folder_manager')):
 		 $theme_files = array_diff(scandir($dir), array('..', '.'));
 		 return $theme_files;
 	  }
-	    	/**
-	 * Size Conversions
-	 *
-	 * @param  unknown    $v
-	 * @return int|string
-	 */
-	static function let_to_num( $v ) {
-		$l   = substr( $v, -1 );
-		$ret = substr( $v, 0, -1 );
-
-		switch ( strtoupper( $l ) ) {
-			case 'P': // fall-through
-			case 'T': // fall-through
-			case 'G': // fall-through
-			case 'M': // fall-through
-			case 'K': // fall-through
-				$ret *= 1024;
-				break;
-			default:
-				break;
-		}
-
-		return $ret;
+	  /* Success Message */
+	  public function success($msg) {
+		  _e( '<div class="updated settings-error notice is-dismissible" id="setting-error-settings_updated"> 
+<p><strong>'.$msg.'</strong></p><button class="notice-dismiss" type="button"><span class="screen-reader-text">Dismiss this notice.</span></button></div>', 'te-editor');	
 	}
+	  /* Error Message */
+	  public function error($msg) {
+		  _e( '<div class="error settings-error notice is-dismissible" id="setting-error-settings_updated"> 
+<p><strong>'.$msg.'</strong></p><button class="notice-dismiss" type="button"><span class="screen-reader-text">Dismiss this notice.</span></button></div>', 'te-editor');	
+	}
+	  /* Redirect */
+	  public function redirect($url) {
+		echo '<script>';
+		 echo 'window.location.href="'.$url.'"';
+		echo '</script>' ;
+	  }
 
 	}
 	$filemanager = new mk_file_folder_manager;	

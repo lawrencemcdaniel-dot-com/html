@@ -20,41 +20,43 @@
                           <li><?php _e('Notification Bar Layout');?>
                               <ul class="edn-sub-features">
                               <li><?php _e('5 Pre Available Template',APEXNBL_TD);?>
-                                <p class="apexnb-desc-area">There are total 5 Pre Available Attractive Responsive Templates altogether which you can choose to display notification bar with
-                                different layouts, style and background color according to your site.
+                                <p class="apexnb-desc-area"><?php _e('There are total 5 Pre Available Attractive Responsive Templates altogether which you can choose to display notification bar with
+                                different layouts, style and background color according to your site.', APEXNBL_TD);?>
                                 </p>
                               </li>
                               </ul>
                           </li>    
                           <li><?php _e('Custom Settings',APEXNBL_TD);?>
-                               <p class="apexnb-desc-area">Besides Pre-Available Templates, there are features to customize notification bar with your own custom design from custom settings tab options where you can set notification bar's background color, font size, font family and many more for notification bar.</p>
+                               <p class="apexnb-desc-area"><?php _e('Besides Pre-Available Templates, there are features to customize notification bar with your own custom design from custom settings tab options where you can set notification bars background color, font size, font family and many more for notification bar.', APEXNBL_TD);?></p>
                           </li>      
                         
                     
                       <li><?php _e('Components Setup',APEXNBL_TD);?>
                                     <ul class="edn-sub-features">
                                       <li><?php _e('5 Available Components',APEXNBL_TD);?>
- <p class="apexnb-desc-area">There are altogether 5 available components for notification bar in middle section.
-                                          In this section, there are multiple components options to display on middle of notification bar which are listed and described below:</p>
+ <p class="apexnb-desc-area"><?php _e('There are altogether 5 available components for notification bar in middle section.
+                                          In this section, there are multiple components options to display on middle of notification bar which are listed and described below:',APEXNBL_TD);?></p>
                                          <ul class="edn-sub-features">
                                             <li><?php _e('Text(Static or Multiple Content) With Effect as Slider/Ticker/Scroller Type.',APEXNBL_TD);?>
-                                                <p class="apexnb-desc-area">You can add either static content with call to action button such as with custom url, custom contact form button with contact form 7 shortcode implementation options.
-                                                In Mulitple content, this includes features to add multiple content with above call to action options for each content and also with 3 different effects such as slider, ticker or scroller type.</p>
+                                                <p class="apexnb-desc-area"><?php _e('You can add either static content with call to action button such as with custom url, custom contact form button with contact form 7 shortcode implementation options.
+                                                In Mulitple content, this includes features to add multiple content with above call to action options for each content and also with 3 different effects such as slider, ticker or scroller type.',APEXNBL_TD);?></p>
                                             </li>      
                                             <li><?php _e('Opt-in Form',APEXNBL_TD);?>
-                                                    <p class="apexnb-desc-area">Opt-in form components includes one custom subscribe where you can set input field placeholder text, mail confirmation custom message, enable mail confirmation after user subscribed and messages for user subscribing form display on frontend for your site.
+                                                    <p class="apexnb-desc-area"><?php _e('Opt-in form components includes one custom subscribe where you can set input field placeholder text, mail confirmation custom message, enable mail confirmation after user subscribed and messages for user subscribing form display on frontend for your site.',APEXNBL_TD);?>
                                                     </p>
                                             </li>        
                                             <li><?php _e('Posts Feeds',APEXNBL_TD);?>
-                                             <p class="apexnb-desc-area">Show recent posts according to set order.
-                                             You can choose recent posts with 3 different effects as slider, ticker or scroller effect.</p>
+                                             <p class="apexnb-desc-area"><?php _e('Show recent posts according to set order.
+                                             You can choose recent posts with 3 different effects as slider, ticker or scroller effect.',APEXNBL_TD);?></p>
                                              </li>          
                                             <li><?php _e('Search Form',APEXNBL_TD);?>
-                                                <p class="apexnb-desc-area">This plugin also provide features to display search form. It includes options such as description,Search Input Field Placeholder, button text input field.It provides attractive default beautifully designed Search form layout.</p>
+                                                <p class="apexnb-desc-area">
+                                                <?php _e('This plugin also provide features to display search form. It includes options such as description,Search Input Field Placeholder, button text input field.It provides attractive default beautifully designed Search form layout.',APEXNBL_TD);?></p>
                                             </li>  
                                             <li><?php _e('Social Icons',APEXNBL_TD);?>
                                                  <p class="apexnb-desc-area">
-                                          In this section, you can add multiple social icons,  you can choose pre available social icons to display social icons on froetend. You can even set icon link,ttile and choose icon from pre available icons popup lists.Set Social Heading Text as Follow Us.</p>
+                                          
+                                              <?php _e('In this section, you can add multiple social icons,  you can choose pre available social icons to display social icons on froetend. You can even set icon link,ttile and choose icon from pre available icons popup lists.Set Social Heading Text as Follow Us.',APEXNBL_TD);?></p>
                                             </li>      
                                           </ul>
                                       </li>      
@@ -81,8 +83,7 @@
 
 
                     <div class="edn-backend-sub-title"><?php _e('Opt-In Settings',APEXNBL_TD);?></div>
-                    <p><?php _e('This settings is for managing the subscriber as well as send email to any subscriber. You can remove and export csv of subscriber.',APEXNBL_TD);?> </p>
-
+                    <p><?php _e('This settings is for managing the subscriber as well as send email to any subscriber. You can remove and export csv of subscriber.',APEXNBL_TD);?></p>
                 </div>
             </div>
         </div>

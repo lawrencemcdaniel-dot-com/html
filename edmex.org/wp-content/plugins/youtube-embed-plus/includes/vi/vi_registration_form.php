@@ -34,12 +34,12 @@
             You now have the option to make money embedding quality video ads that offer up to 10 times higher CPMs than display advertising. The ads that you will embed are privacy/GDPR friendly,
             powered by <img class="vi-logo-text" alt="vi" src="<?php echo plugins_url(self::$folder_name . '/images/vi_logo.svg'); ?>">
             <a href="https://www.vi.ai/publisher-video-monetization/?aid=WP_embedplus&utm_source=Wordpress&utm_medium=WP_embedplus" target="_blank">video intelligence</a>,
-            and completely separate from your YouTube embeds.
+            completely separate from your YouTube embeds, and can provide extra income on top of revenue from your current ads.
         </p>
         <p>
-            Instead of an ordinary video ad, vi ads are so effective because they wrap an ad with additional useful video content 
-                that <strong>automatically matches your site's topics and attract your visitors' attention. </strong>
-                It's like free related content that you're paid to embed. Plus, you'll get <strong>increased visitor time-on-site and high CPMs from vi.</strong>
+            Instead of an ordinary video ad, vi ads are so effective because they wrap an ad with additional useful video content that you yourself don't have to produce. 
+            Embed the vi player, and the content will automatically match your site's topics to attract your visitors' attention. 
+            <strong>You get free related content that you're paid to embed. </strong>
         </p>
         <p>
             Check out the demos on the right. Below, sign up for free in minutes.
@@ -68,7 +68,7 @@
                 </div>
                 <div class="side-login ytprefs-ajax-form">
                     <h1>Log in to vi.ai</h1>
-                    <h2>Start embedding quality ads</h2>
+                    <h2>Earn 10x higher CPMs</h2>
                     <p class="description">Already signed up? Login here using the info from your welcome email.</p>
                     <p>
                         <input class="textinput regular-text ytvi-login-email" type="text" placeholder="Your email" />
@@ -131,9 +131,10 @@ if (!self::vi_cover_prompt_yes())
     <div class="clearboth vi-cover-clear"></div>
     <div class="vi-cover-prompt">
         <h1>
-            Hey! We have a new optional feature to help you monetize using video and gain up to 10 times higher CPMs than display advertising.
+            Hey! We have a new optional feature to help you earn income by embedding relevant video content that offers you up to 10x higher CPMs than display advertising. 
             <br>
-            Are you interested in learning more about it?
+            <br>
+            Are you interested in learning more about this free feature?
         </h1>
         <p class="vi-cover-prompt-buttons">
             <button type="button" class="button-primary vi-cover-prompt-yes">Yes, tell me more.</button>

@@ -1,10 +1,3 @@
-PREFIX {
-  /*
- * UberMenu 3 
- * http://wpmegamenu.com 
- * Copyright 2011-2018 Chris Mavricos, SevenSpark 
- */
-}
 PREFIX .ubermenu,
 PREFIX .ubermenu .ubermenu-column,
 PREFIX .ubermenu .ubermenu-divider,
@@ -82,10 +75,13 @@ PREFIX .ubermenu .ubermenu-submenu-drop {
 }
 PREFIX .ubermenu {
   display: block;
+  background: #fff;
   line-height: 1.3em;
   text-align: left;
 }
-PREFIX .ubermenu-bound,
+PREFIX .ubermenu-bound {
+  position: relative;
+}
 PREFIX .ubermenu-bound-inner .ubermenu-nav {
   position: relative;
 }
@@ -117,8 +113,8 @@ PREFIX .ubermenu-accessible .ubermenu-target {
 }
 PREFIX .ubermenu-accessible input:not(:hover):focus,
 PREFIX .ubermenu-accessible:not(:hover) .ubermenu-target:focus {
-  outline: #2cc4ff solid 1px;
-  box-shadow: 0 0 5px #2CC4FF!important;
+  outline: 1px solid #2cc4ff;
+  box-shadow: 0 0 5px #2cc4ff !important;
   z-index: 50;
   transition: outline 0.1s linear;
 }
@@ -191,6 +187,13 @@ PREFIX .ubermenu .ubermenu-item {
   display: inline-block;
   vertical-align: top;
 }
+PREFIX .ubermenu-horizontal.ubermenu-items-align-flex .ubermenu-nav {
+  display: flex;
+}
+PREFIX .ubermenu-horizontal.ubermenu-items-align-flex .ubermenu-nav .ubermenu-item-level-0 {
+  flex-grow: 1;
+  text-align: center;
+}
 PREFIX .ubermenu .ubermenu-item-level-0 {
   vertical-align: bottom;
   -moz-backface-visibility: visible;
@@ -202,7 +205,9 @@ PREFIX .ubermenu-items-align-top .ubermenu-item-level-0 {
 PREFIX .ubermenu .ubermenu-item.ubermenu-item-level-0 {
   float: none;
 }
-PREFIX .ubermenu-items-align-left.ubermenu-horizontal .ubermenu-item.ubermenu-item-level-0,
+PREFIX .ubermenu-items-align-left.ubermenu-horizontal .ubermenu-item.ubermenu-item-level-0 {
+  float: left;
+}
 PREFIX .ubermenu.ubermenu-horizontal .ubermenu-item.ubermenu-align-left {
   float: left;
 }
@@ -417,7 +422,7 @@ PREFIX .ubermenu .ubermenu-item-layout-icon_top.ubermenu-item-notext > .ubermenu
   margin: 0;
 }
 PREFIX .ubermenu .ubermenu-item-layout-icon_left > .ubermenu-target-title {
-  margin-left: .6em;
+  margin-left: 0.6em;
   display: inline-block;
 }
 PREFIX .ubermenu.ubermenu-icons-inline .ubermenu-item-layout-icon_left > .ubermenu-icon,
@@ -586,9 +591,9 @@ PREFIX .ubermenu .ubermenu-item.ubermenu-in-transition > .ubermenu-submenu-drop 
   height: auto;
 }
 PREFIX .ubermenu .ubermenu-item .ubermenu-submenu-drop {
-  -webkit-transition-duration: .3s;
-  -ms-transition-duration: .3s;
-  transition-duration: .3s;
+  -webkit-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   -webkit-transition-timing-function: ease-in;
   -ms-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
@@ -660,6 +665,9 @@ PREFIX .ubermenu .ubermenu-submenu-type-flyout > .ubermenu-item {
   position: relative;
   min-width: 150px;
   clear: both;
+}
+PREFIX .ubermenu .ubermenu-submenu .ubermenu-submenu-type-flyout {
+  min-width: 100%;
 }
 PREFIX .ubermenu:not(.ubermenu-transition-slide) .ubermenu-submenu.ubermenu-submenu-type-flyout {
   max-height: 99999px;
@@ -970,7 +978,9 @@ PREFIX .ubermenu .ubermenu-tab > .ubermenu-target {
   border-style: solid;
 }
 PREFIX .ubermenu .ubermenu-tab.ubermenu-active > .ubermenu-tab-content-panel,
-PREFIX .ubermenu-nojs .ubermenu-tab:hover > .ubermenu-tab-content-panel,
+PREFIX .ubermenu-nojs .ubermenu-tab:hover > .ubermenu-tab-content-panel {
+  display: block;
+}
 PREFIX .ubermenu-nojs .ubermenu-tabs-show-default > .ubermenu-tabs-group > .ubermenu-tab:first-child > .ubermenu-tab-content-panel {
   display: block;
 }
@@ -1014,10 +1024,10 @@ PREFIX .ubermenu .ubermenu-tab-layout-top > .ubermenu-tabs-group {
 PREFIX .ubermenu .ubermenu-tab-layout-top > .ubermenu-tabs-group > .ubermenu-tab > .ubermenu-tab-content-panel {
   left: 0;
   top: auto;
-  border-width: 1px 0 0;
+  border-width: 1px 0 0 0;
 }
 PREFIX .ubermenu .ubermenu-tab-layout-bottom > .ubermenu-tabs-group {
-  border-width: 1px 0 0;
+  border-width: 1px 0 0 0;
   position: absolute;
   bottom: 0;
 }
@@ -1140,6 +1150,7 @@ PREFIX .ubermenu-target-divider {
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
+  margin: -1px;
   padding: 0;
   margin: 0;
   border: 0;
@@ -1160,7 +1171,7 @@ PREFIX .ubermenu {
   background: 0 0;
 }
 PREFIX .ubermenu-submenu-drop {
-  background: #ffffff;
+  background: #fff;
 }
 PREFIX .ubermenu-test-dimensions {
   visibility: hidden!important;
@@ -1214,7 +1225,7 @@ PREFIX .ubermenu-admin-notice {
   background: #eee;
   color: #333;
   padding: 15px;
-  border-left: 30px solid #4D90FE;
+  border-left: 30px solid #4d90fe;
   margin: 20px;
   position: relative;
   font-size: 12px;
@@ -1222,7 +1233,7 @@ PREFIX .ubermenu-admin-notice {
 }
 PREFIX .ubermenu-admin-notice a,
 PREFIX .ubermenu-admin-notice a:visited {
-  color: #00A3FF;
+  color: #00a3ff;
   text-decoration: underline;
   font-size: inherit;
 }
@@ -1230,7 +1241,7 @@ PREFIX .ubermenu-admin-notice a:hover {
   color: #0d75af;
 }
 PREFIX .ubermenu-admin-notice strong {
-  color: #ff6347;
+  color: tomato;
 }
 PREFIX .ubermenu-admin-notice .ubermenu-admin-notice-icon {
   position: absolute;
@@ -1261,14 +1272,14 @@ PREFIX #wp-admin-bar-ubermenu .svg-inline--fa {
 PREFIX #wp-admin-bar-ubermenu .fa,
 PREFIX #wp-admin-bar-ubermenu .far,
 PREFIX #wp-admin-bar-ubermenu .fas {
-  font-family: "Font Awesome\ 5 Free";
+  font-family: "Font Awesome\ 5 Free", "Font Awesome 5 Pro";
   font-weight: 900;
   margin-right: 4px;
-  color: #aaaaaa;
+  color: #aaa;
 }
 PREFIX #wp-admin-bar-ubermenu_loading .fa,
 PREFIX #wp-admin-bar-ubermenu_loading .svg-inline--fa {
-  color: #ffff00;
+  color: #ff0;
 }
 PREFIX #wpadminbar #wp-admin-bar-ubermenu_loading #wp-admin-bar-ubermenu_loading_msg .ab-item {
   width: 300px;
@@ -1314,12 +1325,14 @@ PREFIX .ubermenu-diagnostics-loadscreen {
   z-index: 10000000000000000;
 }
 PREFIX .um-folding-cube {
-  margin: -20px auto 40px -20px;
+  margin: 40px auto;
   width: 40px;
   height: 40px;
   position: absolute;
   top: 50%;
+  margin-top: -20px;
   left: 50%;
+  margin-left: -20px;
   -webkit-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
 }
@@ -1359,15 +1372,15 @@ PREFIX .um-folding-cube .um-cube4 {
   transform: scale(1.1) rotateZ(270deg);
 }
 PREFIX .um-folding-cube .um-cube2:before {
-  -webkit-animation-delay: .3s;
+  -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
 PREFIX .um-folding-cube .um-cube3:before {
-  -webkit-animation-delay: .6s;
+  -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
 PREFIX .um-folding-cube .um-cube4:before {
-  -webkit-animation-delay: .9s;
+  -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
 @-webkit-keyframes um-foldCubeAngle {
@@ -1379,8 +1392,8 @@ PREFIX .um-folding-cube .um-cube4:before {
   }
   25%,
   75% {
-    -webkit-transform: perspective(140px) rotateX(0deg);
-    transform: perspective(140px) rotateX(0deg);
+    -webkit-transform: perspective(140px) rotateX(0);
+    transform: perspective(140px) rotateX(0);
     opacity: 1;
   }
   100%,
@@ -1399,8 +1412,8 @@ PREFIX .um-folding-cube .um-cube4:before {
   }
   25%,
   75% {
-    -webkit-transform: perspective(140px) rotateX(0deg);
-    transform: perspective(140px) rotateX(0deg);
+    -webkit-transform: perspective(140px) rotateX(0);
+    transform: perspective(140px) rotateX(0);
     opacity: 1;
   }
   100%,
@@ -1492,6 +1505,9 @@ PREFIX .rtl .ubermenu.ubermenu-item-align-auto {
 PREFIX .rtl .ubermenu-items-align-left.ubermenu-horizontal {
   text-align: left;
 }
+PREFIX .rtl .ubermenu-items-align-left.ubermenu-horizontal .ubermenu-item.ubermenu-item-level-0 {
+  float: none;
+}
 PREFIX .rtl .ubermenu-items-align-center.ubermenu-horizontal {
   text-align: center;
 }
@@ -1532,6 +1548,10 @@ PREFIX .rtl .ubermenu .ubermenu-search input.ubermenu-search-input {
 }
 PREFIX .rtl .ubermenu .ubermenu-submenu .ubermenu-search input.ubermenu-search-input {
   padding: 14px 25px 14px 50px;
+}
+PREFIX .rtl .ubermenu.ubermenu-submenu-indicator-closes .ubermenu-sub-indicator-close {
+  right: auto;
+  left: 0;
 }
 @media screen and (min-width: 960px) {
   PREFIX .ubermenu-responsive-default.ubermenu {
@@ -1636,6 +1656,11 @@ PREFIX .rtl .ubermenu .ubermenu-submenu .ubermenu-search input.ubermenu-search-i
   PREFIX .ubermenu-responsive-default.ubermenu-responsive.ubermenu-responsive-nocollapse {
     display: block;
     max-height: none;
+  }
+  PREFIX .ubermenu-responsive-default.ubermenu-responsive.ubermenu-responsive-collapse {
+    max-height: none;
+    visibility: visible;
+    overflow: visible;
   }
   PREFIX .ubermenu-responsive-default.ubermenu-responsive.ubermenu-responsive-collapse {
     max-height: 0;
@@ -1750,7 +1775,7 @@ PREFIX .rtl .ubermenu .ubermenu-submenu .ubermenu-search input.ubermenu-search-i
     z-index: 20;
   }
   PREFIX .ubermenu-responsive-default.ubermenu-responsive .ubermenu-tab > .ubermenu-target {
-    border-width: 0 0 1px;
+    border-width: 0 0 1px 0;
   }
   PREFIX .ubermenu-responsive-default.ubermenu-responsive.ubermenu-sub-indicators .ubermenu-tabs > .ubermenu-tabs-group > .ubermenu-tab.ubermenu-has-submenu-drop > .ubermenu-target > .ubermenu-sub-indicator {
     transform: rotate(0);
@@ -1800,6 +1825,9 @@ PREFIX .rtl .ubermenu .ubermenu-submenu .ubermenu-search input.ubermenu-search-i
   PREFIX .ubermenu-responsive-default.ubermenu-vertical .ubermenu-item.ubermenu-item-level-0.ubermenu-relative.ubermenu-active > .ubermenu-submenu-drop.ubermenu-submenu-align-vertical_parent_item {
     top: auto;
   }
+  PREFIX .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-tabs {
+    position: static;
+  }
   PREFIX .ubermenu-responsive-default.ubermenu:not(.ubermenu-is-mobile):not(.ubermenu-submenu-indicator-closes) .ubermenu-submenu .ubermenu-tab[data-ubermenu-trigger=hover_intent] .ubermenu-tab-content-panel,
   PREFIX .ubermenu-responsive-default.ubermenu:not(.ubermenu-is-mobile):not(.ubermenu-submenu-indicator-closes) .ubermenu-submenu .ubermenu-tab[data-ubermenu-trigger=mouseover] .ubermenu-tab-content-panel {
     margin-left: 6%;
@@ -1820,5 +1848,16 @@ PREFIX .rtl .ubermenu .ubermenu-submenu .ubermenu-search input.ubermenu-search-i
   PREFIX .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-column,
   PREFIX .ubermenu-responsive-default.ubermenu.ubermenu-responsive .ubermenu-column-auto {
     min-width: 100%;
+  }
+  PREFIX .ubermenu-responsive-default.ubermenu .ubermenu-autocolumn:not(:first-child),
+  PREFIX .ubermenu-responsive-default.ubermenu .ubermenu-autocolumn:not(:first-child) .ubermenu-submenu-type-stack {
+    padding-top: 0;
+  }
+  PREFIX .ubermenu-responsive-default.ubermenu .ubermenu-autocolumn:not(:last-child),
+  PREFIX .ubermenu-responsive-default.ubermenu .ubermenu-autocolumn:not(:last-child) .ubermenu-submenu-type-stack {
+    padding-bottom: 0;
+  }
+  PREFIX .ubermenu-responsive-default.ubermenu .ubermenu-autocolumn > .ubermenu-submenu-type-stack > .ubermenu-item-normal:first-child {
+    margin-top: 0;
   }
 }

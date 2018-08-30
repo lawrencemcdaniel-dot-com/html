@@ -4,7 +4,7 @@
 	Plugin URI: https://www.convertplug.com/plus
 	Author: Brainstorm Force
 	Author URI: https://www.brainstormforce.com
-	Version: 3.3.1
+	Version: 3.3.2
 	Description: Welcome to Convert Plus - the easiest WordPress plugin to convert website traffic into leads. Convert Plus will help you build email lists, drive traffic, promote videos, offer coupons and much more!
 	Text Domain: smile
 	License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -16,7 +16,7 @@
 	defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 if ( ! defined( 'CP_VERSION' ) ) {
-	define( 'CP_VERSION', '3.3.1' );
+	define( 'CP_VERSION', '3.3.2' );
 }
 
 if ( ! defined( 'CP_BASE_DIR' ) ) {
@@ -213,6 +213,7 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 
 			// change registration page URL.
 			add_action( 'bsf_registration_page_url_14058953', array( $this, 'cp_get_registration_page_url' ) );
+		
 		}
 
 		/**
@@ -234,6 +235,7 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 				'connects-totalsend',
 				'connects-sendreach',
 				'connects-ontraport',
+				'connects-convertfox',
 			);
 
 			return $products;
@@ -1164,9 +1166,21 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 					$tag = '';
 				}
 			}
+
+			// Add differ.
+			$defer_scripts = array(
+				'cp-module-main-js',
+				'smile-modal-script',
+				'smile-info-bar-script',
+				'smile-slide-in-script'
+			);
+
+			if ( in_array( $handle, $defer_scripts ) ) {
+				$tag = str_replace( 'src', 'defer="defer" src', $tag );
+			}
+
 			return  $tag;
 		}
-
 
 		/**
 		 * Display debug info for excluded scripts.

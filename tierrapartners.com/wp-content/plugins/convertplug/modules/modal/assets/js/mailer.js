@@ -273,7 +273,16 @@
 										document.location.href = redirect_url;
 									}
 								}else{
-									cp_download_file(redirect_url);
+									if( redirect_url !== '' ){
+										var redirect_file = redirect_url.split(',');
+										var lt = redirect_file.length;
+										var cnt = 1;
+										jQuery.each( redirect_file, function(index,url){
+											var cnt = cnt + 1;
+											redirect_url = url;
+											cp_download_file( redirect_url, cnt, lt );
+										});
+									}
 								}
 								modal.removeClass('cp-open');
 								jQuery(document).trigger('closeModal',[modal]);
@@ -390,36 +399,24 @@
 
 	});
 
-function cp_download_file(fileURL, fileName) {
-    // for non-IE
-    if (!window.ActiveXObject) {
-        var save = document.createElement('a');
-        save.href = fileURL;
-        save.target = '_blank';
-        var filename = fileURL.substring(fileURL.lastIndexOf('/')+1);
-        save.download = fileName || filename;
-	       if ( navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
-				document.location = save.href;
-			}else{
-		        var evt = new MouseEvent('click', {
-		            'view': window,
-		            'bubbles': true,
-		            'cancelable': false
-		        });
-		        save.dispatchEvent(evt);
-		        (window.URL || window.webkitURL).revokeObjectURL(save.href);
-			}	
-        jQuery('html').removeClass('cp-custom-viewport');
-		jQuery('html').removeClass('cp-exceed-vieport cp-window-viewport');
-    }
+function cp_download_file(fileURL, fileName , cnt, len) {
+    var link = jQuery("<a>");
+    link.attr( "href", fileURL );
+    link.attr( "download", fileName );
+    link.text( "cpro_anchor_link" );
+    link.addClass( "cplus_dummy_anchor" );
+    link.attr( "target", "_blank" );
+	jQuery('body').append(link);
+	jQuery(".cplus_dummy_anchor")[0].click();
+	
+	setTimeout(function() {
+	 jQuery(".cplus_dummy_anchor").remove();												                	
+	}, 500 );
 
-    // for IE < 11
-    else if ( !! window.ActiveXObject && document.execCommand)     {
-        var _window = window.open(fileURL, '_blank');
-        _window.document.close();
-        _window.document.execCommand('SaveAs', true, fileName || fileURL)
-        _window.close();
-    }
+	if( cnt == len ){
+    	jQuery('html').removeClass('cp-custom-viewport');
+		jQuery('html').removeClass('cp-exceed-vieport cp-window-viewport');
+	}
 }
 
 })( jQuery );

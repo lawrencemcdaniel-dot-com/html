@@ -4,6 +4,9 @@ function ubermenu_searchbar( $placeholder = null , $post_type = '' ){
 	if( is_null( $placeholder ) ){
 		$placeholder = __( 'Search...' , 'ubermenu'  );
 	}
+
+	$toggle_icon_tag = ubermenu_op( 'icon_tag' , 'main' ); //just grab from the main config
+	if( !$toggle_icon_tag ) $toggle_icon_tag = 'i';
 	?>
 	<!-- UberMenu Search Bar -->
 	<div class="ubermenu-search">
@@ -12,7 +15,7 @@ function ubermenu_searchbar( $placeholder = null , $post_type = '' ){
 			<?php if( $post_type ): ?>
 			<input type="hidden" name="post_type" value="<?php echo $post_type; ?>" />
 			<?php endif; ?>
-			<button type="submit" class="ubermenu-search-submit"><i class="fas fa-search" title="Search"></i></button>
+			<button type="submit" class="ubermenu-search-submit"><<?php echo $toggle_icon_tag; ?> class="fas fa-search" title="Search"></<?php echo $toggle_icon_tag; ?>></button>
 		</form>
 	</div>
 	<!-- end .ubermenu-search -->

@@ -52,7 +52,7 @@ $cp_type = (isset($apexnb_lite_data['edn_cp_type']) && $apexnb_lite_data['edn_cp
                           <li><a href="javascript:void(0);" class="nav-tab apexnb-tabs-trigger" data-tab="components_settings"><?php _e('Components Settings',APEXNBL_TD);?></a></li>
                           <li><a href="javascript:void(0);" class="nav-tab apexnb-tabs-trigger" data-tab="optin_settings"><?php _e('Opt In Settings',APEXNBL_TD);?></a></li>
                            <li><a href="javascript:void(0);" class="nav-tab apexnb-tabs-trigger" data-tab="how_to_use"><?php _e('How to Use',APEXNBL_TD);?></a></li>
-                            <li><a href="javascript:void(0);" class="nav-tab apexnb-tabs-trigger" data-tab="about"><?php _e('About',APEXNBL_TD);?></a></li>
+                            <li><a href="javascript:void(0);" class="nav-tab apexnb-tabs-trigger" data-tab="about"><?php _e('More WordPress Stuff',APEXNBL_TD);?></a></li>
                         </ul>
 
                       </div>

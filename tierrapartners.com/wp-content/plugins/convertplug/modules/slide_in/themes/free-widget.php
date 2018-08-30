@@ -91,6 +91,9 @@ if ( ! function_exists( 'slide_in_theme_free_widget' ) ) {
 		// Filters & Actions for modal_image_alt.
 		$slidein_image_alt = cp_get_module_image_alt_init( 'slide_in', $cp_module_img_src, $cp_module_image );
 
+		$convert_plug_settings    = get_option( 'convert_plug_settings' );
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;
+
 		// Before filter.
 		apply_filters_ref_array( 'cp_slidein_global_before', array( $a ) );
 
@@ -117,7 +120,12 @@ if ( ! function_exists( 'slide_in_theme_free_widget' ) ) {
 				if ( isset( $a['slidein_img_src'] ) && 'none' !== $a['slidein_img_src'] ) {
 					?>
 					<div class="cp-image-container  ">
-						<img style="<?php echo esc_attr( $image_style ); ?>" src="<?php echo esc_attr( $slidein_image ); ?>" class="cp-image" <?php echo $slidein_image_alt; ?> >
+						<?php if($images_on_load){ ?>
+							<img style="<?php echo esc_attr( $image_style ); ?>" data-src="<?php echo esc_attr( $slidein_image ); ?>" class="cp-image" <?php echo $slidein_image_alt; ?> >
+						<?php }else{ ?>
+							<img style="<?php echo esc_attr( $image_style ); ?>" src="<?php echo esc_attr( $slidein_image ); ?>" class="cp-image" <?php echo $slidein_image_alt; ?> >
+						<?php }  ?>
+						
 					</div>
 
 					<?php } ?>

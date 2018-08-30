@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Tabs Responsive
- * Version: 1.8.5
+ * Version: 1.8.6
  * Description:  Tabs Responsive is the most easiest drag & drop Tabs builder for WordPress. You can add unlimited Tabs with unlimited color Scheme.
  * Author: wpshopmart
  * Author URI: https://www.wpshopmart.com
@@ -88,9 +88,11 @@ add_filter("plugin_action_links_$plugin", 'wpsm_tabs_r_settings_link' );
 add_action('admin_menu' , 'wpsm_tabs_r_recom_menu');
 function wpsm_tabs_r_recom_menu() {
 	$submenu = add_submenu_page('edit.php?post_type=tabs_responsive', __('More_Free_Plugins', wpshopmart_tabs_r_text_domain), __('More Free Plugins', wpshopmart_tabs_r_text_domain), 'administrator', 'wpsm_tabs_r_recom_page', 'wpsm_tabs_rrecom_page_funct');
+	$submenu2 = add_submenu_page('edit.php?post_type=tabs_responsive', __('Free Vs Pro', wpshopmart_tabs_r_text_domain), __('Free Vs Pro', wpshopmart_tabs_r_text_domain), 'administrator', 'wpsm_tabs_r_fvp_page', 'wpsm_tabs_r_fvp_page_funct');
 	
 	//add hook to add styles and scripts for Tabs Plugin admin page
     add_action( 'admin_print_styles-' . $submenu, 'wpsm_tabs_r_recom_js_css' );
+	add_action( 'admin_print_styles-' . $submenu2, 'wpsm_tabs_r_fvp_js_css' );
 }
 function wpsm_tabs_r_recom_js_css(){
 	wp_enqueue_style('wpsm_tabs_r_bootstrap_css_recom', wpshopmart_tabs_r_directory_url.'assets/css/bootstrap.css');
@@ -99,5 +101,12 @@ function wpsm_tabs_r_recom_js_css(){
 function wpsm_tabs_rrecom_page_funct(){
 	require_once('ink/admin/free.php');
 }
- 
+
+function wpsm_tabs_r_fvp_js_css(){
+	wp_enqueue_style('wpsm_tabs_r_settings_fvp', wpshopmart_tabs_r_directory_url.'assets/css/settings.css');
+	
+}
+function wpsm_tabs_r_fvp_page_funct(){
+	require_once('ink/admin/fvp.php');
+} 
 ?>

@@ -16,10 +16,9 @@ function ubermenu_admin_menu_load_assets() {
 	//fontawesome 4
 	//wp_enqueue_style( 'ubermenu-menu-admin-font-awesome', $assets.'fontawesome/css/font-awesome.min.css' );
 	//fontawesome 5
-	//wp_enqueue_script( 'ubermenu-font-awesome' , UBERMENU_URL.'assets/fontawesome/svg/js/fontawesome-all.min.js' , false , false , false );
 	//add_filter( 'script_loader_tag', 'ubermenu_fontawesome_defer', 10, 2 );
 
-	wp_enqueue_style( 'ubermenu-font-awesome-all' , 	UBERMENU_URL .'assets/fontawesome/fonts/css/fontawesome-all.min.css' , false , false );
+	wp_enqueue_style( 'ubermenu-font-awesome-all' , 	UBERMENU_URL .'assets/fontawesome/css/all.min.css' , false , false );
 
 
 	wp_enqueue_script( 'ubermenu-menu-admin', $assets.'admin.menu.js' , array( 'jquery' ) , UBERMENU_VERSION , true );

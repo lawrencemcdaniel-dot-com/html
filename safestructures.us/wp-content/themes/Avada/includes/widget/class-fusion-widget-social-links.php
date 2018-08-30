@@ -98,7 +98,7 @@ class Fusion_Widget_Social_Links extends WP_Widget {
 		$title     = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance['title'] : '' );
 		$add_class = '';
 		$style     = '';
-		$nofollow  = ( Avada()->settings->get( 'nofollow_social_links' ) ) ? 'nofollow' : '';
+		$nofollow  = ( Avada()->settings->get( 'nofollow_social_links' ) ) ? 'nofollow noopener noreferrer' : 'noopener noreferrer';
 		$to_social_networks = Avada()->settings->get( 'social_media_icons' );
 
 		if ( ! isset( $instance['tooltip_pos'] ) || '' === $instance['tooltip_pos'] ) {

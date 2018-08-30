@@ -21931,8 +21931,7 @@ elFinder.prototype.commands.edit = function() {
 						&& extMatch(file.name, editor.exts || null)
 						&& typeof editor.load == 'function'
 						&& typeof editor.save == 'function') {
-					
-					name = editor.info && editor.info.name? editor.info.name : ('Editor ' + i);
+					name = editor.info && editor.info.name? editor.info.name : ('Code Editor');
 					editor.id = editor.info && editor.info.id? editor.info.id : ('editor' + i),
 					editor.name = name;
 					editor.i18n = fm.i18n(name);

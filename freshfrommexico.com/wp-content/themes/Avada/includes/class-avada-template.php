@@ -465,7 +465,7 @@ class Avada_Template {
 					<div class="comment-author meta">
 						<strong><?php echo get_comment_author_link(); ?></strong>
 						<?php /* translators: %1$s: Comment date. %2$s: Comment time. */ ?>
-						<?php printf( esc_attr__( '%1$s at %2$s', 'Avada' ), get_comment_date(), get_comment_time() ); ?><?php edit_comment_link( __( ' - Edit', 'Avada' ), '  ', '' ); ?>
+						<?php printf( esc_attr__( '%1$s at %2$s', 'Avada' ), get_comment_date(), get_comment_time() ); // WPCS: XSS ok. ?><?php edit_comment_link( __( ' - Edit', 'Avada' ), '  ', '' ); // WPCS: XSS ok. ?>
 						<?php
 						comment_reply_link(
 							array_merge(

@@ -512,20 +512,24 @@ abstract class UberMenuItem{
 		$item_output = "<$this->submenu_tag $id $class $styles $aria>";
 
 
+		$retractor_icon_tag = $this->get_menu_op( 'icon_tag' );
+		if( !$retractor_icon_tag ) $retractor_icon_tag = 'i';
+
 		//Retractor Top
 		if( $retractor_top ){
 			$retractor_tag = $this->submenu_tag == 'ul' ? 'li' : 'div';
 
+
 			$retractor_label = ubermenu_op( 'retractor_label' , $this->args->uber_instance );
 			if( !$retractor_label )	$retractor_label = __( 'Close' , 'ubermenu' );
 
-			$item_output.= '<'.$retractor_tag.' class="ubermenu-retractor ubermenu-retractor-mobile"><i class="fas fa-times"></i> '.$retractor_label.'</'.$retractor_tag.'>';
+			$item_output.= '<'.$retractor_tag.' class="ubermenu-retractor ubermenu-retractor-mobile"><'.$retractor_icon_tag.' class="fas fa-times"></'.$retractor_icon_tag.'> '.$retractor_label.'</'.$retractor_tag.'>';
 		}
 
 		//Close button
 		if( $close_button ){
 			$retractor_tag = $this->submenu_tag == 'ul' ? 'li' : 'div';
-			$item_output.= '<'.$retractor_tag.' class="ubermenu-retractor ubermenu-retractor-desktop"><i class="fas fa-times"></i></'.$retractor_tag.'>';
+			$item_output.= '<'.$retractor_tag.' class="ubermenu-retractor ubermenu-retractor-desktop"><'.$retractor_icon_tag.' class="fas fa-times"></'.$retractor_icon_tag.'></'.$retractor_tag.'>';
 		}
 
 
@@ -549,11 +553,13 @@ abstract class UberMenuItem{
 		//Retractor Bottom
 		if( $this->closable_sub && ubermenu_display_retractors() && ( ubermenu_op( 'display_retractor_bottom' , $this->args->uber_instance ) == 'on' ) ){
 			$retractor_tag = $this->submenu_tag == 'ul' ? 'li' : 'div';
+			$retractor_icon_tag = $this->get_menu_op( 'icon_tag' );
+			if( !$retractor_icon_tag ) $retractor_icon_tag = 'i';
 
 			$retractor_label = ubermenu_op( 'retractor_label' , $this->args->uber_instance );
 			if( !$retractor_label )	$retractor_label = __( 'Close' , 'ubermenu' );
 
-			$html.= '<'.$retractor_tag.' class="ubermenu-retractor ubermenu-retractor-mobile"><i class="fas fa-times"></i> '.$retractor_label.'</'.$retractor_tag.'>';
+			$html.= '<'.$retractor_tag.' class="ubermenu-retractor ubermenu-retractor-mobile"><'.$retractor_icon_tag.' class="fas fa-times"></'.$retractor_icon_tag.'> '.$retractor_label.'</'.$retractor_tag.'>';
 		}
 
 		$html.= "</$this->submenu_tag>";
@@ -1196,7 +1202,9 @@ abstract class UberMenuItem{
 		//Submenu indicator
 		$submenu_type = $this->get_submenu_type();
 		if( $display_submenu_indicators && !$disable_submenu_indicator && $submenu_type && in_array( $submenu_type , array( 'mega' , 'flyout' , 'tab-content-panel' ) ) ){
-			$a.= '<i class="ubermenu-sub-indicator fas fa-angle-down"></i>';
+			$indicator_tag = $this->get_menu_op( 'icon_tag' );
+			if( !$indicator_tag ) $indicator_tag = 'i';
+			$a.= "<$indicator_tag class='ubermenu-sub-indicator fas fa-angle-down'></$indicator_tag>";
 		}
 
 		//Display mobile close toggle - do in JS?
@@ -1371,6 +1379,10 @@ abstract class UberMenuItem{
 		$custom_content = $this->getSetting( 'custom_content' );
 		if( $custom_content ){
 
+			if( ubermenu_op( 'disable_custom_content' , 'general' ) === 'on' ){
+				return "<!-- Custom Content Areas currently disabled $this->ID -->";
+			}
+
 			//Pad the custom content wrapper?
 			$pad_custom_content = $this->getSetting( 'pad_custom_content' ) == 'on' ? ' ubermenu-custom-content-padded' : '' ;
 
@@ -1394,6 +1406,11 @@ abstract class UberMenuItem{
 		$widget_area_id = $this->getSetting( 'widget_area' );
 
 		if( $this->getSetting( 'auto_widget_area' ) ){
+
+			if( ubermenu_op( 'disable_widget_areas' , 'general' ) === 'on' ){
+				return "<!-- Widget Areas currently disabled $this->ID -->";
+			}
+
 			$custom_area_id = 'umitem_'.$this->ID;
 			if( is_active_sidebar( $custom_area_id ) ){
 				$widget_area_id = $custom_area_id;

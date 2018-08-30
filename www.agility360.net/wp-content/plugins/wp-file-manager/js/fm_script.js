@@ -4,14 +4,14 @@ jQuery(window).load(function(e) {
 		       jQuery('.lokhal_verify_email_popup_overlay').show();
 			});
    jQuery(document).ready(function() {
-				jQuery('#wp_file_manager').elfinder({
+				/*jQuery('#wp_file_manager').elfinder({
 					url : ajaxurl,
 					customData : {action: 'mk_file_folder_manager', _wpnonce: security_key },
 					uploadMaxChunkSize : 1048576000000,
 					defaultView : 'list',
 					height: 500,
 					lang : fmlang,
-				});				
+				});	*/			
 				jQuery('.close_fm_help').on('click', function(e) {
 					var what_to_do = jQuery(this).data('ct');
 					 jQuery.ajax({
@@ -66,6 +66,12 @@ jQuery('#fm_theme').change(function(e) {
 		  send_ajax('verify', email, fname, lname);
 		}
     });
+	// mac
+	if (navigator.userAgent.indexOf('Mac OS X') != -1) {			
+    jQuery("body").addClass("mac");
+    } else {			
+    jQuery("body").addClass("windows");
+   }
 						
 });
 function send_ajax(todo, email, fname, lname) {
@@ -81,4 +87,4 @@ function send_ajax(todo, email, fname, lname) {
 							}
 						 }
 						});	
-}
+} 

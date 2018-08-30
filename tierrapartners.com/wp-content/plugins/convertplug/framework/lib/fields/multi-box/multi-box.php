@@ -81,8 +81,7 @@ function render_multi_box( $uniq, $value ) {
 	}
 
 	$current_input_name_val  = ( isset( $_value_array['input_name'] ) ) ? $_value_array['input_name'] : 'CP_FIELD_' . rand( 00, 99 );
-	$current_input_label_val = ( isset( $_value_array['input_label'] ) ) ? $_value_array['input_label'] : '';
-
+	$current_input_label_val = ( isset( $_value_array['input_label'] ) ) ? htmlspecialchars($_value_array['input_label']) : '';
 	$accordion_label = ( '' !== $current_input_label_val ) ? $current_input_label_val : $current_input_name_val;
 
 	$is_hidden        = false;

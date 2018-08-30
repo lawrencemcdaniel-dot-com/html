@@ -281,7 +281,15 @@
 										document.location.href = redirect_url;
 									}
 								}else{
-									cp_ifb_download_file(redirect_url);
+
+									if( redirect_url !== '' ){
+										var redirect_file = redirect_url.split(',');
+										jQuery.each( redirect_file, function(index,url){
+											redirect_url = url;
+											cp_ifb_download_file( redirect_url );
+										});
+									}
+									//cp_ifb_download_file(redirect_url);
 								}
 
 							} else {
@@ -404,34 +412,18 @@
 	});
 
 function cp_ifb_download_file(fileURL, fileName) {
-    // for non-IE
-    if (!window.ActiveXObject) {
-        var save = document.createElement('a');
-        save.href = fileURL;
-        save.target = '_blank';
-        var filename = fileURL.substring(fileURL.lastIndexOf('/')+1);
-        save.download = fileName || filename;
-
-        if ( navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
-			document.location = save.href;
-		}else{
-	        var evt = new MouseEvent('click', {
-	            'view': window,
-	            'bubbles': true,
-	            'cancelable': false
-	        });
-	        save.dispatchEvent(evt);
-	        (window.URL || window.webkitURL).revokeObjectURL(save.href);
-		}	
-    }
-
-    // for IE < 11
-    else if ( !! window.ActiveXObject && document.execCommand)     {
-        var _window = window.open(fileURL, '_blank');
-        _window.document.close();
-        _window.document.execCommand('SaveAs', true, fileName || fileURL)
-        _window.close();
-    }
+   var link = jQuery("<a>");
+    link.attr( "href", fileURL );
+    link.attr( "download", fileName );
+    link.text( "cpro_anchor_link" );
+    link.addClass( "cplus_dummy_anchor" );
+    link.attr( "target", "_blank" );
+	jQuery('body').append(link);
+	jQuery(".cplus_dummy_anchor")[0].click();
+	
+	setTimeout(function() {
+	 jQuery(".cplus_dummy_anchor").remove();												                	
+	}, 500 );
 }
 
 })( jQuery );

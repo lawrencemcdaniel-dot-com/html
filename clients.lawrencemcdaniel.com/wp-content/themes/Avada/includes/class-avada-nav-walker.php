@@ -558,6 +558,8 @@ if ( ! class_exists( 'Avada_Nav_Walker' ) ) {
 				}
 
 				$atts['class'] = implode( ' ', $atts['class'] );
+				$atts['role']  = 'menuitem';
+
 				$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
 
 				$attributes = '';
@@ -721,7 +723,7 @@ if ( ! class_exists( 'Avada_Nav_Walker' ) ) {
 				$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
 				$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-				$output .= '<li role="menuitem" ' . $id . ' ' . $class_names . ' ' . $column_width . $custom_class_data . $style . ' >';
+				$output .= '<li ' . $id . ' ' . $class_names . ' ' . $column_width . $custom_class_data . $style . ' >';
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 			} // End if().
 		}

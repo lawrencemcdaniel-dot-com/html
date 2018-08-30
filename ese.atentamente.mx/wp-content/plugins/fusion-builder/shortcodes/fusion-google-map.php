@@ -172,6 +172,10 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 						}
 
 						if ( isset( $icon_array[ $i ] ) ) {
+							if ( 'theme' === $icon_array[ $i ] ) {
+								$icon_array[ $i ] = plugins_url( 'images/amms.png', dirname( __FILE__ ) );
+							}
+
 							$icon_array[ $i ]  = trim( filter_var( $icon_array[ $i ], FILTER_VALIDATE_URL ) ? 'icon:' . $icon_array[ $i ] : $icon_array[ $i ] );
 
 							// str_replace is used so we can pass other params too (for example color or label could be used instead).
@@ -185,8 +189,9 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 
 					if ( $this->args['static_map_color'] ) {
 						$rgb        = str_replace( '#', '', $this->args['static_map_color'] );
-						$saturation = 100;
-						$lightness   = 0;
+						$color_object = Fusion_Color::new_color( $this->args['static_map_color'] );
+						$saturation = $color_object->saturation * 2 - 100;
+						$lightness  = $color_object->lightness * 2 - 100;
 
 						$style .= '&style=feature:all|hue:0x' . $rgb . '|saturation:' . $saturation . '|lightness:' . $lightness . '|visibility:simplified';
 						$style .= '&style=feature:administrative|hue:0x' . $rgb . '|saturation:' . $saturation . '|lightness:' . $lightness . '|visibility:simplified';
@@ -434,7 +439,9 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 					$attr['id'] = $this->args['id'];
 				}
 
-				$attr['style'] = 'height:' . $this->args['height'] . ';width:' . $this->args['width'] . ';';
+				if ( 'static' !== $this->args['api_type'] ) {
+					$attr['style'] = 'height:' . $this->args['height'] . ';width:' . $this->args['width'] . ';';
+				}
 
 				return $attr;
 
@@ -1046,7 +1053,7 @@ function fusion_element_google_map() {
 				array(
 					'type'        => 'textarea',
 					'heading'     => esc_attr__( 'Custom Marker Icon', 'fusion-builder' ),
-					'description' => esc_attr__( 'Custom styling setting only. Use full image urls for custom marker icons or input "theme" for our custom marker. For multiple addresses, separate icons by using the | symbol or use one for all. ex: Icon 1|Icon 2|Icon 3.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Custom styling setting only. Use full image urls for custom marker icons or input "theme" for our custom marker. For multiple addresses, separate icons by using the | symbol or use one for all. ex: Icon 1|Icon 2|Icon 3. NOTE: Icon images may be in PNG, JPEG or GIF formats and may be up to 4096 pixels maximum size (64x64 for square images).', 'fusion-builder' ),
 					'param_name'  => 'icon_static',
 					'value'       => '',
 					'dependency'  => array(

@@ -90,7 +90,6 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		$close_html               = '';
 		$slidein_size_style       = '';
 		$close_class              = '';
-		$windowcss                = '';
 		$font                     = '';
 		$impression_disable_class = '';
 		$scroll_data              = '';
@@ -115,12 +114,13 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		$slide_toggle_class       = '';
 		$slide_in_bg_image        = '';
 		$customcss                = '';
-		$windowcss                = '';
 		$inset                    = '';
 		$css_style                = '';
 		$style_details            = get_style_details( $style_id, 'slide_in' );
 		$custom_class             = isset( $a['custom_css'] ) ? $a['custom_css'] : '';
 		$a['image_resp_width']    = '768';
+		$convert_plug_settings    = get_option( 'convert_plug_settings' );
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;
 
 		// Print CSS of the style.
 		if ( '' !== $custom_class ) {
@@ -165,23 +165,9 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		}
 
 		// Time Zone.
-		$timezoneformat = 'none';
 		$cp_settings    = get_option( 'convert_plug_settings' );
 		$timezone_name  = $cp_settings['cp-timezone'];
-		$timezone       = get_option( 'timezone_string' );
-		$toffset        = get_option( 'gmt_offset' );
-
-		if ( '' !== $timezone_name && 'system' !== $timezone_name ) {
-			if ( '' === $timezone ) {
-				$timezone       = '' . $toffset . '';
-				$timezoneformat = 'offset';
-			}
-		} else {
-			if ( '' === $timezone ) {
-				$timezone       = '' . $toffset . '';
-				$timezoneformat = 'offset';
-			}
-		}
+		$timezone 		= cp_get_timezone_init();
 
 		// SlideIn - Padding.
 		if ( isset( $a['style'] ) && 'floating_social_bar' === $a['style'] ) {
@@ -242,11 +228,14 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		}
 		echo '<style class="cp-slidebg-color" type="text/css">' . $slide_bg_style . '</style>';
 
-		$windowcss .= 'background-image:url(' . $slide_in_bg_image . ');' . $bg_setting . ';';
-
 		if ( '' !== $slide_in_bg_image ) {
 			$customcss .= 'background-image:url(' . $slide_in_bg_image . ');' . $bg_setting . ';';
-			$windowcss .= 'background-image:url(' . $slide_in_bg_image . ');' . $bg_setting . ';';
+		}
+
+		if( $images_on_load ){
+			$lazy_custom_load_css = 'data-custom-style = "'.$customcss.'"';
+		}else{
+			$lazy_custom_load_css = 'style = "'.$customcss.'"';
 		}
 
 		// SlideIn - Box Shadow.
@@ -294,7 +283,11 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 			}
 			$close_html = '<span style="color:' . $a['close_text_color'] . ';' . $font_family . '">' . $a['close_txt'] . '</span>';
 		} elseif ( isset( $a['close_slidein'] ) && 'close_img' === $a['close_slidein'] ) {
-			$close_html = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . ' />';
+			if( $images_on_load ){
+				$close_html   = '<img class="cp-close-img ' . $close_img_class . '" data-src="' . $close_img . '" ' . $close_alt . '/>';
+			}else{
+				$close_html = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . ' />';
+			}
 		} else {
 			$close_class = ' do_not_close ';
 		}
@@ -562,7 +555,6 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 		// overlay div data.
 		$slide_overlay_data .= 'data-image-position="' . $image_position . '" ';
 		$slide_overlay_data .= 'data-placeholder-color ="' . $placeholder_color . '" ';
-		$slide_overlay_data .= 'data-timezoneformat ="' . esc_attr( $timezoneformat ) . '" ';
 		$slide_overlay_data .= 'data-timezonename ="' . esc_attr( $timezone_name ) . '" ';
 		$slide_overlay_data .= 'data-timezone ="' . esc_attr( $timezone ) . '" ';
 		$slide_overlay_data .= 'data-load-on-refresh ="' . $load_on_refresh . '" ';
@@ -616,8 +608,8 @@ if ( ! function_exists( 'cp_slidein_global_before_init' ) ) {
 				<div class="<?php echo $slide_overlay_class; echo $custom_css_class; ?>" <?php echo $slide_overlay_data; ?> >
 					<div class="cp-slidein <?php echo $slide_position; ?>" style="<?php echo esc_attr( $slidein_size_style ); ?>">
 						<div class="cp-animate-container <?php echo esc_attr( $toggleclass ); ?>" <?php echo $overaly_setting; ?> data-exit-animation="<?php echo esc_attr( $exit_animation ); ?>">
-							<div class="cp-slidein-content" id="slide-in-animate-<?php echo esc_attr( $style_id ); ?>" style="<?php echo esc_attr( $css_style ); ?>;<?php echo esc_attr( $windowcss ); ?>">
-								<div class="cp-slidein-body <?php echo $style_class . ' ' . esc_attr( $el_class ); ?> <?php echo esc_attr( $cp_close_body ); ?>" style="<?php echo esc_attr( $customcss ); ?>">
+							<div class="cp-slidein-content" id="slide-in-animate-<?php echo esc_attr( $style_id ); ?>" style="<?php echo esc_attr( $css_style ); ?>;">
+								<div class="cp-slidein-body <?php echo $style_class . ' ' . esc_attr( $el_class ); ?> <?php echo esc_attr( $cp_close_body ); ?>" <?php echo ( $lazy_custom_load_css ); ?> >
 									<div class="cp-slidein-body-overlay cp_cs_overlay" style="<?php echo esc_attr( $inset ); ?>;"></div>
 									<?php
 	}
@@ -663,6 +655,9 @@ if ( ! function_exists( 'cp_slidein_global_after_init' ) ) {
 		$close_img       = $close_img_prop['close_img'];
 		$close_img_class = $close_img_prop['close_img_class'];
 		$close_alt       = $close_img_prop['close_alt'];
+		$convert_plug_settings    = get_option( 'convert_plug_settings' );
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;
+
 		if ( '' !== $close_alt ) {
 			$close_alt = 'alt="' . $close_alt . '"';
 		}
@@ -690,7 +685,11 @@ if ( ! function_exists( 'cp_slidein_global_after_init' ) ) {
 			$close_html = '<span style="color:' . $a['close_text_color'] . ';' . $font_family . '">' . $a['close_txt'] . '</span>';
 		} elseif ( isset( $a['close_slidein'] ) && 'close_img' === $a['close_slidein'] ) {
 			$close_class .= 'cp-image-close';
-			$close_html   = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . '/>';
+			if( $images_on_load ){
+				$close_html   = '<img class="cp-close-img ' . $close_img_class . '" data-src="' . $close_img . '" ' . $close_alt . '/>';
+			}else{
+					$close_html   = '<img class="' . $close_img_class . '" src="' . $close_img . '" ' . $close_alt . '/>';
+			}
 		} else {
 			$close_class = 'do_not_close';
 		}
@@ -710,14 +709,7 @@ if ( ! function_exists( 'cp_slidein_global_after_init' ) ) {
 		$tooltip_position        = 'left';
 		$close_adjacent_position = ( isset( $a['adjacent_close_position'] ) ? $a['adjacent_close_position'] : 'cp-adjacent-right' );
 		if ( '' !== $close_adjacent_position ) {
-			switch ( $close_adjacent_position ) {
-				case 'top_left':
-					$tooltip_position = 'right';
-					break;
-				case 'top_right':
-					$tooltip_position = 'left';
-					break;
-			}
+			$tooltip_position = cp_get_tooltip_position( $close_adjacent_position );
 		}
 
 		$tooltip_class = '';
@@ -771,14 +763,9 @@ if ( ! function_exists( 'cp_slidein_global_after_init' ) ) {
 <div class="cp-form-processing-wrap" style="<?php echo esc_attr( $form_process_css ); ?>;">
 	<div class="cp-form-after-submit">
 		<div class ="cp-form-processing" style="">
-			<div class="smile-absolute-loader" style="visibility: visible;">
-				<div class="smile-loader">
-					<div class="smile-loading-bar"></div>
-					<div class="smile-loading-bar"></div>
-					<div class="smile-loading-bar"></div>
-					<div class="smile-loading-bar"></div>
-				</div>
-			</div>
+			<?php $form_css ='width: 100px';
+				echo cp_get_form_process_html($form_css);
+			?>
 		</div>
 		<div class ="cp-msg-on-submit" style="color:<?php echo esc_attr( $msg_color ); ?>;"></div>
 	</div>
@@ -789,21 +776,8 @@ if ( ! function_exists( 'cp_slidein_global_after_init' ) ) {
 $close_overlay_class     = 'cp-inside-close';
 $close_adj_class         = '';
 $close_adjacent_position = ( isset( $a['adjacent_close_position'] ) ? $a['adjacent_close_position'] : 'cp-adjacent-right' );
-switch ( $close_adjacent_position ) {
-	case 'top_left':
-		$close_adj_class .= ' cp-adjacent-left';
-		break;
-	case 'top_right':
-		$close_adj_class .= ' cp-adjacent-right';
-		break;
-	case 'bottom_left':
-		$close_adj_class .= ' cp-adjacent-bottom-left';
-		break;
-	case 'bottom_right':
-		$close_adj_class .= ' cp-adjacent-bottom-right';
-		break;
-}
 
+$close_adj_class .= cp_get_close_adj_position( $close_adjacent_position );
 $close_overlay_class .= $close_adj_class;
 
 if ( ! $is_inline ) {
@@ -827,7 +801,7 @@ if ( ! $is_inline ) {
 
 		$edit_link_txt = apply_filters( 'cp_style_edit_link_text', $edit_link_text );
 
-		echo "<div class='cp_edit_link'><a target='_blank' href=" . $edit_link . " rel='noopener' >" . $edit_link_txt . '<a></div>';
+		echo "<div class='cp_edit_link'><a target='_blank' href=" . $edit_link . " rel='noopener' >" . $edit_link_txt . '</a></div>';
 	}
 	?>
 </div><!-- .cp-slidein -->

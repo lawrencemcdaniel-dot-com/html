@@ -467,23 +467,14 @@ function fusion_element_tagline_box() {
 					'default'     => 'no',
 				),
 				array(
-					'type'        => 'select',
+					'type'        => 'range',
 					'heading'     => esc_attr__( 'Shadow Opacity', 'fusion-builder' ),
 					'description' => esc_attr__( 'Choose the opacity of the shadow.', 'fusion-builder' ),
 					'param_name'  => 'shadowopacity',
-					'value'       => array(
-						'1'   => '1',
-						'0.1' => '0.1',
-						'0.2' => '0.2',
-						'0.3' => '0.3',
-						'0.4' => '0.4',
-						'0.5' => '0.5',
-						'0.6' => '0.6',
-						'0.7' => '0.7',
-						'0.8' => '0.8',
-						'0.9' => '0.9',
-					),
-					'default'     => '0.7',
+					'min'         => '0',
+					'max'         => '1',
+					'step'        => '0.05',
+					'value'       => '0.7',
 					'dependency'  => array(
 						array(
 							'element'  => 'shadow',

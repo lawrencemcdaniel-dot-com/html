@@ -426,7 +426,6 @@ if ( ! class_exists( 'Smile_Modals' ) ) {
 				wp_localize_script( 'smile-modal-script', 'smile_ajax', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
 			}
 		}
-
 	}
 	$smile_modals = new Smile_Modals;
 }

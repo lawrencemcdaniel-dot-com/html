@@ -248,20 +248,9 @@ if ( ! function_exists( 'cp_ib_global_before_init' ) ) {
 		// timezone.
 		$cp_settings   = get_option( 'convert_plug_settings' );
 		$timezone_name = $cp_settings['cp-timezone'];
-		$timezone      = get_option( 'timezone_string' );
-		$toffset       = get_option( 'gmt_offset' );
+		$timezone      = cp_get_timezone_init();		
 
-		if ( '' !== $timezone_name && 'system' !== $timezone_name ) {
-			if ( '' === $timezone ) {
-				$timezone = '' . $toffset . '';
-			}
-		} else {
-			if ( '' === $timezone ) {
-				$timezone = '' . $toffset . '';
-			}
-		}
-
-		$schedular_tmz_offset = $toffset;
+		$schedular_tmz_offset = get_option( 'gmt_offset' );
 		if ( '' === $schedular_tmz_offset ) {
 			$schedular_tmz_offset = get_offset_by_time_zone( get_option( 'timezone_string' ) );
 		}
@@ -616,6 +605,8 @@ if ( ! function_exists( 'cp_ib_global_after_init' ) ) {
 		$close_img_alt    = '';
 		$style_id         = ( isset( $a['style_id'] ) ) ? $a['style_id'] : '';
 		$close_alt        = 'close-link';
+		$convert_plug_settings    = get_option( 'convert_plug_settings' );
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;	
 
 		if ( is_user_logged_in() ) {
 			// if user has access to ConvertPlug, then only display edit style link.
@@ -656,7 +647,11 @@ if ( ! function_exists( 'cp_ib_global_after_init' ) ) {
 				$img_src  = cp_get_protocol_settings_init( $img_src );
 			}
 
-			$ib_close_html  = '<img src="' . $img_src . '" class="' . $close_img_class . '" ' . $close_alt . ' >';
+			if( $images_on_load ){
+				$ib_close_html  = '<img data-src ="' . $img_src . '" class="cp-close-img ' . $close_img_class . '" ' . $close_alt . ' >';
+			}else{
+				$ib_close_html  = '<img src="' . $img_src . '" class="' . $close_img_class . '" ' . $close_alt . ' >';
+			}
 			$ib_close_class = 'ib-img-close';
 			$ib_img_width   = 'width:' . esc_attr( $a['close_img_width'] ) . 'px;';
 
@@ -711,21 +706,8 @@ if ( ! function_exists( 'cp_ib_global_after_init' ) ) {
 	<?php
 	$close_adj_class         = '';
 	$close_adjacent_position = ( isset( $a['adjacent_close_position'] ) ? $a['adjacent_close_position'] : 'cp-adjacent-right' );
-	switch ( $close_adjacent_position ) {
-		case 'top_left':
-			$close_adj_class .= ' cp-adjacent-left';
-			break;
-		case 'top_right':
-			$close_adj_class .= ' cp-adjacent-right';
-			break;
-		case 'bottom_left':
-			$close_adj_class .= ' cp-adjacent-bottom-left';
-			break;
-		case 'bottom_right':
-			$close_adj_class .= ' cp-adjacent-bottom-right';
-			break;
-	}
-
+	$close_adj_class .= cp_get_close_adj_position( $close_adjacent_position );
+	
 	if ( ! $is_inline && '0' === $a['close_info_bar_pos'] && 'do_not_close' !== $a['close_info_bar'] ) {
 		?>
 		<div class="ib-close <?php echo esc_attr( $ib_close_class ); ?> <?php echo esc_attr( $close_adj_class ); ?>" style=" <?php echo esc_attr( $ib_img_width ); ?>"><?php echo do_shortcode( $ib_close_html ); ?></div>
@@ -739,7 +721,7 @@ if ( ! function_exists( 'cp_ib_global_after_init' ) ) {
 
 		$edit_link_txt = apply_filters( 'cp_style_edit_link_text', $edit_link_text );
 
-		echo "<div class='cp_edit_link'><a rel='noopener' target='_blank' href=" . $edit_link . '>' . $edit_link_txt . '<a></div>';
+		echo "<div class='cp_edit_link'><a rel='noopener' target='_blank' href=" . $edit_link . '>' . $edit_link_txt . '</a></div>';
 	}
 	?>
 
@@ -765,15 +747,10 @@ if ( isset( $a['mailer'] ) && '' !== $a['mailer'] && 'cp-form-layout-4' !== $a['
 	?>
 	<div class="cp-form-processing-wrap" style="position: absolute; display:none; ">
 		<div class="cp-form-after-submit" style="line-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;">
-			<div class ="cp-form-processing">
-				<div class="smile-absolute-loader" style="visibility: visible;">
-					<div class="smile-loader" style="width: 100px;">
-						<div class="smile-loading-bar"></div>
-						<div class="smile-loading-bar"></div>
-						<div class="smile-loading-bar"></div>
-						<div class="smile-loading-bar"></div>
-					</div>
-				</div>
+			<div class ="cp-form-processing">				
+				<?php $form_css ='width: 100px';
+				echo cp_get_form_process_html($form_css);
+				?>
 			</div>
 			<div class ="cp-msg-on-submit" style="color:<?php echo esc_attr( $msg_color ); ?>"></div>
 		</div>

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 5.6.1
  */
-class Avada_Upgrade_541 extends Avada_Upgrade_Abstract {
+class Avada_Upgrade_561 extends Avada_Upgrade_Abstract {
 
 	/**
 	 * The version.

@@ -107,7 +107,8 @@ function uber_op( id , args , def ){
 			aria_role_navigation: uber_op( 'aria_role_navigation' , {datatype:'boolean' } , false ),
 			aria_expanded: uber_op( 'aria_expanded' , {datatype:'boolean'} , false ),
 			aria_hidden: uber_op( 'aria_hidden' , {datatype:'boolean'} , false ),
-			aria_responsive_toggle: uber_op( 'aria_responsive_toggle' , {datatype:'boolean'} , false )
+			aria_responsive_toggle: uber_op( 'aria_responsive_toggle' , {datatype:'boolean'} , false ),
+			icon_tag: uber_op( 'icon_tag', {datatype:'string'}, 'i' )
 
 		}/*,
 		keys = {
@@ -595,7 +596,7 @@ function uber_op( id , args , def ){
 			//Indicator toggles
 			if( this.settings.submenuIndicatorCloseMobile ){
 				var $target_subs = this.$ubermenu.find( '.ubermenu-has-submenu-drop > .ubermenu-target' )
-					.append( '<span class="ubermenu-sub-indicator-close"><i class="fas fa-times"></i></span>' );
+					.append( '<span class="ubermenu-sub-indicator-close"><'+plugin.settings.icon_tag+' class="fas fa-times"></'+plugin.settings.icon_tag+'></span>' );
 				var $indicator_toggles = $target_subs.find( '>.ubermenu-sub-indicator-close' );
 				$indicator_toggles.on( 'click' , function(e){
 						e.preventDefault();
@@ -1919,6 +1920,7 @@ function uber_op( id , args , def ){
 					var mapHandler = function(){
 						google.maps.event.trigger(map, "resize");
 						map.setCenter(latlng);
+						map.setZoom(dataZoom);
 						//Only resize the first time we open
 						$li.off( 'ubermenuopen', mapHandler );
 					};

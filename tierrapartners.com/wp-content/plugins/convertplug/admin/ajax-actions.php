@@ -39,7 +39,6 @@ $ajax_events = array(
 	'cp_dismiss_rebrand_notice'    => false,
 	'cp_delete_all_modal_action'   => false,
 	'smile_update_custom_conversions' => true,
-
 );
 
 foreach ( $ajax_events as $event_slug => $is_nopriv ) {
@@ -58,6 +57,7 @@ if ( is_admin() ) {
 	add_action( 'admin_post_cp_export_infobar', 'cp_export_infobar_action' );
 	add_action( 'admin_post_cp_export_slidein', 'cp_export_slidein_action' );
 	add_action( 'admin_post_cp_export_all_list', 'handle_cp_export_all_list_action' );
+	add_action( 'admin_post_cp_export_analytics', 'cp_export_analytics' );
 }
 
 if ( ! function_exists( 'cp_trash_list' ) ) {
@@ -990,7 +990,29 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 
 		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;		
 		$store = false; 
-		$cp_set_hp         = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';	
+		$cp_set_hp         = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';
+
+		$domain_disabled  = $cp_settings['cp-disable-domain'];
+		$domain_name 	  = $cp_settings['cp-domain-name'];
+		$domain_arr 	  = array();
+
+		if( $domain_disabled && $domain_name !== '' && $email !=='' ){
+			$domain_arr = explode( ',', $domain_name );
+			$domain_arr = array_map('trim',$domain_arr);
+			// Separate string by @ characters (there should be only one)
+    		$email_parts  = explode('@', $email);
+    		$email_domain = array_pop($email_parts);
+
+			if ( in_array($email_domain, $domain_arr))
+		    {
+		       if ( wp_doing_ajax() ) {
+					wp_die( -1, 403 );
+				} else {
+					die( '-1' );
+				}
+		    }
+		}		
+
 		if( $cp_set_hp ){
 			if ( wp_doing_ajax() ) {
 				wp_die( -1, 403 );
@@ -1162,7 +1184,7 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 		$index       = false;
 		$updated     = false;
 		$only_conversion = isset( $_POST['only_conversion'] ) ? true : false;
-		$email = isset( $subscriber['email'] ) ? strtolower( $subscriber['email'] ) : '';
+		$email 		 = isset( $subscriber['email'] ) ? strtolower( $subscriber['email'] ) : '';
 		if ( $data ) {
 			$index = cp_check_in_array( $email, $data, 'email' );
 		}
@@ -1173,6 +1195,28 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;
 
 		$cp_set_hp         = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';	
+
+		$domain_disabled  = $cp_settings['cp-disable-domain'];
+		$domain_name 	  = $cp_settings['cp-domain-name'];
+		$domain_arr 	  = array();
+
+		if( $domain_disabled && '' !== $domain_name && '' !== $email ){
+			$domain_arr = explode( ',', $domain_name );
+			$domain_arr = array_map('trim',$domain_arr);
+			// Separate string by @ characters (there should be only one)
+    		$email_parts  = explode('@', $email);
+    		$email_domain = array_pop($email_parts);
+
+			if ( in_array($email_domain, $domain_arr))
+		    {
+		       if ( wp_doing_ajax() ) {
+					wp_die( -1, 403 );
+				} else {
+					die( '-1' );
+				}
+		    }
+		}
+
 		if( $cp_set_hp ){
 			if ( wp_doing_ajax() ) {
 				wp_die( -1, 403 );
@@ -1730,6 +1774,108 @@ if ( ! function_exists( 'smile_update_conversions' ) ) {
 	}
 }
 
+if( ! function_exists( 'cp_export_analytics' ) ){
+	/**
+	 * Function to get data for style analytics
+	 *
+	 * @since 3.3.2
+	 */
+	function cp_export_analytics() {		
+		
+		if ( ! current_user_can( 'access_cp' ) ) {
+			die( -1 );
+		}
+		//
+		$data          = isset( $_POST['an_data'] ) ? stripcslashes($_POST['an_data']):'';		
+		$comp_factor   = isset( $_POST['comp_factor'] ) ? $_POST['comp_factor']:'';		
+		
+		if( $comp_factor == 'imp'){
+			$comp_factor = 'Impression';
+		}else if( $comp_factor == 'conv'){
+			$comp_factor = 'Conversion';
+		}else if( $comp_factor == 'convRate'){
+			$comp_factor = 'ConversionRate';
+		}else if( $comp_factor == 'impVsconv'){
+			$comp_factor = 'Impression_Vs_Conversion';
+		}
+
+		check_admin_referer( 'cp-export-analytics');
+		$data          = json_decode($data);
+		$data_set      = isset( $data->datasets ) ? $data->datasets : '';
+		$labels        = isset( $data->labels )? $data->labels : '';
+		$main_data_arr = array();
+		$temp_data_arr = array();
+
+		// Add dates to array
+		$main_data_arr['dates'] = $labels;
+
+		foreach ( $data_set as $key => $arr ) {
+			foreach ( $arr as $name => $value) {
+				if( $name == 'label' || $name == 'data' || $name == 'tpl_var_count' ){	
+					
+					if( $name == 'label'){
+						$style_name = $value;						
+					}
+
+					if( $name == 'data' ){						
+						$main_data_arr[$style_name] = $value;		
+					}					
+				}			
+			}
+		}
+
+		//Create array for generatign CSV
+		$final = array();
+		foreach ($labels as $key => $value) {
+			$date = $value;
+			$final_temp = array();	
+			$final_temp['date'] = $date;
+			foreach ($main_data_arr as $key => $arr) {	
+				if( $key !== 'dates'){
+					$style = $key;			 
+					foreach ($arr as $key => $value) {
+						if( $date == $labels[$key]){
+							$final_temp[$style] = $value;
+						}
+					}
+				}				
+			}
+			array_push($final, $final_temp);		
+		}
+		
+		$path          	= plugin_dir_path( __FILE__ );	
+		
+		if ( is_array( $final ) && $final ) {
+
+			$export_data = cp_generate_csv( $final );
+			$content     = $export_data;
+
+			$file_name = $path . $comp_factor.'.csv';
+			$file_url  = plugins_url( $comp_factor.'.csv', __FILE__ );			
+			$handle    = fopen( $file_name, 'w' );
+			fwrite( $handle, $content );
+			fclose( $handle );
+			//var_dump($file_url);die();
+				header( 'Pragma: public' );   // required.
+				header( 'Expires: 0' );   // no cache.
+				header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
+				header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s', filemtime( $file_name ) ) . ' GMT' );
+				header( 'Cache-Control: private', false );
+				header( 'Content-Type: application/application/csv' );
+				header( 'Content-Disposition: attachment; filename="' . basename( $file_name ) . '"' );
+				header( 'Content-Transfer-Encoding: binary' );
+				header( 'Content-Length: ' . filesize( $file_name ) );  // provide file size.
+				header( 'Connection: close' );
+				readfile( $file_name );
+				unlink( $file_name );
+				exit();
+
+		} else {
+			exit();
+		}
+		//die();
+	}
+}
 
 if ( ! function_exists( 'get_style_analytics_data' ) ) {
 	/**
@@ -2003,6 +2149,7 @@ if ( ! function_exists( 'get_style_analytics_data' ) ) {
 		}
 
 		echo json_encode( $data );
+		//return json_encode( $data );
 		die();
 	}
 }
@@ -3050,6 +3197,8 @@ if ( ! function_exists( 'handle_cp_export_all_list_action' ) ) {
 				array_push( $contact_arr, $temp_arr );
 			}
 		}
+		//var_dump($contact_arr);die();
+
 		if ( is_array( $contact_arr ) && $contact_arr ) {
 
 			$export_data = cp_generate_csv( $contact_arr );

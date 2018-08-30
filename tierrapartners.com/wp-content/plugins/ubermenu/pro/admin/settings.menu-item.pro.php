@@ -356,6 +356,13 @@ function ubermenu_pro_item_settings( $settings ){
 		'type'	=> 'text',
 		'default'	=> '',
 	);
+	$settings['dynamic_posts'][136] = array(
+		'id'	=> 'dp_ignore_empty_results',
+		'title'	=> __( 'Ignore Empty Results' , 'ubermenu' ),
+		'desc'	=> __( 'If enabled, no "No Resulst Found" admin notice will be generated.' , 'ubermenu' ),
+		'type'	=> 'checkbox',
+		'default'	=> 'off',
+	);
 
 
 
@@ -446,6 +453,9 @@ function ubermenu_pro_item_settings( $settings ){
 				),
 				'slug'	=> array(
 					'name'	=> __( 'Term Slug', 'ubermenu' ),
+				),
+				'term_order' => array(
+					'name'	=> __( 'Term Order' , 'ubermenu' ),
 				),
 				'none'	=> array(
 					'name'	=> __( 'None', 'ubermenu' ),
@@ -565,6 +575,14 @@ function ubermenu_pro_item_settings( $settings ){
 		'desc'	=> __( 'Optional message to display to users if there are 0 results returned from your query' , 'ubermenu' ),
 		'type'	=> 'text',
 		'default'	=> '',
+	);
+
+	$settings['dynamic_terms'][136] = array(
+		'id'	=> 'dt_ignore_empty_results',
+		'title'	=> __( 'Ignore Empty Results' , 'ubermenu' ),
+		'desc'	=> __( 'If enabled, no "No Resulst Found" admin notice will be generated.' , 'ubermenu' ),
+		'type'	=> 'checkbox',
+		'default'	=> 'off',
 	);
 
 

@@ -130,8 +130,6 @@ if ( fusion_is_element_enabled( 'fusion_events' ) ) {
 						return fusion_builder_placeholder( 'tribe_events', 'events' );
 					}
 
-					$class = fusion_builder_visibility_atts( $hide_on_mobile, $class );
-
 					if ( $events->have_posts() ) {
 						$html .= '<div ' . FusionBuilder::attributes( 'events-shortcode' ) . '>';
 						$html .= '<div class="fusion-events-wrapper" data-pages="' . $events->max_num_pages . '">';
@@ -304,6 +302,8 @@ if ( fusion_is_element_enabled( 'fusion_events' ) ) {
 					$attr['style']  = 'margin-left: -' . ( $this->args['column_spacing'] / 2 ) . 'px;';
 					$attr['style'] .= 'margin-right: -' . ( $this->args['column_spacing'] / 2 ) . 'px;';
 				}
+
+				$attr = fusion_builder_visibility_atts( $this->args['hide_on_mobile'], $attr );
 
 				return $attr;
 			}

@@ -7,7 +7,7 @@
  *
  *     [your-theme]/tribe-events/eventbrite/eventbrite-meta-box-extension.php
  *
- * @version 4.5.1
+ * @version 4.5.2
  * @package Tribe__Events__MainEventBrite
  * @since  3.0
  * @author Modern Tribe Inc.
@@ -224,6 +224,7 @@ jQuery(document).ready(function($){
 		<td colspan="2">
 			<div class="tribe-eb-notice"><?php esc_html_e( 'You are not the owner of this event listing on Eventbrite.com.', 'tribe-eventbrite' ); ?></div>
 			<div class="tribe-eb-notice"><?php esc_html_e( 'Content changes made to the event here will not impact the listing on Eventbrite.com.', 'tribe-eventbrite' ); ?></div>
+			<input type='hidden' name='eventbrite_import_not_owner' value='1' />
 		</td>
 	</tr>
 	<tr>

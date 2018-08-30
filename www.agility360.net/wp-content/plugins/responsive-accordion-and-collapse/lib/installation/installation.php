@@ -179,13 +179,13 @@ margin-bottom:10px;
 		<div class="wpsm_ac_h_i ">
 			<div class="texture-layer">
 				
-					<div class="wpsm_ac_h_b"><a class="btn btn-danger btn-lg " href="http://wpshopmart.com/plugins/accordion-pro/" target="_blank">Try Accordion/Faq Pro Now</a><a class="btn btn-success btn-lg " href="http://demo.wpshopmart.com/accordion-pro/" target="_blank">View Demo</a></div>
+					<div class="wpsm_ac_h_b"><a class="btn btn-danger btn-lg " href="https://wpshopmart.com/plugins/accordion-pro/" target="_blank">Try Accordion/Faq Pro Now</a><a class="btn btn-success btn-lg " href="http://demo.wpshopmart.com/accordion-pro/" target="_blank">View Demo</a></div>
 					<div style="overflow:hidden;display:block;width:100%;text-align:center">
 					<h1 style="color:#fff;font-size:30px;text-transform:uppercase">Unlock More Features In Pro version</h1>
 					</div>
 					<div style="overflow:hidden;display:block;width:100%">
 						<div class="col-md-3">
-							<a href="http://wpshopmart.com/plugins/accordion-pro/" target="_blank">
+							<a href="https://wpshopmart.com/plugins/accordion-pro/" target="_blank">
 								<ul>
 									<li> <i class="fa fa-check"></i>18+ Design Templates </li>
 									<li> <i class="fa fa-check"></i>30 Content Animations </li>
@@ -197,7 +197,7 @@ margin-bottom:10px;
 							</a>
 						</div>
 						<div class="col-md-3">
-							<a href="http://wpshopmart.com/plugins/accordion-pro/" target="_blank">
+							<a href="https://wpshopmart.com/plugins/accordion-pro/" target="_blank">
 								<ul>
 									<li> <i class="fa fa-check"></i>4 Overlay Effect </li>
 									<li> <i class="fa fa-check"></i>500+ Google Fonts </li>
@@ -209,7 +209,7 @@ margin-bottom:10px;
 							</a>	
 						</div>
 						<div class="col-md-3">
-							<a href="http://wpshopmart.com/plugins/accordion-pro/" target="_blank">
+							<a href="https://wpshopmart.com/plugins/accordion-pro/" target="_blank">
 								<ul>
 									<li> <i class="fa fa-check"></i>Widget Option </li>
 									<li> <i class="fa fa-check"></i>Unlimited Shortcode </li>
@@ -220,7 +220,7 @@ margin-bottom:10px;
 							</a>	
 						</div>
 						<div class="col-md-3">
-							<a href="http://wpshopmart.com/plugins/accordion-pro/" target="_blank">
+							<a href="https://wpshopmart.com/plugins/accordion-pro/" target="_blank">
 								<ul>
 									<li> <i class="fa fa-check"></i>Border Customization </li>
 									<li> <i class="fa fa-check"></i>Collapse Mode </li>

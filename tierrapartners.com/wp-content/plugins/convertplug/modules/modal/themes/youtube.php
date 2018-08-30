@@ -7,19 +7,6 @@
 
 if ( ! function_exists( 'modal_theme_youtube' ) ) {
 
-	add_filter( 'cp_youtube_css', 'cp_youtube_css_init' );
-
-	/**
-	 * Function Name: cp_youtube_css_init .
-	 *
-	 * @param  array $a array parameter.
-	 */
-	function cp_youtube_css_init( $a ) {
-		$output  = '<style type="text/css">';
-		$output .= '</style>';
-		echo $output;
-	}
-
 	/**
 	 * Function Name: cp_get_youtube_video_url.
 	 *

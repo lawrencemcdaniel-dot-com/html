@@ -724,6 +724,24 @@ function ubermenu_settings_panel_fields_general( $fields ){
 		),
 
 
+		285 => array(
+			'name'	=> 'disable_custom_content',
+			'label'	=> __( 'Disable Custom Content Areas' , 'ubermenu' ),
+			'type'	=> 'checkbox',
+			'default'=> 'off',
+			'desc'	=> __( 'Easy way to test if conflicts are coming from custom content added within your menu.' , 'ubermenu' ),
+			'group'	=> 'misc',
+		),
+		286 => array(
+			'name'	=> 'disable_widget_areas',
+			'label'	=> __( 'Disable Widget Areas' , 'ubermenu' ),
+			'type'	=> 'checkbox',
+			'default'=> 'off',
+			'desc'	=> __( 'Easy way to test if conflicts are coming from widget content added within your menu.' , 'ubermenu' ),
+			'group'	=> 'misc',
+		),
+
+
 
 
 
@@ -1499,8 +1517,7 @@ function ubermenu_admin_panel_assets( $hook ){
 		//wp_enqueue_style( 'ubermenu-font-awesome' , UBERMENU_URL.'assets/css/fontawesome/css/font-awesome.min.css' );
 
 		//font awesome 5
-		//wp_enqueue_script( 'ubermenu-font-awesome' , UBERMENU_URL.'assets/fontawesome/svg/js/fontawesome-all.min.js' , false , false , false );
-		wp_enqueue_style( 'ubermenu-font-awesome-all' , 	UBERMENU_URL .'assets/fontawesome/fonts/css/fontawesome-all.min.css' , false , false );
+		wp_enqueue_style( 'ubermenu-font-awesome-all' , 	UBERMENU_URL .'assets/fontawesome/css/all.min.css' , false , false );
 
 		wp_localize_script( 'ubermenu-control-panel' , 'ubermenu_control_panel' , array(
 			'load_google_cse'	=> ubermenu_op( 'load_google_cse' , 'general' ),

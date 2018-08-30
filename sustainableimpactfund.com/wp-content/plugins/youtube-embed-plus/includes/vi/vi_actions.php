@@ -6,6 +6,11 @@ add_action("wp_ajax_my_embedplus_vi_hide_feature_ajax", array(get_class(), 'vi_h
 
 add_action('admin_init', array(get_class(), 'vi_adstxt_download'));
 
+if (function_exists('tenup_display_ads_txt'))
+{
+    add_action('init', array(get_class(), 'vi_adstxt_lookup'), 100);
+}
+
 add_shortcode('embed-vi-ad', array(get_class(), 'vi_js_shortcode'));
 
 if ((bool)self::$alloptions[self::$opt_vi_active])
