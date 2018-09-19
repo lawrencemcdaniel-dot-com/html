@@ -5,7 +5,7 @@ Tags: wp-file-manager, elfinder,file manager, ftp, wordpress file manager,file m
 Requires at least: 4.0
 Tested up to: 4.9.8
 Requires PHP: 5.2.4
-Stable tag: 2.9
+Stable tag: 3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,19 +99,26 @@ Yes, You can archieve any files and folders as zip then simple download it. Plea
 
 == Changelog ==
 
+= 3.1 (17th Sep, 2018) =
+
+* Security fixes and design fixes
+
+= 3.0 (5th Sep, 2018) =
+
+* Security issues fixed
+
 = 2.9 (27th Aug ,2018) =
 
-Russian Translations added. Credit: @ivan192
+* Russian Translations added. Credit: @ivan192
 
-Code editor lines number added.
+* Code editor lines number added.
 
-Minimized window buttons collapsing issue fixed
+* Minimized window buttons collapsing issue fixed
 
-== Changelog ==
 
 = 2.8 (15th Jun ,2018) =
 
-minor Performence fix
+* minor Performence fix
 
 = 2.7 (2th Jun ,2018) =
 

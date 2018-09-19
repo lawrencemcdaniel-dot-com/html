@@ -399,8 +399,10 @@
 
 	});
 
-function cp_download_file(fileURL, fileName , cnt, len) {
-    var link = jQuery("<a>");
+function cp_download_file(fileURL,cnt, len) {
+    var link 	 = jQuery("<a>");
+    var index 	 = fileURL.lastIndexOf("/") + 1;
+    var fileName = fileURL.substr(index);
     link.attr( "href", fileURL );
     link.attr( "download", fileName );
     link.text( "cpro_anchor_link" );

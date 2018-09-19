@@ -249,11 +249,11 @@ if ( $prev_styles ) {
 																$exp_settings   = array();
 																foreach ( $style_settings as $title => $value ) {
 																	if ( ! is_array( $value ) ) {
-																		$value                  = urldecode( $value );
-																		if(is_callable('utf8_encode')){
+																		$value = urldecode( $value );
+																		if ( is_callable( 'utf8_encode' ) ) {
 																			$exp_settings[ $title ] = htmlentities( stripslashes( utf8_encode( $value ) ), ENT_QUOTES );
-																		}else{
-																		$exp_settings[ $title ] = htmlentities( stripslashes( html_entity_decode( $value ) ), ENT_QUOTES );
+																		} else {
+																			$exp_settings[ $title ] = htmlentities( stripslashes( html_entity_decode( $value ) ), ENT_QUOTES );
 																		}
 																	} else {
 																		foreach ( $value as $ex_title => $ex_val ) {

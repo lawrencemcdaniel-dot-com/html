@@ -35,10 +35,10 @@ if ( function_exists( 'smile_update_settings' ) ) {
 		$user_arr [ $rvalue ] = $rvalue;
 	}
 
-	$firstItem = array("None");
-	$new_arr = $user_arr;
+	$first_item = array( 'None' );
+	$new_arr    = $user_arr;
 	unset( $new_arr['Administrator'] );
-	$new_arr = $firstItem + $new_arr;
+	$new_arr = $first_item + $new_arr;
 	/* translators:%s style_id */
 	$custom_css_link = sprintf( __( "Add custom CSS to your style. Write custom css statement with prefixed the following unique class :<br><br/><span style='color:#444;font-size:18px;font-family: monospace;' ><b>%s </span> </b>", 'smile' ), $style_id_for_slideincustomcss );
 
@@ -416,7 +416,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'name'         => 'slide_in_bg_image',
 			'opts'         => array(
 				'title'       => __( 'Background Image', 'smile' ),
-				'value'       =>'',
+				'value'       => '',
 				'description' => __( "You can provide an image that would be appear behind the content in the Slide In box area. For this setting to work, the background color you've chosen must be transparent.", 'smile' ),
 			),
 			'panel'        => __( 'Background', 'smile' ),
@@ -868,7 +868,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'class'        => '',
 			'name'         => 'toggle_btn_visible',
 			'opts'         => array(
-				'title'       => __( 'Initially Display Toggle Button', 'smile' ),
+				'title'       => __( 'Display Toggle Button Initially', 'smile' ),
 				'description' => __( 'If enabled, toggle button will display by default from initial page load.', 'smile' ),
 				'value'       => false,
 				'on'          => __( 'YES', 'smile' ),
@@ -2169,10 +2169,10 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'class'        => '',
 			'name'         => 'custom_selector',
 			'opts'         => array(
-				'title' => __( 'Launch With Custom Selector', 'smile' ),
-				'value' => '',
+				'title'       => __( 'Launch With Custom Selector', 'smile' ),
+				'value'       => '',
 				'description' => __( "Use this option to display Slide In on click of custom selector.  <br/>Example - #myclass[reference='12345']<br>", 'smile' ),
-			),			
+			),
 			'panel'        => __( 'Manual Display', 'smile' ),
 			'section'      => __( 'Behavior', 'smile' ),
 			'section_icon' => 'connects-icon-cog',
@@ -2525,7 +2525,94 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'panel'        => 'Target Visitors',
 			'section'      => __( 'Behavior', 'smile' ),
 			'section_icon' => 'connects-icon-toggle',
-		),		
+		),
+				// Geo Location option.
+		array(
+			'type'         => 'section',
+			'class'        => '',
+			'name'         => 'geolocation_styling_section',
+			'opts'         => array(
+				'title' => 'Geo Location Setting',
+				'link'  => '',
+				'value' => '',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'switch',
+			'class'        => '',
+			'name'         => 'enable_geotarget',
+			'opts'         => array(
+				'title'       => __( 'Enable Geo Location Tracker', 'smile' ),
+				'value'       => false,
+				'on'          => __( 'Yes', 'smile' ),
+				'off'         => __( 'No', 'smile' ),
+				'description' => __( 'Enable if you wish to select a country or countries in which you want to specifically show or hide this module', 'smile' ),
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'dropdown',
+			'class'        => '',
+			'name'         => 'country_type',
+			'opts'         => array(
+				'title'   => __( 'Display Module in', 'smile' ),
+				'value'   => 'all',
+				'options' => array(
+					__( 'All Countries', 'smile' )     => 'all',
+					__( 'Only EU Countries', 'smile' ) => 'basic-eu',
+					__( 'Non EU Countries', 'smile' )  => 'basic-non-eu',
+					__( 'Target Specific Countries', 'smile' ) => 'specifics-geo',
+				),
+			),
+			'dependency'   => array(
+				'name'     => 'enable_geotarget',
+				'operator' => '==',
+				'value'    => '1',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'geo_target',
+			'class'        => '',
+			'name'         => 'specific_countries',
+			'opts'         => array(
+				'title'       => __( 'Select Countries', 'smile' ),
+				'value'       => '',
+			),
+			'dependency'   => array(
+				'name'     => 'country_type',
+				'operator' => '==',
+				'value'    => 'specifics-geo',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'geo_target',
+			'class'        => '',
+			'name'         => 'hide_specific_countries',
+			'opts'         => array(
+				'title'       => __( 'Hide Modules in', 'smile' ),
+				'value'       => '',
+			),
+			'dependency'   => array(
+				'name'     => 'country_type',
+				'operator' => '!=',
+				'value'    => 'specifics-geo',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		// End of Geo Location option.
 		array(
 			'type'         => 'switch',
 			'class'        => '',
@@ -2807,7 +2894,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 				'options'     => $new_arr,
 				'description' => __( 'Assign a WordPress user role after successful submission.', 'smile' ),
 			),
-			'panel'        => 'Form Setup',			
+			'panel'        => 'Form Setup',
 			'section'      => __( 'Submission', 'smile' ),
 			'section_icon' => 'connects-icon-disc',
 		),
@@ -3387,7 +3474,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 		'Smile_Slide_Ins', 'subscriber_newsletter',
 		array_merge(
 			$name,
-			$cp_form,		
+			$cp_form,
 			$background,
 			$slidein_img,
 			$close_link,
@@ -3606,7 +3693,7 @@ if ( function_exists( 'smile_update_default' ) ) {
 	foreach ( $free_widget_default as $option => $value ) {
 		smile_update_default( 'Smile_Slide_Ins', 'free_widget', $option, $value );
 	}
-	//diet_plan
+	// diet_plan.
 	$subscriber_newsletter_default = array(
 		'form_fields'              => 'order->0|input_type->email|input_label->Email|input_name->email|input_placeholder->Enter Email Address|input_require->true',
 		'form_layout'              => 'cp-form-layout-2',
@@ -3626,12 +3713,12 @@ if ( function_exists( 'smile_update_default' ) ) {
 		'button_bg_color'          => '#000000',
 		'button_border_color'      => '#000000',
 		'cp_slidein_width'         => '400',
-		'cp_close_image_width'     =>  20,
-		'border'                => 'br_all:0|br_tl:0|br_tr:0|br_br:0|br_bl:0|style:none|color:rgb(186,186,186)|bw_all:1|bw_t:1|bw_l:1|bw_r:1|bw_b:1',
+		'cp_close_image_width'     => 20,
+		'border'                   => 'br_all:0|br_tl:0|br_tr:0|br_br:0|br_bl:0|style:none|color:rgb(186,186,186)|bw_all:1|bw_t:1|bw_l:1|bw_r:1|bw_b:1',
 		'btn_disp_next_line'       => false,
 		'close_position'           => 'adj_slidein',
 		'slidein_title_color'      => '#ffffff',
-		'slidein_bg_color'		   => '#f4f4f4',
+		'slidein_bg_color'         => '#f4f4f4',
 		'slidein_desc_color'       => '#ffffff',
 		'tip_color'                => '#ffffff',
 		'placeholder_text'         => 'Enter Your Email Here',
@@ -3644,9 +3731,9 @@ if ( function_exists( 'smile_update_default' ) ) {
 		'btn_border_radius'        => 5,
 		'image_size'               => 100,
 		'slidein_bg_color'         => 'rgba(251,251,251,0.68)',
-		'slidein_image'           => CP_PLUGIN_URL . 'modules/slide_in/functions/config/img/newsletter.png',
-		'slidein_bg_gradient'     => 1,
-		'module_bg_gradient'      =>'#d930ff|#6a82fb|0|100|linear|bottom_center',
+		'slidein_image'            => CP_PLUGIN_URL . 'modules/slide_in/functions/config/img/newsletter.png',
+		'slidein_bg_gradient'      => 1,
+		'module_bg_gradient'       => '#d930ff|#6a82fb|0|100|linear|bottom_center',
 	);
 	foreach ( $subscriber_newsletter_default as $option => $value ) {
 		smile_update_default( 'Smile_Slide_Ins', 'subscriber_newsletter', $option, $value );

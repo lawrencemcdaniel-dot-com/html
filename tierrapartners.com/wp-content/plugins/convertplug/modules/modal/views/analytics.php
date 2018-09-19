@@ -18,13 +18,13 @@ if ( isset( $_GET['style'] ) && ! empty( $_GET['style'] ) ) {
 
 $smile_variant_tests = get_option( 'modal_variant_tests' );
 
-$s_date              = ( isset( $_GET['sd'] ) && ! empty( $_GET['sd'] ) ) ? sanitize_text_field( $_GET['sd'] ) : $cp_analytics_start_time;
-$e_date              = ( isset( $_GET['ed'] ) && ! empty( $_GET['ed'] ) ) ? sanitize_text_field( $_GET['ed'] ) : $cp_analytics_end_time;
-$chart_type          = ( isset( $_GET['cType'] ) && ! empty( $_GET['cType'] ) ) ? sanitize_text_field( $_GET['cType'] ) : 'line';
-$comp_factor         = ( isset( $_GET['compFactor'] ) && ! empty( $_GET['compFactor'] ) ) ? sanitize_text_field( $_GET['compFactor'] ) : 'imp';
+$s_date      = ( isset( $_GET['sd'] ) && ! empty( $_GET['sd'] ) ) ? sanitize_text_field( $_GET['sd'] ) : $cp_analytics_start_time;
+$e_date      = ( isset( $_GET['ed'] ) && ! empty( $_GET['ed'] ) ) ? sanitize_text_field( $_GET['ed'] ) : $cp_analytics_end_time;
+$chart_type  = ( isset( $_GET['cType'] ) && ! empty( $_GET['cType'] ) ) ? sanitize_text_field( $_GET['cType'] ) : 'line';
+$comp_factor = ( isset( $_GET['compFactor'] ) && ! empty( $_GET['compFactor'] ) ) ? sanitize_text_field( $_GET['compFactor'] ) : 'imp';
 
-$export_an_nonce     = wp_create_nonce( 'cp-export-analytics');
-$form_action         = admin_url( 'admin-post.php?action=cp_export_analytics' );
+$export_an_nonce = wp_create_nonce( 'cp-export-analytics' );
+$form_action     = admin_url( 'admin-post.php?action=cp_export_analytics' );
 
 ?>
 
@@ -50,8 +50,7 @@ $form_action         = admin_url( 'admin-post.php?action=cp_export_analytics' );
 		</div>
 		<hr class="bsf-extensions-lists-separator" style="margin: 22px 0px 30px 0px;">
 	</hr>
-	<input type="hidden" id="cp-module" value="modal" >
-	
+	<input type="hidden" id="cp-module" value="modal" >	
 	<div class="row cp-analytics-filter-section" style="display:none">
 		<div class="container form-container analytics-form">
 			<div class="col-sm-2">
@@ -160,19 +159,15 @@ $form_action         = admin_url( 'admin-post.php?action=cp_export_analytics' );
 															</div>
 															<div class="col-sm-2 cp-exp-anltcs">
 																<button class="col-sm-8 button-primary cp-chart-submit" type="submit" id="submit-query">Submit</button>
-																
 															<!-- Export Analytics -->			
 															<form method="post" class="col-sm-4 cp-export-analytics" action="<?php echo esc_url( $form_action ); ?>">					
 																<input type="hidden" name="an_data" id ="cp-module-data" value="" />
-																<input type="hidden" name="_wpnonce" id ="_wpnonce" value="<?php echo $export_an_nonce ;?>" />
-																
-																<input type="hidden" name="comp_factor" id ="comp_factor" value="<?php echo $comp_factor ;?>" />
-
-																<a class="action-list action-download-analytics " href="#" target="_top" style="margin-right: 25px !important;" data-comp-factor = "<?php echo $comp_factor;?>"><i style="line-height: 30px;font-size: 30px;" class="connects-icon-download"></i><span class="action-tooltip"><?php _e( 'Export CSV', 'smile' ); ?></span></a>				
+																<input type="hidden" name="_wpnonce" id ="_wpnonce" value="<?php echo $export_an_nonce; ?>" />							
+																<input type="hidden" name="comp_factor" id ="comp_factor" value="<?php echo $comp_factor; ?>" />
+																<a class="action-list action-download-analytics " href="#" target="_top" style="margin-right: 25px !important;" data-comp-factor = "<?php echo $comp_factor; ?>"><i style="line-height: 30px;font-size: 30px;" class="connects-icon-download"></i><span class="action-tooltip"><?php _e( 'Export CSV', 'smile' ); ?></span></a>				
 															</form>			
 																<!-- Export Analytics -->	
-															</div>
-															
+															</div>						
 														</div>
 														<!-- .form-container -->
 													</div>
@@ -199,8 +194,7 @@ $form_action         = admin_url( 'admin-post.php?action=cp_export_analytics' );
 											</div>
 											<!-- .wrap-container -->
 										</div>
-										<!-- .wrap -->
-									
+										<!-- .wrap -->									
 									<script type="text/javascript">		
 										jQuery(".action-download-analytics ").click(function(e){
 											e.preventDefault();
@@ -208,7 +202,11 @@ $form_action         = admin_url( 'admin-post.php?action=cp_export_analytics' );
 											form.submit();
 										});
 										jQuery("#cp-chart-comp-type").change(function () {
-									        var end = this.value;
-									        jQuery('#comp_factor').val(end);
-									    });
+											var end = this.value;
+											jQuery('#comp_factor').val(end);
+										});
+										jQuery("#cp-chart-comp-type").change(function () {
+											var end = this.value;
+											jQuery('#comp_factor').val(end);
+										});	
 									</script>

@@ -3,7 +3,7 @@ Contributors: simonpedge
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RP7JLGK6VT252
 Tags: slider, carousel, content slider, responsive slider, html slider, owl carousel
 Requires at least: 4.0
-Tested up to: 4.9.7
+Tested up to: 4.9.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,11 +25,11 @@ Slide Anything has now been rebuilt using Owl Carousel 2, and this now provides 
 
 = Slide Anything PRO =
 
-[SLIDE ANYTHING PRO](http://edgewebpages.com/) adds POPUPS into the mix!!
+[SLIDE ANYTHING PRO](https://edgewebpages.com/) adds POPUPS into the mix!!
 
-With [SLIDE ANYTHING PRO](http://edgewebpages.com/) each slide can now open a MODAL POPUP, which can be an IMAGE popup, a VIDEO EMBED popup (YouTube/Vimeo), a popup containing HTML CODE or a popup displaying a WordPress SHORTCODE. This can be a very useful addition to Slide Anything, if you are wanting to create Image or Video galleries for your websites.
+With [SLIDE ANYTHING PRO](https://edgewebpages.com/) each slide can now open a MODAL POPUP, which can be an IMAGE popup, a VIDEO EMBED popup (YouTube/Vimeo), a popup containing HTML CODE or a popup displaying a WordPress SHORTCODE. This can be a very useful addition to Slide Anything, if you are wanting to create Image or Video galleries for your websites.
 
-For more information about Slide Anything PRO, [CLICK HERE](http://edgewebpages.com/).
+For more information about Slide Anything PRO, [CLICK HERE](https://edgewebpages.com/).
 
 = Owl Carousel =
 
@@ -217,6 +217,15 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 = 2.1.10 =
 * Minor bug fix for the new 'Use window.onload event' checkbox setting.
 
+= 2.1.11 =
+* Fixed a bug that occurred when migrating a WP site to another domain location (e.g. transferring a staging/test WP site to a Live WP site). The SA slider would not work on the new domain unless it was re-saved in the back-end. This has now been fixed with this release.
+
+= 2.1.12 =
+* Added the new feature (checkbox) 'Remove JavaScript Content'. When checked, JavaScript content (<script> tags) are removed from slide content.
+
+= 2.1.13 =
+* Bug fix - An array initialisation was causing a crash on hosts using a PHP version prior to 5.4. Changed this array initialisation to now be backwards compatible.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -349,3 +358,12 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 
 = 2.1.10 =
 * Minor bug fix for the new 'Use window.onload event' checkbox setting.
+
+= 2.1.11 =
+* Fixed a bug that occurred when migrating a WP site to another domain location (e.g. transferring a staging/test WP site to a Live WP site). The SA slider would not work on the new domain unless it was re-saved in the back-end. This has now been fixed with this release. 
+
+= 2.1.12 =
+* Added the new feature (checkbox) 'Remove JavaScript Content'. When checked, JavaScript content (<script> tags) are removed from slide content.
+
+= 2.1.13 =
+* Bug fix - An array initialisation was causing a crash on hosts using a PHP version prior to 5.4. Changed this array initialisation to now be backwards compatible.

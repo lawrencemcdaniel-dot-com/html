@@ -5,7 +5,8 @@ Tags: events, calendar, event, venue, organizer, dates, date, google maps, confe
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
 Tested up to: 4.9.8
-Stable tag: 4.4.31
+Stable tag: 4.4.32
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -203,6 +204,16 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
 
 == Changelog ==
+
+= [4.4.32] 2018-09-12 =
+
+* Fix - When using "Once" recurring rule, events were not being updated correctly. Thanks to @lasandia, Cynthia Giles and others for flagging this! [110006]
+* Fix - Fixed duplicate parameters in week view when using the shortcode [110284]
+* Fix - Modify resource url function to work in mu-plugin directory, thanks to Doug for reporting it  [86104]
+* Fix - Correct behavior when using "day-of-month" recurrence rules, thanks to SiteCrafting for reporting this! [75258]
+* Tweak - Improve the translatability of recurrence description text by making generic words like "day", "weeks", "year", etc. translatable in more contexts [106561]
+* Tweak - Update the warning message for users who are breaking an event from the series, adding a note about possible 404s. Thanks Robert for reporting [72070]
+* Tweak - Move the WordPress Custom Fields Metabox show|hide settings to The Events Calendar [109815]
 
 = [4.4.31] 2018-08-22 =
 

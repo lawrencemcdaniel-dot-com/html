@@ -133,7 +133,6 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	-webkit-transition: .2s;
 	transition: .2s;
 	visibility: hidden\9;/* Target only IE7 and IE8 with this hack */
 	width: 10px;
@@ -462,12 +461,10 @@
 
 .isotope,
 .isotope .isotope-item {
-	-webkit-transition-duration: .2s;
-	        transition-duration: .2s;
+	transition-duration: .2s;
 }
 
 #tribe-events-photo-events {
-	-webkit-transition-property: height;
 	transition-property: height;
 }
 
@@ -476,7 +473,6 @@
 }
 
 #tribe-events-photo-events .isotope-item {
-	-webkit-transition: .2s ease-in;
 	transition: .2s ease-in;
 }
 
@@ -614,7 +610,6 @@
 .tribe-events-photo-event {
 	padding: 4%;
 	position: relative;
-	-webkit-transition: .1s ease-in;
 	transition: .1s ease-in;
 }
 
@@ -637,7 +632,6 @@
 }
 
 .tribe-events-list .tribe-events-loop .tribe-events-photo-event .entry-title a {
-	-webkit-transition: .2s ease-in;
 	transition: .2s ease-in;
 }
 
@@ -796,7 +790,6 @@
 	display: block;
 	padding: 3px 6px;
 	text-decoration: none;
-	-webkit-transition: .1s ease-in-out;
 	transition: .1s ease-in-out;
 }
 
@@ -890,7 +883,6 @@
 	left: 0;
 	position: absolute;
 	top: 0;
-	-webkit-transition: all 1s linear;
 	transition: all 1s linear;
 	width: 100%;
 	z-index: 4;

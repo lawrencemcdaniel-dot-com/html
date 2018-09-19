@@ -727,12 +727,11 @@ if ( ! function_exists( 'cp_get_social_init' ) ) {
 							break;
 
 						case 'pinterest':
-							
 							$media_url = isset( $value['input_img'] ) ? $value['input_img'] : '';
-							if( '' !== $media_url ){
-								$url       = 'https://pinterest.com/pin/create/button/?url=' . $current_page . '&media=' . $media_url;
-							}else{							
-								$url       = 'https://pinterest.com/pin/create/link/?url='.$current_page;
+							if ( '' !== $media_url ) {
+								$url = 'https://pinterest.com/pin/create/button/?url=' . $current_page . '&media=' . $media_url;
+							} else {
+								$url = 'https://pinterest.com/pin/create/link/?url=' . $current_page;
 							}
 
 							break;
@@ -771,16 +770,16 @@ if ( ! function_exists( 'cp_get_social_init' ) ) {
 				$social_html .= '<li class="cp_social_' . $input_type . '">';
 
 				$display_count_class = '';
-				if( '1' === $cp_social_share_count || 1 == $cp_social_share_count ){
+				if ( '1' === $cp_social_share_count || 1 == $cp_social_share_count ) {
 					$display_count_class = ' cp_social_display_count';
 				}
 
 				if ( 'profile_link' === $input_action ) {
-					$social_html .= '<a href = ' . $url . " class='cp_social_share ".$display_count_class."'  target='_blank' >";
+					$social_html .= '<a href = ' . $url . " class='cp_social_share " . $display_count_class . "'  target='_blank' >";
 				} elseif ( 'follow' === $input_action ) {
-					$social_html .= '<a href = ' . $url . " class='cp_social_share cp_scoial_follow ".$display_count_class."'  target='_blank' $insta_info >";
+					$social_html .= '<a href = ' . $url . " class='cp_social_share cp_scoial_follow " . $display_count_class . "'  target='_blank' $insta_info >";
 				} else {
-					$social_html .= '<a href="' . $url . '" class="cp_social_share '.$display_count_class.'" onclick="window.open(this.href,\'mywin\',\'left=20,top=20,width=500,height=500,toolbar=1,resizable=0\');return false">';
+					$social_html .= '<a href="' . $url . '" class="cp_social_share ' . $display_count_class . '" onclick="window.open(this.href,\'mywin\',\'left=20,top=20,width=500,height=500,toolbar=1,resizable=0\');return false">';
 				}
 
 				$social_html .= '<i class="cp_social_icon cp_social_icon_' . $input_type . '"></i>';
@@ -863,7 +862,7 @@ function cp_social_css_init( $a ) {
 	}
 
 	// to use user defined color for icon.
-	if ( 1 === $cp_social_enable_icon_color || '1' === $cp_social_enable_icon_color  ) {
+	if ( 1 === $cp_social_enable_icon_color || '1' === $cp_social_enable_icon_color ) {
 		$social_style = '.' . $styleid . ' .cp_social_networks li ,'
 		. '.' . $styleid . ' .cp_social_networks.cp_social_simple li .cp_social_icon ,'
 		. '.' . $styleid . ' .cp_social_networks.cp_social_circle li .cp_social_icon {'

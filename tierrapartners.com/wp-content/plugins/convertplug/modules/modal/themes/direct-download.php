@@ -89,8 +89,8 @@ if ( ! function_exists( 'modal_theme_direct_download' ) ) {
 		// Filters & Actions for modal_image_alt.
 		$modal_image_alt = cp_get_module_image_alt_init( 'modal', $cp_modal_img_src, $cp_modal_image );
 
-		$convert_plug_settings    = get_option( 'convert_plug_settings' );
-		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;
+		$convert_plug_settings = get_option( 'convert_plug_settings' );
+		$images_on_load        = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img'] : 1;
 
 		// Before filter.
 		apply_filters_ref_array( 'cp_modal_global_before', array( $a ) );
@@ -149,9 +149,9 @@ if ( ! function_exists( 'modal_theme_direct_download' ) ) {
 				if ( isset( $a['modal_img_src'] ) && 'none' !== $a['modal_img_src'] ) {
 					?>
 					<div class="cp-image-container">
-						<?php if( $images_on_load ){ ?>
+						<?php if ( $images_on_load ) { ?>
 						<img style="<?php echo esc_attr( $imagestyle ); ?>" data-src="<?php echo esc_attr( $modal_image ); ?>" class="cp-image" <?php echo $modal_image_alt; ?> >
-						<?php } else{ ?>
+						<?php } else { ?>
 						<img style="<?php echo esc_attr( $imagestyle ); ?>" src="<?php echo esc_attr( $modal_image ); ?>" class="cp-image" <?php echo $modal_image_alt; ?> >
 						<?php } ?>
 					</div>

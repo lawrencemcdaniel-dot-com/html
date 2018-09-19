@@ -10,7 +10,7 @@
  *
  * @package Tribe__Events__MainEventBrite
  * @since  3.0
- * @version 4.5.1
+ * @version 4.5.3
  * @author Modern Tribe Inc.
  */
 ?>
@@ -52,18 +52,28 @@
 	</td>
 </tr>
 <tr>
-	<td><?php esc_html_e( 'Eventbrite Event Privacy: ', 'tribe-eventbrite' ) ?></td>
+	<td><?php esc_html_e( 'Eventbrite Event Privacy', 'tribe-eventbrite' ) ?>:</td>
 	<td>
 		<?php
-		if ( isset( $event->listed ) && $event->listed ) {
-			esc_html_e( 'Event is listed publicly on Eventbrite and search engines.', 'tribe-eventbrite' );
-		} else {
-			esc_html_e( 'Event is not listed publicly.', 'tribe-eventbrite' );
+
+		$event_privacy = '';
+
+		if ( isset( $privacy_meta ) && ! empty( $privacy_meta ) ) {
+			$event_privacy = get_post_meta( get_the_ID(), '_EventBritePrivacy', true );
+		} elseif ( isset( $event->listed ) ) {
+			$event_privacy = $event->listed ? 'listed' : 'not_listed';
 		}
-		?><br />
-		<small><a href="<?php echo esc_url( 'https://www.eventbrite.com/edit?eid=' . $event->id ) ?>#privacy_and_promotion_wrapper" target="_blank"><?php esc_html_e( 'Edit event privacy settings', 'tribe-eventbrite' ) ?></a></small>
+
+		?>
+		<select name="EventBritePrivacy" tabindex="<?php $tribe_ecp->tabIndex(); ?>" class="tribe-dropdown">
+			<option value="listed" <?php selected( $event_privacy, 'listed' ) ?>><?php echo esc_html( _x( 'Public', 'Eventbrite event privacy', 'tribe-eventbrite' ) ); ?></option>
+			<option value="not_listed" <?php selected( $event_privacy, 'not_listed' ) ?>><?php echo esc_html( _x( 'Private', 'Eventbrite event privacy', 'tribe-eventbrite' ) ); ?></option>
+		</select>
+		<br>
+		<?php esc_html_e( 'Public events are listed publicly on Eventbrite and search engines. Private events are not.', 'tribe-eventbrite' ); ?><br />
 	</td>
 </tr>
+
 <?php if ( ! empty( $event->ticket_classes ) ) { ?>
 	<?php
 	$ebTecMultipleCosts = false;

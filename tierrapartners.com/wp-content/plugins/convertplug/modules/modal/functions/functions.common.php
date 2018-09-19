@@ -28,10 +28,10 @@ if ( function_exists( 'smile_update_settings' ) ) {
 	foreach ( $roles as $rkey => $rvalue ) {
 		$user_arr [ $rvalue ] = $rvalue;
 	}
-	$firstItem = array("None");
-	$new_arr = $user_arr;
+	$first_item = array( 'None' );
+	$new_arr    = $user_arr;
 	unset( $new_arr['Administrator'] );
-	$new_arr = $firstItem + $new_arr;
+	$new_arr = $first_item + $new_arr;
 	// Get ConvertPlug Form Option Array.
 	global $cp_form;
 	global $cp_social;
@@ -295,7 +295,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			),
 			'panel'        => __( 'Background', 'smile' ),
 			'section'      => __( 'Design', 'smile' ),
-			'section_icon' => 'connects-icon-image',	
+			'section_icon' => 'connects-icon-image',
 		),
 		array(
 			'type'         => 'dropdown',
@@ -306,7 +306,6 @@ if ( function_exists( 'smile_update_settings' ) ) {
 				'value'   => 'simple',
 				'options' => array(
 					__( 'Simple Color', 'smile' ) => 'simple',
-					//__( 'Gradient', 'smile' )     => 'gradient',
 					__( 'Image', 'smile' )        => 'image',
 				),
 			),
@@ -430,7 +429,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'section'      => __( 'Design', 'smile' ),
 			'section_icon' => 'connects-icon-image',
 		),
-		//Backgorund color option.
+		// Backgorund color option.
 		array(
 			'type'         => 'section',
 			'class'        => '',
@@ -442,8 +441,8 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			),
 			'panel'        => __( 'Background', 'smile' ),
 			'section'      => __( 'Design', 'smile' ),
-			'section_icon' => 'connects-icon-image',	
-		),		
+			'section_icon' => 'connects-icon-image',
+		),
 		array(
 			'type'         => 'dropdown',
 			'class'        => '',
@@ -2007,11 +2006,11 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'class'        => '',
 			'name'         => 'custom_selector',
 			'opts'         => array(
-				'title' => __( 'Launch With Custom Selector', 'smile' ),
-				'value' => '',
+				'title'       => __( 'Launch With Custom Selector', 'smile' ),
+				'value'       => '',
 				'description' => __( "Use this option to display Modal on click of custom selector.  <br/>Example - #myclass[reference='12345']<br>", 'smile' ),
 
-			),			
+			),
 			'panel'        => __( 'Manual Display', 'smile' ),
 			'section'      => __( 'Behavior', 'smile' ),
 			'section_icon' => 'connects-icon-cog',
@@ -2367,6 +2366,93 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'section'      => __( 'Behavior', 'smile' ),
 			'section_icon' => 'connects-icon-toggle',
 		),
+		// Geo Location option.
+		array(
+			'type'         => 'section',
+			'class'        => '',
+			'name'         => 'geolocation_styling_section',
+			'opts'         => array(
+				'title' => 'Geo Location Setting',
+				'link'  => '',
+				'value' => '',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'switch',
+			'class'        => '',
+			'name'         => 'enable_geotarget',
+			'opts'         => array(
+				'title'       => __( 'Enable Geo Location Tracker', 'smile' ),
+				'value'       => false,
+				'on'          => __( 'Yes', 'smile' ),
+				'off'         => __( 'No', 'smile' ),
+				'description' => __( 'Enable if you wish to select a country or countries in which you want to specifically show or hide this module', 'smile' ),
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'dropdown',
+			'class'        => '',
+			'name'         => 'country_type',
+			'opts'         => array(
+				'title'   => __( 'Display Module in', 'smile' ),
+				'value'   => 'all',
+				'options' => array(
+					__( 'All Countries', 'smile' )     => 'all',
+					__( 'Only EU Countries', 'smile' ) => 'basic-eu',
+					__( 'Non EU Countries', 'smile' )  => 'basic-non-eu',
+					__( 'Target Specific Countries', 'smile' ) => 'specifics-geo',
+				),
+			),
+			'dependency'   => array(
+				'name'     => 'enable_geotarget',
+				'operator' => '==',
+				'value'    => '1',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'geo_target',
+			'class'        => '',
+			'name'         => 'specific_countries',
+			'opts'         => array(
+				'title'       => __( 'Select Countries', 'smile' ),
+				'value'       => '',
+			),
+			'dependency'   => array(
+				'name'     => 'country_type',
+				'operator' => '==',
+				'value'    => 'specifics-geo',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		array(
+			'type'         => 'geo_target',
+			'class'        => '',
+			'name'         => 'hide_specific_countries',
+			'opts'         => array(
+				'title'       => __( 'Hide Modules in', 'smile' ),
+				'value'       => '',
+			),
+			'dependency'   => array(
+				'name'     => 'country_type',
+				'operator' => '!=',
+				'value'    => 'specifics-geo',
+			),
+			'panel'        => __( 'Target Visitors', 'smile' ),
+			'section'      => __( 'Behavior', 'smile' ),
+			'section_icon' => 'connects-icon-toggle',
+		),
+		// End of Geo Location option.
 		array(
 			'type'         => 'switch',
 			'class'        => '',
@@ -2383,7 +2469,6 @@ if ( function_exists( 'smile_update_settings' ) ) {
 			'section_icon' => 'connects-icon-cog',
 		),
 	);
-
 
 	// Submission.
 	$submission = array(
@@ -2648,7 +2733,7 @@ if ( function_exists( 'smile_update_settings' ) ) {
 				'options'     => $new_arr,
 				'description' => __( 'Assign a WordPress user role after successful submission.', 'smile' ),
 			),
-			'panel'        => 'Form Setup',			
+			'panel'        => 'Form Setup',
 			'section'      => __( 'Submission', 'smile' ),
 			'section_icon' => 'connects-icon-disc',
 		),
@@ -2818,11 +2903,6 @@ if ( function_exists( 'smile_update_settings' ) ) {
 				'step'        => 1,
 				'suffix'      => 's',
 			),
-			/*'dependency'   => array(
-				'name'     => 'player_autoplay',
-				'operator' => '==',
-				'value'    => '1',
-			),*/
 			'panel'        => __( 'Video', 'smile' ),
 			'section'      => __( 'Design', 'smile' ),
 			'section_icon' => 'connects-icon-image',
@@ -2852,6 +2932,21 @@ if ( function_exists( 'smile_update_settings' ) ) {
 				'on'          => __( 'YES', 'smile' ),
 				'off'         => __( 'NO', 'smile' ),
 				'description' => __( 'Would you like to display player controls in the video?.', 'smile' ),
+			),
+			'panel'        => __( 'Video', 'smile' ),
+			'section'      => __( 'Design', 'smile' ),
+			'section_icon' => 'connects-icon-image',
+		),
+		array(
+			'type'         => 'switch',
+			'class'        => '',
+			'name'         => 'youtube_lazy_load',
+			'opts'         => array(
+				'title'       => __( 'Lazy Load Video', 'smile' ),
+				'value'       => false,
+				'on'          => __( 'YES', 'smile' ),
+				'off'         => __( 'NO', 'smile' ),
+				'description' => __( 'Would you like to Load video after content load or on user action?.', 'smile' ),
 			),
 			'panel'        => __( 'Video', 'smile' ),
 			'section'      => __( 'Design', 'smile' ),

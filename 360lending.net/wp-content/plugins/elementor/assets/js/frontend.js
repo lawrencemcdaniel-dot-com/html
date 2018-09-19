@@ -1,4 +1,4 @@
-/*! elementor - v2.2.0 - 28-08-2018 */
+/*! elementor - v2.2.3 - 17-09-2018 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -120,7 +120,7 @@ module.exports = ViewModule;
 
 /***/ }),
 
-/***/ 15:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -180,61 +180,6 @@ module.exports = ViewModule.extend({
 
 /***/ }),
 
-/***/ 16:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var HotKeys = function HotKeys() {
-	var hotKeysHandlers = {};
-
-	var applyHotKey = function applyHotKey(event) {
-		var handlers = hotKeysHandlers[event.which];
-
-		if (!handlers) {
-			return;
-		}
-
-		jQuery.each(handlers, function () {
-			var handler = this;
-
-			if (handler.isWorthHandling && !handler.isWorthHandling(event)) {
-				return;
-			}
-
-			// Fix for some keyboard sources that consider alt key as ctrl key
-			if (!handler.allowAltKey && event.altKey) {
-				return;
-			}
-
-			event.preventDefault();
-
-			handler.handle(event);
-		});
-	};
-
-	this.isControlEvent = function (event) {
-		return event[elementor.envData.mac ? 'metaKey' : 'ctrlKey'];
-	};
-
-	this.addHotKeyHandler = function (keyCode, handlerName, handler) {
-		if (!hotKeysHandlers[keyCode]) {
-			hotKeysHandlers[keyCode] = {};
-		}
-
-		hotKeysHandlers[keyCode][handlerName] = handler;
-	};
-
-	this.bindListener = function ($listener) {
-		$listener.on('keydown', applyHotKey);
-	};
-};
-
-module.exports = new HotKeys();
-
-/***/ }),
-
 /***/ 167:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -265,15 +210,10 @@ module.exports = new HotKeys();
 
 		var initElements = function initElements() {
 			elements.window = window;
-
 			elements.$window = $(window);
-
 			elements.$document = $(document);
-
 			elements.$body = $('body');
-
 			elements.$elementor = elements.$document.find('.elementor');
-
 			elements.$wpAdminBar = elements.$document.find('#wpadminbar');
 		};
 
@@ -290,14 +230,14 @@ module.exports = new HotKeys();
 
 			self.modules = {
 				StretchElement: __webpack_require__(183),
-				Masonry: __webpack_require__(15)
+				Masonry: __webpack_require__(16)
 			};
 
 			self.elementsHandler = new ElementsHandler($);
 		};
 
 		var initHotKeys = function initHotKeys() {
-			self.hotKeys = __webpack_require__(16);
+			self.hotKeys = __webpack_require__(17);
 
 			self.hotKeys.bindListener(elements.$window);
 		};
@@ -313,17 +253,18 @@ module.exports = new HotKeys();
 		};
 
 		var addIeCompatibility = function addIeCompatibility() {
-			var isIE = 'Microsoft Internet Explorer' === navigator.appName || !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g) || !!navigator.userAgent.match(/rv:11/);
+			var isIE = 'Microsoft Internet Explorer' === navigator.appName || !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g) || !!navigator.userAgent.match(/rv:11/),
+			    el = document.createElement('div'),
+			    supportsGrid = 'string' === typeof el.style.grid;
 
-			if (!isIE) {
+			if (!isIE && supportsGrid) {
 				return;
 			}
 			elements.$body.addClass('elementor-msie');
 
-			var $frontendCss = jQuery('#elementor-frontend-css'),
-			    msieCss = $frontendCss[0].outerHTML.replace('css/frontend', 'css/frontend-msie').replace('elementor-frontend-css', 'elementor-frontend-msie-css');
+			var msieCss = '<link rel="stylesheet" id="elementor-frontend-css-msie" href="' + elementorFrontend.config.urls.assets + 'css/frontend-msie.min.css?' + elementorFrontend.config.version + '" type="text/css" />';
 
-			$frontendCss.after(msieCss);
+			elements.$body.append(msieCss);
 		};
 
 		this.init = function () {
@@ -506,7 +447,7 @@ ElementsHandler = function ElementsHandler($) {
 	// element-type.skin-type
 	var handlers = {
 		// Elements
-		'section': __webpack_require__(169),
+		section: __webpack_require__(169),
 
 		// Widgets
 		'accordion.default': __webpack_require__(170),
@@ -976,6 +917,61 @@ module.exports = function ($scope) {
 
 /***/ }),
 
+/***/ 17:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var HotKeys = function HotKeys() {
+	var hotKeysHandlers = {};
+
+	var applyHotKey = function applyHotKey(event) {
+		var handlers = hotKeysHandlers[event.which];
+
+		if (!handlers) {
+			return;
+		}
+
+		jQuery.each(handlers, function () {
+			var handler = this;
+
+			if (handler.isWorthHandling && !handler.isWorthHandling(event)) {
+				return;
+			}
+
+			// Fix for some keyboard sources that consider alt key as ctrl key
+			if (!handler.allowAltKey && event.altKey) {
+				return;
+			}
+
+			event.preventDefault();
+
+			handler.handle(event);
+		});
+	};
+
+	this.isControlEvent = function (event) {
+		return event[elementor.envData.mac ? 'metaKey' : 'ctrlKey'];
+	};
+
+	this.addHotKeyHandler = function (keyCode, handlerName, handler) {
+		if (!hotKeysHandlers[keyCode]) {
+			hotKeysHandlers[keyCode] = {};
+		}
+
+		hotKeysHandlers[keyCode][handlerName] = handler;
+	};
+
+	this.bindListener = function ($listener) {
+		$listener.on('keydown', applyHotKey);
+	};
+};
+
+module.exports = new HotKeys();
+
+/***/ }),
+
 /***/ 170:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1121,6 +1117,7 @@ VideoModule = HandlerModule.extend({
 	handleVideo: function handleVideo() {
 		if (!this.getElementSettings('lightbox')) {
 			this.elements.$imageOverlay.remove();
+
 			this.playVideo();
 		}
 	},
@@ -1134,9 +1131,11 @@ VideoModule = HandlerModule.extend({
 
 		var $videoIframe = this.elements.$videoIframe,
 		    lazyLoad = $videoIframe.data('lazy-load');
+
 		if (lazyLoad) {
 			$videoIframe.attr('src', lazyLoad);
 		}
+
 		var newSourceUrl = $videoIframe[0].src.replace('&autoplay=0', '');
 
 		$videoIframe[0].src = newSourceUrl + '&autoplay=1';
@@ -1283,8 +1282,8 @@ TextEditor = HandlerModule.extend({
 	getDefaultElements: function getDefaultElements() {
 		var selectors = this.getSettings('selectors'),
 		    classes = this.getSettings('classes'),
-		    $dropCap = jQuery('<span>', { 'class': classes.dropCap }),
-		    $dropCapLetter = jQuery('<span>', { 'class': classes.dropCapLetter });
+		    $dropCap = jQuery('<span>', { class: classes.dropCap }),
+		    $dropCapLetter = jQuery('<span>', { class: classes.dropCapLetter });
 
 		$dropCap.append($dropCapLetter);
 
@@ -1699,8 +1698,8 @@ LightboxModule = ViewModule.extend({
 	setImageContent: function setImageContent(imageURL) {
 		var self = this,
 		    classes = self.getSettings('classes'),
-		    $item = jQuery('<div>', { 'class': classes.item }),
-		    $image = jQuery('<img>', { src: imageURL, 'class': classes.image + ' ' + classes.preventClose });
+		    $item = jQuery('<div>', { class: classes.item }),
+		    $image = jQuery('<img>', { src: imageURL, class: classes.image + ' ' + classes.preventClose });
 
 		$item.append($image);
 
@@ -1709,8 +1708,8 @@ LightboxModule = ViewModule.extend({
 
 	setVideoContent: function setVideoContent(options) {
 		var classes = this.getSettings('classes'),
-		    $videoContainer = jQuery('<div>', { 'class': classes.videoContainer }),
-		    $videoWrapper = jQuery('<div>', { 'class': classes.videoWrapper }),
+		    $videoContainer = jQuery('<div>', { class: classes.videoContainer }),
+		    $videoWrapper = jQuery('<div>', { class: classes.videoWrapper }),
 		    $videoElement,
 		    modal = this.getModal();
 
@@ -1750,10 +1749,10 @@ LightboxModule = ViewModule.extend({
 		    self = this,
 		    classes = self.getSettings('classes'),
 		    slideshowClasses = classes.slideshow,
-		    $container = $('<div>', { 'class': slideshowClasses.container }),
-		    $slidesWrapper = $('<div>', { 'class': slideshowClasses.slidesWrapper }),
-		    $prevButton = $('<div>', { 'class': slideshowClasses.prevButton + ' ' + classes.preventClose }).html($('<i>', { 'class': slideshowClasses.prevButtonIcon })),
-		    $nextButton = $('<div>', { 'class': slideshowClasses.nextButton + ' ' + classes.preventClose }).html($('<i>', { 'class': slideshowClasses.nextButtonIcon }));
+		    $container = $('<div>', { class: slideshowClasses.container }),
+		    $slidesWrapper = $('<div>', { class: slideshowClasses.slidesWrapper }),
+		    $prevButton = $('<div>', { class: slideshowClasses.prevButton + ' ' + classes.preventClose }).html($('<i>', { class: slideshowClasses.prevButtonIcon })),
+		    $nextButton = $('<div>', { class: slideshowClasses.nextButton + ' ' + classes.preventClose }).html($('<i>', { class: slideshowClasses.nextButtonIcon }));
 
 		options.slides.forEach(function (slide) {
 			var slideClass = slideshowClasses.slide + ' ' + classes.item;
@@ -1762,17 +1761,17 @@ LightboxModule = ViewModule.extend({
 				slideClass += ' ' + classes.video;
 			}
 
-			var $slide = $('<div>', { 'class': slideClass });
+			var $slide = $('<div>', { class: slideClass });
 
 			if (slide.video) {
 				$slide.attr('data-elementor-slideshow-video', slide.video);
 
-				var $playIcon = $('<div>', { 'class': classes.playButton }).html($('<i>', { 'class': classes.playButtonIcon }));
+				var $playIcon = $('<div>', { class: classes.playButton }).html($('<i>', { class: classes.playButtonIcon }));
 
 				$slide.append($playIcon);
 			} else {
-				var $zoomContainer = $('<div>', { 'class': 'swiper-zoom-container' }),
-				    $slideImage = $('<img>', { 'class': classes.image + ' ' + classes.preventClose, src: slide.image });
+				var $zoomContainer = $('<div>', { class: 'swiper-zoom-container' }),
+				    $slideImage = $('<img>', { class: classes.image + ' ' + classes.preventClose, src: slide.image });
 
 				$zoomContainer.append($slideImage);
 
@@ -1853,8 +1852,8 @@ LightboxModule = ViewModule.extend({
 		}
 
 		var classes = this.getSettings('classes'),
-		    $videoContainer = jQuery('<div>', { 'class': classes.videoContainer + ' ' + classes.invisible }),
-		    $videoWrapper = jQuery('<div>', { 'class': classes.videoWrapper }),
+		    $videoContainer = jQuery('<div>', { class: classes.videoContainer + ' ' + classes.invisible }),
+		    $videoWrapper = jQuery('<div>', { class: classes.videoWrapper }),
 		    $videoFrame = jQuery('<iframe>', { src: videoURL }),
 		    $playIcon = $activeSlide.children('.' + classes.playButton);
 
@@ -1907,7 +1906,6 @@ LightboxModule = ViewModule.extend({
 		    isClickInsideElementor = !!$target.closest('#elementor').length;
 
 		if (!this.isLightboxLink(element)) {
-
 			if (editMode && isClickInsideElementor) {
 				event.preventDefault();
 			}
@@ -2084,10 +2082,9 @@ module.exports = ViewModule.extend({
 
 			if (isFixed) {
 				correctOffset = containerOffset;
-			} else {
-				if (elementOffset > containerOffset) {
-					correctOffset = elementOffset - containerOffset;
-				}
+			}
+			if (elementOffset > containerOffset) {
+				correctOffset = elementOffset - containerOffset;
 			}
 		}
 

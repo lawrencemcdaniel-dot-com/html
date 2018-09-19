@@ -72,8 +72,8 @@ if ( ! function_exists( 'slide_in_theme_subscriber_newsletter' ) ) {
 		 *  @array      $all         All merged arrays.
 		 *  @array      array()      Its required as per WP. Merged $style_settings in $all.
 		 */
-		$a = shortcode_atts( $all, $style_settings );
-		$imgclass = '';
+		$a            = shortcode_atts( $all, $style_settings );
+		$imgclass     = '';
 		$image_style  = cp_add_css( 'left', $a['image_horizontal_position'], 'px' );
 		$image_style .= cp_add_css( 'top', $a['image_vertical_position'], 'px' );
 		$image_style .= cp_add_css( 'max-width', $a['image_size'], 'px' );
@@ -114,15 +114,14 @@ if ( ! function_exists( 'slide_in_theme_subscriber_newsletter' ) ) {
 					?>
 					">
 				<h2 class="cp-title cp_responsive"><?php echo do_shortcode( html_entity_decode( stripcslashes( $a['slidein_title1'] ) ) ); ?></h2>
-				</div>
-			
+				</div>			
 				<div class="cp-desc-container ">
 					<div class="cp-description cp_responsive " ><?php echo do_shortcode( html_entity_decode( stripcslashes( $a['slidein_short_desc1'] ) ) ); ?></div>
 				</div>
 				<div class="cp-form-container  cp-form-container-newsletter ">
 					<?php
 					/**
-					 * Embed CP Form
+					 * Embed CP Form.
 					 */
 					apply_filters_ref_array( 'cp_get_form', array( $a ) );
 					?>

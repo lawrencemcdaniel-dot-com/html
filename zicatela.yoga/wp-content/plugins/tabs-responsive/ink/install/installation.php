@@ -298,7 +298,7 @@ function wpsm_tabs_respnsive_header_info() {
 								<a class="btn btn-danger btn-lg " href="https://wpshopmart.com/plugins/tabs-pro-plugin/" target="_blank">Get Pro Version</a><a class="btn btn-success btn-lg " href="http://demo.wpshopmart.com/tabs-pro-plugin-demo-for-wordpress/" target="_blank">View Demo</a>
 							</div>								
 							<div class="col-md-6" style="text-align:left">							
-								<h1 style="color:#fff;font-size:34px;font-weight:800">Testimonial Pro Features</h1>							
+								<h1 style="color:#fff;font-size:34px;font-weight:800">Tabs Pro Plugin Features</h1>							
 							</div>					
 						
 							<div class="col-md-12" style="padding-bottom:20px;">

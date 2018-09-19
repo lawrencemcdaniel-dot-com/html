@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; 
 $this->custom_css();
- if(isset($_POST['submit'])) { 
-		   $save = update_option('wp_file_manager_settings', $_POST);
+ if(isset($_POST['submit']) && wp_verify_nonce( $_POST['wp_filemanager_root_nonce_field'], 'wp_filemanager_root_action' )) { 
+		   $save = update_option('wp_file_manager_settings', array('public_path' => htmlentities($_POST['public_path'])));
 		  if($save) {
 			  echo '<script>';
 			  echo 'window.location.href="?page=wp_file_manager_root&status=1"';
@@ -19,6 +19,7 @@ $settings = get_option('wp_file_manager_settings');
 <?php $path = str_replace('\\','/', ABSPATH); ?>
 <div class="fm_whiteBg">
 <form action="" method="post">
+<?php  wp_nonce_field( 'wp_filemanager_root_action', 'wp_filemanager_root_nonce_field' ); ?>
 <table class="form-table">
 <tr>
 <th><?php _e('Public Root Path','wp-file-manager')?></th>

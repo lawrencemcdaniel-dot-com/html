@@ -20,7 +20,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * The current version of Eventbrite Tickets
 		 */
-		const VERSION = '4.5.2';
+		const VERSION = '4.5.3';
 
 		/**
 		 * Deprecated property in 4.3. Use VERSION const instead.
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 *
 		 * @var string
 		 */
-		public static $pluginVersion = '4.5.2';
+		public static $pluginVersion = '4.5.3';
 
 		/**************************************************************
 		 * EventBrite Configuration
@@ -123,6 +123,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			'_EventBriteTicketQuantity',
 			'_EventBriteIncludeFee',
 			'_EventBriteStatus',
+			'_EventBritePrivacy',
 			'_EventBriteEventCost',
 			'_EventRegister',
 			'_EventShowTickets',
@@ -508,26 +509,35 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			// Make sure it only affects this request
 			delete_post_meta( $post_id, self::EB_SAVED_META_DATA );
 
+			// Set up some generic default values for various meta.
 			foreach ( self::$metaTags as $tag ) {
 				$name = ltrim( $tag, '_' );
 				if ( ! empty( $saved_raw_data[ $name ] ) ) {
 					$$tag = $saved_raw_data[ $name ];
 					$has_valid_raw_data = true;
 				} elseif ( $post_id ) {
-					$val = get_post_meta( $post_id, $tag, true );
+					$val  = get_post_meta( $post_id, $tag, true );
 					$$tag = $val;
 				} else {
 					$$tag = '';
 				}
 			}
 
-			$api = tribe( 'eventbrite.event' );
+			// If no existing "Ticket Start Sale Date" is set, set it to right now.
+			$datepicker_format          = Tribe__Date_Utils::datepicker_formats( tribe_get_option( 'datepickerFormat' ) );
+			$_EventBriteTicketStartDate = ! empty( $_EventBriteTicketStartDate ) ? $_EventBriteTicketStartDate : date_i18n( $datepicker_format );
+
+			// If no existing "Ticket End Sale Date" is set, set it to the start date of the event itself.
+			$parent_event_vars        = tribe( 'tec.admin.event-meta-box' )->get_extract_vars( get_the_ID() );
+			$_EventBriteTicketEndDate = ! empty( $_EventBriteTicketEndDate ) ? $_EventBriteTicketEndDate : $parent_event_vars['EventStartDate'];
+
+			$api   = tribe( 'eventbrite.event' );
 			$event = $api->get_event( $post_id );
 
-			$_EventBriteId = ( isset( $event->id ) && is_numeric( $event->id ) ? $event->id : null );
-			$_EventRegister = ( isset( $event->id ) && is_numeric( $event->id ) ? 'yes' : 'no' );
-			$isRegisterChecked = ( $has_valid_raw_data || ( isset( $event->id ) && is_numeric( $event->id ) ) ? true : false );
-			$image_sync_mode = (int) get_post_meta( $post_id, '_eventbrite_image_sync_mode', true );
+			$_EventBriteId     = isset( $event->id ) && is_numeric( $event->id ) ? $event->id : null;
+			$_EventRegister    = isset( $event->id ) && is_numeric( $event->id ) ? 'yes' : 'no';
+			$isRegisterChecked = $has_valid_raw_data || ( isset( $event->id ) && is_numeric( $event->id ) ) ? true : false;
+			$image_sync_mode   = (int) get_post_meta( $post_id, '_eventbrite_image_sync_mode', true );
 
 			$tribe_ecp = Tribe__Events__Main::instance();
 
@@ -700,7 +710,6 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 				<?php
 			}
 		}
-
 
 		/**
 		 * Make necessary database updates on admin_init
@@ -1028,7 +1037,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			$args = array(
 				'status' => ( ! empty( $_POST['EventBriteStatus'] ) ? esc_attr( wp_kses( $_POST['EventBriteStatus'], array() ) ) : 'draft' ),
 				'show_tickets' => ( ! empty( $_POST['EventShowTickets'] ) ? esc_attr( wp_kses( $_POST['EventShowTickets'], array() ) ) : 'yes' ),
-				'image_sync_mode' => ( isset( $_POST['EventBriteImageSyncMode'] ) ? (int) $_POST['EventBriteImageSyncMode'] : 1 ),
+				'image_sync_mode' => ( isset( $_POST['EventBriteImageSyncMode'] ) ? (int) $_POST['EventBriteImageSyncMode'] : (int) 1 ),
 			);
 
 			$api = tribe( 'eventbrite.api' );
@@ -1409,6 +1418,9 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			if ( is_wp_error( $event_id ) ) {
 				throw new Tribe__Events__Post_Exception( __( 'We were unable to import your Eventbrite event. Please try again.', 'tribe-eventbrite' ) );
 			}
+
+			// Update Eventbrite privacy setting
+			tribe( 'eventbrite.sync.event' )->set_event_privacy_meta( $event_id, $event );
 
 			// Update Eventbrite status and timezone information
 			update_post_meta( $event_id, '_EventBriteStatus', $event->status );

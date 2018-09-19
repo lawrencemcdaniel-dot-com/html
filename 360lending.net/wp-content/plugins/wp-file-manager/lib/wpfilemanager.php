@@ -12,7 +12,7 @@ $vle_nonce = wp_create_nonce( 'verify-filemanager-email' );
 <script src="<?php echo plugins_url( 'codemirror/mode/javascript/javascript.js', __FILE__ ); ?>"></script>
 <script>
 var security_key = "<?php echo $fm_nonce;?>";
-var fmlang = "<?php echo isset($_GET['lang']) ? $_GET['lang'] : ($wp_fm_lang !== false) ? $wp_fm_lang : 'en';?>";
+var fmlang = "<?php echo isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : ($wp_fm_lang !== false) ? $wp_fm_lang : 'en';?>";
 var vle_nonce = "<?php echo $vle_nonce;?>";
 jQuery(document).ready(function() {	
 var ajaxurl = "<?php echo admin_url('admin-ajax.php');?>"

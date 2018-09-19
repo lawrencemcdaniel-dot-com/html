@@ -135,6 +135,9 @@
                 disabled_upto      = modal.data('load-on-count'),
                 close_img          = modal.find('.cp-close-img').data('close-scr');
 
+                if( isAutoPlay !=='' ){
+                    isAutoPlay = modal.find('.cp-youtube-continer').attr('data-autoplay') || '0';
+                }
                 if( module_type == 'info-bar' ){
                     cookieName        = element.data('info_bar-id'),
                     parent_id         = element.data('parent-style'),
@@ -294,7 +297,6 @@
                    if( exit_anim !== "cp-overlay-none" ){
                         setTimeout( function(){
                             ConvertPlus._cpExecuteVideoAPI(modal,'pause');
-                            //modal.removeClass("cp-open");
                             if( jQuery(".cp-open").length < 1 ){
                                 jQuery("html").removeAttr('style');
                             }
@@ -584,6 +586,7 @@
                 youtube = src.search('youtube.com'),
                 vimeo = src.search('vimeo.com'),
                 src = src.replace("&autoplay=1","");
+                src = src.replace("&mute=1","");
                 if( youtube !== -1 ){
                     var yt_src = ( src.indexOf("?") === -1 ) ? src+'?enablejsapi=1' : src+'&enablejsapi=1';
                     iframe.src = yt_src;
@@ -774,10 +777,22 @@
 
                 $(window).trigger('modalOpen',[md]);
                 $(document).trigger('resize');
-                isAutoPlay = md.find('.cp-youtube-frame').attr('data-autoplay') || '0';
+                var frame = md.find('.cp-youtube-frame');
+                var frame_length = frame.length;
+                var lazy_video = false;
+                if( frame_length >= 1){
+                     isAutoPlay = md.find('.cp-youtube-frame').attr('data-autoplay') || '0';
+                }else{
+                    lazy_video = true;
+                    isAutoPlay = md.find('.cp-youtube-continer').attr('data-autoplay') || '0';
+                }
 
-                if( isAutoPlay === '1' ) {
-                    ConvertPlus._cpExecuteVideoAPI(md,'play');
+                if( isAutoPlay == '1' ) {    
+                    if(lazy_video){
+                        md.find('.cp-youtube-continer').trigger('click', [isAutoPlay]);
+                    } else{                          
+                        ConvertPlus._cpExecuteVideoAPI(md,'play');
+                    }
                 }
 
                 md.addClass('cp-open cp-visited-popup');
@@ -859,7 +874,8 @@
          * Update impression for modules.
          * @return nothing
          */
-         update_impressions: function(styles){            
+         update_impressions: function(styles){  
+            var opt   = opt;
             if( ajax_run == true ){
                 nounce = jQuery(".cp-impress-nonce").val();
                 data = {action:'smile_update_impressions',impression:true,styles:styles,option:'smile_modal_styles',security:nounce};
@@ -1184,9 +1200,17 @@
          * @return {[type]}        [description]
          */
          _cpExecuteVideoAPI: function( obj, status ){
+            
             var iframes = obj.find('iframe');
             jQuery.each(iframes, function( index, frame ){
-                var src = frame.src;
+                var  src = frame.src;
+                if( isAutoPlay == '1' ){
+                    src = frame.getAttribute('data_y_src');                   
+                    if( src == '' || src == null ){   
+                        src = frame.src;
+                    }
+                } 
+                
                 // Youtube API
                 var youtube = src.search('youtube.com');
 
@@ -1199,9 +1223,18 @@
                     if( status == 'play' ){
                         youtube_frame.postMessage('{"event":"command","func":"playVideo","args":""}','*');
                         if(iframes.hasClass('cp-youtube-frame')){
-                            iframes.attr("src", iframes.attr("src").replace("autoplay=0", "autoplay=1"));
+                            iframes.removeAttr('data_y_src');
+                            iframes.attr("allow","autoplay");
+                            iframes.attr("src", src.replace("autoplay=0", "autoplay=1"));
                         }
-                    } else {
+                    } else {   
+                       if( isAutoPlay == '1' ){
+                            iframes.attr("data_y_src",src );  
+                            iframes.removeAttr('src');
+                        }  
+                        iframes.removeAttr("allow");   
+                        iframes.attr("data_y_src", src.replace("autoplay=0", "autoplay=0"));
+                        iframes.removeAttr('src');
                         youtube_frame.postMessage('{"event":"command","func":"pauseVideo","args":""}','*');
                         youtube_frame.postMessage('{"event":"command","func":"stopVideo","args":""}','*');
                     }
@@ -1850,6 +1883,20 @@
                                 $('head').append('<style class="cp-tooltip-close-css">.tip.'+cp_tooltip+'{ display:block; }</style>');
                             }
 
+                            //LAzy load video.
+                            var frame = modal.find('.cp-youtube-continer');
+                            var frame_length = frame.length;
+                            var lazy_video = false;
+                            if( frame_length >= 1){
+                                lazy_video = true;
+                                var autoplay = modal.find('.cp-youtube-continer').data('autoplay');
+                                modal.find('.cp-youtube-continer').trigger('click', [autoplay]);
+                            }else{
+                                var src = modal.find('.cp-youtube-frame').attr('data_y_src');
+                                modal.find('.cp-youtube-frame').attr('src', src);
+                                modal.find('.cp-youtube-frame').removeAttr('data_y_src');
+                            }
+
                             if(styleArray.length !== 0 ) {
                                 if( !$(this).hasClass('cp-disabled') && !modal.hasClass( 'cp-disabled-impression' ) ){
                                     ConvertPlus.update_impressions(styleArray);
@@ -1942,7 +1989,7 @@ jQuery(document).ready(function(){
 
     $(".cp-global-load").each( function(t) {
      ConvertPlus._count_inline_impressions( $( this ) );
- });
+    });
 
     /*infobar functions*/
     ConvertPlus._cp_ifb_toggle();
@@ -1969,15 +2016,17 @@ jQuery(window).on('load', function (e) {
         jQuery('html').addClass('cp-iphone-browser');
     }
 
-    // load images after page load.
-    [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+   // load images after page load.
+    [].forEach.call(jQuery('.cp-module').find('img[data-src]'), function(img) {
       img.setAttribute('src', img.getAttribute('data-src'));
       img.onload = function() {
         img.removeAttribute('data-src');
+
       };
     });
-
+    
 }, 1000));
+
 
 });
 
@@ -2122,6 +2171,8 @@ jQuery(document).on("closeSlideIn", function(event,slidein){
 
 //set tab index for input
 jQuery(".smile-optin-form").each(function() {
+    var option = $(this).parents('.cp-module').data('module-name');
+    $(this).find('input[name="cp_module_type"]').val(option);
     var last_input = jQuery(this).find( "input.cp-input" ).last();
     if( last_input.hasClass("cp-input")){
         last_input.addClass("cp-last-field");
@@ -2272,11 +2323,14 @@ jQuery(document).on("cp_close_info_bar", function( event, info_bar ) {
 //close gravity form & Custom analytics for Contact form.
 jQuery(document).bind('gform_confirmation_loaded', function(event, form_id){ 
     var form     = jQuery('#gf_'+form_id),        
-        style_id = form.parents(".cp-module").data("style-id"),
-        style_name  = form.parents(".cp-module").data("module-name");  
-
+        style_id   = form.parents(".cp-module").data("style-id"),
+        style_name = form.parents(".cp-module").data("module-name"),
+        is_closed  = form.parents(".cp-module").data("close-gravity");    
     jQuery(document).trigger('cp_custom_analytics',[style_id]);
-    jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+    
+    if( is_closed == '1'){
+        jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+    }
 });
 
 //Custom analytics for Contact form.
@@ -2287,10 +2341,13 @@ document.addEventListener( 'wpcf7submit', function( event ) {
     if( status == 'mail_sent'){
         var form = jQuery('#'+form_id );
         var style_id    = form.parents(".cp-module").data("style-id"),
-            style_name  = form.parents(".cp-module").data("module-name");
+            style_name  = form.parents(".cp-module").data("module-name"),
+            is_closed  = form.parents(".cp-module").data("close-gravity");    
 
         jQuery(document).trigger('cp_custom_analytics',[style_id]);
-        jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+        if( is_closed == '1'){
+            jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+        }
     }       
 }, false );
 
@@ -2300,10 +2357,13 @@ jQuery( document ).on( 'nfFormSubmitResponse', function( event, response ) {
         form_id     = 'nf-form-'+response.id+'-cont',
         form        = jQuery('#'+form_id),
         style_id    = form.parents(".cp-module").data("style-id"),
-        style_name  = form.parents(".cp-module").data("module-name");
+        style_name  = form.parents(".cp-module").data("module-name"),
+        is_closed  = form.parents(".cp-module").data("close-gravity");    
 
         jQuery(document).trigger('cp_custom_analytics',[style_id]);
-        jQuery(document).trigger('cp_custom_close_module',[form, style_name] );
+        if( is_closed == '1'){
+            jQuery(document).trigger('cp_custom_close_module',[form,style_name]);
+        }
 });
 
 //close module after custom conversion
@@ -2337,5 +2397,36 @@ jQuery(window).on("cp_custom_analytics", function(e,style_id) {
         });
     },  2000); 
 });
+
+jQuery( '.cp-youtube-continer' ).on( 'click', function( e, auto ) {
+    e.preventDefault();
+    var iframe      = jQuery( "<iframe/>" );
+    var src   = jQuery( this ).data( 'custom-url' );
+    var style   = jQuery( this ).data( 'custom-css' );
+    var classname   = jQuery( this ).data( 'class' );
+    var autoplay = jQuery( this ).data( 'autoplay' );
+    var wt   = jQuery( this ).data( 'width' );
+    var ht   = jQuery( this ).data( 'height' );
+    src = src.replace("autoplay=0", "autoplay=1"); 
+
+    if( auto == null || auto == '1' || auto == 'undefined'){   
+        src = src.replace("autoplay=0", "autoplay=1");
+    }else{        
+        src = src.replace("autoplay=1", "autoplay=0");
+    }
+
+    iframe.attr( 'class', classname );
+    iframe.attr( 'frameborder', '0' );
+    iframe.attr( 'allowfullscreen', '1' );
+    iframe.attr( 'style', style );
+    iframe.attr( 'allow', 'autoplay;encrypted-media;' );
+    iframe.attr( 'src', src );
+    if( wt !== '' || ht !== '' ){
+        iframe.attr( 'width', wt );
+        iframe.attr( 'height', ht );
+    }
+    jQuery( this ).html( iframe );
+   
+} );
 
 })(jQuery);

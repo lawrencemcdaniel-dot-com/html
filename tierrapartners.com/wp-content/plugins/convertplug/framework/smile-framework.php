@@ -100,6 +100,21 @@ if ( ! class_exists( 'Smile_Framework' ) ) {
 			// load style framework loader.
 			require_once( CP_BASE_DIR . '/framework/classes/class-cpimport.php' );
 
+			if ( version_compare( PHP_VERSION, '5.4.0', '>=' ) ) {
+				// Add GEO target classes.
+				require_once( CP_BASE_DIR . '/framework/cp-geolocation.php' );
+				require_once( CP_BASE_DIR . '/framework/cp-geolite-integration.php' );
+
+				/* Include GeoIP2 lib */
+				//if ( ! class_exists( 'MaxMind\\Db\\Reader', false ) ) {
+				require_once( CP_BASE_DIR . '/framework/lib/geolite2/Reader.php' );
+				require_once( CP_BASE_DIR . '/framework/lib/geolite2/Reader/Decoder.php' );
+				require_once( CP_BASE_DIR . '/framework/lib/geolite2/Reader/InvalidDatabaseException.php' );
+				require_once( CP_BASE_DIR . '/framework/lib/geolite2/Reader/Metadata.php' );
+				require_once( CP_BASE_DIR . '/framework/lib/geolite2/Reader/Util.php' );
+				//}
+			}
+			
 			// load required admin fuctions.
 			require_once( CP_BASE_DIR . '/framework/functions/functions.php' );
 

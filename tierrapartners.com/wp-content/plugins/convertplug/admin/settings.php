@@ -490,9 +490,9 @@ if ( true !== $reg_menu_hide ) {
 									<tr>
 										<td style="vertical-align: top;">
 										<?php
-										$disable_storage     = isset( $data['cp-disable-storage'] ) ? $data['cp-disable-storage'] : 0;
+										$disable_storage    = isset( $data['cp-disable-storage'] ) ? $data['cp-disable-storage'] : 0;
 										$is_storage_checked = ( $disable_storage ) ? ' checked="checked" ' : '';
-										$uniq             = uniqid();
+										$uniq               = uniqid();
 										?>
 										<label for="plugin-support" style="width:340px; display: inline-block;font-size:14px;"><strong><?php _e( 'Disable data storage', 'smile' ); ?></strong>
 											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to do not store information of the user to your site database after submission.', 'smile' ); ?>">
@@ -519,9 +519,9 @@ if ( true !== $reg_menu_hide ) {
 									<tr>
 										<td style="vertical-align: top;">
 										<?php
-										$disable_pot     = isset( $data['cp-disable-pot'] ) ? $data['cp-disable-pot'] : 1;
+										$disable_pot    = isset( $data['cp-disable-pot'] ) ? $data['cp-disable-pot'] : 1;
 										$is_pot_checked = ( $disable_pot ) ? ' checked="checked" ' : '';
-										$uniq             = uniqid();
+										$uniq           = uniqid();
 										?>
 										<label for="plugin-support" style="width:340px; display: inline-block;font-size:14px;"><strong><?php _e( 'Honeypot Protection', 'smile' ); ?></strong>
 											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to protect your site from spam attack.', 'smile' ); ?>">
@@ -548,9 +548,9 @@ if ( true !== $reg_menu_hide ) {
 									<tr>
 										<td style="vertical-align: top;">
 										<?php
-										$disable_domain     = isset( $data['cp-disable-domain'] ) ? $data['cp-disable-domain'] : 0;
+										$disable_domain    = isset( $data['cp-disable-domain'] ) ? $data['cp-disable-domain'] : 0;
 										$is_domain_checked = ( $disable_domain ) ? ' checked="checked" ' : '';
-										$uniq             = uniqid();
+										$uniq              = uniqid();
 										?>
 										<label for="plugin-support" style="width:340px; display: inline-block;font-size:14px;"><strong><?php _e( 'Disable Domain', 'smile' ); ?></strong>
 											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to disallow some email domains to fill the form.', 'smile' ); ?>">
@@ -569,12 +569,12 @@ if ( true !== $reg_menu_hide ) {
 								</table>								
 							</p>
 							<?php
-							$domain_name  = isset( $data['cp-domain-name'] ) ? $data['cp-domain-name'] :'';
+							$domain_name = isset( $data['cp-domain-name'] ) ? $data['cp-domain-name'] : '';
 							?>
 							<p 
 							<?php
-							if ( 1 === $domain_name  ) {
-							echo "style='display:none;'"; }
+							if ( 1 === $domain_name ) {
+								echo "style='display:none;'"; }
 							?>
 							>
 							<label for="hide-options" style="width:340px; vertical-align: top; display: inline-block;"><strong><?php _e( 'Enter Domain Names', 'smile' ); ?></strong>
@@ -593,9 +593,9 @@ if ( true !== $reg_menu_hide ) {
 									<tr>
 										<td style="vertical-align: top;">
 										<?php
-										$lazy_load_img     = isset( $data['cp-lazy-img'] ) ? $data['cp-lazy-img'] : 0;
+										$lazy_load_img   = isset( $data['cp-lazy-img'] ) ? $data['cp-lazy-img'] : 0;
 										$is_lazy_checked = ( $lazy_load_img ) ? ' checked="checked" ' : '';
-										$uniq             = uniqid();
+										$uniq            = uniqid();
 										?>
 										<label for="plugin-support" style="width:340px; display: inline-block;"><strong><?php _e( 'Lazy Load images', 'smile' ); ?></strong>
 											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to load images aynchronously', 'smile' ); ?>">
@@ -613,8 +613,74 @@ if ( true !== $reg_menu_hide ) {
 								</tr>
 							</table>
 						</p>
-					</div>
-				</form>
+						</div>
+
+						<!-- Gravity form -->
+						<div class="debug-section">
+							<p>
+								<table>
+									<tr>
+										<td style="vertical-align: top;">
+										<?php
+										$cp_close_gravity     = isset( $data['cp-close-gravity'] ) ? $data['cp-close-gravity'] : 1;
+										$is_lazy_checked = ( $cp_close_gravity ) ? ' checked="checked" ' : '';
+										$uniq             = uniqid();
+										?>
+										<label for="plugin-support" style="width:340px; display: inline-block;"><strong><?php _e( 'Close Custom Form', 'smile' ); ?></strong>
+											<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable this option if you wish to close the custom gravity form, CF7 or Ninja Form inside the modules', 'smile' ); ?>">
+												<i class="dashicons dashicons-editor-help"></i>
+											</span>
+										</label>
+										</td>
+										<td>
+										<label class="switch-wrapper" style="display: inline-block;margin: 0;height: 20px;">
+											<input type="text"  id="cp-close-gravity" class="form-control smile-input smile-switch-input"  name="cp-close-gravity" value="<?php echo $cp_close_gravity; ?>" />
+											<input type="checkbox" <?php echo $is_lazy_checked; ?> id="smile_cp-close-gravity_btn_<?php echo $uniq; ?>"  class="ios-toggle smile-input smile-switch-input switch-checkbox smile-switch " value="<?php echo $cp_close_gravity; ?>" >
+											<label class="smile-switch-btn checkbox-label" data-on="ON"  data-off="OFF" data-id="cp-close-gravity" for="smile_cp-close-gravity_btn_<?php echo $uniq; ?>"></label>
+										</label>
+									</td>
+								</tr>
+							</table>
+						</p>
+						</div>
+
+						<div class="debug-section">
+							<!-- Turn On/Off subscriber notification -->
+							<?php
+							$cp_change_ntf_id   = isset( $data['cp_change_ntf_id'] ) ? $data['cp_change_ntf_id'] : 1;
+							$sub_checked = ( $cp_change_ntf_id ) ? ' checked="checked" ' : '';
+							?>
+							<p>
+								<label for="hide-options" style="width:340px; display: inline-block;"><strong><?php _e( 'Enable Error Notification', 'smile' ); ?></strong>
+									<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'Enable Form submission error notification .', 'smile' ); ?>">
+										<i class="dashicons dashicons-editor-help"></i>
+									</span>
+								</label>
+								<label class="switch-wrapper" style="display: inline-block;margin: 0;height: 20px;">
+									<input type="text"  id="cp_change_ntf_id" class="form-control smile-input smile-switch-input"  name="cp_change_ntf_id" value="<?php echo $cp_change_ntf_id; ?>" />
+									<input type="checkbox" <?php echo $sub_checked; ?> id="smile_cp_change_ntf_id_btn_<?php echo $uniq; ?>"  class="ios-toggle smile-input smile-switch-input switch-checkbox smile-switch " value="<?php echo $cp_change_ntf_id; ?>" >
+									<label class="smile-switch-btn checkbox-label" data-on="ON"  data-off="OFF" data-id="cp_change_ntf_id" for="smile_cp_change_ntf_id_btn_<?php echo $uniq; ?>"></label>
+								</label>
+							</p><!-- end of subscriber notification-->
+							<?php
+							$cp_notify_email_to  = isset( $data['cp_notify_email_to'] ) ? $data['cp_notify_email_to'] : get_option( 'admin_email' );		
+							?>
+							<p 
+							<?php
+							if ( 1 === $cp_notify_email_to ) {
+								echo "style='display:none;'"; }
+								?>
+								>
+								<label for="hide-options" style="width:340px; vertical-align: top; display: inline-block;"><strong><?php _e( 'Enter Email Id', 'smile' ); ?></strong>
+									<span class="cp-tooltip-icon has-tip" data-position="top" style="cursor: help;" title="<?php _e( 'This is the email ID or email IDs you wish to receive subscriber error notifications on. Separate each email ID with a comma.', 'smile' ); ?>">
+										<i class="dashicons dashicons-editor-help"></i>
+									</span>
+								</label>
+								<textarea id="cp_notify_email_to" name="cp_notify_email_to" cols="40" rows="5"><?php echo stripslashes( $cp_notify_email_to ); ?></textarea>
+							</p><!-- Subscription Messages -->							
+							
+						</div><!-- .debug-section -->
+					</form>
 								<button type="button" class="button button-primary button-update-settings"><?php _e( 'Save Settings', 'smile' ); ?></button>
 							</div>
 						</div>
@@ -650,6 +716,14 @@ if ( true !== $reg_menu_hide ) {
 		toggle_response_roles( self );
 		self.click(function(event) {
 			jQuery(".cp-user-roles").slideToggle();
+		});
+	});
+
+	jQuery('#cp_change_ntf_id').siblings('.smile-switch-btn').each(function(index, el) {
+		var self = jQuery(el);		
+		toggle_err_notify_email( self );
+		self.click(function(event) {
+			jQuery("#cp_notify_email_to").parent('p').slideToggle();			
 		});
 	});
 
@@ -763,6 +837,18 @@ function toggle_response_email( self ) {
 		jQuery("#cp-sub-email").parent('p').slideUp();
 		jQuery("#cp-email-sub").parent('p').slideUp();
 		jQuery("#cp-email-body").parent('p').slideUp();
+	}
+}
+
+// Toggle notification error email
+function toggle_err_notify_email( self ){
+	var id = self.data('id');
+	var value = self.parents(".switch-wrapper").find("#"+id).val();
+
+	if( value == 1 || value == '1' ) {
+		jQuery("#cp_notify_email_to").parent('p').slideDown();		
+	} else {
+		jQuery("#cp_notify_email_to").parent('p').slideUp();		
 	}
 }
 

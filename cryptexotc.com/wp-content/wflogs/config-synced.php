@@ -1,0 +1,6 @@
+<?php exit('Access denied'); __halt_compiler(); ?>
+******************************************************************
+This file is used by the Wordfence Web Application Firewall. Read 
+more at https://docs.wordfence.com/en/Web_Application_Firewall_FAQ
+******************************************************************
+a:19:{s:6:"apiKey";s:160:"b2b91f59ce43b0db14ee84cca2757afca786c372085b67013325f8abe2c7584da0034673f0cd9bf0e32b1e792369b6a6bbb8b235efa86808e107a62f5970d0ff16ec9c90d7407106f586b64ab9a3f422";s:6:"isPaid";b:0;s:7:"siteURL";s:26:"https://www.cryptexotc.com";s:7:"homeURL";s:26:"https://www.cryptexotc.com";s:14:"whitelistedIPs";s:0:"";s:9:"howGetIPs";s:0:"";s:25:"howGetIPs_trusted_proxies";s:0:"";s:13:"pluginABSPATH";s:29:"/var/www/html/cryptexotc.com/";s:11:"other_WFNet";b:1;s:9:"serverIPs";s:44:"["52.26.170.104","54.69.26.138","127.0.0.1"]";s:15:"blockCustomText";s:0:"";s:13:"timeoffset_wf";s:1:"0";s:23:"advancedBlockingEnabled";s:1:"1";s:21:"betaThreatDefenseFeed";b:0;s:20:"disableWAFIPBlocking";s:1:"0";s:13:"patternBlocks";s:2:"[]";s:13:"countryBlocks";s:153:"{"blocks":[],"action":"block","loggedInBlocked":"","bypassRedirURL":"","bypassRedirDest":"","bypassViewURL":"","redirURL":"","cookieVal":"5b7b3665b71ab"}";s:11:"otherBlocks";s:33:"{"blockedTime":"300","blocks":[]}";s:8:"lockouts";s:37:"{"lockedOutTime":14400,"lockouts":[]}";}

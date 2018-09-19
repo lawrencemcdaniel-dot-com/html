@@ -1,149 +1,141 @@
-<?php 
+<?php
+/**
+ * Prohibit direct script loading.
+ *
+ * @package Convert_Plus.
+ */
 
-// Prohibit direct script loading.
+// Add new input type "border".
 defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 $cp_addon_list = Smile_Framework::$addon_list; ?>
 <div class="wrap about-wrap bsf-connect bsf-connect-new-list bend">
-  <div class="wrap-container">
-    <div class="bend-heading-section bsf-connect-header bsf-cnlist-header">
-      <h1><?php _e( "Create New Campaign", "smile" ); ?></h1>
-    </div>
-    <!-- bend-heading section -->
-
-    <div class="msg"></div>
-    <input type="hidden" id="cp-connect-url" value="<?php echo esc_url( admin_url( 'admin.php?page=contact-manager&view=new-list' ) ); ?>">
-    <div class="bend-content-wrap">
-    	<div class="smile-absolute-loader">
-    		<div class="smile-loader" style="transform: none !important;top: 120px !important;">
-				<div class="smile-loading-bar"></div>
-				<div class="smile-loading-bar"></div>
-				<div class="smile-loading-bar"></div>
-				<div class="smile-loading-bar"></div>
-			</div>
+  	<div class="wrap-container">
+		<div class="bend-heading-section bsf-connect-header bsf-cnlist-header">
+		  <h1><?php _e( 'Create New Campaign', 'smile' ); ?></h1>
 		</div>
-      <hr class="bsf-extensions-lists-separator" style="margin: -20px 0px 45px 0px;">
-      </hr>
-      <div class="container bsf-cnlist-content">
-        <div class="bsf-cnlist-form col-sm-6 col-sm-offset-3">
-
-			<div class="cp-wizard-progress">
-				<div class="cp-wizard-progress-bar"></div>
+		<!-- bend-heading section -->
+		<div class="msg"></div>
+		<input type="hidden" id="cp-connect-url" value="<?php echo esc_url( admin_url( 'admin.php?page=contact-manager&view=new-list' ) ); ?>">
+		<div class="bend-content-wrap">
+			<div class="smile-absolute-loader">
+				<div class="smile-loader" style="transform: none !important;top: 120px !important;">
+					<div class="smile-loading-bar"></div>
+					<div class="smile-loading-bar"></div>
+					<div class="smile-loading-bar"></div>
+					<div class="smile-loading-bar"></div>
+				</div>
 			</div>
-
-            <form id="bsf-cnlist-contact-form">
-            	<div class="container">
-            		<div class="col-sm-12">
-	            		<div class="bsf-cnlist-form-row">
-							<input type="hidden" name="action" value="smile_add_list" />
-							<input type="hidden" name="date" value="<?php echo esc_attr( date("j-n-Y") ); ?>" />
-							<?php wp_nonce_field( 'cp-create-list-nonce' ); ?>
-						</div>
-
-						<?php 
-
-						$step1_class = $step2_class = '';
-
-						if( isset( $_GET['step'] ) && esc_attr( $_GET['step'] ) == '1' ) { 
-							$step1_class = "active in";
-						} 
-
-						if( isset( $_GET['step'] ) && esc_attr( $_GET['step'] ) == '2' ) { 
-							$step2_class = "active in";
-						} 
-
-						?>
-		            	<div class="step-1 bsf-cnlist-form-wizard <?php echo $step1_class; ?>">
-		            		<div class="steps-section">
-								<div class="bsf-cnlist-form-row bsf-cnlist-list-name" >
-									<label for="bsf-cnlist-list-name" >
-									  <?php _e( "Campaign Name", "smile" ); ?>
-									</label>
-									<?php $campaignName = isset( $_GET['campaign'] ) ? esc_attr( $_GET['campaign'] ) : ''; ?>  
-									<input type="text" id="bsf-cnlist-list-name" name="list-name" autofocus="autofocus" value="<?php echo $campaignName; ?>" />
-									<span class="cp-validation-error"></span>
+		 	<hr class="bsf-extensions-lists-separator" style="margin: -20px 0px 45px 0px;"></hr>
+		  	<div class="container bsf-cnlist-content">
+				<div class="bsf-cnlist-form col-sm-6 col-sm-offset-3">
+					<div class="cp-wizard-progress">
+						<div class="cp-wizard-progress-bar"></div>
+					</div>
+					<form id="bsf-cnlist-contact-form">
+						<div class="container">
+							<div class="col-sm-12">
+								<div class="bsf-cnlist-form-row">
+									<input type="hidden" name="action" value="smile_add_list" />
+									<input type="hidden" name="date" value="<?php echo esc_attr( date( 'j-n-Y' ) ); ?>" />
+									<?php wp_nonce_field( 'cp-create-list-nonce' ); ?>
 								</div>
-
 								<?php
-								if( !empty( $cp_addon_list ) ) {
-								?>
-								<!-- ********************************************************** -->
-								<div class="bsf-cnlist-form-row bsf-cnlist-list-provider" >
-										<label for="bsf-cnlist-list-provider" >
-										  <?php _e( "Do you want to sync connects with any third party software?", "smile" ); ?>
-										</label>
-										<select id="bsf-cnlist-list-provider" class="bsf-cnlist-select" name="list-provider">
-										  	<option value="Convert Plug">No</option>
-											<?php
+								$step1_class = '';
+								$step2_class = '';
 
-												$list_provider = isset( $_GET['list-provider'] ) ? esc_attr( $_GET['list-provider'] ) : '';
+								if ( isset( $_GET['step'] ) && '1' == esc_attr( $_GET['step'] ) ) {
+									$step1_class = 'active in';
+								}
 
-												foreach( $cp_addon_list as $slug => $setting ){
-													$selected = ( $slug == $list_provider ) ? "selected" : '';  
-													echo '<option value="' . $slug . '" '.$selected.' >' . $setting['name'] . '</option>';
-												}
-											?>
-										</select>
-										<div class="bsf-cnlist-list-provider-spinner"></div>
-								</div>
-								<!-- ********************************************************** -->
-								<?php
+								if ( isset( $_GET['step'] ) && '2' == esc_attr( $_GET['step'] ) ) {
+									$step2_class = 'active in';
 								}
 								?>
+								<div class="step-1 bsf-cnlist-form-wizard <?php echo $step1_class; ?>">
+									<div class="steps-section">
+										<div class="bsf-cnlist-form-row bsf-cnlist-list-name" >
+											<label for="bsf-cnlist-list-name" >
+												<?php _e( 'Campaign Name', 'smile' ); ?>
+											</label>
+											<?php $campaign_name = isset( $_GET['campaign'] ) ? esc_attr( $_GET['campaign'] ) : ''; ?>  
+											<input type="text" id="bsf-cnlist-list-name" name="list-name" autofocus="autofocus" value="<?php echo $campaign_name; ?>" />
+											<span class="cp-validation-error"></span>
+										</div>
 
-					            <div class="bsf-cnlist-form-row short-description" >
-					              <p class="description">
-					                <?php _e( 'Your connects can be synced to CRM & Mailer softwares like HubSpot, MailChimp, etc.<br><br><strong>Important Note</strong> - If you need to integrate with third party CRM & Mailer software like MailChimp, Infusionsoft, etc. please install the respective addon from <a href="'. bsf_exension_installer_url('14058953') .'">here</a>.', 'smile' ); ?>
-					              </p>
-					            </div>
-					        </div><!-- .steps-section -->
+										<?php
+										if ( ! empty( $cp_addon_list ) ) {
+										?>
+																		
+										<div class="bsf-cnlist-form-row bsf-cnlist-list-provider" >
+												<label for="bsf-cnlist-list-provider" >
+													<?php _e( 'Do you want to sync connects with any third party software?', 'smile' ); ?>
+												</label>
+												<select id="bsf-cnlist-list-provider" class="bsf-cnlist-select" name="list-provider">
+													<option value="Convert Plug">No</option>
+													<?php
+													$list_provider = isset( $_GET['list-provider'] ) ? esc_attr( $_GET['list-provider'] ) : '';
+													foreach ( $cp_addon_list as $slug => $setting ) {
+														$selected = ( $slug == $list_provider ) ? 'selected' : '';
+														echo '<option value="' . $slug . '" ' . $selected . ' >' . $setting['name'] . '</option>';
+													}
+													?>
+												</select>
+												<div class="bsf-cnlist-list-provider-spinner"></div>
+										</div>								
+									<?php } ?>
+										<div class="bsf-cnlist-form-row short-description" >
+										  <p class="description">
+											<?php _e( 'Your connects can be synced to CRM & Mailer softwares like HubSpot, MailChimp, etc.<br><br><strong>Important Note</strong> - If you need to integrate with third party CRM & Mailer software like MailChimp, Infusionsoft, etc. please install the respective addon from <a href="' . bsf_exension_installer_url( '14058953' ) . '">here</a>.', 'smile' ); ?>
+										  </p>
+										</div>
+									</div><!-- .steps-section -->
+								</div>
+								<!-- .step-1    -->
+								<div class="step-2 bsf-cnlist-form-wizard <?php echo $step2_class; ?>" >
+									<div class="steps-section">
+										<div class="col-sm-12">
+											<div class="bsf-cnlist-form-row bsf-cnlist-mailer-data" style="display:none;"></div>
+											<div class="bsf-cnlist-mailer-help">
+												<?php
+												$docs_url = 'https://www.convertplug.com/plus/docs-category/mailer-integration/';
+												?>
+												<a href="<?php echo esc_url( $docs_url ); ?>" target="_blank" rel="noopener" ><?php _e( 'Where to find this?', 'smile' ); ?></a>
+											</div><!-- .bsf-cnlist-mailer-help -->
+										</div>
+									</div><!-- .steps-section -->
+								</div>
+								<!-- .step-2    -->
+							</div>
 						</div>
-						<!-- .step-1    -->
 
-						<div class="step-2 bsf-cnlist-form-wizard <?php echo $step2_class; ?>" >
-							<div class="steps-section">
-								<div class="col-sm-12">
-						            <div class="bsf-cnlist-form-row bsf-cnlist-mailer-data" style="display:none;"></div>
-						            <div class="bsf-cnlist-mailer-help">
-						            	<?php 
-						            	$docs_url = 'https://www.convertplug.com/plus/docs-category/mailer-integration/';
-						            	?>
-						            	<a href="<?php echo esc_url( $docs_url ); ?>" target="_blank" rel="noopener" ><?php _e( "Where to find this?", "smile" ); ?></a>
-						            </div><!-- .bsf-cnlist-mailer-help -->
-					            </div>
-					        </div><!-- .steps-section -->
-			            </div>
-		            	<!-- .step-2    -->
-	            	</div>
-	        	</div>
-
-	            <div class="container bsf-new-list-wizard">
-	            	<div class="col-sm-6">
-	            		<button class="wizard-prev button button-primary disabled" type="button">
-	            			<?php _e( "Previous", "smile" ); ?>
-	            		</button>
-	        		</div>
-	        		<div class="col-sm-6">
-	        			<div class="bsf-cnlist-save-btn" >
-							<button id="save-btn" class="wizard-save button button-primary" data-provider="">
-								<?php _e( "Create Campaign", "smile" ); ?>
-							</button>
-				        </div>
-				        <div class="bsf-cnlist-next-btn" style="display:none;">
-	            			<button class="wizard-next button button-primary" type="button" style="display: inline-block;">
-	            				<?php _e( "Next", "smile" ); ?>
-	            			</button>
-	            		</div>
-	            	</div>
-	            </div><!-- .bsf-new-list-wizard -->
-            </form>
-        </div>
-        <!-- .bsf-cnlist-form -->
-      </div>
-      <!-- .container -->
-    </div>
-    <!-- .bend-content-wrap -->
-  </div>
+						<div class="container bsf-new-list-wizard">
+							<div class="col-sm-6">
+								<button class="wizard-prev button button-primary disabled" type="button">
+									<?php _e( 'Previous', 'smile' ); ?>
+								</button>
+							</div>
+							<div class="col-sm-6">
+								<div class="bsf-cnlist-save-btn" >
+									<button id="save-btn" class="wizard-save button button-primary" data-provider="">
+										<?php _e( 'Create Campaign', 'smile' ); ?>
+									</button>
+								</div>
+								<div class="bsf-cnlist-next-btn" style="display:none;">
+									<button class="wizard-next button button-primary" type="button" style="display: inline-block;">
+										<?php _e( 'Next', 'smile' ); ?>
+									</button>
+								</div>
+							</div>
+						</div><!-- .bsf-new-list-wizard -->
+					</form>
+				</div>
+				<!-- .bsf-cnlist-form -->
+			</div>
+	  		<!-- .container -->
+	 	</div>
+		<!-- .bend-content-wrap -->
+  	</div>
   <!-- .wrap-container -->
 </div>
 <!-- .wrap -->
@@ -156,7 +148,7 @@ jQuery(document).ready(function() {
 	connect_url = jQuery("#cp-connect-url").val(); 
 	var val = provider.length ? provider.val().toLowerCase() : 'convert plug';
 
-	<?php if( !empty( $cp_addon_list ) ) { ?>
+	<?php if ( ! empty( $cp_addon_list ) ) { ?>
 		jQuery("#save-btn").attr('data-provider',val);
 		provider.change(function(e){
 			if( jQuery(this).val() == 'Convert Plug' ) {
@@ -242,7 +234,7 @@ jQuery(document).ready(function() {
 
 jQuery(document).on( "click", ".update-mailer", function(){
 	jQuery('.bsf-cnlist-mailer-data input[type="text"]').val('');
-	jQuery(this).replaceWith('<button id="auth-'+jQuery(this).attr('data-mailer')+'" class="button button-secondary auth-button" disabled="true"><?php _e( "Authenticate ' + jQuery(this).attr('data-mailerslug') + '", "smile" ); ?></button><span class="spinner" style="float: none;"></span>');
+	jQuery(this).replaceWith('<button id="auth-'+jQuery(this).attr('data-mailer')+'" class="button button-secondary auth-button" disabled="true"><?php _e( "Authenticate ' + jQuery(this).attr('data-mailerslug') + '", 'smile' ); ?></button><span class="spinner" style="float: none;"></span>');
 });
 
 jQuery("#save-btn").click(function(e){
@@ -286,9 +278,9 @@ jQuery("#save-btn").click(function(e){
 		return false;
 	}
 
-	<?php if( !empty( $cp_addon_list ) ) { ?>
+	<?php if ( ! empty( $cp_addon_list ) ) { ?>
 		var data = jQuery("#bsf-cnlist-contact-form").serialize();
-	<?php } else{ ?>
+	<?php } else { ?>
 		var data = jQuery("#bsf-cnlist-contact-form").serialize() + '&list-provider=Convert+Plug';
 	<?php } ?>
 
@@ -311,7 +303,7 @@ jQuery("#save-btn").click(function(e){
 		if( jQuery( "#"+provider+"-list option:selected" ).text() != '' ) {
 			jQuery( "#"+provider+"-list option:selected" ).each(function(){
 				selected_id = jQuery(this).val();
-	            name = jQuery(this).text();
+				name = jQuery(this).text();
 				lists_arr.push("{\""+selected_id+"\" : \""+name+"\"}");
 			});
 			
@@ -356,16 +348,16 @@ jQuery("#save-btn").click(function(e){
 
 			if( result.message == "added" ){
 				swal({
-					title: "<?php _e( "Added!", "smile" ); ?>",
-					text: "<?php _e( "The campaign you just created, is added to the list.", "smile" ); ?>",
+					title: "<?php _e( 'Added!', 'smile' ); ?>",
+					text: "<?php _e( 'The campaign you just created, is added to the list.', 'smile' ); ?>",
 					type: "success",
 					timer: 2000,
 					showConfirmButton: false
 				});
 			} else {
 				swal({
-					title: "<?php _e( "Error!", "smile" ); ?>",
-					text: "<?php _e( "Error adding the campaign to the list. Please try again.", "smile" ); ?>",
+					title: "<?php _e( 'Error!', 'smile' ); ?>",
+					text: "<?php _e( 'Error adding the campaign to the list. Please try again.', 'smile' ); ?>",
 					type: "error",
 					timer: 2000,
 					showConfirmButton: false
@@ -377,8 +369,8 @@ jQuery("#save-btn").click(function(e){
 		},
 		error: function(err){
 			swal({
-				title: "<?php _e( "Error!", "smile" ); ?>",
-				text: "<?php _e( "Error adding the campaign to the list. Please try again.", "smile" ); ?>",
+				title: "<?php _e( 'Error!', 'smile' ); ?>",
+				text: "<?php _e( 'Error adding the campaign to the list. Please try again.', 'smile' ); ?>",
 				type: "error",
 				timer: 2000,
 				showConfirmButton: false

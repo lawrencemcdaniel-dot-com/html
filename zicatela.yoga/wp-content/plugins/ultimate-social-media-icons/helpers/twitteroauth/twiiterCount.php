@@ -16,7 +16,7 @@ function sfsi_twitter_followers(){
 			$connection = new TwitterOAuth($sfsi_section4_options['tw_consumer_key'], $sfsi_section4_options['tw_consumer_secret'], $sfsi_section4_options['tw_oauth_access_token'], $sfsi_section4_options['tw_oauth_access_token_secret']);
 
 			$statuses = $connection->get('followers/ids');
-			$count    = isset($statuses) && isset($statuses->ids)? count($statuses->ids) : 0;
+			$count    = isset($statuses) && isset($statuses->ids) && is_array($statuses->ids) ? count($statuses->ids) : 0;
 		}
 		catch(Exception $e) {
 			return $count;

@@ -401,4 +401,5 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Utilities {
 		}
 
 	}
+
 }

@@ -400,8 +400,10 @@
 
 	});
 
-function cp_slidein_download_file(fileURL, fileName) {	
+function cp_slidein_download_file(fileURL) {	
     var link = jQuery("<a>");
+    var index 	 = fileURL.lastIndexOf("/") + 1;
+    var fileName = fileURL.substr(index);
     link.attr( "href", fileURL );
     link.attr( "download", fileName );
     link.text( "cpro_anchor_link" );

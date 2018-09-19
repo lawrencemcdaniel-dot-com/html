@@ -96,15 +96,15 @@ if ( ! function_exists( 'info_bar_theme_weekly_article' ) ) {
 		// Merge arrays - 'shortcode atts' & 'style options'.
 		$a = array_merge( $a, $atts );
 
-		$convert_plug_settings    = get_option( 'convert_plug_settings' );
-		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;
+		$convert_plug_settings = get_option( 'convert_plug_settings' );
+		$images_on_load        = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img'] : 1;
 
 		?>
 		<?php if ( '' !== $info_bar_image ) { ?>
 		<div class="cp-image-container">
-			<?php if( $images_on_load ){?>
+			<?php if ( $images_on_load ) { ?>
 				<img style="<?php echo esc_attr( $imagestyle ); ?>" data-src="<?php echo esc_attr( $info_bar_image ); ?>" class="cp-image <?php echo esc_attr( $img_class ); ?>" <?php echo $info_bar_alt; ?> >
-			<?php }else{ ?>
+			<?php } else { ?>
 				<img style="<?php echo esc_attr( $imagestyle ); ?>" src="<?php echo esc_attr( $info_bar_image ); ?>" class="cp-image <?php echo esc_attr( $img_class ); ?>" <?php echo $info_bar_alt; ?> >
 			<?php } ?>		
 		</div> <?php } ?>

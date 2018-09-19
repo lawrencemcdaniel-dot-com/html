@@ -174,7 +174,7 @@ class Widget_Video extends Widget_Base {
 					],
 				],
 				'placeholder' => __( 'Enter your URL', 'elementor' ) . ' (Dailymotion)',
-				'default' => 'https://www.dailymotion.com/video/x6koazf',
+				'default' => 'https://www.dailymotion.com/video/x6tqhqb',
 				'label_block' => true,
 				'condition' => [
 					'video_type' => 'dailymotion',
@@ -445,6 +445,9 @@ class Widget_Video extends Widget_Base {
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
+				],
+				'dynamic' => [
+					'active' => true,
 				],
 				'condition' => [
 					'show_image_overlay' => 'yes',

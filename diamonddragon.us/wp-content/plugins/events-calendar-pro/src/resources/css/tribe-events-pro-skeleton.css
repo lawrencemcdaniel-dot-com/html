@@ -149,7 +149,6 @@
 	visibility: hidden\9;
 	/* Target only IE7 and IE8 with this hack */
 	opacity: .01;
-	-webkit-transition: .2s;
 	transition: .2s;
 	border-radius: 5px;
 	z-index: 1000;
@@ -396,8 +395,7 @@
 
 .isotope,
 .isotope .isotope-item {
-	-webkit-transition-duration: 0.2s;
-          	transition-duration: 0.2s;
+ transition-duration: 0.2s;
 }
 
 .photo-loader {
@@ -430,16 +428,11 @@
 #tribe-events-photo-events {
 	opacity: 1;
 	margin: 18px -4.5% 18px 0;
-	-webkit-transition-property: height, width;
-          	transition-property: height, width;
+ transition-property: height, width;
 }
 
 #tribe-events-photo-events .isotope-item {
-	-webkit-transition-property: -webkit-transform, opacity;
-	-webkit-transition-property: opacity, -webkit-transform;
-	transition-property: opacity, -webkit-transform;
-	transition-property: transform, opacity;
-	transition-property:         transform, opacity, -webkit-transform;
+	transition-property:         transform, opacity;
 }
 
 #tribe-events-photo-events .tribe-events-photo-grid-sizer {
@@ -514,8 +507,7 @@
 }
 
 .tribe-events-photo-event .entry-title a {
-	-webkit-transition: .2s ease-in;
-  			transition: .2s ease-in;
+transition: .2s ease-in;
 }
 
 /* = Map View Template Styles
@@ -579,8 +571,7 @@
 	color: #444;
 	border-bottom: 1px solid #eee;
 	padding: 3px 6px;
-	-webkit-transition: 0.1s ease-in-out;
-			transition: 0.1s ease-in-out;
+transition: 0.1s ease-in-out;
 }
 
 .tribe-geo-option-link:hover {
@@ -627,8 +618,7 @@
 	display: block;
 	border: 1px solid #ddd;
 	padding: 2px;
-	-webkit-transition: 0.1s ease-in-out;
-			transition: 0.1s ease-in-out;
+transition: 0.1s ease-in-out;
 }
 
 .tribe-geo-result-thumb a img {
@@ -707,7 +697,6 @@
 	background: rgba(255, 255, 255, .2);
 	z-index: 4;
 	webkit-transition: all 1s linear;
-	-webkit-transition: all 1s linear;
 	transition: all 1s linear;
 }
 

@@ -95,17 +95,6 @@
 	</table>
 </div>
 
-<fieldset>
-	<legend class="tribe-field-label"><?php esc_html_e( 'Editor "Custom Fields" meta box', 'tribe-events-calendar-pro' ); ?></legend>
-	<div class="tribe-field-wrap">
-		<label><input type="radio" name="disable_metabox_custom_fields" id="disable_metabox_custom_fields" value="show" <?php checked( 'show', $disable_metabox_custom_fields ); ?> /> <?php esc_html_e( 'Show', 'tribe-events-calendar-pro' ); ?>
-		</label><br />
-		<label><input type="radio" name="disable_metabox_custom_fields" id="disable_metabox_custom_fields" value="hide" <?php checked( 'hide', $disable_metabox_custom_fields ); ?> /> <?php esc_html_e( 'Hide', 'tribe-events-calendar-pro' ); ?>
-		</label>
- 		<p class="description"><?php esc_html_e( 'Enabling this option this will not remove custom field data or functionality, just the default meta box editor.', 'tribe-events-calendar-pro' ); ?></p>
-	</div>
-</fieldset>
-
 <script type="text/javascript">
 
 	jQuery( document ).ready( function ( $ ) {

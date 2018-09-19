@@ -6,5 +6,3 @@
  */
 
 // Silence is golden and we totally agree.
-
-

@@ -4,7 +4,7 @@ Donate link: https://wpshopmart.com/plugins/tabs-pro-plugin/
 Tags: tab, tabs, responsive tabs, animation, animated tab, css3 tabs, bootstrap tabs, tabs content, responsive, shortcode, widget, wordpress tabs, wp tabs, accordion, collapse, toggle, bootstrap tab, jquery, tab widget, tab shortcode, jquery tabs, sidebar, plugin, html, html5, html5 tabs
 Requires at least: 3.3
 Tested up to: 4.9.8
-Stable tag: 1.8.6
+Stable tag: 1.8.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -155,6 +155,9 @@ Please use WordPress support forum to ask any query regarding any issue.
 
 
 == Changelog ==
+
+= 1.8.7 =
+* Minor Issue Resolved 
 
 = 1.8.6 =
 * Compatible with wordpress version 4.9.8

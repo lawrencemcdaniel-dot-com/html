@@ -1,10 +1,10 @@
 === Ultimate Responsive Image Slider Plugin ===
-Contributors: weblizar
-Donate link: https://www.weblizar.com/
+Contributors: FARAZFRANK
+Donate link: https://www.wpfrank.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
 Tested up to: 4.9.8
-Stable tag: 3.2.2
+Stable tag: 3.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,8 +20,6 @@ This responsive slider plugin has various settings like customizable height and 
 Copy and paste [URIS id=123] shortcode, you can publish this responsive image slider plugin on any Page or Post on your WordPress website.
 
 https://www.youtube.com/watch?v=TtJsmusrJpg
-
-*Free Slider Plugin Demo:* [Ultimate Responsive Image Slider Free Demo](http://demo.weblizar.com/ultimate-responsive-image-slider-free/)
 
 **Free Plugin Features:**
 
@@ -90,78 +88,14 @@ Works with almost every available language in the world.
 * Drag And Drop Image Position
 Change image slide sequence through simple drag and drop feature.
 
-**ULTIMATE RESPONSIVE IMAGE SLIDER PRO FEATURES:**
-A Perfect Responsive Image Slider plugin for WordPress. Contains 5 types of slider layout. Tested on all browser like Chrome, Mozilla, Safari, IE etc..
-
-* Fully Responsive Slider Plugin
-* Multiple Image Uploader
-* Add Unlimited Image Slides Into Single Slider
-* Show Multiple Sliders Into Single Page / Post
-* Image Slider Setting Dashboard
-* Enable/Disable Slider Title
-* Enable/Disable Slide Title
-* Enable/Disable Slide Description
-* Enable/Disable Navigation Bullets
-* Enable/Disable Slide Thumbnails
-* All Major & Latest Browser Compatible (IE, Chrome, Firefox)
-* All Major Device Support
-* Multilingual Translation Ready
-* 5 Slider Layout
-* Unlimited Color Scheme
-* Touch Slider
-* Full-Screen slide show
-* Thumbnail Slider
-* Light Box Integrated
-* External Link Button
-* Carousel Slider
-* All Gallery Shortcode
-* Each Gallery has Unique Shortcode
-* Drag and Drop image Position
-* Multiple Image uploader
-* Shortcode Button on post or page
-* Unique settings for each gallery
-* Auto Play Pause
-* Customize Thumbnail Position
-* Slider Orientation – horizontal and vertical (New)
-* Slider Order – Ascending , Descending and random (New)
-* 500+ Google Font Style (New)
-* Customize Thumbnail Position (New)
-* Customize Thumbnail Width And Height (New)
-* Auto Height Option (New)
-* All Browser Compatible
-* Let us show you a quick tutorial video on how to install and configure ultimate responsive image slider plugin.
-
-Ultimate Responsive Image Slider Pro is very flexible and compatible with all devices like iPad, iPhone, smartphone etc.
-
-#### Slider Live Demos
-
-> * [DEMO : Layout 1](http://demo.weblizar.com/ultimate-responsive-image-slider-pro/)
-> * [DEMO : Layout 2](http://demo.weblizar.com/ultimate-responsive-image-slider-pro/slider-layout-2/)
-> * [DEMO : Layout 3](http://demo.weblizar.com/ultimate-responsive-image-slider-pro/slider-layout-3/)
-> * [DEMO : Layout 4](http://demo.weblizar.com/ultimate-responsive-image-slider-pro/slider-layout-4/)
-> * [DEMO : Layout 5](http://demo.weblizar.com/ultimate-responsive-image-slider-pro/slider-layout-5/)
->
-
-### Plugin Admin Features
-
-The Plugin has extreme Admin dashboard. Plugin settings are very easy and user-friendly. With Multiple Image Uploader you easily add multiple images in seconds
-
-* Try Ultimate Responsive Image Slider Pro Demo: [Live Demo](http://demo.weblizar.com/ultimate-responsive-image-slider-pro/)
-
-* Try Ultimate Responsive Image Slider Pro Admin: [Admin Demo](http://demo.weblizar.com/ultimate-responsive-image-slider-pro-admin-demo/)
-
-* Upgrade To: [Ultimate Responsive Image Slider Pro](https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/)
-
 If you have any question contact us at here: [Plugin Support Forum ](http://wordpress.org/support/plugin/ultimate-responsive-image-slider) 
 
 == Installation ==
-
 1. Upload the entire **responsive-image-slider** folder to the **/wp-content/plugins/** directory.
 2. Activate the plugin through the **Plugins** menu in WordPress admin.
 3. Create new gallery, Use **[URIS id=123]** shortcode to publish your image slider into any page or post.
 
 == Screenshots ==
-
 1. Slider Preview Above Content
 2. Slider Preview Between Content
 3. Slider Preview Below Content With Bullets Navigation
@@ -176,7 +110,6 @@ If you have any question contact us at here: [Plugin Support Forum ](http://word
 12. Slider Shortcode Copy Widget Within Plugin Dashboard 
 
 = Docs & Support =
-
 If any support required then post your query in WordPress [Plugin Support Forum ](http://wordpress.org/support/plugin/ultimate-responsive-image-slider)
 
 = We Need Your Support =
@@ -184,16 +117,23 @@ If any support required then post your query in WordPress [Plugin Support Forum 
 It is really hard to continue development and support for this free plugin without contributions from users like you. If you are enjoying using our Responsive Photo Gallery plugin and find it useful, then please consider to write your positive [__Feedback__](http://wordpress.org/support/view/plugin-reviews/ultimate-responsive-image-slider). Your feedback will help us to encourage and support the plugin's continued development and better user support.
 
 = Translators =
-
 Please contribute to translate our plugin.  Contact at `lizarweb (at) gmail (dot) com`.
 
 == Frequently Asked Questions ==
-
 Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimate-responsive-image-slider) to ask any query regarding any issue.
 
 == Changelog ==
+For more information, see [WP Frank](https://wpfrank.com/)
 
-For more information, see Weblizar(https://weblizar.com/)
+= V 3.2.5 =
+- continuty update
+
+= V 3.2.4 =
+- Plugin size minimized and minor update
+
+= V 3.2.3 =
+- New plugin author assinged FARAZFRANK
+- Plugin minimized
 
 = V 3.2.2 =
 - Language files Updated

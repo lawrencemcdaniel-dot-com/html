@@ -50,21 +50,20 @@ if ( ! function_exists( 'cp_get_form_hidden_fields' ) ) {
 				$on_success_action = do_shortcode( html_entity_decode( stripcslashes( htmlspecialchars( $a['success_message'] ) ) ) );
 			}
 		}
-
 		ob_start();
 		$uid = md5( uniqid( rand(), true ) );
 
 		global $wp;
 		$current_url = home_url( add_query_arg( array(), $wp->request ) );
-		$nonce = wp_create_nonce( 'cp-submit-form-' . $style_id );
-		$style_name = isset( $a['new_style'] )?esc_attr( stripcslashes( htmlspecialchars( $a['new_style'] ) ) ) :'';
+		$nonce       = wp_create_nonce( 'cp-submit-form-' . $style_id );
+		$style_name  = isset( $a['new_style'] ) ? esc_attr( stripcslashes( htmlspecialchars( $a['new_style'] ) ) ) : '';
 
-		$user_role = isset( $a['cp_new_user_role'] ) ? $a['cp_new_user_role'] :'None';
+		$user_role = isset( $a['cp_new_user_role'] ) ? $a['cp_new_user_role'] : 'None';
 
-		$data                 = get_option( 'convert_plug_settings' );
+		$data          = get_option( 'convert_plug_settings' );
 		$is_enable_pot = isset( $data['cp-disable-pot'] ) ? $data['cp-disable-pot'] : '1';
 		?>
-		<input type="hidden" id="<?php echo rand();?>_wpnonce" name="_wpnonce" value="<?php echo $nonce;?>">
+		<input type="hidden" id="<?php echo rand(); ?>_wpnonce" name="_wpnonce" value="<?php echo $nonce; ?>">
 		<input type="hidden" name="cp-page-url" value="<?php echo esc_url( $current_url ); ?>" />
 		<input type="hidden" name="param[user_id]" value="cp-uid-<?php echo $uid; ?>" />
 		<input type="hidden" name="param[date]" value="<?php echo esc_attr( date( 'j-n-Y' ) ); ?>" />
@@ -76,11 +75,11 @@ if ( ! function_exists( 'cp_get_form_hidden_fields' ) ) {
 		<input type="hidden" name="<?php echo $on_success; ?>" value="<?php echo esc_attr( $on_success_action ); ?>" />		
 		<input type="hidden" name="cp_module_name" value="<?php echo esc_attr( $style_name ); ?>" />
 		<input type="hidden" name="cp_set_user" value="<?php echo esc_attr( $user_role ); ?>" />
-		
-		<?php if( '1' === $is_enable_pot ){ ?>
+		<input type="hidden" name="cp_module_type" value="" />
+		<?php if ( '1' === $is_enable_pot ) { ?>
 		<input type="text" name="cp_set_hp" value="" style="display: none;"/>
-		<?php } 
-
+		<?php
+}
 		$html = ob_get_clean();
 		echo $html;
 	}
@@ -152,27 +151,48 @@ function cp_enabled_mx_record_init() {
 function cp_is_style_visible( $settings ) {
 
 	global $post;
-	$post_id     = ( ! is_404() && ! is_search() && ! is_archive() && ! is_home() ) ? $post->ID : '';
-	$category    = get_queried_object_id();
-	$cat_ids     = wp_get_post_categories( $post_id );
-	$post_type   = get_post_type( $post );
-	$taxonomies  = get_post_taxonomies( $post );
-	$term_cat_id = '';
-	$tag_arr     = array();
-	$show_module = true;
-	$taxtterm_id = get_the_tags(); // tags.
-	$term_id     = '';
+	$post_id        = ( ! is_404() && ! is_search() && ! is_archive() && ! is_home() ) ? $post->ID : '';
+	$category       = get_queried_object_id();
+	$cat_ids        = wp_get_post_categories( $post_id );
+	$post_type      = get_post_type( $post );
+	$taxonomies     = get_post_taxonomies( $post );
+	$term_cat_id    = '';
+	$tag_arr        = array();
+	$show_module    = true;
+	$show_countries = true;
+	$taxtterm_id    = get_the_tags(); // tags.
+	$term_id        = '';
+
 	if ( $taxtterm_id ) {
 		foreach ( $taxtterm_id as $tag ) {
 			array_push( $tag_arr, $tag->term_id );
 		}
 	}
+
+	// Check if popup is visible for current device or not?
 	$hide_on_devices = isset( $settings['hide_on_device'] ) ? apply_filters( 'smile_render_setting', $settings['hide_on_device'] ) : '';
 	if ( '' !== $hide_on_devices ) {
 		$show_module = cplus_is_current_device( $hide_on_devices );
 	}
 
-	if ( $show_module ) {
+	// Check if Country is visible to view popup or not?
+	$visible_geotarget = isset( $settings['enable_geotarget'] ) ? $settings['enable_geotarget'] : '1';		
+	$show_countries = true;
+
+	if( $visible_geotarget == '1' ){
+		$country_type = isset( $settings['country_type'] ) ? $settings['country_type'] : 'basic-all-countries';
+		$specific_country = '';		
+		$hide_specific_countries = isset( $settings['hide_specific_countries'] ) ? apply_filters( 'smile_render_setting', $settings['hide_specific_countries'] ) : '';
+
+		if ( 'specifics-geo' == $country_type ) {
+			$specific_country       = isset( $settings['specific_countries'] ) ? apply_filters( 'smile_render_setting', $settings['specific_countries'] ) : '';
+			$hide_specific_countries = '';
+		}	
+
+		$show_countries = cplus_is_geo_location( $country_type, $specific_country ,$hide_specific_countries );
+	}
+
+	if ( $show_module && $show_countries ) {
 		$global_display = isset( $settings['global'] ) ? apply_filters( 'smile_render_setting', $settings['global'] ) : '';
 
 		$exclude_from = isset( $settings['exclude_from'] ) ? apply_filters( 'smile_render_setting', $settings['exclude_from'] ) : '';
@@ -251,13 +271,13 @@ function cp_is_style_visible( $settings ) {
 
 			if ( is_archive() ) {
 				$term_id = '';
-				$obj     = get_queried_object();				
+				$obj     = get_queried_object();
 				if ( isset( $obj->term_id ) ) {
 					$term_id = $obj->term_id;
-				}				
+				}
 
 				// check if this woocomerce archive page.
-				if ( function_exists('is_woocommerce') && function_exists( 'is_shop' ) ) {
+				if ( function_exists( 'is_woocommerce' ) && function_exists( 'is_shop' ) ) {
 					if ( is_shop() ) {
 						$term_id = wc_get_page_id( 'shop' );
 					}
@@ -277,12 +297,12 @@ function cp_is_style_visible( $settings ) {
 			}
 
 			if ( ! empty( $cat_ids ) ) {
-				foreach ( $cat_ids as $cat_id ) {					
+				foreach ( $cat_ids as $cat_id ) {
 					$term = get_term_by( 'id', $cat_id, 'category' );
 
 					if ( isset( $term->term_id ) ) {
 						$term_cat_id = $term->term_id;
-					}					
+					}
 					if ( is_array( $exclude_from ) && in_array( $term_cat_id, $exclude_from ) ) {
 						$display = false;
 					}
@@ -315,7 +335,7 @@ function cp_is_style_visible( $settings ) {
 					if ( is_tax( $taxonomy ) ) {
 						$display = false;
 					}
-					
+
 					if ( 'is_attachment' === $taxonomy && is_attachment() ) {
 						$display = false;
 					}
@@ -379,7 +399,7 @@ function cp_is_style_visible( $settings ) {
 				}
 
 				// check if this woocomerce archive page.
-				if ( function_exists('is_woocommerce') && function_exists( 'is_shop' ) ) {
+				if ( function_exists( 'is_woocommerce' ) && function_exists( 'is_shop' ) ) {
 					if ( is_shop() ) {
 						$term_id = wc_get_page_id( 'shop' );
 					}
@@ -555,15 +575,15 @@ function cp_display_style_inline() {
 
 						switch ( $inline_position ) {
 							case 'before_post':
-							$before_content_string .= ob_get_contents();
-							break;
+								$before_content_string .= ob_get_contents();
+								break;
 							case 'after_post':
-							$after_content_string .= ob_get_contents();
-							break;
+								$after_content_string .= ob_get_contents();
+								break;
 							case 'both':
-							$after_content_string  .= ob_get_contents();
-							$before_content_string .= ob_get_contents();
-							break;
+								$after_content_string  .= ob_get_contents();
+								$before_content_string .= ob_get_contents();
+								break;
 						}
 
 						ob_end_clean();
@@ -634,37 +654,51 @@ if ( ! function_exists( 'cp_notify_error_to_admin' ) ) {
 	 */
 	function cp_notify_error_to_admin( $page_url ) {
 
-		// prepare content for email.
-		$subject = 'Issue with the ' . CP_PLUS_NAME . ' configuration';
+		$data        	    =  get_option( 'convert_plug_settings' );
+		$cp_change_ntf_id   = isset( $data['cp_change_ntf_id'] ) ? $data['cp_change_ntf_id'] : 1;
+		$cp_notify_email_to  = isset( $data['cp_notify_email_to'] ) ? $data['cp_notify_email_to'] : get_option( 'admin_email' );
 
-		$body = 'Hello there, <p>There appears to be an issue with the ' . CP_PLUS_NAME . ' configuration on your website. Someone tried to fill out ' . CP_PLUS_NAME . ' form on ' . esc_url( $page_url ) . " and regretfully, it didn't go through.</p>";
+		if( 1 == $cp_change_ntf_id || '1' == $cp_change_ntf_id ){
+			$email_name   = array();		
+			$email_name   = explode( ',', $cp_notify_email_to );
+			$to_arr       = array();
+			foreach ( $email_name as $key => $email ) {
+				$to = sanitize_email( $email );
+				array_push( $to_arr, $to );
+			}		
+	 
+			// prepare content for email.
+			$subject = 'Issue with the ' . CP_PLUS_NAME . ' configuration';
 
-		$body .= 'Please try filling out the form yourself or read more why this could happen here.';
+			$body = 'Hello there, <p>There appears to be an issue with the ' . CP_PLUS_NAME . ' configuration on your website. Someone tried to fill out ' . CP_PLUS_NAME . ' form on ' . esc_url( $page_url ) . " and regretfully, it didn't go through.</p>";
 
-		$body .= '<br>---<p>This e-mail was sent from ' . CP_PLUS_NAME . ' on ' . get_bloginfo( 'name' ) . ' (' . site_url() . ')</p>';
+			$body .= 'Please try filling out the form yourself or read more why this could happen here.';
 
-		// get admin email.
-		$to = sanitize_email( get_option( 'admin_email' ) );
+			$body .= '<br>---<p>This e-mail was sent from ' . CP_PLUS_NAME . ' on ' . get_bloginfo( 'name' ) . ' (' . site_url() . ')</p>';
 
-		$admin_notifi_time = get_option( 'cp_notified_admin_time' );
+			// get admin email.
+			//$to = sanitize_email( get_option( 'admin_email' ) );
 
-		if ( ! $admin_notifi_time ) {
-			cp_send_mail( $to, $subject, $body );
-			update_option( 'cp_notified_admin_time', date( 'Y-m-d H:i:s' ) );
-		} else {
-			// getting previously saved notification time.
-			$saved_timestamp = strtotime( $admin_notifi_time );
+			$admin_notifi_time = get_option( 'cp_notified_admin_time' );
 
-			// getting current date.
-			$c_date = strtotime( date( 'Y-m-d H:i:s' ) );
-
-			// Getting the value of current date - 24 hours.
-			$old_date = $c_date - 86400; // 86400 seconds in 24 hrs.
-
-			// if last email was sent time is greater than 24 hours, sent one more notification email.
-			if ( $old_date > $saved_timestamp ) {
-				cp_send_mail( $to, $subject, $body );
+			if ( ! $admin_notifi_time ) {
+				cp_send_mail( $to_arr, $subject, $body );
 				update_option( 'cp_notified_admin_time', date( 'Y-m-d H:i:s' ) );
+			} else {
+				// getting previously saved notification time.
+				$saved_timestamp = strtotime( $admin_notifi_time );
+
+				// getting current date.
+				$c_date = strtotime( date( 'Y-m-d H:i:s' ) );
+
+				// Getting the value of current date - 24 hours.
+				$old_date = $c_date - 86400; // 86400 seconds in 24 hrs.
+
+				// if last email was sent time is greater than 24 hours, sent one more notification email.
+				if ( $old_date > $saved_timestamp ) {
+					cp_send_mail( $to, $subject, $body );
+					update_option( 'cp_notified_admin_time', date( 'Y-m-d H:i:s' ) );
+				}
 			}
 		}
 	}
@@ -893,6 +927,7 @@ if ( ! function_exists( 'cp_notify_sub_to_admin' ) ) {
 	 * @param  string $email_sub       string parameter.
 	 * @param  string $email_body      string parameter.
 	 * @param  string $cp_page_url     string parameter.
+	 * @param  string $style_name      string parameter.
 	 * @since 2.3.0
 	 */
 	function cp_notify_sub_to_admin( $list_name, $subscriber_data, $sub_email, $email_sub, $email_body, $cp_page_url, $style_name ) {
@@ -914,7 +949,7 @@ if ( ! function_exists( 'cp_notify_sub_to_admin' ) ) {
 		}
 
 		$body .= $body_content;
-		$body .= '<p>Congratulations! Wish you many more.<br>This e-mail was sent from Convert Plus module of '.$style_name.' on ' . get_bloginfo( 'name' ) . ' (' . esc_url( site_url() ) . ')</p>';
+		$body .= '<p>Congratulations! Wish you many more.<br>This e-mail was sent from Convert Plus module of ' . $style_name . ' on ' . get_bloginfo( 'name' ) . ' (' . esc_url( site_url() ) . ')</p>';
 
 		$current_url = esc_url( $cp_page_url );
 		$content     = str_replace( '{{style_name}}', $style_name, $email_body );
@@ -923,9 +958,8 @@ if ( ! function_exists( 'cp_notify_sub_to_admin' ) ) {
 		$content     = str_replace( '{{blog_name}}', get_bloginfo( 'name' ), $content );
 		$content     = str_replace( '{{site_url}}', esc_url( site_url() ), $content );
 		$content     = str_replace( '{{page_url}}', esc_url( $current_url ), $content );
-		$content     = str_replace( '{{CP_PLUS_NAME}}', CP_PLUS_NAME, $content );		
-		$body = isset( $email_body ) ? do_shortcode( html_entity_decode( stripcslashes( htmlspecialchars( $content ) ) ) ) : $body;
-		
+		$content     = str_replace( '{{CP_PLUS_NAME}}', CP_PLUS_NAME, $content );
+		$body        = isset( $email_body ) ? do_shortcode( html_entity_decode( stripcslashes( htmlspecialchars( $content ) ) ) ) : $body;
 
 		foreach ( $email_name as $key => $email ) {
 			$to = sanitize_email( $email );
@@ -1147,7 +1181,7 @@ if ( ! function_exists( 'cp_enqueue_google_fonts' ) ) {
 		if ( ! empty( $gfonts ) && $is_gf_enable ) {
 			$media = '"all"';
 
-			echo "<link rel='stylesheet' type='text/css' id='cp-google-fonts' href='https://fonts.googleapis.com/css?family=" . $gfonts . "' media='none' onload = 'if(media!=".$media.")media=".$media."'>";
+			echo "<link rel='stylesheet' type='text/css' id='cp-google-fonts' href='https://fonts.googleapis.com/css?family=" . $gfonts . "' media='none' onload = 'if(media!=" . $media . ')media=' . $media . "'>";
 		}
 	}
 }
@@ -1240,7 +1274,7 @@ if ( ! function_exists( 'generate_border_css' ) ) {
 		$text                  .= 'border-color: ' . $result['color'] . ';';
 		$text                  .= 'border-width: ' . $result['border_width'] . 'px;';
 
-		if ( isset( $result['bw_type'] ) && ('1' === $result['bw_type']  || 1 === $result['bw_type'])) {
+		if ( isset( $result['bw_type'] ) && ( '1' === $result['bw_type'] || 1 === $result['bw_type'] ) ) {
 			$text .= 'border-top-width:' . $result['bw_t'] . 'px;';
 			$text .= 'border-left-width:' . $result['bw_l'] . 'px;';
 			$text .= 'border-right-width:' . $result['bw_r'] . 'px;';
@@ -1494,45 +1528,45 @@ if ( ! function_exists( 'generate_back_gradient' ) ) {
 
 		switch ( $direction ) {
 			case 'center_left':
-			$grad_name = 'left';
-			break;
+				$grad_name = 'left';
+				break;
 			case 'center_Right':
-			$grad_name = 'right';
-			break;
+				$grad_name = 'right';
+				break;
 
 			case 'top_center':
-			$grad_name = 'top';
-			break;
+				$grad_name = 'top';
+				break;
 
 			case 'top_left':
-			$grad_name = 'top left';
-			break;
+				$grad_name = 'top left';
+				break;
 
 			case 'top_right':
-			$grad_name = 'top right';
-			break;
+				$grad_name = 'top right';
+				break;
 
 			case 'bottom_center':
-			$grad_name = 'bottom';
-			break;
+				$grad_name = 'bottom';
+				break;
 
 			case 'bottom_left':
-			$grad_name = 'bottom left';
-			break;
+				$grad_name = 'bottom left';
+				break;
 
 			case 'bottom_right':
-			$grad_name = 'bottom right';
-			break;
+				$grad_name = 'bottom right';
+				break;
 
 			case 'center_center':
-			$grad_name = 'center';
-			if ( 'linear' === $grad_type ) {
-				$grad_name = 'top left';
-			}
-			break;
+				$grad_name = 'center';
+				if ( 'linear' === $grad_type ) {
+					$grad_name = 'top left';
+				}
+				break;
 
 			case 'default':
-			break;
+				break;
 		}
 
 		if ( 'linear' === $grad_type ) {
@@ -1621,7 +1655,7 @@ if ( ! function_exists( 'cplus_is_desktop_device' ) ) {
 		if ( empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
 			$is_desktop = false;
 		} elseif ( false !== strpos( $_SERVER['HTTP_USER_AGENT'], 'Macintosh' ) || false !== strpos( $_SERVER['HTTP_USER_AGENT'], 'Windows' )
-	) {
+		) {
 			$is_desktop = true;
 		} else {
 			$is_desktop = false;
@@ -1632,50 +1666,50 @@ if ( ! function_exists( 'cplus_is_desktop_device' ) ) {
 }
 
 
-if ( ! function_exists( 'cp_add_new_user_role' ) ) {	
+if ( ! function_exists( 'cp_add_new_user_role' ) ) {
 	/**
 	 * Add subscriber as new user to site.
-	 * @param  array $param array of form parameters.
-	 * @param  string $role  role assigne for user.
+	 *
+	 * @param  array  $param array of form parameters.
+	 * @param  string $roles  role assigne for user.
 	 */
 	function cp_add_new_user_role( $param, $roles ) {
-		$old_role = $roles;
-		//$roles    = explode( '|', $roles );
+		$old_role   = $roles;
 		$user_email = isset( $param['email'] ) ? $param['email'] : '';
-		$id = username_exists( $user_email );
-		$website = site_url();
+		$id         = username_exists( $user_email );
+		$website    = site_url();
 
-		if ( !$id and email_exists($user_email) == false ) {
-			
+		if ( ! $id and email_exists( $user_email ) == false ) {
+
 			$random_password = wp_generate_password( 12, false );
 
 			$userdata = array(
-			    'user_login'  =>  $user_email,
-			    'user_email'  =>  $user_email,
- 			    'user_url'    =>  $website,
-			    'user_pass'   =>  $random_password,
-			    'role'		  =>  strtolower($roles),
+				'user_login' => $user_email,
+				'user_email' => $user_email,
+				'user_url'   => $website,
+				'user_pass'  => $random_password,
+				'role'       => strtolower( $roles ),
 			);
-			
-			$user_id = wp_insert_user( $userdata ) ;
-			wp_new_user_notification( $user_id, '','both' );
-		}	
+
+			$user_id = wp_insert_user( $userdata );
+			wp_new_user_notification( $user_id, '', 'both' );
+		}
 		return true;
 	}
-
 }
 
 if ( ! function_exists( 'cp_get_the_user_ip' ) ) {
 	/**
 	 * Function Name: cp_get_the_user_ip.
+	 *
 	 * @return [type] [description]
 	 */
 	function cp_get_the_user_ip() {
 		if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-		//check ip from share internet.
+			// check ip from share internet.
 			$ip = $_SERVER['HTTP_CLIENT_IP'];
 		} elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-		//to check ip is pass from proxy.
+			// to check ip is pass from proxy.
 			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 		} else {
 			$ip = $_SERVER['REMOTE_ADDR'];
@@ -1686,17 +1720,18 @@ if ( ! function_exists( 'cp_get_the_user_ip' ) ) {
 
 /**
  * Function Name: cp_get_module_images_new.
+ *
  * @param  string $bg_image            image.
  * @param  string $bg_image_src        image_src.
  * @param  string $bg_image_custom_url custom_url.
  * @return string                      image_url.
  */
-function cp_get_module_images_new( $bg_image, $bg_image_src, $bg_image_custom_url ){
+function cp_get_module_images_new( $bg_image, $bg_image_src, $bg_image_custom_url ) {
 
 	if ( isset( $bg_image_src ) && ! empty( $bg_image_src ) ) {
-		
+
 		$module_bg_image = '';
-		if ( 'custom_url' === $bg_image_src) {
+		if ( 'custom_url' === $bg_image_src ) {
 			$module_bg_image = $bg_image_custom_url;
 		} elseif ( 'upload_img' === $bg_image_src ) {
 			if ( isset( $bg_image ) ) {
@@ -1711,19 +1746,20 @@ function cp_get_module_images_new( $bg_image, $bg_image_src, $bg_image_custom_ur
 		} else {
 			$module_bg_image = '';
 		}
-		
+
 		return $module_bg_image;
 	}
 }
 
 /**
  * Function Name: cp_get_image_size_opt description]
+ *
  * @param  string $opt_bg image_size.
  * @return string         custom css for image-size.
  */
-function cp_get_image_size_opt( $opt_bg ){
+function cp_get_image_size_opt( $opt_bg ) {
 	if ( isset( $opt_bg ) && false !== strpos( $opt_bg, '|' ) ) {
-		$bg_setting ='';
+		$bg_setting  = '';
 		$opt_bg      = explode( '|', $opt_bg );
 		$bg_repeat   = $opt_bg[0];
 		$bg_pos      = $opt_bg[1];
@@ -1741,14 +1777,13 @@ if ( ! function_exists( 'cp_get_custom_slector_init' ) ) {
 	/**
 	 * Function Name: cp_get_custom_slector_init Set custom class for modal
 	 *
-	 * @param  string  $custom_selector        string parameter.
+	 * @param  string $custom_selector        string parameter.
 	 * @return string                       string parameter.
 	 * @since 0.1.5
 	 */
 	function cp_get_custom_slector_init( $custom_selector ) {
-		$custom_selector  = str_replace( ' ', '', trim( $custom_selector ) );
-		//$custom_selector  = str_replace( ',', ' ', trim( $custom_selector ) );
-		$custom_selector  = trim( $custom_selector );
+		$custom_selector = str_replace( ' ', '', trim( $custom_selector ) );
+		$custom_selector = trim( $custom_selector );
 		return $custom_selector;
 	}
 }
@@ -1759,14 +1794,14 @@ if ( ! function_exists( 'cp_get_custom_slector_class_init' ) ) {
 	/**
 	 * Function Name: cp_get_custom_slector_class_init Set custom class for modal
 	 *
-	 * @param  string  $custom_selector        string parameter.
+	 * @param  string $custom_selector        string parameter.
 	 * @return string                       string parameter.
 	 * @since 0.1.5
 	 */
 	function cp_get_custom_slector_class_init( $custom_selector ) {
-		$custom_selector  = str_replace( ' ', '', trim( $custom_selector ) );
-		$custom_selector  = str_replace( ',', ' ', trim( $custom_selector ) );
-		$custom_selector  = trim( $custom_selector );
+		$custom_selector = str_replace( ' ', '', trim( $custom_selector ) );
+		$custom_selector = str_replace( ',', ' ', trim( $custom_selector ) );
+		$custom_selector = trim( $custom_selector );
 		return $custom_selector;
 	}
 }
@@ -1780,8 +1815,8 @@ if ( ! function_exists( 'cp_get_timezone_init' ) ) {
 	 * @return string  string parameter.
 	 * @since 3.3.2
 	 */
-	function cp_get_timezone_init( ) {
-		
+	function cp_get_timezone_init() {
+
 		$timezone = '';
 		$timezone = get_option( 'timezone_string' );
 		if ( '' === $timezone ) {
@@ -1796,14 +1831,15 @@ if ( ! function_exists( 'cp_get_timezone_init' ) ) {
 if ( ! function_exists( 'cp_get_form_process_html' ) ) {
 	/**
 	 * Name: cp_get_form_process_html return form html.
+	 *
 	 * @param  string $style css.
 	 * @return string        css and html.
 	 */
-	function cp_get_form_process_html( $style ){
+	function cp_get_form_process_html( $style ) {
 
 		$op = '<div class ="cp-form-processing" >
 			<div class="smile-absolute-loader" style="visibility: visible;">
-				<div class="smile-loader" style = "'.$style.'" >
+				<div class="smile-loader" style = "' . $style . '" >
 					<div class="smile-loading-bar"></div>
 					<div class="smile-loading-bar"></div>
 					<div class="smile-loading-bar"></div>
@@ -1816,48 +1852,442 @@ if ( ! function_exists( 'cp_get_form_process_html' ) ) {
 }
 
 if ( ! function_exists( 'cp_get_close_adj_position' ) ) {
-/**
- * Nmae: cp_get_close_adj_position Return adjacent close position.
- * @param  string $position posiiton.
- * @return string           posiiton.
- */
-function cp_get_close_adj_position( $position ){
-	$close_adj_class = '';
-	switch ( $position ) {
-		case 'top_left':
-			$close_adj_class .= ' cp-adjacent-left';
-			break;
-		case 'top_right':
-			$close_adj_class .= ' cp-adjacent-right';
-			break;
-		case 'bottom_left':
-			$close_adj_class .= ' cp-adjacent-bottom-left';
-			break;
-		case 'bottom_right':
-			$close_adj_class .= ' cp-adjacent-bottom-right';
-			break;
+	/**
+	 * Nmae: cp_get_close_adj_position Return adjacent close position.
+	 *
+	 * @param  string $position posiiton.
+	 * @return string           posiiton.
+	 */
+	function cp_get_close_adj_position( $position ) {
+		$close_adj_class = '';
+		switch ( $position ) {
+			case 'top_left':
+				$close_adj_class .= ' cp-adjacent-left';
+				break;
+			case 'top_right':
+				$close_adj_class .= ' cp-adjacent-right';
+				break;
+			case 'bottom_left':
+				$close_adj_class .= ' cp-adjacent-bottom-left';
+				break;
+			case 'bottom_right':
+				$close_adj_class .= ' cp-adjacent-bottom-right';
+				break;
+		}
+		return $close_adj_class;
 	}
-	return $close_adj_class;
-}
-
 }
 
 if ( ! function_exists( 'cp_get_tooltip_position' ) ) {
 	/**
 	 * Name: cp_get_tooltip_position .
-	 * @param  string $close_adjacent_position.
-	 * @return string.                         
+	 *
+	 * @param  string $close_adjacent_position posiiton.
+	 * @return string.
 	 */
-	function cp_get_tooltip_position( $close_adjacent_position ){		
+	function cp_get_tooltip_position( $close_adjacent_position ) {
 		$position = '';
 		switch ( $close_adjacent_position ) {
-				case 'top_left':
-					$position = 'right';
-					break;
-				case 'top_right':
-					$position = 'left';
-					break;
-			}
+			case 'top_left':
+				$position = 'right';
+				break;
+			case 'top_right':
+				$position = 'left';
+				break;
+		}
 			return $position;
+	}
+}
+
+
+if ( ! function_exists( 'cplus_is_geo_location' ) ) {
+	/**
+	 * Function name cplus_is_geo_location to check if module is visible for given countries.
+	 *
+	 * @param  string $country_type     type of countries.
+	 * @param  string $specific_country country names.
+	 * @return boolval(true/false)      true/false.
+	 */
+	function cplus_is_geo_location( $country_type, $specific_country, $hide_specific_countries ) {
+
+		$country_arr = array();
+
+		if ( '' !== $specific_country ) {
+			$country_arr = explode( ',', $specific_country );
+		}
+
+		// Get Ip address of the user.
+		$ipaddress = '';
+		if ( getenv( 'HTTP_CLIENT_IP' ) ) {
+			$ipaddress = getenv( 'HTTP_CLIENT_IP' );
+		} elseif ( getenv( 'HTTP_X_FORWARDED_FOR' ) ) {
+			$ipaddress = getenv( 'HTTP_X_FORWARDED_FOR' );
+		} elseif ( getenv( 'HTTP_X_FORWARDED' ) ) {
+			$ipaddress = getenv( 'HTTP_X_FORWARDED' );
+		} elseif ( getenv( 'HTTP_FORWARDED_FOR' ) ) {
+			$ipaddress = getenv( 'HTTP_FORWARDED_FOR' );
+		} elseif ( getenv( 'HTTP_FORWARDED' ) ) {
+			$ipaddress = getenv( 'HTTP_FORWARDED' );
+		} elseif ( getenv( 'REMOTE_ADDR' ) ) {
+			$ipaddress = getenv( 'REMOTE_ADDR' );
+		} else {
+			$ipaddress = 'UNKNOWN';
+		}
+		$user_ip             = $ipaddress;
+		//$user_ip             = '84.115.142.39'; // test ip for Albania.
+		$visitor_ip_location = CP_Geolocation_Target::geolocate_ip( $user_ip );
+
+		$arr_all_counries = array(
+			'AF' => __( 'Afghanistan', 'smile' ),
+			'AX' => __( '&#197;land Islands', 'smile' ),
+			'AL' => __( 'Albania', 'smile' ),
+			'DZ' => __( 'Algeria', 'smile' ),
+			'AS' => __( 'American Samoa', 'smile' ),
+			'AD' => __( 'Andorra', 'smile' ),
+			'AO' => __( 'Angola', 'smile' ),
+			'AI' => __( 'Anguilla', 'smile' ),
+			'AQ' => __( 'Antarctica', 'smile' ),
+			'AG' => __( 'Antigua and Barbuda', 'smile' ),
+			'AR' => __( 'Argentina', 'smile' ),
+			'AM' => __( 'Armenia', 'smile' ),
+			'AW' => __( 'Aruba', 'smile' ),
+			'AU' => __( 'Australia', 'smile' ),
+			'AT' => __( 'Austria', 'smile' ),
+			'AZ' => __( 'Azerbaijan', 'smile' ),
+			'BS' => __( 'Bahamas', 'smile' ),
+			'BH' => __( 'Bahrain', 'smile' ),
+			'BD' => __( 'Bangladesh', 'smile' ),
+			'BB' => __( 'Barbados', 'smile' ),
+			'BY' => __( 'Belarus', 'smile' ),
+			'BE' => __( 'Belgium', 'smile' ),
+			'PW' => __( 'Belau', 'smile' ),
+			'BZ' => __( 'Belize', 'smile' ),
+			'BJ' => __( 'Benin', 'smile' ),
+			'BM' => __( 'Bermuda', 'smile' ),
+			'BT' => __( 'Bhutan', 'smile' ),
+			'BO' => __( 'Bolivia', 'smile' ),
+			'BQ' => __( 'Bonaire, Saint Eustatius and Saba', 'smile' ),
+			'BA' => __( 'Bosnia and Herzegovina', 'smile' ),
+			'BW' => __( 'Botswana', 'smile' ),
+			'BV' => __( 'Bouvet Island', 'smile' ),
+			'BR' => __( 'Brazil', 'smile' ),
+			'IO' => __( 'British Indian Ocean Territory', 'smile' ),
+			'VG' => __( 'British Virgin Islands', 'smile' ),
+			'BN' => __( 'Brunei', 'smile' ),
+			'BG' => __( 'Bulgaria', 'smile' ),
+			'BF' => __( 'Burkina Faso', 'smile' ),
+			'BI' => __( 'Burundi', 'smile' ),
+			'KH' => __( 'Cambodia', 'smile' ),
+			'CM' => __( 'Cameroon', 'smile' ),
+			'CA' => __( 'Canada', 'smile' ),
+			'CV' => __( 'Cape Verde', 'smile' ),
+			'KY' => __( 'Cayman Islands', 'smile' ),
+			'CF' => __( 'Central African Republic', 'smile' ),
+			'TD' => __( 'Chad', 'smile' ),
+			'CL' => __( 'Chile', 'smile' ),
+			'CN' => __( 'China', 'smile' ),
+			'CX' => __( 'Christmas Island', 'smile' ),
+			'CC' => __( 'Cocos (Keeling) Islands', 'smile' ),
+			'CO' => __( 'Colombia', 'smile' ),
+			'KM' => __( 'Comoros', 'smile' ),
+			'CG' => __( 'Congo (Brazzaville)', 'smile' ),
+			'CD' => __( 'Congo (Kinshasa)', 'smile' ),
+			'CK' => __( 'Cook Islands', 'smile' ),
+			'CR' => __( 'Costa Rica', 'smile' ),
+			'HR' => __( 'Croatia', 'smile' ),
+			'CU' => __( 'Cuba', 'smile' ),
+			'CW' => __( 'Cura&ccedil;ao', 'smile' ),
+			'CY' => __( 'Cyprus', 'smile' ),
+			'CZ' => __( 'Czech Republic', 'smile' ),
+			'DK' => __( 'Denmark', 'smile' ),
+			'DJ' => __( 'Djibouti', 'smile' ),
+			'DM' => __( 'Dominica', 'smile' ),
+			'DO' => __( 'Dominican Republic', 'smile' ),
+			'EC' => __( 'Ecuador', 'smile' ),
+			'EG' => __( 'Egypt', 'smile' ),
+			'SV' => __( 'El Salvador', 'smile' ),
+			'GQ' => __( 'Equatorial Guinea', 'smile' ),
+			'ER' => __( 'Eritrea', 'smile' ),
+			'EE' => __( 'Estonia', 'smile' ),
+			'ET' => __( 'Ethiopia', 'smile' ),
+			'FK' => __( 'Falkland Islands', 'smile' ),
+			'FO' => __( 'Faroe Islands', 'smile' ),
+			'FJ' => __( 'Fiji', 'smile' ),
+			'FI' => __( 'Finland', 'smile' ),
+			'FR' => __( 'France', 'smile' ),
+			'GF' => __( 'French Guiana', 'smile' ),
+			'PF' => __( 'French Polynesia', 'smile' ),
+			'TF' => __( 'French Southern Territories', 'smile' ),
+			'GA' => __( 'Gabon', 'smile' ),
+			'GM' => __( 'Gambia', 'smile' ),
+			'GE' => __( 'Georgia', 'smile' ),
+			'DE' => __( 'Germany', 'smile' ),
+			'GH' => __( 'Ghana', 'smile' ),
+			'GI' => __( 'Gibraltar', 'smile' ),
+			'GR' => __( 'Greece', 'smile' ),
+			'GL' => __( 'Greenland', 'smile' ),
+			'GD' => __( 'Grenada', 'smile' ),
+			'GP' => __( 'Guadeloupe', 'smile' ),
+			'GU' => __( 'Guam', 'smile' ),
+			'GT' => __( 'Guatemala', 'smile' ),
+			'GG' => __( 'Guernsey', 'smile' ),
+			'GN' => __( 'Guinea', 'smile' ),
+			'GW' => __( 'Guinea-Bissau', 'smile' ),
+			'GY' => __( 'Guyana', 'smile' ),
+			'HT' => __( 'Haiti', 'smile' ),
+			'HM' => __( 'Heard Island and McDonald Islands', 'smile' ),
+			'HN' => __( 'Honduras', 'smile' ),
+			'HK' => __( 'Hong Kong', 'smile' ),
+			'HU' => __( 'Hungary', 'smile' ),
+			'IS' => __( 'Iceland', 'smile' ),
+			'IN' => __( 'India', 'smile' ),
+			'ID' => __( 'Indonesia', 'smile' ),
+			'IR' => __( 'Iran', 'smile' ),
+			'IQ' => __( 'Iraq', 'smile' ),
+			'IE' => __( 'Ireland', 'smile' ),
+			'IM' => __( 'Isle of Man', 'smile' ),
+			'IL' => __( 'Israel', 'smile' ),
+			'IT' => __( 'Italy', 'smile' ),
+			'CI' => __( 'Ivory Coast', 'smile' ),
+			'JM' => __( 'Jamaica', 'smile' ),
+			'JP' => __( 'Japan', 'smile' ),
+			'JE' => __( 'Jersey', 'smile' ),
+			'JO' => __( 'Jordan', 'smile' ),
+			'KZ' => __( 'Kazakhstan', 'smile' ),
+			'KE' => __( 'Kenya', 'smile' ),
+			'KI' => __( 'Kiribati', 'smile' ),
+			'KW' => __( 'Kuwait', 'smile' ),
+			'KG' => __( 'Kyrgyzstan', 'smile' ),
+			'LA' => __( 'Laos', 'smile' ),
+			'LV' => __( 'Latvia', 'smile' ),
+			'LB' => __( 'Lebanon', 'smile' ),
+			'LS' => __( 'Lesotho', 'smile' ),
+			'LR' => __( 'Liberia', 'smile' ),
+			'LY' => __( 'Libya', 'smile' ),
+			'LI' => __( 'Liechtenstein', 'smile' ),
+			'LT' => __( 'Lithuania', 'smile' ),
+			'LU' => __( 'Luxembourg', 'smile' ),
+			'MO' => __( 'Macao S.A.R., China', 'smile' ),
+			'MK' => __( 'Macedonia', 'smile' ),
+			'MG' => __( 'Madagascar', 'smile' ),
+			'MW' => __( 'Malawi', 'smile' ),
+			'MY' => __( 'Malaysia', 'smile' ),
+			'MV' => __( 'Maldives', 'smile' ),
+			'ML' => __( 'Mali', 'smile' ),
+			'MT' => __( 'Malta', 'smile' ),
+			'MH' => __( 'Marshall Islands', 'smile' ),
+			'MQ' => __( 'Martinique', 'smile' ),
+			'MR' => __( 'Mauritania', 'smile' ),
+			'MU' => __( 'Mauritius', 'smile' ),
+			'YT' => __( 'Mayotte', 'smile' ),
+			'MX' => __( 'Mexico', 'smile' ),
+			'FM' => __( 'Micronesia', 'smile' ),
+			'MD' => __( 'Moldova', 'smile' ),
+			'MC' => __( 'Monaco', 'smile' ),
+			'MN' => __( 'Mongolia', 'smile' ),
+			'ME' => __( 'Montenegro', 'smile' ),
+			'MS' => __( 'Montserrat', 'smile' ),
+			'MA' => __( 'Morocco', 'smile' ),
+			'MZ' => __( 'Mozambique', 'smile' ),
+			'MM' => __( 'Myanmar', 'smile' ),
+			'NA' => __( 'Namibia', 'smile' ),
+			'NR' => __( 'Nauru', 'smile' ),
+			'NP' => __( 'Nepal', 'smile' ),
+			'NL' => __( 'Netherlands', 'smile' ),
+			'NC' => __( 'New Caledonia', 'smile' ),
+			'NZ' => __( 'New Zealand', 'smile' ),
+			'NI' => __( 'Nicaragua', 'smile' ),
+			'NE' => __( 'Niger', 'smile' ),
+			'NG' => __( 'Nigeria', 'smile' ),
+			'NU' => __( 'Niue', 'smile' ),
+			'NF' => __( 'Norfolk Island', 'smile' ),
+			'MP' => __( 'Northern Mariana Islands', 'smile' ),
+			'KP' => __( 'North Korea', 'smile' ),
+			'NO' => __( 'Norway', 'smile' ),
+			'OM' => __( 'Oman', 'smile' ),
+			'PK' => __( 'Pakistan', 'smile' ),
+			'PS' => __( 'Palestinian Territory', 'smile' ),
+			'PA' => __( 'Panama', 'smile' ),
+			'PG' => __( 'Papua New Guinea', 'smile' ),
+			'PY' => __( 'Paraguay', 'smile' ),
+			'PE' => __( 'Peru', 'smile' ),
+			'PH' => __( 'Philippines', 'smile' ),
+			'PN' => __( 'Pitcairn', 'smile' ),
+			'PL' => __( 'Poland', 'smile' ),
+			'PT' => __( 'Portugal', 'smile' ),
+			'PR' => __( 'Puerto Rico', 'smile' ),
+			'QA' => __( 'Qatar', 'smile' ),
+			'RE' => __( 'Reunion', 'smile' ),
+			'RO' => __( 'Romania', 'smile' ),
+			'RU' => __( 'Russia', 'smile' ),
+			'RW' => __( 'Rwanda', 'smile' ),
+			'BL' => __( 'Saint Barth&eacute;lemy', 'smile' ),
+			'SH' => __( 'Saint Helena', 'smile' ),
+			'KN' => __( 'Saint Kitts and Nevis', 'smile' ),
+			'LC' => __( 'Saint Lucia', 'smile' ),
+			'MF' => __( 'Saint Martin (French part)', 'smile' ),
+			'SX' => __( 'Saint Martin (Dutch part)', 'smile' ),
+			'PM' => __( 'Saint Pierre and Miquelon', 'smile' ),
+			'VC' => __( 'Saint Vincent and the Grenadines', 'smile' ),
+			'SM' => __( 'San Marino', 'smile' ),
+			'ST' => __( 'S&atilde;o Tom&eacute; and Pr&iacute;ncipe', 'smile' ),
+			'SA' => __( 'Saudi Arabia', 'smile' ),
+			'SN' => __( 'Senegal', 'smile' ),
+			'RS' => __( 'Serbia', 'smile' ),
+			'SC' => __( 'Seychelles', 'smile' ),
+			'SL' => __( 'Sierra Leone', 'smile' ),
+			'SG' => __( 'Singapore', 'smile' ),
+			'SK' => __( 'Slovakia', 'smile' ),
+			'SI' => __( 'Slovenia', 'smile' ),
+			'SB' => __( 'Solomon Islands', 'smile' ),
+			'SO' => __( 'Somalia', 'smile' ),
+			'ZA' => __( 'South Africa', 'smile' ),
+			'GS' => __( 'South Georgia/Sandwich Islands', 'smile' ),
+			'KR' => __( 'South Korea', 'smile' ),
+			'SS' => __( 'South Sudan', 'smile' ),
+			'ES' => __( 'Spain', 'smile' ),
+			'LK' => __( 'Sri Lanka', 'smile' ),
+			'SD' => __( 'Sudan', 'smile' ),
+			'SR' => __( 'Suriname', 'smile' ),
+			'SJ' => __( 'Svalbard and Jan Mayen', 'smile' ),
+			'SZ' => __( 'Swaziland', 'smile' ),
+			'SE' => __( 'Sweden', 'smile' ),
+			'CH' => __( 'Switzerland', 'smile' ),
+			'SY' => __( 'Syria', 'smile' ),
+			'TW' => __( 'Taiwan', 'smile' ),
+			'TJ' => __( 'Tajikistan', 'smile' ),
+			'TZ' => __( 'Tanzania', 'smile' ),
+			'TH' => __( 'Thailand', 'smile' ),
+			'TL' => __( 'Timor-Leste', 'smile' ),
+			'TG' => __( 'Togo', 'smile' ),
+			'TK' => __( 'Tokelau', 'smile' ),
+			'TO' => __( 'Tonga', 'smile' ),
+			'TT' => __( 'Trinidad and Tobago', 'smile' ),
+			'TN' => __( 'Tunisia', 'smile' ),
+			'TR' => __( 'Turkey', 'smile' ),
+			'TM' => __( 'Turkmenistan', 'smile' ),
+			'TC' => __( 'Turks and Caicos Islands', 'smile' ),
+			'TV' => __( 'Tuvalu', 'smile' ),
+			'UG' => __( 'Uganda', 'smile' ),
+			'UA' => __( 'Ukraine', 'smile' ),
+			'AE' => __( 'United Arab Emirates', 'smile' ),
+			'GB' => __( 'United Kingdom (UK)', 'smile' ),
+			'US' => __( 'United States (US)', 'smile' ),
+			'UM' => __( 'United States (US) Minor Outlying Islands', 'smile' ),
+			'VI' => __( 'United States (US) Virgin Islands', 'smile' ),
+			'UY' => __( 'Uruguay', 'smile' ),
+			'UZ' => __( 'Uzbekistan', 'smile' ),
+			'VU' => __( 'Vanuatu', 'smile' ),
+			'VA' => __( 'Vatican', 'smile' ),
+			'VE' => __( 'Venezuela', 'smile' ),
+			'VN' => __( 'Vietnam', 'smile' ),
+			'WF' => __( 'Wallis and Futuna', 'smile' ),
+			'EH' => __( 'Western Sahara', 'smile' ),
+			'WS' => __( 'Samoa', 'smile' ),
+			'YE' => __( 'Yemen', 'smile' ),
+			'ZM' => __( 'Zambia', 'smile' ),
+			'ZW' => __( 'Zimbabwe', 'smile' ),
+		);
+
+		$arr_eu_countries = array(
+			'AL' => __( 'Albania', 'smile' ),
+			'AD' => __( 'Andorra', 'smile' ),
+			'AM' => __( 'Armenia', 'smile' ),
+			'AT' => __( 'Austria', 'smile' ),
+			'AZ' => __( 'Azerbaijan', 'smile' ),
+			'BY' => __( 'Belarus', 'smile' ),
+			'BE' => __( 'Belgium', 'smile' ),
+			'BA' => __( 'Bosnia and Herzegovina', 'smile' ),
+			'BG' => __( 'Bulgaria', 'smile' ),
+			'HR' => __( 'Croatia', 'smile' ),
+			'CY' => __( 'Cyprus', 'smile' ),
+			'CZ' => __( 'Czech Republic', 'smile' ),
+			'DK' => __( 'Denmark', 'smile' ),
+			'EE' => __( 'Estonia', 'smile' ),
+			'FI' => __( 'Finland', 'smile' ),
+			'FR' => __( 'France', 'smile' ),
+			'GE' => __( 'Georgia', 'smile' ),
+			'DE' => __( 'Germany', 'smile' ),
+			'GR' => __( 'Greece', 'smile' ),
+			'HU' => __( 'Hungary', 'smile' ),
+			'IS' => __( 'Iceland', 'smile' ),
+			'IE' => __( 'Ireland', 'smile' ),
+			'IT' => __( 'Italy', 'smile' ),
+			'KZ' => __( 'Kazakhstan', 'smile' ),
+			'LV' => __( 'Latvia', 'smile' ),
+			'LI' => __( 'Liechtenstein', 'smile' ),
+			'LT' => __( 'Lithuania', 'smile' ),
+			'LU' => __( 'Luxembourg', 'smile' ),
+			'MK' => __( 'Macedonia', 'smile' ),
+			'MT' => __( 'Malta', 'smile' ),
+			'MD' => __( 'Moldova', 'smile' ),
+			'MC' => __( 'Monaco', 'smile' ),
+			'ME' => __( 'Montenegro', 'smile' ),
+			'NL' => __( 'Netherlands', 'smile' ),
+			'NO' => __( 'Norway', 'smile' ),
+			'PL' => __( 'Poland', 'smile' ),
+			'PT' => __( 'Portugal', 'smile' ),
+			'RO' => __( 'Romania', 'smile' ),
+			'RU' => __( 'Russia', 'smile' ),
+			'SM' => __( 'San Marino', 'smile' ),
+			'RS' => __( 'Serbia', 'smile' ),
+			'SK' => __( 'Slovakia', 'smile' ),
+			'SI' => __( 'Slovenia', 'smile' ),
+			'ES' => __( 'Spain', 'smile' ),
+			'SE' => __( 'Sweden', 'smile' ),
+			'CH' => __( 'Switzerland', 'smile' ),
+			'TR' => __( 'Turkey', 'smile' ),
+			'UA' => __( 'Ukraine', 'smile' ),
+			'GB' => __( 'United Kingdom (UK)', 'smile' ),
+			'VA' => __( 'Vatican', 'smile' ),
+		);
+
+		$show_popup = false;
+
+		switch ( $country_type ) {
+			case 'all':
+				$show_popup = true;
+				break;
+
+			case 'basic-eu':
+				foreach ( $arr_eu_countries as $key => $value ) {
+					if ( $visitor_ip_location['country'] == $key ) {
+						$show_popup = true;
+						break;
+					}
+				}	
+				break;
+
+			case 'basic-non-eu':
+				$arr_country_code = array_keys( $arr_eu_countries );
+				if ( ! in_array( $visitor_ip_location['country'], $arr_country_code ) ) {
+					$show_popup = true;
+				}				
+				break;
+
+			case 'specifics-geo':
+				if ( ! empty( $country_arr ) ) {					
+					$visitor_country = $arr_all_counries[$visitor_ip_location['country']];
+					if ( in_array( $visitor_country, $country_arr ) ) {
+						$show_popup = true;
+					}
+				}
+				break;
+
+			default:
+				break;
+		}
+
+		// check if country is present in Exclude countries?
+		if ( '' !== $hide_specific_countries ) {
+			$hide_country_arr = explode( ',', $hide_specific_countries );
+			$visitor_country = $arr_all_counries[$visitor_ip_location['country']];
+			
+			if ( in_array( $visitor_country, $hide_country_arr ) ) {
+				$show_popup = false;
+			}
+		}		
+
+		return $show_popup;
 	}
 }

@@ -127,10 +127,10 @@ if ( count( $variants ) > 0 ) {
 													$style_settings = unserialize( $style['style_settings'] );
 													$theme          = $style_settings['style'];
 													$live           = (int) $style_settings['live'];
-													if( $live == ''){
+													if ( '' === $live ) {
 														$live = 0;
 													}
-													$status         = '';
+													$status = '';
 													if ( 1 === $live ) {
 														$status .= '<span class="change-status"><span data-live="1" class="cp-status"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></span>';
 													} elseif ( 0 === $live ) {
@@ -142,7 +142,7 @@ if ( count( $variants ) > 0 ) {
 													if ( 1 !== $live && '1' !== $live ) {
 														$status .= '<li><a href="#" class="change-status" data-style-id="' . $style_id . '" data-live="1" data-option="smile_modal_styles"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></a></li>';
 													}
-													if ( (0 !== $live && '0' !== $live ) && '' !== $live  ) {
+													if ( ( 0 !== $live && '0' !== $live ) && '' !== $live ) {
 														$status .= '<li><a href="#" class="change-status" data-style-id="' . $style_id . '" data-live="0" data-option="smile_modal_styles"><i class="connects-icon-pause"></i><span>' . __( 'Pause', 'smile' ) . '</span></a></li>';
 													}
 													if ( 2 !== $live && '2' !== $live ) {
@@ -194,11 +194,11 @@ if ( count( $variants ) > 0 ) {
 												$style_settings = unserialize( $variant_test['style_settings'] );
 												$theme          = $style_settings['style'];
 												$live           = $style_settings['live'];
-												if( $live == ''){
+												if ( '' === $live ) {
 													$live = 0;
 												}
-												$status         = '';
-												if ( 1 === $live  || '1' === $live ) {
+												$status = '';
+												if ( 1 === $live || '1' === $live ) {
 													$status .= '<span class="change-status"><span data-live="1" class="cp-status"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></span>';
 												} elseif ( 0 === $live || '0' === $live ) {
 													$status .= '<span class="change-status"><span data-live="0" class="cp-status"><i class="connects-icon-pause"></i><span>' . __( 'Pause', 'smile' ) . '</span></span>';

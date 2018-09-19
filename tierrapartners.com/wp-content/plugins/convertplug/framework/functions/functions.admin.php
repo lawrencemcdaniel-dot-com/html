@@ -151,15 +151,15 @@ if ( ! function_exists( 'cp_import_upload_prefilter' ) ) {
 		$action_arr = array(
 			'smile-modal-designer',
 			'smile-info_bar-designer',
-			'smile-slide_in-designer'
+			'smile-slide_in-designer',
 		);
 
 		$is_cp = false;
-		if( $is_cp_page && in_array($is_cp_page, $action_arr) ){
+		if ( $is_cp_page && in_array( $is_cp_page, $action_arr ) ) {
 			$is_cp = true;
-		} 
-		
-		if( isset( $page ) && $page === "import" && $is_cp ) {
+		}
+
+		if ( isset( $page ) && 'import' === $page && $is_cp ) {
 			$ext = pathinfo( $file['name'], PATHINFO_EXTENSION );
 
 			if ( 'zip' !== $ext ) {

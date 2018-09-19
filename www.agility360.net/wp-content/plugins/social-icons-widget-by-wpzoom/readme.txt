@@ -113,6 +113,9 @@ You can also create a hidden widget area using a plugin like Custom Sidebars if 
 
 == Changelog ==
 
+= 3.0.10 =
+* New icons: Slack, Songkick, ReverbNation
+
 = 3.0.9 =
 * Fixed: minor caching issue happening after update to 3.0.8
 

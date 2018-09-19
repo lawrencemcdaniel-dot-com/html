@@ -2,8 +2,8 @@
 /**
  * Load All WRIS Custom Post Type
  */
-$IG_CPT_Name = "ris_gallery";
-$AllSlides = array(  'p' => $Id['id'], 'post_type' => $IG_CPT_Name, 'orderby' => $WRIS_L3_Slide_Order);
+$URIS_CPT_Name = "ris_gallery";
+$AllSlides = array(  'p' => $Id['id'], 'post_type' => $URIS_CPT_Name, 'orderby' => $WRIS_L3_Slide_Order);
 $loop = new WP_Query( $AllSlides );
 
 while ( $loop->have_posts() ) : $loop->the_post();
@@ -251,7 +251,7 @@ jQuery( document ).ready(function() {
 						}
 						?>			
 						<div class="sp-slide">
-							<img class="sp-image" alt="<?php echo esc_attr($slide_alt); ?>" src="<?php echo WRIS_PLUGIN_URL; ?>css/images/blank.gif" data-src="<?php echo esc_url($Url); ?>" />
+							<img class="sp-image" alt="<?php echo esc_attr($slide_alt); ?>" src="<?php echo URIS_PLUGIN_URL; ?>css/images/blank.gif" data-src="<?php echo esc_url($Url); ?>" />
 
 							<?php if($Title != "") { ?>
 							<p class="sp-layer sp-white sp-padding title-in title-in-bg hide-small-screen" 
@@ -326,7 +326,7 @@ jQuery( document ).ready(function() {
 					foreach($RPGP_AllPhotosDetails as $RPGP_SinglePhotoDetails) {
 						$ThumbUrl = $RPGP_SinglePhotoDetails['rpggallery_admin_thumb'];
 						$j++; ?>
-						<img class="sp-thumbnail" src="<?php echo WRIS_PLUGIN_URL; ?>img/loading.gif" data-src="<?php echo esc_url($ThumbUrl); ?>"/>
+						<img class="sp-thumbnail" src="<?php echo URIS_PLUGIN_URL; ?>img/loading.gif" data-src="<?php echo esc_url($ThumbUrl); ?>"/>
 					<?php } // end of foreach 
 				}// end of is_array ?>
 			</div>

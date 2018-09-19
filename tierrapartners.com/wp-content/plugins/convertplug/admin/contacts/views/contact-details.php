@@ -128,7 +128,7 @@ span.connect-list-gravtar-img {
 				$email   = isset( $list['email'] ) ? $list['email'] : 'NA';
 				$name    = ( isset( $list['name'] ) && '' !== $list['name'] ) ? $list['name'] : 'NA';
 				$date    = date( 'j M Y', strtotime( $list['date'] ) );
-				$time    = isset( $list['time'] ) ? date( ' g:i:s a', strtotime( $list['time'] ) ) :'';
+				$time    = isset( $list['time'] ) ? date( ' g:i:s a', strtotime( $list['time'] ) ) : '';
 				$user_id = ( isset( $list['user_id'] ) && '' !== $list['user_id'] ) ? $list['user_id'] : '';
 				// Check Current User.
 				if ( empty( $current_user ) ) {
@@ -222,11 +222,12 @@ span.connect-list-gravtar-img {
 																?>
 																<td scope="col" class="manage-column">
 																	<label><?php echo strtoupper( $k ); ?></label>
-																	<?php 
-																	if( 'time' === $k ){
+																	<?php
+																	if ( 'time' === $k ) {
 																		$v = $time;
 																	}
-																	echo esc_attr( $v ); ?>
+																	echo esc_attr( $v );
+																	?>
 																</td>
 																<?php
 															} else {
@@ -234,11 +235,12 @@ span.connect-list-gravtar-img {
 															</tr>
 															<tr><td scope="col" class="manage-column">
 																<label><?php echo strtoupper( $k ); ?></label>
-																<?php 
-																if( 'time' === $k ){
+																<?php
+																if ( 'time' === $k ) {
 																	$v = $time;
 																}
-																echo esc_attr( $v ); ?>
+																echo esc_attr( $v );
+																?>
 															</td>
 															<?php
 															}

@@ -45,8 +45,7 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Main {
 			update_post_meta( $event->ID, '_EventShowTickets', $show_tickets );
 
 			// local Eventbrite setting for image sync
-			$image_sync_mode = ( isset( $data['EventBriteImageSyncMode'] ) ? (int) $data['EventBriteImageSyncMode'] : 1 );
-			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', $image_sync_mode );
+			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', (int) -1 );
 
 			return false;
 		}
@@ -58,13 +57,24 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Main {
 			return false;
 		}
 
-		$is_migrating = isset( $data['is_migrating'] ) && tribe_is_truthy( $data['is_migrating'] );
-		$eventbrite_id = get_post_meta( $event->ID, '_EventBriteID', true );
+		$is_migrating    = isset( $data['is_migrating'] ) && tribe_is_truthy( $data['is_migrating'] );
+		$eventbrite_id   = get_post_meta( $event->ID, '_EventBriteID', true );
+		$image_sync_mode = 1;
+
+		if ( isset( $data['EventBriteUsePostThumb'] ) ) {
+			$image_sync_mode = tribe_is_truthy( $data['EventBriteUsePostThumb'] ) ? (int) 1 : (int) -1;
+			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', $image_sync_mode );
+		} else {
+			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', (int) -1 );
+		}
+
+		$is_listed = ! empty( $data['EventBritePrivacy'] ) && 'not_listed' === $data['EventBritePrivacy'] ? 0 : 1;
 
 		$args          = array(
 			'status'          => ( ! empty( $data['EventBriteStatus'] ) ? esc_attr( wp_kses( $data['EventBriteStatus'], array() ) ) : 'draft' ),
+			'listed'          => (int) $is_listed,
 			'show_tickets'    => ( ! empty( $data['EventShowTickets'] ) ? esc_attr( wp_kses( $data['EventShowTickets'], array() ) ) : 'yes' ),
-			'image_sync_mode' => ( isset( $data['EventBriteImageSyncMode'] ) ? (int) $data['EventBriteImageSyncMode'] : 1 ),
+			'image_sync_mode' => $image_sync_mode,
 			'is_migrating'    => $is_migrating,
 		);
 

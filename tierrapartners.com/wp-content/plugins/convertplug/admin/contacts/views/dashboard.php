@@ -251,14 +251,14 @@ $form_export_action = admin_url( 'admin-post.php?action=cp_export_all_list&_wpno
 										$tooltip   = implode( ', ', $provider_list_name );
 
 										$tooltip_html = '<span data-position="top" class="cp-tooltip-icon has-tip" title="' . $tooltip . '"><a style="cursor: help;" href="javascript:void(0);">' . count( $provider_list_name ) . ' More</a></span>';
-										
-										$first_tag    = ( '-1' !== $first_tag ) ? $first_tag : 'No tags associated with this campaign.';
+
+										$first_tag = ( '-1' !== $first_tag ) ? $first_tag : 'No tags associated with this campaign.';
 
 										if ( 'infusionsoft' === $provider ) {
-											$first_tag    = ( '' !== $first_tag ) ? $first_tag : 'No tags associated with this campaign.';
+											$first_tag = ( '' !== $first_tag ) ? $first_tag : 'No tags associated with this campaign.';
 										}
 
-										$first_tag    = ( '' !== $first_tag ) ? $first_tag : 'No tags associated with this campaign.';
+										$first_tag = ( '' !== $first_tag ) ? $first_tag : 'No tags associated with this campaign.';
 
 										echo ( 1 < count( $str ) ) ? $first_tag . ' & ' . $tooltip_html : $first_tag;
 
@@ -273,7 +273,7 @@ $form_export_action = admin_url( 'admin-post.php?action=cp_export_all_list&_wpno
 							} else {
 								if ( 'ontraport' === $provider ) {
 									echo ( '-1' !== $list['list'] ) ? esc_attr( $provider_list_name ) : 'No tags associated with this campaign.';
-								}else if ( 'zapier' === $provider ) {
+								} elseif ( 'zapier' === $provider ) {
 									echo 'No list associated with this campaign.';
 								} else {
 									echo esc_attr( $provider_list_name );

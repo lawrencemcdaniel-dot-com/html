@@ -1,0 +1,6 @@
+<?php exit('Access denied'); __halt_compiler(); ?>
+******************************************************************
+This file is used by the Wordfence Web Application Firewall. Read 
+more at https://docs.wordfence.com/en/Web_Application_Firewall_FAQ
+******************************************************************
+a:19:{s:6:"apiKey";s:160:"4a4d2ef3663b9d985c7935a174b159a2a92f7f9896bc91d9cf6b5eb773f328c87c718b90067b7bb27f5ca325608270e568109d138dfe184f0b3e61245dd60922bbaa1d5a1f9faf5661c57dc24be7f42e";s:6:"isPaid";b:0;s:7:"siteURL";s:26:"https://ese.atentamente.mx";s:7:"homeURL";s:26:"https://ese.atentamente.mx";s:14:"whitelistedIPs";s:0:"";s:9:"howGetIPs";s:0:"";s:25:"howGetIPs_trusted_proxies";s:0:"";s:13:"pluginABSPATH";s:33:"/var/www/html/ese.atentamente.mx/";s:11:"other_WFNet";b:1;s:9:"serverIPs";s:45:"["52.26.170.104","52.43.142.146","127.0.0.1"]";s:15:"blockCustomText";s:0:"";s:13:"timeoffset_wf";s:1:"0";s:23:"advancedBlockingEnabled";s:1:"1";s:21:"betaThreatDefenseFeed";b:0;s:20:"disableWAFIPBlocking";s:1:"0";s:13:"patternBlocks";s:2:"[]";s:13:"countryBlocks";s:153:"{"blocks":[],"action":"block","loggedInBlocked":"","bypassRedirURL":"","bypassRedirDest":"","bypassViewURL":"","redirURL":"","cookieVal":"5af6dd33e1b44"}";s:11:"otherBlocks";s:33:"{"blockedTime":"300","blocks":[]}";s:8:"lockouts";s:37:"{"lockedOutTime":14400,"lockouts":[]}";}

@@ -15,7 +15,7 @@ if ( function_exists( 'smile_framework_add_options' ) ) {
 		'category'      => 'All,offers',
 		'tags'          => 'offers,default,special,discount,mascot,blank',
 		'options'       => array(),
-		);	
-			
+	);
+
 	smile_framework_add_options( 'Smile_slide_ins', 'subscriber_newsletter', $style_arr );
 }

@@ -1,16 +1,31 @@
 <?php
 /*
- * Plugin Name: Ultimate Responsive Image Slider
- * Version: 3.2.2
- * Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
- * Author: Weblizar
- * Author URI: https://weblizar.com/plugins/
- * Plugin URI: https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/
- */
+Plugin Name: Ultimate Responsive Image Slider
+Plugin URI:  https://wordpress.org/plugins/ultimate-responsive-image-slider/
+Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
+Version:     3.2.5
+Author:      WP Frank
+Author URI:  https://wpfrank.com/
+Text Domain: ultimate-responsive-image-slider
+Domain Path: /languages
+License:     GPL2
+ 
+Ultimate Responsive Image Slider is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or any later version.
+ 
+Ultimate Responsive Image Slider is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License 
+along with Ultimate Responsive Image Slider. If not, see http://www.gnu.org/licenses/gpl-2.0.html.
+*/
 
 //Constant Variable
-define("WRIS_TEXT_DOMAIN", "W_R_I_S" );
-define("WRIS_PLUGIN_URL", plugin_dir_url(__FILE__));
+define("URIS_TD", "ultimate-responsive-image-slider" );
+define("URIS_PLUGIN_URL", plugin_dir_url(__FILE__));
 
 // Apply default settings on activation
 register_activation_hook( __FILE__, 'WRIS_DefaultSettingsPro' );
@@ -55,70 +70,22 @@ function WRIS_DefaultSettingsPro() {
 // Image Crop Size Function 
 add_image_size( 'rpggallery_admin_thumb', 300, 300, true ); 
 add_image_size( 'rpggallery_admin_large', 500,9999 );
-function admin_content_wpse_144936() { 
-	if(get_post_type()=="ris_gallery") { ?>
-		<style>
-		.wlTBlock{
-			background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('<?php echo WRIS_PLUGIN_URL.'/img/bg2.jpg'; ?>') no-repeat fixed;
-			background-position: 50% 0 !important;
-			padding: 15px 0 0 0;
-			margin-left: -20px;
-			font-family: Myriad Pro ;
-			cursor: pointer;
-			text-align: center;
-		}
-		.wlTBlock .wlTBig{
-			color: white;
-			font-size: 30px;
-			font-weight: bolder;
-			padding: 0 0 15px 0;
-		}
-		.wlTBlock .wlTBig .dashicons{
-			font-size: 40px;
-			position: absolute;
-			margin-left: -45px;
-			margin-top: -10px;
-		}
-		.wlTBlock .WlTSmall{
-			font-weight: bolder;
-			color: white;
-			font-size: 18px;
-			padding: 0 0 15px 15px;
-		}
-		.wlTBlock a{
-			text-decoration: none !important;
-		}
-		@media screen and ( max-width: 600px ) {
-			.wlTBlock{ padding-top: 60px; margin-bottom: -50px; }
-			.wlTBlock .WlTSmall { display: none; }			
-		}
-		</style>
-		<div class="wlTBlock">
-			<a href="https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/" target="_new">
-				<div class="wlTBig"><span class="dashicons dashicons-cart"></span>Get Pro version</div>
-				<div class="WlTSmall">with PRO version you get more advanced functionality and even more flexibility in settings </div>
-			</a>
-		</div>
-		<?php
-	}
-}
-add_action('in_admin_header','admin_content_wpse_144936');
 
 // Add settings link on plugin page
 function ris_links($links) {
-	$ris_pro_link = '<a href="https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/" target="_blank">Try Pro</a>';
+	$ris_pro_link = '<a href="http://wpfrank.com/" target="_blank">WP Frank</a>';
 	array_unshift($links, $ris_pro_link);	
 	$ris_settings_link = '<a href="edit.php?post_type=ris_gallery">Settings</a>'; 
 	array_unshift($links, $ris_settings_link);	
 	return $links; 
 } 
-$ris_plugin_name = plugin_basename(__FILE__); 
-add_filter("plugin_action_links_$ris_plugin_name", 'ris_links' );
+$uris_plugin_name = plugin_basename(__FILE__); 
+add_filter("plugin_action_links_$uris_plugin_name", 'ris_links' );
 
 // Slider Text Widget Support
 add_filter( 'widget_text', 'do_shortcode' );
 
-class WRIS {
+class URIS {
 
     private static $instance;
     private $admin_thumbnail_size = 150;
@@ -152,9 +119,6 @@ class WRIS {
 		add_action('add_meta_boxes', array(&$this, 'add_all_ris_meta_boxes'));
 		add_action('admin_init', array(&$this, 'add_all_ris_meta_boxes'), 1);
 		
-		//notice
-		add_action('admin_notices', array(&$this, 'review_admin_notice_ris'),2);	
-		
 		// metabox setting save function
 		add_action('save_post', array(&$this, 'add_image_meta_box_save'), 9, 1);
 		add_action('save_post', array(&$this, 'ris_settings_meta_save'), 9, 1);
@@ -172,41 +136,28 @@ class WRIS {
 		load_plugin_textdomain('W_R_I_S', FALSE, dirname( plugin_basename(__FILE__)).'/languages/' );
 	}
 	
-	/* //Required JS & CSS
-	public function ris_admin_print_scripts() {
-		
-	} */
-	
-	// Alert Message For Offers
-	public function review_admin_notice_ris(){
-		$screen = get_current_screen();
-		if ( $screen->id == 'ris_gallery' ) {
-			include('offers.php');
-		}
-	}
-
 	// Register Custom Post Type
 	public function ResponsiveImageSlider() {
 		$labels = array(
-			'name' => _x( 'Ultimate Responsive Image Slider', WRIS_TEXT_DOMAIN ),
-			'singular_name' => _x( 'Ultimate Responsive Image Slider', WRIS_TEXT_DOMAIN ),
-			'add_new' => __( 'Add New Slider', WRIS_TEXT_DOMAIN ),
-			'add_new_item' => __( 'Add New Slider', WRIS_TEXT_DOMAIN ),
-			'edit_item' => __( 'Edit Image Slider', WRIS_TEXT_DOMAIN ),
-			'new_item' => __( 'New Image Slider', WRIS_TEXT_DOMAIN ),
-			'view_item' => __( 'View Image Slider', WRIS_TEXT_DOMAIN ),
-			'search_items' => __( 'Search Image Slider', WRIS_TEXT_DOMAIN ),
-			'not_found' => __( 'No Image Slider found', WRIS_TEXT_DOMAIN ),
-			'not_found_in_trash' => __( 'No Image Slider Found in Trash', WRIS_TEXT_DOMAIN ),
-			'parent_item_colon' => __( 'Parent Image Slider:', WRIS_TEXT_DOMAIN ),
-			'all_items' => __( 'All Image Sliders', WRIS_TEXT_DOMAIN ),
-			'menu_name' => _x( 'UR Image Slider', WRIS_TEXT_DOMAIN ),
+			'name' => _x( 'Ultimate Responsive Image Slider', URIS_TD ),
+			'singular_name' => _x( 'Ultimate Responsive Image Slider', URIS_TD ),
+			'add_new' => __( 'Add New Slider', URIS_TD ),
+			'add_new_item' => __( 'Add New Slider', URIS_TD ),
+			'edit_item' => __( 'Edit Slider', URIS_TD ),
+			'new_item' => __( 'New Slider', URIS_TD ),
+			'view_item' => __( 'View Slider', URIS_TD ),
+			'search_items' => __( 'Search Slider', URIS_TD ),
+			'not_found' => __( 'No Slider found', URIS_TD ),
+			'not_found_in_trash' => __( 'No Slider Found in Trash', URIS_TD ),
+			'parent_item_colon' => __( 'Parent Slider:', URIS_TD ),
+			'all_items' => __( 'All Sliders', URIS_TD ),
+			'menu_name' => _x( 'UR Image Slider', URIS_TD ),
 		);
 
 		$args = array(
 			'labels' => $labels,
 			'hierarchical' => false,
-			'supports' => array( 'title' ),
+			'supports' => array( 'title', 'revisions' ),
 			'public' => false,
 			'show_ui' => true,
 			'show_in_menu' => true,
@@ -249,65 +200,38 @@ class WRIS {
     }
 	
 	public function add_all_ris_meta_boxes() {
-		add_meta_box( __('Add Images', WRIS_TEXT_DOMAIN), __('Add Images', WRIS_TEXT_DOMAIN), array(&$this, 'ris_generate_add_image_meta_box_function'), 'ris_gallery', 'normal', 'low' );
-		add_meta_box( __('Apply Setting On Ultimate Responsive Image Slider', WRIS_TEXT_DOMAIN), __('Apply Setting On Ultimate Responsive Image Slider', WRIS_TEXT_DOMAIN), array(&$this, 'ris_settings_meta_box_function'), 'ris_gallery', 'normal', 'low');
-		add_meta_box ( __('Copy Image Slider Shortcode', WRIS_TEXT_DOMAIN), __('Copy Image Slider Shortcode', WRIS_TEXT_DOMAIN), array(&$this, 'ris_shotcode_meta_box_function'), 'ris_gallery', 'side', 'low');
+		add_meta_box( __('Add Slides', URIS_TD), __('Add Slides', URIS_TD), array(&$this, 'ris_generate_add_image_meta_box_function'), 'ris_gallery', 'normal', 'low' );
+		add_meta_box( __('Apply Setting On Ultimate Responsive Image Slider', URIS_TD), __('Apply Setting On Ultimate Responsive Image Slider', URIS_TD), array(&$this, 'ris_settings_meta_box_function'), 'ris_gallery', 'normal', 'low');
+		add_meta_box ( __('Copy Image Slider Shortcode', URIS_TD), __('Copy Image Slider Shortcode', URIS_TD), array(&$this, 'ris_shotcode_meta_box_function'), 'ris_gallery', 'side', 'low');
 		add_meta_box('Show us some love, Rate Us', 'Show us some love, Rate Us', array(&$this, 'uris_Rate_us_meta_box_function'), 'ris_gallery', 'side', 'low');
-		add_meta_box('Upgrade To Pro Version', 'Upgrade To Pro Version', array(&$this, 'uris_upgrade_to_pro_function'), 'ris_gallery', 'side', 'low');
-		add_meta_box('Pro Features' , 'Pro Features', array(&$this ,'uris_pro_features'), 'ris_gallery', 'side', 'low');
 	}
 	
 	//Rate Us Meta Box
 	public function uris_Rate_us_meta_box_function() { ?>
 		<style>
-		.fag-rate-us span.dashicons {
+		.urisp-rate-us span.dashicons {
 			width: 30px;
 			height: 30px;
 		}
-		.fag-rate-us span.dashicons-star-filled:before {
+		.urisp-rate-us span.dashicons-star-filled:before {
 			content: "\f155";
 			font-size: 30px;
 		}
 		</style>
 		<div align="center">
 			<p>Please Review & Rate Us On WordPress</p>
-			<a class="upgrade-to-pro-demo fag-rate-us" style=" text-decoration: none; height: 40px; width: 40px;" href="https://wordpress.org/plugins/ultimate-responsive-image-slider/#reviews" target="_blank">
+			<a class="upgrade-to-pro-demo urisp-rate-us" style=" text-decoration: none; height: 40px; width: 40px;" href="https://wordpress.org/plugins/ultimate-responsive-image-slider/#reviews" target="_blank">
 				<?php for($star=1;$star<=5;$star++){ ?>
 						<span class="dashicons dashicons-star-filled"></span>
 				<?php } ?>				
 			</a>
 		</div>
 		<div class="upgrade-to-pro" style="text-align:center;margin-bottom:10px;margin-top:10px;">
-			<a href="https://wordpress.org/support/view/plugin-reviews/ultimate-responsive-image-slider?filter=5" target="_blank" class="button button-primary button-hero ">RATE US</a>
+			<a href="https://wordpress.org/support/view/plugin-reviews/ultimate-responsive-image-slider" target="_blank" class="button button-primary button-hero ">RATE US</a>
 		</div>
 		<?php
 	}
 	
-	public function uris_upgrade_to_pro_function(){ ?>
-		<div class="upgrade-to-pro-demo" style="text-align:center;margin-bottom:10px;margin-top:10px;">
-			<a href="http://demo.weblizar.com/ultimate-responsive-image-slider-pro/"  target="_new" class="button button-primary button-hero">View Live Demo</a>
-		</div>
-		<div class="upgrade-to-pro-admin-demo" style="text-align:center;margin-bottom:10px;">
-			<a href="https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/" target="_new" class="button button-primary button-hero">View Admin Demo</a>
-		</div>
-		<div class="upgrade-to-pro" style="text-align:center;margin-bottom:10px;">
-			<a href="https://weblizar.com/plugins/ultimate-responsive-image-slider-pro/" target="_new" class="button button-primary button-hero">Upgarde To Pro</a>
-		</div>
-		<?php
-	}
-
-	public	function uris_pro_features(){ ?>
-		<ul style="">
-			<?php
-			$features = array("Responsive Design", "5 Slider Layout", "Unlimited Color Scheme", "Full Screen slideshow","Thumbnail Slider","Lightbox Integrated","External Link Button","Carousel Slider","All Gallery Shortcode","Each Gallery has Unique Shortcode","Drag and Drop image Position","Multiple Image uploader","Shortcode Button on post or page","Unique settings for each gallery","Auto Play Pause","All Browser Compatible");
-			foreach($features as $feature) {
-				echo "<li class='plan-feature'>$feature</li>";
-			}
-			?>
-		</ul>
-		<?php 
-	}
-
 	/**
 	 * This function display Add New Image interface
 	 * Also loads all saved gallery photos into photo gallery
@@ -331,7 +255,7 @@ class WRIS {
 							$url1 = $WRIS_SinglePhotoDetails['rpggallery_admin_thumb'];
 							$url3 = $WRIS_SinglePhotoDetails['rpggallery_admin_large']; ?>
 							<li class="rpg-image-entry" id="rpg_img">
-								<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  WRIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
+								<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  URIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
 								<div class="rpp-admin-inner-div1" >
 									<img src="<?php echo esc_url ( $url1 ); ?>" class="rpg-meta-image" alt=""  style="">
 									<input type="hidden" id="unique_string[]" name="unique_string[]" value="<?php echo esc_attr( $UniqueString ); ?>" />
@@ -341,13 +265,13 @@ class WRIS {
 									<input type="text" id="rpggallery_admin_thumb[]" name="rpggallery_admin_thumb[]" class="rpg_label_text"  value="<?php echo esc_url( $url1 ); ?>"  readonly="readonly" style="display:none;" />
 									<input type="text" id="rpggallery_admin_large[]" name="rpggallery_admin_large[]" class="rpg_label_text"  value="<?php echo esc_url( $url3 ); ?>"  readonly="readonly" style="display:none;" />
 									<p>
-										<label><?php _e('Slide Title', WRIS_TEXT_DOMAIN); ?></label>
-										<input type="text" id="rpgp_image_label[]" name="rpgp_image_label[]" value="<?php echo esc_attr( $name ); ?>" placeholder="<?php _e('Enter Slide Title', WRIS_TEXT_DOMAIN); ?>" class="rpg_label_text">
+										<label><?php _e('Slide Title', URIS_TD); ?></label>
+										<input type="text" id="rpgp_image_label[]" name="rpgp_image_label[]" value="<?php echo esc_attr( $name ); ?>" placeholder="<?php _e('Enter Slide Title', URIS_TD); ?>" class="rpg_label_text">
 									</p>
 									<p>
-										<label><?php _e('Slide Descriptions', WRIS_TEXT_DOMAIN); ?></label>
-										<textarea rows="4" cols="50" id="rpgp_image_desc[]" name="rpgp_image_desc[]" placeholder="<?php _e('Enter Slide Description', WRIS_TEXT_DOMAIN); ?>" class=" urisp_richeditbox_<?php echo $i; ?> rpg_label_text"><?php echo htmlentities( $desc ); ?></textarea>
-										<button type="button" class="btn btn-md btn-info btn-block" data-toggle="modal" data-target="#myModal" onclick="urisp_richeditor(<?php echo $i; ?>)"><?php _e('Use Rich Text Editor', WRIS_TEXT_DOMAIN); ?> <i class="fa fa-edit"></i></button>
+										<label><?php _e('Slide Descriptions', URIS_TD); ?></label>
+										<textarea rows="4" cols="50" id="rpgp_image_desc[]" name="rpgp_image_desc[]" placeholder="<?php _e('Enter Slide Description', URIS_TD); ?>" class=" urisp_richeditbox_<?php echo $i; ?> rpg_label_text"><?php echo htmlentities( $desc ); ?></textarea>
+										<button type="button" class="btn btn-md btn-info btn-block" data-toggle="modal" data-target="#myModal" onclick="urisp_richeditor(<?php echo $i; ?>)"><?php _e('Use Rich Text Editor', URIS_TD); ?> <i class="fa fa-edit"></i></button>
 									</p>
 								</div>
 							</li>
@@ -395,11 +319,11 @@ class WRIS {
 		<!--Add New Image Button-->
 		<div class="rpg-image-entry add_rpg_new_image" id="uris_gallery_upload_button" data-uploader_title="Upload Image" data-uploader_button_text="Select" >
 			<div class="dashicons dashicons-plus"></div>
-			<p><?php _e('Add New Images', WRIS_TEXT_DOMAIN); ?></p>
+			<p><?php _e('Add New Slide', URIS_TD); ?></p>
 		</div>
 		<div class="rpg-image-entry del_rpg_image" id="uris_delete_all_button">
 			<div class="dashicons dashicons-trash"></div>
-			<p><?php _e('Delete All Images', WRIS_TEXT_DOMAIN); ?></p>
+			<p><?php _e('Delete All Slides', URIS_TD); ?></p>
 		</div>
 		<div style="clear:left;"></div>
         <style>
@@ -426,60 +350,47 @@ class WRIS {
 		<?php
     }	
 
-	// Alert Message For Review
-	/*public function review_admin_notice_ris(){
-		$screen = get_current_screen();
-		if ( $screen->id == 'ris_gallery' ) {
-			echo '<div class="notice notice-warning is-dismissible review-notice">
-			<p>Thanks for installing and using Ultimate Responsive Image Slider plugin.  
-			Then please share your feedback about this plugin. Your feedback will be helpful to make plugin more robust. <a href="https://wordpress.org/support/plugin/ultimate-responsive-image-slider/reviews/?filter=5" target="_blank" name="review" id="review" class="button button-primary">Rate Us</a></p>
-			</div>';
-		}
-	}*/
-	
 	/**
 	 * This function display Add New Image interface
 	 * Also loads all saved gallery photos into photo gallery
 	 */
     public function ris_settings_meta_box_function($post) {
-		/*wp_enqueue_style( 'custom_bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-		wp_enqueue_script( 'custom_bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');*/
-		wp_enqueue_script('uris-bootstrap-js', WRIS_PLUGIN_URL.'js/bootstrap.min.js');
-		wp_enqueue_style('uris-bootstrap-min', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min.css');
-		wp_enqueue_style('uris-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
-		wp_enqueue_style('uris-editor-modal', WRIS_PLUGIN_URL.'css/editor-modal.css');				
+		wp_enqueue_script('uris-bootstrap-js', URIS_PLUGIN_URL.'js/bootstrap.min.js');
+		wp_enqueue_style('uris-bootstrap-min', URIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.css');
+		wp_enqueue_style('uris-font-awesome-5.0.8', URIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
+		wp_enqueue_style('uris-editor-modal', URIS_PLUGIN_URL.'css/editor-modal.css');			
 		wp_enqueue_script('media-upload');
-		wp_enqueue_script('uris-media-uploader-js', WRIS_PLUGIN_URL . 'js/uris-multiple-media-uploader.js', array('jquery'));
+		wp_enqueue_script('uris-media-uploader-js', URIS_PLUGIN_URL . 'js/uris-multiple-media-uploader.js', array('jquery'));
 		wp_enqueue_media();
 	
 		//custom add image box css
-		wp_enqueue_style('ris-meta-css', WRIS_PLUGIN_URL.'css/ris-meta.css');
+		wp_enqueue_style('ris-meta-css', URIS_PLUGIN_URL.'css/ris-meta.css');
 	
 		//font awesome css
-		wp_enqueue_style('ris-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
+		wp_enqueue_style('ris-font-awesome-5.0.8', URIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
 
 		//tool-tip js & css
-		wp_enqueue_script('ris-tool-tip-js',WRIS_PLUGIN_URL.'tooltip/jquery.darktooltip.min.js', array('jquery'));
-		wp_enqueue_style('ris-tool-tip-css', WRIS_PLUGIN_URL.'tooltip/darktooltip.min.css');
+		wp_enqueue_script('ris-tool-tip-js',URIS_PLUGIN_URL.'tooltip/jquery.darktooltip.min.js', array('jquery'));
+		wp_enqueue_style('ris-tool-tip-css', URIS_PLUGIN_URL.'tooltip/darktooltip.min.css');
 		
 		//color-picker css n js
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'ris-color-picker-script', plugins_url('js/wl-color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
 
 		// code-mirror css & js for custom css section
-		wp_enqueue_style('ris_codemirror-css', WRIS_PLUGIN_URL.'css/codemirror/codemirror.css');
-		wp_enqueue_style('ris_blackboard', WRIS_PLUGIN_URL.'css/codemirror/blackboard.css');
-		wp_enqueue_style('ris_show-hint-css', WRIS_PLUGIN_URL.'css/codemirror/show-hint.css');
+		wp_enqueue_style('ris_codemirror-css', URIS_PLUGIN_URL.'css/codemirror/codemirror.css');
+		wp_enqueue_style('ris_blackboard', URIS_PLUGIN_URL.'css/codemirror/blackboard.css');
+		wp_enqueue_style('ris_show-hint-css', URIS_PLUGIN_URL.'css/codemirror/show-hint.css');
 		
-		wp_enqueue_script('ris_codemirror-js',WRIS_PLUGIN_URL.'css/codemirror/codemirror.js',array('jquery'));
-		wp_enqueue_script('ris_css-js',WRIS_PLUGIN_URL.'css/codemirror/ris-css.js',array('jquery'));
-		wp_enqueue_script('ris_css-hint-js',WRIS_PLUGIN_URL.'css/codemirror/css-hint.js',array('jquery'));
+		wp_enqueue_script('ris_codemirror-js',URIS_PLUGIN_URL.'css/codemirror/codemirror.js',array('jquery'));
+		wp_enqueue_script('ris_css-js',URIS_PLUGIN_URL.'css/codemirror/ris-css.js',array('jquery'));
+		wp_enqueue_script('ris_css-hint-js',URIS_PLUGIN_URL.'css/codemirror/css-hint.js',array('jquery'));
 
 		require_once('ultimate-responsive-image-slider-settings-meta-box.php');		
 	}
 	
 	public function ris_shotcode_meta_box_function() { ?>
-		<p><?php _e("Use below shortcode in any Page/Post to publish your slider", WRIS_TEXT_DOMAIN);?></p>
+		<p><?php _e("Use below shortcode in any Page/Post to publish your slider", URIS_TD);?></p>
 		<input readonly="readonly" type="text" value="<?php echo "[URIS id=".get_the_ID()."]"; ?>">
 		<?php 
 	}
@@ -491,7 +402,7 @@ class WRIS {
 		$UniqueString = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
         ?>
 		<li class="rpg-image-entry" id="rpg_img">
-			<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  WRIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
+			<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  URIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
 			<div class="rpp-admin-inner-div1" >
 				<img src="<?php echo esc_url( $image1[0] ); ?>" class="rpg-meta-image" alt=""  style="">
 				</div>
@@ -500,13 +411,13 @@ class WRIS {
 				<input type="text" id="rpggallery_admin_thumb[]" name="rpggallery_admin_thumb[]" class="rpg_label_text"  value="<?php echo esc_url( $image1[0] ); ?>"  readonly="readonly" style="display:none;" />
 				<input type="text" id="rpggallery_admin_large[]" name="rpggallery_admin_large[]" class="rpg_label_text"  value="<?php echo esc_url( $image3[0] ); ?>"  readonly="readonly" style="display:none;" />
 				<p>
-					<label><?php _e('Slide Title', WRIS_TEXT_DOMAIN); ?></label>
-					<input type="text" id="rpgp_image_label[]" name="rpgp_image_label[]" placeholder="<?php _e('Enter Slide Title Here', WRIS_TEXT_DOMAIN); ?>" class="rpg_label_text">
+					<label><?php _e('Slide Title', URIS_TD); ?></label>
+					<input type="text" id="rpgp_image_label[]" name="rpgp_image_label[]" placeholder="<?php _e('Enter Slide Title Here', URIS_TD); ?>" class="rpg_label_text">
 				</p>
 				<p>
-					<label><?php _e('Slide Description', WRIS_TEXT_DOMAIN); ?></label>
-					<textarea rows="4" cols="50" id="rpgp_image_desc[]" name="rpgp_image_desc[]" placeholder="<?php _e('Enter Slide Description Here', WRIS_TEXT_DOMAIN); ?>" class="urisp_richeditbox_<?php echo $id; ?> rpg_label_text"></textarea>
-					<button type="button" class="btn btn-md btn-info btn-block" data-toggle="modal" data-target="#myModal" onclick="urisp_richeditor(<?php echo $id; ?>)"><?php _e('Use Rich Text Editor', WRIS_TEXT_DOMAIN); ?> <i class="fa fa-edit"></i></button>
+					<label><?php _e('Slide Description', URIS_TD); ?></label>
+					<textarea rows="4" cols="50" id="rpgp_image_desc[]" name="rpgp_image_desc[]" placeholder="<?php _e('Enter Slide Description Here', URIS_TD); ?>" class="urisp_richeditbox_<?php echo $id; ?> rpg_label_text"></textarea>
+					<button type="button" class="btn btn-md btn-info btn-block" data-toggle="modal" data-target="#myModal" onclick="urisp_richeditor(<?php echo $id; ?>)"><?php _e('Use Rich Text Editor', URIS_TD); ?> <i class="fa fa-edit"></i></button>
 				</p>
 			</div>
 		</li>
@@ -622,43 +533,23 @@ class WRIS {
 	}
 }
 
-global $WRIS;
-$WRIS = WRIS::forge();
+global $URIS;
+$URIS = URIS::forge();
 
 /**
  * upgrade to pro
  */
 add_action('admin_menu' , 'uris_pro_SettingsPage');
 function uris_pro_SettingsPage() {
-	function uris_upgrade_pro_function() {
-		wp_enqueue_style('wl-font-awesome-5.0.8', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
-		wp_enqueue_style('wl-pricing-table-css', WRIS_PLUGIN_URL.'css/pricing-table.css');
-		wp_enqueue_style('wl-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
-		require_once("get-uris-pro.php");
-	}
-	
+	add_submenu_page('edit.php?post_type=ris_gallery', 'Help and Support', 'Help and Support', 'administrator', 'RIS-Help-page', 'RIS_Help_and_Support_page');
 	function RIS_Help_and_Support_page() {
-		wp_enqueue_style('bootstrap-admin.css', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
+		wp_enqueue_style('bootstrap-admin.css', URIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
 		require_once("help_and_support.php");
 	}
-	
-	function uris_our_products_function() {
-		wp_enqueue_style('wl-boot-strap-admin', WRIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap.min-product.css');
-		wp_enqueue_style('wl-font-awesome-5', WRIS_PLUGIN_URL.'css/font-awesome-latest/css/fontawesome-all.min.css');
-    	require_once("our_product.php");
-	}
-	
-	function uris_recommendation_function() {
-		wp_enqueue_style('recom2', WRIS_PLUGIN_URL.'css/recom.css');
-    	require_once("recommendations.php");
-	}	
-	add_submenu_page('edit.php?post_type=ris_gallery', 'Upgrade To Pro', 'Upgrade To Pro', 'administrator', 'ris_gallery', 'uris_upgrade_pro_function');
-	add_submenu_page('edit.php?post_type=ris_gallery', 'Help and Support', 'Help and Support', 'administrator', 'RIS-Help-page', 'RIS_Help_and_Support_page');
-	add_submenu_page('edit.php?post_type=ris_gallery', 'Our Products', 'Our Products', 'administrator', 'RIS-Our-Products', 'uris_our_products_function');
-	add_submenu_page('edit.php?post_type=ris_gallery', 'Recommendation', 'Recommendation', 'administrator', 'RIS-Recommendation', 'uris_recommendation_function');
 }
+
 /**
- * Weblizar RIS Short Code [URIS]
+ * URIS Short Code
  */
 require_once("ultimate-responsive-image-slider-short-code.php");
 ?>

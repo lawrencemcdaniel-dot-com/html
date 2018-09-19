@@ -195,26 +195,26 @@ if ( ! function_exists( 'smile_style_dashboard' ) ) {
 			$style_id            = isset( $_GET['style_id'] ) ? $_GET['style_id'] : '';
 			$smile_variant_tests = isset( $smile_variant_tests[ $style_id ] ) ? $smile_variant_tests[ $style_id ] : '';
 			$style_name          = isset( $_GET['style'] ) ? $_GET['style'] : '';
-			$page 				 = isset( $_GET['page'] ) ? $_GET['page'] : '';
-			
+			$page                = isset( $_GET['page'] ) ? $_GET['page'] : '';
+
 			$option = '';
-			if( $page == 'smile-info_bar-designer' ){
-				$option  = 'smile_info_bar_styles';
-			}else if( $page == 'smile-modal-designer' ){
-				$option  = 'smile_modal_styles';
-			}else{
-				$option  = 'smile_slide_in_styles';
+			if ( 'smile-info_bar-designer' === $page ) {
+				$option = 'smile_info_bar_styles';
+			} elseif ( 'smile-modal-designer' === $page ) {
+				$option = 'smile_modal_styles';
+			} else {
+				$option = 'smile_slide_in_styles';
 			}
-			
+
 			if ( isset( $_GET['variant-style'] ) ) {
 				if ( is_array( $smile_variant_tests ) && ! empty( $smile_variant_tests ) ) {
 					if ( isset( $_GET['action'] ) && 'new' === $_GET['action'] ) {
-						$prev_styles    = get_option( $option );
-						$key            = search_style( $prev_styles, $style_id );
-						$style_settings = $prev_styles[ $key ];
-						$style_settings = unserialize( $style_settings['style_settings'] );
+						$prev_styles            = get_option( $option );
+						$key                    = search_style( $prev_styles, $style_id );
+						$style_settings         = $prev_styles[ $key ];
+						$style_settings         = unserialize( $style_settings['style_settings'] );
 						$style_settings['live'] = 0;
-						$old_style      = $style_settings['style'];
+						$old_style              = $style_settings['style'];
 					} else {
 						foreach ( $smile_variant_tests as $key => $array ) {
 							if ( $array['style_id'] == $variant_style ) {
@@ -226,12 +226,12 @@ if ( ! function_exists( 'smile_style_dashboard' ) ) {
 						}
 					}
 				} elseif ( isset( $_GET['action'] ) && 'new' === $_GET['action'] ) {
-					$prev_styles    = get_option( $option );
-					$key            = search_style( $prev_styles, $style_id );
-					$style_settings = $prev_styles[ $key ];
-					$style_settings = unserialize( $style_settings['style_settings'] );
+					$prev_styles            = get_option( $option );
+					$key                    = search_style( $prev_styles, $style_id );
+					$style_settings         = $prev_styles[ $key ];
+					$style_settings         = unserialize( $style_settings['style_settings'] );
 					$style_settings['live'] = 0;
-					$old_style      = $style_settings['style'];
+					$old_style              = $style_settings['style'];
 				}
 			} elseif ( isset( $_GET['style'] ) ) {
 				$style_id    = esc_attr( $_GET['style'] );
@@ -459,7 +459,7 @@ if ( ! function_exists( 'smile_style_dashboard' ) ) {
 								<input type="hidden" name="style_id" value="<?php echo $new_style_id; ?>" />
 								<input type="hidden" name="option" value="<?php echo $data_option; ?>" />
 								<?php if ( isset( $_GET['variant-style'] ) ) { ?>
-								<?php if( isset( $_GET['action'] ) ){ ?>
+								<?php if ( isset( $_GET['action'] ) ) { ?>
 								<input type="hidden" name="variant-action" value="<?php echo $_GET['action']; ?>" />
 								<?php } ?>
 								<input type="hidden" name="variant-style" value="<?php echo $_GET['variant-style']; ?>" />
@@ -766,7 +766,7 @@ if ( ! function_exists( 'smile_style_dashboard' ) ) {
 																			$link = sprintf( __( 'What would you like to do with current %s ? ', 'smile' ), ucwords( str_replace( '_', ' ', $module ) ) );
 																			?>
 																		swal({
-																			title: "<?php echo $link;?>
+																			title: "<?php echo $link; ?>
 																			",
 																			text: "<span class='cp-discard-popup' style='position: absolute;top: 0;right: 0;'><i class='connects-icon-cross'></i></span>",
 																			type: "warning",

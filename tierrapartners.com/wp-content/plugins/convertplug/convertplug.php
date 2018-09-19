@@ -4,7 +4,7 @@
 	Plugin URI: https://www.convertplug.com/plus
 	Author: Brainstorm Force
 	Author URI: https://www.brainstormforce.com
-	Version: 3.3.2
+	Version: 3.3.4
 	Description: Welcome to Convert Plus - the easiest WordPress plugin to convert website traffic into leads. Convert Plus will help you build email lists, drive traffic, promote videos, offer coupons and much more!
 	Text Domain: smile
 	License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -13,10 +13,10 @@
  */
 
 // Prohibit direct script loading.
-	defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
+defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 if ( ! defined( 'CP_VERSION' ) ) {
-	define( 'CP_VERSION', '3.3.2' );
+	define( 'CP_VERSION', '3.3.4' );
 }
 
 if ( ! defined( 'CP_BASE_DIR' ) ) {
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'cp_admin_scripts' ), 100 );
 			add_filter( 'bsf_core_style_screens', array( $this, 'cp_add_core_styles' ) );
 			add_action( 'admin_head', array( $this, 'cp_custom_css' ) );
-			add_action( 'admin_init', array( $this, 'cp_redirect_on_activation' ),1 );
+			add_action( 'admin_init', array( $this, 'cp_redirect_on_activation' ), 1 );
 			add_filter( 'plugin_action_links_' . CP_DIR_FILE_NAME, array( $this, 'cp_action_links' ), 10, 5 );
 			add_action( 'wp_ajax_cp_display_preview_modal', array( $this, 'cp_display_preview_modal' ) );
 			add_action( 'wp_ajax_cp_display_preview_info_bar', array( $this, 'cp_display_preview_info_bar' ) );
@@ -200,8 +200,6 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 			// conflict due to imagify plugin.
 			add_action( 'wp_print_scripts', array( $this, 'cp_dequeue_script_imagify' ), 999 );
 
-			add_filter( 'script_loader_tag', array( $this, 'cp_dequeue_script_amazon' ), 999, 3 );
-
 			self::$cp_dev_mode = $data['cp-dev-mode'];
 
 			// skip registration menu.
@@ -213,7 +211,12 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 
 			// change registration page URL.
 			add_action( 'bsf_registration_page_url_14058953', array( $this, 'cp_get_registration_page_url' ) );
-		
+
+			/* Css Asynchronous Loading */
+			add_action( 'wp_head', array( $this, 'cp_load_css_async' ), 7 );
+			add_filter( 'style_loader_tag', array( $this, 'cp_link_to_load_css_script' ), 999, 3 );
+			add_filter( 'script_loader_tag', array( $this, 'cp_dequeue_script_amazon' ), 999, 3 );
+
 		}
 
 		/**
@@ -276,6 +279,17 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 			}
 
 			return $url;
+		}
+
+		/**
+		 * Function Name: cp_load_css_async.
+		 * Function Description: load_css_async.
+		 */
+		function cp_load_css_async() {		
+
+			$scripts  = '<script>function cpLoadCSS(e,t,n){"use strict";var i=window.document.createElement("link"),o=t||window.document.getElementsByTagName("script")[0];return i.rel="stylesheet",i.href=e,i.media="only x",o.parentNode.insertBefore(i,o),setTimeout(function(){i.media=n||"all"}),i}</script>';
+
+			echo $scripts;
 		}
 
 		/**
@@ -990,7 +1004,7 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		function cp_redirect_on_activation() {	
+		function cp_redirect_on_activation() {
 			if ( true === get_option( 'convert_plug_redirect' ) || '1' === get_option( 'convert_plug_redirect' ) ) {
 				update_option( 'convert_plug_redirect', false );
 				$this->create_default_campaign();
@@ -1134,6 +1148,8 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 					// conflict with voux theme.
 					wp_dequeue_script( 'thb-admin-meta' );
 					wp_dequeue_script( 'ocdi-main-js' );
+					// conflict with Easy Pricing Table
+                    wp_dequeue_script( 'jscolor' );
 
 				}
 			}
@@ -1172,7 +1188,7 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 				'cp-module-main-js',
 				'smile-modal-script',
 				'smile-info-bar-script',
-				'smile-slide-in-script'
+				'smile-slide-in-script',
 			);
 
 			if ( in_array( $handle, $defer_scripts ) ) {
@@ -1180,6 +1196,77 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 			}
 
 			return  $tag;
+		}
+		
+		/**
+		 * Function Name: cp_link_to_load_css_script.
+		 * Function Description: cp_link_to_load_css_script.
+		 *
+		 * @param string $html html.
+		 * @param string $handle handle.
+		 * @param string $href href.
+		 */
+		function cp_link_to_load_css_script( $html, $handle, $href ) {			
+
+			$load_async = array(
+				'smile-modal-style',
+				'smile-info-bar-style',
+				'smile-slide-in-style',
+				'cp-module-main-style'			
+			);
+
+			if ( is_admin() ) {
+				return $html;
+			}
+
+			$inline_arr = array(
+				'every_design-cp',
+				'blank-cp',
+				'countdown-cp',
+				'direct_download-cp',
+				'first_order-cp',
+				'first_order_2-cp',
+				'flat_discount-cp',
+				'free_ebook-cp',
+				'instant_coupon-cp',
+				'jugaad-cp',
+				'locked_content-cp',
+				'optin_to_win-cp',
+				'social_article-cp',
+				'social_inline_share-cp',
+				'social_media-cp',
+				'social_media_with_form-cp',
+				'social_widget_box-cp',
+				'special_offer-cp',
+				'webinar-cp',
+				'youtube-cp',
+				'free_trial-cp',
+				'get_this_deal-cp',
+				'image_preview-cp',
+				'newsletter-cp',
+				'social_info_bar-cp',
+				'weekly_article-cp',
+				'floating_social_bar-cp',
+				'free_widget-cp',
+				'optin-cp',
+				'optin_widget-cp',
+				'social_fly_in-cp',
+				'social_widget_box-cp',
+				'subscriber_newsletter-cp'
+			);
+
+			foreach( $inline_arr as $needle ){
+		        if ( strpos($handle, $needle) !== false ) {
+		           array_push($load_async, $handle);
+		        }
+		    }
+
+			if ( in_array( $handle, $load_async ) ) {								
+				$cp_script = "<script>document.addEventListener('DOMContentLoaded', function(event) {  if( typeof cpLoadCSS !== 'undefined' ) { cpLoadCSS('" . $href . "', 0, 'all'); } }); </script>\n";
+				$html      = $cp_script;
+			}			
+
+			return $html;
 		}
 
 		/**

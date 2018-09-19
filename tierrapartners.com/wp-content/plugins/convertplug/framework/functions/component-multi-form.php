@@ -848,7 +848,7 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 	if ( isset( $a['mailer'] ) && 'custom-form' === $a['mailer'] ) {
 
 		// if Form - Custom?
-		echo '<div class="custom-html-form" data-style="'.$style_id.'">' . do_shortcode( $a['custom_html_form'] ) . '</div>';
+		echo '<div class="custom-html-form" data-style="' . $style_id . '">' . do_shortcode( $a['custom_html_form'] ) . '</div>';
 
 	} else {
 			// apply button styles.
@@ -872,7 +872,7 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 			// Submit button alignment.
 			$class_submit         .= ( isset( $a['form_submit_align'] ) && '' != $a['form_submit_align'] ) ? ' ' . $a['form_submit_align'] : '';
 			$class_shadow         .= ( isset( $a['input_shadow'] ) && '' != $a['input_shadow'] ) ? '' . 'enable_input_shadow' : '';
-			$enable_field_attached = ( isset( $a['btn_attached_email'] ) && ('1' === $a['btn_attached_email'] || 1 === $a['btn_attached_email'] )&& isset( $a['form_layout'] ) && 'cp-form-layout-3' === $a['form_layout'] ) ? '' . 'enable-field-attached' : '';
+			$enable_field_attached = ( isset( $a['btn_attached_email'] ) && ( '1' === $a['btn_attached_email'] || 1 === $a['btn_attached_email'] ) && isset( $a['form_layout'] ) && 'cp-form-layout-3' === $a['form_layout'] ) ? '' . 'enable-field-attached' : '';
 
 		if ( isset( $a['form_layout'] ) ) {
 
@@ -999,10 +999,10 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 									$data_value  = array();
 									foreach ( $all as $parent_key => $parent_value ) {
 
-										$single = explode( '|', $parent_value );
+										$single   = explode( '|', $parent_value );
 										$single_1 = ( isset( $single[1] ) ) ? $single[1] : '';
 
-										if ( '' !== $single && ! (false !== strpos( $single_1, 'hidden' ) )) {
+										if ( '' !== $single && ! ( false !== strpos( $single_1, 'hidden' ) ) ) {
 											$data_value['order'] = ( isset( $single[0] ) ) ? $single[0] : '';
 										}
 									}
@@ -1026,7 +1026,7 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 											$s[1] = ( isset( $s[1] ) ) ? $s[1] : '';
 
 											// remove all slashes from string.
-											$s[1] = stripslashes_deep( $s[1] );											
+											$s[1] = stripslashes_deep( $s[1] );
 											// Sanitize string.
 											// avoided drop down values from sanitize.
 											if ( 'dropdown_options' !== $s[0] && 'input_name' !== $s[0] && 'input_label' !== $s[0] ) {
@@ -1076,45 +1076,45 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 										// Store all Hidden fields.
 										if ( 'hidden' === $type ) {
 
-											//Retreive current page url.
-											if ( 'page_url' === $name ) {
+											// Retreive current page url.
+											if ( ( 'page_url' === $name ) || ( 'PAGE_URL' === $name ) ) {
 												if ( '' === $hidden_value ) {
 													$hidden_value = esc_url( get_permalink() );
 												}
 											}
 
-											//Retrieve user IP.
-											if ( ( 'IP' === $name || 'ip' === $name || 'ip_address' === $name ) && ('' === $hidden_value) ) {
+											// Retrieve user IP.
+											if ( ( 'IP' === $name || 'ip' === $name || 'ip_address' === $name ) && ( '' === $hidden_value ) ) {
 												$hidden_value = cp_get_the_user_ip();
 											}
 
-											//Set time.
-											if( 'time' === $name ){
+											// Set time.
+											if ( 'time' === $name ) {
 												$timezone_settings = get_option( 'convert_plug_settings' );
 												$timezone_name     = $timezone_settings['cp-timezone'];
-												$current_time = '';
+												$current_time      = '';
 
-												if ( 'wordpress' === $timezone_name ) {
+												if ( 'WordPress' === $timezone_name ) {
 
 													$tzstring = get_option( 'timezone_string' );
-												    $offset   = get_option( 'gmt_offset' );
+													$offset   = get_option( 'gmt_offset' );
 
-												    if( empty( $tzstring ) && 0 != $offset && floor( $offset ) == $offset ){
-												        $offset_st = $offset > 0 ? "-$offset" : '+'.absint( $offset );
-												        $tzstring  = 'Etc/GMT'.$offset_st;
-												    }
+													if ( empty( $tzstring ) && 0 != $offset && floor( $offset ) == $offset ) {
+														$offset_st = $offset > 0 ? "-$offset" : '+' . absint( $offset );
+														$tzstring  = 'Etc/GMT' . $offset_st;
+													}
 
-												    //Issue with the timezone selected, set to 'UTC'
-												    if( empty( $tzstring ) ){
-												        $tzstring = 'UTC';
-												    }
+													// Issue with the timezone selected, set to 'UTC'.
+													if ( empty( $tzstring ) ) {
+														$tzstring = 'UTC';
+													}
 
-												    $timezone = new DateTimeZone( $tzstring );
-													$time = new DateTime( null, $timezone );
+													$timezone     = new DateTimeZone( $tzstring );
+													$time         = new DateTime( null, $timezone );
 													$hidden_value = $time->format( 'H:i:s' );
 												} elseif ( 'system' === $timezone_name ) {
 													$hidden_value = current_time( 'H:i:s' );
-												}	
+												}
 											}
 
 											$hidden_fields .= '<input class="cp-input cp-' . $type . '"'
@@ -1129,7 +1129,7 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 
 												$last_input = $enable_field_attached;
 												// Apply box shadow to submit button - If its set & equals to - 1.
-												if ( isset( $a['btn_shadow'] ) && ('1' === $a['btn_shadow'] || 1 === $a['btn_shadow']) && '' !== $last_input ) {
+												if ( isset( $a['btn_shadow'] ) && ( '1' === $a['btn_shadow'] || 1 === $a['btn_shadow'] ) && '' !== $last_input ) {
 													$last_input .= ' cp-enable-box-shadow';
 												}
 											} else {
@@ -1179,7 +1179,7 @@ if ( ! function_exists( 'cp_get_form_init' ) ) {
 															}
 															break;
 														case 'checkbox':        // checkbox.
-														$label = do_shortcode( html_entity_decode( stripcslashes( htmlspecialchars( $label ) ) ) );
+															$label = do_shortcode( html_entity_decode( stripcslashes( htmlspecialchars( $label ) ) ) );
 
 															echo '<label class="cp-label"><input class="cp-input cp-' . $type . '"'
 															. ' type="' . $type . '"'

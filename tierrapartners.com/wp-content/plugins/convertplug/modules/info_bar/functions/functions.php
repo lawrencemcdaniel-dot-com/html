@@ -248,7 +248,7 @@ if ( ! function_exists( 'cp_ib_global_before_init' ) ) {
 		// timezone.
 		$cp_settings   = get_option( 'convert_plug_settings' );
 		$timezone_name = $cp_settings['cp-timezone'];
-		$timezone      = cp_get_timezone_init();		
+		$timezone      = cp_get_timezone_init();
 
 		$schedular_tmz_offset = get_option( 'gmt_offset' );
 		if ( '' === $schedular_tmz_offset ) {
@@ -512,9 +512,9 @@ if ( ! function_exists( 'cp_ib_global_before_init' ) ) {
 
 		// Custom selector.
 		$custom_selector = '';
-		$custom_selector = isset( $a['custom_selector'] ) ? cp_get_custom_slector_init( $a['custom_selector'] ): '';		
-		if( '' !== $custom_selector ){
-			$ib_custom_class      .= ' '.cp_get_custom_slector_class_init( $a['custom_selector'] );
+		$custom_selector = isset( $a['custom_selector'] ) ? cp_get_custom_slector_init( $a['custom_selector'] ) : '';
+		if ( '' !== $custom_selector ) {
+			$ib_custom_class .= ' ' . cp_get_custom_slector_class_init( $a['custom_selector'] );
 		}
 		// set data variables and class name for ifb_onload.
 		$ifb_inline_cls = ( ! $is_inline ) ? ' content-' . $uid . ' ' . $style_id . ' ' . $ib_custom_class : '';
@@ -560,14 +560,18 @@ if ( ! function_exists( 'cp_ib_global_before_init' ) ) {
 		$infobar_global_data .= 'id = "' . esc_attr( $ib_custom_id ) . ' " ';
 		$infobar_global_data .= 'data-custom-selector = "' . esc_attr( $custom_selector ) . '"';
 
-		$custom_css_class = isset( $a['custom_css_class'] ) ? $a['custom_css_class'] :'';
+		$custom_css_class = isset( $a['custom_css_class'] ) ? $a['custom_css_class'] : '';
 
+		//Close gravity form after submission or not?
+		$cp_close_gravity     = isset( $convert_plug_settings['cp-close-gravity'] ) ? $convert_plug_settings['cp-close-gravity'] : 1;
+		$gr_data = '';
+		$gr_data = 'data-close-gravity = "' . esc_attr( $cp_close_gravity ) . '"';
 		?>
 
 		<input type="hidden" id="cp-push-down-support" value="<?php echo $push_page_input; ?>">
 		<input type="hidden" id="cp-top-offset-container" value="<?php echo $top_offset_container; ?>">
 
-		<div <?php echo  $infobar_global_data; ?> class="<?php echo  $class_ifb; echo $custom_css_class;?> " style="min-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;" data-style-id ="<?php echo $style_id; ?>" data-module-name ="infobar" >
+		<div <?php echo  $infobar_global_data; ?> class="<?php echo  $class_ifb; echo $custom_css_class;?> " style="min-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;" data-style-id ="<?php echo $style_id; ?>" data-module-name ="infobar" <?php echo $gr_data;?>>
 			<div class="cp-info-bar-wrapper cp-clear">
 				<div class="cp-info-bar-body-overlay"></div>
 				<div class="cp-flex cp-info-bar-body <?php echo esc_attr( $ib_close_class ); ?>" style="min-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;" data-height=''>
@@ -606,7 +610,7 @@ if ( ! function_exists( 'cp_ib_global_after_init' ) ) {
 		$style_id         = ( isset( $a['style_id'] ) ) ? $a['style_id'] : '';
 		$close_alt        = 'close-link';
 		$convert_plug_settings    = get_option( 'convert_plug_settings' );
-		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 1;	
+		$images_on_load = isset( $convert_plug_settings['cp-lazy-img'] ) ? $convert_plug_settings['cp-lazy-img']: 0;	
 
 		if ( is_user_logged_in() ) {
 			// if user has access to ConvertPlug, then only display edit style link.
@@ -647,10 +651,10 @@ if ( ! function_exists( 'cp_ib_global_after_init' ) ) {
 				$img_src  = cp_get_protocol_settings_init( $img_src );
 			}
 
-			if( $images_on_load ){
-				$ib_close_html  = '<img data-src ="' . $img_src . '" class="cp-close-img ' . $close_img_class . '" ' . $close_alt . ' >';
-			}else{
-				$ib_close_html  = '<img src="' . $img_src . '" class="' . $close_img_class . '" ' . $close_alt . ' >';
+			if ( $images_on_load ) {
+				$ib_close_html = '<img data-src ="' . $img_src . '" class="cp-close-img ' . $close_img_class . '" ' . $close_alt . ' >';
+			} else {
+				$ib_close_html = '<img src="' . $img_src . '" class="' . $close_img_class . '" ' . $close_alt . ' >';
 			}
 			$ib_close_class = 'ib-img-close';
 			$ib_img_width   = 'width:' . esc_attr( $a['close_img_width'] ) . 'px;';
@@ -706,8 +710,8 @@ if ( ! function_exists( 'cp_ib_global_after_init' ) ) {
 	<?php
 	$close_adj_class         = '';
 	$close_adjacent_position = ( isset( $a['adjacent_close_position'] ) ? $a['adjacent_close_position'] : 'cp-adjacent-right' );
-	$close_adj_class .= cp_get_close_adj_position( $close_adjacent_position );
-	
+	$close_adj_class        .= cp_get_close_adj_position( $close_adjacent_position );
+
 	if ( ! $is_inline && '0' === $a['close_info_bar_pos'] && 'do_not_close' !== $a['close_info_bar'] ) {
 		?>
 		<div class="ib-close <?php echo esc_attr( $ib_close_class ); ?> <?php echo esc_attr( $close_adj_class ); ?>" style=" <?php echo esc_attr( $ib_img_width ); ?>"><?php echo do_shortcode( $ib_close_html ); ?></div>
@@ -748,8 +752,9 @@ if ( isset( $a['mailer'] ) && '' !== $a['mailer'] && 'cp-form-layout-4' !== $a['
 	<div class="cp-form-processing-wrap" style="position: absolute; display:none; ">
 		<div class="cp-form-after-submit" style="line-height:<?php echo esc_attr( $a['infobar_height'] ); ?>px;">
 			<div class ="cp-form-processing">				
-				<?php $form_css ='width: 100px';
-				echo cp_get_form_process_html($form_css);
+				<?php
+				$form_css = 'width: 100px';
+				echo cp_get_form_process_html( $form_css );
 				?>
 			</div>
 			<div class ="cp-msg-on-submit" style="color:<?php echo esc_attr( $msg_color ); ?>"></div>

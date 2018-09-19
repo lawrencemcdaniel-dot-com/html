@@ -1,11 +1,9 @@
 <?php
 
 /**
- * Provide a public-facing view for the form
+ * Provide a public-facing view for the form.
+ * This file provide a public-facing view for the form.
  *
- * This file provide a public-facing view for the form
- *
- * @link       http://example.com
  * @since      1.0.0
  *
  * @package    PirateForms

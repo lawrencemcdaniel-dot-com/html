@@ -126,20 +126,24 @@ class Tribe__Events__Tickets__Eventbrite__Aggregator {
 			$eventbrite = $event['eventbrite'];
 
 			//setup object fields to use existing naming
-			$eventbrite->id       = empty( $event['EventBriteID'] ) ? null : tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event['EventBriteID'] );
-			$eventbrite->url      = empty( $event['EventURL'] ) ? null : esc_url( $event['EventURL'] );
+			$eventbrite->id             = empty( $event['EventBriteID'] ) ? null : tribe( 'eventbrite.sync.utilities' )->sanitize_absint( $event['EventBriteID'] );
+			$eventbrite->url            = empty( $event['EventURL'] ) ? null : esc_url( $event['EventURL'] );
 			$eventbrite->ticket_classes = empty( $eventbrite->tickets ) ? null : $eventbrite->tickets;
 			unset( $eventbrite->tickets );
 		} else {
-			$event_id = $event->ID;
-			$eventbrite = $item->eventbrite;
-			$eventbrite->url = empty( $item->url ) ? null : esc_url( $item->url );
-			$eventbrite->id = $item->eventbrite_id;
+			$event_id                   = $event->ID;
+			$eventbrite                 = $item->eventbrite;
+			$eventbrite->url            = empty( $item->url ) ? null : esc_url( $item->url );
+			$eventbrite->id             = $item->eventbrite_id;
 			$eventbrite->ticket_classes = empty( $item->eventbrite->tickets ) ? null : $item->eventbrite->tickets;
+
 			unset( $eventbrite->tickets );
 		}
 
 		$eventbrite->is_owner = empty( $item->is_owner ) ? null : $item->is_owner;
+
+		// Update Eventbrite privacy setting
+		tribe( 'eventbrite.sync.event' )->set_event_privacy_meta( $event_id, $eventbrite );
 
 		// set local status
 		$current_status = ( ! empty( $eventbrite->status ) ? esc_attr( $eventbrite->status ) : 'draft' );
@@ -151,9 +155,11 @@ class Tribe__Events__Tickets__Eventbrite__Aggregator {
 		update_post_meta( $event_id, '_EventShowTickets', $show_tickets );
 
 		// local Eventbrite setting for image sync
-		$image_sync_mode = get_post_meta( $event_id, '_eventbrite_image_sync_mode', true );
-		$image_sync_mode = ( isset( $image_sync_mode ) ? (int) $image_sync_mode : 1 );
-		update_post_meta( $event_id, '_eventbrite_image_sync_mode', $image_sync_mode );
+		$update_authority_setting = tribe( 'events-aggregator.settings' )->default_update_authority();
+
+		if ( 'overwrite' === $update_authority_setting ) {
+			update_post_meta( $event_id, '_eventbrite_image_sync_mode', (int) -1 );
+		}
 
 		// local Eventbrite setting to connect event to eventbrite
 		update_post_meta( $event_id, '_EventRegister', 'yes' );

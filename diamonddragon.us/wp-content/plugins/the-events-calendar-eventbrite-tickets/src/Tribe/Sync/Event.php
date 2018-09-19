@@ -111,6 +111,8 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 			'image_sync_mode' => 0,
 		);
 
+		$use_wp_img = get_post_meta( $post->ID, '_eventbrite_image_sync_mode', true );
+
 		/**
 		 * Whether to try and update the event on eventbrite.com to use the same featured image
 		 * as set locally (ie, within WordPress).
@@ -118,12 +120,12 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 		 * @var bool $synch   whether to synchronize
 		 * @var int  $post_id post ID of the event being updated
 		 */
-		$defaults['sync_image'] = apply_filters( 'tribe_eb_push_image', $defaults['sync_image'], $post->ID );
+		$defaults['sync_image'] = apply_filters( 'tribe_eb_push_image', $use_wp_img, $post->ID );
 
 		// Parse Defaults with params
 		$params = wp_parse_args( $params, $defaults );
 
-		$should_sync_image = tribe_is_truthy( $params['sync_image'] );
+		$should_use_wp_image = '1' === $params['sync_image'];
 
 		// Prepare/Sanitize $params
 		$params['status'] = strtolower( $params['status'] );
@@ -132,11 +134,26 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 			$params['show_tickets'] = 'yes';
 		}
 
-		// Any meta that is fully on our side updates here
+		// Most meta that is fully on our side updates here
 		update_post_meta( $post->ID, '_EventShowTickets', $params['show_tickets'] );
-		update_post_meta( $post->ID, '_eventbrite_image_sync_mode', $params['image_sync_mode'] );
 
 		$global_id = tribe_get_event_meta( $post->ID, '_tribe_aggregator_global_id', true );
+
+
+		$saved_privacy = get_post_meta( $post->ID, '_EventBritePrivacy', true );
+		$is_listed     = ! empty( $saved_privacy ) && 'not_listed' === $saved_privacy ? (int) 0 : (int) 1;
+
+		// If the privacy setting is changing in the wp-admin, honor that change.
+		if ( isset( $params['listed'] ) && (int) $params['listed'] !== $is_listed ) {
+
+			if ( 1 === (int) $params['listed'] ) {
+				update_post_meta( $post->ID, '_EventBritePrivacy', 'listed' );
+				$is_listed = (int) 1;
+			} else {
+				update_post_meta( $post->ID, '_EventBritePrivacy', 'not_listed' );
+				$is_listed = (int) 0;
+			}
+		}
 
 		$args = array(
 			'global_id'              => tribe( 'eventbrite.sync.utilities' )->get_global_id( $post->ID, '_EventBriteId', 'event' ),
@@ -149,7 +166,7 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 			'event.end.timezone'     => $timezone,
 			'event.currency'         => 'USD',
 			'event.online_event'     => 0,
-			'event.listed'           => 1,
+			'event.listed'           => (int) $is_listed,
 			'event.shareable'        => 0,
 			'event.invite_only'      => 0,
 			'event.show_remaining'   => 1,
@@ -158,12 +175,11 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 		);
 
 		// Sync Image
-		if ( ! $is_migrating && $should_sync_image ) {
+		if ( ! $is_migrating && $should_use_wp_image ) {
 			$args['event.logo'] = tribe( 'eventbrite.sync.utilities' )->sync_image( $post );
-		}
 
 		// Never send logo if we don't have it, Evenbrite API freaks out
-		if ( ! $args['event.logo'] ) {
+		} elseif ( isset( $args['event.logo'] ) ) {
 			unset( $args['event.logo'] );
 		}
 
@@ -411,6 +427,10 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 			}
 		}
 
+		// Capture and store the privacy setting early.
+		if ( isset( $_POST['EventBritePrivacy'] ) && ! empty( $_POST['EventBritePrivacy'] ) ) {
+			update_post_meta( $event->ID, '_EventBritePrivacy', $_POST['EventBritePrivacy'] );
+		}
 
 		if ( ! $evenbrite_id ) {
 			$cost = tribe( 'tec.cost-utils' )->parse_cost_range( '00.00 ' . $_POST['EventBriteEventCost'], 2 );
@@ -430,5 +450,28 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 		}
 
 		return $this->get_event_data( $event, $args );
+	}
+
+	/**
+	 * Sets the WP event's privacy meta, which will be synced with the Eventbrite.com version of the event.
+	 *
+	 * @since 4.5.3
+	 *
+	 * @param int $wp_event_it ID of the WP post.
+	 * @param object $eventbrite_event_obj The Eventbrite API response being checked.
+	 * @return bool True if postmeta updated successfully.
+	 */
+	public function set_event_privacy_meta( $wp_event_id, $eventbrite_event_obj ) {
+		$privacy = 'listed';
+
+		if ( ! isset( $eventbrite_event_obj->listed ) || empty( $eventbrite_event_obj->listed ) ) {
+			$privacy = 'not_listed';
+		}
+
+		if ( isset( $eventbrite_event_obj->listed ) && (int) 1 !== $eventbrite_event_obj->listed ) {
+			$privacy = 'not_listed';
+		}
+
+		return update_post_meta( $wp_event_id, '_EventBritePrivacy', $privacy );
 	}
 }

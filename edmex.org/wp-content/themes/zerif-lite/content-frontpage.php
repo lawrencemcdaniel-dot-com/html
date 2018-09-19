@@ -79,11 +79,12 @@ if ( ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) || is_cu
 }
 
 		/* CONTACT US */
-		$zerif_contactus_show = get_theme_mod( 'zerif_contactus_show' );
+		$zerif_contactus_show           = get_theme_mod( 'zerif_contactus_show' );
+		$zerif_alternative_contact_form = get_theme_mod( 'zerif_contactus_shortcode' );
 
 if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_customize_preview() ) :
 	echo '<section class="contact-us ' . ( ( is_customize_preview() && ( ! isset( $zerif_contactus_show ) || $zerif_contactus_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="contact">';
-?>
+	?>
 <div class="container">
 	<!-- SECTION HEADER -->
 	<div class="section-header">
@@ -101,9 +102,9 @@ if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_cust
 			endif;
 
 			$contactus_subtitle_default = '';
-			if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
+			if ( ! defined( 'WPFORMS_PLUGIN_DIR' ) ) {
 				/* translators: Pirate Forms plugin install link */
-				$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
+				$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=wpforms-lite' ), 'install-plugin_wpforms-lite' ) ), 'WPForms' ) );
 			}
 
 			if ( current_user_can( 'edit_theme_options' ) ) {
@@ -117,17 +118,20 @@ if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_cust
 			} elseif ( is_customize_preview() ) {
 				echo '<h6 class="white-text section-legend zerif_hidden_if_not_customizer"></h6>';
 			}
-		?>
+			?>
 	</div>
 	<!-- / END SECTION HEADER -->
 
 	<?php
-	if ( defined( 'PIRATE_FORMS_VERSION' ) && shortcode_exists( 'pirate_forms' ) ) :
 
+	if ( ! empty( $zerif_alternative_contact_form ) ) :
 		echo '<div class="row">';
-			echo do_shortcode( '[pirate_forms]' );
+		echo do_shortcode( $zerif_alternative_contact_form );
 		echo '</div>';
-
+	elseif ( defined( 'PIRATE_FORMS_VERSION' ) && shortcode_exists( 'pirate_forms' ) ) :
+		echo '<div class="row">';
+		echo do_shortcode( '[pirate_forms]' );
+		echo '</div>';
 	endif;
 	?>
 

@@ -303,7 +303,7 @@ class Tribe__Events__Pro__Geo_Loc {
 	 * @return array
 	 */
 	public function filter_aggregator_add_overwrite_geolocation_column( $columns ) {
-		$columns['venue_overwrite_coords'] = esc_html__( 'Venue Overwrite Coordinates', 'the-events-calendar' );
+		$columns['venue_overwrite_coords'] = esc_html__( 'Venue Overwrite Coordinates', 'tribe-events-calendar-pro' );
 
 		return $columns;
 	}

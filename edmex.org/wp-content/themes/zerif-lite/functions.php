@@ -5,10 +5,17 @@
  * @package zerif-lite
  */
 
+
+
 $vendor_file = trailingslashit( get_template_directory() ) . 'vendor/autoload.php';
 if ( is_readable( $vendor_file ) ) {
 	require_once $vendor_file;
 }
+
+if ( ! defined( 'WPFORMS_SHAREASALE_ID' ) ) {
+	define( 'WPFORMS_SHAREASALE_ID', '848264' );
+}
+
 add_filter( 'themeisle_sdk_products', 'zerif_load_sdk' );
 /**
  * Loads products array.
@@ -28,7 +35,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.44' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.47' );
 
 
 
@@ -84,8 +91,10 @@ function zerif_setup() {
 		$zerif_default_image = get_template_directory_uri() . '/images/bg.jpg';
 	}
 	add_theme_support(
-		'custom-background', apply_filters(
-			'zerif_custom_background_args', array(
+		'custom-background',
+		apply_filters(
+			'zerif_custom_background_args',
+			array(
 				'default-color' => 'ffffff',
 				'default-image' => $zerif_default_image,
 			)
@@ -94,7 +103,8 @@ function zerif_setup() {
 
 	/* Enable support for HTML5 markup. */
 	add_theme_support(
-		'html5', array(
+		'html5',
+		array(
 			'comment-list',
 			'search-form',
 			'comment-form',
@@ -107,7 +117,8 @@ function zerif_setup() {
 
 	/* Enable support for custom logo */
 	add_theme_support(
-		'custom-logo', array(
+		'custom-logo',
+		array(
 			'flex-width' => true,
 		)
 	);
@@ -400,6 +411,9 @@ function zerif_setup() {
 			'deactivate_label'          => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'                   => array(
 				array(
+					'slug' => 'wpforms-lite',
+				),
+				array(
 					'slug' => 'translatepress-multilingual',
 				),
 				array(
@@ -435,12 +449,12 @@ function zerif_setup() {
 					'plugin_slug' => 'themeisle-companion',
 					'id'          => 'themeisle-companion',
 				),
-				'pirate-forms'        => array(
-					'title'       => 'Pirate Forms',
+				'wpforms-lite'        => array(
+					'title'       => 'WPForms',
 					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
 					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
-					'plugin_slug' => 'pirate-forms',
-					'id'          => 'pirate-forms',
+					'plugin_slug' => 'wpforms-lite',
+					'id'          => 'wpforms-lite',
 				),
 
 			),
@@ -486,6 +500,35 @@ function zerif_setup() {
 }
 
 add_action( 'after_setup_theme', 'zerif_setup' );
+
+/**
+ * Add compatibility with WooCommerce Product Images customizer controls.
+ */
+function zerif_set_woo_image_sizes() {
+
+	$execute = get_option( 'zerif_update_woocommerce_customizer_controls', false );
+	if ( $execute !== false ) {
+		return;
+	}
+
+	update_option( 'woocommerce_thumbnail_cropping', 'custom' );
+	update_option( 'woocommerce_thumbnail_cropping_custom_width', '3' );
+	update_option( 'woocommerce_thumbnail_cropping_custom_height', '2' );
+
+	if ( class_exists( 'WC_Regenerate_Images' ) ) {
+		$regenerate_obj = new WC_Regenerate_Images();
+		$regenerate_obj::init();
+		if ( method_exists( $regenerate_obj, 'maybe_regenerate_images' ) ) {
+			$regenerate_obj::maybe_regenerate_images();
+		} elseif ( method_exists( $regenerate_obj, 'maybe_regenerate_images_option_update' ) ) {
+			// Force woocommerce 3.3.1 to regenerate images
+			$regenerate_obj::maybe_regenerate_images_option_update( 1, 2, '' );
+		}
+	}
+
+	update_option( 'zerif_update_woocommerce_customizer_controls', true );
+}
+
 
 /**
  * Migrate logo from theme to core
@@ -633,11 +676,13 @@ function zerif_scripts() {
 	wp_enqueue_style( 'zerif_font', zerif_slug_fonts_url(), array(), null );
 
 	wp_enqueue_style(
-		'zerif_font_all', add_query_arg(
+		'zerif_font_all',
+		add_query_arg(
 			array(
 				'family' => urlencode( 'Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' ),
 				'subset' => urlencode( 'latin' ),
-			), '//fonts.googleapis.com/css'
+			),
+			'//fonts.googleapis.com/css'
 		)
 	);
 
@@ -756,8 +801,8 @@ function zerif_register_required_plugins() {
 				'required' => false,
 			),
 			array(
-				'name'     => 'Pirate Forms',
-				'slug'     => 'pirate-forms',
+				'name'     => 'WPForms',
+				'slug'     => 'wpforms-lite',
 				'required' => false,
 			),
 			array(
@@ -771,8 +816,8 @@ function zerif_register_required_plugins() {
 
 		$plugins = array(
 			array(
-				'name'     => 'Pirate Forms',
-				'slug'     => 'pirate-forms',
+				'name'     => 'WPForms',
+				'slug'     => 'wpforms-lite',
 				'required' => false,
 			),
 			array(
@@ -1904,7 +1949,8 @@ function zerif_starter_content() {
 	 * Starter Content Support
 	 */
 	add_theme_support(
-		'starter-content', array(
+		'starter-content',
+		array(
 			// Twenty Seventeen
 			'posts'     => array(
 				'home',
@@ -2061,36 +2107,127 @@ function megamenu_add_theme_zerif_lite_max_menu( $themes ) {
 add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );
 
 
-add_action( 'admin_notices', 'zerif_fagri_notice' );
 /**
- * Add a dismissible notice in the dashboard to let users know that we have a new child theme for Hestia, Fagri
- * TODO: Remove this in a future release
+ * Function that decide if current date is before a certain date.
+ *
+ * @param string $date Date to compare.
+ * @return bool
  */
-function zerif_fagri_notice() {
-	global $current_user;
-	$user_id = $current_user->ID;
-	/* Check that the user hasn't already clicked to ignore the message */
-	if ( ! get_user_meta( $user_id, 'zerif_ignore_fagri_notice' ) ) {
-		echo '<div class="notice updated" style="position:relative;">';
-		printf( '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>', '?zerif_nag_ignore_fagri=0' );
-		echo '<p>';
-		/* translators: Install Fagri link */
-		printf( esc_html__( 'We just launched a new free %s, you might like it.', 'zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'theme-install.php?theme=fagri' ), esc_html__( 'theme', 'zerif-lite' ) ) );
-		echo '</p>';
-		echo '</div>';
-	}
+function zerif_is_before_date( $date ) {
+	$countdown_time = strtotime( $date );
+	$current_time   = time();
+	return $current_time <= $countdown_time;
 }
 
-add_action( 'admin_init', 'zerif_nag_ignore_fagri' );
+/**
+ * Add a dismissible notice in the dashboard to let users know they can migrate to Hestia
+ */
+function zerif_hestia_notice() {
+	global $current_user;
+	$user_id = $current_user->ID;
+
+	$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_hestia_notice' );
+	if ( ! empty( $ignored_notice ) ) {
+		return;
+	}
+
+	$should_display_notice = zerif_is_before_date( '2018-11-01' );
+	if ( ! $should_display_notice ) {
+		return;
+	}
+
+	$message =
+		sprintf(
+			/* translators: Install Hestia link */
+			esc_html__( 'Check out our %s, fully compatible with your current Zerif Lite theme. You will love it!', 'zerif-lite' ),
+			sprintf(
+				'<a href="%1$s"><strong>%2$s</strong></a>',
+				admin_url( 'theme-install.php?theme=hestia' ),
+				esc_html__( 'best 2018 free theme', 'zerif-lite' )
+			)
+		);
+
+	$dismiss_button = sprintf(
+		'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
+		'?zerif_nag_ignore_hestia=0'
+	);
+
+	printf( '<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p></div>', $dismiss_button, $message );
+}
+add_action( 'admin_notices', 'zerif_hestia_notice' );
+
 
 /**
- * Update the zerif_ignore_fagri_notice option to true, to dismiss the notice from the dashboard
+ * Update the zerif_ignore_hestia_notice option to true, to dismiss the notice from the dashboard
  */
-function zerif_nag_ignore_fagri() {
+function zerif_nag_ignore_hestia() {
 	global $current_user;
 	$user_id = $current_user->ID;
 	/* If user clicks to ignore the notice, add that to their user meta */
-	if ( isset( $_GET['zerif_nag_ignore_fagri'] ) && '0' == $_GET['zerif_nag_ignore_fagri'] ) {
-		add_user_meta( $user_id, 'zerif_ignore_fagri_notice', 'true', true );
+	if ( isset( $_GET['zerif_nag_ignore_hestia'] ) && '0' == $_GET['zerif_nag_ignore_hestia'] ) {
+		add_user_meta( $user_id, 'zerif_ignore_hestia_notice', 'true', true );
 	}
 }
+add_action( 'admin_init', 'zerif_nag_ignore_hestia' );
+
+/**
+ * Add a dismissible notice in the dashboard to let users know they can migrate to Zelle and read about Zerif renaming
+ */
+function zerif_neve_notice() {
+	global $current_user;
+	$user_id = $current_user->ID;
+
+	$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
+	if ( ! empty( $ignored_notice ) ) {
+		return;
+	}
+
+	$should_display_notice = ! zerif_is_before_date( '2018-11-01' );
+	if ( ! $should_display_notice ) {
+		return;
+	}
+
+	$dismiss_button =
+		sprintf(
+			'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
+			'?zerif_nag_ignore_neve=0'
+		);
+
+	$message =
+		sprintf(
+			/* translators: Install Neve link and Zerif renaming article link */
+			esc_html__( 'Zerif changes its name and will no longer be maintained. But don\'t worry about that. Check out %1$s, fully compatible with Zerif Lite. It\'s free and it\'s superb. You will love it! %2$s about the Zerif renaming and our next plans.', 'zerif-lite' ),
+			sprintf(
+				/* translators: Install Neve link */
+				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
+				esc_url( 'https://themeisle.com/themes/neve/?notice=1' ),
+				esc_html__( 'our newest theme', 'zerif-lite' )
+			),
+			/* translators: Zerif renaming article link */
+			sprintf(
+				'<br><a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
+				esc_url( 'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' ),
+				esc_html__( 'Read more', 'zerif-lite' )
+			)
+		);
+
+	printf(
+		'<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p></div>',
+		$dismiss_button,
+		$message
+	);
+}
+add_action( 'admin_notices', 'zerif_neve_notice' );
+
+/**
+ * Update the zerif_ignore_hestia_notice option to true, to dismiss the notice from the dashboard
+ */
+function zerif_nag_ignore_neve() {
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* If user clicks to ignore the notice, add that to their user meta */
+	if ( isset( $_GET['zerif_nag_ignore_neve'] ) && '0' == $_GET['zerif_nag_ignore_neve'] ) {
+		add_user_meta( $user_id, 'zerif_ignore_neve_notice', 'true', true );
+	}
+}
+add_action( 'admin_init', 'zerif_nag_ignore_neve' );

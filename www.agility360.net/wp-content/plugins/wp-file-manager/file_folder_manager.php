@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/wp-file-manager
   Description: Manage your WP files.
   Author: mndpsingh287
-  Version: 2.9
+  Version: 3.1
   Author URI: https://profiles.wordpress.org/mndpsingh287
   License: GPLv2
 **/
@@ -241,7 +241,7 @@ if(!class_exists('mk_file_folder_manager')):
 		/* Admin  Things */
 		public function ffm_admin_things()
 		{
-				$getPage = isset($_GET['page']) ? $_GET['page'] : '';
+				$getPage = isset($_GET['page']) ? sanitize_text_field($_GET['page']) : '';
 				$allowedPages = array(
 									  'wp_file_manager'
 									  );
@@ -252,22 +252,24 @@ if(!class_exists('mk_file_folder_manager')):
 						wp_enqueue_script( 'elfinder_min', plugins_url('lib/js/elfinder.full.js',  __FILE__ ));	
 						wp_enqueue_style( 'theme', plugins_url('lib/css/theme.css', __FILE__));
 						// Languages
-						if(isset($_GET['lang']) && !empty($_GET['lang'])){
-							 set_transient( 'wp_fm_lang', $_GET['lang'] ,  60 * 60 * 720 );
-							 if($_GET['lang'] != 'en') {
-								wp_enqueue_script( 'fm_lang', plugins_url('lib/js/i18n/elfinder.'.$_GET['lang'].'.js',  __FILE__ ));	
+						$lang = isset($_GET['lang']) && !empty($_GET['lang']) ? sanitize_text_field($_GET['lang']) : '';
+						if(!empty($lang)){
+							 set_transient( 'wp_fm_lang', $lang ,  60 * 60 * 720 );
+							 if($lang != 'en') {
+								wp_enqueue_script( 'fm_lang', plugins_url('lib/js/i18n/elfinder.'.$lang.'.js',  __FILE__ ));	
 						        } 
 						} else if(false !== ( $wp_fm_lang = get_transient( 'wp_fm_lang' ) )) {
 							  if($wp_fm_lang != 'en') {
 							    wp_enqueue_script( 'fm_lang', plugins_url('lib/js/i18n/elfinder.'.$wp_fm_lang.'.js',  __FILE__ ));	 
 							  }
 						}
+						$theme = isset($_GET['theme']) && !empty($_GET['theme']) ? sanitize_text_field($_GET['theme']) : '';
 						// New Theme
-						if(isset($_GET['theme']) && !empty($_GET['theme'])){
+						if(!empty($theme)){
 							 delete_transient('wp_fm_theme');
-							 set_transient( 'wp_fm_theme', $_GET['theme'] ,  60 * 60 * 720 );
-							 if($_GET['theme'] != 'nwp_file_manager-color') {
-								wp_enqueue_style( 'theme-latest', plugins_url('lib/themes/'.$_GET['theme'].'/css/theme.css',  __FILE__ ));	
+							 set_transient( 'wp_fm_theme', $theme ,  60 * 60 * 720 );
+							 if($theme != 'default') {
+								wp_enqueue_style( 'theme-latest', plugins_url('lib/themes/'.$theme.'/css/theme.css',  __FILE__ ));	
 						       } 
 						} else if(false !== ( $wp_fm_theme = get_transient( 'wp_fm_theme' ) )) {
 							if($wp_fm_theme != 'default') {

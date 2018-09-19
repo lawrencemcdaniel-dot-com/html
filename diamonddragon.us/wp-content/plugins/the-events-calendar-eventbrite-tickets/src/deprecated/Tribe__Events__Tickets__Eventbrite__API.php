@@ -873,7 +873,9 @@ class Tribe__Events__Tickets__Eventbrite__API {
 
 		// Any meta that is fully on our side updates here
 		update_post_meta( $post->ID, '_EventShowTickets', $params['show_tickets'] );
-		update_post_meta( $post->ID, '_eventbrite_image_sync_mode', $params['image_sync_mode'] );
+
+		$current_privacy = get_post_meta( $post->ID, '_EventBritePrivacy', true );
+		$is_listed       = ! empty( $current_privacy ) && 'not_listed' === $current_privacy ? 0 : 1;
 
 		$args = array(
 			'event.name.html'         => $this->string_prepare( get_the_title( $post ) ),
@@ -884,7 +886,7 @@ class Tribe__Events__Tickets__Eventbrite__API {
 			'event.end.timezone'      => $timezone,
 			'event.currency'          => 'USD',
 			'event.online_event'      => 0,
-			'event.listed'            => 1,
+			'event.listed'            => (int) $is_listed,
 			'event.shareable'         => 0,
 			'event.invite_only'       => 0,
 			// 'event.password'       => null,
@@ -897,6 +899,7 @@ class Tribe__Events__Tickets__Eventbrite__API {
 			'event.organizer_id'      => $this->sync_organizer( $post ),
 			'event.venue_id'          => $this->sync_venue( $post ),
 		);
+
 
 		if ( isset( $params['sync_image'] ) && $params['sync_image'] ) {
 			$logo_id = $this->sync_image( $post );
@@ -1016,6 +1019,7 @@ class Tribe__Events__Tickets__Eventbrite__API {
 
 		//Get Current Status
 		$current_status = get_post_meta( $post->ID, '_EventBriteStatus', true );
+
 		/**
 		 * If no status try to get it from Eventbrite to save
 		 * This works on initial save of event or on existing events

@@ -59,12 +59,12 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		public $shortcodes;
 
 		const REQUIRED_TEC_VERSION = '4.6.22';
-		const VERSION = '4.4.31';
+		const VERSION = '4.4.32';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
 			$this->pluginPath = trailingslashit( EVENTS_CALENDAR_PRO_DIR );
-			$this->pluginUrl = plugins_url( $this->pluginDir );
+			$this->pluginUrl = plugins_url( $this->pluginDir, EVENTS_CALENDAR_PRO_DIR );
 			$this->pluginSlug = 'events-calendar-pro';
 
 			$this->loadTextDomain();
@@ -487,7 +487,6 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			Tribe__Events__Pro__Recurrence__Meta::init();
 			Tribe__Events__Pro__Geo_Loc::instance();
 			Tribe__Events__Pro__Community_Modifications::init();
-			$this->displayMetaboxCustomFields();
 			$this->custom_meta_tools = new Tribe__Events__Pro__Admin__Custom_Meta_Tools;
 			$this->single_event_meta = new Tribe__Events__Pro__Single_Event_Meta;
 			$this->single_event_overrides = new Tribe__Events__Pro__Recurrence__Single_Event_Overrides;
@@ -687,62 +686,6 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 				TribeRelatedPosts::instance();
 				require_once( $this->pluginPath . 'vendor/tribe-related-posts/template-tags.php' );
 			}
-		}
-
-		/**
-		 * Determines whether or not to show the custom fields metabox for events.
-		 *
-		 * @return bool Whether to show or not.
-		 */
-		public function displayMetaboxCustomFields() {
-			$show_box = tribe_get_option( 'disable_metabox_custom_fields' );
-			if ( $show_box == 'show' ) {
-				return true;
-			}
-			if ( $show_box == 'hide' ) {
-				remove_post_type_support( Tribe__Events__Main::POSTTYPE, 'custom-fields' );
-				return false;
-			}
-			if ( empty( $show_box ) ) {
-				global $wpdb;
-				$meta_keys = $wpdb->get_results(
-					"SELECT DISTINCT pm.meta_key FROM $wpdb->postmeta pm
-									LEFT JOIN $wpdb->posts p ON p.ID = pm.post_id
-									WHERE p.post_type = '" . Tribe__Events__Main::POSTTYPE . "'
-									AND pm.meta_key NOT LIKE '_wp_%'
-									AND pm.meta_key NOT IN (
-										'_edit_last',
-										'_edit_lock',
-										'_thumbnail_id',
-										'_EventConference',
-										'_EventAllDay',
-										'_EventHideFromUpcoming',
-										'_EventOrigin',
-										'_EventShowMap',
-										'_EventVenueID',
-										'_EventShowMapLink',
-										'_EventCost',
-										'_EventOrganizerID',
-										'_EventRecurrence',
-										'_EventStartDate',
-										'_EventEndDate',
-										'_EventDuration',
-										'_FacebookID')"
-				);
-				if ( empty( $meta_keys ) ) {
-					remove_post_type_support( Tribe__Events__Main::POSTTYPE, 'custom-fields' );
-					$show_box = 'hide';
-					$r = false;
-				} else {
-					$show_box = 'show';
-					$r = true;
-				}
-
-				tribe_update_option( 'disable_metabox_custom_fields', $show_box );
-
-				return $r;
-			}
-
 		}
 
 		/**
@@ -1374,9 +1317,9 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			$data = apply_filters( 'tribe_events_pro_localize_script', array(), 'TribeEventsProAdmin', Tribe__Events__Main::POSTTYPE.'-premium-admin' );
 			wp_localize_script( Tribe__Events__Main::POSTTYPE . '-premium-admin', 'TribeEventsProAdmin', $data );
 			wp_localize_script( Tribe__Events__Main::POSTTYPE . '-premium-admin', 'tribe_events_pro_recurrence_strings', array(
-				'date' => Tribe__Events__Pro__Recurrence__Meta::date_strings(),
+				'date'       => Tribe__Events__Pro__Recurrence__Meta::date_strings(),
 				'recurrence' => Tribe__Events__Pro__Recurrence__Strings::recurrence_strings(),
-				'exclusion' => array(),
+				'exclusion'  => array(),
 			) );
 		}
 
@@ -2135,6 +2078,66 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			tribe( 'events-pro.customizer.photo-view' );
 			tribe( 'events-pro.assets' );
 			tribe( 'events-pro.recurrence.nav' );
+		}
+
+		/**
+		 * Determines whether or not to show the custom fields metabox for events.
+		 *
+		 * @deprecated
+		 *
+		 * @return bool Whether to show or not.
+		 */
+		public function displayMetaboxCustomFields() {
+			_deprecated_function( __METHOD__, '4.4.32', 'Use tribe( "tec.admin.event-meta-box" )->display_wp_custom_fields_metabox() instead' );
+
+			$show_box = tribe_get_option( 'disable_metabox_custom_fields' );
+			if ( $show_box == 'show' ) {
+				return true;
+			}
+			if ( $show_box == 'hide' ) {
+				remove_post_type_support( Tribe__Events__Main::POSTTYPE, 'custom-fields' );
+				return false;
+			}
+			if ( empty( $show_box ) ) {
+				global $wpdb;
+				$meta_keys = $wpdb->get_results(
+					"SELECT DISTINCT pm.meta_key FROM $wpdb->postmeta pm
+									LEFT JOIN $wpdb->posts p ON p.ID = pm.post_id
+									WHERE p.post_type = '" . Tribe__Events__Main::POSTTYPE . "'
+									AND pm.meta_key NOT LIKE '_wp_%'
+									AND pm.meta_key NOT IN (
+										'_edit_last',
+										'_edit_lock',
+										'_thumbnail_id',
+										'_EventConference',
+										'_EventAllDay',
+										'_EventHideFromUpcoming',
+										'_EventOrigin',
+										'_EventShowMap',
+										'_EventVenueID',
+										'_EventShowMapLink',
+										'_EventCost',
+										'_EventOrganizerID',
+										'_EventRecurrence',
+										'_EventStartDate',
+										'_EventEndDate',
+										'_EventDuration',
+										'_FacebookID')"
+				);
+				if ( empty( $meta_keys ) ) {
+					remove_post_type_support( Tribe__Events__Main::POSTTYPE, 'custom-fields' );
+					$show_box = 'hide';
+					$r = false;
+				} else {
+					$show_box = 'show';
+					$r = true;
+				}
+
+				tribe_update_option( 'disable_metabox_custom_fields', $show_box );
+
+				return $r;
+			}
+
 		}
 	} // end Class
 }

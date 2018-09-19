@@ -63,5 +63,26 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__PUE' ) ) {
 			delete_option( 'pue_install_key_' . $slug );
 			delete_option( 'pu_dismissed_upgrade_' . $slug );
 		}
+
+		/**
+		 * Verifies if user has a license key.
+		 *
+		 * @since 4.5.3
+		 *
+		 * @return boolean
+		 */
+		public function has_license_key() {
+			$key = get_option( 'pue_install_key_tribe_eventbrite' );
+			if ( is_multisite() ) {
+				$network_key = get_network_option( null, 'pue_install_key_tribe_eventbrite' );
+				$key         = ! empty( $key ) && $network_key !== $key ? $key : $network_key;
+			}
+
+			if ( empty( $key ) ) {
+				return false;
+			}
+
+			return true;
+		}
 	}
 }

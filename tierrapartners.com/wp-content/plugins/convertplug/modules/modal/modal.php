@@ -488,8 +488,8 @@ if ( ! function_exists( 'cp_modal_custom' ) ) {
 			), $atts
 		);
 
-		$id      = isset( $atts['id'] ) ? $atts['id'] : '';
-		$display = isset( $atts['display'] ) ? $atts['display']: '';
+		$id          = isset( $atts['id'] ) ? $atts['id'] : '';
+		$display     = isset( $atts['display'] ) ? $atts['display'] : '';
 		$live_styles = cp_get_live_styles( 'modal' );
 		$live_array  = '';
 		$settings    = '';

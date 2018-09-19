@@ -250,11 +250,11 @@ if ( $prev_styles ) {
 															$exp_settings = array();
 															foreach ( $style_settings as $title => $value ) {
 																if ( ! is_array( $value ) ) {
-																	$value                  = urldecode( $value );
-																	
-																	if(is_callable('utf8_encode')){
+																	$value = urldecode( $value );
+
+																	if ( is_callable( 'utf8_encode' ) ) {
 																		$exp_settings[ $title ] = htmlentities( stripslashes( utf8_encode( $value ) ), ENT_QUOTES );
-																	}else{
+																	} else {
 																		$exp_settings[ $title ] = htmlentities( stripslashes( html_entity_decode( $value ) ), ENT_QUOTES );
 																	}
 																} else {
@@ -285,8 +285,7 @@ if ( $prev_styles ) {
 																$status .= '<span data-live="0" class="cp-status cp-main-variant-status"><i class="connects-icon-pause"></i><span>' . __( 'Pause', 'smile' ) . '</span></span>';
 															} else {
 																$schedule_data = unserialize( $style['style_settings'] );
-																//var_dump("praju");
-																//var_dump($schedule_data['schedule']);
+
 																if ( isset( $schedule_data['schedule'] ) ) {
 
 																	$scheduled_array = $schedule_data['schedule'];

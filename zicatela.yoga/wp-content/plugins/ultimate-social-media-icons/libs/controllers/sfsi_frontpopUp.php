@@ -185,7 +185,7 @@ function sfsi_FrontPopupDiv()
   $icons=  unserialize($sfsi_section1_options['sfsi_custom_files']);
   if(is_array($icons))  $elements=array_keys($icons);
   $cnt=0;
-  $total=count($custom_icons_order);
+  $total=isset($custom_icons_order) && is_array($custom_icons_order)? count($custom_icons_order):0;
   if(!empty($icons) && is_array($icons)) :
   foreach($icons as $cn=>$c_icons)
   {    

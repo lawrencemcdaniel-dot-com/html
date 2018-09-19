@@ -118,17 +118,17 @@ function version_20_upgrade_notice() {
 	if (!get_user_meta($user_id, 'sa_ignore_notice')) {
 		echo "<div class='notice notice-info' style='padding-top:10px;'>";
 
-		echo "<div style='float:left; width:170px; margin-right:15px;'><a href='http://edgewebpages.com/' target='_blank'>";
-		echo "<img style='width:100%;' src='http://edgewebpages.com/wp-content/uploads/2017/06/slide_anything_pro_product_image.png' /></a></div>";
+		echo "<div style='float:left; width:170px; margin-right:15px;'><a href='https://edgewebpages.com/' target='_blank'>";
+		echo "<img style='width:100%;' src='https://edgewebpages.com/wp-content/uploads/2017/06/slide_anything_pro_product_image.png' /></a></div>";
 		echo "<h3 style='margin:0px !important; padding:10px 0px !important;'>SLIDE ANYTHING PRO</h3>";
-		echo "<p style='margin:0px 0px 10px !important;'><a href='http://edgewebpages.com/' target='_blank'>SLIDE ANYTHING PRO</a> ";
+		echo "<p style='margin:0px 0px 10px !important;'><a href='https://edgewebpages.com/' target='_blank'>SLIDE ANYTHING PRO</a> ";
 		echo "adds POPUPS into the mix!!</p>";
-		echo "<p style='margin:0px 0px 10px !important;'>With <a href='http://edgewebpages.com/' target='_blank'>SLIDE ANYTHING PRO</a> ";
+		echo "<p style='margin:0px 0px 10px !important;'>With <a href='https://edgewebpages.com/' target='_blank'>SLIDE ANYTHING PRO</a> ";
 		echo "each slide can now open a MODAL POPUP, which can be an IMAGE popup, a VIDEO EMBED popup (YouTube/Vimeo), a popup containing ";
 		echo "HTML CODE or a popup displaying a WordPress SHORTCODE. This can be a very useful addition to Slide Anything, if you are ";
 		echo "wanting to create Image or Video galleries for your websites.</p>";
 		echo "<p style='margin:0px 0px 10px !important;'>For more information about Slide Anything PRO, ";
-		echo "<a href='http://edgewebpages.com/' target='_blank'>CLICK HERE.</a></p>";
+		echo "<a href='https://edgewebpages.com/' target='_blank'>CLICK HERE.</a></p>";
 
 		echo "<div style='clear:both; float:none; width:100%; height:10px;'></div>";
 		echo "<a style='display:inline-block; float:right; padding:7px 10px; background:crimson; color:white; text-decoration:none; ";
@@ -1260,7 +1260,7 @@ function cpt_slider_slides_content($post) {
 			echo "<li>Or your Slide Anything sliders can conatin a combination of image, video, HTML and shortcode popups!</li>\n";
 			echo "</ul>\n";
 			echo "<p>To find out more about <strong>SLIDE ANYTHING PRO</strong>, view demos or get your hands on a copy, click ";
-			echo "<a href='http://edgewebpages.com' title='Slide Anything PRO' target='_blank'>HERE</a>.</p>";
+			echo "<a href='https://edgewebpages.com' title='Slide Anything PRO' target='_blank'>HERE</a>.</p>";
 			echo "</div>\n";
 		}
 		echo "</div>\n";
@@ -1669,11 +1669,26 @@ function cpt_slider_style_content($post) {
 	$tooltip =  'Use window.onload event (not document.ready). Use this option if your slider is ';
 	$tooltip .= 'not being sized correctly within your page container (sometimes occurs with Visual Composer full-width sections).';
 	echo "<div id='sa_window_onload_line'>";
-	echo "<span class='sa_tooltip' title='".$tooltip."'></span>Use 'window.onload' event:";
+	echo "<span class='sa_tooltip' title='".$tooltip."'></span><span style='min-width:160px;'>Use 'window.onload' event:</span>";
 	if ($window_onload == '1') {
 		echo "<input type='checkbox' id='sa_window_onload' name='sa_window_onload' value='1' checked/>";
 	} else {
 		echo "<input type='checkbox' id='sa_window_onload' name='sa_window_onload' value='1'/>";
+	}
+	echo "</div>\n";
+
+	// Strip JavaScript from Content
+	$strip_javascript = get_post_meta($post->ID, 'sa_strip_javascript', true);
+	if ($strip_javascript == '') {
+		$strip_javascript = '0';
+	}
+	$tooltip = 'Remove JavaScript (<script> tags) from slide content for extra security.';
+	echo "<div id='sa_window_onload_line'>";
+	echo "<span class='sa_tooltip' title='".$tooltip."'></span><span style='min-width:160px;'>Remove JavaScript Content:</span>";
+	if ($strip_javascript == '1') {
+		echo "<input type='checkbox' id='sa_strip_javascript' name='sa_strip_javascript' value='1' checked/>";
+	} else {
+		echo "<input type='checkbox' id='sa_strip_javascript' name='sa_strip_javascript' value='1'/>";
 	}
 	echo "</div>\n";
 
@@ -2057,6 +2072,11 @@ function cpt_slider_save_postdata() {
 			update_post_meta($post->ID, 'sa_window_onload', '1');
 		} else {
 			update_post_meta($post->ID, 'sa_window_onload', '0');
+		}
+		if (isset($_POST['sa_strip_javascript']) && ($_POST['sa_strip_javascript'] == '1')) {
+			update_post_meta($post->ID, 'sa_strip_javascript', '1');
+		} else {
+			update_post_meta($post->ID, 'sa_strip_javascript', '0');
 		}
 	}
 }

@@ -26,6 +26,7 @@ class Tribe__Events__Tickets__Eventbrite__Service_Provider extends tad_DI52_Serv
 		$this->container->singleton( 'eventbrite.sync.venue', 'Tribe__Events__Tickets__Eventbrite__Sync__Venue' );
 		$this->container->singleton( 'eventbrite.sync.organizer', 'Tribe__Events__Tickets__Eventbrite__Sync__Organizer' );
 		$this->container->singleton( 'eventbrite.sync.tickets', 'Tribe__Events__Tickets__Eventbrite__Sync__Tickets' );
+		$this->container->singleton( 'eventbrite.sync.featured_image', 'Tribe__Events__Tickets__Eventbrite__Sync__Featured_Image' );
 		$this->container->singleton( 'eventbrite.migrate', 'Tribe__Events__Tickets__Eventbrite__Migrate', array( 'hook' ) );
 		$this->container->singleton( 'eventbrite.migrate.queue', 'Tribe__Events__Tickets__Eventbrite__Migrate__Queue' );
 
@@ -46,6 +47,8 @@ class Tribe__Events__Tickets__Eventbrite__Service_Provider extends tad_DI52_Serv
 
 		add_action( 'tribe_plugins_loaded', tribe_callback( 'eventbrite.aggregator', 'hook' ) );
 		add_action( 'tribe_events_update_meta', tribe_callback( 'eventbrite.sync.main', 'action_sync_event' ), 20 );
+
+		add_filter( 'admin_post_thumbnail_html', tribe_callback( 'eventbrite.sync.featured_image', 'add_featured_image_control' ), 10, 3 );
 	}
 
 	/**

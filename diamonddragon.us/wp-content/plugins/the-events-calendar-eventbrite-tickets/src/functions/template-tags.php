@@ -82,7 +82,6 @@ function tribe_eb_event_status( $post_id = null ) {
 	return $api->get_event_status( $post_id );
 }
 
-
 /**
  * Outputs the Eventbrite ticket iFrame. The post in question must be registered with Eventbrite
  * and must have at least one ticket type associated with the event.

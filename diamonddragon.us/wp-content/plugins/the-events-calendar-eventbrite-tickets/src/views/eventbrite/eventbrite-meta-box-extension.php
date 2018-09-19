@@ -7,9 +7,9 @@
  *
  *     [your-theme]/tribe-events/eventbrite/eventbrite-meta-box-extension.php
  *
- * @version 4.5.2
  * @package Tribe__Events__MainEventBrite
  * @since  3.0
+ * @version 4.5.3
  * @author Modern Tribe Inc.
  */
 
@@ -169,7 +169,7 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	var $event_details  = $( document.getElementById( 'tribe_events_event_details' ) );
+	var $event_details = $( document.getElementById( 'tribe_events_event_details' ) );
 
 	// Runs right before the datepicker div is rendered.
 	$event_details.on( 'tribe.ui-datepicker-div-beforeshow', function( e, object ) {
@@ -178,13 +178,21 @@ jQuery(document).ready(function($){
 
 		// if eb datepicker set min and max date
 		if ( $( object.input ).hasClass( 'etp-datepicker' ) ) {
-			var startDate = $('#EventStartDate').val();
+			var startDate = $( document.getElementById( 'EventStartDate' ) ).val();
+
 			if ( startDate ) {
 				object.input.datepicker( 'option', 'minDate', new Date() );
 				object.input.datepicker( 'option', 'maxDate', startDate );
 			}
 		}
+	});
 
+	// If the parent event's start date is adjusted, set the default Start Ticket Sale Date to that value.
+	$( document.getElementById( 'EventStartDate' ) ).on( 'change', function( e ) {
+		var parent_event_start_date = $(this).val();
+		if ( parent_event_start_date ) {
+			$( 'input[name="EventBriteTicketEndDate"]' ).val( parent_event_start_date );
+		}
 	});
 
 }); // end document ready
@@ -234,15 +242,6 @@ jQuery(document).ready(function($){
 			<input id='EventBriteShowOff' tabindex="<?php $tribe_ecp->tabIndex(); ?>" type='radio' name='EventShowTickets' value='no' <?php checked( $_EventShowTickets, 'no' ); ?>/>&nbsp;<b><?php esc_attr_e( 'No', 'tribe-eventbrite' ); ?></b>
 		</td>
 	</tr>
-	<tr>
-		<td><?php esc_html_e( 'When this post is updated, how do you want the featured image to be handled?', 'tribe-eventbrite' ); ?></td>
-		<td>
-			<select id='EventBriteImageSyncMode' tabindex="<?php $tribe_ecp->tabIndex(); ?>" name='EventBriteImageSyncMode' class="tribe-dropdown">
-				<option value="0" <?php selected( $image_sync_mode, 0 ); ?>><?php echo esc_html_x( 'Import the event image from eventbrite.com and overwrite the local one', 'image sync', 'tribe-eventbrite' ); ?></option>
-				<option value="-1" <?php selected( $image_sync_mode, - 1 ); ?>><?php echo esc_html_x( 'Never synchronize the images', 'image sync', 'tribe-eventbrite' ); ?></option>
-			</select>
-		</td>
-	</tr>
 	<?php
 	return;
 endif;
@@ -267,16 +266,6 @@ endif;
 		<td>
 			<input id='EventBriteShowOn' tabindex="<?php $tribe_ecp->tabIndex(); ?>" type='radio' name='EventShowTickets' value='yes' <?php checked( $_EventShowTickets, 'yes' ); ?> />&nbsp;<b><?php esc_attr_e( 'Yes', 'tribe-eventbrite' ); ?></b>
 			<input id='EventBriteShowOff' tabindex="<?php $tribe_ecp->tabIndex(); ?>" type='radio' name='EventShowTickets' value='no' <?php checked( $_EventShowTickets, 'no' ); ?>/>&nbsp;<b><?php esc_attr_e( 'No', 'tribe-eventbrite' ); ?></b>
-		</td>
-	</tr>
-	<tr>
-		<td><?php esc_html_e( 'When this post is updated, how do you want the featured image to be handled?', 'tribe-eventbrite' );?></td>
-		<td>
-			<select id='EventBriteImageSyncMode' tabindex="<?php $tribe_ecp->tabIndex(); ?>" name='EventBriteImageSyncMode' class="tribe-dropdown">
-				<option value="1" <?php selected( $image_sync_mode, 1 ); ?>><?php echo esc_html_x( 'Try to update eventbrite.com so it shares the same image as used locally', 'image sync', 'tribe-eventbrite' ); ?></option>
-				<option value="0" <?php selected( $image_sync_mode, 0 ); ?>><?php echo esc_html_x( 'Import the event image from eventbrite.com and overwrite the local one', 'image sync', 'tribe-eventbrite' ); ?></option>
-				<option value="-1" <?php selected( $image_sync_mode, -1 ); ?>><?php echo esc_html_x( 'Never synchronize the images', 'image sync', 'tribe-eventbrite' ); ?></option>
-			</select>
 		</td>
 	</tr>
  <?php } ?>
@@ -335,7 +324,7 @@ endif;
 			<input tabindex="<?php $tribe_ecp->tabIndex(); ?>" type="text" name="EventBriteTicketStartDate" value='<?php echo esc_attr( $_EventBriteTicketStartDate ); ?>' class='tribe-datepicker etp-datepicker'/>
 			@
 			<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketStartHours' class="tribe-dropdown">
-				<?php echo Tribe__View_Helpers::getHourOptions( '00:00:00' ); ?>
+				<?php echo Tribe__View_Helpers::getHourOptions( '', true ); ?>
 			</select>
 			<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketStartMinutes' class="tribe-dropdown">
 				<?php echo Tribe__View_Helpers::getMinuteOptions( '00:00:00' ); ?>
@@ -343,7 +332,7 @@ endif;
 
 			<?php if ( ! strstr( get_option( 'time_format', Tribe__Date_Utils::TIMEFORMAT ), 'H' ) ) : ?>
 				<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketStartMeridian' class="tribe-dropdown">
-					<?php echo Tribe__View_Helpers::getMeridianOptions( '00:00:00' ); ?>
+					<?php echo Tribe__View_Helpers::getMeridianOptions( '', true ); ?>
 				</select>
 			<?php endif; ?>
 		</td>
@@ -356,7 +345,7 @@ endif;
 			<input tabindex="<?php $tribe_ecp->tabIndex(); ?>" type="text" name="EventBriteTicketEndDate" value='<?php echo esc_attr( $_EventBriteTicketEndDate ); ?>' class='tribe-datepicker etp-datepicker'/>
 			@
 			<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketEndHours' class="tribe-dropdown">
-				<?php echo Tribe__View_Helpers::getHourOptions( '00:00:00' ); ?>
+				<?php echo Tribe__View_Helpers::getHourOptions( '', false ); ?>
 			</select>
 			<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketEndMinutes' class="tribe-dropdown">
 			  <?php echo Tribe__View_Helpers::getMinuteOptions( '00:00:00' ); ?>
@@ -364,7 +353,7 @@ endif;
 
 			<?php if ( ! strstr( get_option( 'time_format', Tribe__Date_Utils::TIMEFORMAT ), 'H' ) ) : ?>
 				<select tabindex='<?php $tribe_ecp->tabIndex(); ?>' name='EventBriteTicketEndMeridian' class="tribe-dropdown">
-					<?php echo Tribe__View_Helpers::getMeridianOptions( '00:00:00' ); ?>
+					<?php echo Tribe__View_Helpers::getMeridianOptions( '', false ); ?>
 				</select>
 			<?php endif; ?>
 		</td>
@@ -423,6 +412,30 @@ endif;
 				<option value='draft'><?php echo esc_html( _x( 'Draft', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
 				<option value='live'><?php echo esc_html( _x( 'Live', 'Eventbrite status', 'tribe-eventbrite' ) ); ?></option>
 			</select>
+		</td>
+	</tr>
+
+	<tr class="EBForm">
+		<td><?php esc_html_e( 'Eventbrite Event Privacy', 'tribe-eventbrite' ) ?>:</td>
+		<td>
+			<?php
+
+			$event_privacy = '';
+
+			if ( isset( $privacy_meta ) && ! empty( $privacy_meta ) ) {
+				$event_privacy = get_post_meta( get_the_ID(), '_EventBritePrivacy', true );
+			} elseif ( isset( $event->listed ) ) {
+				$event_privacy = $event->listed ? 'listed' : 'not_listed';
+			}
+
+			?>
+			<select name="EventBritePrivacy" tabindex="<?php $tribe_ecp->tabIndex(); ?>" class="tribe-dropdown">
+				<option value="listed" <?php selected( $event_privacy, 'listed' ) ?>><?php echo esc_html( _x( 'Public', 'Eventbrite event privacy', 'tribe-eventbrite' ) ); ?></option>
+				<option value="not_listed" <?php selected( $event_privacy, 'not_listed' ) ?>><?php echo esc_html( _x( 'Private', 'Eventbrite event privacy', 'tribe-eventbrite' ) ); ?></option>
+			</select>
+
+			<br>
+			<?php esc_html_e( 'Public events are listed publicly on Eventbrite and search engines. Private events are not.', 'tribe-eventbrite' ); ?><br />
 		</td>
 	</tr>
 

@@ -457,7 +457,7 @@ if ( ! function_exists( 'cp_info_bar_custom' ) ) {
 		);
 
 		$id      = isset( $atts['id'] ) ? $atts['id'] : '';
-		$display = isset( $atts['display'] ) ? $atts['display']: '';
+		$display = isset( $atts['display'] ) ? $atts['display'] : '';
 
 		$live_styles = cp_get_live_styles( 'info_bar' );
 		$live_array  = '';

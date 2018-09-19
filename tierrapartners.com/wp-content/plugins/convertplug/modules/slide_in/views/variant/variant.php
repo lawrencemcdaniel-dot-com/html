@@ -129,10 +129,10 @@ if ( 0 < count( $variants ) ) {
 														$style_settings = unserialize( $style['style_settings'] );
 														$theme          = $style_settings['style'];
 														$live           = (int) $style_settings['live'];
-														if( $live == ''){
+														if ( '' === $live ) {
 															$live = 0;
 														}
-														$status         = '';
+														$status = '';
 														if ( 1 === $live ) {
 															$status .= '<span class="change-status"><span data-live="1" class="cp-status"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></span>';
 														} elseif ( 0 === $live ) {
@@ -196,10 +196,10 @@ if ( 0 < count( $variants ) ) {
 													$style_settings = unserialize( $variant_test['style_settings'] );
 													$theme          = $style_settings['style'];
 													$live           = $style_settings['live'];
-													if( $live == ''){
+													if ( '' === $live ) {
 														$live = 0;
 													}
-													$status         = '';
+													$status = '';
 													if ( 1 === $live || '1' === $live ) {
 														$status .= '<span class="change-status"><span data-live="1" class="cp-status"><i class="connects-icon-play"></i><span>' . __( 'Live', 'smile' ) . '</span></span>';
 													} elseif ( 0 === $live || '0' === $live ) {

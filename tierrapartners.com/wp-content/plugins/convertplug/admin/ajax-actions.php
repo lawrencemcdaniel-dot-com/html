@@ -12,32 +12,32 @@ if ( is_admin() ) {
 }
 
 $ajax_events = array(
-	'cp_trash_list'                => false,
-	'update_style_settings'        => false,
-	'update_variant_test_settings' => false,
-	'smile_duplicate_style'        => false,
-	'smile_delete_style'           => false,
-	'cp_reset_analytics_action'    => false,
-	'smile_update_modules'         => false,
-	'smile_update_global'          => false,
-	'smile_update_status'          => false,
-	'smile_update_impressions'     => true,
-	'smile_add_list'               => false,
-	'cp_add_subscriber'            => true,
-	'get_campaign_analytics_data'  => false,
-	'get_campaign_daywise_data'    => false,
-	'get_style_analytics_data'     => false,
-	'is_campaign_exists'           => false,
-	'smile_update_settings'        => false,
-	'smile_update_debug'           => false,
-	'cp_is_list_assigned'          => false,
-	'cp_get_posts_by_query'        => false,
-	'cp_get_active_campaigns'      => false,
-	'cp_import_presets'            => false,
-	'cp_import_presets_step2'      => false,
-	'cp_trash_contact'             => false,
-	'cp_dismiss_rebrand_notice'    => false,
-	'cp_delete_all_modal_action'   => false,
+	'cp_trash_list'                   => false,
+	'update_style_settings'           => false,
+	'update_variant_test_settings'    => false,
+	'smile_duplicate_style'           => false,
+	'smile_delete_style'              => false,
+	'cp_reset_analytics_action'       => false,
+	'smile_update_modules'            => false,
+	'smile_update_global'             => false,
+	'smile_update_status'             => false,
+	'smile_update_impressions'        => true,
+	'smile_add_list'                  => false,
+	'cp_add_subscriber'               => true,
+	'get_campaign_analytics_data'     => false,
+	'get_campaign_daywise_data'       => false,
+	'get_style_analytics_data'        => false,
+	'is_campaign_exists'              => false,
+	'smile_update_settings'           => false,
+	'smile_update_debug'              => false,
+	'cp_is_list_assigned'             => false,
+	'cp_get_posts_by_query'           => false,
+	'cp_get_active_campaigns'         => false,
+	'cp_import_presets'               => false,
+	'cp_import_presets_step2'         => false,
+	'cp_trash_contact'                => false,
+	'cp_dismiss_rebrand_notice'       => false,
+	'cp_delete_all_modal_action'      => false,
 	'smile_update_custom_conversions' => true,
 );
 
@@ -195,24 +195,24 @@ if ( ! function_exists( 'update_variant_test_settings' ) ) {
 				$settings[ $pair[0] ] = $pair[1];
 			}
 		}
-		
+
 		$theme_name = ucwords( str_replace( '_', ' ', $settings['style'] ) );
 
-		$option                      = $settings['option'];
-		$style                       = $settings['style'];
-		$variant_style               = $settings['style_id'];
-		$v_action 					 = isset($settings['variant-action']) ? $settings['variant-action']: '';		
+		$option        = $settings['option'];
+		$style         = $settings['style'];
+		$variant_style = $settings['style_id'];
+		$v_action      = isset( $settings['variant-action'] ) ? $settings['variant-action'] : '';
 
-		$prev_styles                 = get_option( $option );
-		$variant_arrays              = isset( $prev_styles[ $variant_style ] ) ? $prev_styles[ $variant_style ] : array();
-		$new_style                   = array();
-		$rand                        = substr( md5( uniqid() ), rand( 0, 26 ), 5 );
-		$dynamic_style_name          = 'cp_id_' . $rand;
-		$style_id                    = isset( $settings['variant-style'] ) && '' !== $settings['variant-style'] ? $settings['variant-style'] : $theme_name;
-		$style_name                  = isset( $settings['new_style'] ) && '' !== $settings['new_style'] ? $settings['new_style'] : $theme_name;
+		$prev_styles        = get_option( $option );
+		$variant_arrays     = isset( $prev_styles[ $variant_style ] ) ? $prev_styles[ $variant_style ] : array();
+		$new_style          = array();
+		$rand               = substr( md5( uniqid() ), rand( 0, 26 ), 5 );
+		$dynamic_style_name = 'cp_id_' . $rand;
+		$style_id           = isset( $settings['variant-style'] ) && '' !== $settings['variant-style'] ? $settings['variant-style'] : $theme_name;
+		$style_name         = isset( $settings['new_style'] ) && '' !== $settings['new_style'] ? $settings['new_style'] : $theme_name;
 
-		if( $v_action == 'new' ){
-			unset($settings['live']);
+		if ( 'new' == $v_action ) {
+			unset( $settings['live'] );
 			$settings['live'] = '0';
 		}
 
@@ -223,7 +223,7 @@ if ( ! function_exists( 'update_variant_test_settings' ) ) {
 		$new_style['style_name']     = stripslashes( $style_name );
 		$new_style['style_id']       = $style_id;
 		$new_style['style_settings'] = $style_settings;
-	
+
 		if ( is_array( $variant_arrays ) && ! empty( $variant_arrays ) ) {
 			$ar_key = false;
 			foreach ( $variant_arrays as $key => $array ) {
@@ -416,19 +416,18 @@ if ( ! function_exists( 'smile_update_status' ) ) {
 		$key = search_style( $prev_styles, $style_id );
 
 		if ( null !== $key ) {
-			
+
 			$new_style        = $prev_styles[ $key ];
 			$settings         = unserialize( $new_style['style_settings'] );
 			$settings['live'] = $status;
 
 			if ( '2' === $status || 2 === $status ) {
-				
+
 				$settings['schedule'] = array(
 					'start' => $cp_start,
 					'end'   => $cp_end,
 				);
 			}
-			//var_dump($settings);die();
 			$new_style['style_settings'] = serialize( $settings );
 			$prev_styles[ $key ]         = $new_style;
 			$modal_arrays                = $prev_styles;
@@ -977,7 +976,7 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 	function cp_add_subscriber() {
 
 		$style_id = isset( $_POST['style_id'] ) ? esc_attr( $_POST['style_id'] ) : '';
-		
+
 		$only_conversion = false;
 
 		$param           = array_map( 'sanitize_text_field', wp_unslash( $_POST['param'] ) );
@@ -988,32 +987,31 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 		$default_action  = isset( $_POST['action'] ) ? esc_attr( $_POST['action'] ) : '';
 		$cp_settings     = get_option( 'convert_plug_settings' );
 
-		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;		
-		$store = false; 
-		$cp_set_hp         = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';
+		$disable_storage = isset( $cp_settings['cp-disable-storage'] ) ? $cp_settings['cp-disable-storage'] : 0;
+		$store           = false;
+		$cp_set_hp       = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';
 
-		$domain_disabled  = $cp_settings['cp-disable-domain'];
-		$domain_name 	  = $cp_settings['cp-domain-name'];
-		$domain_arr 	  = array();
+		$domain_disabled = $cp_settings['cp-disable-domain'];
+		$domain_name     = $cp_settings['cp-domain-name'];
+		$domain_arr      = array();
 
-		if( $domain_disabled && $domain_name !== '' && $email !=='' ){
+		if ( $domain_disabled && '' !== $domain_name && '' !== $email ) {
 			$domain_arr = explode( ',', $domain_name );
-			$domain_arr = array_map('trim',$domain_arr);
-			// Separate string by @ characters (there should be only one)
-    		$email_parts  = explode('@', $email);
-    		$email_domain = array_pop($email_parts);
+			$domain_arr = array_map( 'trim', $domain_arr );
+			// Separate string by @ characters (there should be only one).
+			$email_parts  = explode( '@', $email );
+			$email_domain = array_pop( $email_parts );
 
-			if ( in_array($email_domain, $domain_arr))
-		    {
-		       if ( wp_doing_ajax() ) {
+			if ( in_array( $email_domain, $domain_arr ) ) {
+				if ( wp_doing_ajax() ) {
 					wp_die( -1, 403 );
 				} else {
 					die( '-1' );
 				}
-		    }
-		}		
+			}
+		}
 
-		if( $cp_set_hp ){
+		if ( $cp_set_hp ) {
 			if ( wp_doing_ajax() ) {
 				wp_die( -1, 403 );
 			} else {
@@ -1021,10 +1019,10 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 			}
 		}
 
-		if( '1' !== $disable_storage ){					
+		if ( '1' !== $disable_storage ) {
 			$store = true;
 		}
-	
+
 		if ( isset( $_POST['message'] ) ) {
 			$on_success = 'message';
 		} elseif ( isset( $_POST['redirect'] ) ) {
@@ -1099,12 +1097,12 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 					$msg    = ( isset( $_POST['message'] ) && '' !== $_POST['message'] ) ? do_shortcode( html_entity_decode( stripcslashes( sanitize_text_field( htmlspecialchars( $_POST['message'] ) ) ) ) ) : __( 'Thank you.', 'smile' );
 				}
 			} else {
-				if( $store ){					
+				if ( $store ) {
 					$prev_contacts[] = $contact;
 				}
 			}
-			
-			if ( ! empty( $prev_contacts ) && $store ) {				
+
+			if ( ! empty( $prev_contacts ) && $store ) {
 				$prev_contacts = array_map( 'unserialize', array_unique( array_map( 'serialize', $prev_contacts ) ) );
 			}
 
@@ -1133,23 +1131,22 @@ if ( ! function_exists( 'cp_add_subscriber' ) ) {
 		$email_sub  = isset( $cp_settings['cp-email-sub'] ) ? $cp_settings['cp-email-sub'] : '';
 		$email_body = isset( $cp_settings['cp-email-body'] ) ? $cp_settings['cp-email-body'] : '';
 
-		//add subscriber as new user role to site.		
-		$new_role  = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : 'None';
+		// add subscriber as new user role to site.
+		$new_role = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : 'None';
 
 		if ( 'success' === $status && ! $only_conversion ) {
 
-			if( '1' === $sub_optin || 1 === $sub_optin ){
-				$list_name = str_replace( 'cp_connects_', '', $data_option );
-				$list_name = str_replace( '_', ' ', $list_name );
-				$page_url  = isset( $cp_settings['cp-page-url'] ) ? $cp_settings['cp-email-body'] : '';
-				$style_name      = isset( $_POST['cp_module_name'] ) ? esc_attr( $_POST['cp_module_name'] ) : '';
+			if ( '1' === $sub_optin || 1 === $sub_optin ) {
+				$list_name  = str_replace( 'cp_connects_', '', $data_option );
+				$list_name  = str_replace( '_', ' ', $list_name );
+				$page_url   = isset( $cp_settings['cp-page-url'] ) ? $cp_settings['cp-email-body'] : '';
+				$style_name = isset( $_POST['cp_module_name'] ) ? esc_attr( $_POST['cp_module_name'] ) : '';
 				cp_notify_sub_to_admin( $list_name, $param, $sub_email, $email_sub, $email_body, $cp_page_url, $style_name );
 			}
-			if( '' !== $new_role && ( 'None' !== $new_role && 'none' !== $new_role ) ){
+			if ( '' !== $new_role && ( 'None' !== $new_role && 'none' !== $new_role ) ) {
 				cp_add_new_user_role( $param, $new_role );
-			}			
-		}		
-
+			}
+		}
 
 		print_r(
 			json_encode(
@@ -1177,47 +1174,46 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 	 */
 	function cp_add_subscriber_contact( $contacts_option = '', $subscriber ) {
 
-		$list_id     = isset( $_POST['list_parent_index'] ) ? esc_attr( $_POST['list_parent_index'] ) : '';
-		$option      = cp_generate_option( $list_id );
-		$cp_page_url = isset( $_POST['cp-page-url'] ) ? esc_url( $_POST['cp-page-url'] ) : '';
-		$data        = get_option( $option );
-		$index       = false;
-		$updated     = false;
+		$list_id         = isset( $_POST['list_parent_index'] ) ? esc_attr( $_POST['list_parent_index'] ) : '';
+		$option          = cp_generate_option( $list_id );
+		$cp_page_url     = isset( $_POST['cp-page-url'] ) ? esc_url( $_POST['cp-page-url'] ) : '';
+		$data            = get_option( $option );
+		$index           = false;
+		$updated         = false;
 		$only_conversion = isset( $_POST['only_conversion'] ) ? true : false;
-		$email 		 = isset( $subscriber['email'] ) ? strtolower( $subscriber['email'] ) : '';
+		$email           = isset( $subscriber['email'] ) ? strtolower( $subscriber['email'] ) : '';
 		if ( $data ) {
 			$index = cp_check_in_array( $email, $data, 'email' );
 		}
 
 		$subscriber = array_map( 'sanitize_text_field', wp_unslash( $subscriber ) );
 
-		$cp_settings = get_option( 'convert_plug_settings' );
-		$disable_storage = isset( $cp_settings['cp-disable-storage'] )? $cp_settings['cp-disable-storage'] : 0 ;
+		$cp_settings     = get_option( 'convert_plug_settings' );
+		$disable_storage = isset( $cp_settings['cp-disable-storage'] ) ? $cp_settings['cp-disable-storage'] : 0;
 
-		$cp_set_hp         = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';	
+		$cp_set_hp = isset( $_POST['cp_set_hp'] ) ? esc_attr( $_POST['cp_set_hp'] ) : '';
 
-		$domain_disabled  = $cp_settings['cp-disable-domain'];
-		$domain_name 	  = $cp_settings['cp-domain-name'];
-		$domain_arr 	  = array();
+		$domain_disabled = $cp_settings['cp-disable-domain'];
+		$domain_name     = $cp_settings['cp-domain-name'];
+		$domain_arr      = array();
 
-		if( $domain_disabled && '' !== $domain_name && '' !== $email ){
+		if ( $domain_disabled && '' !== $domain_name && '' !== $email ) {
 			$domain_arr = explode( ',', $domain_name );
-			$domain_arr = array_map('trim',$domain_arr);
-			// Separate string by @ characters (there should be only one)
-    		$email_parts  = explode('@', $email);
-    		$email_domain = array_pop($email_parts);
+			$domain_arr = array_map( 'trim', $domain_arr );
+			// Separate string by @ characters (there should be only one).
+			$email_parts  = explode( '@', $email );
+			$email_domain = array_pop( $email_parts );
 
-			if ( in_array($email_domain, $domain_arr))
-		    {
-		       if ( wp_doing_ajax() ) {
+			if ( in_array( $email_domain, $domain_arr ) ) {
+				if ( wp_doing_ajax() ) {
 					wp_die( -1, 403 );
 				} else {
 					die( '-1' );
 				}
-		    }
+			}
 		}
 
-		if( $cp_set_hp ){
+		if ( $cp_set_hp ) {
 			if ( wp_doing_ajax() ) {
 				wp_die( -1, 403 );
 			} else {
@@ -1241,7 +1237,7 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 		$data1 = array();
 		$data  = array_filter( $data );
 
-		if( '1' !== $disable_storage ){
+		if ( '1' !== $disable_storage ) {
 			foreach ( $data as $key => $value ) {
 				$newdata = array();
 				foreach ( $value as $key1 => $value1 ) {
@@ -1253,35 +1249,34 @@ if ( ! function_exists( 'cp_add_subscriber_contact' ) ) {
 				}
 				array_push( $data1, $newdata );
 			}
-		
+
 			$update_option = update_option( $option, $data1 );
 		}
 
 		// send subscriber notification to provided email address.
-		
-		$sub_optin   = isset( $cp_settings['cp-sub-notify'] ) ? $cp_settings['cp-sub-notify'] : 0;
-		$sub_email   = isset( $cp_settings['cp-sub-email'] ) ? $cp_settings['cp-sub-email'] : get_option( 'admin_email' );
-		$email_sub   = isset( $cp_settings['cp-email-sub'] ) ? $cp_settings['cp-email-sub'] : '';
-		$email_body  = isset( $cp_settings['cp-email-body'] ) ? $cp_settings['cp-email-body'] : '';
-		$param       = array_map( 'sanitize_text_field', wp_unslash( $_POST['param'] ) );
-		//add subscriber as new user role to site.
-		$new_role  = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : 'None';
+		$sub_optin  = isset( $cp_settings['cp-sub-notify'] ) ? $cp_settings['cp-sub-notify'] : 0;
+		$sub_email  = isset( $cp_settings['cp-sub-email'] ) ? $cp_settings['cp-sub-email'] : get_option( 'admin_email' );
+		$email_sub  = isset( $cp_settings['cp-email-sub'] ) ? $cp_settings['cp-email-sub'] : '';
+		$email_body = isset( $cp_settings['cp-email-body'] ) ? $cp_settings['cp-email-body'] : '';
+		$param      = array_map( 'sanitize_text_field', wp_unslash( $_POST['param'] ) );
+		// add subscriber as new user role to site.
+		$new_role = isset( $_POST['cp_set_user'] ) ? $_POST['cp_set_user'] : 'None';
 
 		if ( $update_option && ! $only_conversion ) {
-			if( '1' === $sub_optin || 1 === $sub_optin ){
-				$list_name = str_replace( 'cp_connects_', '', $option );
-				$list_name = str_replace( '_', ' ', $list_name );
-				$style_name           = isset( $_POST['cp_module_name'] ) ? esc_attr( $_POST['cp_module_name'] ) : '';
+			if ( '1' === $sub_optin || 1 === $sub_optin ) {
+				$list_name  = str_replace( 'cp_connects_', '', $option );
+				$list_name  = str_replace( '_', ' ', $list_name );
+				$style_name = isset( $_POST['cp_module_name'] ) ? esc_attr( $_POST['cp_module_name'] ) : '';
 				cp_notify_sub_to_admin( $list_name, $param, $sub_email, $email_sub, $email_body, $cp_page_url, $style_name );
 			}
-			
-			if( '' !== $new_role && ( 'None' !== $new_role && 'none' !== $new_role ) ){
-				cp_add_new_user_role( $param, $new_role );
-			}	
 
-		return $updated;
+			if ( '' !== $new_role && ( 'None' !== $new_role && 'none' !== $new_role ) ) {
+				cp_add_new_user_role( $param, $new_role );
+			}
+
+			return $updated;
+		}
 	}
-}
 }
 
 if ( ! function_exists( 'cp_check_in_array' ) ) {
@@ -1774,88 +1769,86 @@ if ( ! function_exists( 'smile_update_conversions' ) ) {
 	}
 }
 
-if( ! function_exists( 'cp_export_analytics' ) ){
+if ( ! function_exists( 'cp_export_analytics' ) ) {
 	/**
 	 * Function to get data for style analytics
 	 *
 	 * @since 3.3.2
 	 */
-	function cp_export_analytics() {		
-		
+	function cp_export_analytics() {
+
 		if ( ! current_user_can( 'access_cp' ) ) {
 			die( -1 );
 		}
-		//
-		$data          = isset( $_POST['an_data'] ) ? stripcslashes($_POST['an_data']):'';		
-		$comp_factor   = isset( $_POST['comp_factor'] ) ? $_POST['comp_factor']:'';		
-		
-		if( $comp_factor == 'imp'){
+				$data = isset( $_POST['an_data'] ) ? stripcslashes( $_POST['an_data'] ) : '';
+		$comp_factor  = isset( $_POST['comp_factor'] ) ? $_POST['comp_factor'] : '';
+
+		if ( 'imp' == $comp_factor ) {
 			$comp_factor = 'Impression';
-		}else if( $comp_factor == 'conv'){
+		} elseif ( 'conv' == $comp_factor ) {
 			$comp_factor = 'Conversion';
-		}else if( $comp_factor == 'convRate'){
+		} elseif ( 'convRate' == $comp_factor ) {
 			$comp_factor = 'ConversionRate';
-		}else if( $comp_factor == 'impVsconv'){
+		} elseif ( 'impVsconv' == $comp_factor ) {
 			$comp_factor = 'Impression_Vs_Conversion';
 		}
 
-		check_admin_referer( 'cp-export-analytics');
-		$data          = json_decode($data);
+		check_admin_referer( 'cp-export-analytics' );
+		$data          = json_decode( $data );
 		$data_set      = isset( $data->datasets ) ? $data->datasets : '';
-		$labels        = isset( $data->labels )? $data->labels : '';
+		$labels        = isset( $data->labels ) ? $data->labels : '';
 		$main_data_arr = array();
 		$temp_data_arr = array();
 
-		// Add dates to array
+		// Add dates to array.
 		$main_data_arr['dates'] = $labels;
 
 		foreach ( $data_set as $key => $arr ) {
-			foreach ( $arr as $name => $value) {
-				if( $name == 'label' || $name == 'data' || $name == 'tpl_var_count' ){	
-					
-					if( $name == 'label'){
-						$style_name = $value;						
+			foreach ( $arr as $name => $value ) {
+				if ( 'label' == $name || 'data' == $name || 'tpl_var_count' == $name ) {
+
+					if ( 'label' == $name ) {
+						$style_name = $value;
 					}
 
-					if( $name == 'data' ){						
-						$main_data_arr[$style_name] = $value;		
-					}					
-				}			
+					if ( 'data' == $name ) {
+						$main_data_arr[ $style_name ] = $value;
+					}
+				}
 			}
 		}
 
-		//Create array for generatign CSV
+		// Create array for generatign CSV.
 		$final = array();
-		foreach ($labels as $key => $value) {
-			$date = $value;
-			$final_temp = array();	
+		foreach ( $labels as $key => $value ) {
+			$date               = $value;
+			$final_temp         = array();
 			$final_temp['date'] = $date;
-			foreach ($main_data_arr as $key => $arr) {	
-				if( $key !== 'dates'){
-					$style = $key;			 
-					foreach ($arr as $key => $value) {
-						if( $date == $labels[$key]){
-							$final_temp[$style] = $value;
+			foreach ( $main_data_arr as $key => $arr ) {
+				if ( 'dates' !== $key ) {
+					$style = $key;
+					foreach ( $arr as $key => $value ) {
+						if ( $date == $labels[ $key ] ) {
+							$final_temp[ $style ] = $value;
 						}
 					}
-				}				
+				}
 			}
-			array_push($final, $final_temp);		
+			array_push( $final, $final_temp );
 		}
-		
-		$path          	= plugin_dir_path( __FILE__ );	
-		
+
+		$path = plugin_dir_path( __FILE__ );
+
 		if ( is_array( $final ) && $final ) {
 
 			$export_data = cp_generate_csv( $final );
 			$content     = $export_data;
 
-			$file_name = $path . $comp_factor.'.csv';
-			$file_url  = plugins_url( $comp_factor.'.csv', __FILE__ );			
+			$file_name = $path . $comp_factor . '.csv';
+			$file_url  = plugins_url( $comp_factor . '.csv', __FILE__ );
 			$handle    = fopen( $file_name, 'w' );
 			fwrite( $handle, $content );
-			fclose( $handle );
-			//var_dump($file_url);die();
+			fclose( $handle );			
 				header( 'Pragma: public' );   // required.
 				header( 'Expires: 0' );   // no cache.
 				header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
@@ -1873,13 +1866,12 @@ if( ! function_exists( 'cp_export_analytics' ) ){
 		} else {
 			exit();
 		}
-		//die();
 	}
 }
 
 if ( ! function_exists( 'get_style_analytics_data' ) ) {
 	/**
-	 * Function to get data for style analytics
+	 * Function to get data for style analytics.
 	 *
 	 * @since 1.0
 	 */
@@ -1982,7 +1974,7 @@ if ( ! function_exists( 'get_style_analytics_data' ) ) {
 										$dates_array[ $key ] = $value['conversions'];
 										break;
 									case 'convRate':
-										$conversion_rate      = ( $value['conversions'] / $value['impressions'] ) * 100;
+										$conversion_rate     = ( $value['conversions'] / $value['impressions'] ) * 100;
 										$dates_array[ $key ] = round( $conversion_rate, 2 );
 										break;
 									case 'impVsconv':
@@ -2149,7 +2141,6 @@ if ( ! function_exists( 'get_style_analytics_data' ) ) {
 		}
 
 		echo json_encode( $data );
-		//return json_encode( $data );
 		die();
 	}
 }
@@ -2877,7 +2868,7 @@ if ( ! function_exists( 'cp_reset_analytics_action' ) ) {
 
 if ( ! function_exists( 'cp_get_posts_by_query' ) ) {
 	/**
-	 * Function Name:cp_get_posts_by_query.
+	 * Function Name: .
 	 */
 	function cp_get_posts_by_query() {
 
@@ -3008,6 +2999,8 @@ if ( ! function_exists( 'cp_get_posts_by_query' ) ) {
 		die();
 	}
 }
+
+
 
 if ( ! function_exists( 'cp_get_active_campaigns' ) ) {
 	/**
@@ -3197,10 +3190,8 @@ if ( ! function_exists( 'handle_cp_export_all_list_action' ) ) {
 				array_push( $contact_arr, $temp_arr );
 			}
 		}
-		//var_dump($contact_arr);die();
 
 		if ( is_array( $contact_arr ) && $contact_arr ) {
-
 			$export_data = cp_generate_csv( $contact_arr );
 			$content     = $export_data;
 
@@ -3295,7 +3286,7 @@ if ( ! function_exists( 'cp_export_modal_action' ) ) {
 						$bg_image         = isset( $style_settings['modal_bg_image'] ) ? $style_settings['modal_bg_image'] : '';
 						$content_bg_image = isset( $style_settings['content_bg_image'] ) ? $style_settings['content_bg_image'] : '';
 						$form_bg_image    = isset( $style_settings['form_bg_image'] ) ? $style_settings['form_bg_image'] : '';
-						$overlay_bg_image    = isset( $style_settings['overlay_bg_image'] ) ? $style_settings['overlay_bg_image'] : '';
+						$overlay_bg_image = isset( $style_settings['overlay_bg_image'] ) ? $style_settings['overlay_bg_image'] : '';
 
 						if ( $has_variants ) {
 							foreach ( $variant_tests[ $data_style ] as $variant ) {
@@ -3962,8 +3953,7 @@ function cp_dismiss_rebrand_notice() {
 if ( ! function_exists( 'smile_update_custom_conversions' ) ) {
 	/**
 	 * Function Name: smile_update_custom_conversions update style conversions.
-	 *
-	 * @param  string $style_id style id.
+	 * 
 	 */
 	function smile_update_custom_conversions() {
 
@@ -3971,7 +3961,7 @@ if ( ! function_exists( 'smile_update_custom_conversions' ) ) {
 		if ( ! wp_verify_nonce( esc_attr( $_POST['security'] ), 'cp-impress-nonce' ) ) {
 			wp_send_json_error();
 		}
-		
+
 		$style_id = isset( $_POST['style_id'] ) ? $_POST['style_id'] : '';
 		global $cp_analytics_end_time;
 		$user_role   = '';
@@ -4037,7 +4027,7 @@ if ( ! function_exists( 'smile_update_custom_conversions' ) ) {
 			}
 
 			update_option( 'smile_style_analytics', $analytics_data );
-			echo "custom conversion done";
+			echo 'custom conversion done';
 		}
 
 		die();
