@@ -5,9 +5,11 @@ class TCO_Coalescence_Reducer {
   public $declarations;
   public $data;
   public $index = array();
+  public $selector_prefix = '';
 
-  public function __construct( $template ) {
+  public function __construct( $template, $selector_prefix ) {
     $this->declarations = $template->get_compiled();
+    $this->selector_prefix = $selector_prefix;
   }
 
   public function process( $items ) {
@@ -102,7 +104,7 @@ class TCO_Coalescence_Reducer {
 
     foreach ( $selector_templates as $st ) {
       foreach ( $selector_groups as $group_data ) {
-        $selectors[] = $this->expand_variables( $st, $group_data );
+        $selectors[] = $this->selector_prefix . $this->expand_variables( $st, $group_data );
       }
     }
 

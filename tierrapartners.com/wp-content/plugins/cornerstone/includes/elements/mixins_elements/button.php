@@ -78,6 +78,8 @@ function x_control_groups_element_button( $adv = false ) {
 
 function x_values_element_button( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_anchor( x_bar_module_settings_anchor( 'button' ) ),
     x_values_omega()

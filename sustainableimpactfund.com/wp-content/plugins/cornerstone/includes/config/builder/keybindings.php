@@ -20,6 +20,7 @@ return array(
   'alt-key-release' => 'keyup:alt',
 	'skeleton-mode'  => 'mod+k',
   'advanced-mode'  => 'mod+shift+a',
+  'toggle-collapse' => 'mod+shift+e',
   'save'  => 'mod+s',
   'find'  => 'mod+f',
   'esc'   => 'esc'

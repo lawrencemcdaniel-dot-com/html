@@ -21,6 +21,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Avada_Privacy_Embeds {
 
 	/**
+	 * An array of options to control privacy embeds.
+	 *
+	 * @since 5.7
+	 * @access private
+	 * @var array
+	 */
+	private $options = array();
+
+	/**
 	 * An array of embed types.
 	 *
 	 * @access public
@@ -91,12 +100,13 @@ class Avada_Privacy_Embeds {
 	 */
 	public function init() {
 
+		$this->set_options();
 		$this->set_cookie_expiry();
 		$this->update_embed_types();
 		$this->set_default_consents();
 
 		// Only run filter if privacy TO is enabled and we do not already have all consents.
-		if ( Avada()->settings->get( 'privacy_embeds' ) && ! $this->all_consents ) {
+		if ( $this->options['privacy_embeds'] && ! $this->all_consents ) {
 			add_filter( 'do_shortcode_tag', array( $this, 'shortcode_replace' ), 20, 4 );
 			add_filter( 'the_content', array( $this, 'replace' ), 99999 );
 			add_filter( 'privacy_iframe_embed', array( $this, 'replace' ), 20 );
@@ -108,14 +118,65 @@ class Avada_Privacy_Embeds {
 			add_filter( 'avada_google_analytics', array( $this, 'tracking_script_replace' ), 20, 3 );
 		}
 
-		if ( Avada()->settings->get( 'privacy_embeds' ) ) {
+		if ( $this->options['privacy_embeds'] ) {
 			add_filter( 'avada_dynamic_css_array', array( $this, 'add_styling' ) );
 		}
 
-		if ( '0' !== Avada()->settings->get( 'privacy_bar' ) ) {
+		if ( '0' !== $this->options['privacy_bar'] ) {
 			add_filter( 'avada_dynamic_css_array', array( $this, 'add_bar_styling' ) );
 			add_action( 'wp_footer', array( $this, 'display_privacy_bar' ), 10 );
 		}
+	}
+
+	/**
+	 * Gets the options for privacy embeds.
+	 *
+	 * @access public
+	 * @since  5.7
+	 * @return array
+	 */
+	public function get_options() {
+		return $this->options;
+	}
+
+	/**
+	 * Sets the options for privacy embeds.
+	 *
+	 * @access  public
+	 * @since   5.7
+	 * @return  void
+	 */
+	public function set_options() {
+		$this->options = apply_filters(
+			'avada_privacy_options',
+			array(
+				'privacy_embeds'                 => Avada()->settings->get( 'privacy_embeds' ),
+				'privacy_bar'                    => Avada()->settings->get( 'privacy_bar' ),
+				'privacy_expiry'                 => Avada()->settings->get( 'privacy_expiry' ),
+				'privacy_embed_types'            => Avada()->settings->get( 'privacy_embed_types' ),
+				'privacy_embed_defaults'         => Avada()->settings->get( 'privacy_embed_defaults' ),
+				'privacy_bar_content'            => Avada()->settings->get( 'privacy_bar_content' ),
+				'privacy_bg_color'               => Avada()->settings->get( 'privacy_bg_color' ),
+				'privacy_color'                  => Avada()->settings->get( 'privacy_color' ),
+				'privacy_bar_bg_color'           => Avada()->settings->get( 'privacy_bar_bg_color' ),
+				'privacy_bar_color'              => Avada()->settings->get( 'privacy_bar_color' ),
+				'privacy_bar_link_color'         => Avada()->settings->get( 'privacy_bar_link_color' ),
+				'privacy_bar_link_hover_color'   => Avada()->settings->get( 'privacy_bar_link_hover_color' ),
+				'privacy_bar_padding'            => array(
+					'top'    => Avada()->settings->get( 'privacy_bar_padding', 'top' ),
+					'right'  => Avada()->settings->get( 'privacy_bar_padding', 'right' ),
+					'bottom' => Avada()->settings->get( 'privacy_bar_padding', 'bottom' ),
+					'left'   => Avada()->settings->get( 'privacy_bar_padding', 'left' ),
+				),
+				'privacy_bar_button_save'        => Avada()->settings->get( 'privacy_bar_button_save' ),
+				'privacy_bar_text'               => Avada()->settings->get( 'privacy_bar_text' ),
+				'privacy_bar_button_text'        => Avada()->settings->get( 'privacy_bar_button_text' ),
+				'privacy_bar_more_text'          => Avada()->settings->get( 'privacy_bar_more_text' ),
+				'privacy_bar_headings_color'     => Avada()->settings->get( 'privacy_bar_headings_color' ),
+				'privacy_bar_font_size'          => Avada()->settings->get( 'privacy_bar_font_size' ),
+				'privacy_bar_headings_font_size' => Avada()->settings->get( 'privacy_bar_headings_font_size' ),
+			)
+		);
 	}
 
 	/**
@@ -129,10 +190,11 @@ class Avada_Privacy_Embeds {
 
 		// Filterable time for expiration.
 		$default_args = array(
-			'name'     => 'privacy_embeds',
-			'days'     => '30',
-			'path'     => '/',
+			'name' => 'privacy_embeds',
+			'days' => '30',
+			'path' => '/',
 		);
+
 		$this->cookie_args = apply_filters( 'fusion_privacy_cookie_args', $default_args );
 	}
 
@@ -144,7 +206,7 @@ class Avada_Privacy_Embeds {
 	 * @return  void
 	 */
 	public function set_cookie_expiry() {
-		$this->cookie_args['days'] = Avada()->settings->get( 'privacy_expiry' );
+		$this->cookie_args['days'] = $this->options['privacy_expiry'];
 	}
 
 	/**
@@ -167,13 +229,14 @@ class Avada_Privacy_Embeds {
 	 */
 	public function set_embed_types() {
 
-		$this->embed_types = $this->embed_defaults = apply_filters(
-			'fusion_privacy_embeds', array(
-				'youtube' => array(
+		$this->embed_types = apply_filters(
+			'fusion_privacy_embeds',
+			array(
+				'youtube'    => array(
 					'search' => 'youtube.com',
 					'label'  => esc_attr__( 'YouTube', 'Avada' ),
 				),
-				'vimeo' => array(
+				'vimeo'      => array(
 					'search' => 'vimeo.com',
 					'label'  => esc_attr__( 'Vimeo', 'Avada' ),
 				),
@@ -181,19 +244,19 @@ class Avada_Privacy_Embeds {
 					'search' => 'soundcloud.com',
 					'label'  => esc_attr__( 'SoundCloud', 'Avada' ),
 				),
-				'facebook' => array(
+				'facebook'   => array(
 					'search' => 'facebook.com',
 					'label'  => esc_attr__( 'Facebook', 'Avada' ),
 				),
-				'flickr' => array(
+				'flickr'     => array(
 					'search' => 'flickr.com',
 					'label'  => esc_attr__( 'Flickr', 'Avada' ),
 				),
-				'twitter' => array(
+				'twitter'    => array(
 					'search' => 'twitter.com',
 					'label'  => esc_attr__( 'Twitter', 'Avada' ),
 				),
-				'gmaps' => array(
+				'gmaps'      => array(
 					'search' => array(
 						'maps.googleapis.com',
 						'infobox_packed',
@@ -201,12 +264,13 @@ class Avada_Privacy_Embeds {
 					),
 					'label'  => esc_attr__( 'Google Maps', 'Avada' ),
 				),
-				'tracking' => array(
+				'tracking'   => array(
 					'search' => array(),
 					'label'  => esc_attr__( 'Tracking Cookies', 'Avada' ),
 				),
 			)
 		);
+		$this->embed_defaults = $this->embed_types;
 	}
 
 	/**
@@ -224,7 +288,7 @@ class Avada_Privacy_Embeds {
 
 		if ( ! $subkey && isset( $this->embed_types[ $key ] ) ) {
 			return $this->embed_types[ $key ];
-		} else if ( $subkey && isset( $this->embed_types[ $key ] ) && isset( $this->embed_types[ $key ][ $subkey ] ) ) {
+		} elseif ( $subkey && isset( $this->embed_types[ $key ] ) && isset( $this->embed_types[ $key ][ $subkey ] ) ) {
 			return $this->embed_types[ $key ][ $subkey ];
 		}
 
@@ -270,7 +334,7 @@ class Avada_Privacy_Embeds {
 	 */
 	public function update_embed_types() {
 		$defaults = $this->get_embed_defaults();
-		$selected = Avada()->settings->get( 'privacy_embed_types' );
+		$selected = $this->options['privacy_embed_types'];
 		$update   = array();
 
 		if ( is_array( $selected ) ) {
@@ -291,7 +355,7 @@ class Avada_Privacy_Embeds {
 	 * @return  void
 	 */
 	public function set_default_consents() {
-		$this->default_consents = Avada()->settings->get( 'privacy_embed_defaults' );
+		$this->default_consents = $this->options['privacy_embed_defaults'];
 	}
 
 	/**
@@ -354,7 +418,7 @@ class Avada_Privacy_Embeds {
 	 * @return  array
 	 */
 	public function get_privacy_content() {
-		$content   = Avada()->settings->get( 'privacy_bar_content' );
+		$content   = $this->options['privacy_bar_content'];
 		$formatted = array();
 
 		if ( isset( $content['title'] ) && is_array( $content['title'] ) ) {
@@ -364,6 +428,7 @@ class Avada_Privacy_Embeds {
 					'title'       => isset( $content['title'][ $key ] ) ? $content['title'][ $key ] : '',
 					'description' => isset( $content['description'][ $key ] ) ? $content['description'][ $key ] : '',
 				);
+
 				$formatted[] = $data;
 			}
 		}
@@ -590,8 +655,8 @@ class Avada_Privacy_Embeds {
 		if ( array_key_exists( 1, $iframes ) ) {
 			foreach ( $iframes[0] as $key => $frame ) {
 
-				$src     = $iframes[1][ $key ];
-				$orig    = $frame;
+				$src  = $iframes[1][ $key ];
+				$orig = $frame;
 
 				// Its already been filtered.
 				if ( strpos( $frame, 'data-privacy-src' ) ) {
@@ -610,10 +675,10 @@ class Avada_Privacy_Embeds {
 				}
 
 				// Replace src with data attribute.
-				$frame   = str_replace( $src, '$$temp$$', $frame );
-				$frame   = str_replace( 'src', 'data-privacy-src', $frame );
-				$frame   = str_replace( '$$temp$$', $src, $frame );
-				$frame   = str_replace( '<iframe ', '<iframe data-privacy-type="' . $type . '" src="" ', $frame );
+				$frame = str_replace( $src, '$$temp$$', $frame );
+				$frame = str_replace( 'src', 'data-privacy-src', $frame );
+				$frame = str_replace( '$$temp$$', $src, $frame );
+				$frame = str_replace( '<iframe ', '<iframe data-privacy-type="' . $type . '" src="" ', $frame );
 
 				if ( strpos( $frame, 'class="' ) || strpos( $frame, "class='" ) ) {
 					$frame = str_replace( array( 'class="', "class='" ), 'class="fusion-hidden ', $frame );
@@ -667,12 +732,12 @@ class Avada_Privacy_Embeds {
 			if ( array_key_exists( 1, $scripts ) ) {
 				foreach ( $scripts[0] as $key => $script ) {
 
-					$orig    = $script;
+					$orig = $script;
 
 					// Replace src with data attribute.
-					$script   = str_replace( 'src=', 'data-privacy-src=', $script );
-					$script   = str_replace( '<script', '<noscript class="fusion-hidden" data-privacy-script="true" data-privacy-type="' . $type . '"', $script );
-					$script   = str_replace( '</script>', '</noscript>', $script );
+					$script = str_replace( 'src=', 'data-privacy-src=', $script );
+					$script = str_replace( '<script', '<noscript class="fusion-hidden" data-privacy-script="true" data-privacy-type="' . $type . '"', $script );
+					$script = str_replace( '</script>', '</noscript>', $script );
 
 					// Replace script.
 					$content = str_replace( $orig, $script, $content );
@@ -717,7 +782,7 @@ class Avada_Privacy_Embeds {
 	 * @return  string
 	 */
 	public function image_block( $content, $type, $placeholder = true, $width = false, $height = false ) {
-		$content     = $this->image_replace( $content, $type );
+		$content = $this->image_replace( $content, $type );
 
 		if ( $placeholder ) {
 			$placeholder = $this->script_placeholder( $type, $width, $height );
@@ -742,11 +807,11 @@ class Avada_Privacy_Embeds {
 			if ( array_key_exists( 1, $images ) ) {
 				foreach ( $images[0] as $key => $image ) {
 
-					$orig    = $image;
+					$orig = $image;
 
 					// Replace src with data attribute.
-					$image   = str_replace( 'src=', 'data-privacy-src=', $image );
-					$image   = str_replace( '<img', '<img class="fusion-hidden" data-privacy-script="true" data-privacy-type="' . $type . '"', $image );
+					$image = str_replace( 'src=', 'data-privacy-src=', $image );
+					$image = str_replace( '<img', '<img class="fusion-hidden" data-privacy-script="true" data-privacy-type="' . $type . '"', $image );
 
 					// Replace script.
 					$content = str_replace( $orig, $image, $content );
@@ -770,7 +835,7 @@ class Avada_Privacy_Embeds {
 	 */
 	public function script_block( $content, $type, $placeholder = true, $width = false, $height = false ) {
 
-		$content     = $this->script_replace( $content, $type );
+		$content = $this->script_replace( $content, $type );
 
 		if ( $placeholder ) {
 			$placeholder = $this->script_placeholder( $type, $width, $height );
@@ -809,15 +874,15 @@ class Avada_Privacy_Embeds {
 	public function script_placeholder( $type, $width = false, $height = false ) {
 
 		if ( ! $this->get_consent( $type ) ) {
-			$style  = '';
-			$label  = esc_html( $this->get_embed_type( $type, 'label' ) );
+			$style = '';
+			$label = esc_html( $this->get_embed_type( $type, 'label' ) );
 
 			if ( $width && $height ) {
 				$width  = Fusion_Sanitize::get_value_with_unit( $width );
 				$height = Fusion_Sanitize::get_value_with_unit( $height );
 				$style  = 'style="width:' . $width . '; height:' . $height . ';"';
 			}
-			$html   = '<div class="fusion-privacy-placeholder" ' . $style . ' data-privacy-type="' . $type . '"><div class="fusion-privacy-placeholder-content">';
+			$html = '<div class="fusion-privacy-placeholder" ' . $style . ' data-privacy-type="' . $type . '"><div class="fusion-privacy-placeholder-content">';
 
 			/* translators: The placeholder label (embed-type). */
 			$content = sprintf( esc_html__( 'For privacy reasons %s needs your permission to be loaded.', 'Avada' ), $label );
@@ -831,10 +896,9 @@ class Avada_Privacy_Embeds {
 			}
 
 			$content = '<div class="fusion-privacy-label">' . $content . '</div>';
-			$html   .= apply_filters( 'avada_embeds_consent_text', $content, $label, $type );
 
-			$html   .= '<a href="" data-privacy-type="' . $type . '" class="fusion-button button-default fusion-button-default-size button fusion-privacy-consent">' . esc_html__( 'I Accept', 'Avada' ) . '</a>';
-
+			$html .= apply_filters( 'avada_embeds_consent_text', $content, $label, $type );
+			$html .= '<a href="" data-privacy-type="' . $type . '" class="fusion-button button-default fusion-button-default-size button fusion-privacy-consent">' . esc_html__( 'I Accept', 'Avada' ) . '</a>';
 			$html .= '</div></div>';
 
 			return $html;
@@ -852,8 +916,8 @@ class Avada_Privacy_Embeds {
 	 */
 	public function add_styling( $css ) {
 
-		$css['global']['.fusion-privacy-placeholder']['background'] = Fusion_Sanitize::color( Avada()->settings->get( 'privacy_bg_color' ) );
-		$css['global']['.fusion-privacy-placeholder']['color']      = Fusion_Sanitize::color( Avada()->settings->get( 'privacy_color' ) );
+		$css['global']['.fusion-privacy-placeholder']['background'] = Fusion_Sanitize::color( $this->options['privacy_bg_color'] );
+		$css['global']['.fusion-privacy-placeholder']['color']      = Fusion_Sanitize::color( $this->options['privacy_color'] );
 
 		return $css;
 	}
@@ -896,22 +960,23 @@ class Avada_Privacy_Embeds {
 	 */
 	public function add_bar_styling( $css ) {
 
-		$css['global']['.fusion-privacy-bar']['background']                          = Fusion_Sanitize::color( Avada()->settings->get( 'privacy_bar_bg_color' ) );
-		$css['global']['.fusion-privacy-bar']['color']                               = Fusion_Sanitize::color( Avada()->settings->get( 'privacy_bar_color' ) );
-		$css['global']['.fusion-privacy-bar a:not( .fusion-button )']['color']       = Fusion_Sanitize::color( Avada()->settings->get( 'privacy_bar_link_color' ) );
-		$css['global']['.fusion-privacy-bar a:not( .fusion-button ):hover']['color'] = Fusion_Sanitize::color( Avada()->settings->get( 'privacy_bar_link_hover_color' ) );
-		$css['global']['.fusion-privacy-bar']['padding-right']                       = Fusion_Sanitize::size( Avada()->settings->get( 'privacy_bar_padding', 'right' ) );
-		$css['global']['.fusion-privacy-bar']['padding-bottom']                      = Fusion_Sanitize::size( Avada()->settings->get( 'privacy_bar_padding', 'bottom' ) );
-		$css['global']['.fusion-privacy-bar']['padding-left']                        = Fusion_Sanitize::size( Avada()->settings->get( 'privacy_bar_padding', 'left' ) );
-		$css['global']['.fusion-privacy-bar']['padding-top']                         = Fusion_Sanitize::size( Avada()->settings->get( 'privacy_bar_padding', 'top' ) );
-		$css['global']['.fusion-privacy-bar-full .column-title']['color']            = Fusion_Sanitize::color( Avada()->settings->get( 'privacy_bar_headings_color' ) );
-		$css['global']['.fusion-privacy-bar, .fusion-privacy-bar-full']['font-size'] = Fusion_Sanitize::size( Avada()->settings->get( 'privacy_bar_font_size' ) );
-		$css['global']['.fusion-privacy-bar-full .column-title']['font-size']        = Fusion_Sanitize::size( Avada()->settings->get( 'privacy_bar_headings_font_size' ) );
-		$css['global']['.fusion-privacy-bar-full .column-title']['line-height']      = Fusion_Sanitize::size( Avada()->settings->get( 'privacy_bar_headings_font_size' ) );
+		$css['global']['.fusion-privacy-bar']['background']                          = Fusion_Sanitize::color( $this->options['privacy_bar_bg_color'] );
+		$css['global']['.fusion-privacy-bar']['color']                               = Fusion_Sanitize::color( $this->options['privacy_bar_color'] );
+		$css['global']['.fusion-privacy-bar a:not( .fusion-button )']['color']       = Fusion_Sanitize::color( $this->options['privacy_bar_link_color'] );
+		$css['global']['.fusion-privacy-bar a:not( .fusion-button ):hover']['color'] = Fusion_Sanitize::color( $this->options['privacy_bar_link_hover_color'] );
+		$css['global']['.fusion-privacy-bar']['padding-right']                       = Fusion_Sanitize::size( $this->options['privacy_bar_padding']['right'] );
+		$css['global']['.fusion-privacy-bar']['padding-bottom']                      = Fusion_Sanitize::size( $this->options['privacy_bar_padding']['bottom'] );
+		$css['global']['.fusion-privacy-bar']['padding-left']                        = Fusion_Sanitize::size( $this->options['privacy_bar_padding']['left'] );
+		$css['global']['.fusion-privacy-bar']['padding-top']                         = Fusion_Sanitize::size( $this->options['privacy_bar_padding']['top'] );
+		$css['global']['.fusion-privacy-bar-full .column-title']['color']            = Fusion_Sanitize::color( $this->options['privacy_bar_headings_color'] );
+		$css['global']['.fusion-privacy-bar, .fusion-privacy-bar-full']['font-size'] = Fusion_Sanitize::size( $this->options['privacy_bar_font_size'] );
+		$css['global']['.fusion-privacy-bar-full .column-title']['font-size']        = Fusion_Sanitize::size( $this->options['privacy_bar_headings_font_size'] );
+		$css['global']['.fusion-privacy-bar-full .column-title']['line-height']      = Fusion_Sanitize::size( $this->options['privacy_bar_headings_font_size'] );
 
-		$top_padding = Avada()->settings->get( 'privacy_bar_padding', 'top' );
+		$top_padding          = $this->options['privacy_bar_padding']['top'];
 		$double_padding_value = 2 * (int) Fusion_Sanitize::number( $top_padding );
-		$padding_unit = Fusion_Sanitize::get_unit( $top_padding );
+		$padding_unit         = Fusion_Sanitize::get_unit( $top_padding );
+
 		$css['global']['.fusion-privacy-bar-full']['padding-top'] = $double_padding_value . $padding_unit;
 
 		return $css;

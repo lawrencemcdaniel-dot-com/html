@@ -41,7 +41,7 @@ function x_controls_element_search_dropdown( $adv = false ) {
       x_controls_anchor_adv( $toggle_adv ),
       x_controls_dropdown_adv( $dropdown_adv ),
       x_controls_search_adv( $search_adv ),
-      x_controls_omega()
+      x_controls_omega( $settings_add_toggle_hash )
     );
 
   } else {
@@ -59,7 +59,7 @@ function x_controls_element_search_dropdown( $adv = false ) {
       x_controls_dropdown_std_design_colors( $dropdown_std ),
       x_controls_search_std_design_colors( $search_std_design ),
 
-      x_controls_omega( $settings_std_customize )
+      x_controls_omega( array_merge( $settings_std_customize, $settings_add_toggle_hash ) )
 
     );
 
@@ -106,6 +106,8 @@ function x_control_groups_element_search_dropdown( $adv = false ) {
 
 function x_values_element_search_dropdown( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $toggle   = x_bar_module_settings_anchor( 'toggle' );
   $dropdown = array( 'theme' => array( 'dropdown_width' => x_module_value( '300px', 'style' ) ) );
   $search   = x_bar_module_settings_search( 'dropdown', array( 't_pre' => __( 'Search', '__x__' ), 'theme' => x_module_theme_dropdown_search_default() ) );
@@ -114,7 +116,7 @@ function x_values_element_search_dropdown( $settings = array() ) {
     x_values_anchor( $toggle ),
     x_values_dropdown( $dropdown ),
     x_values_search( $search ),
-    x_values_omega()
+    x_values_omega( $settings_add_toggle_hash )
   );
 
   return x_bar_mixin_values( $values, $settings );

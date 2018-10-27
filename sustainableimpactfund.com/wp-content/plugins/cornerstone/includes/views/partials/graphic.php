@@ -136,7 +136,7 @@ if ( isset( $id ) && ! empty( $id ) ) {
 
       $image_args = array(
         'add_in'    => $add_in,
-        'keep_out'  => array( 'graphic_image_src_alt' ),
+        'keep_out'  => array( 'graphic_image_src_alt', 'graphic_image_alt_alt' ),
         'find_data' => array( 'graphic_image' => 'image' )
       );
 
@@ -146,7 +146,7 @@ if ( isset( $id ) && ! empty( $id ) ) {
 
       $image_alt_args = array(
         'add_in'    => array( 'class' => x_attr_class( array( 'x-graphic-image', 'x-graphic-secondary', $interaction_class, $always_active_class ) ) ),
-        'keep_out'  => array( 'graphic_image_src' ),
+        'keep_out'  => array( 'graphic_image_src', 'graphic_image_alt' ),
         'find_data' => array( 'graphic_image' => 'image' )
       );
 

@@ -41,7 +41,7 @@ class Cornerstone_Styling extends Cornerstone_Plugin_Component {
        * This will use a more robust and strict style loader. It outputs late
        * CSS as script tags (templates) and adds them t the head after page load.
        */
-      if ( defined('CS_STRICT_LATE_STYLES') && CS_STRICT_LATE_STYLES ) {
+      if ( (defined('CS_STRICT_LATE_STYLES') && CS_STRICT_LATE_STYLES) || apply_filters('cs_strict_late_styles', false) ) {
         $this->late_styles[$handle] = $css;
       } else {
         $source = array();

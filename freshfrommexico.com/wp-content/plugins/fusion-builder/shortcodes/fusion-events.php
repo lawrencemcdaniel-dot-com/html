@@ -73,7 +73,9 @@ if ( fusion_is_element_enabled( 'fusion_events' ) ) {
 						'past_events'     => 'no',
 						'picture_size'    => 'cover',
 						'strip_html'      => ( '' !== $fusion_settings->get( 'events_strip_html_excerpt' ) ) ? $fusion_settings->get( 'events_strip_html_excerpt' ) : 'yes',
-					), $args
+					),
+					$args,
+					'fusion_events'
 				);
 
 				$theme_option_content_padding = $fusion_settings->get( 'events_content_padding' );
@@ -258,7 +260,7 @@ if ( fusion_is_element_enabled( 'fusion_events' ) ) {
 								$infinite_pagination = true;
 							}
 
-							$pagination_html .= fusion_pagination( $events->max_num_pages, apply_filters( 'fusion_pagination_size', 1 ), $events, $infinite_pagination, true );
+							$pagination_html .= fusion_pagination( $events->max_num_pages, $fusion_settings->get( 'pagination_range' ), $events, $infinite_pagination, true );
 						}
 
 						$html .= $pagination_html;

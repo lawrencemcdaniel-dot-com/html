@@ -21,7 +21,8 @@ $data = array(
   'title'   => __( 'Tab', '__x__' ),
   'values'  => x_values_element_tab(),
   'options' => array(
-    'child' => true
+    'child'     => true,
+    'label_key' => 'tab_label_content'
   )
 );
 

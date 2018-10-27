@@ -39,7 +39,7 @@ function x_controls_element_tp_wc_cart_modal( $adv = false ) {
       x_controls_modal_adv( $modal_adv ),
       x_controls_cart_adv( $cart_adv ),
       x_controls_anchor_adv( $buttons_adv ),
-      x_controls_omega()
+      x_controls_omega( $settings_add_toggle_hash )
     );
 
   } else {
@@ -58,7 +58,7 @@ function x_controls_element_tp_wc_cart_modal( $adv = false ) {
       x_controls_cart_std_design_colors(),
       x_controls_anchor_std_design_colors( $buttons_std_design ),
 
-      x_controls_omega( $settings_std_customize )
+      x_controls_omega( array_merge( $settings_std_customize, $settings_add_toggle_hash ) )
 
     );
 
@@ -105,6 +105,8 @@ function x_control_groups_element_tp_wc_cart_modal( $adv = false ) {
 
 function x_values_element_tp_wc_cart_modal( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $toggle  = x_bar_module_settings_anchor( 'cart-toggle' );
   $buttons = x_bar_module_settings_anchor( 'cart-button' );
 
@@ -113,7 +115,7 @@ function x_values_element_tp_wc_cart_modal( $settings = array() ) {
     x_values_modal(),
     x_values_cart(),
     x_values_anchor( $buttons ),
-    x_values_omega()
+    x_values_omega( $settings_add_toggle_hash )
   );
 
   return x_bar_mixin_values( $values, $settings );

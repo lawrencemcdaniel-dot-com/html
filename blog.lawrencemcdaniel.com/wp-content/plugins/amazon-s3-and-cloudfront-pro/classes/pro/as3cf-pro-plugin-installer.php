@@ -122,7 +122,7 @@ class AS3CF_Pro_Plugin_Installer {
 
 		if ( $plugins_activated === count( $this->plugins_to_install ) ) {
 			// All plugins installed and activated successfully
-			$url = add_query_arg( array( 'wpos3pro-install' => 1 ), network_admin_url( 'plugins.php' ) );
+			$url = add_query_arg( array( 'as3cfpro-install' => 1 ), network_admin_url( 'plugins.php' ) );
 
 			return esc_url_raw( $url );
 		}
@@ -188,7 +188,7 @@ class AS3CF_Pro_Plugin_Installer {
 	}
 
 	/**
-	 * Redirect to the AWS or Offload S3 page after successfully installing the plugins
+	 * Redirect to the AWS or Offload Media page after successfully installing the plugins
 	 */
 	function installer_redirect() {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -200,7 +200,7 @@ class AS3CF_Pro_Plugin_Installer {
 			return;
 		}
 
-		if ( ! isset( $_GET['wpos3pro-install'] ) ) {
+		if ( ! isset( $_GET['as3cfpro-install'] ) ) {
 			return;
 		}
 

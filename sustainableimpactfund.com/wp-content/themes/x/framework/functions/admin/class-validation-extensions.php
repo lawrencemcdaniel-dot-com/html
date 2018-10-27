@@ -7,7 +7,9 @@ class X_Validation_Extensions {
   public function __construct() {
 
     x_validation()->add_script_data( 'x-extension', array( $this, 'script_data_extensions' ) );
-    add_action( 'wp_ajax_x_extensions_installer', array( $this, 'ajax_install_plugin' ) );
+    add_action( 'wp_ajax_x_extensions_install', array( $this, 'ajax_install_plugin' ) );
+    add_action( 'wp_ajax_x_extensions_activate', array( $this, 'ajax_activate_plugin' ) );
+    add_action( 'wp_ajax_x_extensions_deactivate', array( $this, 'ajax_activate_plugin' ) );
 
   }
 
@@ -16,7 +18,7 @@ class X_Validation_Extensions {
       'extensions'      => self::get_extension_list(),
       'approvedPlugins' => self::get_approved_plugins_list(),
       'error'           => __( 'Error encountered.', '__x__' ),
-      'installed'       => __( 'Go Activate', '__x__' ),
+      'activate'        => __( 'Activate', '__x__' ),
       'activated'       => __( 'Installed & Activated', '__x__' ),
       'pluginsURI'      => admin_url( 'plugins.php' ),
       'errorBack'       => __( 'Go Back', '__x__' ),
@@ -51,6 +53,44 @@ class X_Validation_Extensions {
     ) );
 
     if ( is_wp_error( $install ) ) {
+      wp_send_json_error( array( 'message' => $install->get_error_message() ) );
+    }
+
+    wp_send_json_success( array( 'plugin' => $_POST['plugin'] ) );
+
+  }
+
+  public function ajax_activate_plugin() {
+
+    x_tco()->check_ajax_referer();
+
+    if ( ! current_user_can( 'activate_plugins' ) || ! isset( $_POST['plugin'] ) || ! $_POST['plugin'] ) {
+      wp_send_json_error( array( 'message' => 'No plugin specified' ) );
+    }
+
+    $activate = activate_plugin( $_POST['plugin'] );
+
+    if ( is_wp_error( $activate ) ) {
+      wp_send_json_error( array( 'message' => $install->get_error_message() ) );
+    }
+
+    wp_send_json_success( array( 'plugin' => $_POST['plugin'] ) );
+
+  }
+
+  public function ajax_deactivate_plugin() {
+
+    x_tco()->check_ajax_referer();
+
+    if ( ! current_user_can( 'activate_plugins' ) || ! isset( $_POST['plugin'] ) || ! $_POST['plugin'] ) {
+      wp_send_json_error( array( 'message' => 'No plugin specified' ) );
+    }
+
+    wp_send_json_error( array( 'message' => 'No plugin specified' ) );
+
+    $deactivate = deactivate_plugin( $_POST['plugin'] );;
+
+    if ( is_wp_error( $deactivate ) ) {
       wp_send_json_error( array( 'message' => $install->get_error_message() ) );
     }
 

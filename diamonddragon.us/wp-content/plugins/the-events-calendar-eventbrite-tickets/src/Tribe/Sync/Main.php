@@ -44,7 +44,7 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Main {
 			$show_tickets = ( ! empty( $data['EventShowTickets'] ) ? esc_attr( $data['EventShowTickets'] ) : 'yes' );
 			update_post_meta( $event->ID, '_EventShowTickets', $show_tickets );
 
-			// local Eventbrite setting for image sync
+			// If the event's not owned by the user, disable featured image syncing altogether.
 			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', (int) -1 );
 
 			return false;
@@ -62,10 +62,15 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Main {
 		$image_sync_mode = 1;
 
 		if ( isset( $data['EventBriteUsePostThumb'] ) ) {
-			$image_sync_mode = tribe_is_truthy( $data['EventBriteUsePostThumb'] ) ? (int) 1 : (int) -1;
+			$image_sync_mode = tribe_is_truthy( $data['EventBriteUsePostThumb'] ) ? (int) 1 : (int) 0;
 			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', $image_sync_mode );
 		} else {
-			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', (int) -1 );
+			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', (int) 0 );
+		}
+
+		// If there's no EA license, default to pulling the image from EB.
+		if ( ! tribe( 'events-aggregator.main' )->has_license_key() ) {
+			update_post_meta( $event->ID, '_eventbrite_image_sync_mode', (int) 0 );
 		}
 
 		$is_listed = ! empty( $data['EventBritePrivacy'] ) && 'not_listed' === $data['EventBritePrivacy'] ? 0 : 1;
@@ -140,7 +145,9 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Main {
 		}
 
 		if ( 'error' === $response->status ) {
-			tribe( 'eventbrite.main' )->throw_notice( $post, __( 'Eventbrite Event Not Owned.', 'tribe-eventbrite' ), $_POST );
+			// If the response provides a detailed message then let's return that specific one.
+			$message = ! empty( $response->message ) ? $response->message : __( 'Eventbrite Event Not Owned.', 'tribe-eventbrite' );
+			tribe( 'eventbrite.main' )->throw_notice( $post, $message, $_POST );
 		}
 
 		if ( 'success' === $response->status ) {

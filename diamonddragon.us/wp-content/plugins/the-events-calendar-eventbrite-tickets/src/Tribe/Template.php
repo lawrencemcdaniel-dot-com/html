@@ -72,23 +72,40 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Template' ) ) {
 			$iframe_height = 166 + ( $num_visible_tickets * 103 ); // Best guess, great room for variation
 
 			/**
-			 * Sets the height of the event ticket iframe
+			 * Sets the height of the event ticket iFrame.
 			 *
-			 * @param int    $iframe_height        Height of the iframe
-			 * @param int    $post_id              Post ID for this event
-			 * @param object $event                The event object retrieved from the Eventbrite API
-			 * @param int    $num_visible_tickets Number of tickets this event has
+			 * @param int    $iframe_height        Height of the iFrame.
+			 * @param int    $post_id              Post ID for this event.
+			 * @param object $event                The event object retrieved from the Eventbrite API.
+			 * @param int    $num_visible_tickets Number of tickets this event has.
 			 */
 			$iframe_height = apply_filters( 'tribe_events_eventbrite_iframe_height', $iframe_height, $post_id, $event, $num_visible_tickets );
 
 			$html = '';
 
-			if (
-				! empty( $event_id ) &&
-				( isset( $event->listed ) && $event->listed ) &&
-				$api->is_live( $post_id ) &&
-				tribe_event_show_tickets( $post_id, $event )
-			) {
+			$display_iframe = ! empty( $event_id ) &&
+			                  ( isset( $event->listed ) && $event->listed ) &&
+			                  $api->is_live( $post_id ) &&
+			                  tribe_event_show_tickets( $post_id, $event );
+
+			/**
+			 * Filters whether the ticket iFrame should be displayed or not.
+			 *
+			 * By default the iFrame will not be displayed if the event is not listed, is not live or
+			 * the event is not set to display tickets at all.
+			 * This filters allows ignoring these checks and displaying, or not, the iFrame with other
+			 * arbitrary conditions.
+			 *
+			 * @since 4.5.4
+			 *
+			 * @param bool   $display_iframe      Whether the iFrame should be displayed or not.
+			 * @param int    $post_id             Post ID for this event.
+			 * @param object $event               The event object retrieved from the Eventbrite API.
+			 * @param int    $num_visible_tickets Number of tickets this event has.
+			 */
+			$display_iframe = apply_filters( 'tribe_events_eventbrite_iframe_display', $display_iframe, $post_id, $event, $num_visible_tickets );
+
+			if ( $display_iframe ) {
 				$html = sprintf(
 					'<div class="eventbrite-ticket-embed">
 						<iframe id="eventbrite-tickets-%1$s" src="%2$s" height="%3$s" width="100%%" frameborder="0" allowtransparency="true"></iframe>

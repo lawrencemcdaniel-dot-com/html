@@ -4,7 +4,7 @@
 	Plugin URI: https://www.convertplug.com/plus
 	Author: Brainstorm Force
 	Author URI: https://www.brainstormforce.com
-	Version: 3.3.4
+	Version: 3.3.5
 	Description: Welcome to Convert Plus - the easiest WordPress plugin to convert website traffic into leads. Convert Plus will help you build email lists, drive traffic, promote videos, offer coupons and much more!
 	Text Domain: smile
 	License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -16,7 +16,7 @@
 defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 if ( ! defined( 'CP_VERSION' ) ) {
-	define( 'CP_VERSION', '3.3.4' );
+	define( 'CP_VERSION', '3.3.5' );
 }
 
 if ( ! defined( 'CP_BASE_DIR' ) ) {
@@ -79,6 +79,11 @@ function on_cp_activate() {
 	// save previous version of plugin in option.
 	update_option( 'cp_previous_version', CP_VERSION );
 
+	/**
+	 * Action will run after plugin installer is loaded
+	 */
+	do_action( 'after_cp_activate' );
+
 	global $wp_version;
 	$wp  = '3.5';
 	$php = '5.3.2';
@@ -90,6 +95,7 @@ function on_cp_activate() {
 		return;
 	}
 	$version = ( 'PHP' == $flag ) ? $php : $wp;
+
 	deactivate_plugins( basename( __FILE__ ) );
 	wp_die(
 		'<p><strong>' . CP_PLUS_NAME . ' </strong> requires <strong>' . $flag . '</strong> version <strong>' . $version . '</strong> or greater. Please contact your host.</p>', 'Plugin Activation Error', array(
@@ -97,7 +103,6 @@ function on_cp_activate() {
 			'back_link' => true,
 		)
 	);
-
 }
 
 if ( ! class_exists( 'Convert_Plug' ) ) {
@@ -189,6 +194,13 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 				add_action( 'admin_notices', 'cp_rebrand_notice' );
 			}
 
+			// Check if PharData extension is available or not?
+			$cp_show_phardata_notice  = get_option( 'cp_show_phardata_notice' );
+
+			if( 'no' !== $cp_show_phardata_notice && ( !class_exists('PharData') ) ){
+				add_action( 'admin_notices', 'cp_phardata_notice' );
+			}
+
 			$data = get_option( 'convert_plug_debug' );
 
 			$display_debug_info = isset( $data['cp-display-debug-info'] ) ? $data['cp-display-debug-info'] : 0;
@@ -212,9 +224,9 @@ if ( ! class_exists( 'Convert_Plug' ) ) {
 			// change registration page URL.
 			add_action( 'bsf_registration_page_url_14058953', array( $this, 'cp_get_registration_page_url' ) );
 
-			/* Css Asynchronous Loading */
+			/* Css Asynchronous Loading 
 			add_action( 'wp_head', array( $this, 'cp_load_css_async' ), 7 );
-			add_filter( 'style_loader_tag', array( $this, 'cp_link_to_load_css_script' ), 999, 3 );
+			add_filter( 'style_loader_tag', array( $this, 'cp_link_to_load_css_script' ), 999, 3 );*/
 			add_filter( 'script_loader_tag', array( $this, 'cp_dequeue_script_amazon' ), 999, 3 );
 
 		}
@@ -1694,4 +1706,43 @@ if ( ! function_exists( 'cp_rebrand_notice' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cp_phardata_notice' ) ) {
+	/**
+	 * Function Name: cp_dismiss_notice display admin notice for plugin rebranding.
+	 */
+	function cp_phardata_notice() {
+		?>
+
+		<script type="text/javascript">
+			(function($){
+				$(document).ready(function(){
+					$(document).on( "click", ".cp-phardata-warning", function() {
+						$.ajax({
+							url: ajaxurl,
+							method: 'POST',
+							data: {
+								action: "cp_dismiss_PharData_notice"
+							},
+							success: function(response) {
+								console.log(response);
+							}
+						})
+					})
+				});
+			})(jQuery);
+		</script>
+
+		<div class="notice notice-warning cp-phardata-warning is-dismissible">
+			<?php $link = 'https://www.convertplug.com/plus/docs/enable-geo-targeting-in-convert-plus/'; ?>
+
+			<p>
+			<?php
+			/* translators:%s plugin slug %s site URL. */
+			echo sprintf( __( 'In order to continue using GeoLocation tracking, you will need to have the PharData extension enabled on your website. Please read the note -<a rel="noopener" target="_blank" href="%2$s" rel="noopener">here</a>.', 'smile' ), 'Convert Plus', $link );
+			?>
+			</p>
+		</div>
+		<?php
+	}
+}
 // end of common functions.

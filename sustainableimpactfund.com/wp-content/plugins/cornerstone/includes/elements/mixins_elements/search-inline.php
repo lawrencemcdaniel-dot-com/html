@@ -82,6 +82,8 @@ function x_control_groups_element_search_inline( $adv = false ) {
 
 function x_values_element_search_inline( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $search = x_bar_module_settings_search( 'inline' );
 
   $values = array_merge(

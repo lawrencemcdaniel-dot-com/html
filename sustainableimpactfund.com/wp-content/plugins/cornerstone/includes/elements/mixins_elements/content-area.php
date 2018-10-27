@@ -72,6 +72,8 @@ function x_control_groups_element_content_area( $adv = false ) {
 
 function x_values_element_content_area( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_content_area( array( 'type' => 'standard' ) ),
     x_values_omega()

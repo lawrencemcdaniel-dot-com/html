@@ -1,10 +1,10 @@
 === Ultimate Responsive Image Slider Plugin ===
-Contributors: FARAZFRANK
+Contributors: FARAZFRANK, weblizar
 Donate link: https://www.wpfrank.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
 Tested up to: 4.9.8
-Stable tag: 3.2.5
+Stable tag: 3.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,8 +18,6 @@ This responsive slider plugin has various settings like customizable height and 
 **How to use [URIS id=123] shortcode?**
 
 Copy and paste [URIS id=123] shortcode, you can publish this responsive image slider plugin on any Page or Post on your WordPress website.
-
-https://www.youtube.com/watch?v=TtJsmusrJpg
 
 **Free Plugin Features:**
 
@@ -88,6 +86,10 @@ Works with almost every available language in the world.
 * Drag And Drop Image Position
 Change image slide sequence through simple drag and drop feature.
 
+### Check Pro Plugin Demo [Ultimate Responsive Image Slider Pro](https://wpfrank.com/demo/ultimate-responsive-image-slider-pro/)
+
+### Buy Pro Plugin Now [Ultimate Responsive Image Slider Pro](http://wpfrank.com/account/signup/ultimate-responsive-image-slider-pro/)
+
 If you have any question contact us at here: [Plugin Support Forum ](http://wordpress.org/support/plugin/ultimate-responsive-image-slider) 
 
 == Installation ==
@@ -125,6 +127,23 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 == Changelog ==
 For more information, see [WP Frank](https://wpfrank.com/)
 
+= V 3.2.9 =
+- Bug Fixed : Openhand cursor not found
+- Add Pro Banner
+
+= V 3.2.8 =
+- Pro details added
+- meta box labels updated
+- secure Urls added
+
+= V 3.2.7 =
+- Update Review Button
+- Update close icon of slider in dashboard
+- Bug Fixed : Autoplay Slider Speed's span not visible 
+
+= V 3.2.6 =
+- continuty update
+
 = V 3.2.5 =
 - continuty update
 
@@ -140,7 +159,7 @@ For more information, see [WP Frank](https://wpfrank.com/)
 - Bug Fixed: Fontawesome Fonts
 
 = V 3.2.1 =
-Version Update + Compatible upto wp 4.9.8
+- Version Update + Compatible upto wp 4.9.8
 
 = V 3.2.0 =
 - Compatible with Page elementor plugin
@@ -150,14 +169,16 @@ Version Update + Compatible upto wp 4.9.8
 - If no slide found in slider show alert message at frontend
 - Add new products in our product page
 
-= V 3.1.8 - minor bug fix
+= V 3.1.8 =
+- minor bug fix
 
 = V 3.1.7 
-	- Add Back to top link at setting page 
-	- Add banner at setting page (As a dissmiss)
-	- Add plugin version number in css
-	- Add Some code as a dynamic
-	- Bug Fixed - Invalid argument supplied in foreach loop
+- Add Back to top link at setting page 
+- Add banner at setting page (As a dissmiss)
+- Add plugin version number in css
+- Add Some code as a dynamic
+- Bug Fixed - Invalid argument supplied in foreach loop
+
 V 3.1.6 - Custom CSS Editor Fix
 V 3.1.5 - update Font-awesome + update bootstrap + update slider pro js and css 1.4.0 + Modify Custom CSS editor + Add new setting - set slide title as file name + update basic font family + Add recommendation and our product page + compatible upto wp 4.9.5
 V 3.1.4 - New: range slider for autoplay slider settings + autoplay tips typos fixed +compatible upto wp 4.9.1

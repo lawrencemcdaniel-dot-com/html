@@ -23,16 +23,16 @@ class CS_Prompt extends Cornerstone_Element_Base {
     $this->addControl(
       'heading',
       'text',
-      __( 'Title &amp; Content', 'cornerstone' ),
-      __( 'Enter the title and content for your Prompt.', 'cornerstone' ),
+      __( 'Title ', 'cornerstone' ),
+      __( 'Enter the title for your Prompt.', 'cornerstone' ),
       __( 'Prompt Title', 'cornerstone' )
     );
 
     $this->addControl(
       'message',
       'textarea',
-      NULL,
-      NULL,
+      __( 'Content', 'cornerstone' ),
+      __( 'Enter the content for your Prompt.', 'cornerstone' ),
       __( 'This is where the main content for your Prompt can go.', 'cornerstone' ),
       array(
         'expandable' => __( 'Content', 'cornerstone' )

@@ -155,10 +155,11 @@ class Tribe__Events__Tickets__Eventbrite__Aggregator {
 		update_post_meta( $event_id, '_EventShowTickets', $show_tickets );
 
 		// local Eventbrite setting for image sync
+		$has_ea_license           = tribe( 'events-aggregator.main' )->has_license_key();
 		$update_authority_setting = tribe( 'events-aggregator.settings' )->default_update_authority();
 
-		if ( 'overwrite' === $update_authority_setting ) {
-			update_post_meta( $event_id, '_eventbrite_image_sync_mode', (int) -1 );
+		if ( ! $has_ea_license || 'overwrite' === $update_authority_setting ) {
+			update_post_meta( $event_id, '_eventbrite_image_sync_mode', (int) 0 );
 		}
 
 		// local Eventbrite setting to connect event to eventbrite

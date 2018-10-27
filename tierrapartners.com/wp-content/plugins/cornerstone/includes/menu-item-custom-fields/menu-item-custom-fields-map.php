@@ -73,6 +73,20 @@ class CS_Menu_Item_Custom_Fields_Map {
         'std'   => '',
         'desc'  => '',
       ),
+      'anchor_graphic_image_alt' => array(
+        'type'  => 'text',
+        'label' => __( 'Image Primary Alt Text', '__x__' ),
+        'size'  => 'thin',
+        'std'   => '',
+        'desc'  => '',
+      ),
+      'anchor_graphic_image_alt_alt' => array(
+        'type'  => 'text',
+        'label' => __( 'Image Secondary Alt Text', '__x__' ),
+        'size'  => 'thin',
+        'std'   => '',
+        'desc'  => '',
+      ),
       'anchor_graphic_image_width' => array(
         'type'  => 'text',
         'label' => __( 'Image Width (Required)', '__x__' ),

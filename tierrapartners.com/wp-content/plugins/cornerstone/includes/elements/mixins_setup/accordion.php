@@ -70,8 +70,7 @@ $conditions_accordion_header_indicator = array( $condition, array( 'accordion_he
 // =============================================================================
 
 $options_accordion_items_sortable = array(
-  'element'   => 'accordion-item',
-  'label_key' => 'accordion_item_header_content'
+  'element'   => 'accordion-item'
 );
 
 $options_accordion_font_size = array(

@@ -9,7 +9,6 @@ return array(
 
 	// Register Cornerstone endpoint and Admin AJAX fallback
 	'endpoint_save'      => array( 'Save_Handler', 'ajax_handler' ),
-	'render_element'     => array( 'Builder_Renderer', 'ajax_handler' ),
 	'setting_sections'   => array( 'Settings_Manager', 'ajax_handler' ),
 	'templates'          => array( 'Layout_Manager', 'ajax_templates' ),
 	'template_migration' => array( 'Layout_Manager', 'ajax_template_migration' ),

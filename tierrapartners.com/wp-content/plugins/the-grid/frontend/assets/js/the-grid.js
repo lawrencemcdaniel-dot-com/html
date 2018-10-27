@@ -1359,8 +1359,9 @@ var tg_is_mobile = (tg_global_var.is_mobile); // check is we are on a mobile dev
 		
 		return this.each(function () {
 
-			var $this = $(this).closest(tg_media_hold),
-				src   = $(this).attr('src');
+			var $this  = $(this).closest(tg_media_hold),
+				src    = $(this).attr('src'),
+				played = false;
 				
 			// Vimeo not supported with IE <= 9, so remove iframe & play button
 			if (ie <= 9) {
@@ -1373,39 +1374,32 @@ var tg_is_mobile = (tg_global_var.is_mobile); // check is we are on a mobile dev
 				// reset the src of the iframe because of a cache issue from VIMEO API
 				$(this).attr('src', $(this).attr('src'));
 
-				var player = $f(this);
+				var player = new Vimeo.Player(this)
 
-				player.addEvent('ready', function() {
-					if (!tg_is_mobile) {
-						player.api('play');
-					}
-					$.TG_Media_Ready($this,player,'VM');
-					player.addEvent('play', function(){
-						$.TG_Media_Play($this);
-					});
-					player.addEvent('pause', function(){
-						$.TG_Media_Pause($this);
-					});
-					player.addEvent('finish', function(){
-						$.TG_Media_Pause($this);
-					});
-				});
 
-				/*$(this).attr('src', $(this).attr('src'));
-				var player = new Vimeo.Player($(this));
-				
-				player.play();
-				$.TG_Media_Ready($this,player,'STD');
+				if (!tg_is_mobile) {
+					player.play();
+				}
+
+				$.TG_Media_Ready($this,player,'VM');
+
 				player.on('play', function(){
-					$.TG_Media_Play($this);
+					if ( ! played ) {
+						$.TG_Media_Play($this);
+					}
+					played = true;
 				});
+
 				player.on('pause', function(){
 					$.TG_Media_Pause($this);
+					play = false;
 				});
-				player.on('finish', function(){
-					$.TG_Media_Pause($this);
-				});*/
 				
+				player.on('ended', function() {
+					$.TG_Media_Pause($this);
+					play = false;
+				});
+
 			}
 				
 		});
@@ -1579,7 +1573,7 @@ var tg_is_mobile = (tg_global_var.is_mobile); // check is we are on a mobile dev
 					player.playVideo();
 					break;
 				case 'VM':
-					player.api('play');
+					player.play();
 					break;
 			}
 		}
@@ -1596,13 +1590,11 @@ var tg_is_mobile = (tg_global_var.is_mobile); // check is we are on a mobile dev
 			if (player && $this.hasClass(tg_media_init)) {
 				switch(method) {
 					case 'STD':
+					case 'VM':
 						player.pause();
 						break;
 					case 'YT':
 						player.pauseVideo();
-						break;
-					case 'VM':
-						player.api('pause');
 						break;
 				}
 				$this.closest(tg_media_hold).removeClass('tg-is-playing tg-force-play');
@@ -1620,7 +1612,7 @@ var tg_is_mobile = (tg_global_var.is_mobile); // check is we are on a mobile dev
 			script,
 			scripts = [
 				{'ID':'youtube', 'url':'//www.youtube.com/iframe_api'},
-				{'ID':'vimeo', 'url':'//f.vimeocdn.com/js/froogaloop2.min.js'},
+				{'ID':'vimeo', 'url':'//player.vimeo.com/api/player.js'},
 				{'ID':'soundcloud', 'url':'//w.soundcloud.com/player/api.js'},
 				{'ID':'wistia', 'url':'//fast.wistia.com/assets/external/E-v1.js'}
 			];

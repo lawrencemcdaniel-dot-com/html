@@ -64,7 +64,8 @@ class Avada_Remote_Installer {
 			$url          .= ( $is_envato_hosted ) ? '&envato-hosted=true' : '';
 
 			$response      = wp_remote_get(
-				$url, array(
+				$url,
+				array(
 					'user-agent' => 'avada-user-agent',
 				)
 			);

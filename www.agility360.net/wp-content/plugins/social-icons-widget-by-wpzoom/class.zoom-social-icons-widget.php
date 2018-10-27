@@ -59,6 +59,11 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 				'category' => array( 'music' ),
 				'color'    => '#619aa9'
 			),
+            array(
+                'icon'     => 'beatport',
+                'category' => array( 'music' ),
+                'color'    => '#94d500'
+            ),
 			array(
 				'icon'     => 'bebo',
 				'category' => array( 'software', 'communication' ),
@@ -254,6 +259,11 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 				'category' => array( 'photography', 'social-media' ),
 				'color'    => '#E1306C'
 			),
+            array(
+                'icon'     => 'itunes',
+                'category' => array( 'music' ),
+                'color'    => '#ff5e51'
+            ),
 			array(
 				'icon'     => 'lanyrd',
 				'category' => array( 'learning' ),
@@ -10075,7 +10085,7 @@ class Zoom_Social_Icons_Widget extends WP_Widget {
 	 * Scripts & styles for front-end display of widget.
 	 */
 	public function scripts() {
-		wp_enqueue_style( 'socicon', plugin_dir_url( $this->plugin_file ) . 'assets/css/socicon.css', array(), '20180903' );
+		wp_enqueue_style( 'socicon', plugin_dir_url( $this->plugin_file ) . 'assets/css/socicon.css', array(), '20181009' );
 		wp_enqueue_style( 'genericons', plugin_dir_url( $this->plugin_file ) . 'assets/css/genericons.css', array(), '20180625' );
 		wp_enqueue_style( 'fontawesome', plugin_dir_url( $this->plugin_file ) . 'assets/css/font-awesome.min.css', array(), '20180625' );
 		wp_enqueue_style( 'dashicons' );

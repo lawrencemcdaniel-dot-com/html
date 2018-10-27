@@ -45,6 +45,18 @@ class Cornerstone_Preview_Frame_Loader extends Cornerstone_Plugin_Component {
       return;
     }
 
+    if ( isset( $state['custom_js'] ) ) {
+
+      $inline_scripts = $this->plugin->component('Inline_Scripts');
+
+      foreach ($state['custom_js'] as $id => $content) {
+        if ( $content ) {
+          $inline_scripts->add_script_safely($id, $content);
+        }
+      }
+
+    }
+
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
     add_action( 'wp_footer', array( $this, 'route_config' ) );
 
@@ -123,7 +135,7 @@ class Cornerstone_Preview_Frame_Loader extends Cornerstone_Plugin_Component {
     ob_clean();
 
     wp_enqueue_script( 'cs-app' );
-    wp_enqueue_style( 'cs-preview', $this->plugin->css( 'preview', true ), null, $this->plugin->version() );
+    wp_enqueue_style( 'cs-preview', $this->plugin->css( 'app/preview' ), null, $this->plugin->version() );
   }
 
   public function route_config() {

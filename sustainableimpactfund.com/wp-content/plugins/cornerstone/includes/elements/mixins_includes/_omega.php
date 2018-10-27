@@ -22,10 +22,12 @@ function x_controls_omega( $settings = array() ) {
   // Setup
   // -----
 
-  $group     = ( isset( $settings['group'] )     ) ? $settings['group']     : 'omega:setup';
-  $condition = ( isset( $settings['condition'] ) ) ? $settings['condition'] : array();
-  $title     = ( isset( $settings['title'] )     ) ? $settings['title']     : false;
-  $add_style = ( isset( $settings['add_style'] ) ) ? true                   : false;
+  $group                 = ( isset( $settings['group'] )                 ) ? $settings['group']                 : 'omega:setup';
+  $condition             = ( isset( $settings['condition'] )             ) ? $settings['condition']             : array();
+  $title                 = ( isset( $settings['title'] )                 ) ? $settings['title']                 : false;
+  $add_style             = ( isset( $settings['add_style'] )             ) ? true                               : false;
+  $add_toggle_hash       = ( isset( $settings['add_toggle_hash'] )       ) ? true                               : false;
+  $toggle_hash_condition = ( isset( $settings['toggle_hash_condition'] ) ) ? $settings['toggle_hash_condition'] : false;
 
 
   // Conditions
@@ -41,6 +43,7 @@ function x_controls_omega( $settings = array() ) {
     'type'       => 'omega',
     'group'      => $group,
     'conditions' => $conditions,
+    'options'    => array(),
   );
 
   if ( ! empty( $title ) ) {
@@ -61,6 +64,14 @@ function x_controls_omega( $settings = array() ) {
 
   if ( $add_style ) {
     $keys['style'] = 'style';
+  }
+
+  if ( $add_toggle_hash ) {
+    $keys['toggle_hash'] = 'toggle_hash';
+  }
+
+  if ( $toggle_hash_condition ) {
+    $data['options']['toggle_hash_condition'] = $toggle_hash_condition;
   }
 
   $data['keys'] = $keys;
@@ -101,7 +112,8 @@ function x_control_groups_omega( $settings = array() ) {
 
 function x_values_omega( $settings = array() ) {
 
-  $add_style = ( isset( $settings['add_style'] ) ) ? true : false;
+  $add_style       = ( isset( $settings['add_style'] )       ) ? true : false;
+  $add_toggle_hash = ( isset( $settings['add_toggle_hash'] ) ) ? true : false;
 
 
   // Values
@@ -117,6 +129,10 @@ function x_values_omega( $settings = array() ) {
 
   if ( $add_style ) {
     $values['style'] = x_module_value( '', 'attr' );
+  }
+
+  if ( $add_toggle_hash ) {
+    $values['toggle_hash'] = x_module_value( '', 'attr' );
   }
 
 

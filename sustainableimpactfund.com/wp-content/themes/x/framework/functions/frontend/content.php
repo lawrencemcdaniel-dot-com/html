@@ -278,7 +278,7 @@ if ( ! function_exists( 'x_legacy_header_widget_areas' ) ) :
       </div>
     </div>
 
-    <a href="#" id="x-btn-widgetbar" class="x-btn-widgetbar collapsed" data-x-toggle="collapse-b" data-x-toggleable="x-widgetbar" aria-selected="false" aria-expanded="false" aria-controls="x-widgetbar">
+    <a href="#" id="x-btn-widgetbar" class="x-btn-widgetbar collapsed" data-x-toggle="collapse-b" data-x-toggleable="x-widgetbar" aria-expanded="false" aria-controls="x-widgetbar" role="button">
       <i class="x-icon-plus-circle" data-x-icon-s="&#xf055;"><span class="visually-hidden"><?php _e( 'Toggle the Widgetbar', '__x__' ); ?></span></i>
     </a>
 

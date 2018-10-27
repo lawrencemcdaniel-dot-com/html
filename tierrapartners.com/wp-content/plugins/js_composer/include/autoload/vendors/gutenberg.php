@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Disable VC in gutenberg pages */
 function vc_gutenberg_check_be( $result, $type ) {
-	if ( function_exists( 'gutenberg_pre_init' ) && function_exists( 'gutenberg_init' ) ) {
+	if ( function_exists( 'gutenberg_pre_init' ) && function_exists( 'gutenberg_can_edit_post' ) && function_exists( 'gutenberg_init' ) ) {
 		if ( isset( $_GET['classic-editor'] ) ) {
 			return $result;
 		}
@@ -21,7 +21,6 @@ function vc_gutenberg_check_be( $result, $type ) {
  */
 function vc_gutenberg_add_settings( $settings ) {
 	if ( function_exists( 'gutenberg_pre_init' ) && function_exists( 'gutenberg_init' ) ) {
-
 		$settings->addField( 'general', __( 'Disable Gutenberg Editor', 'js_composer' ), 'gutenberg_disable', 'vc_gutenberg_sanitize_disable_callback', 'vc_gutenberg_disable_render_callback' );
 	}
 }

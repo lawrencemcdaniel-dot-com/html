@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0
  */
 class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
+
 	/**
 	 * @var Amazon_S3_And_CloudFront_Pro
 	 */
@@ -43,19 +44,19 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 
 		$plugin->global_meta_prefix       = 'aws';
 		$plugin->slug                     = 'amazon-s3-and-cloudfront-pro';
-		$plugin->name                     = 'WP Offload S3';
+		$plugin->name                     = 'WP Offload Media';
 		$plugin->version                  = $GLOBALS[ $plugin->global_meta_prefix . '_meta' ][ $plugin->slug ]['version'];
 		$plugin->basename                 = $this->as3cf->get_plugin_basename();
 		$plugin->dir_path                 = $this->as3cf->get_plugin_dir_path();
 		$plugin->prefix                   = 'as3cfpro';
 		$plugin->settings_url_path        = $this->as3cf->get_plugin_pagenow() . '?page=amazon-s3-and-cloudfront';
-		$plugin->settings_url_hash        = '#settings';
+		$plugin->settings_url_hash        = '#licence';
 		$plugin->hook_suffix              = $as3cf->hook_suffix;
 		$plugin->email_address_name       = 'as3cf';
 		$plugin->notices_hook             = 'as3cf_pre_settings_render';
 		$plugin->load_hook                = 'as3cf_plugin_load';
 		$plugin->expired_licence_is_valid = true;
-		$plugin->purchase_url             = $this->as3cf->dbrains_url( '/wp-offload-s3/pricing/', array(
+		$plugin->purchase_url             = $this->as3cf->dbrains_url( '/wp-offload-media/pricing/', array(
 			'utm_campaign' => 'WP+Offload+S3',
 		) );
 
@@ -250,7 +251,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	 * @return string
 	 */
 	function get_licence_notice_url( $action, $send_to_settings = true, $dashboard = false ) {
-		$action = $this->plugin->prefix . '-' . $action;
+		$action     = $this->plugin->prefix . '-' . $action;
 		$query_args = array(
 			'nonce' => wp_create_nonce( $action ),
 			$action => 1,
@@ -370,7 +371,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 		} else {
 			$args['title'] = __( 'Approaching License Limit', 'amazon-s3-and-cloudfront' );
 		}
-		
+
 		$args['type']  = 'near_limit';
 		$args['extra'] = sprintf(
 			__( 'When you exceed the limit, all essential features will continue to work, but a few <a href="%1$s">non-essential features</a> will be disabled until you <a href="%2$s">upgrade your license</a> or <a href="%3$s">free-up some of your current limit</a>.', 'amazon-s3-and-cloudfront' ),
@@ -392,7 +393,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 		$media_limit_check = $this->check_licence_media_limit();
 		$total             = absint( $media_limit_check['total'] );
 		$limit             = absint( $media_limit_check['limit'] );
-		
+
 		if ( $args['dashboard'] ) {
 			$args['title'] = sprintf( __( 'Upgrade Your %s License', 'amazon-s3-and-cloudfront' ), $this->plugin->name );
 		} else {
@@ -401,20 +402,20 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 
 		$reached  = __( 'The total number of attachments across the media libraries for your installs (%1$s) has reached the limit for your license (%2$s).', 'amazon-s3-and-cloudfront' );
 		$exceeded = __( 'The total number of attachments across the media libraries for your installs (%1$s) has exceeded the limit for your license (%2$s).', 'amazon-s3-and-cloudfront' );
-		
+
 		$args['type']    = 'over_limit';
 		$args['message'] = sprintf(
 			$total > $limit ? $exceeded : $reached,
 			number_format( $total ),
 			number_format( $limit )
 		);
-		$args['extra'] = sprintf(
+		$args['extra']   = sprintf(
 			__( 'All essential features will continue to work, but a few <a href="%1$s">non-essential features</a> will be disabled until you <a href="%2$s">upgrade your license</a> or <a href="%3$s">free-up some of your current limit</a>.', 'amazon-s3-and-cloudfront' ),
 			$this->non_essential_features_url(),
 			$this->as3cf->get_my_account_url(),
 			$this->free_up_limit_url()
 		);
-		$args['links'] = array( 'upgrade_now', 'check_again' );
+		$args['links']   = array( 'upgrade_now', 'check_again' );
 
 		$this->render_licence_notice( $args );
 	}
@@ -453,7 +454,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 		);
 
 		if ( ! empty( $args['links'] ) ) {
-			$args['links'] = array_map( function( $link ) use ( $link_map ) {
+			$args['links'] = array_map( function ( $link ) use ( $link_map ) {
 				return isset( $link_map[ $link ] ) ? $link_map[ $link ] : $link;
 			}, $args['links'] );
 		}
@@ -461,7 +462,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 		$this->as3cf->render_view( 'licence-notice', $args );
 		$this->update_licence_issue( $args['type'] );
 	}
-	
+
 	/**
 	 * Update the saved license issue type.
 	 *
@@ -490,7 +491,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	 * @return string
 	 */
 	public function non_essential_features_url() {
-		return $this->as3cf->dbrains_url( '/wp-offload-s3/doc/non-essential-features/', array(
+		return $this->as3cf->dbrains_url( '/wp-offload-media/doc/non-essential-features/', array(
 			'utm_campaign' => 'error+messages',
 		) );
 	}
@@ -501,7 +502,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	 * @return string
 	 */
 	public function free_up_limit_url() {
-		return $this->as3cf->dbrains_url( '/wp-offload-s3/pricing/', array(
+		return $this->as3cf->dbrains_url( '/wp-offload-media/pricing/', array(
 			'utm_campaign' => 'error+messages',
 		), 'free-up-limit' );
 	}
@@ -559,7 +560,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 			$args = array(
 				'licence_key'   => $licence_key,
 				'site_url'      => $this->home_url,
-				'library_total' => $this->as3cf->get_media_library_s3_total( $skip_transient ),
+				'library_total' => $this->as3cf->get_media_library_provider_total( $skip_transient ),
 			);
 
 			$response = $this->api_request( 'check_licence_media_limit', $args );
@@ -622,7 +623,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	 * Override the default license expired message for the email support section
 	 *
 	 * @param string $message
-	 * @param array $errors
+	 * @param array  $errors
 	 *
 	 * @return string
 	 */
@@ -643,8 +644,8 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	/**
 	 * Don't show plugin row update notices when AWS not set up
 	 *
-	 * @param bool   $pre
-	 * @param array  $licence_response
+	 * @param bool  $pre
+	 * @param array $licence_response
 	 *
 	 * @return bool
 	 */

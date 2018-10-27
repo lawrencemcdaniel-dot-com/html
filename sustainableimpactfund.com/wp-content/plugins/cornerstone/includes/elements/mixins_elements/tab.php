@@ -1,7 +1,7 @@
 <?php
 
 // =============================================================================
-// CORNERSTONE/INCLUDES/ELEMENTS/MIXINS_ELEMENTS/ACCORDION-ITEM.PHP
+// CORNERSTONE/INCLUDES/ELEMENTS/MIXINS_ELEMENTS/TAB.PHP
 // -----------------------------------------------------------------------------
 // V2 element mixins.
 // =============================================================================
@@ -25,14 +25,14 @@ function x_controls_element_tab( $adv = false ) {
 
     $controls = array_merge(
       x_controls_tab( array( 'adv' => $adv ) ),
-      x_controls_omega()
+      x_controls_omega( $settings_add_toggle_hash )
     );
 
   } else {
 
     $controls = array_merge(
       x_controls_tab(),
-      x_controls_omega( $settings_std_customize )
+      x_controls_omega( array_merge( $settings_std_customize, $settings_add_toggle_hash ) )
     );
 
   }
@@ -74,9 +74,11 @@ function x_control_groups_element_tab( $adv = false ) {
 
 function x_values_element_tab( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_tab(),
-    x_values_omega()
+    x_values_omega( $settings_add_toggle_hash )
   );
 
   return x_bar_mixin_values( $values, $settings );

@@ -66,7 +66,7 @@ outline: 0px !important;
 	<?php }
 	else {
 	?>
-	border-radius: 0px;
+		border-radius: 0px;
 	<?php
 	}
 	?>
@@ -148,5 +148,4 @@ outline: 0px !important;
 			break;
 		}
 ?>	
-
 <?php echo $custom_css; ?>

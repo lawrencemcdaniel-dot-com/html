@@ -132,6 +132,10 @@ class Cornerstone_Element_Manager extends Cornerstone_Plugin_Component {
       'debounce'  => apply_filters( 'cornerstone_render_debounce', 200 )
     );
 
+    if ( ( isset( $options['classic']['delegate']) && $options['classic']['delegate'] ) ) {
+      $options['child'] = true;
+    }
+
     if ( ( isset( $options['classic']['delegate']) && $options['classic']['delegate'] )
         || isset( $options['classic']['no_server_render']) && $options['classic']['no_server_render']) {
       $options['no_server_render'] = true;
@@ -139,6 +143,10 @@ class Cornerstone_Element_Manager extends Cornerstone_Plugin_Component {
 
     if ( isset($options['classic']['manageChild'] ) ) {
       $options['render_children'] = true;
+    }
+
+    if ( isset($options['classic']['height_check'] ) ) {
+      $options['height_check'] = $options['classic']['height_check'];
     }
 
     $protected_keys = ( isset( $options['classic']['protected_keys'] ) && is_array( $options['classic']['protected_keys'] ) ) ? $options['classic']['protected_keys'] : array();
@@ -254,7 +262,7 @@ class Cornerstone_Element_Manager extends Cornerstone_Plugin_Component {
 
     $render_data['_type'] = str_replace('classic:', '', $render_data['_type']);
 
-    echo $this->plugin->component('Builder_Renderer')->render_element( $render_data, '{{yield}}' );
+    echo $this->plugin->component('Classic_Renderer')->render_element( $render_data, '{{yield}}' );
   }
 
   public function sanitize_element( $data ) {

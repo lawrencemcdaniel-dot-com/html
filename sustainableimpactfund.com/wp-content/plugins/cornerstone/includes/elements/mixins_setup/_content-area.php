@@ -12,7 +12,9 @@
 //   01. Shared
 //   02. Setup
 //   03. Groups
-//   04. Control Groups
+//   04. Individual Controls
+//   05. Control Lists
+//   06. Control Groups
 // =============================================================================
 
 // Shared
@@ -46,18 +48,62 @@ $group_content_area_setup = $group . ':setup';
 
 
 
-// Control Groups
+// Individual Controls
 // =============================================================================
 
-$control_group_content_area_content = array(
-  array(
-    'key'     => $k_pre . 'content',
-    'type'    => 'text-editor',
-    'title'   => __( $t_pre . 'Content', '__x__' ),
-    'group'   => $is_adv ? $group_content_area_setup : $group_std_content,
-    'options' => array(
-      'mode'   => 'html',
-      'height' => 5,
+$control_content_area_content = array(
+  'key'     => $k_pre . 'content',
+  'type'    => 'text-editor',
+  'title'   => __( 'Content', '__x__' ),
+  'group'   => $is_adv ? $group_content_area_setup : $group_std_content,
+  'options' => array(
+    'mode'   => 'html',
+    'height' => $type != 'standard' ? 4 : 5,
+  ),
+);
+
+$control_content_area_dynamic_rendering = array(
+  'keys' => array(
+    'dynamic_rendering' => $k_pre . 'content_dynamic_rendering',
+  ),
+  'type'    => 'checkbox-list',
+  'label'   => __( 'Dynamic Rendering', '__x__' ),
+  'group'   => $is_adv ? $group_content_area_setup : $group_std_content,
+  'options' => array(
+    'list' => array(
+      array( 'key' => 'dynamic_rendering', 'label' => __( 'Load / reset on element toggle', '__x__' ) ),
     ),
   ),
 );
+
+
+
+// Control Lists
+// =============================================================================
+
+$control_list_content_area_setup_with_dynamic_rendering = array(
+  $control_content_area_content,
+  $control_content_area_dynamic_rendering,
+);
+
+
+
+// Control Groups
+// =============================================================================
+
+$control_group_content_area_content = array();
+
+if ( $type != 'standard' ) {
+
+  $control_group_content_area_content[] = array(
+    'type'     => 'group',
+    'title'    => __( $t_pre . 'Content', '__x__' ),
+    'group'    => $is_adv ? $group_content_area_setup : $group_std_content,
+    'controls' => $control_list_content_area_setup_with_dynamic_rendering,
+  );
+
+} else {
+
+  $control_group_content_area_content[] = $control_content_area_content;
+
+}

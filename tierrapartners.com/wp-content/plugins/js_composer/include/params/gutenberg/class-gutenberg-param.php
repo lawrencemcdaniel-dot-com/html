@@ -8,7 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Gutenberg_Param {
 	protected $postTypeSlug = 'wpb_gutenberg_param';
-	protected $removeGutenberg = null;
 
 	public function __construct() {
 		add_action( 'init', array(

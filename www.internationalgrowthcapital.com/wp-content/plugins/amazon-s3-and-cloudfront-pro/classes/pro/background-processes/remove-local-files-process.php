@@ -1,6 +1,6 @@
 <?php
 
-namespace DeliciousBrains\WP_Offload_S3\Pro\Background_Processes;
+namespace DeliciousBrains\WP_Offload_Media\Pro\Background_Processes;
 
 class Remove_Local_Files_Process extends Background_Tool_Process {
 
@@ -29,12 +29,12 @@ class Remove_Local_Files_Process extends Background_Tool_Process {
 		$this->blog_id = $blog_id;
 
 		foreach ( $attachments as $key => $attachment_id ) {
-			if ( ! $this->as3cf->is_attachment_served_by_s3( $attachment_id, true ) || ! $this->attachment_exist_locally( $attachment_id ) ) {
+			if ( ! $this->as3cf->is_attachment_served_by_provider( $attachment_id, true ) || ! $this->attachment_exist_locally( $attachment_id ) ) {
 				unset( $attachments[ $key ] );
 			}
 		}
 
-		$keys = $this->get_s3_keys( $attachments );
+		$keys = $this->get_provider_keys( $attachments );
 
 		foreach ( $attachments as $attachment_id ) {
 			$this->delete_local_attachment( $attachment_id, $keys );
@@ -71,7 +71,7 @@ class Remove_Local_Files_Process extends Background_Tool_Process {
 		$keys  = isset( $keys[ $attachment_id ] ) ? $keys[ $attachment_id ] : array();
 
 		foreach ( $paths as $path ) {
-			if ( file_exists( $path ) && $this->file_exists_on_s3( $path, $keys ) ) {
+			if ( file_exists( $path ) && $this->file_exists_on_provider( $path, $keys ) ) {
 				$files_to_remove[] = $path;
 			}
 		}
@@ -103,7 +103,7 @@ class Remove_Local_Files_Process extends Background_Tool_Process {
 	 *
 	 * @return bool
 	 */
-	protected function file_exists_on_s3( $path, $keys ) {
+	protected function file_exists_on_provider( $path, $keys ) {
 		foreach ( $keys as $key ) {
 			if ( pathinfo( $path, PATHINFO_BASENAME ) === pathinfo( $key, PATHINFO_BASENAME ) ) {
 				return true;
@@ -154,6 +154,6 @@ class Remove_Local_Files_Process extends Background_Tool_Process {
 	 * @return string
 	 */
 	protected function get_complete_message() {
-		return __( '<strong>WP Offload S3</strong> &mdash; Finished removing media files from local server.', 'amazon-s3-and-cloudfront' );
+		return __( '<strong>WP Offload Media</strong> &mdash; Finished removing media files from local server.', 'amazon-s3-and-cloudfront' );
 	}
 }

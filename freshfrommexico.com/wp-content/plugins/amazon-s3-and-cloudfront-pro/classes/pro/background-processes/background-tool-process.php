@@ -1,12 +1,12 @@
 <?php
 
-namespace DeliciousBrains\WP_Offload_S3\Pro\Background_Processes;
+namespace DeliciousBrains\WP_Offload_Media\Pro\Background_Processes;
 
 use AS3CF_Background_Process;
 use AS3CF_Error;
 use AS3CF_Utils;
-use DeliciousBrains\WP_Offload_S3\Pro\Tool;
-use DeliciousBrains\WP_Offload_S3\Providers\Provider;
+use DeliciousBrains\WP_Offload_Media\Pro\Tool;
+use DeliciousBrains\WP_Offload_Media\Providers\Provider;
 
 abstract class Background_Tool_Process extends AS3CF_Background_Process {
 
@@ -96,7 +96,7 @@ abstract class Background_Tool_Process extends AS3CF_Background_Process {
 			if ( $count ) {
 				$item['blogs'][ $blog_id ]['total_attachments']  = $count;
 				$item['blogs'][ $blog_id ]['last_attachment_id'] = $this->get_blog_last_attachment_id( $blog ) + 1;
-				$item['total_attachments'] += $count;
+				$item['total_attachments']                       += $count;
 			} else {
 				$item['blogs'][ $blog_id ]['processed']         = true;
 				$item['blogs'][ $blog_id ]['total_attachments'] = 0;
@@ -162,7 +162,7 @@ abstract class Background_Tool_Process extends AS3CF_Background_Process {
 		foreach ( $chunks as $chunk ) {
 			$this->process_attachments_chunk( $chunk, $blog_id );
 
-			$item['processed_attachments'] += count( $chunk );
+			$item['processed_attachments']                   += count( $chunk );
 			$item['blogs'][ $blog_id ]['last_attachment_id'] = end( $chunk );
 
 			if ( $this->time_exceeded() || $this->memory_exceeded() ) {
@@ -242,21 +242,27 @@ abstract class Background_Tool_Process extends AS3CF_Background_Process {
 	 * @param array $attachments
 	 *
 	 * @return array
+	 * @throws \Exception
 	 */
-	protected function get_s3_keys( $attachments ) {
+	protected function get_provider_keys( $attachments ) {
 		$regions = array();
 
 		foreach ( $attachments as $attachment_id ) {
-			$s3info = $this->as3cf->get_attachment_s3_info( $attachment_id );
-			$region = empty( $s3info['region'] ) ? 'us-east-1' : $s3info['region'];
+			if ( ! $this->as3cf->is_attachment_served_by_provider( $attachment_id, true ) ) {
+				continue;
+			}
 
-			if ( ! isset( $regions[ $region ]['s3client'] ) ) {
-				$regions[ $region ]['s3client'] = $this->as3cf->get_s3client( $region, true );
+			$provider_info = $this->as3cf->get_attachment_provider_info( $attachment_id );
+
+			$region = empty( $provider_info['region'] ) ? 'us-east-1' : $provider_info['region'];
+
+			if ( ! isset( $regions[ $region ]['provider_client'] ) ) {
+				$regions[ $region ]['provider_client'] = $this->as3cf->get_provider_client( $region, true );
 			}
 
 			$regions[ $region ]['locations'][ $attachment_id ] = array(
-				'Bucket' => $s3info['bucket'],
-				'Prefix' => AS3CF_Utils::strip_image_edit_suffix_and_extension( $s3info['key'] ),
+				'Bucket' => $provider_info['bucket'],
+				'Prefix' => AS3CF_Utils::strip_image_edit_suffix_and_extension( $provider_info['key'] ),
 			);
 		}
 

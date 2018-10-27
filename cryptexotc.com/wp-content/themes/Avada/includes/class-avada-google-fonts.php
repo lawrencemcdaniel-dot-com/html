@@ -317,7 +317,8 @@ final class Avada_Google_Fonts {
 			array(
 				'family' => str_replace( '%2B', '+', rawurlencode( implode( '|', $link_fonts ) ) ),
 				'subset' => rawurlencode( implode( ',', $this->subsets ) ),
-			), 'https://fonts.googleapis.com/css'
+			),
+			'https://fonts.googleapis.com/css'
 		);
 	}
 
@@ -349,7 +350,8 @@ final class Avada_Google_Fonts {
 			array(
 				'action' => 'get-gfonts',
 				'family' => str_replace( '%2B', '+', rawurlencode( implode( '|', $link_fonts ) ) ),
-			), site_url()
+			),
+			site_url()
 		);
 	}
 

@@ -44,7 +44,7 @@ function x_controls_element_nav_layered( $adv = false ) {
       x_controls_anchor_adv( $toggle_adv ),
       x_controls_off_canvas_adv( $off_canvas_adv ),
       x_controls_anchor_adv( $links_adv ),
-      x_controls_omega()
+      x_controls_omega( array_merge( $settings_add_toggle_hash, $settings_toggle_hash_condition ) )
     );
 
   } else {
@@ -64,7 +64,7 @@ function x_controls_element_nav_layered( $adv = false ) {
       x_controls_off_canvas_std_design_colors( $off_canvas_std ),
       x_controls_anchor_std_design_colors( $links_std_design ),
 
-      x_controls_omega( $settings_std_customize )
+      x_controls_omega( array_merge( $settings_std_customize, $settings_add_toggle_hash, $settings_toggle_hash_condition ) )
 
     );
 
@@ -115,6 +115,8 @@ function x_control_groups_element_nav_layered( $adv = false ) {
 
 function x_values_element_nav_layered( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $cond_tbf_only = array( 'tbf_only' => true );
 
   $menu          = x_bar_module_settings_menu( 'layered' );
@@ -127,7 +129,7 @@ function x_values_element_nav_layered( $settings = array() ) {
     x_values_anchor( $toggle ),
     x_values_off_canvas( $off_canvas ),
     x_values_anchor( $links ),
-    x_values_omega()
+    x_values_omega( array_merge( $settings_add_toggle_hash, $settings_toggle_hash_condition ) )
   );
 
   return x_bar_mixin_values( $values, $settings );

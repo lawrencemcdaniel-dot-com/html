@@ -339,9 +339,13 @@ class Avada_Admin {
 
 			if ( ! is_admin() ) {
 				$this->add_wp_toolbar_menu_item(
-					$avada_parent_menu_title, false, admin_url( 'admin.php?page=avada' ), array(
+					$avada_parent_menu_title,
+					false,
+					admin_url( 'admin.php?page=avada' ),
+					array(
 						'class' => 'avada-menu',
-					), 'avada'
+					),
+					'avada'
 				);
 			}
 
@@ -902,10 +906,15 @@ class Avada_Admin {
 
 				wp_enqueue_script( 'fontawesome-shim-script', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/js/fa-v4-shims.js', array(), $version );
 
+				wp_enqueue_script( 'fuse-script', FUSION_LIBRARY_URL . '/assets/min/js/library/fuse.js', array(), $version );
+				wp_enqueue_script( 'fontawesome-search-script', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/js/icons-search.js', array(), $version );
+
 				wp_enqueue_script( 'fusion-menu-options', trailingslashit( Avada::$template_dir_url ) . 'assets/admin/js/fusion-menu-options.js', array( 'selectwoo-js' ), $version, true );
 
 				wp_localize_script(
-					'fusion-menu-options', 'fusionMenuConfig', array(
+					'fusion-menu-options',
+					'fusionMenuConfig',
+					array(
 						'fontawesomeicons' => fusion_get_icons_array(),
 					)
 				);
@@ -1610,6 +1619,16 @@ class Avada_Admin {
 				'default' => Avada()->settings->get( 'archive_header_bg_color' ),
 				/* translators: The "Fusion Theme Options" link. */
 				'desc'    => sprintf( esc_attr__( 'Controls the background color for the header. Hex code or rgba value, ex: #000. %s', 'Avada' ), Avada()->settings->get_default_description( 'archive_header_bg_color' ) ),
+			)
+		);
+
+		$avada_meta->colorpicker(
+			'mobile_header_bg_color',
+			array(
+				'name'    => __( 'Mobile Header Background Color', 'Avada' ),
+				'default' => Avada()->settings->get( 'mobile_archive_header_bg_color' ),
+				/* translators: The "Fusion Theme Options" link. */
+				'desc'    => sprintf( esc_attr__( 'Controls the background color for the header on mobile devices. Hex code or rgba value, ex: #000. %s', 'Avada' ), Avada()->settings->get_default_description( 'mobile_archive_header_bg_color' ) ),
 			)
 		);
 

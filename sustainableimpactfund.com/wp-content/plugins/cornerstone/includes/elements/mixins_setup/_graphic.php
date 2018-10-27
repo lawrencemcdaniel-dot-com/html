@@ -1,7 +1,7 @@
 <?php
 
 // =============================================================================
-// CORNERSTONE/INCLUDES/ELEMENTS/MIXINS_SETUP/_TEXT.PHP
+// CORNERSTONE/INCLUDES/ELEMENTS/MIXINS_SETUP/_GRAPHIC.PHP
 // -----------------------------------------------------------------------------
 // V2 element mixins.
 // =============================================================================
@@ -253,12 +253,10 @@ if ( $has_alt ) {
 }
 
 $control_graphic_image_max_width = array(
-  array(
-    'key'     => $k_pre . 'graphic_image_max_width',
-    'type'    => 'unit-slider',
-    'label'   => __( 'Max Width', '__x__' ),
-    'options' => $options_graphic_image_max_width,
-  ),
+  'key'     => $k_pre . 'graphic_image_max_width',
+  'type'    => 'unit-slider',
+  'label'   => __( 'Max Width', '__x__' ),
+  'options' => $options_graphic_image_max_width,
 );
 
 $control_graphic_local_image_secondary_enable = array(
@@ -280,7 +278,17 @@ $control_graphic_local_image_secondary = array(
   'label'      => __( 'Source', '__x__' ),
   'conditions' => $conditions_graphic_image_alt,
   'options'    => array(
-    'height' => $is_adv ? 4 : 5,
+    'height' => $is_adv ? 3 : 4,
+  ),
+);
+
+$control_graphic_local_image_secondary_alt_text = array(
+  'key'        => $k_pre . 'graphic_image_alt_alt',
+  'type'       => 'text',
+  'label'      => __( 'Alt Text', '__x__' ),
+  'conditions' => $conditions_graphic_image_alt,
+  'options'    => array(
+    'placeholder' => __( 'Describe Your Image Here', '__x__' ),
   ),
 );
 
@@ -329,6 +337,7 @@ if ( $is_adv ) {
 }
 
 $control_list_local_image_secondary[] = $control_graphic_local_image_secondary;
+$control_list_local_image_secondary[] = $control_graphic_local_image_secondary_alt_text;
 
 
 
@@ -403,6 +412,7 @@ if ( $has_sourced_content ) { // 02
       'is_retina'  => $k_pre . 'graphic_image_retina',
       'width'      => $k_pre . 'graphic_image_width',
       'height'     => $k_pre . 'graphic_image_height',
+      'alt_text'   => $k_pre . 'graphic_image_alt',
     ),
     'type'       => 'image',
     'title'      => __( $t_pre . ' Primary Graphic Image', '__x__' ),
@@ -424,7 +434,7 @@ if ( $has_sourced_content ) { // 02
       'type'       => 'group',
       'title'      => __( $t_pre . ' Secondary Graphic Image', '__x__' ),
       'group'      => $group,
-      'conditions' => $conditions_graphic_image_alt,
+      'conditions' => $conditions_graphic_image,
       'controls'   => $control_list_local_image_secondary,
     );
 
@@ -483,7 +493,9 @@ $control_group_graphic_adv_image = array(
     'title'      => __( $t_pre . ' Graphic Image', '__x__' ),
     'group'      => $group,
     'conditions' => $conditions_graphic_image,
-    'controls'   => $control_graphic_image_max_width,
+    'controls'   => array(
+      $control_graphic_image_max_width,
+    ),
   ),
 );
 

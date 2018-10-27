@@ -405,7 +405,7 @@ class Cornerstone_Element_Wrapper {
 			$content = '';
 
       if ( $inception && $flags['dynamic_child'] ) { // Added for V2
-			  $content = $inception;
+			  $content = '{{children}}';
       }
 
 			if ( isset( $element['elements'] ) && is_array( $element['elements'] ) && !empty( $element['elements'] ) ) {

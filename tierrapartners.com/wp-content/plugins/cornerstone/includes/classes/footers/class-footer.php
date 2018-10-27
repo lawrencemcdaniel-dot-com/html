@@ -84,7 +84,7 @@ class Cornerstone_Footer {
 
   public function save() {
 
-    if ( ! current_user_can( 'manage_options' ) ) {
+    if ( ! CS()->component('App_Permissions')->user_can('footers') ) {
       throw new Exception( 'Unauthorized' );
     }
 
@@ -186,7 +186,7 @@ class Cornerstone_Footer {
 
   public function delete() {
 
-    if ( ! current_user_can( 'manage_options' ) ) {
+    if ( ! CS()->component('App_Permissions')->user_can('footers.delete') ) {
       throw new Exception( 'Unauthorized' );
     }
 

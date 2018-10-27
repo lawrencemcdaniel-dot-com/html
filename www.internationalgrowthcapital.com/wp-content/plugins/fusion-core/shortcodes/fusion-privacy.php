@@ -86,7 +86,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 							'hide_on_mobile'        => fusion_builder_default_visibility( 'string' ),
 							'id'                    => '',
 						),
-						$args
+						$args,
+						'fusion_privacy'
 					)
 				);
 
@@ -159,7 +160,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				global $fusion_settings;
 
 				$attr = fusion_builder_visibility_atts(
-					self::$args['hide_on_mobile'], array(
+					self::$args['hide_on_mobile'],
+					array(
 						'class' => 'fusion-privacy-element fusion-privacy-element-' . $this->privacy_counter,
 					)
 				);

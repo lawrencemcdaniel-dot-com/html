@@ -102,7 +102,8 @@ final class Fusion_Dynamic_JS_File extends Fusion_Dynamic_JS_Compiler {
 
 				// Check for 403 / 500.
 				$response = wp_safe_remote_get(
-					$this->file->get_url(), array(
+					$this->file->get_url(),
+					array(
 						'timeout' => 5,
 					)
 				);

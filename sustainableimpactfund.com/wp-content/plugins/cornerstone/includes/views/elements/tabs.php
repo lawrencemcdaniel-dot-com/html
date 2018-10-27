@@ -41,8 +41,10 @@ if ( $tabs_panels_equal_height === true ) {
 
         <?php
 
+        // x_dump($tab);
+
         $tab_atts = array(
-          'id'                  => 'tab-' . $tab['_id'],
+          'class'               => $key === 0 && $set_initial ? 'x-active' : '',
           'role'                => 'tab',
           'aria-selected'       => ( $key === 0 && $set_initial ) ? 'true' : 'false',
           'aria-controls'       => 'panel-' . $tab['_id'],
@@ -50,9 +52,17 @@ if ( $tabs_panels_equal_height === true ) {
           'data-x-toggleable'   => 'tab-item-' . $tab['_id'],
           'data-x-toggle-group' => 'tab-group-' . $mod_id,
         );
+        
+        // if (isset($tab['id'])) {
+        //   $tab_atts['id'] = $tab['id'];
+        // }
 
-        if ( $key === 0 && $set_initial  ) {
-          $tab_atts['class'] = 'x-active';
+        if ( ! empty( $tab['toggle_hash'] ) ) {
+          $tab_atts['data-x-toggle-hash'] = $tab['toggle_hash'];
+        }
+
+        if (isset($tab['class'])) {
+          $tab_atts['class'] .= ' ' . $tab['class'];
         }
 
         ?>
@@ -75,16 +85,23 @@ if ( $tabs_panels_equal_height === true ) {
       <?php
 
       $panel_atts = array(
-        'id'                => 'panel-' . $tab['_id'],
         'class'             => 'x-tabs-panel',
         'role'              => 'tabpanel',
         'aria-labelledby'   => 'tab-' . $tab['_id'],
         'aria-hidden'       => ( $key === 0 && $set_initial ) ? 'false' : 'true',
-        'data-x-toggleable' => 'tab-item-' . $tab['_id'],
+        'data-x-toggleable' => 'tab-item-' . $tab['_id']
       );
+
+      if (isset($tab['id'])) {
+        $panel_atts['id'] = 'panel-' . $tab['id'];
+      }
 
       if ( $key === 0 && $set_initial ) {
         $panel_atts['class'] .= ' x-active';
+      }
+
+      if (isset($tab['class'])) {
+        $panel_atts['class'] .= ' ' . $tab['class'];
       }
 
       ?>

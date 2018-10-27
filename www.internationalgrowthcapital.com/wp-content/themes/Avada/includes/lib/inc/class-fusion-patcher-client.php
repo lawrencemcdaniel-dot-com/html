@@ -94,7 +94,8 @@ class Fusion_Patcher_Client {
 
 		// Get the server response.
 		$response = wp_remote_get(
-			$url, array(
+			$url,
+			array(
 				'user-agent' => 'fusion-patcher-client',
 			)
 		);

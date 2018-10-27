@@ -83,7 +83,9 @@ function fusion_builder_register_layouts() {
 	);
 
 	register_taxonomy(
-		'element_category', array( 'fusion_element' ), array(
+		'element_category',
+		array( 'fusion_element' ),
+		array(
 			'hierarchical'      => true,
 			'labels'            => $labels,
 			'show_ui'           => false,
@@ -98,7 +100,9 @@ function fusion_builder_register_layouts() {
 	);
 
 	register_taxonomy(
-		'template_category', array( 'fusion_template' ), array(
+		'template_category',
+		array( 'fusion_template' ),
+		array(
 			'hierarchical'      => true,
 			'labels'            => $labels,
 			'show_ui'           => false,
@@ -258,12 +262,17 @@ function fusion_builder_display_library_content() {
 					<div class="fusion-builder-layouts-header-fields fusion-builder-layouts-header-element-fields"></div>
 					<div class="fusion-builder-layouts-header-info">
 						<h2><?php esc_attr_e( 'Saved Containers', 'fusion-builder' ); ?></h2>
-						<?php // @codingStandardsIgnoreStart ?>
-						<span class="fusion-builder-layout-info"><?php
-						/* translators: The "Fusion Documentation" link. */
-						printf( __( 'Manage your saved containers. Containers cannot be inserted from the library window. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), 'https://theme-fusion.com/documentation/fusion-builder/technical/page-content-not-parsable-fusion-builder/' );
-						?></span>
-						<?php // @codingStandardsIgnoreEnd ?>
+						<span class="fusion-builder-layout-info">
+							<?php
+							// @codingStandardsIgnoreStart PEAR.Functions.FunctionCallSignature.MultipleArguments
+							printf(
+								/* translators: The "Fusion Documentation" link. */
+								__( 'Manage your saved containers. Containers cannot be inserted from the library window. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // WPCS: XSS ok.
+								'https://theme-fusion.com/documentation/fusion-builder/fusion-builder-library/fusion-builder-global-elements/'
+							);
+							// @codingStandardsIgnoreEnd
+							?>
+						</span>
 					</div>
 				</div>
 
@@ -335,12 +344,17 @@ function fusion_builder_display_library_content() {
 					<div class="fusion-builder-layouts-header-fields fusion-builder-layouts-header-element-fields"></div>
 					<div class="fusion-builder-layouts-header-info">
 						<h2><?php esc_attr_e( 'Saved Columns', 'fusion-builder' ); ?></h2>
-						<?php // @codingStandardsIgnoreStart ?>
-						<span class="fusion-builder-layout-info"><?php
-						/* translators: The "Fusion Documentation" link. */
-						printf( __( 'Manage your saved columns. Columns cannot be inserted from the library window and they must always go inside a container. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), 'https://theme-fusion.com/documentation/fusion-builder/technical/page-content-not-parsable-fusion-builder/' );
-						?></span>
-						<?php // @codingStandardsIgnoreEnd ?>
+						<span class="fusion-builder-layout-info">
+							<?php
+							// @codingStandardsIgnoreStart PEAR.Functions.FunctionCallSignature.MultipleArguments
+							printf(
+								/* translators: The "Fusion Documentation" link. */
+								__( 'Manage your saved columns. Columns cannot be inserted from the library window and they must always go inside a container. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // WPCS: XSS ok.
+								'https://theme-fusion.com/documentation/fusion-builder/fusion-builder-library/fusion-builder-global-elements/'
+							);
+							// @codingStandardsIgnoreEnd
+							?>
+						</span>
 					</div>
 				</div>
 
@@ -412,12 +426,18 @@ function fusion_builder_display_library_content() {
 					<div class="fusion-builder-layouts-header-fields fusion-builder-layouts-header-element-fields"></div>
 					<div class="fusion-builder-layouts-header-info">
 						<h2><?php esc_attr_e( 'Saved Elements', 'fusion-builder' ); ?></h2>
-						<?php // @codingStandardsIgnoreStart ?>
-						<span class="fusion-builder-layout-info"><?php
-						/* translators: The "Fusion Documentation" link. */
-						printf( __( 'Manage your saved elements. Elements cannot be inserted from the library window and they must always go inside a column. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), 'https://theme-fusion.com/documentation/fusion-builder/technical/page-content-not-parsable-fusion-builder/' );
-						?></span>
-						<?php // @codingStandardsIgnoreEnd ?>
+						<span class="fusion-builder-layout-info">
+							<?php
+
+							// @codingStandardsIgnoreStart PEAR.Functions.FunctionCallSignature.MultipleArguments
+							printf(
+								/* translators: The "Fusion Documentation" link. */
+								__( 'Manage your saved elements. Elements cannot be inserted from the library window and they must always go inside a column. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // WPCS: XSS ok.
+								'https://theme-fusion.com/documentation/fusion-builder/fusion-builder-library/fusion-builder-global-elements/'
+							);
+							// @codingStandardsIgnoreEnd
+							?>
+						</span>
 					</div>
 				</div>
 
@@ -928,8 +948,9 @@ function fusion_library_trash_element() {
 		}
 	}
 
-	if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
-		wp_safe_redirect( sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) );
+	$referer = fusion_get_referer();
+	if ( $referer ) {
+		wp_safe_redirect( $referer );
 	}
 }
 add_action( 'admin_action_fusion_trash_element', 'fusion_library_trash_element' );
@@ -959,8 +980,9 @@ function fusion_library_restore_element() {
 		}
 	}
 
-	if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
-		wp_safe_redirect( sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) );
+	$referer = fusion_get_referer();
+	if ( $referer ) {
+		wp_safe_redirect( $referer );
 	}
 }
 add_action( 'admin_action_fusion_restore_element', 'fusion_library_restore_element' );
@@ -990,8 +1012,9 @@ function fusion_library_delete_element_post() {
 		}
 	}
 
-	if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
-		wp_safe_redirect( sanitize_text_field( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) );
+	$referer = fusion_get_referer();
+	if ( $referer ) {
+		wp_safe_redirect( $referer );
 	}
 }
 add_action( 'admin_action_fusion_delete_element', 'fusion_library_delete_element_post' );

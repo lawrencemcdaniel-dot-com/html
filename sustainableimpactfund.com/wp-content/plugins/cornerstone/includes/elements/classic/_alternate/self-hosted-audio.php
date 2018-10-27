@@ -18,7 +18,7 @@ class CS_Self_Hosted_Audio extends Cornerstone_Element_Base {
     $this->addControl(
       'src',
       'text',
-      __( 'Src', 'cornerstone' ),
+      __( 'Audio Src URL', 'cornerstone' ),
       __( 'Include your audio URL(s) here. If using multiple sources, separate them using the pipe character (|) and place fallbacks towards the end (i.e. .mp3 then .ogg).', 'cornerstone' ),
       '',
       array(

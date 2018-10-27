@@ -7,8 +7,6 @@ class X_Validation_Cornerstone {
   public function __construct() {
 
     x_validation()->add_script_data( 'x-auto-configure-cornerstone', array( $this, 'script_data_auto_configure_cornerstone' ) );
-    add_action( 'wp_ajax_x_extensions_installer', array( $this, 'ajax_install_plugin' ) );
-
     add_action( 'wp_ajax_x_auto_install_cornerstone', array( $this, 'ajax_auto_install_cornerstone' ) );
     add_action( 'wp_ajax_x_auto_activate_cornerstone', array( $this, 'ajax_auto_activate_cornerstone' ) );
     add_action( 'x_addons_before_home', array( $this, 'auto_install_cornerstone' ) );

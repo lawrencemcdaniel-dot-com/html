@@ -4,7 +4,6 @@ class Cornerstone_Wpml extends Cornerstone_Plugin_Component {
 
   protected $previous_lang;
 
-
   public function setup() {
 
     if ( ! $this->is_active() ) {
@@ -17,14 +16,6 @@ class Cornerstone_Wpml extends Cornerstone_Plugin_Component {
     add_filter( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
     add_filter( 'the_title', array( $this, 'filter_title' ), 99, 2 );
     add_filter( 'the_permalink', array( $this, 'filter_permalink' ) );
-
-    // global $sitepress;
-    // $wpml_post_types = $sitepress->get_setting('custom_posts_sync_option');
-    //
-    // $wpml_post_types['cs_header'] = 1;
-    // $wpml_post_types['cs_footer'] = 1;
-    //
-    // $sitepress->set_setting('custom_posts_sync_option', $wpml_post_types);
 
   }
 
@@ -102,7 +93,7 @@ class Cornerstone_Wpml extends Cornerstone_Plugin_Component {
       return $query;
     }
 
-    $sitepress->switch_lang( $sitepress->get_current_language() ); //Make sure that even custom query gets the current language
+    // $sitepress->switch_lang( $sitepress->get_current_language() ); //Make sure that even custom query gets the current language
 
     $query->query_vars['suppress_filters'] = false;
 

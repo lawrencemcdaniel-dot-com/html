@@ -86,11 +86,11 @@ return array(
       'Preview_Frame_Loader',
       'Validation',
       'Layout_Manager',
+      'Font_Manager',
     ),
     'model/option' => array(
       'Header_Assignments',
       'Footer_Assignments',
-      'Font_Manager',
       'Color_Manager',
     ),
   ),

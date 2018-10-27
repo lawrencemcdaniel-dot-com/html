@@ -11,7 +11,7 @@
 		<?php else : ?>
 			<p>
 				<?php _e( 'We couldn\'t find your license information.', 'amazon-s3-and-cloudfront' ); ?>
-				<a href="#settings">
+				<a href="#licence">
 					<?php _e( 'Please enter a valid license key.', 'amazon-s3-and-cloudfront' ); ?>
 				</a>
 			</p>

@@ -35,12 +35,7 @@ function x_element_builder_setup_row() {
     'control_groups_adv' => x_control_groups_element_row( true ),
     'options' => array(
       'default_children' => array(
-				array( '_type' => 'column', '_active' => true ),
-				array( '_type' => 'column' ),
-				array( '_type' => 'column' ),
-				array( '_type' => 'column' ),
-				array( '_type' => 'column' ),
-				array( '_type' => 'column' ),
+        array( '_type' => 'column', '_active' => true )
       )
     )
   );

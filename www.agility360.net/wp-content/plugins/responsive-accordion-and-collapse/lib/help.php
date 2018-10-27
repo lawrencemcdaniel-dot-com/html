@@ -1,8 +1,6 @@
 <style>
 	.wpsm_ac_h_i{
-		background:url('<?php echo wpshopmart_accordion_directory_url.'img/slideshow-01.jpg'; ?>') 50% 0 repeat fixed;
-		
-		
+		background:url('<?php echo wpshopmart_accordion_directory_url.'img/slideshow-01.jpg'; ?>') 50% 0 repeat fixed;		
 		margin-left: -20px;
 		font-family: Myriad Pro ;
 		cursor: pointer;
@@ -418,8 +416,7 @@
 			</table>
 		</div>
 	</div>
-	
-   
+	  
 	
 </div>
 <!-- /row -->

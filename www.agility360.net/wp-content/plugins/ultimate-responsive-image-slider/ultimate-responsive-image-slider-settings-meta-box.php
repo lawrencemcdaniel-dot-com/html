@@ -274,6 +274,7 @@ jQuery(document).ready(function(){
 			<td>
 				<?php if(!isset($WRIS_L3_Transition_Speed)) $WRIS_L3_Transition_Speed = 5000; ?>
 				<input class="uris-slider" name="wl-l3-transition-speed" id="wl-l3-transition-speed" type="range" min="1000" max="60000" step="1000" value="<?php echo $WRIS_L3_Transition_Speed; ?>" data-rangeSlider>
+				<span id="uris-range-val"></span>
 				<p class="description">
 					<?php _e('Set your desired slider speed of slides. Default speed is 5 Second', URIS_TD); ?>.
 				</p>

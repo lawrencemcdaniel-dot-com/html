@@ -67,7 +67,9 @@ if ( fusion_is_element_enabled( 'fusion_separator' ) ) {
 						'color'             => '', // Deprecated.
 						'style'             => '', // Deprecated.
 						'top'               => '', // Deprecated.
-					), $args
+					),
+					$args,
+					'fusion_separator'
 				);
 
 				$defaults['border_size']   = FusionBuilder::validate_shortcode_attr_value( $defaults['border_size'], 'px' );
@@ -132,7 +134,8 @@ if ( fusion_is_element_enabled( 'fusion_separator' ) ) {
 			public function attr() {
 
 				$attr = fusion_builder_visibility_atts(
-					$this->args['hide_on_mobile'], array(
+					$this->args['hide_on_mobile'],
+					array(
 						'class' => 'fusion-separator',
 						'style' => '',
 					)

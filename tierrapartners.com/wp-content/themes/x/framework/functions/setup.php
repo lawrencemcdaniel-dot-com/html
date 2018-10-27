@@ -38,6 +38,7 @@ function x_setup_theme() {
 
   add_theme_support( 'post-formats', array( 'link', 'gallery', 'quote', 'image', 'video', 'audio' ) );
 
+
   // WooCommerce
   // -----------
   // Theme support for the WooCommerce plugin.
@@ -48,6 +49,13 @@ function x_setup_theme() {
   add_theme_support( 'wc-product-gallery-slider' );
 
 
+  // Gutenburg
+  // ---------
+
+  add_theme_support( 'align-wide' );
+  add_theme_support( 'wp-block-styles' );
+
+
   // Allow Shortcodes in Widgets
   // ---------------------------
 
@@ -55,7 +63,7 @@ function x_setup_theme() {
 
 
   // Disable Gallery Style
-  // --------------------
+  // ---------------------
 
   add_filter( 'use_default_gallery_style', '__return_false' );
 
@@ -65,6 +73,11 @@ function x_setup_theme() {
 
   add_filter( 'wp_calculate_image_srcset', '__return_false' );
 
+
+  // Gutenburg
+  // ---------
+  add_theme_support( 'align-wide' );
+  add_theme_support( 'wp-block-styles' );
 
   // Remove Unnecessary Stuff
   // ------------------------
@@ -180,9 +193,8 @@ endif;
 // Removals
 // =============================================================================
 
-//
 // Remove Tag Cloud Inline Style
-//
+// -----------------------------
 
 if ( ! function_exists( 'x_remove_tag_cloud_inline_style' ) ) :
   function x_remove_tag_cloud_inline_style( $tag_string ) {
@@ -192,9 +204,8 @@ if ( ! function_exists( 'x_remove_tag_cloud_inline_style' ) ) :
 endif;
 
 
-//
 // Remove Recent Comments Style
-//
+// ----------------------------
 
 if ( ! function_exists( 'x_remove_recent_comments_style' ) ) :
   function x_remove_recent_comments_style() {
@@ -205,9 +216,8 @@ if ( ! function_exists( 'x_remove_recent_comments_style' ) ) :
 endif;
 
 
-//
 // Remove Gallery <br> Tags
-//
+// ------------------------
 
 if ( ! function_exists( 'x_remove_gallery_br_tags' ) ) :
   function x_remove_gallery_br_tags( $output ) {
@@ -230,9 +240,8 @@ function x_addons_get_link_home() {
 // TCO Setup
 // =============================================================================
 
-//
 // Accessor
-//
+// --------
 
 function x_tco() {
   return TCO_1_0::instance();
@@ -251,9 +260,8 @@ function x_tco_product_logo( $product, $class = '', $style = '' ) {
 }
 
 
-//
 // Initialization
-//
+// --------------
 
 function x_tco_init() {
 
@@ -279,9 +287,8 @@ add_action( 'init', 'x_tco_init' );
 add_action( 'admin_init', 'x_tco_init' );
 
 
-//
 // Localization
-//
+// ------------
 
 function x_tco_localize_admin_js( $strings ) {
 

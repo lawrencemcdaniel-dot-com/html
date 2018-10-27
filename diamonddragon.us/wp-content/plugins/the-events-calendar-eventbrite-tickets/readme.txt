@@ -4,8 +4,8 @@ Contributors: ModernTribe, barry.hughes, bordoni, borkweb, brianjessee, brook-tr
 Tags: widget, events, simple, tooltips, grid, month, list, calendar, event, venue, eventbrite, registration, tickets, ticketing, eventbright, api, dates, date, plugin, posts, sidebar, template, theme, time, google maps, google, maps, conference, workshop, concert, meeting, seminar, summit, forum, shortcode, The Events Calendar, The Events Calendar PRO
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
-Tested up to: 4.9.6
-Stable tag: 4.5.3
+Tested up to: 4.9.8
+Stable tag: 4.5.5
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -189,6 +189,18 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
 
 == Changelog ==
+
+= [4.5.5] 2018-10-22 =
+
+* Fix - Ensure we use the correct Eventbrite ID when retrieving the event cost to display it. Props to Heather, Monika, and others for flagging this [111316]
+* Fix - Make the Venue data optional when trying to create or update events on Eventbrite [115868]
+* Language - 5 new strings added, 117 updated, 1 fuzzied, and 7 obsoleted
+
+= [4.5.4] 2018-10-03 =
+
+* Fix - Ensure that featured images from Eventbrite events are imported even without an Event Aggregator license key [112328]
+* Tweak - fire the `tribe_events_eventbrite_event_data_not_found` action and add a log entry when no data is found for an Eventbrite event [114014]
+* Tweak - added the `tribe_events_eventbrite_iframe_display` filter to allow overriding Eventbrite tickets iFrame display checks on events [114014]
 
 = [4.5.3] 2018-09-12 =
 

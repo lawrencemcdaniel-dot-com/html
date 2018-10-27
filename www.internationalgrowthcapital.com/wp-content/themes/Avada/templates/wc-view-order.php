@@ -11,7 +11,7 @@
  */
 
 // The $order_id is inherited from the Avada_Woocommerce::view_order() method.
-if ( ! $order = wc_get_order( $order_id ) ) {
+if ( ! $order = wc_get_order( $order_id ) ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
 	return;
 }
 

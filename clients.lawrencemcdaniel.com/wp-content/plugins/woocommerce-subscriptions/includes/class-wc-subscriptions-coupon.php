@@ -873,8 +873,8 @@ class WC_Subscriptions_Coupon {
 	 * @return array The filtered payment gateways.
 	 */
 	public static function gateways_subscription_amount_changes( $gateways ) {
-		// If there are already no gateways, bail early.
-		if ( empty( $gateways ) ) {
+		// If there are already no gateways or we're on the order-pay screen, bail early.
+		if ( empty( $gateways ) || is_wc_endpoint_url( 'order-pay' ) ) {
 			return $gateways;
 		}
 
@@ -1253,5 +1253,3 @@ class WC_Subscriptions_Coupon {
 		_deprecated_function( __METHOD__, '2.0', 'WooCommerce 2.3 removed after tax discounts. Use ' . __CLASS__ .'::apply_subscription_discount( $original_price, $cart_item, $cart )' );
 	}
 }
-
-WC_Subscriptions_Coupon::init();

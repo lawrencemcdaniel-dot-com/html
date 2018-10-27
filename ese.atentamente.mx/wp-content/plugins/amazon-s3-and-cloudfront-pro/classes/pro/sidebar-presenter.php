@@ -1,6 +1,6 @@
 <?php
 
-namespace DeliciousBrains\WP_Offload_S3\Pro;
+namespace DeliciousBrains\WP_Offload_Media\Pro;
 
 use Amazon_S3_And_CloudFront_Pro;
 

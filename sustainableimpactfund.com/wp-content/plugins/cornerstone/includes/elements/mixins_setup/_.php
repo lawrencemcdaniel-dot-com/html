@@ -85,7 +85,15 @@ $options_color_base_interaction_labels_color_only = array(
 // =============================================================================
 
 $settings_std_customize = array(
-  'group' => $group_std_customize,
-  'title' => __( 'Customize', '__x__' ),
+  'group'     => $group_std_customize,
+  'title'     => __( 'Customize', '__x__' ),
   'condition' => array( 'user_can:{context}.customize_controls' => true )
+);
+
+$settings_add_toggle_hash = array(
+  'add_toggle_hash' => true
+);
+
+$settings_toggle_hash_condition = array(
+  'toggle_hash_condition' => array( 'key' => '_region', 'op' => 'IN', 'value' => array( 'top', 'bottom', 'footer' ) )
 );

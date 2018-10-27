@@ -20,6 +20,9 @@
 $data = array(
   'title'  => __( 'Gap', '__x__' ),
   'values' => x_values_element_gap(),
+  'options' => array(
+    'no_server_render' => true
+  )
 );
 
 

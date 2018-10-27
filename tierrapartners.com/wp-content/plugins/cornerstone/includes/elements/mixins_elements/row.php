@@ -77,6 +77,8 @@ function x_control_groups_element_row( $adv = false ) {
 
 function x_values_element_row( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_row(),
     x_values_omega( array( 'add_style' => true ) )

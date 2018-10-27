@@ -20,7 +20,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * The current version of Eventbrite Tickets
 		 */
-		const VERSION = '4.5.3';
+		const VERSION = '4.5.5';
 
 		/**
 		 * Deprecated property in 4.3. Use VERSION const instead.
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 *
 		 * @var string
 		 */
-		public static $pluginVersion = '4.5.3';
+		public static $pluginVersion = '4.5.5';
 
 		/**************************************************************
 		 * EventBrite Configuration
@@ -274,6 +274,8 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			add_filter( 'tribe_get_cost', array( $this, 'filter_get_cost' ), 20, 3 );
 			add_filter( 'tribe_events_admin_show_cost_field', '__return_false' );
 			add_filter( 'tribe_events_template_paths', array( $this, 'add_eventbrite_template_paths' ) );
+
+			add_filter( 'get_post_metadata', array( $this, 'normalize_get_eventbrite_id' ), 20, 4 );
 
 			if ( ! class_exists( 'Tribe__Events__Main' ) ) {
 				return;
@@ -726,6 +728,40 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			if ( $updater->update_required() ) {
 				$updater->do_updates();
 			}
+		}
+
+		/**
+		 * Normalize the way we return the value for the meta key `_EventBriteId`
+		 *
+		 * @since 4.5.5
+		 *
+		 * @param string $meta_type Type of object metadata is for (e.g., comment, post, or user)
+		 * @param int    $object_id ID of the object metadata is for
+		 * @param string $meta_key  Metadata key.
+		 * @return bool True of the key is set, false if not.
+		 *
+		 * @return int|void
+		 */
+		public function normalize_get_eventbrite_id( $null, $object_id, $meta_key, $single ) {
+
+			// Bail if the key is not `_EventBriteId`
+			if ( '_EventBriteId' !== $meta_key ) {
+				return;
+			}
+
+			// Bail if the post type is not `tribe_events`
+			if ( 'tribe_events' !== get_post_type( $object_id ) ) {
+				return;
+			}
+
+			// Get the old and new values
+			global $wpdb;
+			$old = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE post_id = $object_id AND meta_key = '" . $meta_key . "'" );
+			$new = get_post_meta( $object_id, '_EventBriteID', $single );
+
+			// Return old value if it's there, if not, what we have in `_EventBriteID`
+			return '' !== $old ? $old : $new;
+
 		}
 
 		/**************************************************************

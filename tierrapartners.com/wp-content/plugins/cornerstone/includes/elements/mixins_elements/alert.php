@@ -76,13 +76,12 @@ function x_control_groups_element_alert( $adv = false ) {
 
 function x_values_element_alert( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_alert(),
     x_values_omega()
   );
-
-  // Returned Value
-  // --------------
 
   return x_bar_mixin_values( $values, $settings );
 

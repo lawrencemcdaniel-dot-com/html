@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Tabs Responsive
- * Version: 1.8.7
+ * Version: 1.8.8
  * Description:  Tabs Responsive is the most easiest drag & drop Tabs builder for WordPress. You can add unlimited Tabs with unlimited color Scheme.
  * Author: wpshopmart
  * Author URI: https://www.wpshopmart.com
@@ -13,7 +13,10 @@
  */
 define("wpshopmart_tabs_r_directory_url", plugin_dir_url(__FILE__));
 define("wpshopmart_tabs_r_text_domain", "wpsm_tabs_r");
-
+add_action('plugins_loaded', 'wpsm_tabs_r_tr');
+function wpsm_tabs_r_tr() {
+	load_plugin_textdomain( wpshopmart_tabs_r_text_domain, FALSE, dirname( plugin_basename(__FILE__)).'/languages/' );
+}
 /**
  * PLUGIN Install
  */

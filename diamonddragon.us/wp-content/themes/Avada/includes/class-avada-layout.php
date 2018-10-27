@@ -140,11 +140,14 @@ class Avada_Layout {
 				'position'  => Avada()->settings->get( 'default_sidebar_pos' ),
 			);
 		} elseif ( is_single() ) {
-			$sidebars = array(
-				'global'    => Avada()->settings->get( 'posts_global_sidebar' ),
-				'sidebar_1' => Avada()->settings->get( 'posts_sidebar' ),
-				'sidebar_2' => Avada()->settings->get( 'posts_sidebar_2' ),
-				'position'  => Avada()->settings->get( 'blog_sidebar_position' ),
+			$sidebars = apply_filters(
+				'avada_single_post_sidebar_theme_options',
+				array(
+					'global'    => Avada()->settings->get( 'posts_global_sidebar' ),
+					'sidebar_1' => Avada()->settings->get( 'posts_sidebar' ),
+					'sidebar_2' => Avada()->settings->get( 'posts_sidebar_2' ),
+					'position'  => Avada()->settings->get( 'blog_sidebar_position' ),
+				)
 			);
 
 			if ( is_singular( 'avada_portfolio' ) ) {

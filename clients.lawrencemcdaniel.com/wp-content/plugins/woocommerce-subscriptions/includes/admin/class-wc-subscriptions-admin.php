@@ -92,7 +92,7 @@ class WC_Subscriptions_Admin {
 
 		add_filter( 'woocommerce_settings_tabs_array', __CLASS__ . '::add_subscription_settings_tab', 50 );
 
-		add_action( 'woocommerce_settings_tabs_subscriptions', __CLASS__ . '::subscription_settings_page' );
+		add_action( 'woocommerce_settings_subscriptions', __CLASS__ . '::subscription_settings_page' );
 
 		add_action( 'woocommerce_update_options_' . self::$tab_name, __CLASS__ . '::update_subscription_settings' );
 
@@ -739,6 +739,8 @@ class WC_Subscriptions_Admin {
 					'bulkEditIntervalhMessage'  => __( 'Enter a new interval as a single number (e.g. to charge every 2nd month, enter 2):', 'woocommerce-subscriptions' ),
 					'bulkDeleteOptionLabel'     => __( 'Delete all variations without a subscription', 'woocommerce-subscriptions' ),
 					'oneTimeShippingCheckNonce' => wp_create_nonce( 'one_time_shipping' ),
+					'productHasSubscriptions'   => wcs_get_subscriptions_for_product( $post->ID ) ? 'yes' : 'no',
+					'productTypeWarning'        => __( 'Product type can not be changed because this product is associated with active subscriptions', 'woocommerce-subscriptions' ),
 				);
 			} else if ( 'edit-shop_order' == $screen->id ) {
 				$script_params = array(
@@ -936,11 +938,6 @@ class WC_Subscriptions_Admin {
 	public static function get_subscriptions_list_table() {
 
 		if ( ! isset( self::$subscriptions_list_table ) ) {
-
-			if ( ! class_exists( 'WC_Subscriptions_List_Table' ) ) {
-				require_once( 'class-wc-subscriptions-list-table.php' );
-			}
-
 			self::$subscriptions_list_table = new WC_Subscriptions_List_Table();
 		}
 
@@ -1528,7 +1525,7 @@ class WC_Subscriptions_Admin {
 			$screen = get_current_screen();
 
 			if ( is_object( $screen ) && 'shop_order' == $screen->id ) {
-				remove_filter( 'woocommerce_get_formatted_order_total', 'WC_Subscriptions_Order::get_formatted_order_total', 10, 2 );
+				remove_filter( 'woocommerce_get_formatted_order_total', 'WC_Subscriptions_Order::get_formatted_order_total', 10 );
 			}
 		}
 
@@ -1559,7 +1556,7 @@ class WC_Subscriptions_Admin {
 		$screen = get_current_screen();
 
 		if ( is_object( $screen ) && 'shop_subscription' == $screen->id ) {
-			remove_filter( 'gettext', __CLASS__ . '::change_order_item_editable_text', 10, 3 );
+			remove_filter( 'gettext', __CLASS__ . '::change_order_item_editable_text', 10 );
 		}
 	}
 
@@ -1742,7 +1739,7 @@ class WC_Subscriptions_Admin {
 	 */
 	public static function related_orders_meta_box( $post ) {
 		_deprecated_function( __METHOD__, '2.0', 'WCS_Meta_Box_Related_Orders::output()' );
-		WCS_Meta_Box_Related_Orders::output();
+		WCS_Meta_Box_Related_Orders::output( $post );
 	}
 
 	/**
@@ -1798,5 +1795,3 @@ class WC_Subscriptions_Admin {
 		_deprecated_function( __METHOD__, '2.0' );
 	}
 }
-
-WC_Subscriptions_Admin::init();

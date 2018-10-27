@@ -79,7 +79,6 @@ class Cornerstone_Element_Migrations  extends Cornerstone_Plugin_Component {
 
 			// Some quick inline layout migrations instead of checking the version for every individual element
 			if ( 'classic:row' == $element['_type'] && isset( $element['columnLayout'] ) ) {
-				$element['_column_layout'] = $element['columnLayout'];
 				unset($element['columnLayout']);
 			}
 

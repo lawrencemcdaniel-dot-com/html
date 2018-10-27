@@ -53,7 +53,7 @@ class CP_Geolite_Integration_Target {
 	 */
 	public function get_country_iso( $ip_address ) {
 		$iso_code = '';
-
+		$error = false;
 		try {
 			$reader   = new CPlus\MaxMind\Db\Reader( $this->database ); // phpcs:ignore PHPCompatibility.PHP.NewLanguageConstructs.t_ns_separatorFound
 			$data     = $reader->get( $ip_address );
@@ -61,7 +61,8 @@ class CP_Geolite_Integration_Target {
 
 			$reader->close();
 		} catch ( Exception $e ) {
-			error_log( 'CP Geo Warning: $e' );
+			//error_log( 'CP Geo Warning: $e' );
+			$error = true;
 		}
 
 		return sanitize_text_field( strtoupper( $iso_code ) );
@@ -78,9 +79,11 @@ class CP_Geolite_Integration_Target {
 	 *                        Defaults to 'info'.
 	 */
 	private function log( $message, $level = 'info' ) {
+		$error = false;
 		if ( !is_null( $this->log ) ) {
+			$error = true;
 			// Log in future if required.
-			error_log( 'CP Geo Warning: $e' );
+			//error_log( 'CP Geo Warning: $e' );
 		}
 
 	}

@@ -85,6 +85,8 @@ function x_control_groups_element_video( $adv = false ) {
 
 function x_values_element_video( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_video(),
     x_values_frame( array( 'frame_content_type' => 'video' ) ),

@@ -74,6 +74,8 @@ function x_control_groups_element_global_block( $adv = false ) {
 
 function x_values_element_global_block( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_global_block(),
     x_values_omega()

@@ -54,6 +54,15 @@ class WCS_Cart_Renewal {
 
 		// Remove subscription products with "one time shipping" from shipping packages.
 		add_filter( 'woocommerce_cart_shipping_packages', array( $this, 'maybe_update_shipping_packages' ), 0, 1 );
+
+		// Apply renewal discounts as pseudo coupons
+		add_action( 'wcs_after_renewal_setup_cart_subscription', array( &$this, 'maybe_setup_discounts' ), 10, 2 );
+
+		add_action( 'wcs_before_renewal_setup_cart_subscriptions', array( &$this, 'clear_coupons' ), 10 );
+
+		// Handles renew of password-protected products.
+		add_action( 'wcs_before_renewal_setup_cart_subscriptions', 'wcs_allow_protected_products_to_renew' );
+		add_action( 'wcs_after_renewal_setup_cart_subscriptions', 'wcs_disallow_protected_product_add_to_cart_validation' );
 	}
 
 	/**
@@ -103,10 +112,7 @@ class WCS_Cart_Renewal {
 		// Check if a user is requesting to create a renewal order for a subscription, needs to happen after $wp->query_vars are set
 		add_action( 'template_redirect', array( &$this, 'maybe_setup_cart' ), 100 );
 
-		// Apply renewal discounts as pseudo coupons
-		add_action( 'wcs_after_renewal_setup_cart_subscription', array( &$this, 'maybe_setup_discounts' ), 10, 2 );
 		add_filter( 'woocommerce_get_shop_coupon_data', array( &$this, 'renewal_coupon_data' ), 10, 2 );
-		add_action( 'wcs_before_renewal_setup_cart_subscriptions', array( &$this, 'clear_coupons' ), 10 );
 
 		add_action( 'woocommerce_remove_cart_item', array( &$this, 'maybe_remove_items' ), 10, 1 );
 		add_action( 'woocommerce_before_cart_item_quantity_zero', array( &$this, 'maybe_remove_items' ), 10, 1 );
@@ -533,7 +539,7 @@ class WCS_Cart_Renewal {
 		if ( $this->cart_contains() && did_action( 'woocommerce_checkout_init' ) > 0 ) {
 
 			// Guard against the fake WC_Checkout singleton, see https://github.com/woocommerce/woocommerce-subscriptions/issues/427#issuecomment-260763250
-			remove_filter( 'woocommerce_checkout_get_value', array( &$this, 'checkout_get_value' ), 10, 2 );
+			remove_filter( 'woocommerce_checkout_get_value', array( &$this, 'checkout_get_value' ), 10 );
 
 			if ( is_callable( array( WC()->checkout(), 'get_checkout_fields' ) ) ) { // WC 3.0+
 				$address_fields = array_merge( WC()->checkout()->get_checkout_fields( 'billing' ), WC()->checkout()->get_checkout_fields( 'shipping' ) );
@@ -1414,4 +1420,3 @@ class WCS_Cart_Renewal {
 		return $order;
 	}
 }
-new WCS_Cart_Renewal();

@@ -76,6 +76,8 @@ function x_control_groups_element_counter( $adv = false ) {
 
 function x_values_element_counter( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_counter(),
     x_values_omega()

@@ -75,6 +75,8 @@ function x_control_groups_element_line( $adv = false ) {
 
 function x_values_element_line( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_line(),
     x_values_omega()

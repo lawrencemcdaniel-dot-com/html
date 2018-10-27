@@ -1,10 +1,10 @@
-﻿=== Poll, Survey, Quiz, Slideshow, Form & Story Article ===
+﻿=== Poll, Survey, Form & Quiz Maker by OpinionStage ===
 Contributors: OpinionStage.com
 Donate link: https://www.opinionstage.com
 Tags: poll, quiz, survey, form, slideshow, story, article
 Requires at least: 2.8
 Tested up to: 4.9
-Stable tag: 19.3.5
+Stable tag: 19.6.4
 
 Easily add polls, surveys, quizzes, slideshows, forms & story article to your website. 
 
@@ -18,60 +18,61 @@ https://www.youtube.com/watch?v=zwcRWGsOxxQ?rel=0&showinfo=0
 
  * Manage all your interactive content (polls, surveys, quizzes, slideshows, forms & article stories) from one dashboard
  * Opinion Stage makes it easy and fast to create content. It literally takes minutes to get up & going with a poll, quiz, survey or slideshow
- * Create content from scratch or use pre-made content templates to further speed the creation process
- * Boost engagement - polls, surveys, quizzes, slideshows and forms increase participation, time-on-site & page views
- * Drive new traffic from social shares - quizzes, polls & slideshows are known to be one of the most shared types of content on the internet
- * Supports a social sharing bar that includes sharing buttons to all the popular social networks and an integration with facebook comments
- * Generate revenue by integrating ads in the interactive content - build upon the high engagement rates to increase revenue from your ads
- * Gather more leads by integrating a lead form inside the content (e.g. poll, quiz). This will not only produce more leads, but will also produce leads of higher quality, as the leads will be associated with the answers of the users.
+ * Create content from scratch or use pre-made poll, quiz & survey content templates to further speed the creation process
+ * Boost engagement - Adding a poll, survey, quiz, slideshow or form to your posts/pages increases participation, time-on-site & page views
+ * Drive new traffic from social shares - Using a quiz, poll, survey or slideshow is one of the  best ways to increase social sharing
+ * Supports a social sharing bar you can add to your poll, quiz or survey. The social sharing bar includes sharing buttons to all the popular social networks
+ * Add facebook comments to your poll, quiz, survey or slideshow
+ * Generate revenue by integrating ads in your poll, quiz or slideshow - build upon the high engagement rates to increase revenue from your ads
+ * Gather more leads by integrating a lead form inside the poll, quiz or survey. This will not only produce more leads, but will also produce leads of higher quality, as the leads will be associated with the answers of the users.
  * Works seamlessly on all environments - Opinion Stage uses responsive design techniques to fully support all platforms & screen sizes, including desktops, tablets and mobile devices. Reach your target audience wherever they are
  * Embed in any location - in the sidebar, inside a post/page, in a section on your site or in a popup
  * Supports setting the color theme, fonts & sizes & title ortientation of the different contetn formats
- * White label the content and add your own logo to make it seem as if it was build by your brand
+ * White label your poll, survey, quiz or slideshow and add your own logo to make it seem as if it was built by your brand
 
 = Main Poll Features: =
 
- * Create polls with 4 different graphic layouts - standard, images, thumbnails & head-to-head layouts
- * Easily add images & videos into the polls either from your computer or by using an integrated search function
- * Configure if user can select one or more options to vote on
+ * Create polls with 4 different graphic layouts - standard poll layout, image poll layout, thumbnails poll layout & head-to-head poll layout
+ * Easily add images & videos into the polls either from your computer or by using an integrated search poll image function
+ * Configure if user can select one or more options when voting on the poll
  * Allow users to add their own answers to the poll
  * Block repeat voting in the poll using different mechanisms (e.g. Cookie, IP, etc)
- * Permit user to vote once every configured time frame (e.g. every hour, day, etc)
- * Display a customized message to the user after he votes
+ * Permit user to vote on the poll once every configured time frame (e.g. every hour, day, etc)
+ * Display a customized message to the user after he votes on thge poll
  * Configure to close the poll at a specified time. You can also always manually open or close the poll
- * Redirect users to different landing pages based no what they voted for
- * Configure the order of the sides (e.g. most votes on top, random)
- * Configure if results are displayed before voting, after voting or only to the poll creator
- * Configure how results are displayed to the voters (only percentage, number of votes, both, etc)
- * Configure if users are allowed to change their vote after they voted
- * Configure to request users to follow your facebook handle before viewing the results
+ * Redirect users to different landing pages based no what they voted for on the poll
+ * Configure the order of the poll displayed options (e.g. most votes on top, random)
+ * Configure if the poll results are displayed before voting, after voting or only to the poll creator
+ * Configure how results are displayed to the poll voters (only percentage, number of votes, both, etc)
+ * Configure if users are allowed to change their vote after they voted on the poll
+ * Configure to request users to follow your facebook handle before viewing the poll results
  * Configure to offer users to follow your twitter handle when they share the poll in twitter
  * Configure webhooks for sending the information gathered from your poll to any 3rd party application
  * Configure to integrate ads inside the poll to increase ad-revenue from your site
  * Get reports of number of views and leads gathered with your polls
- * View graphic presentations of the results including pie & chart bars that show the break down of votes in the different sides
- * View a detailed result table of all votes (e.g. vote side, vote timestamp, etc)
- * Export the results to an xls or csv file
+ * View graphic presentations of the poll results including pie & chart bars that show the break down of votes in the different sides
+ * View a detailed result table of all poll votes (e.g. vote side, vote timestamp, etc)
+ * Export the poll results to an xls or csv file
  * Checkout the <a href="https://www.opinionstage.com/showcase?o=wp35e8" target="_blank">Poll Showcase</a>
 
  = Main Quiz Features: =
 
- * Create personality quizzes or trivia quizzes
- * Integrate images & videos in the quizzes either from your computer or using online search capabilities
- * Set the image shared in social networks
- * Configure to request users to like your facebook page before they view the results
- * Configure the facebook & twitter sharing message
+ * Create a personality quiz, trivia quiz, score quiz, true/false quiz, assessment quiz, multiple-choice quiz or outcome quiz
+ * Integrate images & videos in the quiz from your computer, from a link or using online search capabilities
+ * Set the main image that is shared when users share the quiz on social networks
+ * Configure to request users to like your facebook page before they view the quiz results
+ * Configure the facebook & twitter sharing message that is displayed when users share the quiz
  * Configure webhooks for sending all the information gathered in the quiz to any 3rd party application
  * Integrate ads in the quiz interface to increase your sites ad-revenue potential
  * Add pixel tracking to the quiz to optimize your ad campaigns
- * View high level statistics of your quiz including views, starts, completions, average time spend on quiz, # of engagements & # of leads generated
+ * View high level statistics of your quiz including quiz impressions, quiz starts, quiz completions, average time spend on quiz, # of engagements on the quiz & # of leads generated while users participated in the quiz
  * View the detailed results of each quiz question
  * View a drop-off report that shows the percentage of users that voted in each quiz question
- * View a detailed response report that includes all the details of each submission (e.g. detailed answers, timestamp, etc)
- * Export all the results to a xls or csv file
- * Detailed logic of personality quizzes, including a scoring system for sides and formula for calculating the outcome
- * Detailed logic for trivia quizzes, including setting the correct answers, displaying explanations after selecting answers, calculating the results and various result display options
- * Support for randomizing answers to improve validity of results
+ * View a detailed response report that includes all the details of each quiz submission (e.g. detailed answers, timestamp, etc)
+ * Export the quiz results to a xls or csv file
+ * Detailed logic of personality quizzes, including a scoring system for sides and formula for calculating the quiz outcome
+ * Detailed logic for trivia quizzes, including setting the correct answers, displaying explanations after selecting answers, calculating the results and various quiz result display options
+ * Support for randomizing answers in each quiz question to improve validity of results
  * Support for call-to-action buttons at the end of the quiz
  * Support sending to different landing pages based on the quiz outcome
  * Checkout this <a href="https://www.opinionstage.com/rsacks/test-your-olympic-knowledge?o=wp35e8" target="_blank">Trivia Quiz Example</a>
@@ -120,15 +121,15 @@ https://www.youtube.com/watch?v=zwcRWGsOxxQ?rel=0&showinfo=0
  = Main Story Article Features: =
 
  * Create an interactive article that includes visual & interactive elements
- * Supports adding polls, personality quizzes, trivia quizzes, forms, slideshows & surveys into the story article
+ * Supports adding a poll, personality quiz, trivia quiz, forms, slideshow & survey into the story article
  * Supports adding text, images & videos to the story article, including an image search function that lets you locate free images
  * Checkout this <a href="https://www.opinionstage.com/quiz/buzzfeed-quiz-create-a-buzzfeed-style-quiz?o=wp35e8" target="_blank">Story Article Example</a>
 
  = Placements: =
 
- * Sidebar placement - you can display the interactive content on your sidebar using a dedicated Opinion Stage sidebar widget
- * Popup placement - you can configure to popup content (e.g. polls, quizzes) when users enter or exit your site using a highly configurable popup component
- * Articles placement - you can display the interactive content at the end of all your posts/pages by enabling the articles placement and configuring content (e.g. poll, quiz) inside it
+ * Sidebar placement - you can add a poll, quiz, survey or form to the site sidebar using a dedicated Opinion Stage sidebar widget
+ * Popup placement - you can configure to popup content (e.g. a poll, quiz, survey, etc) when users enter or exit your site using a highly configurable popup component
+ * Articles placement - you can display the a poll, quiz, survey or form at the end of all your posts/pages by enabling the articles placement
 
  = Language support =
 
@@ -136,7 +137,7 @@ Opinion Stage supports over 42 languages, missing a language? Let us know!
 
  = About Opinion Stage: =
 
-Opinion Stage is a powerful & easy-to-use interactive content (e.g. polls, quizzes, surveys, slideshows, forms) creation service. Opinion Stage's highly engaging content formats are used to boost engagement, gather leads, generate revenue and to extract actionable insights. Opinion Stage works with world-leading publishers, brands & agencies as well as small sites & blogs, offering their audiences content engagement experiences that convert to measurable business values. For more details, visit <a href="https://www.opinionstage.com?o=wp35e8" target="_blank">the Opinion Stage site.</a>
+Opinion Stage is a powerful & easy-to-use interactive content (e.g. poll, quiz, survey, slideshow, forms, etc) creation service. Opinion Stage's highly engaging content formats are used to boost engagement, gather leads, generate revenue and to extract actionable insights. Opinion Stage works with world-leading publishers, brands & agencies as well as small sites & blogs, offering their audiences content engagement experiences that convert to measurable business values. For more details, visit <a href="https://www.opinionstage.com?o=wp35e8" target="_blank">the Opinion Stage site.</a>
 
 == Installation ==
 
@@ -145,9 +146,17 @@ Opinion Stage is a powerful & easy-to-use interactive content (e.g. polls, quizz
 
 == Frequently Asked Questions ==
 
-= Does Opinion Stage content work on mobile and tablets =
+= Is Opinion Stage content responsive? =
 
-Yes, all content created with Opinion Stage is fully responsive, and designed to optimaly display on mobile, tablet and desktop
+Yes, all content (e.g. poll, quiz, survey, form, etc) created with Opinion Stage is fully responsive, and designed to optimaly display on mobile, tablet and desktop
+
+= What content formats does Opinion Stage support? =
+
+With Opinion Stage you can create the following content formats: Poll, Poll Sets, Personality Quiz, Trivia Quiz, Survey, Slideshow, Form, Story Article, List. We are constantly adding additional interactive content formats so stay tuned!
+
+= What is the difference between a Poll and a Survey =
+
+Polls include one question for getting a quick answer on a question. Polls are often used for gathering opinions, getting feedback, running contents & competitions and generating engagement. Surveys include multiple questions in which only the survey creator can see the answers. Surveys are often used to gather feedback and insights. If you are still unsure whether to use a poll or a survey, contact our support team and we'd be happy to help.
 
 == Other Notes ==
 
@@ -169,6 +178,28 @@ Yes, all content created with Opinion Stage is fully responsive, and designed to
 N/A
 
 == Changelog ==
+  = 19.6.4 =
+  * Permission fix on sub pages
+  = 19.6.3 = 
+  * Icon set fix
+  = 19.6.2 = 
+  * Double page bug fix
+  * Plugin renamed
+  = 19.6.1 =
+  * Plugin rename: improved fix
+  = 19.6.0 =
+  * Plugin filename fix
+  * Backward Compatibility added
+  = 19.5.0 =
+  * New navigation added
+  * Fixed placements issue
+  = 19.4.2 =
+  * better AJAX handling
+  = 19.4.1 =
+  * fix deactivation issue
+  = 19.4.0 =
+  * stability fixes
+  * added deactivate screen
   = 19.3.5 =
   * more updates to readme.txt file
   = 19.3.4 =

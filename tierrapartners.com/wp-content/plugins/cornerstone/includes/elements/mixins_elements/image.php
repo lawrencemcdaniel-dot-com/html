@@ -76,6 +76,8 @@ function x_control_groups_element_image( $adv = false ) {
 
 function x_values_element_image( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_image( x_bar_module_settings_image() ),
     x_values_omega()

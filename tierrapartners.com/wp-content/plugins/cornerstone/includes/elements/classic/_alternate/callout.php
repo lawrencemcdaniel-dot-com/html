@@ -23,16 +23,16 @@ class CS_Callout extends Cornerstone_Element_Base {
     $this->addControl(
       'heading',
       'text',
-      __( 'Title &amp; Message', 'cornerstone' ),
-      __( 'Enter the title and message for your Callout below.', 'cornerstone' ),
+      __( 'Title', 'cornerstone' ),
+      __( 'Enter the title for your Callout.', 'cornerstone' ),
       __( 'Callout Title', 'cornerstone' )
     );
 
     $this->addControl(
       'message',
       'textarea',
-      NULL,
-      NULL,
+      __( 'Message', 'cornerstone' ),
+      __( 'Enter the message for your Callout.', 'cornerstone' ),
       __( 'The message text for your Callout goes here.', 'cornerstone' ),
       array(
         'expandable' => __( 'Message', 'cornerstone' )

@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: Share buttons, Social Sharing, social media, Facebook, Twitter, Subscribe, Traffic posts, pages, widget, social share buttons, analytics, email, dsgvo
 Requires at least: 3.6+
 Tested up to: 4.9
-Stable tag: 3.5.4
+Stable tag: 3.5.5 
 Requires PHP: 5.2
 
 Social Media Share Buttons for Twitter, Facebook and other social networks. Highly customizable Social Media ecosystem
@@ -250,6 +250,14 @@ Read here more about this: http://docs.mashshare.net/article/10-facebook-is-show
 
 == Changelog ==
 
+= 3.5.5 =
+* Tweak: Explain better sharedcount and opensharecount integration
+* Fix: Error array_merge is not an array
+* Fix: MashShare social media meta box not shown if another plugin is using the same meta-box library
+* Fix: Incompatibility with meta-box add-ons
+* Fix: Whatsapp Button not visible on AMP pages
+* Tweak: Change welcome message
+
 = 3.5.4 =
 * New: Support for Yoast custom variables e.g. %%title%%
 * New: Add sharedcount.com 10.000 free daily api requests
@@ -337,7 +345,7 @@ https://www.mashshare.net/changelog/
 
 == Upgrade Notice ==
 
-= 3.5.4 =
+= 3.5.5 =
 * New: Support for Yoast custom variables e.g. %%title%%
 * New: Add sharedcount.com 10.000 free daily api requests
 * New: Switch from newsharecount to opensharecount.com to collect twitter shares

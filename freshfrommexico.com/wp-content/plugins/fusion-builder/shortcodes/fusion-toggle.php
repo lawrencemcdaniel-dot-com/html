@@ -107,7 +107,9 @@ if ( fusion_is_element_enabled( 'fusion_accordion' ) ) {
 						'title_font_size'           => $fusion_settings->get( 'accordion_title_font_size' ),
 						'toggle_hover_accent_color' => $fusion_settings->get( 'accordian_active_color' ),
 						'type'                      => ( '' !== $fusion_settings->get( 'accordion_type' ) ) ? $fusion_settings->get( 'accordion_type' ) : 'accordions',
-					), $args
+					),
+					$args,
+					'fusion_accordion'
 				);
 
 				$defaults['border_size'] = FusionBuilder::validate_shortcode_attr_value( $defaults['border_size'], 'px' );
@@ -206,7 +208,8 @@ if ( fusion_is_element_enabled( 'fusion_accordion' ) ) {
 			public function attr() {
 
 				$attr = fusion_builder_visibility_atts(
-					$this->parent_args['hide_on_mobile'], array(
+					$this->parent_args['hide_on_mobile'],
+					array(
 						'class' => 'accordian fusion-accordian',
 					)
 				);
@@ -262,7 +265,9 @@ if ( fusion_is_element_enabled( 'fusion_accordion' ) ) {
 					array(
 						'open'  => 'no',
 						'title' => '',
-					), $args
+					),
+					$args,
+					'fusion_toggle'
 				);
 
 				extract( $defaults );

@@ -158,18 +158,18 @@ class Soliloquy_Addons{
 
 	    <div class="wrap">
 
-	    	<h1 class="soliloquy-hideme"></h1> <?php
+	        <h1 class="soliloquy-hideme"></h1> <?php
 
 			// Only display the Addons information if no license key errors are present.
 			if ( ! $this->base->get_license_key_errors() ) : ?>
 
 			<div id="soliloquy-settings-addons">
 
-        	    <?php if ( empty( $type ) ) : ?>
+                <?php if ( empty( $type ) ) : ?>
 
-        	        <div class="error below-h2">
+                    <div class="error below-h2">
 
-	        	        <p><?php esc_html_e( 'In order to get access to Addons, you need to verify your license key for Soliloquy.', 'soliloquy' ); ?></p>
+	                    <p><?php esc_html_e( 'In order to get access to Addons, you need to verify your license key for Soliloquy.', 'soliloquy' ); ?></p>
 
 					</div>
 
@@ -188,22 +188,22 @@ class Soliloquy_Addons{
 
                     </form>
 
-           	        <form id="soliloquy-addon-filters" class="soliloquy-right">
-	           	        <label class="soliloquy-addon-filter"><?php esc_html_e( 'Filter', 'soliloquy'); ?>:</label>
-	           	        <div class="soliloquy-select">
-	        	        <select id="soliloquy-addon-filter" class="soliloquy-chosen">
-		        	        <option value="asc"><?php esc_html_e( 'A-Z', 'soliloquy' ); ?></option>
-		        	        <option value="desc"><?php esc_html_e( 'Z-A', 'soliloquy' ); ?></option>
-		        	        <option value="active"><?php esc_html_e( 'Active', 'soliloquy' ); ?></option>
-		        	        <option value="inactive"><?php esc_html_e( 'Inactive', 'soliloquy' ); ?></option>
-		        	        <option value="installed"><?php esc_html_e( 'Not Installed', 'soliloquy' ); ?></option>
+                    <form id="soliloquy-addon-filters" class="soliloquy-right">
+	                    <label class="soliloquy-addon-filter"><?php esc_html_e( 'Filter', 'soliloquy'); ?>:</label>
+	                    <div class="soliloquy-select">
+	                    <select id="soliloquy-addon-filter" class="soliloquy-chosen">
+		                    <option value="asc"><?php esc_html_e( 'A-Z', 'soliloquy' ); ?></option>
+		                    <option value="desc"><?php esc_html_e( 'Z-A', 'soliloquy' ); ?></option>
+		                    <option value="active"><?php esc_html_e( 'Active', 'soliloquy' ); ?></option>
+		                    <option value="inactive"><?php esc_html_e( 'Inactive', 'soliloquy' ); ?></option>
+		                    <option value="installed"><?php esc_html_e( 'Not Installed', 'soliloquy' ); ?></option>
 
-	        	        </select>
-	           	        </div>
+	                    </select>
+	                    </div>
 
-        	        </form>
+                    </form>
 
-        	        <div class="soliloquy-clearfix"></div>
+                    <div class="soliloquy-clearfix"></div>
 
                     <div id="soliloquy-addons-area" class="soliloquy-clear">
 
@@ -215,12 +215,12 @@ class Soliloquy_Addons{
                             $plugin_basename   = $this->get_plugin_basename_from_slug( $addon->slug );
                             $installed_plugins = get_plugins();
                             $last              = ( 2 == $i%3 ) ? 'last' : '';
-   							if ( is_plugin_active( $plugin_basename ) ) {
-   								$status = 'active';
-   							}
+                            if ( is_plugin_active( $plugin_basename ) ) {
+                                $status = 'active';
+                            }
 
                            elseif ( ! isset( $installed_plugins[$plugin_basename] ) ) {
-                            	$status = 'not_installed';
+                                $status = 'not_installed';
 
                             } elseif ( is_plugin_inactive( $plugin_basename ) ) {
 	                            $status = 'inactive';
@@ -236,9 +236,9 @@ class Soliloquy_Addons{
 
                             echo '<div class="soliloquy-addon ' . $last . '" data-addon-title="'. esc_html( $addon->title ) . '" data-addon-status="'. $status . '">';
 
-                            	echo '<div class="soliloquy-addon-content">';
+                                echo '<div class="soliloquy-addon-content">';
 
-                            	    echo '<h3 class="soliloquy-addon-title">' . esc_html( $addon->title ) . '</h3>';
+                                    echo '<h3 class="soliloquy-addon-title">' . esc_html( $addon->title ) . '</h3>';
 
 									echo '<img class="soliloquy-addon-thumb" src="' . esc_url( $addon->image ) . '" width="300px" height="250px" alt="' . esc_attr( $addon->title ) . '" />';
 
@@ -310,7 +310,7 @@ class Soliloquy_Addons{
 
         endif;
 
-		if (  !in_array( $type, array('developer','master'), true ) ):
+		if (  !in_array( $type, array('developer','master', 'agency' ), true ) ):
 
 			$upgrade_addons = $this->get_all_addons(); ?>
 
@@ -339,9 +339,9 @@ class Soliloquy_Addons{
 
                 echo '<div class="soliloquy-addon ' . $last . '">';
 
-                	echo '<div class="soliloquy-addon-content">';
+                    echo '<div class="soliloquy-addon-content">';
 
-                	    echo '<h3 class="soliloquy-addon-title">' . esc_html( $addon->title ) . '</h3>';
+                        echo '<h3 class="soliloquy-addon-title">' . esc_html( $addon->title ) . '</h3>';
 
 						echo '<img class="soliloquy-addon-thumb" src="' . esc_url( $addon->image ) . '" width="300px" height="250px" alt="' . esc_attr( $addon->title ) . '" />';
 

@@ -60,7 +60,7 @@ function x_shortcode_share( $atts ) {
   if ( $email       == 'true' ) {
 
     $email_subject = esc_attr( ( $email_subject != '' ) ? cs_decode_shortcode_attribute( $email_subject ) : csi18n('shortcodes.share-email-subject') );
-    $mail_to_subject = esc_url( get_the_title() );
+    $mail_to_subject = esc_attr( $share_title );
     $mail_to_url = esc_url( get_permalink() );
 
     $mail_to = "mailto:?subject=$mail_to_subject&amp;body=$email_subject $mail_to_url";

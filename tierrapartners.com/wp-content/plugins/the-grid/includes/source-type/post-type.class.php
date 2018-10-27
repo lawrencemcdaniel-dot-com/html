@@ -677,6 +677,10 @@ class The_Grid_Post_Type {
 		$post_status = $this->grid_data['post_status'] ? $this->grid_data['post_status'] : array('publish');
 		$post_status = "'".implode("', '", $post_status)."'";
 		
+		if ( in_array( 'attachment', $this->grid_data['post_type'], true ) ) {
+			$post_status .= ", 'inherit'";
+		}
+		
 		if ($post_types && $post_types) {
 
 			$response = $wpdb->get_col($wpdb->prepare("

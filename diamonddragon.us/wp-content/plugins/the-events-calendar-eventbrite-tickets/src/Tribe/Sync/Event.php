@@ -205,9 +205,25 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 
 		if ( ! isset( $args['event.venue'] ) || false === $args['event.venue'] ) {
 			if ( 'create' === $mode ) {
-				tribe( 'eventbrite.main' )->throw_notice( $post, __( 'Eventbrite requires a Venue and it must have a valid Address.', 'tribe-eventbrite' ), $_POST );
 
-				return false;
+				/**
+				 * Whether the Venue data is required for events to be posted to Eventbrite or not.
+				 *
+				 * @since 4.5.5
+				 *
+				 * @param bool    $venue_is_required If set to `true` then the event will not be synced
+				 *                                   to Eventbrite if the Venue data is missing; default
+				 *                                   `false`.
+				 * @param WP_Post $post              The post object to sync.
+				 * @param array   $array             An array of arguments that will be sent to Eventbrite.
+				 */
+				$venue_is_required = apply_filters( 'tribe_events_eb_venue_is_required', false, $post, $args );
+
+				if ( $venue_is_required ) {
+					tribe( 'eventbrite.main' )->throw_notice( $post, __( 'Eventbrite requires a Venue and it must have a valid Address.', 'tribe-eventbrite' ), $_POST );
+
+					return false;
+				}
 			}
 			unset( $args['event.venue'] );
 		}
@@ -251,9 +267,21 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 		}
 
 		if ( ! $venue instanceof WP_Post || ! tribe_is_venue( $venue->ID ) ) {
-			tribe( 'eventbrite.main' )->throw_notice( $event, __( 'The venue is missing', 'tribe-eventbrite' ), $_POST );
 
-			return false;
+			/**
+			 * Whether the Venue data is required for events to be posted to Eventbrite or not.
+			 *
+			 * @since 4.5.5
+			 *
+			 * @see Tribe__Events__Tickets__Eventbrite__Sync__Venue::get_venue_data() for filter documentation.
+			 */
+			$venue_is_required = apply_filters( 'tribe_events_eb_venue_is_required', false, $event, $args );
+
+			if ( $venue_is_required ) {
+				tribe( 'eventbrite.main' )->throw_notice( $event, __( 'The venue is missing', 'tribe-eventbrite' ), $_POST );
+
+				return false;
+			}
 		} else {
 			$venue->metas = array(
 				'title'   => array(
@@ -272,12 +300,27 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Event {
 
 			$throw_notice = false;
 			foreach ( $venue->metas as $name => $meta ) {
-				if ( ! empty( $meta['value'] ) ) {
-					continue;
-				} else {
-					$throw_notice = true;
+				if ( empty( $meta['value'] ) ) {
+
+					/**
+					 * Whether a specific Venue data piece is required for events to be posted to Eventbrite or not.
+					 *
+					 * @since 4.5.5
+					 *
+					 * @param bool    $venue_data_is_required Whether this piece of Venue data is required to sync the event
+					 *                                        to Eventbrite or not; defaults to `false`.
+					 * @param WP_Post $event                  The event that should be synced to Eventbrite.
+					 * @param array   $params                 Data to send to EA, usually started by the creation of a new EB event
+					 *
+					 * @see   Tribe__Events__Tickets__Eventbrite__Sync__Venue::get_venue_data() for filter documentation.
+					 */
+					$venue_data_is_required = apply_filters( "tribe_events_eb_venue_{$name}_is_required", false, $event, $args );
+
+					if ( $venue_data_is_required ) {
+						$throw_notice = true;
+						tribe( 'eventbrite.main' )->throw_notice( $event, $meta['message'], $_POST );
+					}
 				}
-				tribe( 'eventbrite.main' )->throw_notice( $event, $meta['message'], $_POST );
 			}
 
 			if ( $throw_notice ) {

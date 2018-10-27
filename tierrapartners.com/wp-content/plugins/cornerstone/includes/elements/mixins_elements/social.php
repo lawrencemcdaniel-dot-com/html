@@ -78,6 +78,8 @@ function x_control_groups_element_social( $adv = false ) {
 
 function x_values_element_social( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_anchor( x_bar_module_settings_anchor( 'social' ) ),
     x_values_omega()

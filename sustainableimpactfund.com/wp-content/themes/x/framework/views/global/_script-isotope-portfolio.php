@@ -27,7 +27,7 @@ $is_rtl = is_rtl();
     var $optionSets  = $('.option-set');
     var $optionLinks = $optionSets.find('a');
 
-    $container.before('<span id="x-isotope-loading"><span>');
+    $container.before('<span id="x-isotope-loading" class="x-loading"><span>');
 
     $(window).on('load', function() {
       $container.xIsotope({

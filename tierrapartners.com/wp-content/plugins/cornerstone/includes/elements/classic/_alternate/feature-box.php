@@ -22,32 +22,32 @@ class CS_Feature_Box extends Cornerstone_Element_Base {
     $this->addControl(
       'title',
       'text',
-      __( 'Title &amp; Content', 'cornerstone' ),
-      __( 'Specify the title and content for your Feature Box.', 'cornerstone' ),
+      __( 'Title', 'cornerstone' ),
+      __( 'Set the title for your Feature Box.', 'cornerstone' ),
       __( 'Feature Box Title', 'cornerstone' )
     );
 
     $this->addControl(
       'content',
       'text',
-      NULL,
-      NULL,
+      __( 'Title &amp; Content', 'cornerstone' ),
+      __( 'Set the content for your Feature Box.', 'cornerstone' ),
       __( 'This is where the text for your Feature Box should go. It&apos;s best to keep it short and sweet.', 'cornerstone' )
     );
 
     $this->addControl(
       'title_color',
       'color',
-      __( 'Title &amp; Content Colors', 'cornerstone' ),
-      __( 'Optionally specify colors for your title and content.', 'cornerstone' ),
+      __( 'Title Color', 'cornerstone' ),
+      __( 'Optionally specify colors for your title.', 'cornerstone' ),
       ''
     );
 
     $this->addControl(
       'text_color',
       'color',
-      NULL,
-      NULL,
+      __( 'Content Color', 'cornerstone' ),
+      __( 'Optionally specify colors for your content.', 'cornerstone' ),
       ''
     );
 
@@ -78,8 +78,8 @@ class CS_Feature_Box extends Cornerstone_Element_Base {
     $this->addControl(
       'graphic_icon',
       'icon-choose',
-      NULL,
-      NULL,
+      __( 'Icon', 'cornerstone' ),
+      __( 'Specify the icon you would like to use for your Feature List Item.', 'cornerstone' ),
       'ship',
       array(
         'condition' => array(
@@ -91,8 +91,8 @@ class CS_Feature_Box extends Cornerstone_Element_Base {
     $this->addControl(
       'graphic_image',
       'image',
-      NULL,
-      NULL,
+      __( 'Image', 'cornerstone' ),
+      __( 'Specify the image you would like to use for your Feature List Item.', 'cornerstone' ),
       '',
       array(
         'condition' => array(
@@ -135,16 +135,16 @@ class CS_Feature_Box extends Cornerstone_Element_Base {
     $this->addControl(
       'graphic_color',
       'color',
-      __( 'Graphic Color &amp; Background Color', 'cornerstone' ),
-      __( 'Specify the color and background color of your graphic.', 'cornerstone' ),
+      __( 'Graphic Color', 'cornerstone' ),
+      __( 'Specify the color of your graphic.', 'cornerstone' ),
       '#ffffff'
     );
 
     $this->addControl(
       'graphic_bg_color',
       'color',
-      NULL,
-      NULL,
+      __( 'Graphic Background Color', 'cornerstone' ),
+      __( 'Specify the background color of your graphic.', 'cornerstone' ),
       '#2ecc71'
     );
 

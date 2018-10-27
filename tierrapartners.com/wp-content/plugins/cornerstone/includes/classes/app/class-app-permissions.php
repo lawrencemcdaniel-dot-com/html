@@ -386,9 +386,11 @@ class Cornerstone_App_Permissions extends Cornerstone_Plugin_Component {
     $disable_classic_elements = array();
 
     $disable_preferences = array(
-      'preference.advanced_mode'   => false,
-      'preference.show_wp_toolbar' => false,
-      'preference.help_text.user'  => false
+      'preference.advanced_mode.user'     => false,
+      'preference.show_wp_toolbar.user'   => false,
+      'preference.rich_text_default.user' => false,
+      'preference.help_text.user'         => false,
+      'preference.ui_theme.user'          => false,
     );
 
     $content_types = array_keys( $this->get_content_types() );

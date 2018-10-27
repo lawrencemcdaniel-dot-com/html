@@ -37,7 +37,26 @@ class Tribe__Events__Tickets__Eventbrite__Event {
 
 		$event_obj = get_post_meta( $post->ID, $this->key_tickets, true );
 
-		if ( is_wp_error( $event_obj ) ) {
+		if ( $event_obj instanceof WP_Error || empty( $event_obj ) || ! is_object( $event_obj ) ) {
+			/**
+			 * Fires when the Eventbrite data for an event is not found or is not
+			 * in the valid format.
+			 *
+			 * @since 4.5.4
+			 *
+			 * @param int $post_id The current event post ID.
+			 * @param WP_Error|object|mixed The Eventbrite data found for the event.
+			 */
+			do_action( 'tribe_events_eventbrite_event_data_not_found', $post->ID, $event_obj );
+
+			/**
+			 * This might be a temporary condition, e.g. during a migration, but it's worth
+			 * keeping track of it.
+			 */
+			$data      = empty( $event_obj ) ? '' : print_r( $event_obj, true );
+			$log_entry = "Eventbrite data for event {$post->ID} not found or empty; data: " . $data;
+			tribe( 'logger' )->log_warning( $log_entry, 'Eventbrite' );
+
 			return false;
 		}
 
@@ -140,11 +159,11 @@ class Tribe__Events__Tickets__Eventbrite__Event {
 	 *
 	 * @since 4.5
 	 *
-	 * @param $postId       the TEC event to get the Eventbrite ticket costs from
-	 * @param $only_if_live Only return the cost if the event is live
-	 * @param $range        Return only the Lowest and High prices
+	 * @param int  $postId       The TEC event to get the Eventbrite ticket costs from.
+	 * @param bool $only_if_live Only return the cost if the event is live
+	 * @param bool $range        Return only the Lowest and High prices
 	 *
-	 * @return string|array $prices the price or range of prices of the Eventbrite tickets
+	 * @return string|array $prices the price or range of prices of the Eventbrite tickets.
 	 */
 	public function get_cost( $post, $only_if_live = true, $range = true ) {
 		$event = $this->get_event( $post );

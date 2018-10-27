@@ -1256,7 +1256,6 @@ button.close {
   left: 0;
   z-index: 99999;
   -webkit-overflow-scrolling: touch;
-  outline: 0;
 }
 .modal.fade .modal-dialog {
   -webkit-transform: translate(0, -25%);
@@ -1273,6 +1272,9 @@ button.close {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
+}
+.fusion-disable-outline .modal {
+  outline: 0;
 }
 .modal-dialog {
   position: relative;
@@ -2387,7 +2389,6 @@ Table of Contents
 .wpcf7-submit {
   display: inline-block;
   position: relative;
-  outline: 0;
   zoom: 1;
   border: 1px solid rgba(0, 0, 0, 0);
   text-align: center;
@@ -2454,17 +2455,30 @@ Table of Contents
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-.bbp-submit-wrapper .button:focus,
-.fusion-button:focus,
-.gform_wrapper .button:focus,
-.gform_wrapper .gform_button:focus,
-.post-password-form input[type="submit"]:focus,
-.tml-submit-wrap input[type="submit"]:focus,
-.tribe-events-tickets .button:focus,
-.woocommerce .cart-collaterals .checkout-button:focus,
-.woocommerce .checkout #place_order:focus,
-.woocommerce.add_to_cart_inline .button:focus,
-.wpcf7-submit:focus {
+.fusion-disable-outline .bbp-submit-wrapper .button,
+.fusion-disable-outline .fusion-button,
+.fusion-disable-outline .gform_wrapper .button,
+.fusion-disable-outline .gform_wrapper .gform_button,
+.fusion-disable-outline .post-password-form input[type="submit"],
+.fusion-disable-outline .tribe-events-tickets .button,
+.fusion-disable-outline .woocommerce .cart-collaterals .checkout-button,
+.fusion-disable-outline .woocommerce .checkout #place_order,
+.fusion-disable-outline .wpcf7-submit,
+.fusion-disable-outline .tml-submit-wrap input[type="submit"],
+.fusion-disable-outline .woocommerce.add_to_cart_inline .button {
+  outline: 0;
+}
+.fusion-disable-outline .bbp-submit-wrapper .button:focus,
+.fusion-disable-outline .fusion-button:focus,
+.fusion-disable-outline .gform_wrapper .button:focus,
+.fusion-disable-outline .gform_wrapper .gform_button:focus,
+.fusion-disable-outline .post-password-form input[type="submit"]:focus,
+.fusion-disable-outline .tribe-events-tickets .button:focus,
+.fusion-disable-outline .woocommerce .cart-collaterals .checkout-button:focus,
+.fusion-disable-outline .woocommerce .checkout #place_order:focus,
+.fusion-disable-outline .wpcf7-submit:focus,
+.fusion-disable-outline .tml-submit-wrap input[type="submit"]:focus,
+.fusion-disable-outline .woocommerce.add_to_cart_inline .button:focus {
   outline: 0;
 }
 .fusion-button i,
@@ -2493,29 +2507,29 @@ Table of Contents
   -o-transition: none !important;
   transition: none !important;
 }
-.button-square,
+.fusion-body .button-square,
 .fusion-body .fusion-button-square,
 .fusion-button-square {
   -webkit-border-radius: 0;
           border-radius: 0;
 }
-.button-round,
+.fusion-body .button-round,
 .fusion-body .fusion-button-round,
 .fusion-button-round {
   -webkit-border-radius: 2px;
           border-radius: 2px;
 }
-.button-round.button-3d,
+.fusion-body .button-round.button-3d,
 .fusion-body .fusion-button-round.button-3d,
 .fusion-button-round.button-3d {
   -webkit-border-radius: 4px;
           border-radius: 4px;
 }
-.button-pill,
+.fusion-body .button-pill,
 .fusion-body .fusion-button-pill,
 .fusion-button-pill {
-  -webkit-border-radius: 25px !important;
-          border-radius: 25px !important;
+  -webkit-border-radius: 25px;
+          border-radius: 25px;
 }
 #bbp_user_edit_submit,
 .bbp-submit-wrapper .button,
@@ -5960,17 +5974,17 @@ html[xmlns] .flexslider .slides {
   display: table;
   margin: 20px auto 0;
 }
-.fusion-flip-boxes .fusion-flip-box.hover .flip-box-back {
+.fusion-flip-boxes .fusion-flip-box:hover .flip-box-back {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
   z-index: 1;
 }
-.fusion-flip-boxes .fusion-flip-box.hover .flip-box-front {
+.fusion-flip-boxes .fusion-flip-box:hover .flip-box-front {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   z-index: -1;
 }
-.fusion-flip-boxes .fusion-flip-box.hover .flip-box-front .flip-box-grafix i:before {
+.fusion-flip-boxes .fusion-flip-box:hover .flip-box-front .flip-box-grafix i:before {
   display: none;
 }
 .fusion-flip-boxes .fusion-flip-box .flip-box-grafix {
@@ -6477,7 +6491,8 @@ html[xmlns] .flexslider .slides {
 }
 .fusion-imageframe.element-bottomshadow:after,
 .fusion-imageframe.element-bottomshadow:before {
-  opacity: 0.4;
+  -webkit-box-shadow: 0 17px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 17px 10px rgba(0, 0, 0, 0.4);
 }
 .fusion-imageframe.element-bottomshadow img {
   margin: 0;
@@ -7500,7 +7515,7 @@ html[xmlns] .flexslider .slides {
 .ua-mobile .modal-open .fusion-modal .modal-dialog {
   height: 90%;
 }
-.fusion-person .person-shortcode-image-wrapper {
+.fusion-person {
   text-align: center;
 }
 .fusion-person .person-shortcode-image-wrapper img {
@@ -7523,9 +7538,8 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
           box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
 }
-.fusion-person .person-image-container.element-bottomshadow:after,
-.fusion-person .person-image-container.element-bottomshadow:before {
-  opacity: 0.4;
+.fusion-person .person-image-container.person-rounded-overflow {
+  overflow: hidden;
 }
 .fusion-person .person-desc {
   margin-top: 25px;
@@ -7558,10 +7572,10 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }
-.fusion-person-left {
+.fusion-person-left .person-desc {
   text-align: left;
 }
-.fusion-person-center {
+.fusion-person-center .person-desc {
   text-align: center;
 }
 .fusion-person-center .person-desc .person-author {
@@ -7582,7 +7596,7 @@ html[xmlns] .flexslider .slides {
 .fusion-person-center .person-content {
   margin-top: 25px;
 }
-.fusion-person-right {
+.fusion-person-right .person-desc {
   text-align: right;
 }
 .fusion-person-right .person-desc .person-author .fusion-social-networks {
@@ -8108,8 +8122,8 @@ html[xmlns] .flexslider .slides {
 .fusion-section-separator #curvedCandy {
   display: block;
 }
-.ua-ie-11 .fusion-section-separator svg,
-.ua-edge .fusion-section-separator svg {
+.ua-edge .fusion-section-separator svg,
+.ua-ie-11 .fusion-section-separator svg {
   -webkit-transform: scale(1.01);
       -ms-transform: scale(1.01);
           transform: scale(1.01);
@@ -8395,7 +8409,6 @@ body:not(:-moz-handler-blocked) .fusion-separator.sep-shadow:after {
   position: relative;
   margin: 0;
   padding: 11px 0;
-  outline: 0;
   line-height: normal;
   border: none;
   border-top: 3px solid #F1F2F2;
@@ -8460,6 +8473,9 @@ body:not(:-moz-handler-blocked) .fusion-separator.sep-shadow:after {
   padding: 0;
   background: transparent;
   border: none;
+}
+.fusion-disable-outline .fusion-tabs .nav-tabs li .tab-link {
+  outline: 0;
 }
 table {
   border-collapse: collapse;
@@ -8728,12 +8744,12 @@ table {
 }
 .fusion-testimonials.clean blockquote {
   border: none;
-  background-color: none;
+  background-color: transparent;
 }
 .fusion-testimonials.clean blockquote q {
   display: block;
   padding: 25px;
-  background-color: none;
+  background-color: transparent;
   line-height: 30px;
   font-size: 18px;
   text-align: center;
@@ -9420,7 +9436,8 @@ table {
   float: right;
   margin-left: 25px;
 }
-.fusion-image-hovers .imageframe-liftup span {
+.fusion-image-hovers .imageframe-liftup span,
+.fusion-image-hovers .imageframe-liftup > div {
   opacity: 1;
   -webkit-transform: perspective(1000px) scale(1);
   transform: perspective(1000px) scale(1);
@@ -9430,9 +9447,13 @@ table {
   transition: transform 0.35s;
   transition: transform 0.35s, -webkit-transform 0.35s;
 }
-.fusion-image-hovers .imageframe-liftup span:hover {
+.fusion-image-hovers .imageframe-liftup span:hover,
+.fusion-image-hovers .imageframe-liftup > div:hover {
   -webkit-transform: perspective(1000px) scale(1.03);
   transform: perspective(1000px) scale(1.03);
+}
+.fusion-image-hovers .imageframe-liftup .person-image-container {
+  position: relative;
 }
 .fusion-image-hovers .imageframe-liftup:before {
   position: absolute;

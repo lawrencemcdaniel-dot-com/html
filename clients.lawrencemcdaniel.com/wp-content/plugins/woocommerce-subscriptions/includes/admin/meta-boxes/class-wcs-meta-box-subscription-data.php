@@ -62,6 +62,11 @@ class WCS_Meta_Box_Subscription_Data extends WC_Meta_Box_Order_Data {
 									esc_url( add_query_arg( $args, admin_url( 'edit.php' ) ) ),
 									esc_html__( 'View other subscriptions', 'woocommerce-subscriptions' )
 								);
+								printf(
+									'<a href="%s">%s</a>',
+									esc_url( add_query_arg( 'user_id', $subscription->get_user_id(), admin_url( 'user-edit.php' ) ) ),
+									esc_html__( 'Profile', 'woocommerce-subscriptions' )
+								);
 							}
 							?></label>
 							<?php
@@ -353,9 +358,20 @@ class WCS_Meta_Box_Subscription_Data extends WC_Meta_Box_Order_Data {
 			wcs_add_admin_notice( sprintf( __( 'Error updating some information: %s', 'woocommerce-subscriptions' ), $e->getMessage() ), 'error' );
 		}
 
-		// Grant download permissions on initial save.
 		if ( isset( $_POST['original_post_status'] ) && 'auto-draft' === $_POST['original_post_status'] ) {
+			$subscription->set_created_via( 'admin' );
+			$subscription->save();
+
+			// Grant download permissions on initial save.
 			wc_downloadable_product_permissions( $post_id );
+
+			/**
+			 * Fire an action after a subscription is created via the admin screen.
+			 *
+			 * @since 2.4.1
+			 * @param WC_Subscription $subscription The subscription object.
+			 */
+			do_action( 'woocommerce_admin_created_subscription', $subscription );
 		}
 
 		do_action( 'woocommerce_process_shop_subscription_meta', $post_id, $post );

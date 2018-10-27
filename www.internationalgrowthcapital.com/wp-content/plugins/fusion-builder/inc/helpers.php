@@ -300,7 +300,8 @@ function fusion_builder_shortcodes_tags( $taxonomy, $empty_choice = false, $empt
 function fusion_builder_column_layouts( $module = '' ) {
 
 	$layouts = apply_filters(
-		'fusion_builder_column_layouts', array(
+		'fusion_builder_column_layouts',
+		array(
 			array(
 				'layout'   => array( '' ),
 				'keywords' => esc_attr__( 'empty blank', 'fusion-builder' ),
@@ -468,7 +469,8 @@ function fusion_builder_column_layouts( $module = '' ) {
 function fusion_builder_inner_column_layouts() {
 
 	$layouts = apply_filters(
-		'fusion_builder_inner_column_layouts', array(
+		'fusion_builder_inner_column_layouts',
+		array(
 
 			array(
 				'layout'   => array( '1_1' ),
@@ -584,7 +586,8 @@ function fusion_builder_inner_column_layouts() {
 function fusion_builder_generator_column_layouts() {
 
 	$layouts = apply_filters(
-		'fusion_builder_generators_column_layouts', array(
+		'fusion_builder_generators_column_layouts',
+		array(
 			array(
 				'layout'   => array( '1_1' ),
 				'keywords' => esc_attr__( 'full one 1', 'fusion-builder' ),
@@ -781,7 +784,6 @@ function fusion_builder_textdomain_strings() {
 	}
 
 	$text_strings = array(
-
 		'custom_css'                                  => esc_attr__( 'Custom CSS', 'fusion-builder' ),
 		'builder'                                     => esc_attr__( 'Builder', 'fusion-builder' ),
 		'library'                                     => esc_attr__( 'Library', 'fusion-builder' ),
@@ -828,6 +830,7 @@ function fusion_builder_textdomain_strings() {
 		'select_element'                              => esc_attr__( 'Select Element', 'fusion-builder' ),
 		'builder_elements'                            => esc_attr__( 'Builder Elements', 'fusion-builder' ),
 		'library_elements'                            => esc_attr__( 'Library Elements', 'fusion-builder' ),
+		'generator_elements_tooltip'                  => esc_attr__( 'Inline element for usage in the Fusion Builder Generator.', 'fusion-builder' ),
 		'inner_columns'                               => esc_attr__( 'Nested Columns', 'fusion-builder' ),
 		'element_settings'                            => esc_attr__( 'Element Settings', 'fusion-builder' ),
 		'clone_element'                               => esc_attr__( 'Clone Element', 'fusion-builder' ),
@@ -953,8 +956,13 @@ function fusion_builder_textdomain_strings() {
 		'add_chart_column'                            => esc_attr__( 'Add Value Column', 'fusion-builder' ),
 		'add_chart_row'                               => esc_attr__( 'Add Data Set', 'fusion-builder' ),
 		'user_login_register_note'                    => esc_attr__( 'Registration confirmation will be emailed to you.', 'fusion-builder' ),
-		'are_you_sure_you_want_to_remove_global'      => esc_attr__( 'Are you sure you want to remove global property ?', 'fusion-builder' ),
+		'are_you_sure_you_want_to_remove_global'      => esc_attr__( 'Are you sure you want to remove global property?', 'fusion-builder' ),
 		'removed_global'                              => esc_attr__( 'Removed Global Status', 'fusion-builder' ),
+		'container_draft'                             => esc_attr__( 'Draft container.', 'fusion-builder' ),
+		'container_scheduled'                         => esc_attr__( 'Scheduled container.', 'fusion-builder' ),
+		'container_publish'                           => esc_attr__( 'Click to publish container.', 'fusion-builder' ),
+		'are_you_sure_you_want_to_publish'            => esc_attr__( 'Are you sure you want to publish container?', 'fusion-builder' ),
+		'container_published'                         => esc_attr__( 'Container published.', 'fusion-builder' ),
 	);
 
 	return $text_strings;
@@ -2121,20 +2129,27 @@ function fusion_builder_map_descriptions( $shortcode, $param ) {
 		'reset' => true,
 	);
 
-	// Image Frame.
-	$shortcode_option_map['bordercolor']['fusion_imageframe'] = array(
-		'theme-option' => 'imgframe_border_color',
+	// Image.
+	$shortcode_option_map['style_type']['fusion_imageframe'] = array( 'theme-option' => 'imageframe_style_type' );
+
+	$shortcode_option_map['blur']['fusion_imageframe'] = array(
+		'theme-option' => 'imageframe_blur',
+		'type' => 'range',
+	);
+	$shortcode_option_map['stylecolor']['fusion_imageframe'] = array(
+		'theme-option' => 'imgframe_style_color',
 		'reset' => true,
 	);
 	$shortcode_option_map['bordersize']['fusion_imageframe'] = array(
 		'theme-option' => 'imageframe_border_size',
 		'type' => 'range',
 	);
-	$shortcode_option_map['borderradius']['fusion_imageframe'] = array( 'theme-option' => 'imageframe_border_radius' );
-	$shortcode_option_map['stylecolor']['fusion_imageframe'] = array(
-		'theme-option' => 'imgframe_style_color',
+	$shortcode_option_map['bordercolor']['fusion_imageframe'] = array(
+		'theme-option' => 'imgframe_border_color',
 		'reset' => true,
 	);
+	$shortcode_option_map['borderradius']['fusion_imageframe'] = array( 'theme-option' => 'imageframe_border_radius' );
+
 	$shortcode_option_map['lightbox']['fusion_imageframe'] = array(
 		'theme-option' => 'status_lightbox',
 		'type' => 'yesno',
@@ -2199,6 +2214,16 @@ function fusion_builder_map_descriptions( $shortcode, $param ) {
 	// Person.
 	$shortcode_option_map['background_color']['fusion_person'] = array(
 		'theme-option' => 'person_background_color',
+		'reset' => true,
+	);
+	$shortcode_option_map['pic_style']['fusion_person'] = array( 'theme-option' => 'person_pic_style' );
+
+	$shortcode_option_map['pic_style_blur']['fusion_person'] = array(
+		'theme-option' => 'person_pic_style_blur',
+		'type' => 'range',
+	);
+	$shortcode_option_map['pic_style_color']['fusion_person'] = array(
+		'theme-option' => 'person_style_color',
 		'reset' => true,
 	);
 	$shortcode_option_map['pic_bordercolor']['fusion_person'] = array(
@@ -2454,6 +2479,11 @@ function fusion_builder_map_descriptions( $shortcode, $param ) {
 	);
 
 	// Testimonials.
+	$shortcode_option_map['speed']['fusion_testimonials'] = array(
+		'theme-option' => 'testimonials_speed',
+		'type' => 'range',
+		'reset' => true,
+	);
 	$shortcode_option_map['backgroundcolor']['fusion_testimonials'] = array(
 		'theme-option' => 'testimonial_bg_color',
 		'reset' => true,
@@ -3119,7 +3149,31 @@ function fusion_builder_element_dependencies( $dependencies, $shortcode, $option
 		),
 	);
 
-	// Imageframe.
+	// Image.
+	$shortcode_option_map['blur']['fusion_imageframe'][] = array(
+		'check' => array(
+			'element-option' => 'imageframe_style_type',
+			'value' => 'none',
+			'operator' => '==',
+		),
+		'output' => array(
+			'element' => 'style_type',
+			'value' => '',
+			'operator' => '!=',
+		),
+	);
+	$shortcode_option_map['stylecolor']['fusion_imageframe'][] = array(
+		'check' => array(
+			'element-option' => 'imageframe_style_type',
+			'value' => 'none',
+			'operator' => '==',
+		),
+		'output' => array(
+			'element' => 'style_type',
+			'value' => '',
+			'operator' => '!=',
+		),
+	);
 	$shortcode_option_map['bordercolor']['fusion_imageframe'][] = array(
 		'check' => array(
 			'element-option' => 'imageframe_border_size',
@@ -3344,6 +3398,30 @@ function fusion_builder_element_dependencies( $dependencies, $shortcode, $option
 	);
 
 	// Person.
+	$shortcode_option_map['pic_style_blur']['fusion_person'][] = array(
+		'check' => array(
+			'element-option' => 'person_pic_style',
+			'value' => 'none',
+			'operator' => '==',
+		),
+		'output' => array(
+			'element' => 'pic_style',
+			'value' => '',
+			'operator' => '!=',
+		),
+	);
+	$shortcode_option_map['pic_style_color']['fusion_person'][] = array(
+		'check' => array(
+			'element-option' => 'person_pic_style',
+			'value' => 'none',
+			'operator' => '==',
+		),
+		'output' => array(
+			'element' => 'pic_style',
+			'value' => '',
+			'operator' => '!=',
+		),
+	);
 	$shortcode_option_map['social_icon_boxed_radius']['fusion_person'][] = array(
 		'check' => array(
 			'element-option' => 'social_links_boxed',
@@ -3863,20 +3941,21 @@ if ( ! function_exists( 'fusion_builder_update_element' ) ) {
 	 */
 	function fusion_builder_update_element( $element, $param_name, $values ) {
 
-		global $all_fusion_builder_elements;
+		global $all_fusion_builder_elements, $pagenow;
 
-		$element_settings = $all_fusion_builder_elements[ $element ]['params'];
+		if ( is_admin() && isset( $pagenow ) && ( 'admin.php' == $pagenow && isset( $_GET['page'] ) && 'fusion-builder-settings' == $_GET['page'] ) || ( 'post.php' == $pagenow ) || ( 'post-new.php' == $pagenow ) ) {
+			$element_settings = $all_fusion_builder_elements[ $element ]['params'];
 
-		$settings = $element_settings[ $param_name ]['value'];
+			$settings = $element_settings[ $param_name ]['value'];
 
-		if ( is_array( $values ) ) {
-			$settings = array_merge( $settings, $values );
-		} else {
-			$settings = $values;
+			if ( is_array( $values ) ) {
+				$settings = array_merge( $settings, $values );
+			} else {
+				$settings = $values;
+			}
+
+			$all_fusion_builder_elements[ $element ]['params'][ $param_name ]['value'] = $settings;
 		}
-
-		$all_fusion_builder_elements[ $element ]['params'][ $param_name ]['value'] = $settings;
-
 	}
 }
 

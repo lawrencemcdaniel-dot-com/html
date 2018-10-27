@@ -76,6 +76,8 @@ function x_control_groups_element_quote( $adv = false ) {
 
 function x_values_element_quote( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_quote(),
     x_values_omega()

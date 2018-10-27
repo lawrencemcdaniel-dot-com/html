@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 $rocket_cookie_hash = '0dde8e74c5f725f7aeead82192664e38';
 $rocket_secret_cache_key = '5b4f6460ccfa9033426615';
 $rocket_cache_mobile = '1';
-$rocket_cache_reject_uri = '/|/home-orig/|/(.+/)?feed/?|/(index\.php/)?wp\-json(/.*|$)';
+$rocket_cache_reject_uri = '/|/home-orig/|/home-backup/|/(.+/)?feed/?|/(index\.php/)?wp\-json(/.*|$)';
 $rocket_cache_reject_cookies = 'wordpress_logged_in_|wp-postpass_|wptouch_switch_toggle|comment_author_|comment_author_email_';
 $rocket_cache_reject_ua = 'facebookexternalhit';
 $rocket_cache_query_strings = array (

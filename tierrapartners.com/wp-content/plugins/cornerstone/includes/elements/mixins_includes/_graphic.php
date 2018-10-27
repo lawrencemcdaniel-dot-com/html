@@ -180,6 +180,7 @@ function x_values_graphic( $settings = array() ) {
       array(
         $k_pre . 'graphic_icon_alt'      => x_module_value( 'hand-spock-o', 'markup', true ),
         $k_pre . 'graphic_image_src_alt' => x_module_value( '', 'markup', true ),
+        $k_pre . 'graphic_image_alt_alt' => x_module_value( '', 'markup', true ),
       )
     );
   }
@@ -201,6 +202,7 @@ function x_values_graphic( $settings = array() ) {
         $k_pre . 'graphic_image_src'    => x_module_value( '', 'markup', true ),
         $k_pre . 'graphic_image_width'  => x_module_value( 48, 'markup', true ),
         $k_pre . 'graphic_image_height' => x_module_value( 48, 'markup', true ),
+        $k_pre . 'graphic_image_alt'    => x_module_value( '', 'markup', true ),
       )
     );
   }

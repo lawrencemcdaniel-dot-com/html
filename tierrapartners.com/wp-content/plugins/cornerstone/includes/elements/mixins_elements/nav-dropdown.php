@@ -41,7 +41,7 @@ function x_controls_element_nav_dropdown( $adv = false ) {
       x_controls_anchor_adv( $toggle_adv ),
       x_controls_dropdown_adv( $dropdown_adv ),
       x_controls_anchor_adv( $links_adv ),
-      x_controls_omega()
+      x_controls_omega( $settings_add_toggle_hash )
     );
 
   } else {
@@ -61,7 +61,7 @@ function x_controls_element_nav_dropdown( $adv = false ) {
       x_controls_dropdown_std_design_colors(),
       x_controls_anchor_std_design_colors( $links_std_design ),
 
-      x_controls_omega( $settings_std_customize )
+      x_controls_omega( array_merge( $settings_std_customize, $settings_add_toggle_hash ) )
 
     );
 
@@ -109,6 +109,8 @@ function x_control_groups_element_nav_dropdown( $adv = false ) {
 
 function x_values_element_nav_dropdown( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $menu   = x_bar_module_settings_menu( 'dropdown' );
   $toggle = x_bar_module_settings_anchor( 'toggle' );
   $links  = x_bar_module_settings_anchor( 'menu-item-dropdown' );
@@ -118,7 +120,7 @@ function x_values_element_nav_dropdown( $settings = array() ) {
     x_values_anchor( $toggle ),
     x_values_dropdown(),
     x_values_anchor( $links ),
-    x_values_omega()
+    x_values_omega( $settings_add_toggle_hash )
   );
 
   return x_bar_mixin_values( $values, $settings );

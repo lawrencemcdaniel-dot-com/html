@@ -74,6 +74,8 @@ function x_control_groups_element_headline( $adv = false ) {
 
 function x_values_element_headline( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_text( array( 'type' => 'headline' ) ),
     x_values_omega()

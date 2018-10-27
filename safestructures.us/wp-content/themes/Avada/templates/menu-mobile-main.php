@@ -24,6 +24,10 @@ $mobile_menu_css_classes = ' fusion-flyout-menu fusion-flyout-mobile-menu';
 if ( 'flyout' !== Avada()->settings->get( 'mobile_menu_design' ) ) {
 	$mobile_menu_css_classes = ' fusion-mobile-menu-text-align-' . Avada()->settings->get( 'mobile_menu_text_align' );
 }
+
+if ( ! Avada()->settings->get( 'mobile_menu_submenu_indicator' ) ) {
+	$mobile_menu_css_classes .= ' fusion-mobile-menu-indicator-hide';
+}
 ?>
 
 <nav class="fusion-mobile-nav-holder<?php echo esc_attr( $mobile_menu_css_classes ); ?>"></nav>

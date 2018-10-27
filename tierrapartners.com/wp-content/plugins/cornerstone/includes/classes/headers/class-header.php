@@ -84,7 +84,7 @@ class Cornerstone_Header {
 
   public function save() {
 
-    if ( ! current_user_can( 'manage_options' ) ) {
+    if ( ! CS()->component('App_Permissions')->user_can('headers') ) {
       throw new Exception( 'Unauthorized' );
     }
 
@@ -169,7 +169,7 @@ class Cornerstone_Header {
 
   public function delete() {
 
-    if ( ! current_user_can( 'manage_options' ) ) {
+    if ( ! CS()->component('App_Permissions')->user_can('headers.delete') ) {
       throw new Exception( 'Unauthorized' );
     }
 

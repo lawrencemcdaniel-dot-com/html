@@ -23,6 +23,7 @@ $data = array(
   'options' => array(
     'child'          => true,
     'alt_breadcrumb' => __( 'Item', '__x__' ),
+    'label_key'      => 'accordion_item_header_content'
   )
 );
 

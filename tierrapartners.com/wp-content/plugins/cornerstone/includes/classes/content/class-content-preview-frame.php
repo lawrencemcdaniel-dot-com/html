@@ -6,21 +6,7 @@ class Cornerstone_Content_Preview_Frame extends Cornerstone_Plugin_Component {
 
   public function setup() {
 
-    $state = $this->plugin->component( 'Preview_Frame_Loader' )->get_state();
-
-    if ( isset( $state['custom_js'] ) ) {
-
-      $inline_scripts = $this->plugin->component('Inline_Scripts');
-
-      foreach ($state['custom_js'] as $id => $content) {
-        if ( $content ) {
-          $inline_scripts->add_script_safely($id, $content);
-        }
-      }
-
-    }
-
-    do_action( 'cs_content_preview_setup', $state );
+    do_action( 'cs_content_preview_setup', $this->plugin->component( 'Preview_Frame_Loader' )->get_state() );
     add_action( 'template_redirect', array( $this, 'after_template_redirect' ), 9999999 );
     add_filter( '_cornerstone_custom_css', '__return_false' );
 

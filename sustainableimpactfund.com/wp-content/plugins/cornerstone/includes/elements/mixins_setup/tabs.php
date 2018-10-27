@@ -69,8 +69,7 @@ $conditions = x_module_conditions( $condition );
 // =============================================================================
 
 $options_tab_sortable = array(
-  'element'   => 'tab',
-  'label_key' => 'tab_label_content'
+  'element'   => 'tab'
 );
 
 $options_tabs_base_font_size = array(

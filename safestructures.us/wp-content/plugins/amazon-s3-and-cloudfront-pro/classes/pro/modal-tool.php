@@ -1,6 +1,6 @@
 <?php
 
-namespace DeliciousBrains\WP_Offload_S3\Pro;
+namespace DeliciousBrains\WP_Offload_Media\Pro;
 
 use AS3CF_Utils;
 
@@ -26,19 +26,19 @@ abstract class Modal_Tool extends Tool {
 	 *
 	 * @var array
 	 */
-	protected $errors;
+	protected $errors = array();
 
 	/**
 	 * Store progress throughout the tool process
 	 *
 	 * @var array
 	 */
-	protected $progress;
+	protected $progress = array();
 
 	/**
 	 * @var array
 	 */
-	protected $process_errors;
+	protected $process_errors = array();
 
 	/**
 	 * Calculate and display the file size progress
@@ -303,7 +303,7 @@ abstract class Modal_Tool extends Tool {
 						}
 
 						$files[ $id ][ $attachment->ID ] = $size;
-						$this->progress['total_bytes'] += $size;
+						$this->progress['total_bytes']   += $size;
 
 						$this->progress['total_files']++;
 						$count++;
@@ -430,7 +430,7 @@ abstract class Modal_Tool extends Tool {
 		// Save errors
 		$this->update_errors( $this->process_errors );
 
-		$this->progress['errors'] = $this->errors;
+		$this->progress['errors']     = $this->errors;
 		$this->progress['errorsHtml'] = $this->capture_error_html();
 
 		wp_send_json( $this->progress );
@@ -464,12 +464,12 @@ abstract class Modal_Tool extends Tool {
 	 * performed that will happen within the batch execution time limit.
 	 *
 	 * @param int   $attachment_id
-	 * @param array $s3object
+	 * @param array $provider_object
 	 *
 	 * @return bool
 	 */
-	protected function should_process_attachment( $attachment_id, $s3object ) {
-		if ( is_wp_error( $s3object ) ) {
+	protected function should_process_attachment( $attachment_id, $provider_object ) {
+		if ( is_wp_error( $provider_object ) ) {
 			return false;
 		}
 
@@ -540,7 +540,7 @@ abstract class Modal_Tool extends Tool {
 
 		foreach ( $blogs as $blog_id => $blog ) {
 			$total_attachments += $this->get_total_attachments( $blog['prefix'] );
-			$total_to_process += $this->get_attachments_to_process( $blog['prefix'], $blog_id, true, null, null );
+			$total_to_process  += $this->get_attachments_to_process( $blog['prefix'], $blog_id, true, null, null );
 		}
 
 		return compact( 'total_to_process', 'total_attachments' );

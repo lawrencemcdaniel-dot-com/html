@@ -19,7 +19,7 @@ class AS3CF_Pro_Installer extends AS3CF_Compatibility_Check {
 	 */
 	public function __construct( $plugin_file_path ) {
 		parent::__construct(
-			'WP Offload S3',
+			'WP Offload Media',
 			'amazon-s3-and-cloudfront-pro',
 			$plugin_file_path
 		);

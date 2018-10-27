@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Responsive Image Slider
 Plugin URI:  https://wordpress.org/plugins/ultimate-responsive-image-slider/
 Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
-Version:     3.2.5
+Version:     3.2.9
 Author:      WP Frank
 Author URI:  https://wpfrank.com/
 Text Domain: ultimate-responsive-image-slider
@@ -133,7 +133,7 @@ class URIS {
 	 * Translate Plugin
 	 */
 	public function WRIS_Translate() {
-		load_plugin_textdomain('W_R_I_S', FALSE, dirname( plugin_basename(__FILE__)).'/languages/' );
+		load_plugin_textdomain('ultimate-responsive-image-slider', FALSE, dirname( plugin_basename(__FILE__)).'/languages/' );
 	}
 	
 	// Register Custom Post Type
@@ -202,8 +202,9 @@ class URIS {
 	public function add_all_ris_meta_boxes() {
 		add_meta_box( __('Add Slides', URIS_TD), __('Add Slides', URIS_TD), array(&$this, 'ris_generate_add_image_meta_box_function'), 'ris_gallery', 'normal', 'low' );
 		add_meta_box( __('Apply Setting On Ultimate Responsive Image Slider', URIS_TD), __('Apply Setting On Ultimate Responsive Image Slider', URIS_TD), array(&$this, 'ris_settings_meta_box_function'), 'ris_gallery', 'normal', 'low');
-		add_meta_box ( __('Copy Image Slider Shortcode', URIS_TD), __('Copy Image Slider Shortcode', URIS_TD), array(&$this, 'ris_shotcode_meta_box_function'), 'ris_gallery', 'side', 'low');
-		add_meta_box('Show us some love, Rate Us', 'Show us some love, Rate Us', array(&$this, 'uris_Rate_us_meta_box_function'), 'ris_gallery', 'side', 'low');
+		add_meta_box( __('Upgrade To Pro Plugin', URIS_TD), __('Upgrade To Pro Plugin', URIS_TD), array(&$this, 'ris_upgrade_to_pro_meta_box_function'), 'ris_gallery', 'normal', 'low');
+		add_meta_box ( __('Copy Slider Shortcode', URIS_TD), __('Copy Slider Shortcode', URIS_TD), array(&$this, 'ris_shotcode_meta_box_function'), 'ris_gallery', 'side', 'low');
+		add_meta_box('Show US Some Love & Rate Us', 'Show US Some Love & Rate Us', array(&$this, 'uris_Rate_us_meta_box_function'), 'ris_gallery', 'side', 'low');
 	}
 	
 	//Rate Us Meta Box
@@ -217,17 +218,46 @@ class URIS {
 			content: "\f155";
 			font-size: 30px;
 		}
+		.wpf_uris_fivestar{
+			width: 80%;
+		}
+
+		a.wpf_fs_btn {
+		    text-decoration: none;
+		    background-color: #d72323;
+		    padding-left: 20px;
+		    padding-right: 20px;
+		    border-radius: 5px;
+		    color: #fff;
+		    padding-top: 8px;
+		    padding-bottom: 8px;
+		}
+		a:focus, a:hover {
+		    color: #fff !important;
+		    text-decoration: none !important;
+		}
 		</style>
 		<div align="center">
 			<p>Please Review & Rate Us On WordPress</p>
 			<a class="upgrade-to-pro-demo urisp-rate-us" style=" text-decoration: none; height: 40px; width: 40px;" href="https://wordpress.org/plugins/ultimate-responsive-image-slider/#reviews" target="_blank">
-				<?php for($star=1;$star<=5;$star++){ ?>
-						<span class="dashicons dashicons-star-filled"></span>
-				<?php } ?>				
+				<img class="wpf_uris_fivestar" src="<?php $path = URIS_PLUGIN_URL."/img/5star.jpg" ; echo $path; ?>">			
 			</a>
 		</div>
 		<div class="upgrade-to-pro" style="text-align:center;margin-bottom:10px;margin-top:10px;">
-			<a href="https://wordpress.org/support/view/plugin-reviews/ultimate-responsive-image-slider" target="_blank" class="button button-primary button-hero ">RATE US</a>
+			<a href="https://wordpress.org/support/view/plugin-reviews/ultimate-responsive-image-slider" target="_blank" class="wpf_fs_btn">RATE US</a>
+		</div>
+		<?php
+	}
+	
+	/**
+	 * Upgrade To Meta Box
+	 */
+	public function ris_upgrade_to_pro_meta_box_function() { ?>
+		<div class="welcome-panel-column">
+			<h3>Unlock More Features in Ultimate Responsive Image Slider Pro</h3>
+			<p><strong>5 Design Layouts, Transition Effect, Color Customizations, 500+ Google Fonts For Slide Title & Description, Slides Ordering, Link On Slides, 2 Light Box Style, Various Slider Control Settings</strong></p>
+			<a class="button button-primary button-hero load-customize hide-if-no-customize" target="_blank" href="https://wpfrank.com/demo/ultimate-responsive-image-slider-pro/">Check Pro Plugin Demo</a>
+			<a class="button button-primary button-hero load-customize hide-if-no-customize" target="_blank" href="https://wpfrank.com/account/signup/ultimate-responsive-image-slider-pro/">Buy Pro Plugin $21</a>
 		</div>
 		<?php
 	}
@@ -255,7 +285,7 @@ class URIS {
 							$url1 = $WRIS_SinglePhotoDetails['rpggallery_admin_thumb'];
 							$url3 = $WRIS_SinglePhotoDetails['rpggallery_admin_large']; ?>
 							<li class="rpg-image-entry" id="rpg_img">
-								<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  URIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
+								<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  URIS_PLUGIN_URL.'img/Close-icon-uris.ico'; ?>" /></a>
 								<div class="rpp-admin-inner-div1" >
 									<img src="<?php echo esc_url ( $url1 ); ?>" class="rpg-meta-image" alt=""  style="">
 									<input type="hidden" id="unique_string[]" name="unique_string[]" value="<?php echo esc_attr( $UniqueString ); ?>" />
@@ -402,7 +432,7 @@ class URIS {
 		$UniqueString = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
         ?>
 		<li class="rpg-image-entry" id="rpg_img">
-			<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  URIS_PLUGIN_URL.'img/Close-icon.png'; ?>" /></a>
+			<a class="gallery_remove rpggallery_remove" href="#gallery_remove" id="rpg_remove_bt" ><img src="<?php echo  URIS_PLUGIN_URL.'img/Close-icon-uris.ico'; ?>" /></a>
 			<div class="rpp-admin-inner-div1" >
 				<img src="<?php echo esc_url( $image1[0] ); ?>" class="rpg-meta-image" alt=""  style="">
 				</div>
@@ -456,8 +486,7 @@ class URIS {
 				$ImagesArray = array();
 				update_post_meta($PostID, 'ris_all_photos_details', base64_encode(serialize($ImagesArray)));
 			}
-		}
-	
+		}	
 	}
 	
 	//save settings meta box values
@@ -536,15 +565,25 @@ class URIS {
 global $URIS;
 $URIS = URIS::forge();
 
+// Review Notice Box
+add_action( "admin_notices", "uris_admin_notice_resport" );
+function uris_admin_notice_resport() {
+	global $pagenow;
+	$uris_screen = get_current_screen();
+	if ( $pagenow == 'edit.php' && $uris_screen->post_type == "ris_gallery" ) {
+		include( 'uris-feature-admin-notice.php' );
+	}
+}
+
 /**
  * upgrade to pro
  */
 add_action('admin_menu' , 'uris_pro_SettingsPage');
 function uris_pro_SettingsPage() {
-	add_submenu_page('edit.php?post_type=ris_gallery', 'Help and Support', 'Help and Support', 'administrator', 'RIS-Help-page', 'RIS_Help_and_Support_page');
+	add_submenu_page('edit.php?post_type=ris_gallery', 'Help & Support', 'Help & Support', 'administrator', 'RIS-Help-page', 'RIS_Help_and_Support_page');
 	function RIS_Help_and_Support_page() {
 		wp_enqueue_style('bootstrap-admin.css', URIS_PLUGIN_URL.'css/bootstrap-latest/bootstrap-admin.css');
-		require_once("help_and_support.php");
+		require_once('help-and-support.php');
 	}
 }
 

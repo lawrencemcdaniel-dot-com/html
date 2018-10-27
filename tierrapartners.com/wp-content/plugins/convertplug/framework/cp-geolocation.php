@@ -243,6 +243,7 @@ class CP_Geolocation_Target {
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );			
 		$tmp_database_path = download_url( self::GEOLITE2_DB, '300' );
 		$upload_dir        = wp_upload_dir();	
+		$error = false;
 
 		if ( ! is_wp_error( $tmp_database_path ) ) {
 			try {
@@ -251,29 +252,35 @@ class CP_Geolocation_Target {
 				$dest_path = trailingslashit( $upload_dir['basedir'] ) . $database;
 
 				// Extract files with PharData. Tool built into PHP since 5.3.
-				$file      = new PharData( $tmp_database_path ); // phpcs:ignore PHPCompatibility.PHP.NewClasses.phardataFound
-				$file_path = trailingslashit( $file->current()->getFileName() ) . $database;
+				
+				if(class_exists('PharData')){					
+				
+					$file      = new PharData( $tmp_database_path ); // phpcs:ignore PHPCompatibility.PHP.NewClasses.phardataFound
+					$file_path = trailingslashit( $file->current()->getFileName() ) . $database;
 
-				// Extract under uploads directory.
-				$file->extractTo( $upload_dir['basedir'], $file_path, true );
+					// Extract under uploads directory.
+					$file->extractTo( $upload_dir['basedir'], $file_path, true );
 
-				// Remove old database.
-				@unlink( $dest_path ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.file_ops_unlink
+					// Remove old database.
+					@unlink( $dest_path ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.file_ops_unlink
 
-				// Copy database and delete tmp directories.
-				@rename( trailingslashit( $upload_dir['basedir'] ) . $file_path, $dest_path ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.file_ops_rename
-				@rmdir( trailingslashit( $upload_dir['basedir'] ) . $file->current()->getFileName() ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.directory_rmdir
+					// Copy database and delete tmp directories.
+					@rename( trailingslashit( $upload_dir['basedir'] ) . $file_path, $dest_path ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.file_ops_rename
+					@rmdir( trailingslashit( $upload_dir['basedir'] ) . $file->current()->getFileName() ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.directory_rmdir
 
-				// Set correct file permission.
-				@chmod( $dest_path, 0644 ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.chmod_chmod
+					// Set correct file permission.
+					@chmod( $dest_path, 0644 ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.chmod_chmod
+				}
 			} catch ( Exception $e ) {
-				echo 'Message: ' . $e->getMessage();
+				$error = true;
+				//echo 'Message: ' . $e->getMessage();
 			}
 
 			@unlink( $tmp_database_path ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.VIP.FileSystemWritesDisallow.file_ops_unlink
 		} else {
 			//throw new Exception( 'Problem downloading the database.' );
-			error_log( 'Problem downloading the database.' );
+			//error_log( 'Problem downloading the database.' );
+			$error = true;
 		}
 	}
 

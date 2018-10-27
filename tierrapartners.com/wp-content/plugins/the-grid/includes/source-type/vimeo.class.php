@@ -160,8 +160,8 @@ class The_Grid_Vimeo {
 		if ( empty( $client_id ) || empty( $client_secrets ) ) {
 			return;
 		}
-
-		$oauth = 'https://api.vimeo.com/oauth/authorize/client?grant_type=client_credentials&scope=public&private';
+		
+		$oauth = 'https://api.vimeo.com/oauth/authorize/client?grant_type=client_credentials&scope=public+private';
 		$args  = array(
 			'headers'  => array(
 				'Authorization' => 'Basic ' . base64_encode( $client_id . ':' . $client_secrets ),
@@ -169,10 +169,10 @@ class The_Grid_Vimeo {
 			),
 			'timeout' => 30
 		);
+		
+		$transient_name = 'tg_grid_vimeo_' . md5( $client_id . $client_secrets );
 
-		$transient_name = 'tg_grid_' . md5( $client_id . $client_secrets );
-
-		if ( ( $transient = get_transient( $transient_name) ) !== false ) {
+		if ( ( $transient = get_transient( $transient_name ) ) !== false ) {
 			$this->api_key = $transient;
 		} else {
 
@@ -191,11 +191,11 @@ class The_Grid_Vimeo {
 				if ( isset( $body->access_token ) ) {
 
 					$this->api_key = $body->access_token;
-					set_transient( $transient_name, $this->api_key, 0 );
+					set_transient( $transient_name, $this->api_key, 90 * DAY_IN_SECONDS );
 
 				} else {
 
-					$error_msg  = __( 'Sorry, your Vimeo Client ID and Secrets are not valid.', 'tg-text-domain' );
+					$error_msg  = sprintf( __( 'Sorry, your Vimeo Client ID and Secrets are not valid or expired. Please try to <a href="%s" target="_blank">create a new app on Vimeo</a>', 'tg-text-domain' ), 'https://developer.vimeo.com/apps/' );
 					throw new Exception( $error_msg );
 
 				}
@@ -211,7 +211,7 @@ class The_Grid_Vimeo {
 	* @since: 1.0.0
 	*/
 	public function get_API_key(){
-		
+
 		if ( $this->api_key ) {
 			return;
 		}
@@ -327,7 +327,7 @@ class The_Grid_Vimeo {
 	*/
 	public function get_user($user){
 		
-		$url = 'https://api.vimeo.com/users/'.$user.'?access_token='.$this->api_key;
+		$url = 'https://api.vimeo.com/users/'.$user;
 		$response = $this->get_response($url);
 
 		if (isset($response) && !empty($response)){
@@ -395,7 +395,7 @@ class The_Grid_Vimeo {
 		$page  = (!empty($page)) ? '&page='.$page : '';
 		$sort  = (!empty($this->sort)) ? '&sort='.$this->sort : '';
 		$order = (!empty($this->order)) ? '&direction='.$this->order : '';
-		$url  = 'https://api.vimeo.com/'.$type.'/'.$id.'/videos?access_token='.$this->api_key.'&per_page='.$this->last_media['onload'].$page.$sort.$order;
+		$url  = 'https://api.vimeo.com/'.$type.'/'.$id.'/videos?per_page='.$this->last_media['onload'].$page.$sort.$order;
 		$response = $this->get_response($url);
 
 		if (isset($response) && !empty($response)){
@@ -418,18 +418,38 @@ class The_Grid_Vimeo {
 		if ($this->transient_sec > 0 && ($transient = get_transient($transient_name)) !== false) {
 			$response = $transient;
 		} else {
-			$response = json_decode(wp_remote_fopen($url));
-			if (isset($response->error) && !empty($response->error)) {
-				$error_msg  = __( 'Sorry, an error occurs from Vimeo API:', 'tg-text-domain' );
-				$error_msg .= ' '.$response->error;
-				throw new Exception($error_msg);
+
+			$response = wp_remote_get( $url, array(
+				'headers'  => array(
+					'Authorization' => 'Bearer ' . $this->api_key,
+					'Content-Type'  => 'application/json'
+				),
+				'timeout' => 30
+			) );
+		
+			if ( is_wp_error( $response ) ) {
+
+				$error_msg  = __( 'Sorry, an error occurs from your Vimeo API:', 'tg-text-domain' );
+				$error_msg .= ' ' . $response->get_error_message();
+				throw new Exception( $error_msg );
+
+			} else {
+
+				$response = json_decode( $response['body'] );
+
+				if ( ! empty( $response ) ) {
+
+					set_transient( $transient_name, $response, $this->transient_sec );
+
+				} else {
+
+					$error_msg  = __( 'No content was found for the current User/Album/Group/Channel.', 'tg-text-domain' );
+					throw new Exception( $error_msg );
+
+				}
+
 			}
-			if (isset($response) && !empty($response)){
-				set_transient($transient_name, $response, $this->transient_sec);
-			} else if (!$tg_is_ajax) {
-				$error_msg  = __( 'No content was found for the current User/Album/Group/Channel.', 'tg-text-domain' );
-				throw new Exception($error_msg);
-			}
+
 		}
 		
 		return $response;
@@ -465,6 +485,34 @@ class The_Grid_Vimeo {
 	
 	}
 	
+	
+	/**
+	* Get images
+	* @since 2.0.0
+	*/
+	public function get_images($data) {
+
+		for ($i = 3; $i >= 0; $i--) {
+			
+			if ( isset( $data->pictures->sizes[$i]->link ) ) {
+				$picture = $data->pictures->sizes[$i];
+			} elseif ( isset( $data->pictures[$i]->link ) ) {
+				$picture = $data->pictures[$i];
+			} else {
+				continue;
+			}
+
+			return array(
+				'alt'    => null,
+				'url'    => isset($picture->link) ? $picture->link : null,
+				'width'  => isset($picture->width) ? $picture->width : null,
+				'height' => isset($picture->height) ? $picture->height : null
+			);
+			
+		}
+	
+	}
+	
 	/**
 	* Build data array for the grid
 	* @since 1.0.0
@@ -477,13 +525,6 @@ class The_Grid_Vimeo {
 
 			foreach ($response->data as $data) {
 				
-				for ($i = 3; $i >= 0; $i--) {
-					if (!empty($data->pictures->sizes[$i]->link)) {
-						$index = $i;
-						break;
-					}
-				}
-
 				$videos[] = array(
 					'ID'              => str_replace('/videos/', '', $data->uri),
 					'type'            => $type,
@@ -506,12 +547,7 @@ class The_Grid_Vimeo {
 					'likes_title'     =>  __( 'Like on Vimeo', 'tg-text-domain' ),
 					'comments_number' => (isset($data->metadata->connections->comments->total)) ? $data->metadata->connections->comments->total : null,
 					'views_number'    => (isset($data->stats->plays)) ? $data->stats->plays : null,
-					'image'           => array(
-						'alt'    => null,
-						'url'    => (isset($data->pictures->sizes[$index]->link)) ? $data->pictures->sizes[$index]->link : null,
-						'width'  => (isset($data->pictures->sizes[$index]->width)) ? $data->pictures->sizes[$index]->width : null,
-						'height' => (isset($data->pictures->sizes[$index]->height)) ? $data->pictures->sizes[$index]->height : null
-					),
+					'image'           => $this->get_images($data),
 					'gallery'         => null,
 					'video'           => array(
 						'type'     => 'vimeo',

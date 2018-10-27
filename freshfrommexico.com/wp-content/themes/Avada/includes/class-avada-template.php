@@ -283,6 +283,9 @@ class Avada_Template {
 		if ( ! Avada()->settings->get( 'status_totop_mobile' ) ) {
 			$classes[] = 'no-mobile-totop';
 		}
+		if ( ! Avada()->settings->get( 'status_outline' ) ) {
+			$classes[] = 'fusion-disable-outline';
+		}
 		if ( 'horizontal' === Avada()->settings->get( 'woocommerce_product_tab_design' ) &&
 			 ( is_singular( 'product' ) || class_exists( 'Woocommerce' ) && ( is_account_page() || is_checkout() ) )
 		) {

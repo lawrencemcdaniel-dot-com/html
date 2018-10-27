@@ -1,9 +1,4 @@
 <?php 
-add_action('plugins_loaded', 'wpsm_tabs_r_tr');
-function wpsm_tabs_r_tr() {
-	load_plugin_textdomain( wpshopmart_tabs_r_text_domain, FALSE, dirname( plugin_basename(__FILE__)).'/languages/' );
-}
-
 function wpsm_tabs_r_front_script() {
 		
 		wp_enqueue_style('wpsm_tabs_r-font-awesome-front', wpshopmart_tabs_r_directory_url.'assets/css/font-awesome/css/font-awesome.min.css');

@@ -44,6 +44,15 @@ $atts_off_canvas_content = array(
   'aria-label'       => __( 'Off Canvas Content', '__x__' ),
 );
 
+// Dynamic Rendering
+// -----------------
+
+$output_off_canvas_content = do_shortcode($off_canvas_content);
+
+if (isset($off_canvas_content_dynamic_rendering) && $off_canvas_content_dynamic_rendering) {
+  $output_off_canvas_content = "<script type=\"text/cs-toggle-template\">$output_off_canvas_content</script>";
+  $atts_off_canvas_content['data-x-toggleable-content'] = $mod_id;
+}
 
 // Output
 // ------
@@ -59,7 +68,7 @@ $atts_off_canvas_content = array(
   </button>
 
   <div <?php echo x_atts( $atts_off_canvas_content ); ?>>
-    <?php echo do_shortcode( $off_canvas_content ); ?>
+    <?php echo $output_off_canvas_content; ?>
   </div>
 
 </div>

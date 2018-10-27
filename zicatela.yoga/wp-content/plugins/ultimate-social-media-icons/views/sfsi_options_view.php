@@ -195,6 +195,38 @@
  <!-- all pops of plugin under sfsi_pop_content.php file -->
  <?php include(SFSI_DOCROOT.'/views/sfsi_pop_content.php'); ?>
 </div> <!-- START Admin view for plugin-->
+<?php if(in_array(get_site_url(),['http://www.managingio.com','http://blog-latest.socialshare.com','http://wp.192.168.0.135.xip.io'])): ?>
+    <div style="text-align:center">
+        <input type="text" name="domain" id="sfsi_domain_input" style="width:40%;min-height: :40px;text-align:center;margin:0 auto" placeholder="Enter Domian to check its theme" />
+        <div class="save_button">
+          <img src="<?php echo SFSI_PLUGURL; ?>images/ajax-loader.gif" class="loader-img" />
+        <a href="javascript:;" id="sfsi_check_theme_of_domain_btn" title="Check">Check the Theme</a>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            $('#sfsi_check_theme_of_domain_btn').click(function(){
+               jQuery.ajax({
+                    url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+                    type:"post",
+                    data:{
+                        'action':'bannerOption',
+                        'domain':$('#sfsi_domain_input').val()
+                    },
+                    success:function(s) {
+        			     var sfsi_container = $("html,body");
+        			     var sfsi_scrollTo = $('.sfsi_notificationBannner');
+                         $('.sfsi_notificationBannner').attr('tabindex',$('.sfsi_notificationBannner').attr('tabindex')||-1);
+                        jQuery(".sfsi_notificationBannner").html(s).focus();
+                        sfsi_container.animate({scrollTop: (sfsi_scrollTo.offset().top - sfsi_container.offset().top + sfsi_container.scrollTop()), scrollLeft: 0},300);
+
+                    }
+                }); 
+            });
+        })
+    </script>
+<?php endif; ?>
+
+
 <script type="text/javascript">
     var e = {
         action:"bannerOption"
@@ -207,4 +239,5 @@
             jQuery(".sfsi_notificationBannner").html(s);
         }
     });
+
 </script>

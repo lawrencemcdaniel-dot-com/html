@@ -30,8 +30,8 @@ class CS_Promo extends Cornerstone_Element_Base {
     $this->addControl(
       'image',
       'image',
-      __( 'Promo Image &amp; Alt Text', 'cornerstone' ),
-      __( 'Include an image for your Promo element and provide the alt text in the input below. Alt text is used to describe an image to search engines.', 'cornerstone' ),
+      __( 'Promo Image', 'cornerstone' ),
+      __( 'Include an image for your Promo element.', 'cornerstone' ),
       CS()->common()->placeholderImage( 650, 1500 )
     );
 
@@ -39,8 +39,8 @@ class CS_Promo extends Cornerstone_Element_Base {
     $this->addControl(
       'alt',
       'text',
-      NULL,
-      NULL,
+      __( 'Alt Text', 'cornerstone' ),
+      __( 'Set the alt text for your included Promo image.', 'cornerstone' ),
       ''
     );
 

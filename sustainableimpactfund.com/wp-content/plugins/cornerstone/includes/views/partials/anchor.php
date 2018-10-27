@@ -56,6 +56,9 @@ if ( isset( $anchor_nofollow ) && $anchor_nofollow == true ) {
 if ( $anchor_type == 'toggle' ) {
   $atts['data-x-toggle']     = true;
   $atts['data-x-toggleable'] = $mod_id;
+  if ( ! empty( $toggle_hash ) ) {
+    $atts['data-x-toggle-hash'] = $toggle_hash;
+  }
 }
 
 if ( isset( $anchor_aria_controls ) ) {

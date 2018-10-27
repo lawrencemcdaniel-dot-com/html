@@ -1,0 +1,573 @@
+0000.000 (0) Opened log file at time: Tue, 23 Oct 2018 22:08:15 +0000 on https://www.cryptexotc.com
+0000.007 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.15.2 WP: 4.9.8 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.72-68.55.amzn1.x86_64 #1 SMP Fri Sep 28 21:14:54 UTC 2018 x86_64) MySQL: 5.6.35 WPLANG: en_US Server: Apache/2.4.34 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 61M | 28M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.013 (0) Free space on disk containing Updraft's temporary directory: 87590.9 MB
+0000.020 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.026 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.040 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1540245978, seconds_ago=86517)
+0000.068 (0) Set semaphore last lock (fd) time to 2018-10-23 22:08:16
+0000.073 (0) Semaphore lock (fd) complete
+0000.093 (0) Backup run: resumption=0, nonce=c920ecb563f5, begun at=1540332495 (1s ago), job type=backup
+0000.109 (0) Scheduling a resumption (1) after 300 seconds (1540332796) in case this run gets aborted
+0000.125 (0) Checking if we have a zip executable available
+0000.131 (0) Testing: /usr/bin/zip
+0000.141 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.147 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.153 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.159 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.165 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.174 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.180 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.189 (0) Working binary zip found: /usr/bin/zip
+0000.201 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.207 (0) Creation of backups of directories: beginning
+0000.225 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.335 (0) Total entities for the zip file: 1249 directories, 7542 files (0 skipped as non-modified), 96.5 MB
+0000.343 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.350 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.356 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.363 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.370 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.376 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.9 MB, 7542 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.804 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: size is now: 4.00 MB
+0000.817 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 600 files added (on-disk size: 4046.3 KB)
+0000.823 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 700 files added (on-disk size: 4046.3 KB)
+0000.831 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 800 files added (on-disk size: 4046.3 KB)
+0000.837 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 900 files added (on-disk size: 4046.3 KB)
+0000.844 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1000 files added (on-disk size: 4046.3 KB)
+0000.850 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.9 MB, 7542 files batched, 501 (1002) added so far); re-opening (prior size: 4046.3 KB)
+0001.143 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: size is now: 6.50 MB
+0001.157 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1100 files added (on-disk size: 6679.5 KB)
+0001.163 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1200 files added (on-disk size: 6679.5 KB)
+0001.170 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1300 files added (on-disk size: 6679.5 KB)
+0001.176 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1400 files added (on-disk size: 6679.5 KB)
+0001.183 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1500 files added (on-disk size: 6679.5 KB)
+0001.188 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2 MB, 7542 files batched, 501 (1503) added so far); re-opening (prior size: 6679.5 KB)
+0001.279 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1600 files added (on-disk size: 7377.2 KB)
+0001.286 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1700 files added (on-disk size: 7377.2 KB)
+0001.292 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1800 files added (on-disk size: 7377.2 KB)
+0001.299 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 1900 files added (on-disk size: 7377.2 KB)
+0001.306 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2000 files added (on-disk size: 7377.2 KB)
+0001.312 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 7542 files batched, 501 (2004) added so far); re-opening (prior size: 7377.2 KB)
+0001.515 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: size is now: 9.10 MB
+0001.528 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2100 files added (on-disk size: 9318.8 KB)
+0001.535 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2200 files added (on-disk size: 9318.8 KB)
+0001.542 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2300 files added (on-disk size: 9318.8 KB)
+0001.548 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2400 files added (on-disk size: 9318.8 KB)
+0001.555 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2500 files added (on-disk size: 9318.8 KB)
+0001.560 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.6 MB, 7542 files batched, 501 (2505) added so far); re-opening (prior size: 9318.8 KB)
+0001.628 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2600 files added (on-disk size: 9696.9 KB)
+0001.635 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2700 files added (on-disk size: 9696.9 KB)
+0001.642 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2800 files added (on-disk size: 9696.9 KB)
+0001.648 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 2900 files added (on-disk size: 9696.9 KB)
+0001.654 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3000 files added (on-disk size: 9696.9 KB)
+0001.660 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.1 MB, 7542 files batched, 501 (3006) added so far); re-opening (prior size: 9696.9 KB)
+0001.784 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: size is now: 13.70 MB
+0001.803 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3100 files added (on-disk size: 14005.8 KB)
+0001.815 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3200 files added (on-disk size: 14005.8 KB)
+0001.826 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3300 files added (on-disk size: 14005.8 KB)
+0001.835 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3400 files added (on-disk size: 14005.8 KB)
+0001.845 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3500 files added (on-disk size: 14005.8 KB)
+0001.851 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.1 MB, 7542 files batched, 501 (3507) added so far); re-opening (prior size: 14005.8 KB)
+0002.056 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3600 files added (on-disk size: 15645.1 KB)
+0002.063 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3700 files added (on-disk size: 15645.1 KB)
+0002.070 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3800 files added (on-disk size: 15645.1 KB)
+0002.077 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 3900 files added (on-disk size: 15645.1 KB)
+0002.085 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4000 files added (on-disk size: 15645.1 KB)
+0002.091 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (12 MB, 7542 files batched, 501 (4008) added so far); re-opening (prior size: 15645.1 KB)
+0002.528 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: size is now: 19.20 MB
+0002.541 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4100 files added (on-disk size: 19674.3 KB)
+0002.548 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4200 files added (on-disk size: 19674.3 KB)
+0002.554 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4300 files added (on-disk size: 19674.3 KB)
+0002.561 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4400 files added (on-disk size: 19674.3 KB)
+0002.567 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4500 files added (on-disk size: 19674.3 KB)
+0002.573 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.2 MB, 7542 files batched, 501 (4509) added so far); re-opening (prior size: 19674.3 KB)
+0002.706 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4600 files added (on-disk size: 20810.3 KB)
+0002.712 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4700 files added (on-disk size: 20810.3 KB)
+0002.719 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4800 files added (on-disk size: 20810.3 KB)
+0002.725 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 4900 files added (on-disk size: 20810.3 KB)
+0002.732 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5000 files added (on-disk size: 20810.3 KB)
+0002.738 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.9 MB, 7542 files batched, 501 (5010) added so far); re-opening (prior size: 20810.3 KB)
+0003.166 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5100 files added (on-disk size: 24272.2 KB)
+0003.172 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5200 files added (on-disk size: 24272.2 KB)
+0003.179 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5300 files added (on-disk size: 24272.2 KB)
+0003.186 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5400 files added (on-disk size: 24272.2 KB)
+0003.192 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5500 files added (on-disk size: 24272.2 KB)
+0003.198 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17.5 MB, 7542 files batched, 501 (5511) added so far); re-opening (prior size: 24272.2 KB)
+0003.854 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: size is now: 28.60 MB
+0003.871 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5600 files added (on-disk size: 29311.1 KB)
+0003.878 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5700 files added (on-disk size: 29311.1 KB)
+0003.885 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5800 files added (on-disk size: 29311.1 KB)
+0003.892 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 5900 files added (on-disk size: 29311.1 KB)
+0003.900 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6000 files added (on-disk size: 29311.1 KB)
+0003.907 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.9 MB, 7542 files batched, 501 (6012) added so far); re-opening (prior size: 29311.1 KB)
+0004.135 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6100 files added (on-disk size: 30980.9 KB)
+0004.142 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6200 files added (on-disk size: 30980.9 KB)
+0004.149 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6300 files added (on-disk size: 30980.9 KB)
+0004.156 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6400 files added (on-disk size: 30980.9 KB)
+0004.162 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6500 files added (on-disk size: 30980.9 KB)
+0004.167 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.8 MB, 7542 files batched, 501 (6513) added so far); re-opening (prior size: 30980.9 KB)
+0004.290 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6600 files added (on-disk size: 31638.1 KB)
+0004.297 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6700 files added (on-disk size: 31638.1 KB)
+0004.304 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6800 files added (on-disk size: 31638.1 KB)
+0004.311 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 6900 files added (on-disk size: 31638.1 KB)
+0004.317 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 7000 files added (on-disk size: 31638.1 KB)
+0004.323 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 7542 files batched, 501 (7014) added so far); re-opening (prior size: 31638.1 KB)
+0004.504 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 7100 files added (on-disk size: 32826.6 KB)
+0004.511 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 7200 files added (on-disk size: 32826.6 KB)
+0004.518 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 7300 files added (on-disk size: 32826.6 KB)
+0004.524 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 7400 files added (on-disk size: 32826.6 KB)
+0004.530 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip.tmp: 7500 files added (on-disk size: 32826.6 KB)
+0004.536 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.2 MB, 7542 files batched, 501 (7515) added so far); re-opening (prior size: 32826.6 KB)
+0005.107 (0) Created plugins zip (0) - 33967.8 KB in 4.9 s (6967.1 KB/s) (sha1: 8508fcdf88bb2fc3a81768a73c783e3a1bad7f86, sha256: ad519b5307de40354363fc463130d282a57006d9fb63afb52c99de039ec92f3a)
+0005.118 (0) Beginning creation of dump of themes (split every: 400 MB)
+0005.148 (0) Total entities for the zip file: 237 directories, 1588 files (0 skipped as non-modified), 20.1 MB
+0005.155 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0005.162 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0005.168 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0005.174 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0005.181 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0005.186 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.7 MB, 1588 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0005.268 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: size is now: 2.80 MB
+0005.281 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 600 files added (on-disk size: 2831.3 KB)
+0005.287 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 700 files added (on-disk size: 2831.3 KB)
+0005.294 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 800 files added (on-disk size: 2831.3 KB)
+0005.300 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 900 files added (on-disk size: 2831.3 KB)
+0005.307 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 1000 files added (on-disk size: 2831.3 KB)
+0005.313 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.5 MB, 1588 files batched, 501 (1002) added so far); re-opening (prior size: 2831.3 KB)
+0005.669 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: size is now: 6.40 MB
+0005.684 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 1100 files added (on-disk size: 6598.5 KB)
+0005.691 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 1200 files added (on-disk size: 6598.5 KB)
+0005.698 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 1300 files added (on-disk size: 6598.5 KB)
+0005.705 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 1400 files added (on-disk size: 6598.5 KB)
+0005.712 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: 1500 files added (on-disk size: 6598.5 KB)
+0005.718 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.2 MB, 1588 files batched, 501 (1503) added so far); re-opening (prior size: 6598.5 KB)
+0005.876 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip.tmp: size is now: 7.90 MB
+0006.010 (0) Created themes zip (0) - 8268.8 KB in 0.9 s (9333.6 KB/s) (sha1: 1380aa661d22f755cb29fc0aa476df49f3a2c29b, sha256: af0b0ff5d259f7da4e77aeb0940159ed7d96cd367af93a77e545575f7083c398)
+0006.022 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0006.028 (0) Looking for candidates to backup in: /var/www/html/cryptexotc.com/wp-content/uploads
+0006.034 (0) finding files: 2018: adding to list (1)
+0006.039 (0) finding files: backup: skipping: excluded by options (glob)
+0006.048 (0) finding files: fusion-styles: adding to list (2)
+0006.054 (0) finding files: fusion-scripts: adding to list (3)
+0006.060 (0) finding files: revslider: adding to list (4)
+0006.065 (0) finding files: 2017: adding to list (5)
+0006.071 (0) finding files: fusionredux: adding to list (6)
+0006.076 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0006.096 (0) Total entities for the zip file: 185 directories, 473 files (0 skipped as non-modified), 14 MB
+0006.102 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.109 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0006.115 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0006.122 (0) Zip: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0006.308 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip.tmp: size is now: 8.80 MB
+0006.408 (0) Created uploads zip (0) - 8999.2 KB in 0.3 s (27660.4 KB/s) (sha1: 7d5c5141223fb5249ad9fd36d897ee969cb137e6, sha256: b20ba4e4009dd95292fa0c6e3922bea2d2138325759c95a591081ef1fa25882c)
+0006.420 (0) Beginning backup of other directories found in the content directory (index: 0)
+0006.425 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0006.430 (0) Looking for candidates to backup in: /var/www/html/cryptexotc.com/wp-content
+0006.436 (0) finding files: wflogs: adding to list (1)
+0006.441 (0) finding files: index.php: adding to list (2)
+0006.447 (0) finding files: upgrade: skipping: excluded by options
+0006.453 (0) finding files: updraft: skipping: this is the updraft directory
+0006.458 (0) finding files: themes: skipping: this is the themes directory
+0006.463 (0) finding files: advanced-cache.php: adding to list (3)
+0006.469 (0) finding files: uploads: skipping: this is the uploads directory
+0006.474 (0) finding files: cache: skipping: excluded by options
+0006.479 (0) finding files: wp-rocket-config: adding to list (4)
+0006.485 (0) finding files: plugins: skipping: this is the plugins directory
+0006.497 (0) Total entities for the zip file: 2 directories, 14 files (0 skipped as non-modified), 5.3 MB
+0006.835 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-others.zip.tmp: size is now: 2.30 MB
+0006.879 (0) Created others zip (0) - 2339.6 KB in 0.4 s (6014.2 KB/s) (sha1: 4fa7651336160485adf30c29ef72ada31efc14bd, sha256: eba777725aadfcf7712c51f992a3903c379e919c993aa1c7ed22907819ba6e01)
+0006.908 (0) Saving backup status to database (elements: 8)
+0006.943 (0) Beginning creation of database dump (WordPress DB)
+0006.972 (0) Testing: /usr/bin/mysqldump
+0007.100 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1212 bytes total)
+0007.111 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0007.168 (0) Table wp_options: Total expected rows (approximate): 375
+0007.216 (0) Table wp_options: Total rows added: 381 in 0.04 seconds
+0007.222 (0) Table wp_options: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_options.table.gz - 147.2 KB)
+0007.243 (0) Table wp_users: Total expected rows (approximate): 0
+0007.252 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0007.258 (0) Table wp_users: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_users.table.gz - 0.7 KB)
+0007.278 (0) Table wp_usermeta: Total expected rows (approximate): 50
+0007.288 (0) Table wp_usermeta: Total rows added: 49 in 0.00 seconds
+0007.294 (0) Table wp_usermeta: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_usermeta.table.gz - 2.3 KB)
+0007.313 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0007.322 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0007.328 (0) Table wp_commentmeta: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0007.347 (0) Table wp_comments: Total expected rows (approximate): 0
+0007.357 (0) Table wp_comments: Total rows added: 1 in 0.00 seconds
+0007.363 (0) Table wp_comments: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_comments.table.gz - 0.7 KB)
+0007.383 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0007.392 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0007.398 (0) Table wp_imagify_files: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0007.418 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0007.427 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0007.433 (0) Table wp_imagify_folders: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0007.452 (0) Table wp_links: Total expected rows (approximate): 0
+0007.461 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0007.467 (0) Table wp_links: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_links.table.gz - 0.4 KB)
+0007.487 (0) Table wp_postmeta: Total expected rows (approximate): 2039
+0007.509 (0) Table wp_postmeta: Total rows added: 1989 in 0.02 seconds
+0007.517 (0) Table wp_postmeta: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_postmeta.table.gz - 20 KB)
+0007.535 (0) Table wp_posts: Total expected rows (approximate): 96
+0007.558 (0) Table wp_posts: Total rows added: 105 in 0.02 seconds
+0007.564 (0) Table wp_posts: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_posts.table.gz - 34.8 KB)
+0007.585 (0) Table wp_term_relationships: Total expected rows (approximate): 23
+0007.595 (0) Table wp_term_relationships: Total rows added: 21 in 0.00 seconds
+0007.601 (0) Table wp_term_relationships: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0007.621 (0) Table wp_term_taxonomy: Total expected rows (approximate): 12
+0007.631 (0) Table wp_term_taxonomy: Total rows added: 12 in 0.00 seconds
+0007.637 (0) Table wp_term_taxonomy: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_term_taxonomy.table.gz - 0.5 KB)
+0007.658 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0007.667 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0007.672 (0) Table wp_termmeta: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_termmeta.table.gz - 0.4 KB)
+0007.692 (0) Table wp_terms: Total expected rows (approximate): 12
+0007.702 (0) Table wp_terms: Total rows added: 12 in 0.00 seconds
+0007.708 (0) Table wp_terms: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_terms.table.gz - 0.5 KB)
+0007.729 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 177
+0007.739 (0) Table wp_yoast_seo_links: Total rows added: 177 in 0.00 seconds
+0007.746 (0) Table wp_yoast_seo_links: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_yoast_seo_links.table.gz - 1.9 KB)
+0007.767 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 28
+0007.776 (0) Table wp_yoast_seo_meta: Total rows added: 31 in 0.00 seconds
+0007.782 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_yoast_seo_meta.table.gz - 0.5 KB)
+0007.803 (0) Table wp_revslider_css: Total expected rows (approximate): 121
+0007.815 (0) Table wp_revslider_css: Total rows added: 121 in 0.01 seconds
+0007.821 (0) Table wp_revslider_css: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_css.table.gz - 5.2 KB)
+0007.841 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0007.851 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0007.858 (0) Table wp_revslider_layer_animations: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0007.881 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0007.889 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0007.895 (0) Table wp_revslider_navigations: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0007.917 (0) Table wp_revslider_sliders: Total expected rows (approximate): 0
+0007.927 (0) Table wp_revslider_sliders: Total rows added: 1 in 0.00 seconds
+0007.934 (0) Table wp_revslider_sliders: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_sliders.table.gz - 3.1 KB)
+0007.960 (0) Table wp_revslider_slides: Total expected rows (approximate): 1
+0007.977 (0) Table wp_revslider_slides: Total rows added: 1 in 0.00 seconds
+0007.995 (0) Table wp_revslider_slides: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_slides.table.gz - 3.5 KB)
+0008.026 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0008.034 (0) Table wp_revslider_static_slides: Total rows added: 0 in 0.00 seconds
+0008.040 (0) Table wp_revslider_static_slides: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_static_slides.table.gz - 0.3 KB)
+0008.067 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0008.075 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0008.082 (0) Table wp_wfBadLeechers: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0008.103 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0008.111 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0008.117 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0008.138 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 0
+0008.147 (0) Table wp_wfBlockedIPLog: Total rows added: 0 in 0.00 seconds
+0008.153 (0) Table wp_wfBlockedIPLog: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBlockedIPLog.table.gz - 0.3 KB)
+0008.174 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0008.182 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0008.189 (0) Table wp_wfBlocks7: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0008.210 (0) Table wp_wfConfig: Total expected rows (approximate): 247
+0008.236 (0) Table wp_wfConfig: Total rows added: 250 in 0.02 seconds
+0008.243 (0) Table wp_wfConfig: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfConfig.table.gz - 360.6 KB)
+0008.262 (0) Table wp_wfCrawlers: Total expected rows (approximate): 9
+0008.271 (0) Table wp_wfCrawlers: Total rows added: 10 in 0.00 seconds
+0008.278 (0) Table wp_wfCrawlers: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfCrawlers.table.gz - 0.6 KB)
+0008.299 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0008.307 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0008.313 (0) Table wp_wfFileChanges: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0008.333 (0) Table wp_wfFileMods: Total expected rows (approximate): 7350
+0008.497 (0) Table wp_wfFileMods: Total rows added: 8651 in 0.16 seconds
+0008.504 (0) Table wp_wfFileMods: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfFileMods.table.gz - 755.4 KB)
+0008.524 (0) Table wp_wfHits: Total expected rows (approximate): 2026
+0008.567 (0) Table wp_wfHits: Total rows added: 2013 in 0.04 seconds
+0008.575 (0) Table wp_wfHits: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfHits.table.gz - 41.6 KB)
+0008.595 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0008.604 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0008.610 (0) Table wp_wfHoover: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0008.630 (0) Table wp_wfIssues: Total expected rows (approximate): 0
+0008.639 (0) Table wp_wfIssues: Total rows added: 0 in 0.00 seconds
+0008.645 (0) Table wp_wfIssues: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfIssues.table.gz - 0.4 KB)
+0008.665 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 8649
+0008.817 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.15 seconds
+0008.824 (0) Table wp_wfKnownFileList: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfKnownFileList.table.gz - 86.8 KB)
+0008.844 (0) Table wp_wfLeechers: Total expected rows (approximate): 13
+0008.854 (0) Table wp_wfLeechers: Total rows added: 13 in 0.00 seconds
+0008.860 (0) Table wp_wfLeechers: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLeechers.table.gz - 0.4 KB)
+0008.880 (0) Table wp_wfLiveTrafficHuman: Total expected rows (approximate): 0
+0008.888 (0) Table wp_wfLiveTrafficHuman: Total rows added: 0 in 0.00 seconds
+0008.894 (0) Table wp_wfLiveTrafficHuman: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLiveTrafficHuman.table.gz - 0.3 KB)
+0008.914 (0) Table wp_wfLocs: Total expected rows (approximate): 1
+0008.923 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0008.929 (0) Table wp_wfLocs: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0008.948 (0) Table wp_wfLogins: Total expected rows (approximate): 19
+0008.958 (0) Table wp_wfLogins: Total rows added: 36 in 0.00 seconds
+0008.963 (0) Table wp_wfLogins: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLogins.table.gz - 1.4 KB)
+0008.984 (0) Table wp_wfNotifications: Total expected rows (approximate): 8
+0008.993 (0) Table wp_wfNotifications: Total rows added: 17 in 0.00 seconds
+0008.999 (0) Table wp_wfNotifications: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfNotifications.table.gz - 0.7 KB)
+0009.020 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0009.029 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0009.035 (0) Table wp_wfPendingIssues: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0009.058 (0) Table wp_wfReverseCache: Total expected rows (approximate): 3
+0009.068 (0) Table wp_wfReverseCache: Total rows added: 3 in 0.00 seconds
+0009.074 (0) Table wp_wfReverseCache: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0009.095 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0009.103 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0009.109 (0) Table wp_wfSNIPCache: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0009.130 (0) Table wp_wfScanners: Total expected rows (approximate): 0
+0009.138 (0) Table wp_wfScanners: Total rows added: 1 in 0.00 seconds
+0009.145 (0) Table wp_wfScanners: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfScanners.table.gz - 0.3 KB)
+0009.167 (0) Table wp_wfStatus: Total expected rows (approximate): 949
+0009.183 (0) Table wp_wfStatus: Total rows added: 949 in 0.01 seconds
+0009.189 (0) Table wp_wfStatus: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfStatus.table.gz - 17.2 KB)
+0009.210 (0) Table wp_wfTrafficRates: Total expected rows (approximate): 0
+0009.218 (0) Table wp_wfTrafficRates: Total rows added: 0 in 0.00 seconds
+0009.225 (0) Table wp_wfTrafficRates: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfTrafficRates.table.gz - 0.3 KB)
+0009.245 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0009.254 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0009.259 (0) Table wp_wfVulnScanners: finishing file (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0009.278 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_options.table.gz (1/46): adding to final database dump
+0009.309 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_users.table.gz (2/46): adding to final database dump
+0009.314 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_usermeta.table.gz (3/46): adding to final database dump
+0009.320 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_commentmeta.table.gz (4/46): adding to final database dump
+0009.326 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_comments.table.gz (5/46): adding to final database dump
+0009.330 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_imagify_files.table.gz (6/46): adding to final database dump
+0009.336 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_imagify_folders.table.gz (7/46): adding to final database dump
+0009.341 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_links.table.gz (8/46): adding to final database dump
+0009.347 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_postmeta.table.gz (9/46): adding to final database dump
+0009.357 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_posts.table.gz (10/46): adding to final database dump
+0009.371 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_term_relationships.table.gz (11/46): adding to final database dump
+0009.377 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_term_taxonomy.table.gz (12/46): adding to final database dump
+0009.383 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_termmeta.table.gz (13/46): adding to final database dump
+0009.388 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_terms.table.gz (14/46): adding to final database dump
+0009.394 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_yoast_seo_links.table.gz (15/46): adding to final database dump
+0009.398 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_yoast_seo_meta.table.gz (16/46): adding to final database dump
+0009.403 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_css.table.gz (17/46): adding to final database dump
+0009.410 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_layer_animations.table.gz (18/46): adding to final database dump
+0009.415 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_navigations.table.gz (19/46): adding to final database dump
+0009.420 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_sliders.table.gz (20/46): adding to final database dump
+0009.427 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_slides.table.gz (21/46): adding to final database dump
+0009.432 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_revslider_static_slides.table.gz (22/46): adding to final database dump
+0009.438 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBadLeechers.table.gz (23/46): adding to final database dump
+0009.443 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBlockedCommentLog.table.gz (24/46): adding to final database dump
+0009.449 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBlockedIPLog.table.gz (25/46): adding to final database dump
+0009.455 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfBlocks7.table.gz (26/46): adding to final database dump
+0009.459 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfConfig.table.gz (27/46): adding to final database dump
+0009.478 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfCrawlers.table.gz (28/46): adding to final database dump
+0009.484 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfFileChanges.table.gz (29/46): adding to final database dump
+0009.490 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfFileMods.table.gz (30/46): adding to final database dump
+0009.551 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfHits.table.gz (31/46): adding to final database dump
+0009.565 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfHoover.table.gz (32/46): adding to final database dump
+0009.571 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfIssues.table.gz (33/46): adding to final database dump
+0009.576 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfKnownFileList.table.gz (34/46): adding to final database dump
+0009.595 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLeechers.table.gz (35/46): adding to final database dump
+0009.604 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLiveTrafficHuman.table.gz (36/46): adding to final database dump
+0009.610 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLocs.table.gz (37/46): adding to final database dump
+0009.613 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfLogins.table.gz (38/46): adding to final database dump
+0009.619 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfNotifications.table.gz (39/46): adding to final database dump
+0009.625 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfPendingIssues.table.gz (40/46): adding to final database dump
+0009.631 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfReverseCache.table.gz (41/46): adding to final database dump
+0009.636 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfSNIPCache.table.gz (42/46): adding to final database dump
+0009.642 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfScanners.table.gz (43/46): adding to final database dump
+0009.647 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfStatus.table.gz (44/46): adding to final database dump
+0009.657 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfTrafficRates.table.gz (45/46): adding to final database dump
+0009.673 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db-table-wp_wfVulnScanners.table.gz (46/46): adding to final database dump
+0009.678 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db.gz: finished writing out complete database file (1480 KB)
+0009.716 (0) Total database tables backed up: 46 (backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db.gz, size: 1522580, sha256)
+0009.765 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0009.771 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0009.776 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0009.782 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-others.zip: others: This file has not yet been successfully uploaded: will queue
+0009.787 (0) backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db.gz: db: This file has not yet been successfully uploaded: will queue
+0009.793 (0) Saving backup history. Total backup size: 53.8 MB
+0009.817 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0009.837 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0009.842 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-588c3b9425b91bddec0e4bc88d1c3144)
+0010.214 (0) Set region: us-west-1
+0010.221 (0) S3 upload (us-west-1): backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip (chunks: 7) -> s3://www.cryptexotc.com/backups/backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip
+0010.345 (0) S3 chunked upload: got multipart ID: DQddnQ0iK94Manlaqp6RKpzuXpGwgBUgmT3xBftp6J4zP0Gv9vnzA0Q9enUI5HHggj.8eWeWesxJBn.1Xxdv2UP3NG27gZKFkq_GBPxvqFFkNOVM9djxKiRsk7hoFtUK
+0010.841 (0) S3 chunked upload: 14.3 % uploaded (1, "ea1b49b32396cf9b7546b403438f93ac")
+0011.119 (0) S3 chunked upload: 28.6 % uploaded (2, "fa63b85241fe6494ca4f459f5496e235")
+0011.449 (0) S3 chunked upload: 42.9 % uploaded (3, "d5b8c93aaebeabf0c708e16775346c64")
+0011.697 (0) S3 chunked upload: 57.1 % uploaded (4, "209901bbdf335e31645bd94c62609291")
+0011.957 (0) S3 chunked upload: 71.4 % uploaded (5, "11b150b707399b1416d956b773b8d043")
+0012.201 (0) S3 chunked upload: 85.7 % uploaded (6, "6bbbe442a67c908042495132decec5bf")
+0012.403 (0) S3 chunked upload: 100 % uploaded (7, "d69ed182d68ba1944c57225f839ea9b7")
+0012.423 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0012.546 (0) S3 upload (plugins0): re-assembly succeeded
+0012.554 (0) Recording as successfully uploaded: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip
+0012.571 (0) Deleting local file: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-plugins.zip: OK
+0012.577 (0) S3 upload (us-west-1): backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip (chunks: 2) -> s3://www.cryptexotc.com/backups/backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip
+0012.608 (0) S3 chunked upload: got multipart ID: PbYkrpSlDDA8CC07_pd_rZyVB2Y0j02Q_S38.zAf5f4sW_roLFTnercw9tV6Kjguuonl1bvFpHDefnZbMtjYlVujatCBZ6wY72VPi60TKYMMZXfkrUvQ8IBY8PGzfxY1
+0012.822 (0) S3 chunked upload: 50 % uploaded (1, "66e8bfdd5eeaf26260d33336c015b3e3")
+0013.026 (0) S3 chunked upload: 100 % uploaded (2, "40b9c3ec575113fb8c0e50962ce0fdfa")
+0013.046 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0013.137 (0) S3 upload (themes0): re-assembly succeeded
+0013.144 (0) Recording as successfully uploaded: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip
+0013.159 (0) Deleting local file: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-themes.zip: OK
+0013.165 (0) S3 upload (us-west-1): backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip (chunks: 2) -> s3://www.cryptexotc.com/backups/backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip
+0013.199 (0) S3 chunked upload: got multipart ID: 2tq4BYQRd5vErmR7PBbnxnMrpO.VhmY3Q7b_4mzriuGfN3jC9jQQfMZZo4VspFjg7b67zCYN70euwoUMo5xxT5uP24t5O2v7ZncaEc3nxxYSIpK62ZPuKP1zKyqotrrf
+0013.473 (0) S3 chunked upload: 50 % uploaded (1, "6188837006f89cdc32818d70177506ee")
+0013.770 (0) S3 chunked upload: 100 % uploaded (2, "cb8750e14e42cfb823acf00654066cca")
+0013.793 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0013.886 (0) S3 upload (uploads0): re-assembly succeeded
+0013.893 (0) Recording as successfully uploaded: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip
+0013.907 (0) Deleting local file: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-uploads.zip: OK
+0013.913 (0) S3 upload (us-west-1): backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-others.zip (chunks: 1) -> s3://www.cryptexotc.com/backups/backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-others.zip
+0014.055 (0) S3 regular upload: success
+0014.085 (0) Recording as successfully uploaded: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-others.zip
+0014.100 (0) Deleting local file: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-others.zip: OK
+0014.107 (0) S3 upload (us-west-1): backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db.gz (chunks: 1) -> s3://www.cryptexotc.com/backups/backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db.gz
+0014.219 (0) S3 regular upload: success
+0014.234 (0) Recording as successfully uploaded: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db.gz
+0014.257 (0) Deleting local file: backup_2018-10-23-2208_Cryptex_OTC_c920ecb563f5-db.gz: OK
+0014.286 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=30, retain_db=30
+0014.296 (0) Number of backup sets in history: 31; groups (db): 1
+0014.302 (0) Examining (for databases) backup set with group_id=0, nonce=c920ecb563f5, datestamp=1540332495 (Oct 23 2018 22:08:15)
+0014.307 (0) This backup set is the backup set just made, so will not be deleted.
+0014.307 (0) Examining (for databases) backup set with group_id=0, nonce=a0f06b306a45, datestamp=1540245978 (Oct 22 2018 22:06:18)
+0014.307 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=7ed4c5113f74, datestamp=1540159787 (Oct 21 2018 22:09:47)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=d3d63f652c58, datestamp=1540073180 (Oct 20 2018 22:06:20)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=64e45ff083a5, datestamp=1539986795 (Oct 19 2018 22:06:35)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=6d7b3de514c5, datestamp=1539900620 (Oct 18 2018 22:10:20)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=a6e25fddc58a, datestamp=1539814234 (Oct 17 2018 22:10:34)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=6f3708b94e02, datestamp=1539727776 (Oct 16 2018 22:09:36)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=d168aa910d97, datestamp=1539641310 (Oct 15 2018 22:08:30)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=cfb0362789e2, datestamp=1539554958 (Oct 14 2018 22:09:18)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=0636b4f6f8ba, datestamp=1539468705 (Oct 13 2018 22:11:45)
+0014.313 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.313 (0) Examining (for databases) backup set with group_id=0, nonce=e0305165576d, datestamp=1539382210 (Oct 12 2018 22:10:10)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=49abafffdf41, datestamp=1539295711 (Oct 11 2018 22:08:31)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=5ee6a703b053, datestamp=1539209348 (Oct 10 2018 22:09:08)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=281725f887a3, datestamp=1539122956 (Oct 09 2018 22:09:16)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=a3dd4404c6f2, datestamp=1539036565 (Oct 08 2018 22:09:25)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=9ca22858fd93, datestamp=1538950038 (Oct 07 2018 22:07:18)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=c802bc6f659d, datestamp=1538863665 (Oct 06 2018 22:07:45)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=7b57af86df1e, datestamp=1538777451 (Oct 05 2018 22:10:51)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=162f34ce1088, datestamp=1538691036 (Oct 04 2018 22:10:36)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=bf301fd624a7, datestamp=1538604511 (Oct 03 2018 22:08:31)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=8400551094e8, datestamp=1538518147 (Oct 02 2018 22:09:07)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=821036c12ed1, datestamp=1538431776 (Oct 01 2018 22:09:36)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=14d48be04a45, datestamp=1538345280 (Sep 30 2018 22:08:00)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=92dcf857258c, datestamp=1538258829 (Sep 29 2018 22:07:09)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.314 (0) Examining (for databases) backup set with group_id=0, nonce=f6082b214cd6, datestamp=1538172814 (Sep 28 2018 22:13:34)
+0014.314 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.315 (0) Examining (for databases) backup set with group_id=0, nonce=8cf18364ae99, datestamp=1538085965 (Sep 27 2018 22:06:05)
+0014.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.315 (0) Examining (for databases) backup set with group_id=0, nonce=0a5dc1da6d01, datestamp=1537999570 (Sep 26 2018 22:06:10)
+0014.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.315 (0) Examining (for databases) backup set with group_id=0, nonce=e84a58eb63b0, datestamp=1537913452 (Sep 25 2018 22:10:52)
+0014.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.315 (0) Examining (for databases) backup set with group_id=0, nonce=e4562812502a, datestamp=1537826794 (Sep 24 2018 22:06:34)
+0014.315 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.315 (0) Examining (for databases) backup set with group_id=0, nonce=96f3052ddb8c, datestamp=1537740487 (Sep 23 2018 22:08:07)
+0014.315 (0) 1537740487: db: this set includes a database (backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-db.gz); db count is now 30
+0014.315 (0) 1537740487: db: over retain limit (30); will delete this database
+0014.315 (0) Delete file: backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-db.gz, service=s3
+0014.321 (0) S3: Delete remote: bucket=www.cryptexotc.com, URI=backups/backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-db.gz
+0014.363 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0014.369 (0) Number of backup sets in history: 31; groups (files): 1
+0014.374 (0) Examining (for files) backup set with nonce=c920ecb563f5, datestamp=1540332495 (Oct 23 2018 22:08:15)
+0014.374 (0) This backup set is the backup set just made, so will not be deleted.
+0014.378 (0) This backup set is the backup set just made, so will not be deleted.
+0014.379 (0) This backup set is the backup set just made, so will not be deleted.
+0014.379 (0) This backup set is the backup set just made, so will not be deleted.
+0014.379 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=a0f06b306a45, datestamp=1540245978 (Oct 22 2018 22:06:18)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=7ed4c5113f74, datestamp=1540159787 (Oct 21 2018 22:09:47)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=d3d63f652c58, datestamp=1540073180 (Oct 20 2018 22:06:20)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=64e45ff083a5, datestamp=1539986795 (Oct 19 2018 22:06:35)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=6d7b3de514c5, datestamp=1539900620 (Oct 18 2018 22:10:20)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=a6e25fddc58a, datestamp=1539814234 (Oct 17 2018 22:10:34)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=6f3708b94e02, datestamp=1539727776 (Oct 16 2018 22:09:36)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=d168aa910d97, datestamp=1539641310 (Oct 15 2018 22:08:30)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=cfb0362789e2, datestamp=1539554958 (Oct 14 2018 22:09:18)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=0636b4f6f8ba, datestamp=1539468705 (Oct 13 2018 22:11:45)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=e0305165576d, datestamp=1539382210 (Oct 12 2018 22:10:10)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.385 (0) Examining (for files) backup set with nonce=49abafffdf41, datestamp=1539295711 (Oct 11 2018 22:08:31)
+0014.385 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=5ee6a703b053, datestamp=1539209348 (Oct 10 2018 22:09:08)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=281725f887a3, datestamp=1539122956 (Oct 09 2018 22:09:16)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=a3dd4404c6f2, datestamp=1539036565 (Oct 08 2018 22:09:25)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=9ca22858fd93, datestamp=1538950038 (Oct 07 2018 22:07:18)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=c802bc6f659d, datestamp=1538863665 (Oct 06 2018 22:07:45)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=7b57af86df1e, datestamp=1538777451 (Oct 05 2018 22:10:51)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=162f34ce1088, datestamp=1538691036 (Oct 04 2018 22:10:36)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=bf301fd624a7, datestamp=1538604511 (Oct 03 2018 22:08:31)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=8400551094e8, datestamp=1538518147 (Oct 02 2018 22:09:07)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=821036c12ed1, datestamp=1538431776 (Oct 01 2018 22:09:36)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=14d48be04a45, datestamp=1538345280 (Sep 30 2018 22:08:00)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=92dcf857258c, datestamp=1538258829 (Sep 29 2018 22:07:09)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=f6082b214cd6, datestamp=1538172814 (Sep 28 2018 22:13:34)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.386 (0) Examining (for files) backup set with nonce=8cf18364ae99, datestamp=1538085965 (Sep 27 2018 22:06:05)
+0014.386 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.387 (0) Examining (for files) backup set with nonce=0a5dc1da6d01, datestamp=1537999570 (Sep 26 2018 22:06:10)
+0014.387 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.387 (0) Examining (for files) backup set with nonce=e84a58eb63b0, datestamp=1537913452 (Sep 25 2018 22:10:52)
+0014.387 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.387 (0) Examining (for files) backup set with nonce=e4562812502a, datestamp=1537826794 (Sep 24 2018 22:06:34)
+0014.387 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0014.387 (0) Examining (for files) backup set with nonce=96f3052ddb8c, datestamp=1537740487 (Sep 23 2018 22:08:07)
+0014.387 (0) plugins: over retain limit (30); will delete this file entity
+0014.387 (0) themes: over retain limit (30); will delete this file entity
+0014.387 (0) uploads: over retain limit (30); will delete this file entity
+0014.387 (0) others: over retain limit (30); will delete this file entity
+0014.387 (0) Delete file: backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-plugins.zip, service=s3
+0014.393 (0) Delete file: backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-themes.zip, service=s3
+0014.399 (0) Delete file: backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-uploads.zip, service=s3
+0014.405 (0) Delete file: backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-others.zip, service=s3
+0014.410 (0) S3: Delete remote: bucket=www.cryptexotc.com, URI=backups/backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-plugins.zip
+0014.460 (0) S3: Delete remote: bucket=www.cryptexotc.com, URI=backups/backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-themes.zip
+0014.500 (0) S3: Delete remote: bucket=www.cryptexotc.com, URI=backups/backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-uploads.zip
+0014.542 (0) S3: Delete remote: bucket=www.cryptexotc.com, URI=backups/backup_2018-09-23-2208_Cryptex_OTC_96f3052ddb8c-others.zip
+0014.586 (0) This backup set is now empty; will remove from history
+0014.592 (0) Deleting log file (log.96f3052ddb8c.txt)
+0014.597 (0) Retain: saving new backup history (sets now: 30) and finishing retain operation
+0014.628 (0) Resume backup (c920ecb563f5, 0): finish run
+0014.646 (0) Decremented the semaphore (fd) by 1
+0014.657 (0) Semaphore (fd) unlocked
+0014.663 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0014.683 (0) Fetching RSS news feed
+0014.811 (0) Fetched RSS news feed; result is a: SimplePie
+0014.832 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: syste...
+0016.612 (0) The backup apparently succeeded and is now complete

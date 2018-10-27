@@ -40,7 +40,7 @@ class Cornerstone_Model_Option extends Cornerstone_Plugin_Component {
     }
 
     if ( ! apply_filters( "cornerstone_option_model_permissions_$id", 'access' === $operation, $operation ) ) {
-      throw new Exception( 'Unauthorized' );
+      throw new Exception( "Unauthorized: $id | $operation" );
     }
 
   }

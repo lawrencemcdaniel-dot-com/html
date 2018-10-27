@@ -454,6 +454,30 @@ function avada_options_section_extra( $sections ) {
 						'default'     => '12px',
 						'type'        => 'dimension',
 					),
+					'pagination_range' => array(
+						'label'       => esc_html__( 'Pagination Range', 'Avada' ),
+						'description' => esc_html__( 'Controls the number of page links displayed left and right of current page.', 'Avada' ),
+						'id'          => 'pagination_range',
+						'default'     => '1',
+						'type'        => 'slider',
+						'choices'     => array(
+							'min'  => '0',
+							'max'  => '10',
+							'step' => '1',
+						),
+					),
+					'pagination_start_end_range' => array(
+						'label'       => esc_html__( 'Pagination Start / End Range', 'Avada' ),
+						'description' => esc_html__( 'Controls the number of page links displayed at the start and at the end of pagination.', 'Avada' ),
+						'id'          => 'pagination_start_end_range',
+						'default'     => '0',
+						'type'        => 'slider',
+						'choices'     => array(
+							'min'  => '0',
+							'max'  => '10',
+							'step' => '1',
+						),
+					),
 				),
 			),
 			'forms_styling_section' => array(

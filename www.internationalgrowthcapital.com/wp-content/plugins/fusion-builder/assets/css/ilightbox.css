@@ -17,7 +17,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
   font-size: 100%;
   line-height: 100%;
   vertical-align: baseline;
@@ -28,6 +27,21 @@
   -o-user-select: none;
   -ms-user-select: none;
       user-select: none;
+}
+.fusion-disable-outline .ilightbox-overlay,
+.fusion-disable-outline .ilightbox-loader,
+.fusion-disable-outline .ilightbox-loader *,
+.fusion-disable-outline .ilightbox-holder,
+.fusion-disable-outline .ilightbox-holder .ilightbox-container,
+.fusion-disable-outline .ilightbox-holder .ilightbox-container img.ilightbox-image,
+.fusion-disable-outline .ilightbox-holder .ilightbox-container .ilightbox-caption,
+.fusion-disable-outline .ilightbox-toolbar,
+.fusion-disable-outline .ilightbox-toolbar *,
+.fusion-disable-outline .ilightbox-thumbnails,
+.fusion-disable-outline .ilightbox-thumbnails *,
+.fusion-disable-outline .ilightbox-holder .ilightbox-container .ilightbox-social,
+.fusion-disable-outline .ilightbox-holder .ilightbox-container .ilightbox-social * {
+  outline: 0;
 }
 .ilightbox-overlay,
 .ilightbox-loader,
@@ -309,8 +323,8 @@
 .ilightbox-holder.dark {
   padding: 5px;
   background: #000;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 15px hsla(0, 0%, 0%, 0.8);
+  box-shadow: 0 0 15px hsla(0, 0%, 0%, 0.8);
 }
 .ilightbox-holder.dark .ilightbox-container .ilightbox-caption {
   background: url(../../assets/images/iLightbox/dark-skin/caption-bg.png);
@@ -530,8 +544,8 @@
   background: #FFF;
 }
 .ilightbox-loader.light {
-  -webkit-box-shadow: #dacffc 0px 0px 85px, #dacffc 0px 0px 85px;
-  box-shadow: #dacffc 0px 0px 85px, #dacffc 0px 0px 85px;
+  -webkit-box-shadow: hsl(255, 90%, 90%) 0px 0px 85px, hsl(255, 90%, 90%) 0px 0px 85px;
+  box-shadow: hsl(255, 90%, 90%) 0px 0px 85px, hsl(255, 90%, 90%) 0px 0px 85px;
 }
 .ilightbox-loader.light div {
   background: #FFF url(../../assets/images/iLightbox/light-skin/preloader.gif) no-repeat center;
@@ -539,8 +553,8 @@
 .ilightbox-holder.light {
   padding: 10px;
   background: #FFF;
-  -webkit-box-shadow: 0 0 15px #dacffc;
-  box-shadow: 0 0 15px #dacffc;
+  -webkit-box-shadow: 0 0 15px hsl(255, 90%, 90%);
+  box-shadow: 0 0 15px hsl(255, 90%, 90%);
 }
 .ilightbox-holder.light .ilightbox-container .ilightbox-caption {
   background: url(../../assets/images/iLightbox/light-skin/caption-bg.png);
@@ -561,8 +575,8 @@
   top: 8px;
   left: 8px;
   height: 23px;
-  -webkit-box-shadow: 0 0 7px #dacffc;
-  box-shadow: 0 0 7px #dacffc;
+  -webkit-box-shadow: 0 0 7px hsl(255, 90%, 90%);
+  box-shadow: 0 0 7px hsl(255, 90%, 90%);
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -618,8 +632,8 @@
   width: 100%;
   height: 40px;
   text-align: center;
-  -webkit-box-shadow: 0 0 25px #dacffc;
-  box-shadow: 0 0 25px #dacffc;
+  -webkit-box-shadow: 0 0 25px hsl(255, 90%, 90%);
+  box-shadow: 0 0 25px hsl(255, 90%, 90%);
 }
 .isMobile .ilightbox-toolbar.light a {
   display: inline-block;
@@ -655,8 +669,8 @@
 }
 /* Style thumbnails */
 .ilightbox-thumbnails.light .ilightbox-thumbnails-grid .ilightbox-thumbnail img {
-  -webkit-box-shadow: 0 0 6px #dacffc;
-          box-shadow: 0 0 6px #dacffc;
+  -webkit-box-shadow: 0 0 6px hsl(255, 90%, 90%);
+          box-shadow: 0 0 6px hsl(255, 90%, 90%);
 }
 .ilightbox-thumbnails.light .ilightbox-thumbnails-grid .ilightbox-thumbnail .ilightbox-thumbnail-video {
   background: url(../../assets/images/iLightbox/light-skin/thumb-overlay-play.png) no-repeat center;
@@ -714,8 +728,8 @@
   margin: auto;
   background: url(../../assets/images/iLightbox/light-skin/arrow-next-vertical-icon-64.png) no-repeat 50% 65%;
   background-color: #FFF;
-  -webkit-box-shadow: 0 0 15px #dacffc;
-  box-shadow: 0 0 15px #dacffc;
+  -webkit-box-shadow: 0 0 15px hsl(255, 90%, 90%);
+  box-shadow: 0 0 15px hsl(255, 90%, 90%);
 }
 .ilightbox-button.ilightbox-button.light:hover {
   background-color: #f6f3ff;
@@ -1457,8 +1471,8 @@
   background: #333 url(../../assets/images/iLightbox/parade-skin/pattern.png);
 }
 .ilightbox-loader.parade {
-  -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 35px hsla(0, 0%, 0%, 0.3);
+  box-shadow: 0 0 35px hsla(0, 0%, 0%, 0.3);
 }
 .ilightbox-loader.parade div {
   background: white url(../../assets/images/iLightbox/parade-skin/preloader.gif) no-repeat center;

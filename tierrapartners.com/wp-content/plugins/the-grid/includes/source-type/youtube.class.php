@@ -194,7 +194,6 @@ class The_Grid_Youtube {
 		
 		// retrieve Youtube data
 		$this->get_media();
-
 		
 		return $this->media;
 		
@@ -294,7 +293,7 @@ class The_Grid_Youtube {
 		$call = $this->_makeCall('playlistItems', 'playlistId', $this->playlist_id, 'snippet,contentDetails', true);
 		$this->last_media['pageToken'] = (isset($call->nextPageToken)) ? $call->nextPageToken : '';
 		$this->last_media['total'] = (isset($call->pageInfo->totalResults)) ? $call->pageInfo->totalResults : '';
-		
+
 	}
 	
 	/**

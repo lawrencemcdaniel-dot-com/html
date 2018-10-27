@@ -41,16 +41,16 @@ class CS_Feature_List_Item extends Cornerstone_Element_Base {
     $this->addControl(
       'title_color',
       'color',
-      __( 'Title &amp; Content Colors', 'cornerstone' ),
-      __( 'Optionally specify colors for your title and content.', 'cornerstone' ),
+      __( 'Title Color', 'cornerstone' ),
+      __( 'Optionally specify colors for your title.', 'cornerstone' ),
       ''
     );
 
     $this->addControl(
       'text_color',
       'color',
-      NULL,
-      NULL,
+      __( 'Content Color', 'cornerstone' ),
+      __( 'Optionally specify colors for your content.', 'cornerstone' ),
       ''
     );
 
@@ -101,16 +101,16 @@ class CS_Feature_List_Item extends Cornerstone_Element_Base {
     $this->addControl(
       'graphic_color',
       'color',
-      __( 'Graphic Color &amp; Background Color', 'cornerstone' ),
-      __( 'Specify the color and background color of your graphic.', 'cornerstone' ),
+      __( 'Graphic Color', 'cornerstone' ),
+      __( 'Specify the color of your graphic.', 'cornerstone' ),
       '#ffffff'
     );
 
     $this->addControl(
       'graphic_bg_color',
       'color',
-      NULL,
-      NULL,
+      __( 'Graphic Background Color', 'cornerstone' ),
+      __( 'Specify the background color of your graphic.', 'cornerstone' ),
       '#2ecc71'
     );
 

@@ -78,7 +78,9 @@ if ( fusion_is_element_enabled( 'fusion_widget_area' ) ) {
 						'padding'          => '',
 						'title_color'    => $fusion_settings->get( 'widget_area_title_color' ),
 						'title_size'     => $fusion_settings->get( 'widget_area_title_size' ),
-					), $args
+					),
+					$args,
+					'fusion_widget_area'
 				);
 
 				$defaults['padding'] = FusionBuilder::validate_shortcode_attr_value( $defaults['padding'], 'px' );
@@ -119,7 +121,8 @@ if ( fusion_is_element_enabled( 'fusion_widget_area' ) ) {
 			public function attr() {
 
 				$attr = fusion_builder_visibility_atts(
-					$this->args['hide_on_mobile'], array(
+					$this->args['hide_on_mobile'],
+					array(
 						'class' => 'fusion-widget-area fusion-widget-area-' . $this->widget_counter . ' fusion-content-widget-area',
 					)
 				);

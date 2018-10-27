@@ -79,6 +79,8 @@ function x_control_groups_element_map( $adv = false ) {
 
 function x_values_element_map( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_map(),
     x_values_frame( array( 'frame_content_type' => 'map' ) ),

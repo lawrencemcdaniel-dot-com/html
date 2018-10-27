@@ -11,47 +11,72 @@ msgstr ""
 "Language: ca\n"
 "Project-Id-Version: Eventbrite Tickets\n"
 
+#: src/views/eventbrite/eventbrite-events-table.php:73
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:438
+msgid "Public events are listed publicly on Eventbrite and search engines. Private events are not."
+msgstr ""
+
+#: src/views/eventbrite/eventbrite-events-table.php:70
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:434
+msgctxt "Eventbrite event privacy"
+msgid "Private"
+msgstr ""
+
+#: src/views/eventbrite/eventbrite-events-table.php:69
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:433
+msgctxt "Eventbrite event privacy"
+msgid "Public"
+msgstr ""
+
+#: src/views/eventbrite/eb-featured-image-control.php:25
+msgid "If your Update Authority settings allow, then when this event is updated on WordPress, the Featured Image will be sent to Eventbrite.com and saved as the Event Image."
+msgstr ""
+
+#: src/views/eventbrite/eb-featured-image-control.php:23
+msgid "Use image on Eventbrite.com"
+msgstr ""
+
 #. Description of the plugin/theme
 msgid "Eventbrite Tickets connects the power of The Events Calendar to your account on Eventbrite.com. Send WordPress events to Eventbrite, import existing Eventbrite events, display tickets, and more."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:226
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:234
 msgid "Content changes made to the event here will not impact the listing on Eventbrite.com."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:225
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:233
 msgid "You are not the owner of this event listing on Eventbrite.com."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:216
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:224
 msgid "View Event"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:214
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:222
 msgid "This event was imported from Eventbrite."
 msgstr ""
 
-#: src/Tribe/Sync/Venue.php:103
+#: src/Tribe/Sync/Venue.php:118
 msgid "There was a problem determining the coordinates for your event, try using a different venue address."
 msgstr ""
 
-#: src/Tribe/Sync/Main.php:188
+#: src/Tribe/Sync/Main.php:218
 msgid "An Unknown Error Occurred and syncing from Eventbrite is not enabled."
 msgstr ""
 
-#: src/Tribe/Sync/Main.php:120
+#: src/Tribe/Sync/Main.php:149
 msgid "Eventbrite Event Not Owned."
 msgstr ""
 
-#: src/Tribe/Sync/Main.php:114
+#: src/Tribe/Sync/Main.php:142
 msgid "An Unknown Error Occurred and the event may not have synced to Eventbrite."
 msgstr ""
 
-#: src/Tribe/Sync/Event.php:385
+#: src/Tribe/Sync/Event.php:444
 msgid "Ticket sales end date cannot be before today"
 msgstr ""
 
-#: src/Tribe/Sync/Event.php:381
+#: src/Tribe/Sync/Event.php:440
 msgid "Ticket sales start date cannot be before today"
 msgstr ""
 
@@ -75,7 +100,7 @@ msgstr ""
 msgid "Currently migrating Eventbrite events to ensure proper data is displayed when editing."
 msgstr ""
 
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:985
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:988
 msgid "Before you can create an event you will need to edit your account settings at %1$s and choose a package."
 msgstr ""
 
@@ -89,22 +114,22 @@ msgid "Canceled"
 msgstr ""
 
 #: src/views/eventbrite/eventbrite-events-table.php:42
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:423
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:413
 msgctxt "Eventbrite status"
 msgid "Live"
 msgstr ""
 
 #: src/views/eventbrite/eventbrite-events-table.php:41
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:422
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:412
 msgctxt "Eventbrite status"
 msgid "Draft"
 msgstr ""
 
-#: src/Tribe/Main.php:693
+#: src/Tribe/Main.php:705
 msgid "Recurring Events are not supported with Eventbrite"
 msgstr ""
 
-#: src/Tribe/Main.php:688
+#: src/Tribe/Main.php:700
 msgid "Registering a recurring event series is not recommended with Eventbrite. Only the first event in the series will be registered. Please configure your events carefully."
 msgstr ""
 
@@ -120,16 +145,16 @@ msgstr ""
 msgid "Success! You have deauthorized your Eventbrite Application Key."
 msgstr ""
 
-#: src/Tribe/Main.php:1666
+#: src/Tribe/Main.php:1714
 msgid "Remove Authorization"
 msgstr ""
 
-#: src/Tribe/Main.php:980
+#: src/Tribe/Main.php:1025
 msgid "Unable to get authorization from the Eventbrite API: %s"
 msgstr ""
 
-#: src/Tribe/Sync/Event.php:192
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:944
+#: src/Tribe/Sync/Event.php:223
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:947
 msgid "Eventbrite requires a Venue and it must have a valid Address."
 msgstr ""
 
@@ -153,41 +178,19 @@ msgstr ""
 msgid "Select an Existing Event"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:241
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:277
-msgctxt "image sync"
-msgid "Never synchronize the images"
-msgstr ""
-
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:240
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:276
-msgctxt "image sync"
-msgid "Import the event image from eventbrite.com and overwrite the local one"
-msgstr ""
-
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:275
-msgctxt "image sync"
-msgid "Try to update eventbrite.com so it shares the same image as used locally"
-msgstr ""
-
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:237
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:272
-msgid "When this post is updated, how do you want the featured image to be handled?"
-msgstr ""
-
 #: src/Tribe/Notices.php:123 src/Tribe/Notices.php:190
 msgid "Success! You have authorized your Eventbrite Application Key."
 msgstr ""
 
-#: src/Tribe/Main.php:292 src/Tribe/Notices.php:142
+#: src/Tribe/Main.php:295 src/Tribe/Notices.php:142
 msgid "Eventbrite Tickets"
 msgstr ""
 
-#: src/Tribe/Main.php:749
+#: src/Tribe/Main.php:794
 msgid "Default status to use for imported events"
 msgstr "Estat predeterminat a utilitzar per als esdeveniments importats"
 
-#: src/Tribe/Main.php:741
+#: src/Tribe/Main.php:786
 msgid "Eventbrite Import Settings"
 msgstr ""
 
@@ -219,31 +222,31 @@ msgstr ""
 msgid "How are timezones handled?"
 msgstr ""
 
-#: src/Tribe/Main.php:1614
+#: src/Tribe/Main.php:1662
 msgid "Eventbrite Tickets needs to be connected to your Eventbrite account via an App Key/Client Secret. If you haven't yet configured one, do so at %1$s. When configuring your application, make sure to set the OAuth Redirect URI set to %2$s. Once your App Key and Client Secret are configured plug them in below, \"Save\" the page, and hit the \"Get Authorization\" button that appears once the Key + Secret have saved. After you've been authorized you'll be ready to start syncing Events!"
 msgstr ""
 
-#: src/Tribe/Main.php:1209 src/Tribe/Sync/Event.php:406
+#: src/Tribe/Main.php:1254 src/Tribe/Sync/Event.php:465
 msgid "The dates you have chosen for your ticket sales are inconsistent: %s"
 msgstr ""
 
-#: src/Tribe/Main.php:1200 src/Tribe/Sync/Event.php:397
+#: src/Tribe/Main.php:1245 src/Tribe/Sync/Event.php:456
 msgid "Ticket sales start and end datetime must not be the same"
 msgstr ""
 
-#: src/Tribe/Main.php:1139 src/Tribe/Sync/Event.php:326
+#: src/Tribe/Main.php:1184 src/Tribe/Sync/Event.php:385
 msgid "Missing Fields: %s"
 msgstr ""
 
-#: src/Tribe/Main.php:1091 src/Tribe/Sync/Event.php:278
+#: src/Tribe/Main.php:1136 src/Tribe/Sync/Event.php:337
 msgid "An organizer is required"
 msgstr ""
 
-#: src/Tribe/Main.php:1053 src/Tribe/Sync/Event.php:238
+#: src/Tribe/Main.php:1098 src/Tribe/Sync/Event.php:281
 msgid "The venue is missing"
 msgstr ""
 
-#: src/Tribe/Main.php:1044 src/Tribe/Sync/Event.php:227
+#: src/Tribe/Main.php:1089 src/Tribe/Sync/Event.php:259
 msgid "An Event Title is required"
 msgstr ""
 
@@ -255,15 +258,15 @@ msgstr ""
 msgid "You must set a price for the ticket"
 msgstr "Has de posar un preu al ticket"
 
-#: src/Tribe/Main.php:1626
+#: src/Tribe/Main.php:1674
 msgid "When configuring your application, make sure to set the <strong>OAuth Redirect URI</strong> on Eventbrite to the value above. <strong>We recommend you copy and paste this as it must be identical to what you see above.</strong>"
 msgstr "A l'hora de configurar l'aplicació, assegura't d'introduir el valor anterior al camp <strong>OAuth Redirect URI</strong> a Eventbrite. <strong>Et recomanem copiar i enganxar això, ja que el valor ha de ser idèntic al que es veu a dalt.</strong>"
 
-#: src/Tribe/Main.php:1289
+#: src/Tribe/Main.php:1334
 msgid "Invalid URL for the event"
 msgstr "URL invàlida per l'esdeveniment"
 
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1043
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1047
 msgid "<strong>Event published successfully.</strong> To make the event <strong>Live</strong>, payment information is <em>required</em>.<br /><a href=\"%s\" target=\"_blank\">Learn how to do this</a> or <a href=\"%s\" target=\"_blank\">go to Eventbrite right now and update the event</a>."
 msgstr "<strong>Esdeveniment publicat correctament.</strong> Per fer l'esdeveniment <strong>públic</strong>, la informació de pagament és <em>obligatòria</em>.<br /><a href=\"%s\" target=\"_blank\">Aprèn com fer-ho</a> o <a href=\"%s\" target=\"_blank\">vés a Eventbrite ara mateix i actualitza l'esdeveniment</a>."
 
@@ -275,90 +278,90 @@ msgstr "ID d'esdeveniment d'Eventbrite"
 msgid "Import Eventbrite Events"
 msgstr "Importar esdeveniments d'Eventbrite"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:414
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:404
 msgid "Eventbrite Event Status"
 msgstr "Estat de l'esdeveniment d'Eventbrite"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:408
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:398
 msgid "When you <strong>publish</strong> this post, an event will be created for you at Eventbrite. Before you publish, you can choose whether this event will save as a draft or live event using the Eventbrite status below."
 msgstr "Quan <strong>publiquis</strong> aquesta entrada, es crearà un esdeveniment a Eventbrite. Abans de publicar-la, pots triar si aquest esdeveniment es guardarà com a esborrany o esdeveniment públic utilitzant l'estat Eventbrite que es troba a continuació."
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:407
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:397
 msgid "Publish this post to create the Event with Eventbrite.com"
 msgstr "Publica aquesta entrada per crear l'esdeveniment amb Eventbrite.com"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:402
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:392
 msgid " Include Service fee in price"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:400
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:390
 msgid "Add Service Fee on top of price"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:397
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:387
 msgid "Fee"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:390
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:380
 msgid "Quantity"
 msgstr "Quantitat"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:381
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:371
 msgid " Free"
 msgstr "Gratuït"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:379
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:369
 msgid " Donation Based"
 msgstr "Basat en donacions"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:377
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:367
 msgid " Set Price"
 msgstr "Indicar preu"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:374
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:364
 msgid "Type"
 msgstr "Tipus"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:323
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:313
 msgid "Description"
 msgstr "Descripció"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:319
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:309
 msgid "Examples: Member, Non-member, Student, Early Bird"
 msgstr "Exemples: Membre, No-membre, Estudiant, Matiner"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:305
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:295
 msgid "Name"
 msgstr "Nom"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:295
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:285
 msgid "To create multiple tickets per event, submit this form, then follow the link to Eventbrite."
 msgstr "Per crear múltiples tiquets per esdeveniment, envia aquest formulari, i a continuació clica l'enllaç a Eventbrite."
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:293
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:283
 msgid "Set up your first ticket"
 msgstr "Configura el teu primer tiquet"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:287
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:277
 msgid "Note: Eventbrite requires you enter an organizer. If you neglect to enter an organizer, your display name will be passed as the organizer name to Eventbrite."
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:284
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:274
 msgid "Note: The Eventbrite API does not yet support recurring events, so all instances of recurring events will be associated with a single Eventbrite event."
 msgstr "Nota: L'API d'Eventbrite encara no permet esdeveniments recurrents, per tant totes les instàncies d'esdeveniments recurrents s'associaran a un sol esdeveniment d'Eventbrite."
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:230
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:239
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:265
 msgid "Display tickets on event page?"
 msgstr "Mostrar els tiquets a la pàgina de l'esdeveniment?"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:233
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:242
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:260
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:268
 msgid "No"
 msgstr "No"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:232
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:241
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:259
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:267
 msgid "Yes"
@@ -372,12 +375,12 @@ msgstr "Mantenir aquest esdeveniment associat amb eventbrite.com?"
 msgid "Register this event with eventbrite.com?"
 msgstr "Registrar aquest esdeveniment amb eventbrite.com?"
 
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:203
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:211
 msgid "This event has been deleted from Eventbrite. It is now unregistered from Eventbrite."
 msgstr "Aquest esdeveniment s'ha eliminat d'Eventbrite. Ara ja no està registrat a Eventrbrite."
 
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:25
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:197
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:205
 msgid "Tickets"
 msgstr "Tiquets"
 
@@ -397,94 +400,83 @@ msgstr "Si us plau, indica un nom per al tiquet d'Eventbrite."
 msgid "Eventbrite only allows events to be saved that start in the future."
 msgstr "Eventbrite només permet guardar esdeveniments que comencin en el futur."
 
-#: src/views/eventbrite/eventbrite-events-table.php:142
+#: src/views/eventbrite/eventbrite-events-table.php:152
 msgid "Print Check-In List"
 msgstr "Imprimir llista d'assistents"
 
-#: src/views/eventbrite/eventbrite-events-table.php:141
+#: src/views/eventbrite/eventbrite-events-table.php:151
 msgid "Print Badges"
 msgstr "Imprimir distintius"
 
-#: src/views/eventbrite/eventbrite-events-table.php:140
+#: src/views/eventbrite/eventbrite-events-table.php:150
 msgid "Email Attendees"
 msgstr "Enviar un correu electrònic als assistents"
 
-#: src/views/eventbrite/eventbrite-events-table.php:139
+#: src/views/eventbrite/eventbrite-events-table.php:149
 msgid "Manage Attendees"
 msgstr "Administrar assistents"
 
-#: src/views/eventbrite/eventbrite-events-table.php:138
+#: src/views/eventbrite/eventbrite-events-table.php:148
 msgid "Manage Discounts"
 msgstr "Administrar descomptes"
 
-#: src/views/eventbrite/eventbrite-events-table.php:137
+#: src/views/eventbrite/eventbrite-events-table.php:147
 msgid "Manage my Event"
 msgstr "Administrar el meu esdeveniment"
 
-#: src/views/eventbrite/eventbrite-events-table.php:131
+#: src/views/eventbrite/eventbrite-events-table.php:141
 msgid "Eventbrite Shortcuts:"
 msgstr "Dreceres d'Eventbrite:"
 
-#: src/views/eventbrite/eventbrite-events-table.php:125
+#: src/views/eventbrite/eventbrite-events-table.php:135
 msgid "You cannot publish this event in Eventbrite unless you first add a ticket on Eventbrite.com."
 msgstr "No pots publicar aquest esdeveniment a Eventbrite llevat que primer afegeixis un tiquet a Eventbrite.com."
 
-#: src/views/eventbrite/eventbrite-events-table.php:124
+#: src/views/eventbrite/eventbrite-events-table.php:134
 msgid "There are no tickets associated with this event!"
 msgstr "No hi ha tiquets associats amb aquest esdeveniment!"
 
-#: src/views/eventbrite/eventbrite-events-table.php:115
+#: src/views/eventbrite/eventbrite-events-table.php:125
 msgid "Create a new ticket"
 msgstr "Crea un nou tiquet"
 
-#: src/views/eventbrite/eventbrite-events-table.php:114
+#: src/views/eventbrite/eventbrite-events-table.php:124
 msgid "Edit existing tickets"
 msgstr "Editar tiquets existents"
 
-#: src/views/eventbrite/eventbrite-events-table.php:86
+#: src/views/eventbrite/eventbrite-events-table.php:96
 msgid "End Sales"
 msgstr ""
 
-#: src/views/eventbrite/eventbrite-events-table.php:85
+#: src/views/eventbrite/eventbrite-events-table.php:95
 msgid "Available"
 msgstr "Disponible"
 
-#: src/views/eventbrite/eventbrite-events-table.php:84
+#: src/views/eventbrite/eventbrite-events-table.php:94
 msgid "Sold"
 msgstr "Venut"
 
-#: src/views/eventbrite/eventbrite-events-table.php:83
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:385
+#: src/views/eventbrite/eventbrite-events-table.php:93
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:375
 msgid "Cost"
 msgstr "Cost"
 
-#: src/views/eventbrite/eventbrite-events-table.php:82
+#: src/views/eventbrite/eventbrite-events-table.php:92
 msgid "Ticket"
 msgstr "Tiquet"
 
-#: src/views/eventbrite/eventbrite-events-table.php:75
+#: src/views/eventbrite/eventbrite-events-table.php:85
 msgid "The following Eventbrite tickets are associated to this event"
 msgstr "Els següents tiquets d'Eventbrite estan associats a aquest esdeveniment"
 
-#: src/views/eventbrite/eventbrite-events-table.php:74
+#: src/views/eventbrite/eventbrite-events-table.php:84
 msgid "Associated Tickets:"
 msgstr "Tiquets associats:"
 
-#: src/views/eventbrite/eventbrite-events-table.php:64
-msgid "Edit event privacy settings"
-msgstr "Editar la configuració de privacitat de l'esdeveniment"
-
-#: src/views/eventbrite/eventbrite-events-table.php:61
-msgid "Event is not listed publicly."
-msgstr "L'esdeveniment no està llistat públicament."
-
-#: src/views/eventbrite/eventbrite-events-table.php:59
-msgid "Event is listed publicly on Eventbrite and search engines."
-msgstr "L'esdeveniment és públic a Eventbrite i en els cercadors."
-
 #: src/views/eventbrite/eventbrite-events-table.php:55
-msgid "Eventbrite Event Privacy: "
-msgstr "Privacitat de l'esdeveniment d'Eventbrite"
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:419
+msgid "Eventbrite Event Privacy"
+msgstr ""
 
 #: src/views/eventbrite/eventbrite-events-table.php:50
 msgid "This event was created without a ticket. You need to create a ticket before you can change this event's status."
@@ -527,43 +519,43 @@ msgstr "Importar esdeveniment des d'Eventbrite"
 msgid "The content field must be empty in order to import the event description."
 msgstr "El camp contingut ha d'estar buit per poder importar la descripció de l'esdeveniment."
 
-#: src/Tribe/Main.php:1673
+#: src/Tribe/Main.php:1721
 msgid "detailed walkthrough"
 msgstr "pas a pas detallat"
 
-#: src/Tribe/Main.php:1673
+#: src/Tribe/Main.php:1721
 msgid "See our %s."
 msgstr "Mira el nostre %s."
 
-#: src/Tribe/Main.php:1659
+#: src/Tribe/Main.php:1707
 msgid "Get Authorization"
 msgstr "Obtenir autorització"
 
-#: src/Tribe/Main.php:1638
+#: src/Tribe/Main.php:1686
 msgid "Client Secret"
 msgstr ""
 
-#: src/Tribe/Main.php:1633
+#: src/Tribe/Main.php:1681
 msgid "Application Key"
 msgstr "Clau d'aplicació"
 
-#: src/Tribe/Main.php:1625
+#: src/Tribe/Main.php:1673
 msgid "Auth URL"
 msgstr ""
 
-#: src/Tribe/Main.php:1614
+#: src/Tribe/Main.php:1662
 msgid "http://m.tri.be/vp"
 msgstr "http://m.tri.be/vp"
 
-#: src/Tribe/Main.php:573
+#: src/Tribe/Main.php:585
 msgid "Import Events"
 msgstr "Importar esdeveniments"
 
-#: src/Tribe/Main.php:825 src/Tribe/Main.php:1588 src/Tribe/Main.php:1609
+#: src/Tribe/Main.php:870 src/Tribe/Main.php:1636 src/Tribe/Main.php:1657
 msgid "Eventbrite"
 msgstr "Eventbrite"
 
-#: src/Tribe/Main.php:1573
+#: src/Tribe/Main.php:1621
 msgid "Import"
 msgstr "Importar"
 
@@ -575,89 +567,89 @@ msgstr "No has creat cap tiquet per al teu esdeveniment. No podràs publicar aqu
 msgid "Eventbrite status is set to DRAFT. You can update this in the 'Eventbrite Information' section further down this page."
 msgstr "L'estat d'Eventbrite està configurat com a ESBORRANY. Pots canviar-lo en la secció 'Informació d'Eventbrite' que es troba a sota."
 
-#: src/Tribe/Main.php:1534
+#: src/Tribe/Main.php:1582
 msgid "Import: Eventbrite"
 msgstr "Importar: Eventbrite"
 
-#: src/Tribe/Main.php:1533
+#: src/Tribe/Main.php:1581
 msgid "Import: Eventbrite "
 msgstr "Importar: Eventbrite"
 
-#: src/Tribe/Main.php:1410
+#: src/Tribe/Main.php:1455
 msgid "We were unable to import your Eventbrite event. Please try again."
 msgstr "No s'ha pogut importar l'esdeveniment d'Eventbrite. Si us plau, intenta-ho de nou."
 
-#: src/Tribe/Main.php:1313
+#: src/Tribe/Main.php:1358
 msgid "Event already imported."
 msgstr "L'esdeveniment ja ha estat importat amb anterioritat."
 
-#: src/Tribe/Main.php:1280 src/Tribe/Main.php:1303 src/Tribe/Main.php:1309
+#: src/Tribe/Main.php:1325 src/Tribe/Main.php:1348 src/Tribe/Main.php:1354
 msgid "We were unable to import your Eventbrite event. Please verify the event id and try again."
 msgstr "No s'ha pogut importar l'esdeveniment d'Eventbrite. Si us plau, comprova l'id de l'esdeveniment i intenta-ho de nou."
 
-#: src/Tribe/Main.php:1196 src/Tribe/Sync/Event.php:393
+#: src/Tribe/Main.php:1241 src/Tribe/Sync/Event.php:452
 msgid "Ticket sales start date cannot be after ticket sales end date"
 msgstr "La data d'inici de venda de tiquets no pot ser posterior a la data de finalització de vendes"
 
-#: src/Tribe/Main.php:1192 src/Tribe/Sync/Event.php:389
+#: src/Tribe/Main.php:1237 src/Tribe/Sync/Event.php:448
 msgid "Ticket sales end date cannot be after the event ends"
 msgstr "La data de finalització de venda de tiquets no pot ser posterior al final de l'esdeveniment "
 
-#: src/Tribe/Main.php:1123 src/Tribe/Sync/Event.php:310
+#: src/Tribe/Main.php:1168 src/Tribe/Sync/Event.php:369
 msgid "Ticket Cost (must be numeric)"
 msgstr "Cost del tiquet (ha de ser numèric)"
 
-#: src/Tribe/Main.php:1102 src/Tribe/Sync/Event.php:291
+#: src/Tribe/Main.php:1147 src/Tribe/Sync/Event.php:350
 msgid "Ticket - Include Fee in Price"
 msgstr "Tiquet - inclou la comissió en el preu"
 
-#: src/Tribe/Main.php:1101 src/Tribe/Sync/Event.php:290
+#: src/Tribe/Main.php:1146 src/Tribe/Sync/Event.php:349
 msgid "Ticket Quantity"
 msgstr "Quantitat de tiquets"
 
-#: src/Tribe/Main.php:1100 src/Tribe/Sync/Event.php:289
+#: src/Tribe/Main.php:1145 src/Tribe/Sync/Event.php:348
 msgid "Ticket Cost"
 msgstr "Cost del tiquet"
 
-#: src/Tribe/Main.php:1099 src/Tribe/Sync/Event.php:288
+#: src/Tribe/Main.php:1144 src/Tribe/Sync/Event.php:347
 msgid "Ticket Type"
 msgstr "Tipus de tiquet"
 
-#: src/Tribe/Main.php:1098 src/Tribe/Sync/Event.php:287
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:352
+#: src/Tribe/Main.php:1143 src/Tribe/Sync/Event.php:346
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:342
 msgid "Date to End Ticket Sales"
 msgstr "Data per la finalització de venda de tiquets"
 
-#: src/Tribe/Main.php:1097 src/Tribe/Sync/Event.php:286
-#: src/views/eventbrite/eventbrite-meta-box-extension.php:331
+#: src/Tribe/Main.php:1142 src/Tribe/Sync/Event.php:345
+#: src/views/eventbrite/eventbrite-meta-box-extension.php:321
 msgid "Date to Start Ticket Sales"
 msgstr "Data per l'inici de venda de tiquets"
 
-#: src/Tribe/Main.php:1096 src/Tribe/Sync/Event.php:285
+#: src/Tribe/Main.php:1141 src/Tribe/Sync/Event.php:344
 msgid "Ticket Name"
 msgstr "Nom del tiquet"
 
-#: src/Tribe/Main.php:1066 src/Tribe/Sync/Event.php:253
+#: src/Tribe/Main.php:1111 src/Tribe/Sync/Event.php:297
 msgid "This Venue is missing the City"
 msgstr "Aquest recinte no té ciutat"
 
-#: src/Tribe/Main.php:1062 src/Tribe/Sync/Event.php:249
+#: src/Tribe/Main.php:1107 src/Tribe/Sync/Event.php:293
 msgid "No Address for this Venue"
 msgstr "Aquest recinte no té direcció"
 
-#: src/Tribe/Main.php:1058 src/Tribe/Sync/Event.php:245
+#: src/Tribe/Main.php:1103 src/Tribe/Sync/Event.php:289
 msgid "The Venue is missing the Title"
 msgstr "El recinte no té títol"
 
-#: src/Tribe/Main.php:1696
+#: src/Tribe/Main.php:1744
 msgid "The request wasn't sent from this tab."
 msgstr "La sol·licitud no s'ha enviat des d'aquesta pestanya."
 
-#: src/Tribe/Main.php:1690
+#: src/Tribe/Main.php:1738
 msgid "The request was sent insecurely."
 msgstr "La sol·licitud s'ha enviat de forma insegura."
 
-#: src/Tribe/Main.php:938
+#: src/Tribe/Main.php:983
 msgid "You don't have permission to do that."
 msgstr "No tens permís per fer això."
 
@@ -670,84 +662,84 @@ msgid "The Events Calendar"
 msgstr "The Events Calendar"
 
 #: src/Tribe/Sync/Utilities.php:69
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1570
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1574
 msgctxt "em dash"
 msgid "&#8212;"
 msgstr "&#8212;"
 
 #: src/Tribe/Sync/Utilities.php:68
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1569
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1573
 msgctxt "en dash"
 msgid "&#8211;"
 msgstr "&#8211;"
 
 #: src/Tribe/Sync/Utilities.php:67
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1568
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1572
 msgctxt "closing curly single quote"
 msgid "&#8217;"
 msgstr "&#8217;"
 
 #: src/Tribe/Sync/Utilities.php:66
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1567
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1571
 msgctxt "opening curly single quote"
 msgid "&#8216;"
 msgstr "&#8216;"
 
 #: src/Tribe/Sync/Utilities.php:65
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1566
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1570
 msgctxt "double prime"
 msgid "&#8243;"
 msgstr "&#8243;"
 
 #: src/Tribe/Sync/Utilities.php:64
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1565
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1569
 msgctxt "prime"
 msgid "&#8242;"
 msgstr "&#8242;"
 
 #: src/Tribe/Sync/Utilities.php:63
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1564
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1568
 msgctxt "apostrophe"
 msgid "&#8217;"
 msgstr "&#8217;"
 
 #: src/Tribe/Sync/Utilities.php:62
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1563
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1567
 msgctxt "closing curly double quote"
 msgid "&#8221;"
 msgstr "&#8221;"
 
 #: src/Tribe/Sync/Utilities.php:61
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1562
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1566
 msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr "&#8220;"
 
-#: src/Tribe/Event.php:214 src/Tribe/Main.php:474
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1297
-#: src/views/eventbrite/eventbrite-events-table.php:101
+#: src/Tribe/Event.php:233 src/Tribe/Main.php:477
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1301
+#: src/views/eventbrite/eventbrite-events-table.php:111
 msgid "Donation"
 msgstr "Donació"
 
-#: src/Tribe/Event.php:182 src/Tribe/Event.php:218 src/Tribe/Main.php:473
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1265
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1301
-#: src/views/eventbrite/eventbrite-events-table.php:99
+#: src/Tribe/Event.php:201 src/Tribe/Event.php:237 src/Tribe/Main.php:476
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1269
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1305
+#: src/views/eventbrite/eventbrite-events-table.php:109
 msgid "Free"
 msgstr "Gratis"
 
-#: src/Tribe/Sync/Event.php:201
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:956
+#: src/Tribe/Sync/Event.php:233
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:959
 msgid "This Event Requires a Organizer to sync to Eventbrite"
 msgstr "Aquest esdeveniment necessita un organitzador per sincronitzar-se amb Eventbrite."
 
-#: src/Tribe/Sync/Event.php:185
-#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:934
+#: src/Tribe/Sync/Event.php:201
+#: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:937
 msgid "This Event requires a Title to sync to Eventbrite."
 msgstr "Aquest esdeveniment necessita un títol per sincronitzar-se amb Eventbrite."
 
-#: src/Tribe/Main.php:1038 src/Tribe/Sync/Event.php:30
-#: src/Tribe/Sync/Main.php:59
+#: src/Tribe/Main.php:1083 src/Tribe/Sync/Event.php:30
+#: src/Tribe/Sync/Main.php:87
 #: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:774
 msgid "This Event is a revision and cannot sync to Eventbrite."
 msgstr "Aquest esdeveniment és una revisió i no pot sincronitzar-se amb Eventbrite."

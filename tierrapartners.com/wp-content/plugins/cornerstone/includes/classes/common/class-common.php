@@ -14,7 +14,15 @@ class Cornerstone_Common extends Cornerstone_Plugin_Component {
    */
   public function setup() {
 
-    $this->font_icons = $this->plugin->config_group( 'common/font-icons' );
+    $this->font_icons = apply_filters('cs_font_icon_data', array_merge($this->plugin->config_group( 'common/font-icons' ), $this->plugin->config_group( 'common/font-icon-aliases' ), array(
+      'groups' => array(
+        'solid'   => __('Solid','cornerstone'),
+        'regular' => __('Regular','cornerstone'),
+        'light'   => __('Light','cornerstone'),
+        'brands'  => __('Brands','cornerstone')
+      )
+    )));
+
     add_action( 'init', array( $this, 'init' ) );
 
     $version = CS()->version();
@@ -67,8 +75,15 @@ class Cornerstone_Common extends Cornerstone_Plugin_Component {
 
     if ( 0 === strpos($key, 'o-' ) ) {
       $key = substr( $key, 2 );
-      if ( in_array($key, $this->font_icons['outlines']) ) {
+      if ( in_array($key, $this->font_icons['regular']) ) {
         $set = 'o';
+      }
+    }
+
+    if ( 0 === strpos($key, 'l-' ) ) {
+      $key = substr( $key, 2 );
+      if ( in_array($key, $this->font_icons['light']) ) {
+        $set = 'l';
       }
     }
 
@@ -109,8 +124,12 @@ class Cornerstone_Common extends Cornerstone_Plugin_Component {
 
     $ids = array_keys( $this->font_icons['icons'] );
 
-    foreach ($this->font_icons['outlines'] as $key) {
+    foreach ($this->font_icons['regular'] as $key) {
       $ids[] = "o-$key";
+    }
+
+    foreach ($this->font_icons['light'] as $key) {
+      $ids[] = "l-$key";
     }
 
     return $ids;

@@ -1,5 +1,45 @@
 *** WooCommerce Subscriptions Changelog ***
 
+2018.10.16 - version 2.4.1
+* Fix: Cache the retry data needs migration logic to avoid a get_posts() call on every request. PR#2994
+* Fix: Load the retry store instance on WordPress init rather than on Subscriptions plugin load. Fixes errors with third-party plugins hooking into get post queries and calling undeclared WP functions. PR#3000
+* Fix: Fix an undefined product ID error which could occur during a switch request when trying to access a product from the old subscription format. PR#2961
+* Fix: Fix a missing closing `a` tag in the downgrade notice. PR#3002
+* Dev: Add a new hook ('woocommerce_admin_created_subscription') which is triggered after a subscription is created manually via the admin screen. PR#2988
+* Dev: Add new hooks to allow third-parties to customize subscription filtering behavior on the admin subscriptions table. PR#2989
+
+2018.10.09 - version 2.4.0
+* New: Update Action Scheduler to v2.1.0.
+* Fix: Remove the URL scheme when generating the site's duplicate lock URL. Fixes an issue where staging sites with a URL length equal the scheme would incorrectly not trigger staging mode. PR#2599
+* Fix: Move callbacks attached specifically for renewal carts to the constructor so that all extended cart classes are not hooked on. PR#2963
+* Fix: Allow products which are password protected to be manually renewed via the cart. PR#2912
+* Fix: Remove unnecessary leading space in translation string. PR#2976
+* Fix: Add group by clause to subscriber count reports query. PR#2970
+* Fix: Fix an error which would occur when calling the deprecated get_related_orders_query(). PR#2954
+* Tweak: Separate a subscription start from the creation date. PR#2594
+* Tweak: Display the expected site URL in staging site notice and system status. PR#2950
+* Dev: Implement an Autoloader for loading plugin class files. PR#2412
+* Dev: Replace WC_Logger type hinting in function signatures to use lower level WC_Logger_Interface. PR#2902
+* Dev: Remove switch_line_items_pre_2_1_2() and switch_shipping_line_items_pre_2_1_2() functions. PR#2900
+* Dev: [WC 3.5] Move subscription customer ID's into the post author column on sites running WC 3.5 and above. PR#2559
+* Dev: Move payment retry data to custom tables. PR#2753
+* Dev: Update file inclusions to use relative paths. PR#2936
+* Dev: Add an API for third-parties to register their custom subscription date types. PR#2840
+* Dev: Update the hook used for adding Subscriptions Settings. PR#2939
+* Dev: Add a 'wcs_payment_gateways_change_payment_method' filter to allow third-parties to filter which payment methods are displayed when changing payment methods. PR#2571
+* Dev: Trigger a new 'wcs_before_replace_pay_shortcode' action before displaying the change payment shortcode.
+* Dev: Add the 'wcs_update_all_subscriptions_addresses_checked' filter to allow third-parties to filter the default checked status of the all_subscriptions_addresses field. PR#2948
+
+2018.09.25 - version 2.3.7
+* Fix: Don't apply subscription payment gateway filters while on the order-pay page. PR#2927
+* Fix: Prevent admin users from changing product type when the product has active subscriptions. PR#2932
+* Fix: Avoid calculating the initial order carts shipping without an address. PR#2923
+* Fix: Remove unnecessary empty() check for PHP < 5.5 compat. PR#2940
+* Fix: Reinstate switch orders being returned from WC_Subscription::get_related_orders() when called with the default $order_type param. This returns the behavior of this function to what it was pre v2.3. PR#2946
+* Tweak: [WC 3.4] Dont escape the product attribute labels in the add-to-cart/variable-subscription.php template. PR#2914
+* Tweak: Add a link to the subscription customer's profile on the admin edit subscription screen. PR#2911
+* Tweak: [dev] Update calls of remove_action() and remove_filter() removing the unused 4th parameter. PR#2926
+
 2018.09.10 - version 2.3.6
 * New: Include subscription paid and completed UTC dates in REST API subscriptions response. PR#2895
 * Fix: When switching during a free trial the days in the new cycle are equal to the days in the old cycle. This returns next payment date calculations to what it was pre 2.3.3. PR#2887

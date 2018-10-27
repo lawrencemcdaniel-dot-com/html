@@ -102,7 +102,6 @@ class Cornerstone_Admin extends Cornerstone_Plugin_Component {
     $post_id = ( $post ) ? $post->ID : 'new';
     $commonData = array(
       'homeURL'   => preg_replace('/\?lang=.*/' , '', home_url()),
-      'editURL'   => preg_replace('/\?lang=.*\/\#/' , '#', $this->plugin->common()->get_edit_url()),
       'post_id'   => $post_id,
       '_cs_nonce' => wp_create_nonce( 'cornerstone_nonce' ),
       'strings'   => $this->plugin->i18n_group( 'admin', false ),
@@ -163,8 +162,10 @@ class Cornerstone_Admin extends Cornerstone_Plugin_Component {
         wp_register_script( 'cs-dashboard-post-editor-js', $this->plugin->js( 'admin/dashboard-post-editor' ) , array( cs_tco()->handle( 'admin-js' )  ), $this->plugin->version(), true );
 
         wp_localize_script( 'cs-dashboard-post-editor-js', 'csDashboardPostEditorData', array_merge( $commonData, array(
+          'editURL' => CS()->component('Common')->get_app_route_url( 'content', '{{post_id}}', 'builder' ),
           'usesCornerstone' => ( $this->plugin->common()->uses_cornerstone( $post ) ) ? 'true' : 'false',
           'editorTabMarkup' => $this->view( 'admin/editor-tab', false ),
+          'editorTabContentMarkup' => $this->view( 'admin/editor-tab-content', false ),
         ) ) );
 
         wp_enqueue_script( 'cs-dashboard-post-editor-js' );

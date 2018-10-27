@@ -1,6 +1,6 @@
 <?php
 
-namespace DeliciousBrains\WP_Offload_S3\Pro\Integrations;
+namespace DeliciousBrains\WP_Offload_Media\Pro\Integrations;
 
 class Divi extends Integration {
 
@@ -32,7 +32,9 @@ class Divi extends Integration {
 	 */
 	public function init() {
 		add_filter( 'et_fb_load_raw_post_content', function ( $content ) {
-			return apply_filters( 'as3cf_filter_post_local_to_s3', $content );
+			$content = apply_filters( 'as3cf_filter_post_local_to_s3', $content ); // Backwards compatibility
+
+			return apply_filters( 'as3cf_filter_post_local_to_provider', $content );
 		} );
 	}
 }

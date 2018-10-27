@@ -20,6 +20,9 @@
 $data = array(
   'title'  => __( 'Audio', '__x__' ),
   'values' => x_values_element_audio(),
+  'options' => array(
+    'height_check' => false
+  )
 );
 
 

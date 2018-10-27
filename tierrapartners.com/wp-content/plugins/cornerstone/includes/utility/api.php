@@ -161,7 +161,7 @@ function cornerstone_get_element( $name ) {
 
 function cornerstone_preview_container_output() {
   if ( apply_filters('cornerstone_preview_container_output', true ) ) {
-    echo '{{yield}}';
+    echo '{{children}}';
   }
 }
 

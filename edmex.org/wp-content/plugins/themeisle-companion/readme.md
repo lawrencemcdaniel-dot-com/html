@@ -1,5 +1,5 @@
 # Orbit Fox by ThemeIsle #
-**Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp), [rodicaelena](https://profiles.wordpress.org/rodicaelena), [baicusandrei](https://profiles.wordpress.org/baicusandrei)  
+**Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp), [rodicaelena](https://profiles.wordpress.org/rodicaelena), [baicusandrei](https://profiles.wordpress.org/baicusandrei), [hardeepasrani](https://profiles.wordpress.org/hardeepasrani)  
 **Tags:** widget, admin, widgets, sharing, sections, themes, stock photos, custom icons, icons, menu icons, stock, templates  
 **Requires at least:** 4.7  
 **Tested up to:** 4.9  
@@ -8,7 +8,7 @@
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-This swiss-knife plugin comes with a quality template library, menu/sharing icons, and newly added Elementor/BeaverBuilder page builder widgets.
+This swiss-knife plugin comes with a quality template library, menu/sharing icons, Gutenberg blocks and newly added Elementor/BeaverBuilder page builder widgets.
 
 ## Description ##
 
@@ -23,6 +23,7 @@ https://www.youtube.com/watch?v=YHhK_twfYB8
 - Uptime Monitor
 - Google Analytics Integration
 - Template Directory
+- Gutenberg Blocks
 - Elementor Addons and Widgets
 - Beaver Builder Widgets
 - Sharing module
@@ -80,6 +81,12 @@ This plugin extends the features of your sites by adding numerous features.
 - One-click import for awesome page templates.
 - Elementor templates will be added frequently for you to use creatively.
 
+**Why use our Gutenberg Blocks:**
+- We offer new widgets to add more value to the content you can create within the Gutenberg editor.
+- Pricing Table Widget to easily create pricing layouts.
+- Services Widget to easily create pricing layouts.
+- Post Grid Widget to easily list your Posts in a grid.
+
 **Why should I use this with Zerif/Hestia themes:**
  - By using it along with our themes you gain access to a lot of useful widgets like **Testimonials**, **Our Focus**, **About Us** and more other.
 
@@ -103,6 +110,21 @@ Activating the Orbit Fox plugin is just like any other plugin. If you've uploade
 5. Social Sharing Module
 
 ## Changelog ##
+### 2.6.1 - 2018-10-10  ###
+
+* Added backward compatibility for Font Awesome 4
+* Fixed issue with Elementor dequeuing Font Awesome
+* Fixed issue with Gutenberg Module crashing Orbit Fox dashboard
+* Fixed issue with Pie Chart causing REST API error
+* Fixed z-index issue in Accordion block.
+
+
+### 2.6.0 - 2018-10-08  ###
+
+* Adds Gutenberg integration with various blocks.
+* Adds Font Awesome, Google maps, Notice, Sharing icons, Pie charts, Plugin Card, Pricing, Testimonial and Click to Tweet  Gutenberg block and Post grid block.
+
+
 ### 2.5.8 - 2018-09-12  ###
 
 * Extend image optimization module for 50% of users.

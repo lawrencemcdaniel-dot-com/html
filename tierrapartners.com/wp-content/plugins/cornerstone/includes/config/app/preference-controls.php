@@ -26,4 +26,26 @@ return array(
     'condition'   => array( 'user_can:preference.help_text.user' => true ),
 	),
 
+  array(
+    'key'         => 'rich_text_default',
+    'type'        => 'toggle',
+    'title'       => __( 'Rich Text Editor Default', 'cornerstone' ),
+    'description' => __( 'By default, start text editors in rich text mode whenever possible', 'cornerstone' ),
+    'condition'   => array( 'user_can:preference.rich_text_default.user' => true ),
+  ),
+
+  array(
+    'key'         => 'ui_theme',
+    'type'        => 'select',
+    'title'       => __( 'UI Theme', 'cornerstone' ),
+    'description' => __( 'Select how you would like the application UI to appear.', 'cornerstone' ),
+    'condition'   => array( 'user_can:preference.ui_theme.user' => true ),
+    'options'     => array(
+      'choices' => array(
+        array( 'value' => 'light', 'label' => __( 'Light', 'cornerstone' ) ),
+        array( 'value' => 'dark', 'label' => __( 'Dark', 'cornerstone' ) )
+      )
+    )
+  ),
+
 );

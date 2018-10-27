@@ -99,15 +99,32 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Venue {
 			}
 
 			$coordinates = Tribe__Utils__Coordinates_Provider::instance()->provide_coordinates_for_address( array_filter( $address ) );
-			if ( empty( $coordinates ) ) {
-				$message_error = esc_attr__( 'There was a problem determining the coordinates for your event, try using a different venue address.', 'events-eventbrite' );
-				tribe( 'eventbrite.main' )->throw_notice( $venue, $message_error, $_POST );
 
-				return false;
+			if ( empty( $coordinates ) ) {
+
+				/**
+				 * Filters whether Venue latitude and longitude should be required for a Venue to be considered valid or not.
+				 *
+				 * @since 4.5.5
+				 *
+				 * @param bool    $lat_and_long_are_required Whether a Venue should have latitude and longitude coordinates
+				 *                                           to be considered valid or not; defaults to `false`.
+				 * @param WP_Post $post                      The current event post object that's beins synced.
+				 * @param array   $address                   An array of the Venue address components.
+				 */
+				$lat_and_long_are_required = apply_filters( 'tribe_events_eb_venue_lat_and_long_are_required', false, $post, $address );
+
+				if ( $lat_and_long_are_required ) {
+					$message_error = esc_attr__( 'There was a problem determining the coordinates for your event, try using a different venue address.', 'events-eventbrite' );
+					tribe( 'eventbrite.main' )->throw_notice( $venue, $message_error, $_POST );
+					return false;
+				}
+			} else {
+				// Fill in latitude and longitude details if available.
+				$args['venue.address.latitude']  = $coordinates['lat'];
+				$args['venue.address.longitude'] = $coordinates['lng'];
 			}
 
-			$args['venue.address.latitude']  = $coordinates['lat'];
-			$args['venue.address.longitude'] = $coordinates['lng'];
 		}
 
 		return $args;

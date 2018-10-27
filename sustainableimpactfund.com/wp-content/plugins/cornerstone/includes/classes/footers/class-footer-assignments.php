@@ -276,7 +276,9 @@ class Cornerstone_Footer_Assignments extends Cornerstone_Plugin_Component {
   }
 
   public function permissions( $value, $operation ) {
-    return $this->plugin->component('App_Permissions')->user_can('footers.manage_assignments');
+    $permissions = $this->plugin->component('App_Permissions');
+    $can_manage = $permissions->user_can('footers.manage_assignments');
+    return $can_manage || ( $operation === 'access' && $permissions->user_can('theme_options') );
   }
 
 }

@@ -339,7 +339,7 @@ class The_Grid_Layout {
 		// get all terms ids
 		$filters = array_map(function($filter) {
 			return $filter['id'];
-		}, $filters);
+		}, (array) $filters);
 		
 		// process term ids
 		if ($term_ids = array_filter($filters, 'is_int')) {

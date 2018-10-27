@@ -139,7 +139,7 @@ function x_get_partial_data( $_custom_data, $args = array() ) {
   //     the new beginning so it can be passed on to the partial template.
 
   $defaults = array(
-    'pass_on'   => array( '_region', '_id', '_type', '_transient', '_modules', 'mod_id', 'id', 'class' ),
+    'pass_on'   => array( '_region', '_id', '_type', '_transient', '_modules', 'mod_id', 'id', 'class', 'toggle_hash' ),
     'add_in'    => array(),
     'keep_out'  => array(),
     'find_data' => array(),
@@ -433,6 +433,8 @@ class X_Walker_Nav_Menu extends Walker_Nav_Menu {
     $x_anchor_graphic_icon_alt          = ( isset( $x_item_meta['menu-item-anchor_graphic_icon_alt'] )          ) ? $x_item_meta['menu-item-anchor_graphic_icon_alt'][0]          : '';
     $x_anchor_graphic_image_src         = ( isset( $x_item_meta['menu-item-anchor_graphic_image_src'] )         ) ? $x_item_meta['menu-item-anchor_graphic_image_src'][0]         : '';
     $x_anchor_graphic_image_src_alt     = ( isset( $x_item_meta['menu-item-anchor_graphic_image_src_alt'] )     ) ? $x_item_meta['menu-item-anchor_graphic_image_src_alt'][0]     : '';
+    $x_anchor_graphic_image_alt         = ( isset( $x_item_meta['menu-item-anchor_graphic_image_alt'] )         ) ? $x_item_meta['menu-item-anchor_graphic_image_alt'][0]         : '';
+    $x_anchor_graphic_image_alt_alt     = ( isset( $x_item_meta['menu-item-anchor_graphic_image_alt_alt'] )     ) ? $x_item_meta['menu-item-anchor_graphic_image_alt_alt'][0]     : '';
     $x_anchor_graphic_image_width       = ( isset( $x_item_meta['menu-item-anchor_graphic_image_width'] )       ) ? $x_item_meta['menu-item-anchor_graphic_image_width'][0]       : '';
     $x_anchor_graphic_image_height      = ( isset( $x_item_meta['menu-item-anchor_graphic_image_height'] )      ) ? $x_item_meta['menu-item-anchor_graphic_image_height'][0]      : '';
     $x_anchor_graphic_menu_item_display = ( isset( $x_item_meta['menu-item-anchor_graphic_menu_item_display'] ) ) ? $x_item_meta['menu-item-anchor_graphic_menu_item_display'][0] : '';
@@ -444,6 +446,8 @@ class X_Walker_Nav_Menu extends Walker_Nav_Menu {
       'anchor_graphic_icon_alt'          => $x_anchor_graphic_icon_alt,
       'anchor_graphic_image_src'         => $x_anchor_graphic_image_src,
       'anchor_graphic_image_src_alt'     => $x_anchor_graphic_image_src_alt,
+      'anchor_graphic_image_alt'         => $x_anchor_graphic_image_alt,
+      'anchor_graphic_image_alt_alt'     => $x_anchor_graphic_image_alt_alt,
       'anchor_graphic_image_width'       => $x_anchor_graphic_image_width,
       'anchor_graphic_image_height'      => $x_anchor_graphic_image_height,
       'anchor_graphic_menu_item_display' => $x_anchor_graphic_menu_item_display,

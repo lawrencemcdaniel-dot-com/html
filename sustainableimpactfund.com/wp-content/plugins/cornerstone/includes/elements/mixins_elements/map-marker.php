@@ -53,6 +53,8 @@ function x_control_groups_element_map_marker( $adv = true ) {
 
 function x_values_element_map_marker( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = x_values_map_marker();
 
   return x_bar_mixin_values( $values, $settings );

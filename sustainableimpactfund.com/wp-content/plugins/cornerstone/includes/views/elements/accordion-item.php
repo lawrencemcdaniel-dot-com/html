@@ -17,6 +17,9 @@ $atts_accordion_item = array(
   'class' => x_attr_class( array( $mod_id, 'x-acc-item', $class ) ),
 );
 
+if (isset($id)) {
+  $atts_accordion_item['id'] = $id;
+}
 
 // Atts: Accordion Header
 // ----------------------
@@ -45,6 +48,10 @@ if ( $accordion_grouped ) {
   } else {
     $atts_accordion_header['data-x-toggle-group'] = $p_mod_id;
   }
+}
+
+if ( ! empty( $toggle_hash ) ) {
+  $atts_accordion_header['data-x-toggle-hash'] = $toggle_hash;
 }
 
 

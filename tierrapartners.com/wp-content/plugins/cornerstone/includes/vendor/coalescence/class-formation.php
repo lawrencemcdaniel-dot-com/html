@@ -3,11 +3,6 @@
 class TCO_Coalescence_Formation {
 
   public $formation = array();
-  public $selector_prefix = '';
-
-  public function __construct( $selector_prefix = '' ) {
-    $this->selector_prefix = $selector_prefix;
-  }
 
   public function add_items( $items ) {
 
@@ -53,7 +48,7 @@ class TCO_Coalescence_Formation {
       }
 
       foreach ( $selectors as $selector => $declarations) {
-        $buffer .= $this->selector_prefix . $selector . ' {';
+        $buffer .= $selector . ' {';
         $buffer .= implode( ';', $declarations ) . ';';
         $buffer .= '}';
       }

@@ -120,19 +120,23 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
      */
 
     foreach ($attr_keys as $key) {
-      $render_data[$key] = "{{model.atts.$key}}";
+      // $render_data[$key] = "{{model.atts.$key}}";
+      $render_data[$key] = "{{data.$key}}";
     }
 
     foreach ($parent_attr_keys as $key) {
-      $render_data[$key] = "{{model.parent.atts.$key}}";
+      // $render_data[$key] = "{{model.parent.atts.$key}}";
+      $render_data[$key] = "{{parentData.$key}}";
     }
 
     foreach ($attr_html_keys as $key) {
-      $render_data[$key] = "{{hs model.atts.$key}}";
+      // $render_data[$key] = "{{hs model.atts.$key}}";
+      $render_data[$key] = "{{data.$key}}";
     }
 
     foreach ($parent_attr_html_keys as $key) {
-      $render_data[$key] = "{{hs model.parent.atts.$key}}";
+      // $render_data[$key] = "{{hs model.parent.atts.$key}}";
+      $render_data[$key] = "{{parentData.$key}}";
     }
 
     $this->html_cache = array();
@@ -150,7 +154,7 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
 
       // base64 encode HTML within handlebars helper
       if ( in_array($key, $markup_html_keys, true) ) {
-        $render_data[$key] = $this->isolate_html( $key . 'aaa', $value );
+        $render_data[$key] = $this->isolate_html( $key, $value );
         continue;
       }
 
@@ -160,7 +164,7 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
     }
 
     if ( isset( $model['_id'] ) ) {
-      $render_data['_id'] = '{{model.id}}';
+      $render_data['_id'] = '{{_id}}';
     }
 
     if ( $definition->render_children() ) {
@@ -211,18 +215,16 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
 
     $response = $this->restore_html( $response );
 
-
-
     /**
      * Add htmlSafe helper to atts inside style attributes
      */
-    $response = preg_replace_callback('/style="(.+?)"/', array( $this, 'add_htmlsafe_helper' ), $response);
+    // $response = preg_replace_callback('/style="(.+?)"/', array( $this, 'add_htmlsafe_helper' ), $response);
 
     /**
      * Add data-cs-observeable on root element if not supplied by view
      */
     if ( -1 !== strpos($response, 'data-cs-observeable' ) ) {
-      $response = preg_replace('/<\s*?\w+\s?/', "$0 data-cs-observeable=\"{{observer}}\" ", $response, 1 );
+      $response = preg_replace('/<\s*?\w+\s?/', "$0 data-cs-observeable-id=\"{{_id}}\" data-cs-observeable=\"{{observer}}\" ", $response, 1 );
     }
 
     /**
@@ -237,7 +239,7 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
     foreach ($this->zone_output as $key => $value) {
       $html = preg_replace('/<!--(.|\n)*?-->/', '', $value);
       $markup = base64_encode( apply_filters( 'cs_render_element_zone_output', $html ) );
-      $response .= "{{preview/zone-pipe model=model zone=\"$key\" markup=\"$markup\"}}";
+      $response .= "{{portal name=\"$key\" content=\"$markup\"}}";
     }
 
     $styling = $this->plugin->component('Styling');
@@ -335,18 +337,18 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
 
   }
 
-  public function add_htmlsafe_helper( $matches ) {
-    return str_replace('{{model.atts', '{{hs model.atts', $matches[0]);
-  }
+  // public function add_htmlsafe_helper( $matches ) {
+  //  return $matches[0];//str_replace('{{model.atts', '{{hs model.atts', $matches[0]);
+  //}
 
   public function post_process_attr( $value ) {
-
-    if ( preg_match('/{{(model\.atts.*?)}}/', $value, $matches ) ) {
-      if ( isset($matches[1]) ) {
-        $attr = $matches[1];
-        return "{{post-process-attr $attr processer=model.definition}}";
-      }
-    };
+    
+    // if ( preg_match('/{{data\.(.+?)}}/', $value, $matches ) ) { 
+    //   if ( isset($matches[1]) ) {
+    //     $attr = $matches[1];
+    //     return "{{transform post-process-attr $attr}}";
+    //   }
+    // };
 
     return $value;
   }

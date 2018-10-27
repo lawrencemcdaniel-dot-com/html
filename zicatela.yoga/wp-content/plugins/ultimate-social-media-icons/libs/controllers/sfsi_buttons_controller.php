@@ -926,8 +926,8 @@ if(@!function_exists("sfsi_sanitize_hex_color"))
         if ( '' === $color )
             return '';
      
-        // 3 or 6 hex digits, or the empty string.
-        if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) )
+        // 3 or 6 hex digits, or the empty string with or without !important
+        if ( preg_match('(^#([A-Fa-f0-9]{3}){1,2}$|^#([A-Fa-f0-9]{3}){1,2}\s*!important$|^$)', $color ) )
             return $color;
     }
 }
@@ -943,7 +943,7 @@ function sfsi_bannerOption(){
 
       $objThemeCheck = new sfsi_ThemeCheck();
         
-      $domainname     = $objThemeCheck->sfsi_plus_getdomain(get_bloginfo('url'));
+      $domainname     = isset($_POST['domain'])?$_POST['domain']:$objThemeCheck->sfsi_plus_getdomain(get_bloginfo('url'));
 
       // Get all themes data which incudes nobrainer 
       $themeDataArr = $objThemeCheck->sfsi_plus_get_themeData();
@@ -1035,6 +1035,6 @@ function sfsi_bannerOption(){
                 });
         </script>';
     }   
-    die;
+    die();
 }
 ?>

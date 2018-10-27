@@ -3,6 +3,7 @@
 class Cornerstone_Font_Manager extends Cornerstone_Plugin_Component {
 
   public $queue = array();
+  public $custom_css_output = '';
   protected $font_items;
   protected $font_config;
   protected $previewing = false;
@@ -23,7 +24,7 @@ class Cornerstone_Font_Manager extends Cornerstone_Plugin_Component {
     add_action( 'cornerstone_head_css', array( $this, 'output_typekit_loading_styles' ) );
     add_action( 'x_head_css', array( $this, 'output_typekit_loading_styles' ) );
 
-
+    add_filter( 'upload_mimes', array( $this, 'upload_mimes' ), 999 );
   }
 
   public function set_previewing() {
@@ -63,6 +64,7 @@ class Cornerstone_Font_Manager extends Cornerstone_Plugin_Component {
     return wp_parse_args( $data, array(
       'googleSubsets' => array(),
       'typekitKitID' => '',
+      'customFontItems' => array(),
       'customFontFaceCSS' => ''
     ) );
 
@@ -297,6 +299,31 @@ class Cornerstone_Font_Manager extends Cornerstone_Plugin_Component {
     add_action( did_action('cs_head_late_after') ? 'wp_footer' : 'cs_head_late_after', array( $this, 'output_typekit_script') );
   }
 
+  public function load_fonts_custom( $fonts ) {
+
+    $config = apply_filters( 'cs_custom_font_config', wp_parse_args($this->get_font_config(), array(
+      'customFontItems' => array()
+    ) ) );
+
+    $load = array();
+    $buffer = '';
+
+    foreach ($fonts as $font) {
+      $load[] = $font['family'];
+    }
+
+    foreach ($config['customFontItems'] as $item) {
+      if (in_array($item['family'], $load)) {
+        $buffer .= $item['css'];
+      }
+    }
+
+    if ( $buffer ) {
+      CS()->component( 'Styling' )->add_styles( 'cs-custom-fonts', $buffer );
+    }
+
+  }
+
   public function output_typekit_script() {
 
     $config = $this->get_font_config();
@@ -306,7 +333,32 @@ class Cornerstone_Font_Manager extends Cornerstone_Plugin_Component {
     }
 
     ?>
-    <script id="cs-typekit-loader">(function(d){var config={kitId:'<?php echo $config['typekitKitID']; ?>',scriptTimeout:3000,async:true},h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);</script>
+    <script id="cs-typekit-loader">
+      (function(doc){
+        var config = { kitId:'<?php echo $config['typekitKitID'];?>', async:true }
+
+        var timer = setTimeout(function(){
+          doc.documentElement.className = doc.documentElement.className.replace(/\bwf-loading\b/g,"") + " wf-inactive";
+        }, 3000)
+
+        var tk = doc.createElement("script")
+        var loaded = false
+        var firstScript = doc.getElementsByTagName("script")[0]
+
+        doc.documentElement.className += " wf-loading"
+
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js'
+        tk.async = true
+        tk.onload = tk.onreadystatechange = function(){
+          if (loaded || this.readyState && this.readyState != "complete" && this.readyState != "loaded") return
+          loaded = true
+          clearTimeout(timer)
+          try { Typekit.load(config) } catch(e){}
+        }
+
+        firstScript.parentNode.insertBefore(tk, firstScript)
+      })(window.document)
+    </script>
     <?php
 
   }
@@ -344,10 +396,41 @@ class Cornerstone_Font_Manager extends Cornerstone_Plugin_Component {
     $permissions = $this->plugin->component('App_Permissions');
 
     if ( 'update' === $operation ) {
-      return $permissions->user_can('fonts.manage-google') || $permissions->user_can('fonts.manage-typekit');
+      return $permissions->user_can('fonts.manage-google') || $permissions->user_can('fonts.manage-adobe-fonts');
     }
 
     return 'delete' !== $operation;
+
+  }
+
+  public function upload_mimes( $mime_types ) {
+
+    $new_types = $this->mime_types();
+
+    foreach ($new_types as $ext => $type) {
+      if (! isset($mime_types[$ext])) {
+        $mime_types[$ext] = $type;
+      }
+    }
+    
+    
+    return $mime_types;
+  }
+
+  public function mime_types() {
+
+    $mime_types = array(
+      'woff2' => 'font/woff2',
+      'woff' => 'font/woff',
+      'ttf' => 'application/x-font-ttf'
+    );
+
+    if ( apply_filters('cs_font_manager_add_legacy_mime_types', false) ) {
+      $mime_types['svg'] = 'image/svg+xml';
+      $mime_types['eot'] = 'application/vnd.ms-fontobject';
+    }
+
+    return apply_filters( 'cs_font_manager_mime_types', $mime_types );
 
   }
 

@@ -76,6 +76,8 @@ function x_control_groups_element_tabs( $adv = false ) {
 
 function x_values_element_tabs( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $values = array_merge(
     x_values_tabs(),
     x_values_omega()

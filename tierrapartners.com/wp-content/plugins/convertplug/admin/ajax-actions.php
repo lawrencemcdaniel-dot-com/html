@@ -39,6 +39,7 @@ $ajax_events = array(
 	'cp_dismiss_rebrand_notice'       => false,
 	'cp_delete_all_modal_action'      => false,
 	'smile_update_custom_conversions' => true,
+	'cp_dismiss_PharData_notice'	  => true,
 );
 
 foreach ( $ajax_events as $event_slug => $is_nopriv ) {
@@ -3949,6 +3950,23 @@ function cp_dismiss_rebrand_notice() {
 	}
 }
 
+
+/**
+ * cp_dismiss_PharData_notice
+ * @return [type] [description]
+ */
+function cp_dismiss_PharData_notice() {
+
+	if ( ! current_user_can( 'access_cp' ) ) {
+		die( -1 );
+	}
+
+	$option = isset( $_POST['action'] ) ? 'cp_show_phardata_notice' : '';
+
+	if ( '' !== $option ) {
+		update_option( $option, 'no' );
+	}
+}
 
 if ( ! function_exists( 'smile_update_custom_conversions' ) ) {
 	/**

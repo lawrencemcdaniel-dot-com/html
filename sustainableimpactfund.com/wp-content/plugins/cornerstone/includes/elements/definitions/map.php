@@ -23,6 +23,7 @@ $data = array(
   'options' => array(
     'cache'            => false,
     'render_children'  => true,
+    'height_check'     => false,
     'default_children' => array(),
   ),
 );

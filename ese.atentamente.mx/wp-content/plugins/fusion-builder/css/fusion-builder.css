@@ -59,7 +59,17 @@
   position: relative;
   vertical-align: top;
 }
-.fusion_builder_container.fusion-builder-section-folded .fusion-builder-section-content {
+.fusion_builder_container .fusion-builder-container-utility-toolbar {
+  top: 46px;
+  right: 5px;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.fusion_builder_container.fusion-builder-section-folded .fusion-builder-section-content,
+.fusion_builder_container.fusion-builder-section-folded .fusion-builder-container-utility-toolbar {
   display: none;
 }
 .fusion_builder_container:last-child.fusion-builder-section-folded {
@@ -943,8 +953,50 @@
 }
 #fusion_toggle_builder {
   margin-top: 1em;
-  height: auto;
   margin-bottom: 5px;
+  padding: 12px 18px;
+  height: auto;
+  line-height: 25px;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-shadow: none;
+}
+#fusion_toggle_builder:before {
+  margin-right: 12px;
+  font-family: 'icomoon';
+  font-size: 25px;
+  font-weight: normal;
+  vertical-align: bottom;
+}
+.button-large.fusion_builder_is_active {
+  background-color: #ffffff !important;
+  border-color: #d0d3d7 !important;
+  color: #4e4e4e !important;
+}
+.button-large.fusion_builder_is_active:before {
+  display: none;
+}
+#fusion_builder_switch {
+  margin-left: 10px;
+  line-height: 38px;
+  height: auto;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-shadow: none;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+#fusion_builder_switch:before {
+  content: "\e901";
+  margin-right: 9px;
+  font-family: 'icomoon';
+  font-size: 18px;
+  font-weight: normal;
+  vertical-align: bottom;
 }
 .fusion_builder_no_scroll {
   overflow: hidden;
@@ -1178,6 +1230,50 @@
   display: inline-block;
   margin-right: 0.5em;
   font-size: 1em;
+}
+.fusion-builder-all-modules .fusion-builder-element-generator {
+  position: relative;
+  border-color: #eeeeee !important;
+  background-color: #ffffff !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  cursor: auto;
+}
+.fusion-builder-all-modules .fusion-builder-element-generator .fusion_module_title {
+  color: #999999;
+}
+.fusion-builder-all-modules .fusion-builder-element-generator .fusion-tooltip {
+  background: #32383c;
+  position: absolute;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  padding: 10px 20px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  font-weight: 200;
+  top: -50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  white-space: nowrap;
+  display: none;
+  text-align: center;
+}
+.fusion-builder-all-modules .fusion-builder-element-generator .fusion-tooltip:after {
+  content: "\f0d7";
+  font-family: 'icomoon';
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  font-size: 30px;
+  color: #33393d;
+}
+.fusion-builder-all-modules .fusion-builder-element-generator:hover .fusion-tooltip {
+  display: inline;
 }
 .fusion-builder-all-modules .fusion_module_title {
   color: #222;
@@ -2253,9 +2349,10 @@ h4.fusion_module_title span.fusion-global-tooltip {
           border-radius: 5px;
   line-height: 25px;
   text-align: center;
-  padding: 1px 1px 0 0;
+  padding: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  pointer-events: none;
 }
 #fusion_builder_layout .fusion-builder-column.fusion-builder-column-1_4:after,
 #fusion_builder_layout .fusion_builder_column_element.fusion-builder-column-1_4:after,
@@ -2420,6 +2517,50 @@ h4.fusion_module_title span.fusion-global-tooltip {
 #fusion_builder_layout .fusion_builder_container .fusion-builder-column.fusion-builder-column-inner .fusion_module_block.fusion_builder_column_element p {
   opacity: 1;
 }
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-publish-tooltip,
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-global-tooltip {
+  position: relative;
+  top: auto;
+  right: auto;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 5px;
+  z-index: auto;
+}
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-publish-tooltip > span,
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-global-tooltip > span {
+  z-index: 9999;
+}
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-publish-tooltip {
+  background-color: #999999;
+}
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-publish-tooltip:after {
+  color: #fff;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 25px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e903";
+  font-size: 16px;
+}
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-publish-tooltip.fusion-container-scheduled {
+  background-color: #0091cd;
+}
+#fusion_builder_layout .fusion-builder-container-utility-toolbar .fusion-builder-publish-tooltip.fusion-container-scheduled:after {
+  content: "\e902";
+}
+#fusion_builder_layout .fusion-builder-publish-tooltip,
 #fusion_builder_layout .fusion-builder-global-tooltip {
   width: 25px;
   height: 25px;
@@ -2431,6 +2572,7 @@ h4.fusion_module_title span.fusion-global-tooltip {
   z-index: 99999;
   cursor: pointer;
 }
+#fusion_builder_layout .fusion-builder-publish-tooltip span,
 #fusion_builder_layout .fusion-builder-global-tooltip span {
   background: #32383c;
   position: absolute;
@@ -2450,6 +2592,7 @@ h4.fusion_module_title span.fusion-global-tooltip {
   display: none;
   text-align: center;
 }
+#fusion_builder_layout .fusion-builder-publish-tooltip span:before,
 #fusion_builder_layout .fusion-builder-global-tooltip span:before {
   content: "\f0d7";
   font-family: 'icomoon';
@@ -2461,6 +2604,7 @@ h4.fusion_module_title span.fusion-global-tooltip {
   font-size: 30px;
   color: #33393d;
 }
+#fusion_builder_layout .fusion-builder-publish-tooltip:hover span,
 #fusion_builder_layout .fusion-builder-global-tooltip:hover span {
   display: block;
 }
@@ -3284,12 +3428,12 @@ input[type=text].fusion-builder-section-name:hover {
   padding: 5px 8px !important;
   font-size: 11px !important;
 }
-.fusion-table-builder .fusion-builder-table > tfoot > tr > th,
-.fusion-table-builder .fusion-builder-table > thead > tr > th,
-.fusion-table-builder .fusion-builder-table > tbody > tr > th,
-.fusion-table-builder .fusion-builder-table > tfoot > tr > td,
+.fusion-table-builder .fusion-builder-table > tbody > tr > td,
 .fusion-table-builder .fusion-builder-table > thead > tr > td,
-.fusion-table-builder .fusion-builder-table > tbody > tr > td {
+.fusion-table-builder .fusion-builder-table > tfoot > tr > td,
+.fusion-table-builder .fusion-builder-table > tbody > tr > th,
+.fusion-table-builder .fusion-builder-table > thead > tr > th,
+.fusion-table-builder .fusion-builder-table > tfoot > tr > th {
   padding: 8px;
   line-height: 1.53846154;
   vertical-align: top;
@@ -3309,12 +3453,12 @@ input[type=text].fusion-builder-section-name:hover {
   line-height: 33px;
   padding-right: 6px;
 }
-.fusion-table-builder .fusion-builder-table > caption + thead > tr:first-child > th,
-.fusion-table-builder .fusion-builder-table > thead:first-child > tr:first-child > th,
-.fusion-table-builder .fusion-builder-table > colgroup + thead > tr:first-child > th,
-.fusion-table-builder .fusion-builder-table > caption + thead > tr:first-child > td,
+.fusion-table-builder .fusion-builder-table > colgroup + thead > tr:first-child > td,
 .fusion-table-builder .fusion-builder-table > thead:first-child > tr:first-child > td,
-.fusion-table-builder .fusion-builder-table > colgroup + thead > tr:first-child > td {
+.fusion-table-builder .fusion-builder-table > caption + thead > tr:first-child > td,
+.fusion-table-builder .fusion-builder-table > colgroup + thead > tr:first-child > th,
+.fusion-table-builder .fusion-builder-table > thead:first-child > tr:first-child > th,
+.fusion-table-builder .fusion-builder-table > caption + thead > tr:first-child > th {
   border-top: 0;
 }
 .fusion-table-builder .fusion-builder-table td {
@@ -4779,20 +4923,20 @@ tr:hover .fusion-builder-table-delete-row {
   content: "\e600" !important;
   font-family: ConvertPlug !important;
 }
-.post-type-fusion_element #fusion_builder_controls .fusion-builder-library-dialog,
+.post-type-fusion_element #fusion_builder_controls .fusion-builder-layout-buttons-clear,
 .post-type-fusion_element #fusion_builder_controls .fusion-builder-layout-buttons-toggle-containers,
 .post-type-fusion_element #fusion_builder_controls .fusion-builder-layout-custom-css,
-.post-type-fusion_element #fusion_builder_controls .fusion-builder-template-buttons-save,
-.post-type-fusion_element #fusion_builder_controls .fusion-builder-layout-buttons-clear {
+.post-type-fusion_element #fusion_builder_controls .fusion-builder-library-dialog,
+.post-type-fusion_element #fusion_builder_controls .fusion-builder-template-buttons-save {
   display: none;
 }
+.post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-controls .fusion-builder-save,
+.post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-save-inner-row-dialog-button,
 .post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-section-add,
-.post-type-fusion_element.fusion-element-post-type-sections .fusion_builder_container.fusion-builder-section-folded .fusion-builder-section-add,
-.post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-section-controls .fusion-builder-save-element,
 .post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-section-controls .fusion-builder-clone-container,
 .post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-section-controls .fusion-builder-remove,
-.post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-controls .fusion-builder-save,
-.post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-save-inner-row-dialog-button {
+.post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-section-controls .fusion-builder-save-element,
+.post-type-fusion_element.fusion-element-post-type-sections .fusion_builder_container.fusion-builder-section-folded .fusion-builder-section-add {
   display: none;
 }
 .post-type-fusion_element.fusion-element-post-type-sections .fusion-builder-module-controls .fusion-builder-settings {
@@ -4813,19 +4957,19 @@ tr:hover .fusion-builder-table-delete-row {
 .post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-inner-row-controls .fusion-builder-inner-row-overlay {
   margin-left: 17px;
 }
-.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-section-header,
-.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-section-add,
-.post-type-fusion_element.fusion-element-post-type-columns .fusion_builder_container .fusion-builder-insert-column,
-.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-column-outer > .fusion-builder-column-controls .fusion-builder-save-column-dialog,
+.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-column-outer > .fusion-builder-column-controls .fusion-builder-clone-column,
 .post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-column-outer > .fusion-builder-column-controls .fusion-builder-remove-column,
-.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-column-outer > .fusion-builder-column-controls .fusion-builder-clone-column {
+.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-column-outer > .fusion-builder-column-controls .fusion-builder-save-column-dialog,
+.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-section-add,
+.post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-section-header,
+.post-type-fusion_element.fusion-element-post-type-columns .fusion_builder_container .fusion-builder-insert-column {
   display: none;
 }
 .post-type-fusion_element.fusion-element-post-type-columns .fusion-builder-column-controls .fusion-builder-save-column-dialog {
   display: none;
 }
 .post-type-fusion_element.fusion-element-post-type-columns #fusion_builder_layout .fusion-builder-column-outer {
-  margin: 40px auto 0 auto;
+  margin: 40px auto 0;
   display: grid;
 }
 .post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-column-outer > .fusion-builder-add-element {
@@ -4835,23 +4979,23 @@ tr:hover .fusion-builder-table-delete-row {
   padding: 0;
   border: 0;
 }
-.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-section-header,
 .post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-column-outer > .fusion-builder-column-controls,
 .post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-section-add,
+.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-section-header,
 .post-type-fusion_element.fusion-element-post-type-elements .fusion_builder_container .fusion-builder-insert-column {
   display: none;
 }
 .post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-module-controls .fusion-builder-clone,
-.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-module-controls .fusion-builder-save,
-.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-module-controls .fusion-builder-remove {
+.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-module-controls .fusion-builder-remove,
+.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-module-controls .fusion-builder-save {
   display: none;
 }
 .post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-module-controls .fusion-builder-settings {
   margin-left: 51px;
 }
-.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-inner-row-controls .fusion-builder-save-inner-row-dialog-button,
+.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-inner-row-controls .fusion-builder-clone-inner-row,
 .post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-inner-row-controls .fusion-builder-remove-inner-row,
-.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-inner-row-controls .fusion-builder-clone-inner-row {
+.post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-inner-row-controls .fusion-builder-save-inner-row-dialog-button {
   display: none;
 }
 .post-type-fusion_element.fusion-element-post-type-elements .fusion-builder-inner-row-controls .fusion-builder-inner-row-overlay {
@@ -4904,7 +5048,7 @@ tr:hover .fusion-builder-table-delete-row {
   -webkit-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 .fusion-builder-context-menu ul li:last-child {
   border-bottom: none;

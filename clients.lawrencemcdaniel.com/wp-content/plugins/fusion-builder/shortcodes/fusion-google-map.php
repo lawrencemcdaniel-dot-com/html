@@ -95,7 +95,9 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 						'width'                    => '100%',
 						'zoom'                     => '14',
 						'zoom_pancontrol'          => 'yes',
-					), $args
+					),
+					$args,
+					'fusion_map'
 				);
 
 				$defaults['width']  = FusionBuilder::validate_shortcode_attr_value( $defaults['width'], 'px' );
@@ -422,7 +424,8 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 			public function attr() {
 
 				$attr = fusion_builder_visibility_atts(
-					$this->args['hide_on_mobile'], array(
+					$this->args['hide_on_mobile'],
+					array(
 						'class' => 'shortcode-map fusion-google-map',
 					)
 				);

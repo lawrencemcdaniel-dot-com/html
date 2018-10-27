@@ -44,7 +44,9 @@ class Cornerstone_App extends Cornerstone_Plugin_Component {
     $this->enqueue_styles( $settings );
     $this->enqueue_scripts( $settings );
     nocache_headers();
-    $this->view( 'app/boilerplate', true );
+
+    $theme = isset($preferences['ui_theme']) ? $preferences['ui_theme'] : 'light';
+    $this->view( 'app/boilerplate', true, array( 'theme' => $theme ) );
     exit;
 
   }
@@ -85,7 +87,7 @@ class Cornerstone_App extends Cornerstone_Plugin_Component {
     wp_register_style( 'cs-dashicons', '/wp-includes/css/dashicons.min.css' );
     wp_register_style( 'cs-editor-buttons', '/wp-includes/css/editor.min.css' );
 
-    wp_enqueue_style( 'cs-app-style', $this->plugin->css( 'cs', true ), array(
+    wp_enqueue_style( 'cs-app-style', $this->plugin->css( 'app/app' ), array(
       'cs-dashicons',
       'cs-editor-buttons',
       'code-editor',
@@ -109,7 +111,8 @@ class Cornerstone_App extends Cornerstone_Plugin_Component {
 
     $router = $this->plugin->component( 'Router' );
     $boot = $this->plugin->component( 'App_Boot' );
-
+    $options_manager = $this->plugin->component( 'Options_Manager' );
+    $font_manager = $this->plugin->component( 'Font_Manager' );
     $settings = $this->plugin->settings();
 
     $worker_queue_size = apply_filters('cs_worker_queue_size', 4 );
@@ -141,7 +144,8 @@ class Cornerstone_App extends Cornerstone_Plugin_Component {
       'isPreview'                 => $isPreview,
       'previewData'               => $this->plugin->component( 'Preview_Frame_Loader' )->data(),
       'font_data'                 => $this->font_data(),
-      'fallbackFont'              => $this->plugin->component( 'Font_Manager' )->get_fallback_font(),
+      'customFontMimeTypes'       => $font_manager->mime_types(),
+      'fallbackFont'              => $font_manager->get_fallback_font(),
       'keybindings'               => apply_filters('cornerstone_keybindings', $this->plugin->config_group( 'builder/keybindings' ) ),
       'home_url'                  => home_url(),
       'today'                     => date_i18n( get_option( 'date_format' ), time() ),
@@ -163,7 +167,11 @@ class Cornerstone_App extends Cornerstone_Plugin_Component {
       'current_user'              => get_current_user_id(),
       'preferenceControls'        => $this->plugin->component( 'App_Preferences' )->get_preference_controls(),
       'preload'                   => $this->get_preload_models(),
-      'load_google_fonts'         => apply_filters('cs_load_google_fonts', true )
+      'load_google_fonts'         => apply_filters('cs_load_google_fonts', true ),
+      'max_action_history_items'  => apply_filters('cs_max_action_history_items', 1000 ),
+      'optionsCustomCSSKey'       => $options_manager->get_custom_css_key(),
+      'optionsCustomCSSSelector'  => $options_manager->get_custom_css_selector(),
+      'optionsCustomJSKey'        => $options_manager->get_custom_js_key(),
     ) ) );
 
   }

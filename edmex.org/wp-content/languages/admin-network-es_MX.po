@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.9.x - Development - Administration - Network Admin package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-12-04 16:01:57+0000\n"
+"PO-Revision-Date: 2018-09-20 19:58:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,40 +14,40 @@ msgstr ""
 #. translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES
 #: wp-admin/includes/network.php:107
 msgid "The constant %s cannot be defined when creating a network."
-msgstr ""
+msgstr "La constante %s no puede ser definida al crear una red."
 
 #: wp-admin/network/sites.php:173
 msgid "You are about to delete the following sites:"
-msgstr ""
+msgstr "Está a punto de eliminar los sitios siguientes:"
 
 #: wp-admin/network/site-users.php:237
 msgid "User could not be added to this site."
-msgstr ""
+msgstr "El usuario no pudo se añadido a este sitio."
 
 #: wp-admin/network/site-new.php:252
 msgid "The username and a link to set the password will be mailed to this email address."
-msgstr ""
+msgstr "El nombre de usuario y un enlace para establecer la contraseña serán enviados a este correo electrónico."
 
 #. translators: %s: new network admin email
 #: wp-admin/network/settings.php:145
 msgid "There is a pending change of the network admin email to %s."
-msgstr ""
+msgstr "Hay un cambio pendiente del correo electrónico del administrador de la red a %s."
 
 #: wp-admin/includes/network.php:294
 msgid "Sub-domain Installation"
-msgstr ""
+msgstr "Instalación de Subdominios"
 
 #: wp-admin/includes/network.php:269 wp-admin/includes/network.php:284
 msgid "Sub-directory Installation"
-msgstr ""
+msgstr "Instalación de Subdirectorios"
 
 #: wp-admin/includes/class-wp-ms-themes-list-table.php:636
 msgid "Active Child Theme"
-msgstr ""
+msgstr "Activar Tema Hijo"
 
 #: wp-admin/includes/class-wp-ms-themes-list-table.php:631
 msgid "Active Theme"
-msgstr ""
+msgstr "Activar Tema"
 
 #: wp-admin/network/site-info.php:180
 msgid "Attributes"
@@ -727,7 +727,7 @@ msgstr "Ajustes de idioma"
 
 #: wp-admin/network/settings.php:202
 msgid "Allow site administrators to add new users to their site via the \"Users &rarr; Add New\" page"
-msgstr ""
+msgstr "Permite a los administradores de sitio añadir nuevos usuarios a su sitio a través de la página \"Usuarios &rarr; Añadir nuevo\"."
 
 #: wp-admin/network/sites.php:32
 msgid "Dashboard leads to the Dashboard for that site."
@@ -814,7 +814,7 @@ msgstr "El usuario ya es miembro de este sitio."
 
 #: wp-admin/network/sites.php:149
 msgid "Sorry, you are not allowed to delete the site %s."
-msgstr ""
+msgstr "Lo siento, no tienes permitido borrar este sitio %s."
 
 #: wp-admin/network/user-new.php:49
 msgid "Cannot add user."
@@ -920,7 +920,7 @@ msgstr "La siguiente pantalla para configurar la red te ofrecerá líneas de có
 
 #: wp-admin/network.php:60
 msgid "Choose subdomains or subdirectories; this can only be switched afterwards by reconfiguring your installation. Fill out the network details, and click Install. If this does not work, you may have to add a wildcard DNS record (for subdomains) or change to another setting in Permalinks (for subdirectories)."
-msgstr ""
+msgstr "Elige subdominios o subdirectorios. Esto solo puede cambiar, reconfigurando tu instalación. Rellena los detalles de la red y haz clic en instalar. Si no funciona, deberás añadir un registro DNS wildcard (para los subdominios) o cambiar a otro ajuste de enlaces permanentes (para los subdirectorios)."
 
 #: wp-admin/includes/network.php:484
 msgid "To make your installation more secure, you should also add:"
@@ -976,16 +976,16 @@ msgstr "Título de la red"
 
 #: wp-admin/includes/network.php:295
 msgid "Because your installation is not new, the sites in your WordPress network must use sub-domains."
-msgstr ""
+msgstr "Como tu instalación no es nueva, los sitios de tu red WordPress deben usar subdominios."
 
 #: wp-admin/includes/network.php:286
 msgid "Because your installation is in a directory, the sites in your WordPress network must use sub-directories."
-msgstr ""
+msgstr "Como su instalación está hecha en un directorio, los sitios de tu red WordPress deberán usar subdirectorios."
 
 #: wp-admin/includes/network.php:279 wp-admin/includes/network.php:289
 #: wp-admin/includes/network.php:296
 msgid "The main site in a sub-directory installation will need to use a modified permalink structure, potentially breaking existing links."
-msgstr ""
+msgstr "El sitio principal en una instalación en subdirectorios tendrá que usar una estructura de enlaces permanentes modificada, lo cual es posible que rompa enlaces actuales."
 
 #: wp-admin/includes/network.php:243 wp-admin/includes/network.php:253
 #: wp-admin/includes/network.php:302
@@ -1205,19 +1205,19 @@ msgstr "¡Todo hecho!"
 
 #: wp-admin/network/settings.php:171
 msgid "Registration is disabled"
-msgstr ""
+msgstr "Los registros están deshabilitados"
 
 #: wp-admin/network/settings.php:172
 msgid "User accounts may be registered"
-msgstr ""
+msgstr "Las cuentas de usuario pueden estar registradas"
 
 #: wp-admin/network/settings.php:174
 msgid "Both sites and user accounts can be registered"
-msgstr ""
+msgstr "Ambos sitios y cuentas de usuario pueden registrarsen"
 
 #: wp-admin/network/settings.php:173
 msgid "Logged in users may register new sites"
-msgstr ""
+msgstr "Solo los usuarios identificados, pueden crear sitios"
 
 #: wp-admin/network/settings.php:159
 msgid "Registration Settings"
@@ -1257,7 +1257,7 @@ msgstr "Los usuarios no tienes permiso para crear estos sitios. Separa los nombr
 
 #: wp-admin/network/settings.php:195
 msgid "Send the network admin an email notification every time someone registers a site or user account"
-msgstr ""
+msgstr "Enviar al administrador de la red  un correo electrónico cada vez que alguien se registre o registre un sitio"
 
 #: wp-admin/network/settings.php:325
 msgid "Site upload space"

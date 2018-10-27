@@ -108,6 +108,8 @@ function x_control_groups_element_nav_inline( $adv = false ) {
 
 function x_values_element_nav_inline( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $menu      = x_bar_module_settings_menu( 'inline' );
   $links_top = x_bar_module_settings_anchor( 'menu-item-inline-top' );
   $links_sub = x_bar_module_settings_anchor( 'menu-item-inline-sub' );

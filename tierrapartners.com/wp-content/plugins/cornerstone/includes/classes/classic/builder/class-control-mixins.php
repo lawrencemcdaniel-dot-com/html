@@ -123,8 +123,8 @@ class Cornerstone_Control_Mixins extends Cornerstone_Plugin_Component {
     $this->addControl(
       'border_style',
       'select',
-      __( 'Border', 'cornerstone' ),
-      __( 'Specify a custom border for this element by selecting a style, choosing a color, and inputting your dimensions.', 'cornerstone' ),
+      __( 'Border Style', 'cornerstone' ),
+      __( 'Specify the style of your custom border for this element.', 'cornerstone' ),
       'none',
       array(
         'choices' => array(
@@ -144,8 +144,8 @@ class Cornerstone_Control_Mixins extends Cornerstone_Plugin_Component {
     $this->addControl(
       'border_color',
       'color',
-      null,
-      null,
+      __( 'Border Color', 'cornerstone' ),
+      __( 'Specify the color of your custom border for this element.', 'cornerstone' ),
       '',
       array(
         'condition' => array(
@@ -157,8 +157,8 @@ class Cornerstone_Control_Mixins extends Cornerstone_Plugin_Component {
     $this->addControl(
       'border',
       'dimensions',
-      null,
-      null,
+      __( 'Border Dimensions', 'cornerstone' ),
+      __( 'Specify the dimensions of your custom border for this element.', 'cornerstone' ),
       array( '1px', '1px', '1px', '1px', 'linked' ),
       array(
         'condition' => array(

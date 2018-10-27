@@ -68,7 +68,6 @@
 .wpcf7-submit {
   display: inline-block;
   position: relative;
-  outline: 0;
   zoom: 1;
   border: 1px solid rgba(0, 0, 0, 0);
   text-align: center;
@@ -106,10 +105,16 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-.fusion-button:focus,
-.gform_wrapper .gform_button:focus,
-.woocommerce .checkout #place_order:focus,
-.wpcf7-submit:focus {
+.fusion-disable-outline .fusion-button,
+.fusion-disable-outline .gform_wrapper .gform_button,
+.fusion-disable-outline .woocommerce .checkout #place_order,
+.fusion-disable-outline .wpcf7-submit {
+  outline: 0;
+}
+.fusion-disable-outline .fusion-button:focus,
+.fusion-disable-outline .gform_wrapper .gform_button:focus,
+.fusion-disable-outline .woocommerce .checkout #place_order:focus,
+.fusion-disable-outline .wpcf7-submit:focus {
   outline: 0;
 }
 .ls-container .button,
@@ -3121,7 +3126,7 @@ button.fusion-button.button-3d:active {
           border-radius: 0;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
-  border-color: 1px solid #e5e4e3;
+  border-color: #e5e4e3;
   text-align: center;
 }
 .fusion-pricing-table .panel-wrapper:hover {
@@ -3596,7 +3601,6 @@ body:not(:-moz-handler-blocked) .fusion-separator.sep-shadow:after {
   position: relative;
   margin: 0;
   padding: 8px 0;
-  outline: 0;
   line-height: normal;
   border: none;
   border-top: 3px solid #f1f2f2;
@@ -3661,6 +3665,9 @@ body:not(:-moz-handler-blocked) .fusion-separator.sep-shadow:after {
   padding: 0;
   background: transparent;
   border: none;
+}
+.fusion-disable-outline .fusion-tabs .nav-tabs li .tab-link {
+  outline: 0;
 }
 @media (min-width: 768px) {
   .fusion-pricing-table .standout .panel-container {
@@ -4069,12 +4076,12 @@ table {
 }
 .fusion-testimonials.clean blockquote {
   border: none;
-  background-color: none;
+  background-color: transparent;
 }
 .fusion-testimonials.clean blockquote q {
   display: block;
   padding: 25px;
-  background-color: none;
+  background-color: transparent;
   line-height: 30px;
   font-size: 18px;
   text-align: center;

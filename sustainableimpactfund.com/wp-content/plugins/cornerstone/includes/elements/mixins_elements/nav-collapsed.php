@@ -39,7 +39,6 @@ function x_controls_element_nav_collapsed( $adv = false ) {
   $links_sub_std_content = x_bar_module_settings_anchor( 'menu-item-collapsed-sub', array( 'inc_t_pre' => true, 'group' => $group_std_content ) );
   $links_top_std_design  = x_bar_module_settings_anchor( 'menu-item-collapsed-top', array( 'inc_t_pre' => true, 'group' => $group_std_design ) );
   $links_sub_std_design  = x_bar_module_settings_anchor( 'menu-item-collapsed-sub', array( 'inc_t_pre' => true, 'group' => $group_std_design ) );
-  
 
   if ( $adv ) {
 
@@ -49,7 +48,7 @@ function x_controls_element_nav_collapsed( $adv = false ) {
       x_controls_off_canvas_adv( $off_canvas_adv ),
       x_controls_anchor_adv( $links_top_adv ),
       x_controls_anchor_adv( $links_sub_adv ),
-      x_controls_omega()
+      x_controls_omega( array_merge( $settings_add_toggle_hash, $settings_toggle_hash_condition ) )
     );
 
   } else {
@@ -72,7 +71,7 @@ function x_controls_element_nav_collapsed( $adv = false ) {
       x_controls_anchor_std_design_colors( $links_top_std_design ),
       x_controls_anchor_std_design_colors( $links_sub_std_design ),
 
-      x_controls_omega( $settings_std_customize )
+      x_controls_omega( array_merge( $settings_std_customize, $settings_add_toggle_hash, $settings_toggle_hash_condition ) )
 
     );
 
@@ -91,11 +90,11 @@ function x_control_groups_element_nav_collapsed( $adv = false ) {
 
   $cond_tbf_only = array( 'tbf_only' => true );
 
-  $menu          = x_bar_module_settings_menu( 'collapsed' );
-  $toggle        = x_bar_module_settings_anchor( 'toggle', $cond_tbf_only );
-  $off_canvas    = $cond_tbf_only;
-  $links_top     = x_bar_module_settings_anchor( 'menu-item-collapsed-top' );
-  $links_sub     = x_bar_module_settings_anchor( 'menu-item-collapsed-sub' );
+  $menu       = x_bar_module_settings_menu( 'collapsed' );
+  $toggle     = x_bar_module_settings_anchor( 'toggle', $cond_tbf_only );
+  $off_canvas = $cond_tbf_only;
+  $links_top  = x_bar_module_settings_anchor( 'menu-item-collapsed-top' );
+  $links_sub  = x_bar_module_settings_anchor( 'menu-item-collapsed-sub' );
 
   if ( $adv ) {
 
@@ -125,13 +124,15 @@ function x_control_groups_element_nav_collapsed( $adv = false ) {
 
 function x_values_element_nav_collapsed( $settings = array() ) {
 
+  include( dirname( __FILE__ ) . '/../mixins_setup/_.php' );
+
   $cond_tbf_only = array( 'tbf_only' => true );
 
-  $menu          = x_bar_module_settings_menu( 'collapsed' );
-  $toggle        = x_bar_module_settings_anchor( 'toggle', $cond_tbf_only );
-  $off_canvas    = $cond_tbf_only;
-  $links_top     = x_bar_module_settings_anchor( 'menu-item-collapsed-top' );
-  $links_sub     = x_bar_module_settings_anchor( 'menu-item-collapsed-sub' );
+  $menu       = x_bar_module_settings_menu( 'collapsed' );
+  $toggle     = x_bar_module_settings_anchor( 'toggle', $cond_tbf_only );
+  $off_canvas = $cond_tbf_only;
+  $links_top  = x_bar_module_settings_anchor( 'menu-item-collapsed-top' );
+  $links_sub  = x_bar_module_settings_anchor( 'menu-item-collapsed-sub' );
 
   $values = array_merge(
     x_values_menu( $menu ),
@@ -139,7 +140,7 @@ function x_values_element_nav_collapsed( $settings = array() ) {
     x_values_off_canvas( $off_canvas ),
     x_values_anchor( $links_top ),
     x_values_anchor( $links_sub ),
-    x_values_omega()
+    x_values_omega( array_merge( $settings_add_toggle_hash, $settings_toggle_hash_condition ) )
   );
 
   return x_bar_mixin_values( $values, $settings );

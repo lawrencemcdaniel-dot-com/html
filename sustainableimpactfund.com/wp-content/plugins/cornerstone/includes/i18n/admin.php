@@ -15,6 +15,7 @@ return array(
   'visual-tab'                  => __( 'Visual', 'cornerstone' ),
   'text-tab'                    => __( 'Text', 'cornerstone' ),
 	'cornerstone-tab'             => __( 'Cornerstone', 'cornerstone' ),
+  'edit-with-wordpress'         => __( 'Edit with WordPress', 'cornerstone' ),
 	'insert-cornerstone'          => __( 'Insert Shortcode', 'cornerstone' ),
 	'updating'                    => __( 'Updating', 'cornerstone' ),
 	'confirm-yep'                 => __( 'Yep', 'cornerstone' ),
@@ -97,8 +98,9 @@ return array(
   'permissions.rename' => __( 'Rename', 'cornerstone' ),
   'permissions.delete' => __( 'Delete', 'cornerstone' ),
 
-  'permissions.manage-google'  => __( 'Manage Google', 'cornerstone' ),
-  'permissions.manage-typekit' => __( 'Manage Typekit', 'cornerstone' ),
+  'permissions.manage-google'       => __( 'Manage Google', 'cornerstone' ),
+  'permissions.manage-adobe-fonts'      => __( 'Manage Typekit', 'cornerstone' ),
+  'permissions.manage-custom-fonts' => __( 'Manage Custom Fonts', 'cornerstone' ),
 
   'permissions.create-from-template'   => __( 'Create From Template', 'cornerstone' ),
   'permissions.save-as-template'       => __( 'Save As Template', 'cornerstone' ),

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'AVADA_VERSION' ) ) {
-	define( 'AVADA_VERSION', '5.6.2' );
+	define( 'AVADA_VERSION', '5.7.1' );
 }
 
 /**
@@ -194,8 +194,8 @@ if ( is_admin() && isset( $_GET['page'] ) && 'avada_options' === $_GET['page'] )
 	$load_avadaredux   = true;
 	$load_avada_gfonts = false;
 }
-$http_referer = ( isset( $_SERVER['HTTP_REFERER'] ) ) ? esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : '';
-if ( false !== strpos( $http_referer, 'avada_options' ) ) {
+$http_referer = fusion_get_referer();
+if ( $http_referer && false !== strpos( $http_referer, 'avada_options' ) ) {
 	$load_avadaredux   = true;
 	$load_avada_gfonts = true;
 }
@@ -404,7 +404,10 @@ function avada_nag_ignore() {
 	if ( isset( $_GET['avada_uber_nag_ignore'] ) && '0' === $_GET['avada_uber_nag_ignore'] ) { // WPCS: CSRF ok.
 		update_option( 'avada_ubermenu_notice', true );
 		update_option( 'avada_ubermenu_notice_hidden', true );
-		$referer = ( isset( $_SERVER['HTTP_REFERER'] ) ) ? esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : '';
+		$referer = fusion_get_referer();
+		if ( ! $referer ) {
+			$referer = '';
+		}
 		wp_safe_redirect( $referer );
 	}
 }
@@ -524,7 +527,8 @@ function avada_login_fail( $url = '', $raw_url = '', $user = '' ) {
 						add_query_arg(
 							array(
 								'login' => 'failed',
-							), $referer
+							),
+							$referer
 						)
 					);
 				} else {

@@ -20,6 +20,9 @@
 $data = array(
   'title'  => __( 'Video', '__x__' ),
   'values' => x_values_element_video(),
+  'options' => array(
+    'height_check' => false
+  )
 );
 
 

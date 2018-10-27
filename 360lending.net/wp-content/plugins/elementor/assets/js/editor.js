@@ -1,4 +1,4 @@
-/*! elementor - v2.2.3 - 17-09-2018 */
+/*! elementor - v2.2.7 - 24-10-2018 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -17066,6 +17066,10 @@ PanelElementsLayoutView = Marionette.LayoutView.extend({
 
 		// TODO: Change the array from server syntax, and no need each loop for initialize
 		_.each(elementor.config.widgets, function (widget) {
+			if (elementor.config.document.panel.widgets_settings[widget.widget_type]) {
+				widget = _.extend(widget, elementor.config.document.panel.widgets_settings[widget.widget_type]);
+			}
+
 			if (!widget.show_in_panel) {
 				return;
 			}

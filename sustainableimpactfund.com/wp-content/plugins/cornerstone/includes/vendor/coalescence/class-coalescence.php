@@ -25,7 +25,7 @@ class TCO_Coalescence {
    * @return none
    */
   public function reset() {
-    $this->formation = new TCO_Coalescence_Formation($this->selector_prefix);
+    $this->formation = new TCO_Coalescence_Formation;
     $this->templates = array();
     $this->reductions = array();
     $this->items = array();
@@ -83,7 +83,7 @@ class TCO_Coalescence {
    */
   public function reduce_template( $type ) {
 
-    $reducer = $this->reductions[ $type ] = new TCO_Coalescence_Reducer( $this->templates[ $type ] );
+    $reducer = $this->reductions[ $type ] = new TCO_Coalescence_Reducer( $this->templates[ $type ], $this->selector_prefix );
 
     if ( isset( $this->items[ $type ] ) && is_array( $this->items[ $type ] ) ) {
       $items = $reducer->process( $this->items[ $type ] );

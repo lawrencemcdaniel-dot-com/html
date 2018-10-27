@@ -61,7 +61,8 @@ function x_values_content_area( $settings = array() ) {
   if ( $type === 'standard' ) {
     $values[$k_pre . 'content'] = x_module_value( __( '<span>This content will show up directly in its container.</span>', '__x__' ), 'markup:html', true );
   } else {
-    $values[$k_pre . 'content'] = x_module_value( __( '<div style="padding: 25px; line-height: 1.4; text-align: center;">Add any HTML or custom content here.</div>', '__x__' ), 'markup:html', true );
+    $values[$k_pre . 'content']                   = x_module_value( __( '<div style="padding: 25px; line-height: 1.4; text-align: center;">Add any HTML or custom content here.</div>', '__x__' ), 'markup:html', true );
+    $values[$k_pre . 'content_dynamic_rendering'] = x_module_value( false, 'markup:html', true );
   }
 
 

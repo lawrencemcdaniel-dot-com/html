@@ -26,7 +26,7 @@ return array(
   'add-label' => __( 'Add {{label}}', 'cornerstone' ),
 
   // Formatting
-  'formatting-colon' => __( '{{prefix}}: {{content}}', 'cornerstone'),
+  'formatting-colon' => __( '{{{prefix}}}: {{{content}}}', 'cornerstone'),
 
   // Preview Sizer
   'preview-sizer-abbr-xl' => __( 'XL', 'cornerstone' ),
@@ -107,7 +107,7 @@ return array(
   'elements-confirm-delete' => __( 'Are you sure you want to delete this {{title}}? This can not be undone.', 'cornerstone' ),
   'elements-confirm-erase' => __( 'Are you sure you want to delete this element&apos;s contents? This can not be undone.', 'cornerstone' ),
   'elements-undefined-preview' => __( 'This element could not render because its definition is missing. You might need to activate a plugin.', 'cornerstone' ),
-  'elements-preview-unavailable' => __( 'No Preview Available (<a href="#">View Live</a>)', 'cornerstone' ),
+  'elements-preview-unavailable' => __( 'No Preview Available (<a target="_blank" href="{{url}}">View Live</a>)', 'cornerstone' ),
   'elements-undefined-inspector-title' => __( 'Undefined Element', 'cornerstone' ),
   'elements-undefined-inspector-message' => __( 'The definition for this element could not be located. You may need to activate a plugin. The type declared for this element is: <strong>{{type}}</strong>', 'cornerstone' ),
 
