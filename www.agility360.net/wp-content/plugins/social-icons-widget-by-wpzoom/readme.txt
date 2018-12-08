@@ -113,6 +113,13 @@ You can also create a hidden widget area using a plugin like Custom Sidebars if 
 
 == Changelog ==
 
+= 3.0.13 =
+* New option: Icon Alignment (Left/Center/Right)
+
+= 3.0.12 =
+* New icons: Mastodon
+* Bug fix with EyeEm icon
+
 = 3.0.11 =
 * New icons: Beatport, iTunes
 

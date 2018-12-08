@@ -561,6 +561,7 @@ class Fusion_Images {
 			'title'             => '',
 			'title_attribute'   => '',
 		);
+		$attachment_src = false;
 
 		if ( ! $attachment_id && ! $attachment_url ) {
 			return $attachment_data;
@@ -570,12 +571,19 @@ class Fusion_Images {
 			$attachment_id = self::get_attachment_id_from_url( $attachment_url );
 		} else {
 			$attachment_id = self::get_translated_attachment_id( $attachment_id );
+
+			$test_size = ( 'none' === $size ) ? 'full' : $size;
+			$attachment_src = wp_get_attachment_image_src( $attachment_id, $size );
+
+			if ( ! $attachment_src ) {
+				$attachment_id = self::get_attachment_id_from_url( $attachment_url );
+			}
 		}
 
 		$attachment_data['id'] = $attachment_id;
 
 		if ( 'none' !== $size ) {
-			$attachment_src = wp_get_attachment_image_src( $attachment_id, $size );
+			$attachment_src = ( $attachment_src ) ? $attachment_src : wp_get_attachment_image_src( $attachment_id, $size );
 			$attachment_data['url'] = esc_url( $attachment_src[0] );
 
 			if ( $attachment_url && $attachment_data['url'] !== $attachment_url ) {
@@ -611,7 +619,6 @@ class Fusion_Images {
 		return $attachment_data;
 	}
 
-
 	/**
 	 * Gets the most important attachment data.
 	 *
@@ -631,7 +638,7 @@ class Fusion_Images {
 
 			// Both image ID and image size are available.
 			if ( 2 === count( $attachment_id_size ) ) {
-				$attachment_data = $this->get_attachment_data( $attachment_id_size[0], $attachment_id_size[1] );
+				$attachment_data = $this->get_attachment_data( $attachment_id_size[0], $attachment_id_size[1], $attachment_url );
 			} else {
 
 				// Only image ID is available.

@@ -72,6 +72,10 @@ wp_enqueue_script('essential-grid-item-editor-script', EG_PLUGIN_URL.'admin/asse
 		$src = array();
 		
 		foreach($skins as $skin){
+			
+			// 2.2.6
+			if(is_array($skin) && array_key_exists('handle', $skin) && $skin['handle'] === 'esgblankskin') continue;
+			
 			if(empty($src)) $src = $demo_img;
 				
 			$item_skin = new Essential_Grid_Item_Skin();
@@ -151,7 +155,7 @@ wp_enqueue_script('essential-grid-item-editor-script', EG_PLUGIN_URL.'admin/asse
 	?>
 </div>
 <a class='button-primary revblue' style="margin-top:15px !important;" href='<?php echo $this->getViewUrl(Essential_Grid_Admin::VIEW_ITEM_SKIN_EDITOR, 'create=true'); ?>'><?php _e('Create New Item Skin', EG_TEXTDOMAIN); ?></a>
-
+<a class='button-primary revblue' style="margin-top:15px !important;" href='<?php echo $this->getViewUrl(Essential_Grid_Admin::VIEW_OVERVIEW, 'update_shop'); ?>'><?php _e('Import from Grid Templates', EG_TEXTDOMAIN); ?></a>
 <script type="text/javascript">
 	jQuery(function(){
 		GridEditorEssentials.initOverviewItemSkin();

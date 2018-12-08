@@ -305,9 +305,9 @@ class UpdraftPlus_BackupModule_dropbox extends UpdraftPlus_BackupModule {
 							$this->log(sprintf(__('failed to upload file to %s (see log file for more)', 'updraftplus'), $ufile), 'error');
 							$file_success = 0;
 							if (strpos($msg, 'select/poll returned error') !== false && $this->upload_tick > 0 && time() - $this->upload_tick > 800) {
-								$updraftplus->reschedule(60);
+								UpdraftPlus_Job_Scheduler::reschedule(60);
 								$this->log("Select/poll returned after a long time: scheduling a resumption and terminating for now");
-								$updraftplus->record_still_alive();
+								UpdraftPlus_Job_Scheduler::record_still_alive();
 								die;
 							}
 						}
@@ -321,9 +321,9 @@ class UpdraftPlus_BackupModule_dropbox extends UpdraftPlus_BackupModule {
 						$this->log(sprintf(__('failed to upload file to %s (see log file for more)', 'updraftplus'), $ufile), 'error');
 						$file_success = 0;
 						if (strpos($msg, 'select/poll returned error') !== false && $this->upload_tick > 0 && time() - $this->upload_tick > 800) {
-							$updraftplus->reschedule(60);
+							UpdraftPlus_Job_Scheduler::reschedule(60);
 							$this->log("Select/poll returned after a long time: scheduling a resumption and terminating for now");
-							$updraftplus->record_still_alive();
+							UpdraftPlus_Job_Scheduler::record_still_alive();
 							die;
 						}
 					}
@@ -600,9 +600,9 @@ class UpdraftPlus_BackupModule_dropbox extends UpdraftPlus_BackupModule {
 		ob_start();
 		$classes = $this->get_css_classes();
 
-		$defmsg = '<tr class="'.$classes.'"><td></td><td><strong>'.__('Need to use sub-folders?', 'updraftplus').'</strong> '.__('Backups are saved in', 'updraftplus').' apps/UpdraftPlus. '.__('If you backup several sites into the same Dropbox and want to organise with sub-folders, then ', 'updraftplus').'<a href="https://updraftplus.com/shop/">'.__("there's an add-on for that.", 'updraftplus').'</a></td></tr>';
+		$defmsg = '<tr class="'.$classes.'"><td></td><td><strong>'.__('Need to use sub-folders?', 'updraftplus').'</strong> '.__('Backups are saved in', 'updraftplus').' apps/UpdraftPlus. '.__('If you backup several sites into the same Dropbox and want to organize with sub-folders, then ', 'updraftplus').'<a href="https://updraftplus.com/shop/">'.__("there's an add-on for that.", 'updraftplus').'</a></td></tr>';
 
-		$defmsg = '<tr class="'.$classes.'"><td></td><td><strong>'.__('Need to use sub-folders?', 'updraftplus').'</strong> '.__('Backups are saved in', 'updraftplus').' apps/UpdraftPlus. '.__('If you backup several sites into the same Dropbox and want to organise with sub-folders, then ', 'updraftplus').'<a href="'.apply_filters("updraftplus_com_link", "https://updraftplus.com/shop/").'">'.__("there's an add-on for that.", 'updraftplus').'</a></td></tr>';
+		$defmsg = '<tr class="'.$classes.'"><td></td><td><strong>'.__('Need to use sub-folders?', 'updraftplus').'</strong> '.__('Backups are saved in', 'updraftplus').' apps/UpdraftPlus. '.__('If you backup several sites into the same Dropbox and want to organize with sub-folders, then ', 'updraftplus').'<a href="'.apply_filters("updraftplus_com_link", "https://updraftplus.com/shop/").'">'.__("there's an add-on for that.", 'updraftplus').'</a></td></tr>';
 				
 		$extra_config = apply_filters('updraftplus_dropbox_extra_config_template', $defmsg, $this);
 		echo $extra_config;

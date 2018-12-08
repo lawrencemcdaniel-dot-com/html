@@ -24,7 +24,7 @@ function opinionstage_disconnect_account_action() {
 	if ( 'opinionstage-disconnect-page' === filter_input(INPUT_GET, 'page') && $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 		delete_option(OPINIONSTAGE_OPTIONS_KEY);
 
-		$redirect_url = get_admin_url(null, 'admin.php?page='.OPINIONSTAGE_MENU_SLUG);
+		$redirect_url = get_admin_url(null, 'admin.php?page='.OPINIONSTAGE_GETTING_STARTED_SLUG);
 
 		error_log('[opinionstage plugin] user logged out, redirect to '.$redirect_url);
 		if ( wp_redirect( $redirect_url, 302 ) ) {

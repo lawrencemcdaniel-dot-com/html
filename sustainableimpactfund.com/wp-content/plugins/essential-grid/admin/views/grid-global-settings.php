@@ -22,7 +22,9 @@ if( !defined( 'ABSPATH') ) exit();
 	$query_type = get_option('tp_eg_query_type', 'wp_query');
 	$enable_log = get_option('tp_eg_enable_log', 'false');
 	$use_lightbox = get_option('tp_eg_use_lightbox', 'false');
-	$enable_custom_post_type = get_option('tp_eg_enable_custom_post_type', 'true');
+	$hasposts = get_posts('post_type=essential_grid');
+	$default_cpt = !empty ( $hasposts ) ? 'true' : 'false';
+	$enable_custom_post_type = get_option('tp_eg_enable_custom_post_type', $default_cpt);
 	$enable_media_filter = get_option('tp_eg_enable_media_filter', 'false');
 	$enable_post_meta = get_option('tp_eg_enable_post_meta', 'true');
 	$no_filter_match_message = get_option('tp_eg_no_filter_match_message', 'No Items for the Selected Filter');
@@ -232,10 +234,11 @@ if( !defined( 'ABSPATH') ) exit();
 			<label><?php echo _e('Enable Example Custom Post Type', EG_TEXTDOMAIN); ?>:</label>
 		</div>
 		<div class="esg-gs-tc">
-			<select name="enable_custom_post_type">
+			<select name="enable_custom_post_type" style="margin-bottom: 4px">
 				<option <?php echo ($enable_custom_post_type == 'true') ?  'selected="selected" ' : '';?>value="true"><?php _e('On', EG_TEXTDOMAIN); ?></option>
 				<option <?php echo ($enable_custom_post_type == 'false') ? 'selected="selected" ' : '';?>value="false"><?php _e('Off', EG_TEXTDOMAIN); ?></option>
 			</select>
+			<a style="display: none; margin-left: 10px !important" href="javascript:void(0);" class="button-primary revblue" id="esg-import-demo-posts">Import Full Demo Data</a>
 		</div>
 		<div class="esg-gs-tc">	
 			<i style=""><?php echo _e('This enables the Ess. Grid Example Custom Post Type.<br>Needs page reload to take action.', EG_TEXTDOMAIN); ?></i>

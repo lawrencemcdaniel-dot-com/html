@@ -116,12 +116,19 @@ $all_metas = $eg_meta->get_all_meta();
 											<option <?php selected($pattern, '1x1'); ?> value="1x1">1:1</option>
 											<option <?php selected($pattern, '1x2'); ?> value="1x2">1:2</option>
 											<option <?php selected($pattern, '1x3'); ?> value="1x3">1:3</option>
+											<option <?php selected($pattern, '1x4'); ?> value="1x4">1:4</option>
 											<option <?php selected($pattern, '2x1'); ?> value="2x1">2:1</option>
 											<option <?php selected($pattern, '2x2'); ?> value="2x2">2:2</option>
 											<option <?php selected($pattern, '2x3'); ?> value="2x3">2:3</option>
+											<option <?php selected($pattern, '2x4'); ?> value="2x4">2:4</option>
 											<option <?php selected($pattern, '3x1'); ?> value="3x1">3:1</option>
 											<option <?php selected($pattern, '3x2'); ?> value="3x2">3:2</option>
 											<option <?php selected($pattern, '3x3'); ?> value="3x3">3:3</option>
+											<option <?php selected($pattern, '3x4'); ?> value="3x4">3:4</option>
+											<option <?php selected($pattern, '4x1'); ?> value="4x1">4:1</option>
+											<option <?php selected($pattern, '4x2'); ?> value="4x2">4:2</option>
+											<option <?php selected($pattern, '4x3'); ?> value="4x3">4:3</option>
+											<option <?php selected($pattern, '4x4'); ?> value="4x4">4:4</option>
 										</select><a class="button-primary revred eg-delete-cobbles" href="javascript:void(0);"><i class="eg-icon-trash"></i></a>
 									</div>
 									<?php
@@ -348,6 +355,30 @@ $all_metas = $eg_meta->get_all_meta();
 				</div>
 
 				<div class="divider1"></div>
+				
+				<div class="eg-creative-settings eg-blankitem-hideable">
+					<div class="eg-cs-tbc-left">
+						<h3><span><?php _e('Blank Items', EG_TEXTDOMAIN); ?></span></h3>
+					</div>
+					<div class="eg-cs-tbc">
+						<p>
+							<label for="sorting-order-type" class="eg-tooltip-wrap" title="<?php _e('Hide Blank Items at a certain break-point', EG_TEXTDOMAIN); ?>"><?php _e('Hide Blank Items At', EG_TEXTDOMAIN); ?></label>
+							<?php $blank_breakpoint = $base->getVar($grid['params'], 'blank-item-breakpoint', 'desktop-medium'); ?>
+							<select class="eg-tooltip-wrap" name="blank-item-breakpoint" title="<?php _e('Hide Blank Items at a certain break-point', EG_TEXTDOMAIN); ?>">
+								<option value="1"<?php selected($blank_breakpoint, '1'); ?>><?php _e('Desktop Medium', EG_TEXTDOMAIN); ?></option>
+								<option value="2"<?php selected($blank_breakpoint, '2'); ?>><?php _e('Desktop Small', EG_TEXTDOMAIN); ?></option>
+								<option value="3"<?php selected($blank_breakpoint, '3'); ?>><?php _e('Tablet Landscape', EG_TEXTDOMAIN); ?></option>
+								<option value="4"<?php selected($blank_breakpoint, '4'); ?>><?php _e('Tablet', EG_TEXTDOMAIN); ?></option>
+								<option value="5"<?php selected($blank_breakpoint, '5'); ?>><?php _e('Mobile Landscape', EG_TEXTDOMAIN); ?></option>
+								<option value="6"<?php selected($blank_breakpoint, '6'); ?>><?php _e('Mobile', EG_TEXTDOMAIN); ?></option>
+								<option value="none"<?php selected($blank_breakpoint, 'none'); ?>><?php _e('Always Show Blank Items', EG_TEXTDOMAIN); ?></option>
+							</select>
+						</p>
+					</div>
+					
+				</div>
+				
+				<div class="divider1 eg-blankitem-hideable"></div>
 
 				<div class="eg-creative-settings">
 					<div class="eg-cs-tbc-left">
@@ -367,6 +398,19 @@ $all_metas = $eg_meta->get_all_meta();
 								<input class="input-settings-small" type="text" name="rows" value="<?php echo $base->getVar($grid['params'], 'rows', '3', 'i'); ?>" />
 							</p>
 							<p>
+								<label for="enable-rows-mobile" class="eg-tooltip-wrap" title="<?php _e('Set a custom rows amount for mobile devices', EG_TEXTDOMAIN); ?>"><?php _e('Max Rows Mobile', EG_TEXTDOMAIN); ?></label>
+								<input type="radio" class="firstinput enable-mobile-rows" name="enable-rows-mobile" value="on" <?php checked($base->getVar($grid['params'], 'enable-rows-mobile', 'off'), 'on'); ?>> 
+								<span class="eg-tooltip-wrap" title="<?php _e('Enable custom rows amount for mobile devices', EG_TEXTDOMAIN); ?>"><?php _e('Enable', EG_TEXTDOMAIN); ?></span>
+								<input type="radio" class="enable-mobile-rows" name="enable-rows-mobile" value="off" <?php checked($base->getVar($grid['params'], 'enable-rows-mobile', 'off'), 'off'); ?>> 
+								<span class="eg-tooltip-wrap" title="<?php _e('Disable custom rows amount for mobile devices', EG_TEXTDOMAIN); ?>"><?php _e('Disable', EG_TEXTDOMAIN); ?></span>
+							</p>
+							<?php $enable_mobile_rows = $base->getVar($grid['params'], 'enable-rows-mobile', 'off') === 'off' ? 'none' : 'block'; ?>
+							<p id="rows-mobile-wrap" style="display: <?php echo $enable_mobile_rows; ?>">
+								<label for="rows-mobile" class="eg-tooltip-wrap" title="<?php _e('Set a custom rows amount for mobile devices.', EG_TEXTDOMAIN); ?>"><?php _e('Max Visible Rows Mobile', EG_TEXTDOMAIN); ?></label>
+								<span id="slider-rows-mobile" class="slider-settings"></span>
+								<input class="input-settings-small" type="text" name="rows-mobile" value="<?php echo $base->getVar($grid['params'], 'rows-mobile', '3', 'i'); ?>" />
+							</p>
+							<p>
 								<label for="pagination-autoplay" class="eg-tooltip-wrap" title="<?php _e('Enable/Disable Autoplay for Pagination', EG_TEXTDOMAIN); ?>"><?php _e('Autoplay', EG_TEXTDOMAIN); ?></label>
 								<input type="radio" class="pagination-autoplay firstinput" name="pagination-autoplay" value="on" <?php checked($base->getVar($grid['params'], 'pagination-autoplay', 'off'), 'on'); ?>> 
 								<span class="eg-tooltip-wrap" title="<?php _e('Enable Autoplay for Pagination', EG_TEXTDOMAIN); ?>"><?php _e('Enable', EG_TEXTDOMAIN); ?></span>
@@ -374,8 +418,35 @@ $all_metas = $eg_meta->get_all_meta();
 								<span class="eg-tooltip-wrap" title="<?php _e('Disable Autoplay for Pagination', EG_TEXTDOMAIN); ?>"><?php _e('Disable', EG_TEXTDOMAIN); ?></span>
 								
 								<div id="pagination-autoplay-speed"<?php echo ($base->getVar($grid['params'], 'pagination-autoplay', 'off') == 'off') ? ' style="display: none;"' : ''; ?>>
-									<label for="pagination-autoplay-speed" class="eg-tooltip-wrap" title="<?php _e('Timing in milliseconds for the Pagination autoplay', EG_TEXTDOMAIN); ?>"><?php _e('Timing', EG_TEXTDOMAIN); ?></label>
-									<input class="input-settings-small firstinput" type="text" name="pagination-autoplay-speed" value="<?php echo $base->getVar($grid['params'], 'pagination-autoplay-speed', '5000', 'i'); ?>" /> ms
+									<p>
+										<label for="pagination-autoplay-speed" class="eg-tooltip-wrap" title="<?php _e('Timing in milliseconds for the Pagination autoplay', EG_TEXTDOMAIN); ?>"><?php _e('Timing', EG_TEXTDOMAIN); ?></label>
+										<input class="input-settings-small firstinput" type="text" name="pagination-autoplay-speed" value="<?php echo $base->getVar($grid['params'], 'pagination-autoplay-speed', '5000', 'i'); ?>" /> ms
+									</p>
+								</div>
+								
+								<p>
+									<label for="pagination-touchswipe" class="eg-tooltip-wrap" title="<?php _e('Allow pagination swipe on mobile', EG_TEXTDOMAIN); ?>"><?php _e('Touch Swipe', EG_TEXTDOMAIN); ?></label>
+									<input type="radio" class="pagination-touchswipe firstinput" name="pagination-touchswipe" value="on" <?php checked($base->getVar($grid['params'], 'pagination-touchswipe', 'off'), 'on'); ?>> 
+									<span class="eg-tooltip-wrap" title="<?php _e('Enable TouchSwipe for Pagination', EG_TEXTDOMAIN); ?>"><?php _e('Enable', EG_TEXTDOMAIN); ?></span>
+									<input type="radio" class="pagination-touchswipe" name="pagination-touchswipe" value="off" <?php checked($base->getVar($grid['params'], 'pagination-touchswipe', 'off'), 'off'); ?>> 
+									<span class="eg-tooltip-wrap" title="<?php _e('Disable TouchSwipe for Pagination', EG_TEXTDOMAIN); ?>"><?php _e('Disable', EG_TEXTDOMAIN); ?></span>
+								</p>
+								
+								<div id="pagination-touchswipe-settings"<?php echo ($base->getVar($grid['params'], 'pagination-touchswipe', 'off') == 'off') ? ' style="display: none;"' : ''; ?>>
+									
+									<p>
+										<label for="pagination-dragvertical" class="eg-tooltip-wrap" title="<?php _e('Allows the page to be scrolled vertically', EG_TEXTDOMAIN); ?>"><?php _e('Allow Vertical Dragging', EG_TEXTDOMAIN); ?></label>
+										<input type="radio" class="pagination-dragvertical firstinput" name="pagination-dragvertical" value="on" <?php checked($base->getVar($grid['params'], 'pagination-dragvertical', 'on'), 'on'); ?>> 
+										<span class="eg-tooltip-wrap" title="<?php _e('Allow Vertical Dragging', EG_TEXTDOMAIN); ?>"><?php _e('Enable', EG_TEXTDOMAIN); ?></span>
+										<input type="radio" class="pagination-dragvertical" name="pagination-dragvertical" value="off" <?php checked($base->getVar($grid['params'], 'pagination-dragvertical', 'on'), 'off'); ?>> 
+										<span class="eg-tooltip-wrap" title="<?php _e('Prevent Vertical Dragging', EG_TEXTDOMAIN); ?>"><?php _e('Disable', EG_TEXTDOMAIN); ?></span>
+									</p>
+									
+									<p>
+										<label for="pagination-swipebuffer" class="eg-tooltip-wrap" title="<?php _e('Amount the finger moves before a swipe is honored', EG_TEXTDOMAIN); ?>"><?php _e('Swipe Threshold', EG_TEXTDOMAIN); ?></label>
+										<input class="input-settings-small firstinput" type="text" name="pagination-swipebuffer" value="<?php echo $base->getVar($grid['params'], 'pagination-swipebuffer', '30', 'i'); ?>" /> px
+									</p>
+									
 								</div>
 								
 							</p>
@@ -558,6 +629,10 @@ $all_metas = $eg_meta->get_all_meta();
 									if($entry_skin_choosen == '0') $do_only_first = true; //only add the selected on the first element if we create a new grid, so we select the firs skin
 
 									foreach($skins as $skin){
+										
+										// 2.2.6
+										if(is_array($skin) && array_key_exists('handle', $skin) && $skin['handle'] === 'esgblankskin') continue;
+										
 										if(empty($src)) $src = $demo_img;
 
 										$item_skin = new Essential_Grid_Item_Skin();
@@ -1172,11 +1247,23 @@ $all_metas = $eg_meta->get_all_meta();
 
 							<div class="eg-original-filter-options-wrap eg-filter-options-wrap">
 								<div class="eg-filter-header-block"><i class="eg-icon-megaphone"></i><?php _e('Filter -', EG_TEXTDOMAIN); ?> <span class="filter-header-id">1</span></div>
-								<p class="eg-filter-label"><?php _e('Filter "All" Text', EG_TEXTDOMAIN); ?></p>
-								<p class="eg-filter-option-field eg-tooltip-wrap" title="<?php _e('Visible Title for the ALL Filter Button.  Leave blank for no button', EG_TEXTDOMAIN); ?>">
-									<input type="text" name="filter-all-text" data-origname="filter-all-text-#NR" value="<?php echo $base->getVar($grid['params'], 'filter-all-text', __('Filter - All', EG_TEXTDOMAIN)); ?>" class="firstinput">
-									<span class="eg-remove-filter-tab" style="display: none;"><i class="eg-icon-cancel"></i></span>
+								
+								<?php $filterallon = $base->getVar($grid['params'], 'filter-all-visible', 'on'); ?>
+								<p class="eg-filter-label"><?php _e('Show/Hide Filter "All" Button', EG_TEXTDOMAIN); ?></p>
+								<p class="eg-filter-option-field">
+									<input type="radio" name="filter-all-visible" data-origname="filter-all-visible-#NR" value="on" class="firstinput filtervisible" style="margin-left: 5px" <?php checked($filterallon, 'on'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Show the Filter All button', EG_TEXTDOMAIN); ?>"><?php _e('Show', EG_TEXTDOMAIN); ?></span>
+									<input type="radio" name="filter-all-visible" data-origname="filter-all-visible-#NR" value="off" class="filtervisible" <?php checked($filterallon, 'off'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Hide the Filter All button', EG_TEXTDOMAIN); ?>"><?php _e('Hide', EG_TEXTDOMAIN); ?></span>
 								</p>
+								
+								<?php $filtervisible = $base->getVar($grid['params'], 'filter-all-visible', 'on') === 'on' ? 'block' : 'none'; ?>
+								<div class="eg-filter-visible">
+									<p class="eg-filter-label"><?php _e('Filter "All" Text', EG_TEXTDOMAIN); ?></p>
+									<p class="eg-filter-option-field eg-tooltip-wrap" title="<?php _e('Visible Title for the ALL Filter Button', EG_TEXTDOMAIN); ?>">
+										<input type="text" name="filter-all-text" data-origname="filter-all-text-#NR" value="<?php echo $base->getVar($grid['params'], 'filter-all-text', __('Filter - All', EG_TEXTDOMAIN)); ?>" class="firstinput">
+										<span class="eg-remove-filter-tab" style="display: none;"><i class="eg-icon-cancel"></i></span>
+									</p>
+								</div>
+								
 								<p class="eg-filter-label"><?php _e('Layout Option', EG_TEXTDOMAIN); ?></p>
 								<p class="eg-filter-option-field">
 									<?php
@@ -1204,8 +1291,8 @@ $all_metas = $eg_meta->get_all_meta();
 										<option value="off" <?php selected($f_counter, 'off'); ?>><?php _e('Off', EG_TEXTDOMAIN); ?></option>
 									</select>
 								</p>
-								<p class="eg-filter-label"><?php _e('Available Filters in Group', EG_TEXTDOMAIN); ?></p>
-								<div class="filter-only-for-post">
+								<p class="eg-filter-label available-filters-in-group"><?php _e('Available Filters in Group', EG_TEXTDOMAIN); ?></p>
+								<div class="filter-only-for-post" style="margin-top: 10px">
 									<?php
 									$filter_selected = $base->getVar($grid['params'], 'filter-selected', '');
 									$filter_startup = false;
@@ -1282,11 +1369,23 @@ $all_metas = $eg_meta->get_all_meta();
 								?>
 								<div class="eg-filter-options-wrap" style="display:inline-block">
 									<div class="eg-filter-header-block"><i class="eg-icon-megaphone"></i><?php _e('Filter -', EG_TEXTDOMAIN); ?> <span class="filter-header-id"><?php echo $id;?></span></div>
-									<p class="eg-filter-label eg-tooltip-wrap" title="<?php _e('Visible Title on All Filter Button.', EG_TEXTDOMAIN); ?>"><?php _e('Filter "All" Text', EG_TEXTDOMAIN); ?></p>
+									
+									<?php $filterallon = $base->getVar($params, 'filter-all-visible-'.$id, 'on'); ?>
+									<p class="eg-filter-label"><?php _e('Show/Hide Filter "All" Button', EG_TEXTDOMAIN); ?></p>
 									<p class="eg-filter-option-field">
-										<input type="text" name="filter-all-text-<?php echo $id; ?>" data-origname="filter-all-text-#NR" value="<?php echo $base->getVar($params, 'filter-all-text-'.$id, __('Filter - All', EG_TEXTDOMAIN)); ?>" class="firstinput">
-										<span class="eg-remove-filter-tab" style="display: none;"><i class="eg-icon-cancel"></i></span>
+										<input type="radio" name="filter-all-visible-<?php echo $id; ?>" data-origname="filter-all-visible-#NR" value="on" class="firstinput filtervisible" style="margin-left: 5px" <?php checked($filterallon, 'on'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Show the Filter All button', EG_TEXTDOMAIN); ?>"><?php _e('Show', EG_TEXTDOMAIN); ?></span>
+										<input type="radio" name="filter-all-visible-<?php echo $id; ?>" data-origname="filter-all-visible-#NR" value="off" class="filtervisible" <?php checked($filterallon, 'off'); ?>> <span class="eg-tooltip-wrap" title="<?php _e('Hide the Filter All button', EG_TEXTDOMAIN); ?>"><?php _e('Hide', EG_TEXTDOMAIN); ?></span>
 									</p>
+									
+									<?php $filtervisible = $base->getVar($params, 'filter-all-visible-'.$id, 'on') === 'on' ? 'block' : 'none'; ?>
+									<div class="eg-filter-visible" style="display: <?php echo $filtervisible; ?>">
+										<p class="eg-filter-label"><?php _e('Filter "All" Text', EG_TEXTDOMAIN); ?></p>
+										<p class="eg-filter-option-field eg-tooltip-wrap" title="<?php _e('Visible Title for the ALL Filter Button', EG_TEXTDOMAIN); ?>">
+											<input type="text" name="filter-all-text-<?php echo $id; ?>" data-origname="filter-all-text-#NR" value="<?php echo $base->getVar($params, 'filter-all-text-'.$id, __('Filter - All', EG_TEXTDOMAIN)); ?>" class="firstinput">
+											<span class="eg-remove-filter-tab" style="display: none;"><i class="eg-icon-cancel"></i></span>
+										</p>
+									</div>
+									
 									<p class="eg-filter-label"><?php _e('Layout Option', EG_TEXTDOMAIN); ?></p>
 									<p class="eg-filter-option-field">
 										<?php
@@ -1314,8 +1413,8 @@ $all_metas = $eg_meta->get_all_meta();
 											<option value="off" <?php selected($f_counter, 'off'); ?>><?php _e('Off', EG_TEXTDOMAIN); ?></option>
 										</select>
 									</p>
-									<p class="eg-filter-label"><?php _e('Available Filters in Group', EG_TEXTDOMAIN); ?></p>
-									<div class="filter-only-for-post">
+									<p class="eg-filter-label available-filters-in-group"><?php _e('Available Filters in Group', EG_TEXTDOMAIN); ?></p>
+									<div class="filter-only-for-post" style="margin-top: 10px">
 										<?php
 										$filter_selected = $base->getVar($params, 'filter-selected-'.$id, '');
 										?>
@@ -1854,7 +1953,7 @@ $all_metas = $eg_meta->get_all_meta();
 							<label class="eg-tooltip-wrap" title="<?php _e('Choose which buttons to display and set their order', EG_TEXTDOMAIN); ?>"><?php _e('Set Button Order', EG_TEXTDOMAIN); ?></label>
 						</div>
 						<div style="float:left">
-							<div id="lbo-btn-list" class="eg-media-source-order-wrap" style="width: 332px">
+							<div id="lbo-btn-list" class="eg-media-source-order-wrap" style="width: 332px; margin-bottom: 15px">
 								<?php
 								if(!empty($lb_button_order)){
 									foreach($lb_button_order as $lb_handle){
@@ -2218,7 +2317,7 @@ $all_metas = $eg_meta->get_all_meta();
 
 				<div class="eg-creative-settings">
 					<div class="eg-cs-tbc-left">
-						<h3 class="box-closed"><span><?php _e('Custom CSS', EG_TEXTDOMAIN); ?></span></h3>
+						<h3 class="box-closed"><span><?php _e('Ajax Container Custom CSS', EG_TEXTDOMAIN); ?></span></h3>
 					</div>
 					<div class="eg-cs-tbc">
 						<div style="margin: 15px 0;" class="eg-codemirror-border">
@@ -2256,11 +2355,6 @@ $all_metas = $eg_meta->get_all_meta();
 						<div style="clear:both"></div>
 					</div>
 				</div>
-
-				<div class="divider1"></div>
-
-
-
 
 
 			</div>
@@ -2380,17 +2474,14 @@ $all_metas = $eg_meta->get_all_meta();
 							<div style="margin-left: 170px;">
 <pre><code>
 // http://fancyapps.com/fancybox/3/docs/
-var customLightboxOptions = {
-	hideScrollbar: true,
-	hash: false
-};
-jQuery.extend(true, {}, lightboxOptions);</code></pre>
+lightboxOptions.hideScrollbar = true;
+lightboxOptions.hash = false;
+</code></pre>
 							</div>
 						</p>
 					</div>
 				</div>
 
-				<div class="divider1"></div>
 			</div>
 		</div>
 		

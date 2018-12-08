@@ -102,9 +102,6 @@ function slide_anything_shortcode($atts) {
 				}
 			}
 			$slide_data['slide_duration'] = floatval($metadata['sa_slide_duration'][0]) * 1000;
-			if ($slide_data['slide_duration'] == 0) {
-				$slide_data['slide_duration'] = 'false';
-			}
 			$slide_data['slide_transition'] = floatval($metadata['sa_slide_transition'][0]) * 1000;
 			if (isset($metadata['sa_slide_by'][0]) && ($metadata['sa_slide_by'][0] != '')) {
 				$slide_data['slide_by'] = $metadata['sa_slide_by'][0];
@@ -225,6 +222,10 @@ function slide_anything_shortcode($atts) {
 					$slide_data['strip_javascript'] = '0';
 				}
 			}
+			$slide_data['lazy_load_images'] = '0';
+			if (isset($metadata['sa_lazy_load_images'])) {
+				$slide_data['lazy_load_images'] = $metadata['sa_lazy_load_images'][0];
+			}
 
 			// REVERSE THE ORDER OF THE SLIDES IF 'Random Order' CHECKBOX IS CHECKED OR
 			// RE-ORDER SLIDES IN A RANDOM ORDER IF 'Random Order' CHECKBOX IS CHECKED
@@ -299,19 +300,19 @@ function slide_anything_shortcode($atts) {
 			$wrapper_style .= $slide_data['wrapper_padd_bottom']."px ";
 			$wrapper_style .= $slide_data['wrapper_padd_left']."px;";
 			$output .= "<div class='".$slide_data['slide_icons_color']."' style='".esc_attr($wrapper_style)."'>\n";
+			$additional_classes = '';
 			if ($slide_data['pagination'] == 'true') {
 				if ($slide_data['autohide_arrows'] == 'true') {
-					$output .= "<div id='".esc_attr($slide_data['css_id'])."' class='owl-carousel owl-pagination-true autohide-arrows sa_owl_theme'>\n";
+					$additional_classes = "owl-pagination-true autohide-arrows";
 				} else {
-					$output .= "<div id='".esc_attr($slide_data['css_id'])."' class='owl-carousel owl-pagination-true sa_owl_theme'>\n";
+					$additional_classes = "owl-pagination-true";
 				}
 			} else {
 				if ($slide_data['autohide_arrows'] == 'true') {
-					$output .= "<div id='".esc_attr($slide_data['css_id'])."' class='owl-carousel autohide-arrows sa_owl_theme'>\n";
-				} else {
-					$output .= "<div id='".esc_attr($slide_data['css_id'])."' class='owl-carousel sa_owl_theme'>\n";
+					$additional_classes = "autohide-arrows";
 				}
 			}
+			$output .= "<div id='".esc_attr($slide_data['css_id'])."' class='owl-carousel sa_owl_theme ".$additional_classes."' style='visibility:hidden;'>\n";
 			if ($sa_pro_version) {
 				// PRO VERSION - INITIALISE VAIRABLES FOR MAGNIFIC POPUP
 				$lightbox_function = "open_lightbox_gallery_".$slide_data['css_id'];
@@ -417,6 +418,10 @@ function slide_anything_shortcode($atts) {
 					// strip JavaScript code (<script> tags) from slide content
 					$slide_content = remove_javascript_from_content($slide_content);
 				}
+				if ($slide_data['lazy_load_images'] == '1') {
+					// modify images (<img> tag) within slide content to enable owl carousel lazy load
+					$slide_content = set_slide_images_to_lazy_load($slide_content);
+				}
 				$output .= $slide_content."</div>\n"; // .sa_hover_container
 			}
 			$output .= "</div>\n";
@@ -514,9 +519,11 @@ function slide_anything_shortcode($atts) {
 				}
 				if ($slide_data['slide_duration'] == 0) {
 					$output .= "			autoplay : false,\n";
+					$output .= "			autoplayHoverPause : false,\n";
 				} else {
 					$output .= "			autoplay : true,\n";
 					$output .= "			autoplayTimeout : ".esc_attr($slide_data['slide_duration']).",\n";
+					$output .= "			autoplayHoverPause : ".esc_attr($slide_data['stop_hover']).",\n";
 				}
 				$output .= "			smartSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
 				$output .= "			fluidSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
@@ -524,7 +531,6 @@ function slide_anything_shortcode($atts) {
 				$output .= "			navSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
 				$output .= "			dotsSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
 				$output .= "			loop : ".esc_attr($slide_data['loop_slider']).",\n";
-				$output .= "			autoplayHoverPause : ".esc_attr($slide_data['stop_hover']).",\n";
 				$output .= "			nav : ".esc_attr($slide_data['nav_arrows']).",\n";
 				$output .= "			navText : ['',''],\n";
 				$output .= "			dots : ".esc_attr($slide_data['pagination']).",\n";
@@ -537,9 +543,16 @@ function slide_anything_shortcode($atts) {
 				$output .= "			mergeFit : true,\n";
 				//$output .= "			URLhashListener : true,\n";
 				$output .= "			autoHeight : ".esc_attr($slide_data['auto_height']).",\n";
+				if ($slide_data['lazy_load_images'] == '1') {
+					$output .= "			lazyLoad : true,\n";
+					$output .= "			lazyLoadEager: 1,\n";
+				}
 				$output .= "			mouseDrag : ".esc_attr($slide_data['mouse_drag']).",\n";
 				$output .= "			touchDrag : ".esc_attr($slide_data['touch_drag'])."\n";
 				$output .= "		});\n";
+
+				// MAKE SLIDER VISIBLE (AFTER 'WINDOW ONLOAD' OR 'DOCUMENT READY' EVENT)
+				$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."').css('visibility', 'visible');\n";
 
 				// JAVASCRIPT 'WINDOW RESIZE' EVENT TO SET CSS 'min-height' OF SLIDES WITHIN THIS SLIDER
 				$slide_min_height = $slide_data['slide_min_height_perc'];
@@ -644,14 +657,16 @@ function slide_anything_shortcode($atts) {
 					$output .= "		mainClass: 'sa_popup',\n";
 					$output .= "		closeBtnInside: true,\n";
 					$output .= "		fixedContentPos: true,\n";
-					$output .= "		callbacks: {\n";
-					$output .= "			open: function() {\n";
-					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('stop.owl.autoplay');\n";
-					$output .= "			},\n";
-					$output .= "			close: function() {\n";
-					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('play.owl.autoplay');\n";
-					$output .= "			}\n";
-					$output .= "		},\n";
+					if ($slide_data['slide_duration'] != 0) {
+						$output .= "		callbacks: {\n";
+						$output .= "			open: function() {\n";
+						$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('stop.owl.autoplay');\n";
+						$output .= "			},\n";
+						$output .= "			close: function() {\n";
+						$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('play.owl.autoplay');\n";
+						$output .= "			}\n";
+						$output .= "		},\n";
+					}
 					$output .= "		type: 'image'\n";
 					$output .= "	});\n";
 					$output .= "});\n";
@@ -676,14 +691,40 @@ function slide_anything_shortcode($atts) {
 
 // ### STRIP JAVASCRIPT ('<script>' tags) FROM SUPPLIED STRING ARGUMENT ###
 function remove_javascript_from_content($slide_content) {
+	if ($slide_content != '') {
+		$dom = new DOMDocument();
+		$dom->loadHTML($slide_content);
+		$script = $dom->getElementsByTagName('script');
+		$remove = array();
+		foreach($script as $item) {
+			$item->parentNode->removeChild($item);
+		}
+		$slide_content = $dom->saveHTML();
+	}
+	return $slide_content;
+}
+
+
+
+// ### MODIFY IMAGES (<img> tag) WITHIN STRING PASSED (SLIDE CONTENT) TO ENABLE OWL CAROUSEL LAZY LOAD ###
+function set_slide_images_to_lazy_load($slide_content) {
+	// 1) REPLACE 'src=' WITH 'data-src=' WITHIN <IMG> TAGS
+	$slide_content = preg_replace('~<img[^>]*\K(?=src)~i','data-', $slide_content);
+
+	// 2) FOR EACH <IMG> TAG WITHIN THE SLIDE CONTENT, ADD THE 'owl-lazy' CLASS
 	$dom = new DOMDocument();
 	$dom->loadHTML($slide_content);
-	$script = $dom->getElementsByTagName('script');
-	$remove = array();
-	foreach($script as $item) {
-		$item->parentNode->removeChild($item);
+	$imgs = $dom->getElementsByTagName('img');
+	foreach ($imgs as $img) {
+		$curr_class = $img->getAttribute('class');
+		if ($curr_class != '') {
+			$img->setAttribute('class', $curr_class.' owl-lazy');
+		} else {
+			$img->setAttribute('class', 'owl-lazy');
+		}
 	}
 	$slide_content = $dom->saveHTML();
+
 	return $slide_content;
 }
 ?>

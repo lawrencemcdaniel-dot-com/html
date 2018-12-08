@@ -76,9 +76,14 @@ class Essential_Grid_Plugin_Update {
 			$this->update_to_216();
 		}
 
-		/* 2.1.7 */
+		/* 2.2 */
 		if(version_compare($this->version, '2.2', '<')){
 			$this->update_to_22();
+		}
+		
+		/* 2.3 */
+		if(version_compare($this->version, '2.3', '<')){
+			$this->update_to_23();
 		}
 		
 		do_action('essgrid_do_update_process', $this->version);
@@ -1101,6 +1106,62 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#00000000\',
 		
 		$this->update_version('2.2');
 		$this->set_version('2.2');
+	}
+	
+	/**
+	 * update to 2.3
+	 * @since: 2.3
+	 * @does: adds a new skin to the exisiting installation
+	 */
+	 public function insert_skin($skin) {
+		 
+		$skins = Essential_Grid_Item_Skin::get_essential_item_skins();
+		if(!empty($skins)) {
+			foreach($skins as $skn) {
+				if(isset($skn['handle']) && $skn['handle'] === 'esgblankskin') return;
+			}
+		}
+		 
+		global $wpdb;
+		$table_name = $wpdb->prefix . Essential_Grid::TABLE_ITEM_SKIN;
+		$wpdb->insert($table_name, array('name' => $skin['name'], 'handle' => $skin['handle'], 'params' => $skin['params'], 'layers' => $skin['layers']));
+		
+	 }
+	
+	/**
+	 * update to 2.3
+	 * @since: 2.3
+	 * @does: adds new blank skin for custom grid blank items
+	 */
+	public function update_to_23(){
+		
+		global $wpdb;
+		
+		$blank_skin = array('name' => 'ESGBlankSkin','handle' => 'esgblankskin','params'=>'{"eg-item-skin-element-last-id":"0","choose-layout":"even","show-content":"none","content-align":"left","image-repeat":"no-repeat","image-fit":"cover","image-align-horizontal":"center","image-align-vertical":"center","element-x-ratio":"4","element-y-ratio":"3","splitted-item":"none","cover-type":"full","container-background-color":"rgba(0, 0, 0, 0)","cover-always-visible-desktop":"false","cover-always-visible-mobile":"false","cover-background-size":"cover","cover-background-repeat":"no-repeat","cover-background-image":"0","cover-background-image-url":"","full-bg-color":"rgba(255, 255, 255, 0)","full-padding":["0","0","0","0"],"full-border":["0","0","0","0"],"full-border-radius":["0","0","0","0"],"full-border-color":"transparent","full-border-style":"none","full-overflow-hidden":"false","content-bg-color":"rgba(255, 255, 255, 0)","content-padding":["0","0","0","0"],"content-border":["0","0","0","0"],"content-border-radius":["0","0","0","0"],"content-border-color":"transparent","content-border-style":"none","all-shadow-used":"none","content-shadow-color":"#000000","content-box-shadow":["0","0","0","0"],"cover-animation-top-type":"","cover-animation-delay-top":"0","cover-animation-top":"fade","cover-animation-center-type":"","cover-animation-delay-center":"0","cover-animation-center":"none","cover-animation-bottom-type":"","cover-animation-delay-bottom":"0","cover-animation-bottom":"fade","cover-group-animation":"none","media-animation":"none","media-animation-delay":"0","element-hover-image":"false","hover-image-animation":"fade","hover-image-animation-delay":"0","link-set-to":"none","link-link-type":"none","link-url-link":"","link-meta-link":"","link-javascript-link":"","link-target":"_self"}','layers'=>"[]",'settings'=>null);
+		$new_skin = array('name' => $blank_skin['name'], 'handle' => $blank_skin['handle'], 'params' => $blank_skin['params'], 'layers' => $blank_skin['layers']);
+		
+		if(function_exists('is_multisite') && is_multisite()){ //do for each existing site
+			
+			// Get all blog ids and create tables
+			$blogids = $wpdb->get_col("SELECT blog_id FROM ".$wpdb->blogs);
+			
+			foreach($blogids as $blog_id){
+				
+				switch_to_blog($blog_id);
+				$this->insert_skin($new_skin);
+				restore_current_blog();
+				
+			}
+			
+		}else{
+		
+			$this->insert_skin($new_skin);
+			
+		}
+		
+		$this->update_version('2.3');
+		$this->set_version('2.3');
+	
 	}
 	
 }

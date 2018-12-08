@@ -79,7 +79,7 @@
                 </div>
                 <div class="side-login ytprefs-ajax-form">
                     <h1>Log in to vi</h1>
-                    <h2>Join 30,000+ publishers</h2>
+                    <h2>Join 40,000+ publishers</h2>
                     <p class="description">Already signed up? Login here using the info from your welcome email.</p>
                     <p>
                         <input class="textinput regular-text ytvi-login-email" type="text" placeholder="Your email" />

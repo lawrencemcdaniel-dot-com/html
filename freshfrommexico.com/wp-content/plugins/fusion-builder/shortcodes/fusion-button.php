@@ -234,10 +234,6 @@ if ( fusion_is_element_enabled( 'fusion_button' ) ) {
 						$styles .= '.fusion-button.button-' . $this->button_counter . ' .fusion-button-text, .fusion-button.button-' . $this->button_counter . ' i {' . $text_color_styles . '}';
 					}
 
-					if ( $text_transform ) {
-						$styles .= '.fusion-button.button-' . $this->button_counter . ' .fusion-button-text {text-transform:' . $text_transform . ';}';
-					}
-
 					if ( $general_styles ) {
 						$styles .= '.fusion-button.button-' . $this->button_counter . ' {' . $general_styles . '}';
 					}
@@ -309,6 +305,10 @@ if ( fusion_is_element_enabled( 'fusion_button' ) ) {
 
 						$styles .= '.fusion-button.button-' . $this->button_counter . ':hover,.button-' . $this->button_counter . ':focus,.fusion-button.button-' . $this->button_counter . ':active{' . $gradient_hover_styles . '}';
 					}
+				}
+
+				if ( $text_transform ) {
+					$styles .= '.fusion-button.button-' . $this->button_counter . ' .fusion-button-text {text-transform:' . $text_transform . ';}';
 				}
 
 				if ( 'default' === $this->args['stretch'] ) {

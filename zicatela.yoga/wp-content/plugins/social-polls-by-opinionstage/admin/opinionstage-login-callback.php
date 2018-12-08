@@ -43,7 +43,8 @@ function opinionstage_login_callback() {
 			)
 		);
 
-		$redirect_url = get_admin_url(null, '', 'admin').'admin.php?page='.OPINIONSTAGE_MENU_SLUG;
+
+		$redirect_url = get_admin_url(null, '', 'admin').'admin.php?page='.OPINIONSTAGE_GETTING_STARTED_SLUG;
 
 		error_log('[opinionstage plugin] user logged in, redirect to '.$redirect_url);
 		if ( wp_redirect( $redirect_url, 302 ) ) {

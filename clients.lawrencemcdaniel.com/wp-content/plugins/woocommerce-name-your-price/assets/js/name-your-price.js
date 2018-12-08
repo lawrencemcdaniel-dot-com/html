@@ -80,16 +80,14 @@ jQuery( document ).ready( function($) {
 				$nyp_input.val( woocommerce_nyp_format_price( form_price_num ) );
 			}
 
-			// Add the price to the button as data for AJAX add to cart.
-			if( $ajax_cart_button.length ) {
-				$ajax_cart_button.data( $nyp_input.attr('name'), woocommerce_nyp_format_price( form_price_num ) );
-			}
+			// Always add the price to the button as data for AJAX add to cart.
+			$submit.data( $nyp_input.attr('name'), woocommerce_nyp_format_price( form_price_num ) );
 
 			// If we've set an error, show message and prevent submit.
 			if ( error ){
 
 				// Disable submit.
-				$submit.prop( 'disabled', true );
+				$submit.prop( 'disabled', true ).addClass( 'disabled' );
 
 				// Show error.
 				error_message = error_message.replace( error_tag, error_price );
@@ -104,7 +102,7 @@ jQuery( document ).ready( function($) {
 			} else {
 
 				// Allow submit.
-				$submit.prop( 'disabled', false );
+				$submit.prop( 'disabled', false ).removeClass( 'disabled' );
 
 				// Remove error.
 				$error.slideUp();
@@ -144,6 +142,7 @@ jQuery( document ).ready( function($) {
 			var $nyp_input 			= $nyp.find( '.nyp-input' );
 			var $minimum 			= $nyp.find( '.minimum-price' );
 			var $subscription_terms = $nyp.find( '.subscription-details' );
+			var $error      = $variation_form.find( '.woocommerce-nyp-message' );
 
 			// The add to cart text.
 			var default_add_to_cart_text 	= $add_to_cart.html();
@@ -158,6 +157,12 @@ jQuery( document ).ready( function($) {
 			$variation_form
 
 			.on( 'found_variation', function( event, variation ) {
+
+				// Clear any disabled attributes.
+				$add_to_cart.attr( 'disabled', false );
+
+				// Hide any existing error message.
+				$error.slideUp();
 
 				// If NYP show the price input and tweak the data attributes.
 				if ( typeof variation.is_nyp != undefined && variation.is_nyp == true ) {
@@ -196,9 +201,6 @@ jQuery( document ).ready( function($) {
 					// Toggle minimum error message between explicit and obscure.
 					$nyp.data( 'hide-minimum', variation.hide_minimum );
 
-					// Hide any existing error message.
-					$variation_form.find( '.woocommerce-nyp-message' ).slideUp();
-
 					// Product add ons compatibility.
 					var form_price_num 	= woocommerce_nyp_unformat_price( $nyp_input.val() );
 					$(this).find( '#product-addons-total' ).data( 'price', form_price_num );
@@ -220,7 +222,11 @@ jQuery( document ).ready( function($) {
 			.on( 'reset_image', function( event ) {
 
 				$add_to_cart.html( default_add_to_cart_text );
+
+				// Clear any disabled attributes.
+				$add_to_cart.attr( 'disabled', false );
 				$nyp.slideUp();
+				$error.hide();
 
 			} )
 
@@ -228,7 +234,11 @@ jQuery( document ).ready( function($) {
 			.on( 'click', '.reset_variations', function( event ) {
 
 				$add_to_cart.html( default_add_to_cart_text );
+
+				// Clear any disabled attributes.
+				$add_to_cart.attr( 'disabled', false );
 				$nyp.slideUp();
+				$error.hide();
 
 			} );
 

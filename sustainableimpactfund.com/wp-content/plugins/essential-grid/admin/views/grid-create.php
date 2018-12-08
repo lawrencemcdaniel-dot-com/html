@@ -1481,11 +1481,11 @@ LEFT SETTINGS
 								<div style="clear:both"></div>
 							</div>
 						</div>
-						<div class="divider1"></div>
 					</div>
 
 					<div class="eg-creative-settings default-posters notavailable" id="eg-youtube-default-poster">
 						
+						<div class="divider1"></div>
 						<div class="eg-cs-tbc-left">
 							<h3 class="box-closed"><span><?php _e('YouTube Poster', EG_TEXTDOMAIN); ?></span></h3>
 						</div>
@@ -1585,7 +1585,7 @@ LEFT SETTINGS
 			require_once('elements/grid-settings.php');
 		?>
 		
-		
+		<div class="divider1"></div>
 		<div id="custom-element-add-elements-wrapper">
 			<div class="eg-creative-settings">
 				<div class="eg-cs-tbc-left">
@@ -1601,7 +1601,8 @@ LEFT SETTINGS
 						<li><div class="esg-open-edit-dialog" id="esg-add-new-custom-html5-top"><i class="eg-icon-video"></i><?php _e('Self Hosted Media', EG_TEXTDOMAIN); ?></div></li>
 						<li><div class="esg-open-edit-dialog" id="esg-add-new-custom-image-top"><i class="eg-icon-picture-1"></i><?php _e('Image(s)', EG_TEXTDOMAIN); ?></div></li>
 						<li><div class="esg-open-edit-dialog" id="esg-add-new-custom-soundcloud-top"><i class="eg-icon-soundcloud"></i><?php _e('Sound Cloud', EG_TEXTDOMAIN); ?></div></li>
-						<li><div class="esg-open-edit-dialog" id="esg-add-new-custom-text-top"><i class="eg-icon-font"></i><?php _e('Simple Content', EG_TEXTDOMAIN); ?></div></li>										
+						<li><div class="esg-open-edit-dialog" id="esg-add-new-custom-text-top"><i class="eg-icon-font"></i><?php _e('Simple Content', EG_TEXTDOMAIN); ?></div></li>	
+						<li><div class="esg-open-edit-dialog" id="esg-add-new-custom-blank-top"><i class="eg-icon-cancel"></i><?php _e('Blank Item', EG_TEXTDOMAIN); ?></div></li>	
 					</ul>
 					<div style="clear:both"></div>
 				</div>

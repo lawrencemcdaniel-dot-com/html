@@ -191,7 +191,7 @@ class IP_Geo_Block_Admin_Ajax {
 	 */
 	public static function catch_live_log() {
 		$user = IP_Geo_Block_Util::get_current_user_id();
-		$auth = get_transient( IP_Geo_Block::PLUGIN_NAME . '-live-log' );
+		$auth = IP_Geo_Block::get_live_log();
 
 		if ( $auth === FALSE || $user === (int)$auth ) {
 			set_transient( IP_Geo_Block::PLUGIN_NAME . '-live-log', $user, IP_Geo_Block_Admin::TIMEOUT_LIVE_UPDATE );
@@ -223,7 +223,7 @@ class IP_Geo_Block_Admin_Ajax {
 			return $ret;
 
 		if ( ! is_wp_error( $res = IP_Geo_Block_Logs::restore_live_log( $hook, $settings ) ) )
-			return array( 'data' => self::format_logs( $res ) ); // DataTables requires `data`
+			return array( 'data' => self::format_logs( apply_filters( IP_Geo_Block::PLUGIN_NAME . '-logs', $res ) ) );
 		else
 			return array( 'error' => $res->get_error_message() );
 	}
@@ -343,11 +343,11 @@ endif;
 		);
 
 		$time = array(
-			YEAR_IN_SECONDS,  // All
-			HOUR_IN_SECONDS,  // Latest 1 hour
-			DAY_IN_SECONDS,   // Latest 24 hours
-			WEEK_IN_SECONDS,  // Latest 1 week
-			MONTH_IN_SECONDS, // Latest 1 month
+			YEAR_IN_SECONDS,    // All
+			HOUR_IN_SECONDS,    // Latest 1 hour
+			DAY_IN_SECONDS,     // Latest 24 hours
+			WEEK_IN_SECONDS,    // Latest 1 week
+			30 * DAY_IN_SECONDS // Latest 1 month (MONTH_IN_SECONDS is since WP 4.4+)
 		);
 
 		$i = 0;
@@ -523,6 +523,7 @@ endif; // TEST_RESTORE_NETWORK
 			'[extra_ips][black_list]',
 			'[anonymize]',
 			'[restrict_api]',            // 3.0.13
+			'[simulate]',                // 3.0.14
 			'[signature]',
 			'[login_fails]',
 			'[response_code]',
@@ -572,7 +573,6 @@ endif; // TEST_RESTORE_NETWORK
 			'[public][target_cates][$]', // 3.0.0
 			'[public][target_tags][$]',  // 3.0.0
 			'[public][ua_list]',         // 3.0.0
-			'[public][simulate]',        // 3.0.0
 			'[public][dnslkup]',         // 3.0.3
 			'[public][response_code]',   // 3.0.3
 			'[public][response_msg]',    // 3.0.3
@@ -600,6 +600,9 @@ endif; // TEST_RESTORE_NETWORK
 			'[mimetype][capability][$]', // 3.0.4
 			'[Maxmind][use_asn]',        // 3.0.4
 			'[live_update][in_memory]',  // 3.0.5
+			'[monitor][metadata]',       // 3.0.17
+			'[metadata][pre_update_option][$]',      // 3.0.17
+			'[metadata][pre_update_site_option][$]', // 3.0.17
 		);
 		$json = array();
 		$prfx = IP_Geo_Block::OPTION_NAME;
@@ -814,7 +817,7 @@ endif; // TEST_RESTORE_NETWORK
 	public static function get_wp_info() {
 		require_once IP_GEO_BLOCK_PATH . 'classes/class-ip-geo-block-lkup.php';
 		require_once IP_GEO_BLOCK_PATH . 'classes/class-ip-geo-block-file.php';
-		$fs = IP_Geo_Block_FS::init( 'get_wp_info' );
+		$fs = IP_Geo_Block_FS::init( __FUNCTION__ );
 
 		// DNS reverse lookup
 		$key = microtime( TRUE );
@@ -826,37 +829,45 @@ endif; // TEST_RESTORE_NETWORK
 		$dsp = @ini_set( 'display_errors', 0 );
 		$log = @ini_set( 'error_log', '/' . 'dev' . '/' . 'null' );
 		$err = @error_reporting( 0 );
-		global $wpdb;
-		$ver = $wpdb->get_var( 'SELECT @@GLOBAL.version' );
-		$bem = $wpdb->get_var( 'SELECT @@GLOBAL.block_encryption_mode' ); // `aes-128-ecb` @since MySQL 5.6.17
+		$ver = $GLOBALS['wpdb']->get_var( 'SELECT @@GLOBAL.version' );
+		$bem = $GLOBALS['wpdb']->get_var( 'SELECT @@GLOBAL.block_encryption_mode' ); // `aes-128-ecb` @since MySQL 5.6.17
 		@ini_set( 'output_buffering', $buf );
 		@ini_set( 'display_errors', $dsp );
 		@ini_set( 'error_log', $log );
 		@error_reporting( $err );
 
-		// Server, PHP, WordPress
-		$res = array(
-			'Server:'      => $_SERVER['SERVER_SOFTWARE'],
-			'MySQL:'       => $ver . ( defined( 'IP_GEO_BLOCK_DEBUG' ) && IP_GEO_BLOCK_DEBUG && $bem ? ' (' . $bem . ')' : '' ),
-			'PHP:'         => PHP_VERSION,
-			'PHP SAPI:'    => php_sapi_name(),
-			'WordPress:'   => $GLOBALS['wp_version'],
-			'Multisite:'   => is_multisite() ? 'yes' : 'no',
-			'File system:' => $fs->get_method(),
-			'Temp folder:' => get_temp_dir(),
-			'Umask:'       => sprintf( '%o', umask() ^ 511 /*0777*/ ),
-			'Zlib:'        => function_exists( 'gzopen' ) ? 'yes' : 'no',
-			'ZipArchive:'  => class_exists( 'ZipArchive', FALSE ) ? 'yes' : 'no',
-			'PECL phar:'   => class_exists( 'PharData',   FALSE ) ? 'yes' : 'no',
-			'BC Math:'     => (extension_loaded('gmp') ? 'gmp ' : '') . (function_exists('bcadd') ? 'yes' : 'no'),
-			'mb_strcut:'   => function_exists( 'mb_strcut' ) ? 'yes' : 'no', // @since PHP 4.0.6
-			'OpenSSL:'     => defined( 'OPENSSL_RAW_DATA'  ) ? 'yes' : 'no', // @since PHP 5.3.3
-			'SQLite(PDO):' => extension_loaded( 'pdo_sqlite' ) ? 'yes' : 'no',
-			'DNS lookup:'  => ('8.8.8.8' !== $val ? 'available' : 'n/a') . sprintf( ' [%.1f msec]', $key * 1000.0 ),
-			'User agent:'  => $_SERVER['HTTP_USER_AGENT'],
-		);
+		// Human readable size, Proces owner
+		// https://gist.github.com/mehdichaouch/341a151dd5f469002a021c9396aa2615
+		// https://secure.php.net/manual/function.get-current-user.php#57624
+		// https://secure.php.net/manual/function.posix-getpwuid.php#82387
+		$siz = array( 'B', 'K', 'M', 'G', 'T', 'P' );
+		$usr = function_exists( 'posix_getpwuid' ) ? posix_getpwuid( posix_geteuid() ) : array( 'name' => getenv( 'USERNAME' ) );
 
-		$res = array_map( 'esc_html', $res );
+		// Server, PHP, WordPress
+		$res = array_map( 'esc_html', array(
+			'Server:'        => $_SERVER['SERVER_SOFTWARE'],
+			'MySQL:'         => $ver . ( defined( 'IP_GEO_BLOCK_DEBUG' ) && IP_GEO_BLOCK_DEBUG && $bem ? ' (' . $bem . ')' : '' ),
+			'PHP:'           => PHP_VERSION,
+			'PHP SAPI:'      => php_sapi_name(),
+			'Memory limit:'  => ini_get( 'memory_limit' ),
+			'Peak usage:'    => @round( ( $m = memory_get_peak_usage() ) / pow( 1024, ( $i = floor( log( $m, 1024 ) ) ) ), 2 ) . $siz[ $i ],
+			'WordPress:'     => $GLOBALS['wp_version'],
+			'Multisite:'     => is_multisite() ? 'yes' : 'no',
+			'File system:'   => $fs->get_method(),
+			'Temp folder:'   => get_temp_dir(),
+			'Process owner:' => $usr['name'],
+			'File owner:'    => get_current_user(), // Gets the name of the owner of the current PHP script
+			'Umask:'         => sprintf( '%o', umask() ^ 511 /* 0777 */ ),
+			'Zlib:'          => function_exists( 'gzopen' ) ? 'yes' : 'no',
+			'ZipArchive:'    => class_exists( 'ZipArchive', FALSE ) ? 'yes' : 'no',
+			'PECL phar:'     => class_exists( 'PharData',   FALSE ) ? 'yes' : 'no',
+			'BC Math:'       => (extension_loaded('gmp') ? 'gmp ' : '') . (function_exists('bcadd') ? 'yes' : 'no'),
+			'mb_strcut:'     => function_exists( 'mb_strcut' ) ? 'yes' : 'no', // @since PHP 4.0.6
+			'OpenSSL:'       => defined( 'OPENSSL_RAW_DATA'  ) ? 'yes' : 'no', // @since PHP 5.3.3
+			'SQLite(PDO):'   => extension_loaded( 'pdo_sqlite' ) ? 'yes' : 'no',
+			'DNS lookup:'    => ('8.8.8.8' !== $val ? 'available' : 'n/a') . sprintf( ' [%.1f msec]', $key * 1000.0 ),
+			'User agent:'    => $_SERVER['HTTP_USER_AGENT'],
+		) );
 
 		// Child and parent themes
 		$activated = wp_get_theme(); // @since 3.4.0
@@ -875,9 +886,7 @@ endif; // TEST_RESTORE_NETWORK
 
 		foreach ( $installed as $key => $val ) {
 			if ( isset( $activated[ $key ] ) ) {
-				$res += array(
-					esc_html( $val['Name'] ) => esc_html( $val['Version'] )
-				);
+				$res += array( esc_html( $val['Name'] ) => esc_html( $val['Version'] ) );
 			}
 		}
 
@@ -887,13 +896,12 @@ endif; // TEST_RESTORE_NETWORK
 			if ( IP_Geo_Block::is_blocked( $val['result'] ) ) {
 				// hide port and nonce
 				$method = preg_replace( '/\[\d+\]/', '', $val['method'] );
-				$method = preg_replace( '/(' . IP_Geo_Block::PLUGIN_NAME . '-auth-nonce)(?:=|%3D)([\w]+)/', '$1=...', $method );
+				$method = preg_replace( '/(' . IP_Geo_Block::get_auth_key() . ')(?:=|%3D)([\w]+)/', '$1=...', $method );
 
 				// add post data
 				$query = array();
 				foreach ( explode( ',', $val['data'] ) as $str ) {
-					if ( FALSE !== strpos( $str, '=' ) )
-						$query[] = $str;
+					FALSE !== strpos( $str, '=' ) and $query[] = $str;
 				}
 
 				if ( ! empty( $query ) )

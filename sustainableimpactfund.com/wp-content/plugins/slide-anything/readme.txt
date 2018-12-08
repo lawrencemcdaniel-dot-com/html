@@ -3,7 +3,7 @@ Contributors: simonpedge
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RP7JLGK6VT252
 Tags: slider, carousel, content slider, responsive slider, html slider, owl carousel
 Requires at least: 4.0
-Tested up to: 4.9.8
+Tested up to: 5.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,6 +18,7 @@ Slide Anything allows you to create a carousel/slider where the content for each
 
 Slide Anything has now been rebuilt using Owl Carousel 2, and this now provides many improvements and new features:
 
+* New Lazy Load Images - with this feature enabled, slide images (<img> tags) are only loaded when the relevant slides are displayed (all of the slider's images are NOT loaded up-front).
 * Infinite Looping - a much requested Owl Carousel 2 feature, which means that the first slide is now seamlessly displayed after the last slide without any carousel rewind.
 * New Transition Effects - New Owl Carousel transitions include Slide, Fade, Zoom In, Zoom Out, Flip Out X/Y, Rotate Left/Right, Bounce Out, Roll Out and Slide Down.
 * Slide Link Feature - A new feature which allows you to create a hover-over link button for any slide within your carousels.
@@ -50,7 +51,7 @@ You will now see the `Sliders` menu in your WordPress admin panel.
 
 == Frequently Asked Questions ==
 
-= How do I insert `Slide Anything` sliders into my WordPress pages or posts? =
+= How do I insert 'Slide Anything' sliders into my WordPress pages or posts? =
 
 There are two ways to do this. If you are using the visual editor to edit a page or post, you will see a `Slide Anything Sliders` button/icon in the toolbar of the editor. Click this button and a popup will be displayed containing a list of sliders that you have created. Select the title of a slider within this list and click `OK` to insert the shortcode for the selected slider into your page or post content.
 
@@ -70,13 +71,17 @@ To set a slide background image, click the `Set Image` button. The `Background S
 
 The `Min Height` setting (within the `Slider Style` box), is often used in conjunction with defining slide backgrounds, as this setting controls how much of the slide background is visible if the slide contains no (foreground) content.
 
-= How do I use the `Slider Style` settings? =
+= How do I use the 'Slider Style' settings? =
 
 At the top of this box, which appears on the right-hand side when editing a slider, you can set and copy the CSS `ID` for the slider. This is useful for developers who are familiar with CSS coding, and this CSS `ID` can be used to create custom styles for your slider within your theme or child-theme's style/CSS file.
 
 The `Padding (pixels)` settings are used to define the amount of padding space around the entire slider - top, right, bottom and left. The `Background/Border` settings define the background colour for the entire slider (`Note:` each slide's background image/color will appear on top of this slider background), and also if a border should appear around the entire slider - the width, color and border radius of this border.
 
 The `SLIDE STYLE` settings are the style settings for each individual slide with the slider/carousel. Here you can define the minimum height each slide and also the padding space around each slide.
+
+= Using 'Slide Anything' in WordPress 5.0 =
+
+Adding a SLIDE ANYTHING slider using the WordPress 5.0 'Block Editor' is pretty straight-forward. You can paste a Slide Anything shortcode into a 'Paragraph Block' or use the 'Shortcode Block'.
 
 == Screenshots ==
 
@@ -226,6 +231,24 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 = 2.1.13 =
 * Bug fix - An array initialisation was causing a crash on hosts using a PHP version prior to 5.4. Changed this array initialisation to now be backwards compatible.
 
+= 2.1.14 =
+* Bug fix - Fixed a small bug with the "Remove JavaScript Content" feature.
+
+= 2.1.15 =
+* Upgraded to the latest version of Owl Carousel (version 2.3.4). Set the 'Mouse Drag' option to disabled by default. Mouse dragging when enabled affects vertical touch-drag scrolling on mobile devices.
+
+= 2.1.16 =
+* Small bug fix that relates to Slide Anything PRO only: Sliders with 'autoplay' enabled were re-starting autoplay when popups were closed.
+
+= 2.1.17 =
+* Added a new feature to facilitate owl-carousel 'Lazy Load' images. With this feature enabled, slide images (<img> tags) are only loaded when the relevant slides are displayed (all of the slider's images are NOT loaded up-front).
+
+= 2.1.18 =
+* Bug Fix - There was an issue on mobile phones when autoplay is disabled, and when you swipe to change current slide then autoplay starts up. This has now been fixed.
+
+= 2.1.19 =
+* Small enhancement - The Slide Anything container is now set to hidden (visibility:hidden) until all the slides have been displayed and owl-carousel JavaScript code executed, then the SA container is set to visible (visibility:visible). This presents a cleaner page loading experience without the individual slide containers (DIVS) sometimes being displayed (even for a fraction of a second) prior to slider initialisation.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -367,3 +390,21 @@ The `SLIDE STYLE` settings are the style settings for each individual slide with
 
 = 2.1.13 =
 * Bug fix - An array initialisation was causing a crash on hosts using a PHP version prior to 5.4. Changed this array initialisation to now be backwards compatible.
+
+= 2.1.14 =
+* Bug fix - Fixed a small bug with the "Remove JavaScript Content" feature.
+
+= 2.1.15 =
+* Upgraded to the latest version of Owl Carousel (version 2.3.4). Set the 'Mouse Drag' option to disabled by default. Mouse dragging when enabled affects vertical touch-drag scrolling on mobile devices.
+
+= 2.1.16 =
+* Small bug fix that relates to Slide Anything PRO only: Sliders with 'autoplay' enabled were re-starting autoplay when popups were closed.
+
+= 2.1.17 =
+* Added a new feature to facilitate owl-carousel 'Lazy Load' images. With this feature enabled, slide images (<img> tags) are only loaded when the relevant slides are displayed (all of the slider's images are NOT loaded up-front).
+
+= 2.1.18 =
+* Bug Fix - There was an issue on mobile phones when autoplay is disabled, and when you swipe to change current slide then autoplay starts up. This has now been fixed.
+
+= 2.1.19 =
+* Small enhancement - The Slide Anything container is now set to hidden (visibility:hidden) until all the slides have been displayed and owl-carousel JavaScript code executed, then the SA container is set to visible (visibility:visible). This presents a cleaner page loading experience without the individual slide containers (DIVS) sometimes being displayed (even for a fraction of a second) prior to slider initialisation.

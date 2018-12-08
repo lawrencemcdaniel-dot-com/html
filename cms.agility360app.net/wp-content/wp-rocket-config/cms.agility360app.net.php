@@ -2,6 +2,7 @@
 defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 $rocket_cookie_hash = '8d9760d112f900349abc017e3cf800a6';
+$rocket_cache_mobile_files_tablet = 'desktop';
 $rocket_secret_cache_key = '5aafe0c432663091592370';
 $rocket_cache_mobile = '1';
 $rocket_do_caching_mobile_files = '1';

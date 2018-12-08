@@ -85,7 +85,7 @@
            
            <p>Simple answer the questions below (at least the first 3) by clicking on them - that's it! </p>
 
-           <p>If you want more features like <a target="_blank" href="https://www.ultimatelysocial.com/all-platforms/">more platform icons</a>, <a target="_blank" href="https://www.ultimatelysocial.com/themed-icons-search/">themed icons</a>, more design options, better sharing features, mobile optimization, faster loading, full support and <a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/">much more</a>, then please check out our <a target="_blank" href="https://www.ultimatelysocial.com/checkout?edd_action=add_to_cart&download_id=150&edd_options[price_id]=2">Premium Plugin</a>. Pricing is really fair (24.98 USD).</p> 
+           <p>If you want more features like <a target="_blank" href="https://www.ultimatelysocial.com/all-platforms/">more platform icons</a>, <a target="_blank" href="https://www.ultimatelysocial.com/themed-icons-search/">themed icons</a>, <a target="_blank" href="https://www.ultimatelysocial.com/animated-social-media-icons/">animated icons</a>, more design options, better sharing features, mobile optimization, faster loading, full support and <a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/">much more</a>, then please check out our <a target="_blank" href="https://www.ultimatelysocial.com/checkout?edd_action=add_to_cart&download_id=150&edd_options[price_id]=2">Premium Plugin</a>. Pricing is really fair (24.98 USD).</p> 
 
 
            <p>For questions and suggestions please raise a ticket in the <a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0">Support Forum.</a></p> 

@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Responsive Image Slider
 Plugin URI:  https://wordpress.org/plugins/ultimate-responsive-image-slider/
 Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
-Version:     3.2.9
+Version:     3.2.12
 Author:      WP Frank
 Author URI:  https://wpfrank.com/
 Text Domain: ultimate-responsive-image-slider
@@ -32,6 +32,7 @@ register_activation_hook( __FILE__, 'WRIS_DefaultSettingsPro' );
 function WRIS_DefaultSettingsPro() {
     $DefaultSettingsProArray = serialize( array(
 		//layout 3 settings
+		"WRIS_L3_Title_Align" 			=> 2,
 		"WRIS_L3_Slide_Title"   		=> 1,
 		"WRIS_L3_Set_slide_Title"		=> 0,
 		"WRIS_L3_Auto_Slideshow"   		=> 1,
@@ -492,6 +493,7 @@ class URIS {
 	//save settings meta box values
 	public function ris_settings_meta_save($PostID) {
 		if(isset($PostID) && isset($_POST['wl_action']) == "wl-save-settings") {
+			$WRIS_L3_Title_Align				=     $_POST['wl-l3-title-align'] ;
 			$WRIS_L3_Slide_Title				=	 sanitize_option ( 'title', $_POST['wl-l3-slide-title'] );
 			$WRIS_L3_Set_slide_Title			=	 sanitize_option ( 'set_slide_title', $_POST['wl-l3-set-slide-title'] );
 			$WRIS_L3_Auto_Slideshow				=	 sanitize_option ( 'autoplay', $_POST['wl-l3-auto-slide'] );
@@ -524,6 +526,7 @@ class URIS {
 			$WRIS_L3_Navigation_Pointer_Color	=	 sanitize_option ( 'navigation_pointer_color', $_POST['wl-l3-navigation-pointer-color'] );
 			
 			$WRIS_Settings_Array = serialize( array(
+				'WRIS_L3_Title_Align'			=>  $WRIS_L3_Title_Align,
 				'WRIS_L3_Slide_Title'  			=> 	$WRIS_L3_Slide_Title,
 				'WRIS_L3_Set_slide_Title'		=>  $WRIS_L3_Set_slide_Title,
 				'WRIS_L3_Auto_Slideshow'  		=> 	$WRIS_L3_Auto_Slideshow,
@@ -571,9 +574,10 @@ function uris_admin_notice_resport() {
 	global $pagenow;
 	$uris_screen = get_current_screen();
 	if ( $pagenow == 'edit.php' && $uris_screen->post_type == "ris_gallery" ) {
-		include( 'uris-feature-admin-notice.php' );
+		require_once ( 'uris-promote.php' );
 	}
 }
+
 
 /**
  * upgrade to pro

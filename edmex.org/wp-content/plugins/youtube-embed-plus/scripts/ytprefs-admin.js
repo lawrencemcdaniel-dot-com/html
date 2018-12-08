@@ -181,6 +181,14 @@
         }
     };
 
+    window._EPYTA_.gbPreviewSetup = function ()
+    {
+        window._EPADashboard_.loadYTAPI();
+        window._EPADashboard_.apiInit();
+        window._EPADashboard_.log("YT API GB");
+        window._EPADashboard_.pageReady();
+        jQuery('body').fitVidsEP();
+    };
 
     $.fn.ytprefsFormJSON = function ()
     {
@@ -221,7 +229,7 @@
             var embedcode = "";
             try
             {
-                if (e.data.indexOf("youtubeembedplus") === 0)
+                if (e.data.indexOf("youtubeembedplus") === 0 && e.data.indexOf('clientId=') < 0)
                 {
                     embedcode = e.data.split("|")[1];
                     if (embedcode.indexOf("[") !== 0)
@@ -231,6 +239,17 @@
 
                     if (window.tinyMCE !== null && window.tinyMCE.activeEditor !== null && !window.tinyMCE.activeEditor.isHidden())
                     {
+                        if (window._EPYTA_.mceBookmark)
+                        {
+                            try
+                            {
+                                window.tinyMCE.activeEditor.selection.moveToBookmark(window._EPYTA_.mceBookmark);
+                            }
+                            catch (err)
+                            {
+                            }
+                        }
+
                         if (typeof window.tinyMCE.execInstanceCommand !== 'undefined')
                         {
                             window.tinyMCE.execInstanceCommand(
@@ -243,6 +262,11 @@
                         {
                             send_to_editor(embedcode);
                         }
+
+                        setTimeout(function ()
+                        {
+                            window._EPYTA_.mceBookmark = null;
+                        }, 500);
                     }
                     else
                     {

@@ -202,7 +202,7 @@ if ( fusion_is_element_enabled( 'fusion_title' ) ) {
 				$attr['class'] .= ' fusion-title-size-' . $title_size;
 
 				if ( $this->args['font_size'] ) {
-					$attr['style'] = 'font-size:' . $fusion_library->sanitize->get_value_with_unit( $this->args['font_size'] ) . ';';
+					$attr['style'] .= 'font-size:' . $fusion_library->sanitize->get_value_with_unit( $this->args['font_size'] ) . ';';
 				}
 
 				if ( $this->args['margin_top'] ) {

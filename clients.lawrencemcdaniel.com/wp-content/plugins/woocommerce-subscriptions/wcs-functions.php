@@ -780,3 +780,43 @@ function wcs_subscription_search( $term ) {
 
 	return $subscription_ids;
 }
+
+/**
+ * Set payment method meta data for a subscription or order.
+ *
+ * @since 2.4.3
+ * @param WC_Subscription|WC_Order $subscription The subscription or order to set the post payment meta on.
+ * @param array $payment_meta Associated array of the form: $database_table => array( 'meta_key' => array( 'value' => '' ) )
+ * @throws InvalidArgumentException
+ */
+function wcs_set_payment_meta( $subscription, $payment_meta ) {
+	if ( ! is_array( $payment_meta ) ) {
+		throw new InvalidArgumentException( __( 'Payment method meta must be an array.', 'woocommerce-subscriptions' ) );
+	}
+
+	foreach ( $payment_meta as $meta_table => $meta ) {
+		foreach ( $meta as $meta_key => $meta_data ) {
+			if ( isset( $meta_data['value'] ) ) {
+				switch ( $meta_table ) {
+					case 'user_meta':
+					case 'usermeta':
+						update_user_meta( $subscription->get_user_id(), $meta_key, $meta_data['value'] );
+						break;
+					case 'post_meta':
+					case 'postmeta':
+						if ( is_callable( array( $subscription, 'update_meta_data' ) ) ) {
+							$subscription->update_meta_data( $meta_key, $meta_data['value'] );
+						} else {
+							update_post_meta( wcs_get_objects_property( $subscription, 'id' ), $meta_key, $meta_data['value'] );
+						}
+						break;
+					case 'options':
+						update_option( $meta_key, $meta_data['value'] );
+						break;
+					default:
+						do_action( 'wcs_save_other_payment_meta', $subscription, $meta_table, $meta_key, $meta_data['value'] );
+				}
+			}
+		}
+	}
+}

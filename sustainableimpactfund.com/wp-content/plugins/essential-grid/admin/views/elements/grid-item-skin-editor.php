@@ -88,9 +88,9 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 	<h2 class="topheader"><?php _e('Item Skin Name:', EG_TEXTDOMAIN); ?> <input type="text" name="item-skin-name" value="<?php echo esc_attr(@$skin['name']); ?>" style="margin-right: 15px;" /> <span style="font-size:12px;font-weight:600;"><?php _e('Class Prefix = ', EG_TEXTDOMAIN); ?> .eg-<span class="eg-tooltip-wrap" title="<?php _e('Each element in the Skin becomes this CSS Prefix', EG_TEXTDOMAIN); ?>" id="eg-item-skin-slug"></span>-</span></h2>
 
 	<div style="width:100%;height:15px"></div>
-	<div style="width:1085px">
+	<div>
 
-		<div style="float:left; width:600px;margin-right:15px;">
+		<div style="float:left; width:670px;margin-right:15px;">
 			<!-- START OF SETTINGS ON THE LEFT SIDE  border: 2px solid #27AE60; -->
 			<form id="eg-form-item-skin-layout-settings">
 				
@@ -221,9 +221,35 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 									<label style="float:left; width:180px" class="eg-group-setter eg-tooltip-wrap" title="<?php _e('Dynamic Covering Content Type. Show Cover Background on full Media, or only under Cover Contents ?', EG_TEXTDOMAIN); ?>"><?php _e('Cover Type', EG_TEXTDOMAIN); ?></label>
 									<div class="select_wrapper" style="float:left;">
 										<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-										<select name="cover-type">
+										<select id="cover-type" name="cover-type">
 											<option value="full" <?php selected($base->getVar($skin['params'], 'cover-type', 'full'), 'full'); ?>><?php _e('Full', EG_TEXTDOMAIN); ?></option>
 											<option value="content" <?php selected($base->getVar($skin['params'], 'cover-type', 'full'), 'content'); ?>><?php _e('Content Based', EG_TEXTDOMAIN); ?></option>
+										</select>
+									</div>
+								</div>
+								<div class="clear"></div>
+								
+								<div style="margin-top:15px">
+									<label style="float:left; width:180px" class="eg-group-setter eg-tooltip-wrap" title="<?php _e('Add a CSS mix-blend-mode filter', EG_TEXTDOMAIN); ?>"><?php _e('Blend Mode', EG_TEXTDOMAIN); ?></label>
+									<div class="select_wrapper" style="float:left;">
+										<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+										<select id="cover-blend-mode" name="cover-blend-mode">
+											<option value="normal" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'normal'); ?>><?php _e('Normal', EG_TEXTDOMAIN); ?></option>
+											<option value="multiply" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'multiply'); ?>><?php _e('Multiply', EG_TEXTDOMAIN); ?></option>	
+											<option value="screen" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'screen'); ?>><?php _e('Screen', EG_TEXTDOMAIN); ?></option>
+											<option value="overlay" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'overlay'); ?>><?php _e('Overlay', EG_TEXTDOMAIN); ?></option>
+											<option value="darken" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'darken'); ?>><?php _e('Darken', EG_TEXTDOMAIN); ?></option>
+											<option value="lighten" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'lighten'); ?>><?php _e('Lighten', EG_TEXTDOMAIN); ?></option>
+											<option value="color-dodge" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'color-dodge'); ?>><?php _e('Color Dodge', EG_TEXTDOMAIN); ?></option>
+											<option value="color-burn" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'color-burn'); ?>><?php _e('Color Burn', EG_TEXTDOMAIN); ?></option>
+											<option value="hard-light" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'hard-light'); ?>><?php _e('Hard Light', EG_TEXTDOMAIN); ?></option>
+											<option value="soft-light" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'soft-light'); ?>><?php _e('Soft Light', EG_TEXTDOMAIN); ?></option>
+											<option value="difference" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'difference'); ?>><?php _e('Difference', EG_TEXTDOMAIN); ?></option>
+											<option value="exclusion" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'exclusion'); ?>><?php _e('Exclusion', EG_TEXTDOMAIN); ?></option>
+											<option value="hue" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'hue'); ?>><?php _e('Hue', EG_TEXTDOMAIN); ?></option>
+											<option value="saturation" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'saturation'); ?>><?php _e('Saturation', EG_TEXTDOMAIN); ?></option>
+											<option value="color" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'color'); ?>><?php _e('Color', EG_TEXTDOMAIN); ?></option>
+											<option value="luminosity" <?php selected($base->getVar($skin['params'], 'cover-blend-mode', 'normal'), 'luminosity'); ?>><?php _e('Luminosity', EG_TEXTDOMAIN); ?></option>
 										</select>
 									</div>
 								</div>
@@ -328,16 +354,25 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										<input class="input-settings-small element-setting" type="text" name="full-border[]" value="<?php echo (isset($border[2])) ? $border[2] : 0; ?>" />
 										<input class="input-settings-small element-setting" type="text" name="full-border[]" value="<?php echo (isset($border[3])) ? $border[3] : 0; ?>" /> px
 									</p>
-									<p>
+									<div style="margin-top:10px">
 										<?php
 										$radius = $base->getVar($skin['params'], 'full-border-radius');
 										?>
-										<label class="eg-tooltip-wrap" title="<?php _e('Top Left,Top Right,Bottom Right, Bottom Left Border Radius of Item', EG_TEXTDOMAIN); ?>"><?php _e('Border Radius', EG_TEXTDOMAIN); ?></label>
-										<input class="input-settings-small element-setting firstinput" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[0])) ? $radius[0] : 0; ?>" />
-										<input class="input-settings-small element-setting" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[1])) ? $radius[1] : 0; ?>" />
-										<input class="input-settings-small element-setting" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[2])) ? $radius[2] : 0; ?>" />
-										<input class="input-settings-small element-setting" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[3])) ? $radius[3] : 0; ?>" /> px
-									</p>
+										<label style="float: left" class="eg-tooltip-wrap" title="<?php _e('Top Left,Top Right,Bottom Right, Bottom Left Border Radius of Item', EG_TEXTDOMAIN); ?>"><?php _e('Border Radius', EG_TEXTDOMAIN); ?></label>
+										<input style="float: left; margin-left: 3px" class="input-settings-small element-setting firstinput" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[0])) ? $radius[0] : 0; ?>" />
+										<input style="float: left" class="input-settings-small element-setting" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[1])) ? $radius[1] : 0; ?>" />
+										<input style="float: left" class="input-settings-small element-setting" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[2])) ? $radius[2] : 0; ?>" />
+										<input style="float: left" class="input-settings-small element-setting" type="text" name="full-border-radius[]" value="<?php echo (isset($radius[3])) ? $radius[3] : 0; ?>" />
+										
+										<div class="select_wrapper" style="float:left; width:40px;margin-left:15px; margin-top:1px">
+											<div class="select_fake" style="width: 40px;overflow: hidden;white-space: nowrap;"><span>px</span><i class="eg-icon-sort"></i></div>
+											<select name="full-border-radius-type">
+												<option value="px" <?php selected($base->getVar($skin['params'], 'full-border-radius-type', 'px'), 'px'); ?>>px</option>
+												<option value="%" <?php selected($base->getVar($skin['params'], 'full-border-radius-type', 'px'), '%'); ?>>%</option>
+											</select>
+										</div><div class="clear"></div>
+										
+									</div>
 									<p>
 										<label><?php _e('Border Color', EG_TEXTDOMAIN); ?></label>
 										<input class="element-setting"  name="full-border-color" type="text" id="full-border-color" value="<?php echo $base->getVar($skin['params'], 'full-border-color', 'transparent'); ?>" data-mode="single">
@@ -377,6 +412,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										<input class="input-settings-small element-setting" type="number" name="content-padding[]" value="<?php echo (isset($padding[1])) ? $padding[1] : 0; ?>" />
 										<input class="input-settings-small element-setting" type="number" name="content-padding[]" value="<?php echo (isset($padding[2])) ? $padding[2] : 0; ?>" />
 										<input class="input-settings-small element-setting" type="number" name="content-padding[]" value="<?php echo (isset($padding[3])) ? $padding[3] : 0; ?>" /> px
+										
 									</p>
 									<p>
 										<?php
@@ -388,16 +424,25 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										<input class="input-settings-small element-setting" type="number" name="content-border[]" value="<?php echo (isset($border[2])) ? $border[2] : 0; ?>" />
 										<input class="input-settings-small element-setting" type="number" name="content-border[]" value="<?php echo (isset($border[3])) ? $border[3] : 0; ?>" /> px
 									</p>
-									<p>
+									<div style="margin-top:10px">
 										<?php
 										$radius = $base->getVar($skin['params'], 'content-border-radius');
 										?>
-										<label class="eg-tooltip-wrap" title="<?php _e('Top Left, Top Right, Bottom Right, Bottom Left Border Radius of Fix Content', EG_TEXTDOMAIN); ?>"><?php _e('Border Radius', EG_TEXTDOMAIN); ?></label>
-										<input class="input-settings-small element-setting firstinput" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[0])) ? $radius[0] : 0; ?>" />
-										<input class="input-settings-small element-setting" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[1])) ? $radius[1] : 0; ?>" />
-										<input class="input-settings-small element-setting" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[2])) ? $radius[2] : 0; ?>" />
-										<input class="input-settings-small element-setting" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[3])) ? $radius[3] : 0; ?>" /> px
-									</p>
+										<label style="float: left" class="eg-tooltip-wrap" title="<?php _e('Top Left, Top Right, Bottom Right, Bottom Left Border Radius of Fix Content', EG_TEXTDOMAIN); ?>"><?php _e('Border Radius', EG_TEXTDOMAIN); ?></label>
+										<input style="float: left; margin-left: 3px" class="input-settings-small element-setting firstinput" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[0])) ? $radius[0] : 0; ?>" />
+										<input style="float: left" class="input-settings-small element-setting" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[1])) ? $radius[1] : 0; ?>" />
+										<input style="float: left" class="input-settings-small element-setting" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[2])) ? $radius[2] : 0; ?>" />
+										<input style="float: left" class="input-settings-small element-setting" type="text" name="content-border-radius[]" value="<?php echo (isset($radius[3])) ? $radius[3] : 0; ?>" />
+										
+										<div class="select_wrapper" style="float:left; width:40px;margin-left:15px; margin-top: 1px">
+											<div class="select_fake" style="width: 40px;overflow: hidden;white-space: nowrap;"><span>px</span><i class="eg-icon-sort"></i></div>
+											<select name="content-border-radius-type">
+												<option value="px" <?php selected($base->getVar($skin['params'], 'content-border-radius-type', 'px'), 'px'); ?>>px</option>
+												<option value="%" <?php selected($base->getVar($skin['params'], 'content-border-radius-type', 'px'), '%'); ?>>%</option>
+											</select>
+										</div><div class="clear"></div>
+										
+									</div>
 									<p>
 										<label><?php _e('Border Color', EG_TEXTDOMAIN); ?></label>
 										<input class="element-setting" name="content-border-color" type="text" id="content-border-color" value="<?php echo $base->getVar($skin['params'], 'content-border-color', 'transparent'); ?>" data-mode="single">
@@ -428,11 +473,12 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										$shadow_type = $base->getVar($skin['params'], 'all-shadow-used', 'none');
 										?>
 										<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-										<select name="all-shadow-used">
+										<select id="all-shadow-used" name="all-shadow-used">
 											<option<?php selected($shadow_type, 'none'); ?> value="none"><?php _e('none', EG_TEXTDOMAIN); ?></option>
+											<option<?php selected($shadow_type, 'cover'); ?> value="cover"><?php _e('cover (inset)', EG_TEXTDOMAIN); ?></option>
 											<option<?php selected($shadow_type, 'media'); ?> value="media"><?php _e('media', EG_TEXTDOMAIN); ?></option>
 											<option<?php selected($shadow_type, 'content'); ?> value="content"><?php _e('content', EG_TEXTDOMAIN); ?></option>
-											<option<?php selected($shadow_type, 'both'); ?> value="both"><?php _e('both', EG_TEXTDOMAIN); ?></option>
+											<option<?php selected($shadow_type, 'both'); ?> value="both"><?php _e('media/content', EG_TEXTDOMAIN); ?></option>
 										</select>
 									</div>
 									<div class="clear"></div>
@@ -460,6 +506,16 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 									<input class="input-settings-small element-setting" type="text" name="content-box-shadow[]" value="<?php echo (isset($shadow[2])) ? $shadow[2] : 0; ?>" />
 									<input class="input-settings-small element-setting" type="text" name="content-box-shadow[]" value="<?php echo (isset($shadow[3])) ? $shadow[3] : 0; ?>" /> px
 								</p>
+								
+								<p id="content-box-shadow-inset">
+									<label class="eg-tooltip-wrap" title="<?php _e('Display the shadow inside the container', EG_TEXTDOMAIN); ?>">Inset Style</label>
+									<input type="checkbox" id="content-shadow-inset" name="content-box-shadow-inset" <?php checked($base->getVar($skin['params'], 'content-box-shadow-inset', 'false'), 'true'); ?>>
+								</p>
+								
+								<p id="content-box-shadow-hover">
+									<label class="eg-tooltip-wrap" title="<?php _e('Animate the Shadow on Hover', EG_TEXTDOMAIN); ?>">Animate onHover</label>
+									<input type="checkbox" name="content-box-shadow-hover" <?php checked($base->getVar($skin['params'], 'content-box-shadow-hover', 'false'), 'true'); ?>>
+								</p>
 
 								<p><div style="position:absolute;bottom:10px;text-align:center"><i style="font-size:10px;color:#777"><?php _e('The Container under or over the Media Container.', EG_TEXTDOMAIN); ?></i></div></p>
 							</div>
@@ -472,19 +528,33 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 									<div style="float:left">
 
 										<div id="eg-cover-animation-top">
-											<span style="padding-right:23px; margin-right:10px;float:left;" class="eg-tooltip-wrap" title="<?php _e('Show or Hide on hover. In = Show on Hover, Out = Hide on hover', EG_TEXTDOMAIN); ?>"><?php _e('Top', EG_TEXTDOMAIN); ?></span>
+											<span style="padding-right:23px; margin-right:10px;float:left;"><?php _e('Top', EG_TEXTDOMAIN); ?></span>
+											<input class="element-setting cover-animation-color" type="hidden" data-mode="single" name="cover-animation-color-top" id="cover-animation-color-top" value="<?php echo $base->getVar($skin['params'], 'cover-animation-color-top', '#FFFFFF', 's'); ?>" />
+											<input class="input-settings-small element-setting eg-tooltip-wrap input-animation-delay" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>" type="text" name="cover-animation-delay-top" value="<?php echo $base->getVar($skin['params'], 'cover-animation-delay-top', '0', 'i'); ?>" />
+											<div class="select_wrapper" style="float:right;">
+												<div class="select_fake" style="width: 70px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+												<select name="cover-animation-duration-top" class="eg-tooltip-wrap" style="width: 70px;" title="<?php _e('The animation duration (ms)', EG_TEXTDOMAIN); ?>">
+													<option value="default" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), 'default'); ?>>default</option>
+													<option value="200" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), '200'); ?>>200</option>
+													<option value="300" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), '300'); ?>>300</option>
+													<option value="400" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), '400'); ?>>400</option>
+													<option value="500" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), '500'); ?>>500</option>
+													<option value="750" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), '750'); ?>>750</option>
+													<option value="1000" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), '1000'); ?>>1000</option>
+													<option value="1500" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-top', 'default'), '1500'); ?>>1500</option>
+												</select>
+											</div>
+											
 											<div class="select_wrapper" style="float:right;">
 												<div class="select_fake" style="width: 40px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-												<select name="cover-animation-top-type" style="width: 70px;">
+												<select name="cover-animation-top-type" class=" title="<?php _e('Show or Hide on hover. In = Show on Hover, Out = Hide on hover', EG_TEXTDOMAIN); ?>" style="width: 60px;">
 													<option value="" <?php selected($base->getVar($skin['params'], 'cover-animation-top-type', ''), ''); ?>><?php echo _e('in', EG_TEXTDOMAIN); ?></option>
 													<option value="out" <?php selected($base->getVar($skin['params'], 'cover-animation-top-type', ''), 'out'); ?>><?php echo _e('out', EG_TEXTDOMAIN); ?></option>
 												</select>
-												<span id="cover-animation-delay-top" class="slider-settings eg-slider-small eg-tooltip-wrap" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>"></span>
-												<input class="input-settings-small element-setting" type="text" name="cover-animation-delay-top" value="<?php echo $base->getVar($skin['params'], 'cover-animation-delay-top', '0', 'i'); ?>" />
 											</div>
 											<div class="select_wrapper" style="float:right;" class="eg-tooltip-wrap" title="<?php _e('Animation Effect on Cover', EG_TEXTDOMAIN); ?>">
 												<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-												<select name="cover-animation-top">
+												<select class="cover-animation-select" name="cover-animation-top">
 													<?php
 													foreach($transitions_cover as $handle => $name){
 														?>
@@ -497,19 +567,34 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										</div>
 										<div style="clear:both"></div>
 										<div id="eg-cover-animation-center">
-											<span id="eg-cover-animation-center-hide" style="float:left;" class="eg-tooltip-wrap" title="<?php _e('Show or Hide on hover. In = Show on Hover, Out = Hide on hover', EG_TEXTDOMAIN); ?>"><?php _e('Center', EG_TEXTDOMAIN); ?></span>
+											<span id="eg-cover-animation-center-hide" style="float:left;"><?php _e('Center', EG_TEXTDOMAIN); ?></span>
+											<input class="element-setting cover-animation-color" type="hidden" data-mode="single" name="cover-animation-color-center" id="cover-animation-color-center" value="<?php echo $base->getVar($skin['params'], 'cover-animation-color-center', '#FFFFFF', 's'); ?>" />
+											<input class="input-settings-small element-setting eg-tooltip-wrap input-animation-delay" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>" type="text" name="cover-animation-delay-center" value="<?php echo $base->getVar($skin['params'], 'cover-animation-delay-center', '0', 'i'); ?>" />
+											<div class="select_wrapper" style="float:right;">
+												<div class="select_fake" style="width: 70px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+												<select name="cover-animation-duration-center" class="eg-tooltip-wrap" style="width: 70px;" title="<?php _e('The animation duration (ms)', EG_TEXTDOMAIN); ?>">
+													<option value="default" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), 'default'); ?>>default</option>
+													<option value="200" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), '200'); ?>>200</option>
+													<option value="300" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), '300'); ?>>300</option>
+													<option value="400" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), '400'); ?>>400</option>
+													<option value="500" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), '500'); ?>>500</option>
+													<option value="750" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), '750'); ?>>750</option>
+													<option value="1000" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), '1000'); ?>>1000</option>
+													<option value="1500" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-center', 'default'), '1500'); ?>>1500</option>
+												</select>
+											</div>
+											
 											<div class="select_wrapper" style="float:right;">
 												<div class="select_fake" style="width: 40px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-												<select name="cover-animation-center-type" style="width: 70px;">
+												<select name="cover-animation-center-type" class="eg-tooltip-wrap" style="width: 60px;" title="<?php _e('Show or Hide on hover. In = Show on Hover, Out = Hide on hover', EG_TEXTDOMAIN); ?>">
 													<option value="" <?php selected($base->getVar($skin['params'], 'cover-animation-center-type', ''), ''); ?>><?php echo _e('in', EG_TEXTDOMAIN); ?></option>
 													<option value="out" <?php selected($base->getVar($skin['params'], 'cover-animation-center-type', ''), 'out'); ?>><?php echo _e('out', EG_TEXTDOMAIN); ?></option>
 												</select>
-												<span id="cover-animation-delay-center" class="slider-settings eg-slider-small eg-tooltip-wrap" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>"></span>
-												<input class="input-settings-small element-setting" type="text" name="cover-animation-delay-center" value="<?php echo $base->getVar($skin['params'], 'cover-animation-delay-center', '0', 'i'); ?>" />
 											</div>
+
 											<div class="select_wrapper" style="float:right;" class="eg-tooltip-wrap" title="<?php _e('Animation Effect on Cover', EG_TEXTDOMAIN); ?>">
 												<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-												<select name="cover-animation-center">
+												<select class="cover-animation-select" name="cover-animation-center">
 													<?php
 													foreach($transitions_cover as $handle => $name){
 													?>
@@ -522,19 +607,33 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										</div>
 										<div style="clear:both"></div>
 										<div id="eg-cover-animation-bottom">
-											<span style="margin-right:10px;float:left" class="eg-tooltip-wrap" title="<?php _e('Show or Hide on hover. In = Show on Hover, Out = Hide on hover', EG_TEXTDOMAIN); ?>"><?php _e('Bottom', EG_TEXTDOMAIN); ?></span>
+											<span style="margin-right:10px;float:left"><?php _e('Bottom', EG_TEXTDOMAIN); ?></span>
+											<input class="element-setting cover-animation-color" type="hidden" data-mode="single" name="cover-animation-color-bottom" id="cover-animation-color-bottom" value="<?php echo $base->getVar($skin['params'], 'cover-animation-color-bottom', '#FFFFFF', 's'); ?>" />
+											<input class="input-settings-small element-setting eg-tooltip-wrap input-animation-delay" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>" type="text" name="cover-animation-delay-bottom" value="<?php echo $base->getVar($skin['params'], 'cover-animation-delay-bottom', '0', 'i'); ?>" />
+											<div class="select_wrapper" style="float:right;">
+												<div class="select_fake" style="width: 70px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+												<select name="cover-animation-duration-bottom" class="eg-tooltip-wrap" style="width: 70px;" title="<?php _e('The animation duration (ms)', EG_TEXTDOMAIN); ?>">
+													<option value="default" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), 'default'); ?>>default</option>
+													<option value="200" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), '200'); ?>>200</option>
+													<option value="300" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), '300'); ?>>300</option>
+													<option value="400" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), '400'); ?>>400</option>
+													<option value="500" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), '500'); ?>>500</option>
+													<option value="750" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), '750'); ?>>750</option>
+													<option value="1000" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), '1000'); ?>>1000</option>
+													<option value="1500" <?php selected($base->getVar($skin['params'], 'cover-animation-duration-bottom', 'default'), '1500'); ?>>1500</option>
+												</select>
+											</div>
+											
 											<div class="select_wrapper" style="float:right;">
 												<div class="select_fake" style="width: 40px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-												<select name="cover-animation-bottom-type" style="width: 70px;">
+												<select name="cover-animation-bottom-type" class="eg-tooltip-wrap" title="<?php _e('Show or Hide on hover. In = Show on Hover, Out = Hide on hover', EG_TEXTDOMAIN); ?>" style="width: 60px;">
 													<option value="" <?php selected($base->getVar($skin['params'], 'cover-animation-bottom-type', ''), ''); ?>><?php echo _e('in', EG_TEXTDOMAIN); ?></option>
 													<option value="out" <?php selected($base->getVar($skin['params'], 'cover-animation-bottom-type', ''), 'out'); ?>><?php echo _e('out', EG_TEXTDOMAIN); ?></option>
 												</select>
-												<span id="cover-animation-delay-bottom" class="slider-settings eg-slider-small eg-tooltip-wrap" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>"></span>
-												<input class="input-settings-small element-setting" type="text" name="cover-animation-delay-bottom" value="<?php echo $base->getVar($skin['params'], 'cover-animation-delay-bottom', '0', 'i'); ?>" />
 											</div>
 											<div class="select_wrapper" style="float:right;" class="eg-tooltip-wrap" title="<?php _e('Animation Effect on Cover', EG_TEXTDOMAIN); ?>">
 												<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-												<select name="cover-animation-bottom">
+												<select class="cover-animation-select" name="cover-animation-bottom">
 													<?php
 													foreach($transitions_cover as $handle => $name){
 													?>
@@ -548,6 +647,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 									</div>
 									<div class="clear"></div>
 								</div>
+								
 								<!-- GROUP ANIMATION -->
 								<div style="margin-top:15px">
 									<label style="float:left; width:150px" class="eg-group-setter eg-tooltip-wrap" title="<?php _e('Animation Effect on Cover and on All Cover elements Grouped. This will not replace the Animation but add a global animation extra.', EG_TEXTDOMAIN); ?>"><?php _e('Group Animation', EG_TEXTDOMAIN); ?></label>
@@ -556,6 +656,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										<select name="cover-group-animation">
 											<?php
 											foreach($transitions_cover as $handle => $name){
+												if(preg_match('/collapse|line|circle|spiral/', $handle)) continue;
 											?>
 											<option value="<?php echo $handle; ?>" <?php selected($base->getVar($skin['params'], 'cover-group-animation', 'none'), $handle); ?>><?php echo $name; ?></option>
 											<?php
@@ -563,15 +664,30 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 											?>
 										</select>
 									</div>
+									<div class="select_wrapper" style="float:left;">
+										<div class="select_fake" style="width: 70px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+										<select name="cover-group-animation-duration" class="eg-tooltip-wrap" style="width: 70px;" title="<?php _e('The animation duration (ms)', EG_TEXTDOMAIN); ?>">
+											<option value="default" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), 'default'); ?>>default</option>
+											<option value="200" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), '200'); ?>>200</option>
+											<option value="300" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), '300'); ?>>300</option>
+											<option value="400" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), '400'); ?>>400</option>
+											<option value="500" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), '500'); ?>>500</option>
+											<option value="750" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), '750'); ?>>750</option>
+											<option value="1000" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), '1000'); ?>>1000</option>
+											<option value="1500" <?php selected($base->getVar($skin['params'], 'cover-group-animation-duration', 'default'), '1500'); ?>>1500</option>
+										</select>
+									</div>
+									<input class="input-settings-small element-setting eg-tooltip-wrap input-animation-delay" style="float: left" type="text" name="cover-group-animation-delay" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>" value="<?php echo $base->getVar($skin['params'], 'cover-group-animation-delay', '0', 'i'); ?>" />
 									<div class="clear"></div>
 								</div>
 								
 								<!-- MEDIA ANIMATION -->
 								<div style="margin-top:15px">
 									<label style="float:left; width:150px;" class="eg-tooltip-wrap" title="<?php _e('Animation of Media on Hover. All Media animation hide, or partly hide the Media on hover.', EG_TEXTDOMAIN); ?>"><?php _e('Media Animation', EG_TEXTDOMAIN); ?></label>
+									
 									<div class="select_wrapper" style="float:left;">
 										<div class="select_fake"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
-										<select name="media-animation">
+										<select id="media-animation" name="media-animation">
 											<?php
 											foreach($transitions_media as $handle => $name){
 												?>
@@ -580,9 +696,33 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 											}
 											?>
 										</select>
-										<span id="media-animation-delay" class="slider-settings eg-slider-small eg-tooltip-wrap" style="margin-left: 10px" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>"></span>
-										<input class="input-settings-small element-setting" type="text" name="media-animation-delay" value="<?php echo $base->getVar($skin['params'], 'media-animation-delay', '0', 'i'); ?>" />
 									</div>
+									<div id="media-animation-blur" class="select_wrapper" style="float:left;">
+										<div class="select_fake" style="width: 50px"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+										<select name="media-animation-blur" class="eg-tooltip-wrap" style="width: 70px" title="<?php _e('Blur Amount', EG_TEXTDOMAIN); ?>">
+											<option value="2">2px</li>
+											<option value="3">3px</li>
+											<option value="4">4px</li>
+											<option value="5" selected>5px</li>
+											<option value="10">10px</li>
+											<option value="15">15px</li>
+											<option value="20">20px</li>
+										</select>
+									</div>
+									<div class="select_wrapper" style="float:left;">
+										<div class="select_fake" style="width: 70px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+										<select name="media-animation-duration" class="eg-tooltip-wrap" style="width: 70px;" title="<?php _e('The animation duration (ms)', EG_TEXTDOMAIN); ?>">
+											<option value="default" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), 'default'); ?>>default</option>
+											<option value="200" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), '200'); ?>>200</option>
+											<option value="300" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), '300'); ?>>300</option>
+											<option value="400" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), '400'); ?>>400</option>
+											<option value="500" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), '500'); ?>>500</option>
+											<option value="750" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), '750'); ?>>750</option>
+											<option value="1000" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), '1000'); ?>>1000</option>
+											<option value="1500" <?php selected($base->getVar($skin['params'], 'media-animation-duration', 'default'), '1500'); ?>>1500</option>
+										</select>
+									</div>
+									<input class="input-settings-small element-setting eg-tooltip-wrap input-animation-delay" style="float: left" type="text" name="media-animation-delay" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>" value="<?php echo $base->getVar($skin['params'], 'media-animation-delay', '0', 'i'); ?>" />
 									<div class="clear"></div>
 								</div>
 								
@@ -615,9 +755,22 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 											}
 											?>
 										</select>
-										<span id="hover-image-animation-delay" class="slider-settings eg-slider-small eg-tooltip-wrap" style="margin-left: 10px" title="<?php _e('Delay before the Animation starts', EG_TEXTDOMAIN); ?>"></span>
-										<input class="input-settings-small element-setting" type="text" name="hover-image-animation-delay" value="<?php echo $base->getVar($skin['params'], 'hover-image-animation-delay', '0', 'i'); ?>" />
 									</div>
+										
+									<div class="select_wrapper" style="float:left;">
+										<div class="select_fake" style="width: 70px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+										<select name="hover-image-animation-duration" class="eg-tooltip-wrap" style="width: 70px;" title="<?php _e('The animation duration (ms)', EG_TEXTDOMAIN); ?>">
+											<option value="default" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), 'default'); ?>>default</option>
+											<option value="200" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), '200'); ?>>200</option>
+											<option value="300" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), '300'); ?>>300</option>
+											<option value="400" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), '400'); ?>>400</option>
+											<option value="500" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), '500'); ?>>500</option>
+											<option value="750" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), '750'); ?>>750</option>
+											<option value="1000" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), '1000'); ?>>1000</option>
+											<option value="1500" <?php selected($base->getVar($skin['params'], 'hover-image-animation-duration', 'default'), '1500'); ?>>1500</option>
+										</select>
+									</div>
+									<input class="input-settings-small element-setting eg-tooltip-wrap input-animation-delay" style="float: left" type="text" name="hover-image-animation-delay" value="<?php echo $base->getVar($skin['params'], 'hover-image-animation-delay', '0', 'i'); ?>" />
 									<div class="clear"></div>
 								</div>
 							</div>
@@ -835,11 +988,25 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 															<option value="sentence"><?php _e('End Sentence Words', EG_TEXTDOMAIN); ?></option>
 														</select>
 													</div>
-
+													
 													<input style="float:left; margin-left:10px;" type="text" value="" name="element-limit-num" class="input-settings-small element-setting firstinput">
-
 													<div class="clear"></div>
+													
+													<!-- 2.2.6 -->
+													<div style="margin-top:10px;line-height:25px">
+														<label style="float: left"><?php _e('Min Height', EG_TEXTDOMAIN); ?></label>
+														<input style="float:left" type="text" value="0" name="element-min-height" class="input-settings-small element-setting firstinput eg-tooltip-wrap" title="<?php _e('Optional CSS min-height (px)', EG_TEXTDOMAIN); ?>">
+														<div class="clear"></div>
+													</div>
+													
+													<div style="margin-top:10px;line-height:25px">
+														<label style="float: left"><?php _e('Max Height', EG_TEXTDOMAIN); ?></label>
+														<input style="float:left" type="text" value="none" name="element-max-height" class="input-settings-small element-setting firstinput eg-tooltip-wrap" title="<?php _e("Optional CSS max-height (px). Enter 'none' for no max-height", EG_TEXTDOMAIN); ?>">
+														<div class="clear"></div>
+													</div>
+													
 												</div>
+												
 											</div>
 
 											<!-- ICON SELECTOR -->
@@ -872,7 +1039,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 								<!--
 								STYLING
 								-->
-								<div id="eg-element-style" style="position:relative">
+								<div id="eg-element-style" style="position:relative; height: 470px">
 									<div id="eg-styling-idle-hover-tab" class="eg-ul-tabs">
 										<ul class="eg-submenu">
 											<li class="selected-submenu-setting eg-tooltip-wrap" title="<?php _e('Style of Element in Idle State', EG_TEXTDOMAIN); ?>" data-toshow="eg-style-idle"><i class="eg-icon-star-empty"></i><?php _e('Idle', EG_TEXTDOMAIN); ?></li>
@@ -882,7 +1049,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										<div class="clear"></div>
 										<!-- IDLE STYLING -->
 										<div id="eg-style-idle">
-											<div class="eg-small-vertical-menu">
+											<div class="eg-small-vertical-menu" style="height: 420px">
 												<ul>
 													<li class="selected-el-setting" data-toshow="eg-el-font"><i class="eg-icon-font" ></i><p><?php _e('Style', EG_TEXTDOMAIN); ?></p></li>
 													<li class="" data-toshow="eg-el-pos"><i class="eg-icon-align-left"></i><p><?php _e('Spacing', EG_TEXTDOMAIN); ?></p></li>
@@ -910,8 +1077,8 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 													<input class="element-setting" name="element-color" type="text" id="element-color" value="" data-mode="single">
 												</p>
 												<p>
-													<label><?php _e('Font Family', EG_TEXTDOMAIN); ?></label>
-													<input class="element-setting" name="element-font-family" type="text" value=""> <a class="button-secondary" id="button-open-font-family" href="javascript:void(0);"><i class="eg-icon-down-open"></i></a>
+													<label><?php _e('Font Family', EG_TEXTDOMAIN); ?></label
+													><input class="element-setting" name="element-font-family" type="text" value=""> <a class="button-secondary" id="button-open-font-family" href="javascript:void(0);"><i class="eg-icon-down-open"></i></a>
 												</p>
 												<div style="margin-top:10px">
 													<label style="float:left"><?php _e('Font Weight', EG_TEXTDOMAIN); ?></label>
@@ -959,6 +1126,10 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 														</select>
 													</div><div class="clear"></div>
 												</div>
+												<p>
+													<label><?php _e('Letter Spacing', EG_TEXTDOMAIN); ?></label
+													><input type="text" class="letter-spacing" style="width: 65px" name="element-letter-spacing" value="normal">
+												</p>
 												<div class="drop-to-stylechange eg-tooltip-wrap" title="<?php _e('Drop Element from Available Layers here to overwrite Styling of Current Element', EG_TEXTDOMAIN); ?>"><?php _e("Drop for<br>Style<br>Change", EG_TEXTDOMAIN); ?></div>
 											</div>
 
@@ -1216,7 +1387,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 
 										<!-- HOVER STYLING -->
 										<div id="eg-style-hover">
-											<div class="eg-small-vertical-menu">
+											<div class="eg-small-vertical-menu" style="height: 420px">
 												<ul>
 													<li class="selected-el-setting" data-toshow="eg-el-font-hover"><i class="eg-icon-font" ></i><p><?php _e('Style', EG_TEXTDOMAIN); ?></p></li>
 													<li class="" data-toshow="eg-el-border-hover"><i class="eg-icon-minus-squared-alt"></i><p><?php _e('Border', EG_TEXTDOMAIN); ?></p></li>
@@ -1243,8 +1414,8 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 													<input class="element-setting" name="element-color-hover" type="text" id="element-color-hover" value="" data-mode="single">
 												</p>
 												<p>
-													<label><?php _e('Font Family', EG_TEXTDOMAIN); ?></label>
-													<input class="element-setting" name="element-font-family-hover" type="text" value=""> <a class="button-secondary" id="button-open-font-family-hover" href="javascript:void(0);"><i class="eg-icon-down-open"></i></a>
+													<label><?php _e('Font Family', EG_TEXTDOMAIN); ?></label
+													><input class="element-setting" name="element-font-family-hover" type="text" value=""> <a class="button-secondary" id="button-open-font-family-hover" href="javascript:void(0);"><i class="eg-icon-down-open"></i></a>
 												</p>
 												<div style="margin-top:10px">
 													<label style="float:left"><?php _e('Font Weight', EG_TEXTDOMAIN); ?></label>
@@ -1292,6 +1463,10 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 														</select>
 													</div><div class="clear"></div>
 												</div>
+												<p>
+													<label><?php _e('Letter Spacing', EG_TEXTDOMAIN); ?></label
+													><input type="text" class="letter-spacing" style="width: 65px" name="element-letter-spacing-hover" value="normal">
+												</p>
 												<div class="revyellow drop-to-stylereset button-primary"><i class="eg-icon-ccw-1"></i><?php _e("Reset from Idle", EG_TEXTDOMAIN); ?></div>
 											</div>
 
@@ -1512,6 +1687,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 											<select name="element-transition" class="eg-tooltip-wrap" title="<?php _e('Select Animation of Element on Hover', EG_TEXTDOMAIN); ?>" >
 												<?php
 												foreach($transitions_elements as $handle => $name){
+													if(preg_match('/collapse|line|circle|spiral/', $handle)) continue;
 												?>
 												<option value="<?php echo $handle; ?>"><?php echo $name; ?></option>
 												<?php
@@ -1547,11 +1723,30 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 										</div>
 										<div class="clear"></div>
 									</div-->
+									
+									<div class="eg-hideable-no-transition" style="line-height: 28px; margin: 1em 0">
+										<label><?php _e('Duration', EG_TEXTDOMAIN); ?></label
+										><div class="select_wrapper" style="display: inline-block">
+											<div class="select_fake" style="width: 70px;overflow: hidden;white-space: nowrap;"><span><?php _e('Not uppercased', EG_TEXTDOMAIN); ?></span><i class="eg-icon-sort"></i></div>
+											<select name="element-duration" class="eg-tooltip-wrap" style="width: 70px;" title="<?php _e('The animation duration (ms)', EG_TEXTDOMAIN); ?>">
+												<option value="default">default</option>
+												<option value="200">200</option>
+												<option value="300">300</option>
+												<option value="400">400</option>
+												<option value="500">500</option>
+												<option value="750">750</option>
+												<option value="1000">1000</option>
+												<option value="1500">1500</option>
+											</select>
+										</div>
+									</div>
+									
 									<p class="eg-hideable-no-transition">
 										<label><?php _e('Delay', EG_TEXTDOMAIN); ?></label>
 										<span id="element-delay" class="slider-settings eg-tooltip-wrap" title="<?php _e('Delay before Element Animation starts', EG_TEXTDOMAIN) ?>" ></span>
 										<input class="input-settings-small element-setting" type="text" name="element-delay" value="0" />
 									</p>
+									
 								</div>
 								<!--
 								LINK TO
@@ -1572,7 +1767,7 @@ if(!isset($skin['layers'])) $skin['layers'] = array(); //fallback if skin does n
 												<option value="embedded_video"><?php _e('Play Embedded Video', EG_TEXTDOMAIN); ?></option>
 												<option value="sharefacebook"><?php _e('Share on Facebook', EG_TEXTDOMAIN); ?></option>
 												<option value="sharetwitter"><?php _e('Share on Twitter', EG_TEXTDOMAIN); ?></option>
-												<option value="sharegplus"><?php _e('Share on Google+', EG_TEXTDOMAIN); ?></option>
+												<!--option value="sharegplus"><?php _e('Share on Google+', EG_TEXTDOMAIN); ?></option-->
 												<option value="sharepinterest"><?php _e('Share on Pinterest', EG_TEXTDOMAIN); ?></option>
 												<option value="likepost"><?php _e('Like Post', EG_TEXTDOMAIN); ?></option>
 											</select>

@@ -35,7 +35,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.47' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.48' );
 
 
 
@@ -2200,7 +2200,7 @@ function zerif_neve_notice() {
 			sprintf(
 				/* translators: Install Neve link */
 				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
-				esc_url( 'https://themeisle.com/themes/neve/?notice=1' ),
+				esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
 				esc_html__( 'our newest theme', 'zerif-lite' )
 			),
 			/* translators: Zerif renaming article link */

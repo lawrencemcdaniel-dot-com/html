@@ -1,10 +1,10 @@
 === Ultimate Responsive Image Slider Plugin ===
-Contributors: FARAZFRANK, weblizar
+Contributors: FARAZFRANK
 Donate link: https://www.wpfrank.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
 Tested up to: 4.9.8
-Stable tag: 3.2.9
+Stable tag: 3.2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,16 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 == Changelog ==
 For more information, see [WP Frank](https://wpfrank.com/)
 
+= V 3.2.12 =
+- Fixed Pro Banner Placement
+
+= V 3.2.11 =
+- Add Slider Text Alignment Setting
+- Add New Pro Banner
+
+= V 3.2.10 =
+- Contributor removed
+
 = V 3.2.9 =
 - Bug Fixed : Openhand cursor not found
 - Add Pro Banner
@@ -164,120 +174,3 @@ For more information, see [WP Frank](https://wpfrank.com/)
 = V 3.2.0 =
 - Compatible with Page elementor plugin
 - Version Update + Compatible upto wp 4.9.7
-
-= V 3.1.9 =
-- If no slide found in slider show alert message at frontend
-- Add new products in our product page
-
-= V 3.1.8 =
-- minor bug fix
-
-= V 3.1.7 
-- Add Back to top link at setting page 
-- Add banner at setting page (As a dissmiss)
-- Add plugin version number in css
-- Add Some code as a dynamic
-- Bug Fixed - Invalid argument supplied in foreach loop
-
-V 3.1.6 - Custom CSS Editor Fix
-V 3.1.5 - update Font-awesome + update bootstrap + update slider pro js and css 1.4.0 + Modify Custom CSS editor + Add new setting - set slide title as file name + update basic font family + Add recommendation and our product page + compatible upto wp 4.9.5
-V 3.1.4 - New: range slider for autoplay slider settings + autoplay tips typos fixed +compatible upto wp 4.9.1
-V 3.1.3 - Fix: new settings saving issue fixed
-V 3.1.2 - New settings: Slide Scale Mode(none,exact,contain,cover) Slide Auto Scale(on/off), Color Picker For All Color Settings  + compatible upto wp 4.9
-V 3.1.1 - Slide scaling bug fixed + Full screen button position fixed
-V 3.1.0 - Multiple Delete Bug Fixed
-V 3.0.9 - Wooocommerce Conflict issue fixed + compatible upto wp 4.8.3
-V 3.0.9 - Rich text editor button size fix
-V 3.0.8 - Rich text editor added for making description text more useful and attractive
-V 3.0.7 - version update + compatible upto wp 4.8.2
-V 3.0.6 - Pre loader added
-V 3.0.5 - version update + compatible upto wp 4.8 + SEO ready image slider
-V 3.0.4 - Slide image blank alt text fixed
-V 3.0.3 - version update + compatible upto wp 4.8
-V 3.0.2 - compatible upto wp 4.7.5
-V 3.0.1 - pre-loader removed due many user facing issues with it
-V 3.0.0 – alt tag added, pre-loader added, seo friendly slides
-V 2.9.9 - version update only
-V 2.9.8 - compatible upto wp 4.7
-V 2.9.7 - update
-= 2.9.6 =
-* update
-= Version 2.9.5 10/10/2016 =
-* plugin version update
-= Version 2.9.4.6 16/09/2016 =
-* update
-= Version 2.9.4.5 27/05/2016 =
-* other plugin conflict fix
-* shuffle setting fix
-= Version 2.9.4.4 11/04/2016 =
-* small updates
-= Version 2.9.4.3 11/04/2016 =
-* Minor updates
-= Version 2.9.4.2 06-Feb-2016 =
-* Minor testing and updates
-= Version 2.9.4.1 06-Feb-2016 =
-* HTML tag display fixed
-= Version 2.9.4 02-Feb-2016 =
-* Removal of Non-required section of codes. 
-= Version 2.9.3 28-Jan-2016 =
-* Powered By Removed
-* Plugin Tags updated
-* Post data sanitized
-* Escaping all output data
-* Removed external link
-= Version 2.9.2 27-Jan-2016 =
-* Removed external link
-= Version 2.9.1 30-12-2015 =
-* Small Update
-= Version 2.9 18-11-2015 =
-* Slider Jquery version updated
-* Slider CSS version updated
-* New Setting Added - slide order, slider thumbnail resize, thumbnails position, thumbnails, Slider width option, slider height option, auto height, slide distance
-* New Added Font Colour Scheme 
-* New Added Font Styles
-* Compatible with Wordpress 4.4 version 
-= Version 2.7 11-09-2015 =
-* Compatible with wordpress 4.4 beta version 
-= Version 2.6 29-10-2015 =
-* small changes in code
-= Version 2.4 26-10-2015 =
-* Resolved long description in safari.  
-= Version 2.3 19-10-2015 =
-* Small bug fixed 
-= Version 2.2 12-10-2015 =
-* Small design bug fixed
-= Version 2.1 28-09-2015 =
-* Add Alt tag in slide images
-= Version 2.0 21-09-2015 =
-* Compatible with wordpress 4.3.1
-* Small bug resolved.
-= Version 1.9 02-09-2015 =
-* New : Add Import/Export Settings
-= Version 1.8 01-09-2015 =
-* Small Update in admin bootstrap css 
-= Version 1.7 11-08-2015 =
-* New Feature: Slide Translation Speed Setting
-* New Feature: Slide Translation Effect Setting
-* New Feature: Custom CSS Setting
-* Improvement: Delete all slide button
-* Fixed: Now you can embed the slider shortcode in any theme file and sidebar or footer widget
-* Compatible with wordPress 4.3 version
-= Version 1.6 10-07-2015 =
-* Resolved font of image titles is shrink problem for responsive views (safari). 
-= Version 1.5 07-07-2015 =
-* Fixed small bug
-= Version 1.4 08-06-2015 =
-* Compatible with WordPress 4.2.2 version 
-* Small changes in code
-= Version 1.3 21-04-2015 =
-* Compatible with WordPress 4.2 version 
-= Version 1.2  31-03-2015 =
-* Resolved capitalization issue of title
-* New Added hide/display slider title field setting
-* Change design style of slider title  
-* Add Margin at bottom of slider 
-= Version 1.1  19-03-2015 =
-* Resolve Slide Title and Description layout problem for small container
-* Resolve Admin panel conflict with another plugins
-= Version 1.0  04-03-2015 =
-* This is first and basic version of slider plugin.

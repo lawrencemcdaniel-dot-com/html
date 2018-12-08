@@ -70,7 +70,7 @@ class Email extends Action {
                <th><label><?php echo __( 'Content Type', 'html-forms' ); ?></label></th>
                <td>
                    <select name="form[settings][actions][<?php echo $index; ?>][content_type]" required>
-                      <option <?php selected( $settings['content_type'], 'text/html' ); ?>>text/plain</option>
+                      <option <?php selected( $settings['content_type'], 'text/plain' ); ?>>text/plain</option>
                       <option <?php selected( $settings['content_type'], 'text/html' ); ?>>text/html</option>
                    </select>
                </td>
@@ -113,7 +113,6 @@ class Email extends Action {
     $html_email = $settings['content_type'] === 'text/html';
     if( $html_email ) {
       $headers[] = 'Content-Type: text/html';
-      $message = nl2br( $message );
     } 
 
     if( ! empty( $settings['from'] ) ) {

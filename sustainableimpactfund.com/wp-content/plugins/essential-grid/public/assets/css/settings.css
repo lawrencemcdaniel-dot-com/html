@@ -228,7 +228,10 @@ font-family: star;
 							outline: 0px solid transparent;
 						}
 
-.eec					{	display:block; width:auto; height:auto;position:absolute !important;  font-size:20px;text-align:center; }
+.eec					{	display:block; width:auto; height:auto;position:absolute !important;  font-size:20px;text-align:center}
+
+/* 2.2.6 */
+/* .tp-esg-item .eec       {overflow: hidden} */
 
 /* CONTAINERS */
 .esg-tc 			{	top:0px; left:0px; width:100%;}
@@ -943,6 +946,146 @@ Blur and Grayscale filters
 .esg-mobile-filter-button {display: none}
 .esg-mobile-filter-wrap {visibility: visible}
 .esg-mobile-filter-wrap .esg-dropdown-wrapper {display: none !important; visibility: hidden !important}
+
+/* 2.2.3 */
+.eg-esgblankskin-wrapper * {visibility: hidden !important}
+
+/* 2.2.6 */
+.eg-item-in-focus {z-index: 999 !important}
+
+/* 2.2.6 */
+.esg-cover-overflow {overflow: hidden}
+
+/* collapses */
+.esg-transition[data-transition^='esg-collapse'] {overflow: hidden}
+.esg-transition[data-transition^='esg-collapse']:before,
+.esg-transition[data-transition^='esg-collapse']:after {position: absolute; content: ""}
+.esg-transition[data-transition^='esg-collapsevertical']:before,
+.esg-transition[data-transition^='esg-collapsevertical']:after {width: 100%; height: 0%; left: 0}
+.esg-transition[data-transition^='esg-collapsevertical']:before {top: 0}
+.esg-transition[data-transition^='esg-collapsevertical']:after {bottom: 0}
+.esg-transition[data-transition='esg-collapseverticalout']:before,
+.esg-transition[data-transition='esg-collapseverticalout']:after {height: 50%}
+.esg-transition[data-transition^='esg-collapsehorizontal']:before,
+.esg-transition[data-transition^='esg-collapsehorizontal']:after {width: 0%; height: 100%; top: 0}
+.esg-transition[data-transition^='esg-collapsehorizontal']:before {left: 0}
+.esg-transition[data-transition^='esg-collapsehorizontal']:after {right: 0}
+.esg-transition[data-transition='esg-collapsehorizontalout']:before {width: 50%}
+.esg-transition[data-transition='esg-collapsehorizontalout']:after {width: 50%}
+
+.esg-hovered .esg-transition[data-transition="esg-collapsevertical"]:before,
+.esg-hovered .esg-transition[data-transition="esg-collapsevertical"]:after {height: 50%}
+.esg-hovered .esg-transition[data-transition="esg-collapseverticalout"]:before,
+.esg-hovered .esg-transition[data-transition="esg-collapseverticalout"]:after {height: 0}
+.esg-hovered .esg-transition[data-transition="esg-collapsehorizontal"]:before,
+.esg-hovered .esg-transition[data-transition="esg-collapsehorizontal"]:after {width: 50%}
+.esg-hovered .esg-transition[data-transition="esg-collapsehorizontalout"]:before,
+.esg-hovered .esg-transition[data-transition="esg-collapsehorizontalout"]:after {width: 0}
+
+/* lines */
+.esg-transition[data-transition^="esg-line"]:after {
+	content: ""; 
+	position: absolute; 
+	width: 70%; 
+	height: 70%; 
+	top: 15%; 
+	left: 15%;
+	background-size: 100% 100%; 
+	background-repeat: no-repeat; 
+	background-position: center center;
+}
+
+.esg-transition[data-transition="esg-linediagonal"]:after,
+.esg-transition[data-transition="esg-linehorizontal"]:after,
+.esg-transition[data-transition="esg-linevertical"]:after {transform: scale(0)}
+.esg-hovered .esg-transition[data-transition^="esg-line"]:after {transform: scale(1)}
+.esg-hovered .esg-transition[data-transition="esg-linediagonalout"]:after,
+.esg-hovered .esg-transition[data-transition="esg-linehorizontalout"]:after,
+.esg-hovered .esg-transition[data-transition="esg-lineverticalout"]:after {transform: scale(0)}
+
+/* spiral */
+.esg-transition[data-transition^="esg-spiral"]:after {
+	content: ""; 
+	position: absolute; 
+	top: 50%; 
+	left: 50%; 
+	width: 100%; 
+	height: 100%; 
+	box-sizing: border-box;
+	padding-bottom: 100%; 
+	background-size: contain; 
+	background-repeat: no-repeat; 
+	transform-origin: center;
+	transform: translate(-50%, -50%) rotate(0deg) scale(0);
+}
+
+.esg-transition[data-transition="esg-spiralzoomout"]:after {transform: translate(-50%, -50%) rotate(-300deg) scale(3)}
+.esg-hovered .esg-transition[data-transition="esg-spiralzoom"]:after {transform: translate(-50%, -50%) rotate(-300deg) scale(3)}
+.esg-hovered .esg-transition[data-transition="esg-spiralzoomout"]:after {transform: translate(-50%, -50%) rotate(0deg) scale(0)}
+
+/* circle */
+.esg-transition[data-transition^="esg-circlezoom"]:before, 
+.esg-transition[data-transition^="esg-circlezoom"]:after {
+	content: ""; 
+	position: absolute; 
+	width: 150%; 
+	height: 150%; 
+	padding-bottom: 150%;
+	top: 50%; 
+	left: 50%; 
+	transform: translate(-50%, -50%) scale(0, 0);
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+
+.esg-transition[data-transition="esg-circlezoomout"]:before, 
+.esg-transition[data-transition="esg-circlezoomout"]:after {transform: translate(-50%, -50%) scale(1, 1)}
+.esg-hovered .esg-transition[data-transition="esg-circlezoom"]:before, 
+.esg-hovered .esg-transition[data-transition="esg-circlezoom"]:after {transform: translate(-50%, -50%) scale(1, 1)}
+.esg-hovered .esg-transition[data-transition="esg-circlezoomout"]:before, 
+.esg-hovered .esg-transition[data-transition="esg-circlezoomout"]:after {transform: translate(-50%, -50%) scale(0, 0)}
+
+.esg-transition[data-transition^="esg-line"]:before,
+.esg-transition[data-transition^="esg-spiral"]:before {
+	content: ""; 
+	position: absolute; 
+	width: 100%; 
+	height: 100%; 
+	top: 0%; 
+	left: 0%;
+	opacity: 0;
+}
+
+.esg-transition[data-transition="esg-linediagonalout"]:before,
+.esg-transition[data-transition="esg-linehorizontalout"]:before,
+.esg-transition[data-transition="esg-lineverticalout"]:before,
+.esg-transition[data-transition="esg-spiralzoomout"]:before {opacity: 1}
+
+.esg-hovered .esg-transition[data-transition^="esg-line"]:before,
+.esg-hovered .esg-transition[data-transition="esg-spiralzoom"]:before {opacity: 1}
+
+.esg-hovered .esg-transition[data-transition="esg-linediagonalout"]:before,
+.esg-hovered .esg-transition[data-transition="esg-linehorizontalout"]:before,
+.esg-hovered .esg-transition[data-transition="esg-lineverticalout"]:before,
+.esg-hovered .esg-transition[data-transition="esg-spiralzoomout"]:before {opacity: 0}
+
+/* new blend modes */
+.esg-overlay.esg-cover-blend-multiply {mix-blend-mode: multiply}
+.esg-overlay.esg-cover-blend-screen {mix-blend-mode: screen}
+.esg-overlay.esg-cover-blend-overlay {mix-blend-mode: overlay}
+.esg-overlay.esg-cover-blend-darken {mix-blend-mode: darken}
+.esg-overlay.esg-cover-blend-lighten {mix-blend-mode: lighten}
+.esg-overlay.esg-cover-blend-color-dodge {mix-blend-mode: color-dodge}
+.esg-overlay.esg-cover-blend-color-burn {mix-blend-mode: color-burn}
+.esg-overlay.esg-cover-blend-hard-light {mix-blend-mode: hard-light}
+.esg-overlay.esg-cover-blend-soft-light {mix-blend-mode: soft-light}
+.esg-overlay.esg-cover-blend-difference {mix-blend-mode: difference}
+.esg-overlay.esg-cover-blend-exclusion {mix-blend-mode: exclusion}
+.esg-overlay.esg-cover-blend-hue {mix-blend-mode: hue}
+.esg-overlay.esg-cover-blend-saturation {mix-blend-mode: saturation}
+.esg-overlay.esg-cover-blend-color {mix-blend-mode: color}
+.esg-overlay.esg-cover-blend-luminosity {mix-blend-mode: luminosity}
+
 
 /** 
 INSTAGRAM FILTERS BY UNA 

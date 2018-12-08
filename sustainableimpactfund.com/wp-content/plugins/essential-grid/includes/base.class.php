@@ -309,7 +309,7 @@ class Essential_Grid_Base {
 			'single'   => __('Single', EG_TEXTDOMAIN),
 			'bulk'   => __('Bulk', EG_TEXTDOMAIN),
 			'choose_images'   => __('Choose Images', EG_TEXTDOMAIN),
-			'import_demo_post_heavy_loading'   => __('The following demo data will be imported: Grids, Custom Meta, PunchFonts. This can take a while, please do not leave the site until the import is finished', EG_TEXTDOMAIN),
+			'import_demo_post_heavy_loading'   => __('The following demo data will be imported: Ess. Grid Posts, Custom Meta, PunchFonts. This can take a while, please do not leave the site until the import is finished', EG_TEXTDOMAIN),
 			'import_demo_grids_210'   => __('The following demo data will be imported: Grids of the 2.1.0 update. This can take a while, please do not leave the site until the import is finished', EG_TEXTDOMAIN),
 			'save_settings'   => __('Save Settings', EG_TEXTDOMAIN),
 			'add_element'   => __('Add Element', EG_TEXTDOMAIN),
@@ -492,7 +492,14 @@ class Essential_Grid_Base {
 				'zoomfront' => __('Zoom from Front', EG_TEXTDOMAIN),
 				'flyleft' => __('Fly Left', EG_TEXTDOMAIN),
 				'flyright' => __('Fly Right', EG_TEXTDOMAIN),
-				'covergrowup' => __('Cover Grow', EG_TEXTDOMAIN)
+				'covergrowup' => __('Cover Grow', EG_TEXTDOMAIN),
+				'collapsevertical' => __('Collapse Vertical', EG_TEXTDOMAIN),
+				'collapsehorizontal' => __('Collapse Horizontal', EG_TEXTDOMAIN),
+				'linediagonal' => __('Line Diagonal', EG_TEXTDOMAIN),
+				'linehorizontal' => __('Line Horizontal', EG_TEXTDOMAIN),
+				'linevertical' => __('Line Vertical', EG_TEXTDOMAIN),
+				'spiralzoom' => __('Spiral Zoom', EG_TEXTDOMAIN),
+				'circlezoom' => __('Circle Zoom', EG_TEXTDOMAIN)
 			);
 		}else{
 			$animations = array(
@@ -521,7 +528,6 @@ class Essential_Grid_Base {
 				'slideupout' => __('Slide Up Out', EG_TEXTDOMAIN),
 				'slidedown' => __('Slide Down In', EG_TEXTDOMAIN),
 				'slidedownout' => __('Slide Down Out', EG_TEXTDOMAIN),
-
 				'slideshortleft' => __('Slide Short Left In', EG_TEXTDOMAIN),
 				'slideshortleftout' => __('Slide Short Left Out', EG_TEXTDOMAIN),
 				'slideshortright' => __('Slide Short Right In', EG_TEXTDOMAIN),
@@ -530,7 +536,6 @@ class Essential_Grid_Base {
 				'slideshortupout' => __('Slide Short Up Out', EG_TEXTDOMAIN),
 				'slideshortdown' => __('Slide Short Down In', EG_TEXTDOMAIN),
 				'slideshortdownout' => __('Slide Short Down Out', EG_TEXTDOMAIN),
-
 				'skewleft' => __('Skew Left In', EG_TEXTDOMAIN),
 				'skewleftout' => __('Skew Left Out', EG_TEXTDOMAIN),
 				'skewright' => __('Skew Right In', EG_TEXTDOMAIN),
@@ -552,7 +557,14 @@ class Essential_Grid_Base {
 				'flyright' => __('Fly Right In', EG_TEXTDOMAIN),
 				'flyrightout' => __('Fly Right Out', EG_TEXTDOMAIN),
 				'covergrowup' => __('Cover Grow In', EG_TEXTDOMAIN),
-				'covergrowupout' => __('Cover Grow Out', EG_TEXTDOMAIN)
+				'covergrowupout' => __('Cover Grow Out', EG_TEXTDOMAIN),
+				'collapsevertical' => __('Collapse Vertical', EG_TEXTDOMAIN),
+				'collapsehorizontal' => __('Collapse Horizontal', EG_TEXTDOMAIN),
+				'linediagonal' => __('Line Diagonal', EG_TEXTDOMAIN),
+				'linehorizontal' => __('Line Horizontal', EG_TEXTDOMAIN),
+				'linevertical' => __('Line Vertical', EG_TEXTDOMAIN),
+				'spiralzoom' => __('Spiral Zoom', EG_TEXTDOMAIN),
+				'circlezoom' => __('Circle Zoom', EG_TEXTDOMAIN)
 			);
 		}
 
@@ -582,7 +594,13 @@ class Essential_Grid_Base {
 			'zoomouttocorner' => __('Zoom Out To Side', EG_TEXTDOMAIN),
 			'zoomintocorner' => __('Zoom In To Side', EG_TEXTDOMAIN),
 			'zoomtodefault' => __('Zoom To Default', EG_TEXTDOMAIN),
+			'zoomdefaultblur' => __('Zoom Default Blur', EG_TEXTDOMAIN),
 			'mediazoom' => __('Zoom', EG_TEXTDOMAIN),
+			'blur' => __('Blur', EG_TEXTDOMAIN),
+			'fadeblur' => __('Fade Blur', EG_TEXTDOMAIN),
+			'grayscalein' => __('GrayScale In', EG_TEXTDOMAIN),
+			'grayscaleout' => __('GrayScale Out', EG_TEXTDOMAIN),
+			'zoomblur' => __('Zoom Blur', EG_TEXTDOMAIN),
             'zoombackout' => __('Zoom to Back', EG_TEXTDOMAIN),
             'zoomfrontout' => __('Zoom to Front', EG_TEXTDOMAIN),
             'zoomandrotate' => __('Zoom And Rotate', EG_TEXTDOMAIN)

@@ -5,7 +5,7 @@ Tags: widget, events, simple, tooltips, grid, month, list, calendar, event, venu
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
 Tested up to: 4.9.8
-Stable tag: 4.5.5
+Stable tag: 4.5.6
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -189,6 +189,11 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
 
 == Changelog ==
+
+= [4.5.6] 2018-11-13 =
+
+* Fix - Prevent the "Use image on Eventbrite.com?" checkbox from showing up on non-Event post types [116215]
+* Tweak - Update Eventbrite branding images to use their new logo and wordmarks [115661]
 
 = [4.5.5] 2018-10-22 =
 

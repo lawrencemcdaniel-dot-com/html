@@ -37,6 +37,8 @@ class Avada_Woocommerce {
 		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 		add_action( 'woocommerce_sidebar', array( $this, 'add_sidebar' ), 10 );
 
+		add_filter( 'fusion_responsive_sidebar_order', array( $this, 'responsive_sidebar_order' ), 10 );
+
 		// Products Loop.
 		remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
@@ -251,6 +253,21 @@ class Avada_Woocommerce {
 	 */
 	public function add_sidebar() {
 		do_action( 'avada_after_content' );
+	}
+
+	/**
+	 * Adds necessary selector to sidebar order array.
+	 *
+	 * @access public
+	 * @param array $sidebar_order Array of selectors.
+	 */
+	public function responsive_sidebar_order( $sidebar_order ) {
+		$key = array_search( 'content', $sidebar_order );
+		if ( false !== $key ) {
+			$sidebar_order[ $key ] .= ', .woocommerce-container';
+		}
+
+		return $sidebar_order;
 	}
 
 	/**

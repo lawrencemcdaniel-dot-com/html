@@ -2225,6 +2225,7 @@ class Essential_Grid_Youtube {
 				$url .= "&maxResults=".$count;
 
 				$rsp = json_decode(wp_remote_fopen($url));
+				if(!isset($rsp->items)) return false;
 				$this->youtube_channel_output_array($rsp->items,$count);
 			}
 			else {
@@ -2751,7 +2752,7 @@ class Essential_Grid_Behance {
 	 * @param    string    $videos 	Behance Output Data
 	 */
 	private function behance_output_array($images){
-		if(is_object($images)){
+		if(is_object($images) && isset($images->projects)){
 			foreach ($images->projects as $image) {
 				$stream = array();
 

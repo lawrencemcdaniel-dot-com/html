@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.0.7
+Version: 2.0.9
 License: GPLv2 or later
 */
 
@@ -19,6 +19,11 @@ define('SFSI_PLUGURL',    plugin_dir_url(__FILE__));
 define('SFSI_WEBROOT',    str_replace(getcwd(), home_url(), dirname(__FILE__)));
 define('SFSI_SUPPORT_FORM','https://goo.gl/wgrtUV');
 define('SFSI_DOMAIN','ultimate-social-media-icons');
+
+$wp_upload_dir = wp_upload_dir();
+define('SFSI_UPLOAD_DIR_BASEURL', trailingslashit($wp_upload_dir['baseurl']));
+
+define('SFSI_ALLICONS',serialize(array("rss","email","facebook","twitter","google","share","youtube","pinterest","instagram")));
 
 function sfsi_get_current_page_url()
 {
@@ -38,15 +43,18 @@ function sfsi_get_current_page_url()
 }
 
 /* load all files  */
+include(SFSI_DOCROOT.'/libs/sfsi_install_uninstall.php');
+
+include(SFSI_DOCROOT.'/helpers/common_helper.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_socialhelper.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_class_theme_check.php');
-include(SFSI_DOCROOT.'/libs/sfsi_install_uninstall.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_buttons_controller.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_iconsUpload_contoller.php');
-include(SFSI_DOCROOT.'/libs/sfsi_Init_JqueryCss.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_floater_icons.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsi_frontpopUp.php');
 include(SFSI_DOCROOT.'/libs/controllers/sfsiocns_OnPosts.php');
+
+include(SFSI_DOCROOT.'/libs/sfsi_Init_JqueryCss.php');
 include(SFSI_DOCROOT.'/libs/sfsi_widget.php');
 include(SFSI_DOCROOT.'/libs/sfsi_subscribe_widget.php');
 include(SFSI_DOCROOT.'/libs/sfsi_custom_social_sharing_data.php');
@@ -57,7 +65,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.07)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.09)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -511,6 +519,17 @@ function sfsi_admin_notice()
 	{
 		?>
 		<style type="text/css">
+			
+			div.sfsi_show_premium_notification{
+				float: left;
+    			width: 94.2%;
+    			margin-left: 37px;
+    			margin-top: 15px;
+    			padding: 8px;
+				background-color: #38B54A;
+				color: #fff;
+				font-size: 18px;
+			}    					
 			.sfsi_show_premium_notification a{
 			   	color: #fff;
 			}
@@ -528,7 +547,7 @@ function sfsi_admin_notice()
 			    cursor: pointer;
 			}
 		</style>
-	    <div class="updated sfsi_show_premium_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
+	    <div class="updated sfsi_show_premium_notification" style="<?php //echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
 				BIG NEWS : There is now a <b><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Check it out</a>
 			</div>
@@ -549,8 +568,20 @@ function sfsi_admin_notice()
 		{
 			?>
 			<style type="text/css">
+				div.sfsi_show_premium_cumulative_count_notification{
+				   	color: #fff;
+				   	float: left;
+	    			width: 94.2%;
+	    			margin-left: 37px;
+	    			margin-top: 15px;
+	    			padding: 8px;
+					background-color: #38B54A;
+					color: #fff;
+					font-size: 18px;
+				}
 				.sfsi_show_premium_cumulative_count_notification a{
 				   	color: #fff;
+
 				}
 				form.sfsi_premiumCumulativeCountNoticeDismiss {
 				    display: inline-block;
@@ -566,7 +597,7 @@ function sfsi_admin_notice()
 				    cursor: pointer;
 				}
 			</style>
-		    <div class="updated sfsi_show_premium_cumulative_count_notification" style="<?php echo $style; ?>background-color: #38B54A; color: #fff; font-size: 18px;">
+		    <div class="updated sfsi_show_premium_cumulative_count_notification">
 				<div class="alignleft" style="margin: 9px 0;">
 					<b>Recently switched to https?</b> If you don’t want to lose the Facebook share & like counts <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=https_share_counts&utm_medium=banner" target="_blank">have a look at our Premium Plugin</a>, we found a fix for that: <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=https_share_counts&utm_medium=banner" target="_blank">Check it out</a>
 				</div>
@@ -576,6 +607,7 @@ function sfsi_admin_notice()
 						<input type="submit" name="dismiss" value="Dismiss" />
 					</form>
 				</div>
+				<div style=”clear:both”></div>
 			</div>
 			<?php
 		} 
@@ -924,20 +956,22 @@ function sfsi_getdomain($url)
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), "sfsi_actionLinks", -10 );
 function sfsi_actionLinks($links)
 {
-	$links[] = '<a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
-	$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
+	unset($links['edit']);    
+	$links['a'] = '<a target="_blank" href="https://goo.gl/auxJ9C#no-topic-0" id="sfsi_deactivateButton" style="color:#FF0000;"><b>Need help?</b></a>';	
+	//$links[] = '<a target="_blank" href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_manage_plugin_page&utm_campaign=check_out_pro_version&utm_medium=banner" id="sfsi_deactivateButton" style="color:#38B54A;"><b>Check out pro version</b></a>';
 	
-	if(isset($links["edit"]) && !empty($links["edit"])){
+	/*if(isset($links["edit"]) && !empty($links["edit"])){
 		$links[] = @$links["edit"];		
-	}
+	}*/
 
-	$slug = plugin_basename(dirname(__FILE__));
-	$links[$slug] = @$links["deactivate"].'<i class="sfsi-deactivate-slug"></i>';
+	//$slug = plugin_basename(dirname(__FILE__));
+	//$links[$slug] = @$links["deactivate"].'<i class="sfsi-deactivate-slug"></i>';
 
-	$links[] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';
+	$links['e'] = '<a href="'.admin_url("/admin.php?page=sfsi-options").'">Settings</a>';
 
-	unset($links["deactivate"]);
-	unset($links['edit']);
+    	ksort($links);
+
+	//unset($links["deactivate"]);
 	return $links;
 }
 

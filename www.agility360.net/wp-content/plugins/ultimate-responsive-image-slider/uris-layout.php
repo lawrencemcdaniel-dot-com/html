@@ -190,6 +190,16 @@ jQuery( document ).ready(function() {
 
 .uris-title{
 	font-family: <?php echo $WRIS_L3_Font_Style; ?>;
+	<?php 
+		if($WRIS_L3_Title_Align==1){
+			$WRIS_L3_Title_Align = "left";
+		}else if($WRIS_L3_Title_Align==2){
+			$WRIS_L3_Title_Align = "center";
+		}else{
+			$WRIS_L3_Title_Align = "right";
+		}
+	?>
+	text-align: <?php echo $WRIS_L3_Title_Align; ?>;
 }
 
 @media (max-width: 640px) {

@@ -3,7 +3,47 @@
 class Tribe__Events__Tickets__Eventbrite__Sync__Featured_Image {
 
 	/**
-	 * Appends the "Send to Eventbrite?" control to the post thumbnail meta box in posts.
+	 * Works through the logic of whether the "Use image on Eventbrite.com?" checkbox should show.
+	 *
+	 * @since 4.5.6
+	 *
+	 * @param int $post_id The ID of the post itself.
+	 *
+	 * @return boolean
+	 */
+	public function should_show( $post_id ) {
+
+		if ( ! class_exists( 'Tribe__Events__Main' ) ) {
+			return false;
+		}
+
+		if ( Tribe__Events__Main::POSTTYPE !== get_post_type( $post_id ) ) {
+			return false;
+		}
+
+		// Bail if there's not an EB Tickets license key.
+		if ( ! tribe( 'eventbrite.pue' )->has_license_key() ) {
+			return false;
+		}
+
+		// If the Update Authority is set to "Overwrite", don't show this option.
+		if ( 'overwrite' === tribe( 'events-aggregator.settings' )->default_update_authority() ) {
+			return false;
+		}
+
+		// Bail if this EB event is not one owned by the admin.
+		$eb_event    = tribe( 'eventbrite.event' )->get_event( $post_id );
+		$eb_event_id = ( isset( $eb_event->id ) && is_numeric( $eb_event->id ) ? $eb_event->id : null );
+
+		if ( $eb_event_id && empty( $eb_event->is_owner ) ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Appends the "Use image on Eventbrite.com?" control to the post thumbnail meta box in posts.
 	 *
 	 * @since 4.5.3
 	 *
@@ -15,21 +55,7 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Featured_Image {
 	 */
 	public function add_featured_image_control( $content, $post_id, $thumbnail_id ) {
 
-		// Bail if there's not an EB Tickets license key.
-		if ( ! tribe( 'eventbrite.pue' )->has_license_key() ) {
-			return $content;
-		}
-
-		// If the Update Authority is set to "Overwrite", don't show this option.
-		if ( 'overwrite' === tribe( 'events-aggregator.settings' )->default_update_authority() ) {
-			return $content;
-		}
-
-		// Bail if this EB event is not one owned by the admin.
-		$eb_event    = tribe( 'eventbrite.event' )->get_event( $post_id );
-		$eb_event_id = ( isset( $eb_event->id ) && is_numeric( $eb_event->id ) ? $eb_event->id : null );
-
-		if ( $eb_event_id && empty( $eb_event->is_owner ) ) {
+		if ( ! $this->should_show( $post_id ) ) {
 			return $content;
 		}
 

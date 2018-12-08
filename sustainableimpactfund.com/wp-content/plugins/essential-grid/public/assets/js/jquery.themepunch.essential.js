@@ -1,6 +1,6 @@
 /************************************************************************************
  * jquery.themepunch.essential.js - jQuery Plugin for esg Portfolio Slider
- * @version: 2.2.5 (12.07.2018)
+ * @version: 2.3 (1.11.2018)
  * @requires jQuery v1.7 or later
  * @author ThemePunch
 ************************************************************************************/
@@ -25,6 +25,8 @@
 					'esg-none':               [0, {autoAlpha:1,rotationZ:0,x:0,y:0,scale:1,rotationX:0,rotationY:0,skewX:0,skewY:0},{autoAlpha:1,ease:punchgs.Power2.easeOut, overwrite:"all"}, 0, {autoAlpha:1,overwrite:"all"} ],
 
 					'esg-fade':               [0.3, {autoAlpha:0,rotationZ:0,x:0,y:0,scale:1,rotationX:0,rotationY:0,skewX:0,skewY:0},{autoAlpha:1,ease:punchgs.Power2.easeOut, overwrite:"all"}, 0.3, {autoAlpha:0,ease:punchgs.Power2.easeOut,overwrite:"all"} ],
+					
+					'esg-fadeblur':               [0.3, {autoAlpha:1,rotationZ:0,x:0,y:0,scale:1,rotationX:0,rotationY:0,skewX:0,skewY:0},{autoAlpha:0.5,ease:punchgs.Power2.easeOut, overwrite:"all"}, 0.3, {autoAlpha:1,ease:punchgs.Power2.easeOut,overwrite:"all"} ],
 					
 					'esg-fadeout':            [0.3, {autoAlpha:1,ease:punchgs.Power2.easeOut, overwrite:"all"}, {autoAlpha:0,rotationZ:0,x:0,y:0,scale:1,rotationX:0,rotationY:0,skewX:0,skewY:0}, 0.3, {autoAlpha:1,rotationZ:0,x:0,y:0,scale:1,rotationX:0,rotationY:0,skewX:0,skewY:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
 
@@ -129,7 +131,9 @@
 					'esg-zoomouttocorner':	[0.5, {x:0, y:0,scale:1.2,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:1,transformOrigin:"80% 50%"},{autoAlpha:1,scale:1, x:0, y:0, ease:punchgs.Power3.easeOut,overwrite:"all"},0.5,{x:0, y:0,scale:1.2,autoAlpha:1,z:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
 							
 					'esg-zoomtodefault':		[0.5, {x:0, y:0,scale:1.2,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:1,transformOrigin:"50% 50%"},{autoAlpha:1,scale:1, x:0, y:0, ease:punchgs.Power3.easeOut,overwrite:"all"},0.5,{x:0, y:0,scale:1.2,autoAlpha:1,z:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
-
+					
+					'esg-zoomdefaultblur':		[0.5, {x:0, y:0,scale:1.2,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:1,transformOrigin:"50% 50%"},{autoAlpha:1,scale:1, x:0, y:0, ease:punchgs.Power3.easeOut,overwrite:"all"},0.5,{x:0, y:0,scale:1.2,autoAlpha:1,z:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
+					
 					'esg-zoomback':			[0.5, {x:0, y:0,scale:0.2,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:0,transformOrigin:"50% 50%"},{autoAlpha:1,scale:1, x:0, y:0, ease:punchgs.Back.easeOut,overwrite:"all"},0.5,{x:0, y:0,scale:0.2,autoAlpha:0,z:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
 							
 					'esg-zoombackout':		[0.5, {autoAlpha:1,scale:1, x:0, y:0, ease:punchgs.Back.easeOut,overwrite:"all"},{x:0, y:0,scale:0.2,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:0,transformOrigin:"50% 50%"},0.5,{autoAlpha:1,scale:1, x:0, y:0, ease:punchgs.Back.easeOut,overwrite:"all"}],
@@ -147,7 +151,15 @@
 					'esg-flyrightout':		[0.8, {rotationY:0,rotationX:0,autoAlpha:1,scale:1, x:0, y:0, z:0,ease:punchgs.Power3.easeInOut,overwrite:"all"},{skewX:0,skewY:0,autoAlpha:0,x:80, y:0,z:0,scale:0.3,rotationZ:0,rotationY:-75,rotationX:10,transformOrigin:"70% 20%"},0.8,{rotationY:0, rotationX:0,autoAlpha:1,scale:1, x:0, y:0, z:0,ease:punchgs.Power3.easeInOut,overwrite:"all"}],
 
 					'esg-mediazoom':			[0.3, {x:0, y:0,scale:1,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:1,transformOrigin:"50% 50%"},{autoAlpha:1,scale:1.4, x:0, y:0, ease:punchgs.Back.easeOut,overwrite:"all"},0.3,{autoAlpha:1,x:0, y:0,scale:1,z:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
-							
+					
+					'esg-zoomblur':			[0.3, {x:0, y:0,scale:1,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:1,transformOrigin:"50% 50%"},{autoAlpha:1,scale:1.4, x:0, y:0, ease:punchgs.Back.easeOut,overwrite:"all"},0.3,{autoAlpha:1,x:0, y:0,scale:1,z:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
+					
+					'esg-blur':			[0.3, {autoAlpha:1},{autoAlpha:1, ease:punchgs.Power3.easeOut,overwrite:"all"},0.3,{autoAlpha:1,ease:punchgs.Power2.easeOut,overwrite:"all"}],
+					
+					'esg-grayscalein':			[0.3, {autoAlpha:1},{autoAlpha:1, ease:punchgs.Power3.easeOut,overwrite:"all"},0.3,{autoAlpha:1,ease:punchgs.Power2.easeOut,overwrite:"all"}],
+					
+					'esg-grayscaleout':			[0.3, {autoAlpha:1, filter: 'grayscale(100%)'},{autoAlpha:1, ease:punchgs.Power3.easeOut,overwrite:"all"},0.3,{autoAlpha:1,ease:punchgs.Power2.easeOut,overwrite:"all"}],
+					
 					'esg-zoomandrotate':		[0.6, {x:0, y:0,scale:1,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:1,transformOrigin:"50% 50%"},{autoAlpha:1,scale:1.4, x:0, y:0, rotationZ:30,ease:punchgs.Power2.easeOut,overwrite:"all"},0.4,{x:0, y:0,scale:1,z:0,rotationZ:0,ease:punchgs.Power2.easeOut,overwrite:"all"}],
 
 					'esg-pressback':			[0.5, {x:0,y:0,scale:1,rotationZ:0,rotationX:0,rotationY:0,skewX:0,skewY:0,autoAlpha:1,transformOrigin:"50% 50%"},{rotationY:0,autoAlpha:1,scale:0.8,ease:punchgs.Power3.easeOut,overwrite:"all"} ,0.3,{rotationY:0,autoAlpha:1,z:0,scale:1,ease:punchgs.Power2.easeOut,overwrite:"all"} ],
@@ -630,6 +642,12 @@
 					 
 					    }
 					 
+					}).on('mouseover', '.tp-esg-item', function() {
+						
+						/* 2.2.6 */
+						jQuery('.eg-item-in-focus').removeClass('eg-item-in-focus');
+						jQuery(this).addClass('eg-item-in-focus');
+						
 					}).on('mouseenter.' + containerIds + ' mouseover.' + containerIds, function() {
 						
 						jQuery('.esgbox-container').addClass('esgbox-show-toolbar esgbox-show-nav');
@@ -889,6 +907,37 @@
 						}
 					});
 					
+					if(opt.paginationSwipe === 'on') {
+						
+						var pageX,
+							newX;
+						
+						container.find('.esg-overflowtrick').on('touchstart', function(event) {
+							
+							event = event.originalEvent;
+							if(event.touches) event = event.touches[0];
+							pageX = event.pageX;
+							if(opt.paginationDragVer === 'off') return false;
+							
+						}).on('touchmove', function(event) {
+							
+							event = event.originalEvent;
+							if(event.touches) event = event.touches[0];
+							newX = event.pageX;
+							
+						}).on('touchend', function() {
+							
+							if(Math.abs(pageX - newX) > opt.pageSwipeThrottle) {
+							
+								if(pageX > newX) onRightNavClick(container);
+								else onLeftNavClick(container);
+							
+							}
+							
+						});
+						
+ 					}
+					
 					if(opt.paginationAutoplay === 'on') {
 						
 						var paginationMouse, 
@@ -1096,6 +1145,7 @@
 							if (options.rowItemMultiplier!=undefined) opt.rowItemMultiplier = options.rowItemMultiplier;
 
 							if (options.responsiveEntries!=undefined) opt.responsiveEntries = options.responsiveEntries;
+							if (options.hideBlankItemsAt!=undefined) opt.hideBlankItemsAt = options.hideBlankItemsAt;
 
 							if (options.column!=undefined)  {
 								if (options.column<=0 || options.column>=20) {
@@ -2120,6 +2170,27 @@ function onRightNavClick(container) {
 	stopAllVideos(true);
 }
 
+function onLeftNavClick(container) {
+	
+	var opt = getOptions(container);
+	opt.oldpage = opt.currentpage;
+	opt.currentpage--;
+
+	if (opt.currentpage<0) opt.currentpage = opt.realmaxpage-1;
+
+	var gbfc = getBestFitColumn(opt,jQuery(window).width(),"id");
+	opt.column = gbfc.column;
+	opt.columnindex = gbfc.index;
+	opt.mmHeight = gbfc.mmHeight;
+
+	setItemsOnPages(opt);
+	organiseGrid(opt,"LeftNavigation");
+	setOptions(container,opt);
+
+	stopAllVideos(true);
+	
+}
+
 /*************************************
 	-	PREPARING ALL THE GOODIES	-
 **************************************/
@@ -2419,26 +2490,12 @@ function mainPreparing(container,opt) {
 				-	HANDLE OF LEFT NAVIGATION BUTTON	-
 			*************************************************/
 			// 2.2.5
-			jQuery('body').on('click.' + containerIds, '#' + container.attr('id') + ' ' + opt.filterGroupClass+'.esg-left,'+opt.filterGroupClass+' .esg-left',function() {
-				opt = getOptions(container);
-				opt.oldpage = opt.currentpage;
-				opt.currentpage--;
-
-				if (opt.currentpage<0) opt.currentpage = opt.realmaxpage-1;
-
-				var gbfc = getBestFitColumn(opt,jQuery(window).width(),"id");
-				opt.column = gbfc.column;
-				opt.columnindex = gbfc.index;
-				opt.mmHeight = gbfc.mmHeight;
-
-				setItemsOnPages(opt);
-				organiseGrid(opt,"LeftNavigation");
-				setOptions(container,opt);
+			jQuery('body').on('click.' + containerIds, '#' + container.attr('id') + ' ' + opt.filterGroupClass+'.esg-left,'+opt.filterGroupClass+' .esg-left', function() {
 				
-				stopAllVideos(true);
+				onLeftNavClick(container);
+				
 			});
-
-
+			
 			/***********************************************
 				-	HANDLE OF RIGHT NAVIGATION BUTTON	-
 			***********************************************/
@@ -2783,7 +2840,8 @@ function mainPreparing(container,opt) {
 			prepareSortingClicks(container);
 			
 			// 2.2.5
-			if(opt.convertFilterMobile && 'ontouchend' in document) {
+			var convertNav = opt.convertFilterMobile && 'ontouchend' in document;
+			if(convertNav) {
 				
 				prepareMobileDropdowns(container);
 				
@@ -2794,11 +2852,35 @@ function mainPreparing(container,opt) {
 				container.find('.esg-selected-filterbutton').show();
 				
 			}
+			
+			// 2.2.6
+			var id = container.attr('id');
+			if(id.search('esg-grid-') !== -1) {
+			
+				id = id.split('esg-grid-')[1];
+				if(id.search('-') === -1) return;
+				
+				id = id.split('-')[0];
+				var shortcodes = jQuery('.esg-filter-wrapper.esg-fgc-' + id);
+				if(!shortcodes.length) return;
+				
+				if(convertNav) {
+					
+					prepareMobileDropdowns(shortcodes, true);
+					
+				}
+				else {
+
+					shortcodes.css('visibility', 'visible');
+					shortcodes.find('.esg-selected-filterbutton').show();
+					
+				}
+			}
 
 }
 
 // 2.2.5
-function prepareMobileDropdowns(container) {
+function prepareMobileDropdowns(container, shortcode) {
 	
 	var selct;
 	function buildMobileDrop() {
@@ -2809,7 +2891,9 @@ function prepareMobileDropdowns(container) {
 	}
 	
 	container.find('.esg-mobile-filter-button').addClass('esg-selected-filterbutton').show();
-	container.find('.esg-filter-wrapper').addClass('esg-mobile-filter-wrap').each(function() {
+	
+	if(!shortcode) container = container.find('.esg-filter-wrapper');
+	container.addClass('esg-mobile-filter-wrap').each(function() {
 		
 		var $this = jQuery(this).css('position', 'relative');
 		selct = '<select class="esg-sorting-select">';
@@ -2819,7 +2903,7 @@ function prepareMobileDropdowns(container) {
 		jQuery(selct).on('change', function() {
 			
 			$this.find('.esg-filterbutton[data-filter="' + this.value + '"]').click();
-			$this.find('.esg-selected-filterbutton span').eq(0).text(this.options[this.selectedIndex].innerHTML);
+			$this.find('.esg-selected-filterbutton span').eq(0).text(jQuery(this.options[this.selectedIndex]).text());
 			
 		}).appendTo($this);
 		
@@ -2979,6 +3063,17 @@ function getBestFitColumn(opt,winw,resultoption) {
 	obj.index = resultid;
 	obj.column = lastamount;
 	obj.mmHeight = opt.responsiveEntries[obj.index].mmheight;	
+	
+	// 2.2.6 
+	var blankItems = jQuery('.eg-esgblankskin-wrapper'),
+		hideBlankAt = opt.hideBlankItemsAt;	
+	
+	if(blankItems.length && hideBlankAt !== 'none') {
+		
+		var method = resultid >= parseInt(hideBlankAt, 10) ? 'addClass' : 'removeClass';
+		blankItems[method]('skipblank');
+	}
+	
 	if (resultoption=="id")
 		return obj;
 	else
@@ -3029,7 +3124,7 @@ function checkMediaListeners(item) {
 /******************************
 	-	CHECK MEDIA LISTENERS	-
 ********************************/
-function waitMediaListeners(item) {
+function waitMediaListeners(item, container, opt) {
 	 var ifr =  item.find('iframe').first(),
 	 	 vid = item.find('video').first(),
 	 	 vt = ifr.length>0 && ifr.attr('src').toLowerCase().indexOf('youtube')>0 ? "y" :
@@ -3042,8 +3137,14 @@ function waitMediaListeners(item) {
 		// MAKE SURE THAT YOUTUBE OR VIMEO PLAYER HAS LISTENER
 		item.find('iframe, video').each(function(i) {	
 			/* 2.1.5 */
-			if (vt==="" || (vt==="y" && prepareYT(ifr)) || (vt==="v" && prepareVimeo(ifr)) || (vt==="w" && prepareWs(ifr)) || (vt==="s" && prepareSoundCloud(ifr)) || (vt==="h" && prepareVideo(vid)))
-				clearInterval(intr);			
+			if (vt==="" || (vt==="y" && prepareYT(ifr)) || (vt==="v" && prepareVimeo(ifr)) || (vt==="w" && prepareWs(ifr)) || (vt==="s" && prepareSoundCloud(ifr)) || (vt==="h" && prepareVideo(vid))) {
+				
+				clearInterval(intr);
+				
+				// 2.2.6
+				if(item.data('simplevideo') === 1) videoClickEvent(item, container, opt, true);
+				
+			}
 		 });
 	 },50);
 
@@ -3294,10 +3395,12 @@ function offsetParrents(off,item) {
 					 item.find('.esg-transition').each(function() {
 							
 							var elem = jQuery(this),
-								trans = elem.attr('data-transition');
+								trans = elem.attr('data-transition'),
+								duration = elem.attr('data-duration');
 							
 							if(!esgAnimmatrix.hasOwnProperty(trans)) return;
 							var key = esgAnimmatrix[trans];
+							duration = !duration || duration === 'default' ? key[0] : parseInt(duration, 10) * 0.001;
 						 
 						 	 var dd = elem.data('delay')!=undefined ? elem.data('delay') : 0;
 							  	 animfrom = jQuery.extend({}, key[1]);
@@ -3341,7 +3444,8 @@ function offsetParrents(off,item) {
 	  						 punchgs.TweenLite.killTweensOf(animobject,false);
 							 var xy,
 								 af,
-								 at;  	
+								 at,
+								 tw;								 
 
 							  // 2.2.5
 							  /*
@@ -3372,7 +3476,7 @@ function offsetParrents(off,item) {
 											af.x = xy.x;
 	  						  				af.y = xy.y;
 											
-											punchgs.TweenLite.fromTo(animobject,key[0],af,at,elemdelay);
+											punchgs.TweenLite.fromTo(animobject,duration,af,at,elemdelay);
 	  						  		break;
 	  						  		case "esg-slideout":
 	  						  				xy =  directionPrepare(direction,"out",item.width(),item.height());
@@ -3383,11 +3487,49 @@ function offsetParrents(off,item) {
 	  						  				at.x = xy.x;
 	  						  				at.y = xy.y;
 	  						  				at.clearProps="";
-											punchgs.TweenLite.fromTo(animobject,key[0],af,at,elemdelay);
+											punchgs.TweenLite.fromTo(animobject,duration,af,at,elemdelay);
 	  						  		break;
+									
+									case 'esg-blur':
+									case 'esg-fadeblur':
+									case 'esg-zoomblur':
+									case 'esg-zoomdefaultblur':
+										
+										var blur,
+											amount = parseInt(this.dataset.bluramount, 10);
+											
+										at = {onUpdate: function() {
+											
+											blur = tw.progress() * amount;
+											animobject.css('filter', 'blur(' + blur + 'px)');
+											
+										}};
+										jQuery.extend(at,animto);
+										tw = punchgs.TweenLite.fromTo(animobject,duration,animfrom,at,elemdelay);
+										
+									break;
+									
+									case 'esg-grayscalein':
+									case 'esg-grayscaleout':
+										
+										var grayscale,
+											animein = trans.search('in') !== -1;
+											
+										at = {onUpdate: function() {
+											
+											grayscale = animein ? tw.progress() * 100 : (1 - tw.progress()) * 100;
+											animobject.css('filter', 'grayscale(' + grayscale + '%)');
+											
+										}};
+										jQuery.extend(at,animto);
+										tw = punchgs.TweenLite.fromTo(animobject,duration,animfrom,at,elemdelay);
+										
+									break;
 
 	  						  		default:
-	  						  				punchgs.TweenLite.fromTo(animobject,key[0],animfrom,animto,elemdelay);	  						  				
+									
+	  						  				punchgs.TweenLite.fromTo(animobject,duration,animfrom,animto,elemdelay);	 
+											
 	  						  		break;
   						  		}
 					 });
@@ -3561,19 +3703,20 @@ function setMediaEntryAspectRatio(obj)  {
 
 }
 
+/*
 function onMouseMoveTrigger() {
 	
 	var $this = jQuery(this);
 	if($this.data('animstarted') != 1) $this.trigger('mouseenter');
 
 }
-
+*/
 
  /**********************************
  	-	PREPARE PORTFOLIO -
  **********************************/
  function prepareItemsInGrid(opt,appending) {
- 	
+
  	var container = opt.container;
  	container.addClass("esg-container");
 
@@ -3584,7 +3727,7 @@ function onMouseMoveTrigger() {
  	}
 
  	// BASIC VARIABLES
-	var items = opt.mainul[0].getElementsByClassName('eg-newli'), // opt.mainul.find('>.eg-newli'), //
+	var items = opt.mainul[0].getElementsByClassName('eg-newli'), /* opt.mainul.find('>.eg-newli'), */
 		/* itemw = 100/opt.column, */
 		ar = opt.aspectratio,
 		cwidth = container.find('.esg-overflowtrick').parent().width(),
@@ -3692,6 +3835,7 @@ function onMouseMoveTrigger() {
 
 
 		item.find('.esg-media-video').each(function() {
+			
 			var prep = jQuery(this),				
 				videovisible = "display:none;",
 				viddatasrc = "data-src=";
@@ -3712,7 +3856,7 @@ function onMouseMoveTrigger() {
 				 -	CLICK ON ITEM TO PLAY VIDEO IN SIMPLEFRAME-
 				 **/
 				 item.data('simplevideo',1);
-				 //videoClickEvent(item,container,opt,true);
+				 // videoClickEvent(item,container,opt,true);
 			}
 	
 		// ?
@@ -3728,6 +3872,7 @@ function onMouseMoveTrigger() {
 
 			//YOUTUBE PREPARING
 			if (prep.data('youtube')!=undefined) {
+				
 				if(opt.youtubeNoCookie!="false"){
 					var ytframe = "https://www.youtube-nocookie.com/embed/"+prep.data('youtube')+"?version=3&enablejsapi=1&html5=1&controls=1&autohide=1&rel=0&showinfo=0&fs=1&playsinline=1";
 				}
@@ -3782,8 +3927,14 @@ function onMouseMoveTrigger() {
 				 item = item.closest('.tp-esg-item');
 				 videoClickEvent(item,container,opt);
 			 });
-
-			 if (item.data('simplevideo')==1) waitMediaListeners(item);
+			
+			 if (item.data('simplevideo')==1) {
+				 
+				 var vid = item.find('video');
+				 if(!vid.length) waitMediaListeners(item, container, opt);
+				 else vid.css('opacity', '1');
+				 
+			 }
 
 		});
 
@@ -3890,15 +4041,17 @@ function onMouseMoveTrigger() {
 		 ********************************/
 		item.on('mouseenter.hoverdir mouseleave.hoverdir', function( event ) {
 			
-			var item=jQuery(this).off('mousemove.hoverdir', onMouseMoveTrigger);
+			var item=jQuery(this);/*.off('mousemove.hoverdir', onMouseMoveTrigger);*/
 			
 			// 2.2.5
+			/*
 			if(!opt.releaseHovers && opt.startAnimation === 'none') {
 				
 				item.on('mousemove.hoverdir', onMouseMoveTrigger);
 				return;
 				
 			}
+			*/
 			
 		    var direction = getDir( item, { x : event.pageX, y : event.pageY } );	
 			//if(item.find('.isplaying').length) return;
@@ -3980,6 +4133,41 @@ function onMouseMoveTrigger() {
 		  						  				animto.overwrite = "all";
 												tw = punchgs.TweenLite.fromTo(animobject,0.5,{autoAlpha:1,x:xy.x,y:xy.y},{x:0,y:0,autoAlpha:1,overwrite:"all"});
 		  						  		break;
+										
+										case 'esg-blur':
+										case 'esg-fadeblur':
+										case 'esg-zoomblur':
+										case 'esg-zoomdefaultblur':
+										
+											var blur,
+												amount = parseInt(this.dataset.bluramount, 10),
+												at = {onUpdate: function() {
+												
+												blur = (1 - tw.progress()) * amount;
+												animobject.css('filter', 'blur(' + blur + 'px)');
+												
+											}};
+											jQuery.extend(at,animto);
+											tw = punchgs.TweenLite.to(animobject,key[3],at,elemdelay);
+											
+										break;
+										
+										case 'esg-grayscalein':
+										case 'esg-grayscaleout':
+										
+											var grayscale,
+												animein = trans.search('in') !== -1;
+												
+											at = {onUpdate: function() {
+												
+												grayscale = animein ? (1 - tw.progress()) * 100 : tw.progress() * 100;
+												animobject.css('filter', 'grayscale(' + grayscale + '%)');
+												
+											}};
+											jQuery.extend(at,animto);
+											tw = punchgs.TweenLite.to(animobject,key[3],at,elemdelay);
+											
+										break;
 
 		  						  		default:
 
@@ -4019,9 +4207,11 @@ function onMouseMoveTrigger() {
 	// 2.2.5
 	container.find('.esg-transition').each(function() {
 		
-		var elem = jQuery(this),
-			trans = elem.attr('data-transition');
-		
+		var elem = jQuery(this);
+		if(elem.data('prepared')) return;
+		elem.data('prepared', true);
+			
+		var trans = elem.attr('data-transition');
 		if(!esgAnimmatrix.hasOwnProperty(trans)) return;
 		
 		var key = esgAnimmatrix[trans],
@@ -4090,14 +4280,15 @@ function adjustMediaSize(item,resize,p,opt) {
 		var container = opt.container;
 
 		 // BASIC VARIABLES
-		 var items = container.find('.mainul>li'),
+		 // 2.2.6
+		 var items = container.find('.mainul>li').not('.skipblank'),
 		 	 itemperpage = opt.column*opt.row,
 			 i;
 
 		 // CALCULATE ITEM PER PAGE HERE (BASED ON LAYOUT AND MULTIPLIER
 		 var mp = opt.rowItemMultiplier;
 		 var mpl = mp.length;
-
+		
 		 if (mpl>0)
 			 if (/*opt.column!=1 &&*/ opt.layout=="even") {
 			 	 itemperpage = 0;
@@ -4169,7 +4360,7 @@ function adjustMediaSize(item,resize,p,opt) {
 
 							for(var i = 1; i < len; i++) {
 								itm = items.eq(i);
-								if(itm.parent().hasClass('esgbox-additional')) continue;
+								if(!itm.parent().hasClass('esgbox-additional')) continue;
 								itm.removeClass('esgbox').addClass('esgbox-clone').off('click.essbox-start').removeAttr('data-esgbox').removeData('esgbox');
 							}
 						}
@@ -4301,7 +4492,7 @@ function adjustMediaSize(item,resize,p,opt) {
 								
 							for(var i = 1; i < len; i++) {
 								itm = items.eq(i);
-								if(itm.parent().hasClass('esgbox-additional')) continue;
+								if(!itm.parent().hasClass('esgbox-additional')) continue;
 								itm.removeClass('esgbox').addClass('esgbox-clone').off('click.essbox-start').removeAttr('data-esgbox').removeData('esgbox');
 							}
 						}
@@ -4556,8 +4747,151 @@ function adjustMediaSize(item,resize,p,opt) {
 
 
 		if (opt.firstshowever==undefined) jQuery(opt.filterGroupClass+'.esg-navigationbutton,'+opt.filterGroupClass+' .esg-navigationbutton').css({visibility:"hidden"});
-
-
+		
+		/*
+			BEGIN SPECIAL CSS TRANSITIONS
+			2.2.6
+		*/
+		var special = jQuery('.esg-overlay.esg-transition').filter(function() {
+			
+			return this.dataset.transition && this.dataset.transition.search(/collapse|line|spiral|circle/) !== -1;
+			
+		});
+		
+		if(special.length) {
+			
+			if(!opt.specialStyle) opt.specialStyle = jQuery('<style type="text/css" />').appendTo(jQuery('head'));
+			
+			var styles = '',
+				specialStyles = [],
+				containerId = opt.container.attr('id');
+				
+			special.each(function() {
+				
+				var level,
+					paths,
+					ids = '',
+					$this = jQuery(this),
+					len = specialStyles.length,
+					par = $this.closest('.eec'),
+					animName = this.dataset.transition,
+					skin = $this.closest('.tp-esg-item').attr('data-skin');
+				
+				if(par.length) {
+						
+					level = par.hasClass('esg-tc') ? 'tc' : par.hasClass('esg-cc') ? 'cc' : par.hasClass('esg-bc') ? 'bc' : '';
+					if(level) ids = ' .esg-' + level;
+					
+				}
+				
+				var objName = !this.dataset.animcolor ? animName : animName + level + this.dataset.animcolor;
+				for(var i = 0; i < len; i++) if(specialStyles[i][objName] === animName) return;
+				
+				specialStyles[len] = {};
+				specialStyles[len][objName] = animName;
+				
+				var svg,
+					color,
+					colorOne,
+					colorTwo,
+					bg = 'background',
+					isLine = animName.search('line') !== -1,
+					isSpiral = animName.search('spiral') !== -1,
+					isCircle = animName.search('circle') !== -1,
+					isCollapse = animName.search('collapse') !== -1,
+					isSvg = isLine || isSpiral;
+				
+				if(!$this.data('specialcolorone')) {
+					
+					colorOne = $this.css('background-image');
+					color = this.dataset.animcolor || '#FFFFFF';
+					
+					if(!colorOne || colorOne === 'none') colorOne = $this.css('background-color');
+					if(isLine) {
+					
+						if(animName.search('linediagonal') !== -1) {
+						
+							svg = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400px" height="300px"><line x1="0" y1="300" x2="400" y2="0" stroke="' + color + '" stroke-width="1"></line></svg>';
+						
+						}
+						else {
+							
+							if(animName.search('horizontal') !== -1) paths = ['0', '150', '100%', '1', '400', '0', '100%', '1', '400', '150', '100%', '1'];
+							else paths = ['200', '0', '1', '100%', '0', '300', '1', '100%', '200', '300', '1', '100%'];
+							
+							// rectangle needed for sharp/crisp lines
+							svg = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400px" height="300px">';
+							svg += '<rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>';
+							svg += '<rect x="' + paths[0] + '" y="' + paths[1] + '" width="' + paths[2] + '" height="' + paths[3] + '" fill="' + color + '" shape-rendering="crispEdges"></rect>';
+							svg += '<rect x="' + paths[4] + '" y="' + paths[5] + '" width="' + paths[6] + '" height="' + paths[7] + '" fill="' + color + '" shape-rendering="crispEdges"></rect>';
+							svg += '<rect x="' + paths[8] + '" y="' + paths[9] + '" width="' + paths[10] + '" height="' + paths[11] + '" fill="' + color + '" shape-rendering="crispEdges"></rect>';
+							svg += '</svg>';
+							
+						}
+						
+						colorTwo = "url('" + svg + "')";
+					
+					}
+					else if(isSpiral) {
+							
+						svg = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="250px" height="234px">';
+						svg += '<path fill="' + color + '" d="M201.449,16.732 C229.021,59.363 222.332,125.403 176.384,153.001 C188.917,168.041 211.475,162.194 226.514,153.823 C235.694,147.985 244.060,141.291 249.903,132.928 C240.707,148.816 229.021,163.025 212.306,173.888 C198.097,183.089 183.074,188.105 166.358,189.776 C150.489,190.613 133.774,188.105 119.563,179.743 C116.244,188.105 118.735,196.460 122.917,203.985 C134.620,222.372 154.672,229.896 173.878,233.244 C123.748,235.752 68.620,197.300 67.772,143.800 C56.088,144.628 48.568,156.331 45.214,166.363 C40.201,183.089 41.879,201.477 48.568,217.365 C30.175,187.268 26.010,148.816 41.049,116.209 C48.568,101.169 59.425,89.460 73.633,80.265 C69.451,76.088 64.438,72.741 58.594,71.903 C35.188,70.233 13.477,82.773 0.097,101.169 C22.673,56.024 84.490,28.435 130.437,54.346 C135.450,43.483 129.607,31.781 122.087,23.419 C109.555,10.039 92.839,3.354 76.122,0.015 C103.694,0.015 129.607,8.370 151.319,26.765 C169.695,43.483 180.567,66.056 182.243,90.290 C189.747,89.460 194.760,84.443 198.925,78.597 C211.475,59.363 208.123,36.797 201.449,16.732 L201.449,16.732 Z"/>';
+						svg += '</svg>';
+						colorTwo = "url('" + svg + "')";
+					
+					}
+					else {
+					
+						colorTwo = !isCollapse ? color : colorOne;
+					
+					}
+					
+					$this.data({specialcolorone: colorOne, specialcolortwo: colorTwo});
+					
+				}
+				else {
+				
+					colorOne = $this.data('specialcolorone');
+					colorTwo = $this.data('specialcolortwo');
+				
+				}
+				
+				var duration = this.dataset.duration || 'default';
+				duration = duration === 'default' ? 0.3 : duration * 0.001;
+				
+				var easing,
+					delayed = '';
+					delay = this.dataset.delay || '',
+					transition = !isCollapse ? 'transform' : 'all';
+					
+				if(delay) delay = ' ' + delay + 's';
+				
+				styles += '#' + containerId + ' .tp-esg-item[data-skin="' + skin + '"]' + ids + ' .esg-transition[data-transition="' + animName + '"] {background: transparent !important}';
+				styles += '#' + containerId + ' .tp-esg-item[data-skin="' + skin + '"]' + ids + ' .esg-transition[data-transition="' + animName + '"]:before {';
+				styles += 'transition: all ' + duration + 's ease-out;';
+				styles += bg + ': ' + colorOne;
+				styles += '}';
+				styles += '#' + containerId + ' .esg-hovered[data-skin="' + skin + '"]' + ids + ' .esg-transition[data-transition="' + animName + '"]:before {';
+				styles += 'transition-delay: ' + delay + ';';
+				styles += '}';
+				
+				if(isCircle) duration += 0.7;
+				if(isSvg) bg = 'background-image';
+				easing = isSpiral ? 'ease-in' : isCircle ? 'ease' : 'ease-out';
+				
+				styles += '#' + containerId + ' .tp-esg-item[data-skin="' + skin + '"]' + ids + ' .esg-transition[data-transition="' + animName + '"]:after {';
+				styles += 'transition: ' + transition + ' ' + duration + 's ' + easing + ';';
+				styles += bg + ': ' + colorTwo;
+				styles += '}';
+				styles += '#' + containerId + ' .esg-hovered[data-skin="' + skin + '"]' + ids + ' .esg-transition[data-transition="' + animName + '"]:after {';
+				styles += 'transition-delay: ' + delay + ';';
+				styles += '}';
+				
+			});
+			
+			if(styles) opt.specialStyle.html(styles);
+			
+		}
 	
  }
 
@@ -4738,7 +5072,7 @@ var waitForLoads = function(elements,opt) {
  	-	ORGANISE GRID	-
  ********************************/
  function organiseGrid(opt,fromwhere) { 		 	
-	waitForLoads(opt.container.find('.itemtoshow'),opt);
+	waitForLoads(opt.container.find('.itemtoshow').not('.skipblank'),opt);
  }
 
 
@@ -4822,6 +5156,7 @@ function runGridMain(opt,newelementadded) {
 
 	 	opt.aspectratioOrig = opt.aspectratio;
 	
+	items = items.not('.skipblank');
 		
 	delete opt.itemstoload;
 	container.find('.mainul').addClass("gridorganising");
@@ -4996,11 +5331,11 @@ function runGridMain(opt,newelementadded) {
 
 				p.itemh = p.itemh * cobblesh + ((cobblesh-1) * opt.space);
 
-				var cobblepattern = cobblesw+":"+cobblesh	,
+				var cobblepattern = cobblesw+":"+cobblesh,
 					spacefound = false,
 					r = 0,
 					c = 0;
-
+					
 				switch (cobblepattern) {
 								case "1:1":
 									do {
@@ -5056,6 +5391,26 @@ function runGridMain(opt,newelementadded) {
 										if (r>=maxcobblerow) spacefound= true;
 									} while (!spacefound);
 								break;
+								
+								case "1:4":
+									do {
+										if (thegrid[r][c]==0 && r<maxcobblerow-3 && thegrid[r+1][c]==0 && thegrid[r+2][c]==0 && thegrid[r+3][c]==0) {
+											thegrid[r][c] = "1:4";
+											thegrid[r+1][c] = "1:4";
+											thegrid[r+2][c] = "1:4";
+											thegrid[r+3][c] = "1:4";
+											p.cobblesx = c;
+											p.cobblesy = r;
+
+											spacefound = true;
+										}
+										c++;
+										if (c==opt.column) {
+											c=0;r++;
+										}
+										if (r>=maxcobblerow) spacefound= true;
+									} while (!spacefound);
+								break;
 
 
 								case "2:1":
@@ -5092,6 +5447,25 @@ function runGridMain(opt,newelementadded) {
 										if (r>=maxcobblerow) spacefound= true;
 									} while (!spacefound);
 								break;
+								
+								case "4:1":
+									do {
+										if (thegrid[r][c]==0 && c<opt.column-3 && thegrid[r][c+1]==0 && thegrid[r][c+2]==0 && thegrid[r][c+3]==0) {
+											thegrid[r][c] = "4:1";
+											thegrid[r][c+1] = "4:1";
+											thegrid[r][c+2] = "4:1";
+											thegrid[r][c+3] = "4:1";
+											p.cobblesx = c;
+											p.cobblesy = r;
+											spacefound = true;
+										}
+										c++;
+										if (c==opt.column) {
+											c=0;r++;
+										}
+										if (r>=maxcobblerow) spacefound= true;
+									} while (!spacefound);
+								break;
 
 								case "2:2":
 									do {
@@ -5116,27 +5490,45 @@ function runGridMain(opt,newelementadded) {
 
 								case "3:2":
 									do {
-										if (c<opt.column-2 && r<maxcobblerow-1 &&
-											thegrid[r][c]==0 &&
-											thegrid[r][c+1]==0 &&
-											thegrid[r][c+2]==0 &&
-											thegrid[r+1][c]==0  &&
-											thegrid[r+1][c+1]==0 &&
-											thegrid[r+1][c+2]==0
-											)
-										{
+										if (c<opt.column-2 && r<maxcobblerow-1 && thegrid[r][c]==0 && thegrid[r][c+1]==0 && thegrid[r][c+2]==0 && thegrid[r+1][c]==0 && thegrid[r+1][c+1]==0 && thegrid[r+1][c+2]==0) {
 
-												thegrid[r][c] = "3:2";
-												thegrid[r][c+1] = "3:2";
-												thegrid[r][c+2] = "3:2";
-												thegrid[r+1][c] = "3:2";
-												thegrid[r+1][c+1] = "3:2";
-												thegrid[r+1][c+2] = "3:2";
+											thegrid[r][c] = "3:2";
+											thegrid[r][c+1] = "3:2";
+											thegrid[r][c+2] = "3:2";
+											thegrid[r+1][c] = "3:2";
+											thegrid[r+1][c+1] = "3:2";
+											thegrid[r+1][c+2] = "3:2";
 
-												p.cobblesx = c;
-												p.cobblesy = r;
+											p.cobblesx = c;
+											p.cobblesy = r;
 
-												spacefound = true;
+											spacefound = true;
+										}
+										c++;
+										if (c==opt.column) {
+											c=0;r++;
+										}
+										if (r>=maxcobblerow) spacefound= true;
+									} while (!spacefound);
+								break;
+								
+								case "4:2":
+									do {
+										if (c<opt.column-3 && r<maxcobblerow-1 && thegrid[r][c]==0 && thegrid[r][c+1]==0 && thegrid[r][c+2]==0 && thegrid[r][c+3]==0 && thegrid[r+1][c]==0  && thegrid[r+1][c+1]==0 && thegrid[r+1][c+2]==0 && thegrid[r+1][c+3]==0) {
+
+											thegrid[r][c] = "4:2";
+											thegrid[r][c+1] = "4:2";
+											thegrid[r][c+2] = "4:2";
+											thegrid[r][c+3] = "4:2";
+											thegrid[r+1][c] = "4:2";
+											thegrid[r+1][c+1] = "4:2";
+											thegrid[r+1][c+2] = "4:2";
+											thegrid[r+1][c+3] = "4:2";
+
+											p.cobblesx = c;
+											p.cobblesy = r;
+
+											spacefound = true;
 										}
 										c++;
 										if (c==opt.column) {
@@ -5179,6 +5571,44 @@ function runGridMain(opt,newelementadded) {
 										if (r>=maxcobblerow) spacefound= true;
 									} while (!spacefound);
 								break;
+								
+								case "2:4":
+									do {
+										if (c<opt.column-1 && r<maxcobblerow-3 &&
+											thegrid[r][c]==0 &&
+											thegrid[r][c+1]==0 &&
+											thegrid[r+1][c]==0 &&
+											thegrid[r+1][c+1]==0  &&
+											thegrid[r+2][c+1]==0 &&
+											thegrid[r+2][c+1]==0 && 
+											thegrid[r+3][c+1]==0 &&
+											thegrid[r+3][c+1]==0
+
+											)
+										{
+
+												thegrid[r][c] = "2:4";
+												thegrid[r][c+1] = "2:4";
+												thegrid[r+1][c] = "2:4";
+												thegrid[r+1][c+1] = "2:4";
+												thegrid[r+2][c] = "2:4";
+												thegrid[r+2][c+1] = "2:4";
+												thegrid[r+3][c] = "2:4";
+												thegrid[r+3][c+1] = "2:4";
+
+												p.cobblesx = c;
+												p.cobblesy = r;
+
+												spacefound = true;
+
+										}
+										c++;
+										if (c==opt.column) {
+											c=0;r++;
+										}
+										if (r>=maxcobblerow) spacefound= true;
+									} while (!spacefound);
+								break;
 
 								case "3:3":
 									do {
@@ -5205,6 +5635,149 @@ function runGridMain(opt,newelementadded) {
 												thegrid[r+2][c] = "3:3";
 												thegrid[r+2][c+1] = "3:3";
 												thegrid[r+2][c+2] = "3:3";
+
+												p.cobblesx = c;
+												p.cobblesy = r;
+
+												spacefound = true;
+										}
+										c++;
+										if (c==opt.column) {
+											c=0;r++;
+										}
+										if (r>=maxcobblerow) spacefound= true;
+									} while (!spacefound);
+								break;
+								
+								case "4:3":
+									do {
+										if (c<opt.column-3 && r<maxcobblerow-2 &&
+											thegrid[r][c]==0 &&
+											thegrid[r][c+1]==0 &&
+											thegrid[r][c+2]==0 &&
+											thegrid[r][c+3]==0 &&
+											thegrid[r+1][c]==0  &&
+											thegrid[r+1][c+1]==0 &&
+											thegrid[r+1][c+2]==0 &&
+											thegrid[r+1][c+3]==0 &&
+											thegrid[r+2][c]==0  &&
+											thegrid[r+2][c+1]==0 &&
+											thegrid[r+2][c+2]==0 && 
+											thegrid[r+2][c+3]==0
+
+											)
+										{
+
+												thegrid[r][c] = "4:3";
+												thegrid[r][c+1] = "4:3";
+												thegrid[r][c+2] = "4:3";
+												thegrid[r][c+3] = "4:3";
+												thegrid[r+1][c] = "4:3";
+												thegrid[r+1][c+1] = "4:3";
+												thegrid[r+1][c+2] = "4:3";
+												thegrid[r+1][c+3] = "4:3";
+												thegrid[r+2][c] = "4:3";
+												thegrid[r+2][c+1] = "4:3";
+												thegrid[r+2][c+2] = "4:3";
+												thegrid[r+2][c+3] = "4:3";
+
+												p.cobblesx = c;
+												p.cobblesy = r;
+
+												spacefound = true;
+										}
+										c++;
+										if (c==opt.column) {
+											c=0;r++;
+										}
+										if (r>=maxcobblerow) spacefound= true;
+									} while (!spacefound);
+								break;
+								
+								case "3:4":
+									do {
+										if (c<opt.column-2 && r<maxcobblerow-3 &&
+											thegrid[r][c]==0 &&
+											thegrid[r][c+1]==0 &&
+											thegrid[r][c+2]==0 &&
+											thegrid[r+1][c]==0  &&
+											thegrid[r+1][c+1]==0 &&
+											thegrid[r+1][c+2]==0 &&
+											thegrid[r+2][c]==0  &&
+											thegrid[r+2][c+1]==0 &&
+											thegrid[r+2][c+2]==0 &&
+											thegrid[r+3][c]==0  &&
+											thegrid[r+3][c+1]==0 &&
+											thegrid[r+3][c+2]==0
+
+											)
+										{
+
+												thegrid[r][c] = "3:4";
+												thegrid[r][c+1] = "3:4";
+												thegrid[r][c+2] = "3:4";
+												thegrid[r+1][c] = "3:4";
+												thegrid[r+1][c+1] = "3:4";
+												thegrid[r+1][c+2] = "3:4";
+												thegrid[r+2][c] = "3:4";
+												thegrid[r+2][c+1] = "3:4";
+												thegrid[r+2][c+2] = "3:4";
+												thegrid[r+3][c] = "3:4";
+												thegrid[r+3][c+1] = "3:4";
+												thegrid[r+3][c+2] = "3:4";
+
+												p.cobblesx = c;
+												p.cobblesy = r;
+
+												spacefound = true;
+										}
+										c++;
+										if (c==opt.column) {
+											c=0;r++;
+										}
+										if (r>=maxcobblerow) spacefound= true;
+									} while (!spacefound);
+								break;
+								
+								case "4:4":
+									do {
+										if (c<opt.column-3 && r<maxcobblerow-3 &&
+											thegrid[r][c]==0 &&
+											thegrid[r][c+1]==0 &&
+											thegrid[r][c+2]==0 &&
+											thegrid[r][c+3]==0 &&
+											thegrid[r+1][c]==0  &&
+											thegrid[r+1][c+1]==0 &&
+											thegrid[r+1][c+2]==0 &&
+											thegrid[r+1][c+3]==0 &&
+											thegrid[r+2][c]==0  &&
+											thegrid[r+2][c+1]==0 &&
+											thegrid[r+2][c+2]==0 &&
+											thegrid[r+2][c+3]==0 && 
+											thegrid[r+3][c]==0  &&
+											thegrid[r+3][c+1]==0 &&
+											thegrid[r+3][c+2]==0 &&
+											thegrid[r+3][c+3]==0
+
+											)
+										{
+
+												thegrid[r][c] = "4:4";
+												thegrid[r][c+1] = "4:4";
+												thegrid[r][c+2] = "4:4";
+												thegrid[r][c+3] = "4:4";
+												thegrid[r+1][c] = "4:4";
+												thegrid[r+1][c+1] = "4:4";
+												thegrid[r+1][c+2] = "4:4";
+												thegrid[r+1][c+3] = "4:4";
+												thegrid[r+2][c] = "4:4";
+												thegrid[r+2][c+1] = "4:4";
+												thegrid[r+2][c+2] = "4:4";
+												thegrid[r+2][c+3] = "4:4";
+												thegrid[r+3][c] = "4:4";
+												thegrid[r+3][c+1] = "4:4";
+												thegrid[r+3][c+2] = "4:4";
+												thegrid[r+3][c+3] = "4:4";
 
 												p.cobblesx = c;
 												p.cobblesy = r;
@@ -5431,7 +6004,7 @@ function animateGrid(item, opt, p, delayIndex) {
 	/**************************************
 		-	THE FADE OVER ANIMATIONS	-
 	***************************************/
-	if (item.hasClass("itemonotherpage")) {
+	if (item.hasClass("itemonotherpage") || item.hasClass('skipblank')) {
 		p.skipanim = true;
 	}
 	/* 2.2.5 */

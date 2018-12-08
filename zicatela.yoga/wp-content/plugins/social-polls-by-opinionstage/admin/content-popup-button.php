@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) or die();
 ?>
 
-<button data-opinionstage-content-launch class="button">
+<button data-opinionstage-content-launch class="button" type="button">
 <img src="<?php echo plugins_url('admin/images/content-popup.png', plugin_dir_path( __FILE__ )) ?>"
 		width="24"
 		height="19"

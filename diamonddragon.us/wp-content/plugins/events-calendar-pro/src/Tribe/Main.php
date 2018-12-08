@@ -58,8 +58,17 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		 */
 		public $shortcodes;
 
-		const REQUIRED_TEC_VERSION = '4.6.24';
-		const VERSION = '4.4.34';
+		/**
+		 * Where in the themes we will look for templates
+		 *
+		 * @since 4.5
+		 *
+		 * @var string
+		 */
+		public $template_namespace = 'events-pro';
+
+		const REQUIRED_TEC_VERSION = '4.7';
+		const VERSION = '4.5';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -2070,6 +2079,8 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			tribe_singleton( 'events-pro.admin.settings', 'Tribe__Events__Pro__Admin__Settings', array( 'hook' ) );
 			tribe_singleton( 'events-pro.customizer.photo-view', 'Tribe__Events__Pro__Customizer__Photo_View' );
 			tribe_singleton( 'events-pro.recurrence.nav', 'Tribe__Events__Pro__Recurrence__Navigation', array( 'hook' ) );
+
+			tribe_register_provider( 'Tribe__Events__Pro__Editor__Provider' );
 
 			tribe( 'events-pro.admin.settings' );
 			tribe( 'events-pro.customizer.photo-view' );

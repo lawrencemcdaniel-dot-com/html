@@ -80,7 +80,7 @@ function cpt_slider_plugin_activation() {
 		update_post_meta($cpt_id, 'sa_shortcodes', '0');
 		update_post_meta($cpt_id, 'sa_random_order', '1');
 		update_post_meta($cpt_id, 'sa_reverse_order', '0');
-		update_post_meta($cpt_id, 'sa_mouse_drag', '1');
+		update_post_meta($cpt_id, 'sa_mouse_drag', '0');
 		update_post_meta($cpt_id, 'sa_touch_drag', '1');
 		update_post_meta($cpt_id, 'sa_auto_height', '0');
 		update_post_meta($cpt_id, 'sa_items_width1', 1);
@@ -565,7 +565,7 @@ function cpt_slider_settings_content($post) {
 	// MOUSE DRAG
 	$mouse_drag = get_post_meta($post->ID, 'sa_mouse_drag', true);
 	if ($mouse_drag == '') {
-		$mouse_drag = '1';
+		$mouse_drag = '0';
 	}
 	echo "<div class='sa_setting_checkbox'><span>Mouse Drag:</span>";
 	if ($mouse_drag == '1') {
@@ -573,7 +573,7 @@ function cpt_slider_settings_content($post) {
 	} else {
 		echo "<input type='checkbox' id='sa_mouse_drag' name='sa_mouse_drag' value='1'/>";
 	}
-	echo "<em class='sa_tooltip' href='' title='Allow navigation to previous/next slides by holding down left mouse button and dragging left/right'></em>\n";
+	echo "<em class='sa_tooltip' href='' title='Allow navigation to previous/next slides by holding down left mouse button and dragging left/right. (NOTE: Enabling this option will disable vertical touch-drag scrolling on mobile devices)'></em>\n";
 	echo "</div>\n";
 	// TOUCH DRAG
 	$touch_drag = get_post_meta($post->ID, 'sa_touch_drag', true);
@@ -1692,6 +1692,21 @@ function cpt_slider_style_content($post) {
 	}
 	echo "</div>\n";
 
+	// Enable Lazy Load Images
+	$lazy_load_images = get_post_meta($post->ID, 'sa_lazy_load_images', true);
+	if ($lazy_load_images == '') {
+		$lazy_load_images = '0';
+	}
+	$tooltip = "Enable &quot;Lazy Load&quot; for images added to your slide content (note: does not apply to slide backgrounds).";
+	echo "<div id='sa_window_onload_line'>";
+	echo "<span class='sa_tooltip' title='".$tooltip."'></span><span style='min-width:160px;'>Enable 'Lazy Load' Images:</span>";
+	if ($lazy_load_images == '1') {
+		echo "<input type='checkbox' id='sa_lazy_load_images' name='sa_lazy_load_images' value='1' checked/>";
+	} else {
+		echo "<input type='checkbox' id='sa_lazy_load_images' name='sa_lazy_load_images' value='1'/>";
+	}
+	echo "</div>\n";
+
 	echo "</div>\n";
 }
 
@@ -2077,6 +2092,11 @@ function cpt_slider_save_postdata() {
 			update_post_meta($post->ID, 'sa_strip_javascript', '1');
 		} else {
 			update_post_meta($post->ID, 'sa_strip_javascript', '0');
+		}
+		if (isset($_POST['sa_lazy_load_images']) && ($_POST['sa_lazy_load_images'] == '1')) {
+			update_post_meta($post->ID, 'sa_lazy_load_images', '1');
+		} else {
+			update_post_meta($post->ID, 'sa_lazy_load_images', '0');
 		}
 	}
 }

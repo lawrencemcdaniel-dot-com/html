@@ -1,5 +1,5 @@
 <?php
-if ( !defined( 'ABSPATH' ) ) die( 'No direct access.' );
+if (!defined('ABSPATH')) die('No direct access.');
 /**
  * Controls the plugins tab and handles the saving of its options.
  *
@@ -7,58 +7,58 @@ if ( !defined( 'ABSPATH' ) ) die( 'No direct access.' );
  * @since 5.0.0
  */
 class MPSUM_Admin_Plugins {
+
 	/**
-     * Holds the slug to the admin panel page
-     *
-     * @since 5.0.0
-     * @access private
-     * @var string $slug
-     */
+	 * Holds the slug to the admin panel page
+	 *
+	 * @since 5.0.0
+	 * @access private
+	 * @var string $slug
+	 */
 	private $slug = '';
 
 	/**
-     * Holds the tab name
-     *
-     * @since 5.0.0
-     * @access private
-     * @var string $tab
-     */
+	 * Holds the tab name
+	 *
+	 * @since 5.0.0
+	 * @access private
+	 * @var string $tab
+	 */
 	private $tab = 'plugins';
 
 	/**
-     * Class constructor.
-     *
-     * Initialize the class
-     *
-     * @since 5.0.0
-     * @access public
-     *
-     * @param string $slug Slug to the admin panel page
-     */
+	 * Class constructor.
+	 *
+	 * Initialize the class
+	 *
+	 * @since 5.0.0
+	 * @access public
+	 *
+	 * @param string $slug Slug to the admin panel page
+	 */
 	public function __construct( $slug = '' ) {
 		$this->slug = $slug;
 
 		// Admin Tab Actions
-		add_action( 'mpsum_admin_tab_plugins', array( $this, 'tab_output' ) );
-		add_filter( 'mpsum_plugin_action_links', array( $this, 'plugin_action_links' ), 11, 2 );
+		add_action('mpsum_admin_tab_plugins', array( $this, 'tab_output' ));
+		add_filter('mpsum_plugin_action_links', array( $this, 'plugin_action_links' ), 11, 2);
 	}
 
 	/**
-     * Determine whether the plugins can be updated or not.
-     *
-     * Determine whether the plugins can be updated or not.
-     *
-     * @since 5.0.0
-     * @access private
-     *
-     * @return bool True if the plugins can be updated, false if not.
-     */
-	private function can_update() {
-		$core_options = MPSUM_Updates_Manager::get_options( 'core' );
-		if ( isset( $core_options[ 'all_updates' ] ) && 'off' == $core_options[ 'all_updates' ] ) {
+	 * Determine whether the plugins can be updated or not.
+	 *
+	 * Determine whether the plugins can be updated or not.
+	 *
+	 * @since 5.0.0
+	 *
+	 * @return bool True if the plugins can be updated, false if not.
+	 */
+	public static function can_update_plugins() {
+		$core_options = MPSUM_Updates_Manager::get_options('core');
+		if (isset($core_options['all_updates']) && 'off' == $core_options['all_updates']) {
 			return false;
 		}
-		if ( isset( $core_options[ 'plugin_updates' ] ) && 'off' == $core_options[ 'plugin_updates' ] ) {
+		if (isset($core_options['plugin_updates']) && 'off' == $core_options['plugin_updates']) {
 			return false;
 		}
 		return true;
@@ -94,28 +94,13 @@ class MPSUM_Admin_Plugins {
 	 * @internal Uses the mpsum_admin_tab_plugins action
 	 */
 	public function tab_output() {
-		?>
-        <form action="<?php echo esc_url( add_query_arg( array() ) ); ?>" method="post">
-	    <?php
-		$plugin_status = isset( $_GET[ 'plugin_status' ] ) ? $_GET[ 'plugin_status' ] : false;
-		if ( false !== $plugin_status ) {
-			printf( '<input type="hidden" name="plugin_status" value="%s" />', esc_attr( $plugin_status ) );
-		}
-		?>
-        <h3><?php esc_html_e( 'Plugin Update Options', 'stops-core-theme-and-plugin-updates' ); ?></h3>
-        <?php
-	    $core_options = MPSUM_Updates_Manager::get_options( 'core' );
-	    if ( false === $this->can_update() ) {
-			printf( '<div class="error"><p><strong>%s</strong></p></div>', esc_html__( 'All plugin updates have been disabled.', 'stops-core-theme-and-plugin-updates' ) );
-		}
-        printf( '<div id="eum-save-settings-warning" class="warning"><p>%s</p></div>', esc_html__( 'Remember to save your settings', 'stops-core-theme-and-plugin-updates') );
-		$plugin_table = new MPSUM_Plugins_List_Table( $args = array( 'screen' => $this->slug, 'tab' => $this->tab ) );
-		$plugin_table->prepare_items();
-        $plugin_table->views();
-		$plugin_table->display();
-		submit_button('Save','primary','submit', true, array('id' => 'eum-save-settings'));
-		?>
-        </form>
-    <?php
+		$params = array(
+			'can_update' => self::can_update_plugins(),
+			'slug' => $this->slug,
+			'tab' => $this->tab,
+			'paged' => '1',
+			'view' => 'all'
+		);
+		Easy_Updates_Manager()->include_template('admin-tab-plugins.php', false, $params);
 	} //end tab_output_plugins
 }

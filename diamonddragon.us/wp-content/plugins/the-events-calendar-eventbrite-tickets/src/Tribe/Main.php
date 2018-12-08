@@ -20,7 +20,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * The current version of Eventbrite Tickets
 		 */
-		const VERSION = '4.5.5';
+		const VERSION = '4.5.6';
 
 		/**
 		 * Deprecated property in 4.3. Use VERSION const instead.
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 *
 		 * @var string
 		 */
-		public static $pluginVersion = '4.5.5';
+		public static $pluginVersion = '4.5.6';
 
 		/**************************************************************
 		 * EventBrite Configuration
@@ -595,7 +595,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 * @return void
 		 */
 		public function addEventbriteLogo() {
-			$image_url = trailingslashit( $this->plugin_url ) . 'src/resources/images/eventbritelogo.png';
+			$image_url = trailingslashit( $this->plugin_url ) . 'src/resources/images/logo-wordmark-orange.png';
 			echo '<img class="tribe-eb-logo" src="' . esc_url( $image_url ) . '" />';
 		}
 

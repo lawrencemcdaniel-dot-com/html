@@ -1269,7 +1269,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 			'theme_location' => 'main_navigation',
 			'depth'          => 5,
 			'menu_class'     => $menu_class,
-			'items_wrap'     => '<ul role="menubar" id="%1$s" class="%2$s">%3$s</ul>',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			'fallback_cb'    => 'Avada_Nav_Walker::fallback',
 			'walker'         => new Avada_Nav_Walker(),
 			'container'      => false,
@@ -1291,7 +1291,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 				$sticky_menu_args = array(
 					'theme_location' => 'sticky_navigation',
 					'menu_id'        => 'menu-main-menu-1',
-					'items_wrap'     => '<ul role="menubar" id="%1$s" class="%2$s">%3$s</ul>',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 					'walker'         => new Avada_Nav_Walker(),
 					'item_spacing'   => 'discard',
 				);
@@ -1311,7 +1311,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 				$additional_menu_class .= ' fusion-main-menu-sticky';
 			}
 
-			echo '<nav class="fusion-main-menu' . esc_attr( $additional_menu_class ) . '" aria-label="Main Menu">';
+			echo '<nav class="fusion-main-menu' . esc_attr( $additional_menu_class ) . '" aria-label="' . esc_attr__( 'Main Menu', 'Avada' ) . '">';
 			echo wp_nav_menu( $main_menu_args );
 			echo '</nav>';
 
@@ -1326,7 +1326,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 
 				$sticky_menu_args = wp_parse_args( $sticky_menu_args, $main_menu_args );
 
-				echo '<nav class="fusion-main-menu fusion-sticky-menu" aria-label="Main Menu Sticky">';
+				echo '<nav class="fusion-main-menu fusion-sticky-menu" aria-label="' . esc_attr__( 'Main Menu Sticky', 'Avada' ) . '">';
 				echo wp_nav_menu( $sticky_menu_args );
 				echo '</nav>';
 			}
@@ -1413,7 +1413,7 @@ if ( ! function_exists( 'avada_secondary_nav' ) ) {
 				array(
 					'theme_location' => 'top_navigation',
 					'depth'          => 5,
-					'items_wrap'     => '<ul role="menubar" id="%1$s" class="%2$s">%3$s</ul>',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 					'container'      => false,
 					'fallback_cb'    => 'Avada_Nav_Walker::fallback',
 					'walker'         => new Avada_Nav_Walker(),
@@ -1468,10 +1468,10 @@ if ( ! function_exists( 'avada_secondary_header_content' ) ) {
 			if ( has_nav_menu( 'top_navigation' ) ) {
 
 				$mobile_menu_text_align = ' fusion-mobile-menu-text-align-' . Avada()->settings->get( 'mobile_menu_text_align' );
-				$mobile_menu_wrapper    = '<nav class="fusion-mobile-nav-holder' . esc_attr( $mobile_menu_text_align ) . '"></nav>';
+				$mobile_menu_wrapper    = '<nav class="fusion-mobile-nav-holder' . esc_attr( $mobile_menu_text_align ) . '" aria-label="' . esc_attr__( 'Secondary Mobile Menu', 'Avada' ) . '"></nav>';
 			}
 
-			$secondary_menu    = '<nav class="fusion-secondary-menu" role="navigation" aria-label="Secondary Menu">';
+			$secondary_menu    = '<nav class="fusion-secondary-menu" role="navigation" aria-label="' . esc_attr__( 'Secondary Menu', 'Avada' ) . '">';
 			$secondary_menu   .= avada_secondary_nav();
 			$secondary_menu   .= '</nav>';
 			$secondary_content = $secondary_menu . $mobile_menu_wrapper;

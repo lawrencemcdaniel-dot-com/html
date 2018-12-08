@@ -3,8 +3,8 @@ Contributors: wpshopmart
 Donate link: https://www.wpshopmart.com
 Tags: Accordion, accordions, accordion plugin, FAQ,  collapse, accordion plugin jquery, accordions plugin wordpress, accordions shortcode, accordion shortcode, accordions Widget, accordion Widget, jQuery accordions, Responsive accordion, Responsive accordions, collapsable content,  collapsible, display, expand, expandable, expandable content, hidden, hide, javascript, jquery, toggle, css accordion, css3 , bootstrap, bootstrap accordion, bootstrap collapse, wordpress accordion, widget, shortcode, responsive, plugin, wordpress accordion plugin  
 Requires at least: 4.0
-Tested up to: 4.9.8
-Stable tag: 2.0.4
+Tested up to: 5.0
+Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -148,7 +148,11 @@ Please use WordPress support forum to ask any query regarding any issue.
 10. accordion styles 1
 11. accordion styles 2
 
-== Changelog 
+== Changelog ==
+
+= 2.0.5 =
+
+* Compatible with WordPress 5.0 version. 
 
 = 2.0.4 =
 * minor bug resolved

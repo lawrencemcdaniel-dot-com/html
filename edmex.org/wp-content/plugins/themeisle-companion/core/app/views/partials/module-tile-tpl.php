@@ -48,7 +48,7 @@ if ( ! empty( $confirm_intent ) ) {
 $noance = wp_create_nonce( 'obfx_activate_mod_' . $slug );
 
 ?>
-<div class="tile">
+<div class="tile <?php echo 'obfx-tile-' . esc_attr( $slug ); ?>" >
 	<div class="tile-icon">
 		<div class="example-tile-icon">
 			<i class="dashicons dashicons-admin-plugins centered"></i>
@@ -60,10 +60,12 @@ $noance = wp_create_nonce( 'obfx_activate_mod_' . $slug );
 	</div>
 	<div class="tile-action">
 		<div class="form-group">
-			<label class="form-switch">
+			<label class="form-switch <?php echo empty( $checked ) ? '' : 'activated'; ?>">
 				<input class="<?php echo esc_attr( $toggle_class ); ?>" type="checkbox" name="<?php echo $slug; ?>"
 					   value="<?php echo $noance; ?>" <?php echo $checked; ?> >
-				<i class="form-icon"></i><?php echo __( 'Activate', 'themeisle-companion' ); ?>
+				<i class="form-icon"></i>
+				<span class="inactive"><?php echo __( 'Activate', 'themeisle-companion' ); ?></span>
+				<i class="dashicons dashicons-yes"></i>
 
 			</label>
 			<?php if ( $beta ) { ?>
@@ -74,8 +76,9 @@ $noance = wp_create_nonce( 'obfx_activate_mod_' . $slug );
 				echo wp_kses_post( $modal );
 			}
 			?>
+			<?php do_action( 'obfx_activate_btn_before', $slug, $checked === 'checked' ); ?>
 		</div>
 	</div>
-
+	<?php do_action( 'obfx_module_tile_after', $slug, $checked === 'checked' ); ?>
 </div>
 

@@ -4,7 +4,12 @@
  */
 $PostId = $post->ID;
 $WRIS_Gallery_Settings_Key = "WRIS_Gallery_Settings_".$PostId;
-$WRIS_Gallery_Settings = unserialize(get_post_meta( $PostId, $WRIS_Gallery_Settings_Key, true));
+$WRIS_Gallery_Settings = unserialize(get_post_meta( $PostId, $WRIS_Gallery_Settings_Key, true)); 
+
+if(isset($WRIS_Gallery_Settings['WRIS_L3_Title_Align'])) 
+		$WRIS_L3_Title_Align   		    = $WRIS_Gallery_Settings['WRIS_L3_Title_Align'];
+	else
+		$WRIS_L3_Title_Align				= "2";	
 	
 if(isset($WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'])) 
 		$WRIS_L3_Slider_Scale_Mode   		    = $WRIS_Gallery_Settings['WRIS_L3_Slider_Scale_Mode'];
@@ -245,7 +250,18 @@ jQuery(document).ready(function(){
 					<?php _e('Select Yes/No option to show/hide slide title above slider', URIS_TD); ?>.
 				</p>
 			</td>
-		</tr>		
+		</tr>
+
+		<tr id="L3">
+			<th scope="row"><label><?php _e('Slide Title Alignment', URIS_TD); ?></label></th>
+			<td>
+				<?php if(!isset($WRIS_L3_Title_Align)) $WRIS_L3_Title_Align = 1; ?>
+				<input type="radio" name="wl-l3-title-align" id="wl-l3-title-align" value="1" <?php if($WRIS_L3_Title_Align == 1 ) { echo "checked"; } ?>> Left &nbsp;&nbsp;
+				<input type="radio" name="wl-l3-title-align" id="wl-l3-title-align" value="2" <?php if($WRIS_L3_Title_Align == 2 ) { echo "checked"; } ?>> Center &nbsp;&nbsp;
+				<input type="radio" name="wl-l3-title-align" id="wl-l3-title-align" value="3" <?php if($WRIS_L3_Title_Align == 3 ) { echo "checked"; } ?>> Right
+			</td>
+		</tr>
+
 		<tr id="L3">
 			<th scope="row"><label><?php _e('Auto Play Slide Show', URIS_TD); ?></label></th>
 			<td>

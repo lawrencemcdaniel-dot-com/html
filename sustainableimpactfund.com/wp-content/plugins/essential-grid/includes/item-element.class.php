@@ -259,6 +259,7 @@ class Essential_Grid_Item_Element {
                     'text-align' => 'center',
                     'transition' => 'none',
                     'text-transform' => 'uppercase',
+					'letter-spacing' => 'normal',
                     'source' => 'text',
                     'source-text' => __('LINE-BREAK', EG_TEXTDOMAIN),
                     'special' => 'true',
@@ -666,6 +667,12 @@ class Essential_Grid_Item_Element {
                                              'style' => 'idle',
                                              'type' => 'select',
                                              'unit' => ''),
+											 
+				'letter-spacing'    => array('value' => 'string',
+                                             'values' => array('default' =>'normal'),
+                                             'style' => 'idle',
+                                             'type' => 'text',
+                                             'unit' => ''),
                 
                 'display'           => array('value' => 'string',
                                              'values' => array('default' =>'inline-block'),
@@ -840,6 +847,12 @@ class Essential_Grid_Item_Element {
                                              'style' => 'hover',
                                              'type' => 'select',
                                              'unit' => ''),
+											 
+				'letter-spacing-hover'    => array('value' => 'string',
+                                             'values' => array('default' =>'normal'),
+                                             'style' => 'hover',
+                                             'type' => 'text',
+                                             'unit' => ''),
                                              
                 'border-hover'            => array('value' => 'int',
                                              'type' => 'multi-text',
@@ -968,6 +981,18 @@ class Essential_Grid_Item_Element {
                                              'style' => 'attribute',
                                              'unit' => ''),
 											 
+				'min-height'        => array('value' => 'string',
+                                             'type' => 'text',
+                                             'values' => array('default' =>'0'),
+                                             'style' => 'attribute',
+                                             'unit' => ''),
+											 
+				'max-height'        => array('value' => 'string',
+                                             'type' => 'text',
+                                             'values' => array('default' =>'none'),
+                                             'style' => 'attribute',
+                                             'unit' => ''),
+											 
                 /*'split'       		=> array('value' => 'string',
                                              'type' => 'select',
                                              'values' => array('default' =>'full'),
@@ -984,6 +1009,12 @@ class Essential_Grid_Item_Element {
                                              'type' => 'text-slider',
                                              'values' => array('min' =>'0', 'max' =>'60', 'step' =>'1', 'default' =>'10'),
                                              'style' => 'attribute',
+                                             'unit' => ''),
+											 
+				'duration'             => array('value' => 'string',
+                                             'type' => 'select',
+                                             'values' => array('default' =>'default'),
+                                             'style' => 'false',
                                              'unit' => ''),
                 
                 'link-type'             => array('value' => 'string',
@@ -1114,6 +1145,7 @@ class Essential_Grid_Item_Element {
                 'text-decoration',
                 'font-style',
                 'text-transform',
+				'letter-spacing',
                 'background-color'
 			)
 		);
@@ -1135,7 +1167,8 @@ class Essential_Grid_Item_Element {
                 'font-weight',
                 'text-decoration',
                 'font-style',
-                'text-transform'
+                'text-transform',
+				'letter-spacing',
 			)
 		);
 		
@@ -1200,6 +1233,10 @@ class Essential_Grid_Item_Element {
 						'wait' => array('text-transform'),
 						'not-if' => 'none'
 					),
+				'letter-spacing' => array(
+						'wait' => array('letter-spacing'),
+						'not-if' => 'normal'
+					),
 				'font-family' => array(
 						'wait' => array('font-family'),
 						'not-if' => ''
@@ -1249,6 +1286,13 @@ class Essential_Grid_Item_Element {
 					'type' => 'select',
 					'default' => 'none',
 					'values' => array('none'=>__('None', EG_TEXTDOMAIN),'capitalize'=>__('Capitalize', EG_TEXTDOMAIN),'uppercase'=>__('Uppercase', EG_TEXTDOMAIN),'lowercase'=>__('Lowercase', EG_TEXTDOMAIN)),
+					'container' => 'style',
+					'hover' => 'true'
+				),
+				array(
+					'name' => array('handle' => 'letter-spacing', 'text' => __('Letter Spacing', EG_TEXTDOMAIN)),
+					'type' => 'text',
+					'default' => 'normal',
 					'container' => 'style',
 					'hover' => 'true'
 				),

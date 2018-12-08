@@ -5,7 +5,7 @@ li{
 	width:100%;
 }
 .wb_plugin_feature{
-	color:#fff;
+	color:000;
 }
 .wb-text-center{
 	text-align:center;
@@ -30,7 +30,9 @@ li{
 	color:#fff;
     display: inline-block;
 }
-
+.wb_banner_featurs-list .gp_banner_head h2 {
+    text-align: center;
+}
 .wb_button-primary {
     padding: 12px 20px;
     color: #fff;
@@ -55,8 +57,8 @@ li{
     box-shadow: -6px 5px 7px hsla(187, 1%, 15%, 0.3);
 }
 .wb_banner_featurs-list ul li {
-    margin: 7px 20px;
-    font-size: 14px;
+   margin: 25px 20px;
+    font-size: 16px;
 
 }
 .wb_banner_featurs-list h2 {
@@ -88,9 +90,7 @@ li{
 .wb-col-sm-12{
 	width:100%;
 }
-.wb_plugin_feature_banner.default_pattern {
-    background: linear-gradient(0deg, #994681 57%, rgba(4, 4, 4, 0.74) 39%), url(./images/bg2.jpg);
-}
+
 .wb_plugin_feature_banner{
 	float:none;
 }
@@ -169,4 +169,12 @@ span.gp_banner_head {
     max-width: 100%;
     padding-left: 70px;
     padding-top: 20px;
+    padding-right: 70px;
+}
+.wp-photo-img-responsive {
+    max-width: 90%;
+    padding-left: 35px;
+    padding-top: 35px;
+    padding-right: 70px;
+    padding-bottom: 20px;
 }

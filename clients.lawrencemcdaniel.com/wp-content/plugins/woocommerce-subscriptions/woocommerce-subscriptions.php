@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: WooCommerce Subscriptions
- * Plugin URI: http://www.woocommerce.com/products/woocommerce-subscriptions/
+ * Plugin URI: https://www.woocommerce.com/products/woocommerce-subscriptions/
  * Description: Sell products and services with recurring payments in your WooCommerce Store.
  * Author: Prospress Inc.
- * Author URI: http://prospress.com/
- * Version: 2.4.1
+ * Author URI: https://prospress.com/
+ * Version: 2.4.5
  *
  * WC requires at least: 3.0
  * WC tested up to: 3.5
@@ -112,7 +112,7 @@ class WC_Subscriptions {
 
 	public static $plugin_file = __FILE__;
 
-	public static $version = '2.4.1';
+	public static $version = '2.4.5';
 
 	public static $wc_minimum_supported_version = '3.0';
 
@@ -362,6 +362,8 @@ class WC_Subscriptions {
 
 		if ( is_cart() || is_checkout() ) {
 			wp_enqueue_script( 'wcs-cart', plugin_dir_url( WC_Subscriptions::$plugin_file ) . 'assets/js/frontend/wcs-cart.js', $dependencies, WC_Subscriptions::$version, true );
+		} elseif ( is_product() ) {
+			wp_enqueue_script( 'wcs-single-product', plugin_dir_url( WC_Subscriptions::$plugin_file ) . 'assets/js/frontend/single-product.js', $dependencies, WC_Subscriptions::$version, true );
 		}
 	}
 
@@ -458,7 +460,7 @@ class WC_Subscriptions {
 		if ( $is_subscription && 'yes' != get_option( WC_Subscriptions_Admin::$option_prefix . '_multiple_purchase', 'no' ) ) {
 
 			// Generate a cart item key from variation and cart item data - which may be added by other plugins
-			$cart_item_data = (array) apply_filters( 'woocommerce_add_cart_item_data', array(), $product_id, $variation_id );
+			$cart_item_data = (array) apply_filters( 'woocommerce_add_cart_item_data', array(), $product_id, $variation_id, $quantity );
 			$cart_item_id   = WC()->cart->generate_cart_id( $product_id, $variation_id, $variations, $cart_item_data );
 			$product        = wc_get_product( $product_id );
 

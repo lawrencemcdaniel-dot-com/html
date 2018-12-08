@@ -35,12 +35,12 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 
 		if ( ! initialLoad && 'undefined' !== typeof window.tinyMCE && window.tinyMCE.get( textareaID ) && ! window.tinyMCE.get( textareaID ).isHidden() ) {
 			content = window.tinyMCE.get( textareaID ).getContent();
-		} else {
+		} else if ( $( '#' + textareaID ).length ) {
 			content = $( '#' + textareaID ).val().replace( /\r?\n/g, '\r\n' );
 		}
 
 		// Remove auto p tags from content.
-		if ( removeAutoP && 'undefined' !== typeof window.tinyMCE ) {
+		if ( removeAutoP && 'undefined' !== typeof window.tinyMCE && 'undefined' !== typeof content ) {
 			content = content.replace( /<p>\[/g, '[' );
 			content = content.replace( /\]<\/p>/g, ']' );
 		}

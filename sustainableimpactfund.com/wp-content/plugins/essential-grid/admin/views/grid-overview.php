@@ -68,6 +68,8 @@ $cur_offset = 0;
 	<h2 class="topheader"><?php _e('Overview', EG_TEXTDOMAIN); ?></h2>
 	<div id="eg-global-settings-wrap">
 		<a target="_blank" class="button-secondary" href="http://essential.themepunch.com/documentation"><?php _e('Help', EG_TEXTDOMAIN); ?></a>
+		<input type="text" id="esg-search-grids" style="float: right" placeholder="<?php _e('Search Listed Grids', EG_TEXTDOMAIN); ?>">
+		<div style="clear: both"></div>
 	</div>
 	
 	<div id="eg-grid-overview-wrapper">
@@ -118,7 +120,7 @@ $cur_offset = 0;
 						</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="esg-grid-list">
 				<?php
 				foreach($grids as $grid){
 					$total++;
@@ -175,6 +177,8 @@ $cur_offset = 0;
 	
 	<a class='button-primary revblue' href='<?php echo $this->getViewUrl(Essential_Grid_Admin::VIEW_GRID_CREATE, 'create=true'); ?>'><?php _e('Create New Ess. Grid', EG_TEXTDOMAIN); ?></a>
 	
+	<a class='button-primary revblue' id='esg-library-open' href='javascript:void(0);'><?php _e('Create from Grid Templates', EG_TEXTDOMAIN); ?></a>
+	
 	<?php
 	$num_of_pages = ceil( $total / $limit );
 	
@@ -204,6 +208,7 @@ $cur_offset = 0;
 	</form>
 	<?php
 	require_once('elements/grid-info.php');
+	require_once('elements/grid-library.php');
 	?>
 	
 	<script type="text/javascript">

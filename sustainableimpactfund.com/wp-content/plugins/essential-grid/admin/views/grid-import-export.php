@@ -492,7 +492,7 @@ if (isset($_FILES['import_file'])) {
 				</div>
 			</div>
 		</form>
-		<div>
+		<!--div>
 			<?php
 			$add_cpt = apply_filters('essgrid_set_cpt', get_option('tp_eg_enable_custom_post_type', 'true'));
 			
@@ -510,7 +510,7 @@ if (isset($_FILES['import_file'])) {
 			<div style="display: inline-block;">
 				<a href="https://essential.themepunch.com/example-skins-download/" class="button-primary revgreen" target="_blank" id="esg-download-skins"><?php _e('Download Fresh Skins', EG_TEXTDOMAIN); ?></a>
 			</div>
-		</div>
+		</div-->
 	</div>
 	
 	<script type="text/javascript">

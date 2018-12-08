@@ -62,6 +62,8 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 	public function __construct() {
 		global $EssentialAsTheme;
 		
+		$library = new Essential_Grid_Library();
+
 		/*
 		 * Call $plugin_slug from public plugin class.
 		 */
@@ -108,6 +110,12 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 				$upgrade->add_update_checks();
 			}
 		}
+
+		if(isset($_REQUEST['update_shop'])){
+			$library->_get_template_list(true);
+		}else{
+			$library->_get_template_list();
+		}
 		
 		add_action('admin_notices', array($this, 'add_notices'));
 		
@@ -121,6 +129,10 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 
 		add_action( 'print_media_templates', array($this, 'ess_grid_addon_media_form' ) );
 		
+		// Gutenberg
+		add_action( 'enqueue_block_editor_assets', array($this,'enqueue_block_editor_assets') );
+		add_action( 'enqueue_block_assets', array($this,'enqueue_assets') );
+		add_filter( 'block_categories', array($this,'create_block_category'),10,2);
 
 		// Privacy
 		add_action( 'admin_init', array( $this, 'add_suggested_privacy_content'), 15 );
@@ -235,7 +247,7 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 		$base = new Essential_Grid();
 		
 		$n = '';
-		$n .= '<div class="updated below-h2 eg-update-notice-wrap" style="margin-left: 0;" id="message"><a href="javascript:void(0);" style="float: right;" id="eg-dismiss-notice">×</a><p>'.__('Hi! Please activate your copy of the Essential Grid to receive automatic updates & get premium support.', EG_TEXTDOMAIN).'</p></div>'."\n";
+		$n .= '<div class="updated below-h2 eg-update-notice-wrap" style="margin-left: 0;" id="message"><a href="javascript:void(0);" style="float: right;" id="eg-dismiss-notice">×</a><p>'.__('Hi! Please activate your copy of the Essential Grid to receive live updates, premium support and the template library.', EG_TEXTDOMAIN).'</p></div>'."\n";
 		$n .= '<script type="text/javascript">'."\n";
 		$n .= '	jQuery(\'#eg-dismiss-notice\').click(function(){'."\n";
 		$n .= '		var objData = {'."\n";
@@ -337,7 +349,8 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 			//wp_register_script( 'themepunchboxext', EG_PLUGIN_URL . 'public/assets/js/lightbox.js', array('jquery'), Essential_Grid::VERSION);
 			wp_enqueue_script( 'themepunchboxext', EG_PLUGIN_URL . 'public/assets/js/jquery.esgbox.min.js', array('jquery'), Essential_Grid::VERSION);
 			wp_enqueue_script($this->plugin_slug . '-admin-script', plugins_url('assets/js/admin.js', __FILE__ ), array('jquery', 'wp-color-picker'), Essential_Grid::VERSION );
-            
+			wp_localize_script( $this->plugin_slug . '-admin-script', "tp_eg", array('valid' => get_option('tp_eg_valid', 'false')) );
+			
 			wp_enqueue_script($this->plugin_slug . '-codemirror-script', plugins_url('assets/js/codemirror.js', __FILE__ ), array('jquery'), Essential_Grid::VERSION );			
 			wp_enqueue_script($this->plugin_slug . '-codemirror-css-script', plugins_url('assets/js/mode/css.js', __FILE__ ), array('jquery', $this->plugin_slug . '-codemirror-script'), Essential_Grid::VERSION );
 			wp_enqueue_script($this->plugin_slug . '-codemirror-js-script', plugins_url('assets/js/mode/javascript.js', __FILE__ ), array('jquery', $this->plugin_slug . '-codemirror-script'), Essential_Grid::VERSION );
@@ -726,7 +739,8 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 			update_post_meta($post_id, 'eg_featured_grid', esc_attr($metas['eg_featured_grid']));
 
 		
-		if($ajax === false){ //only update these if we are in post, not at ajax that comes from the plugin in preview mode
+		/* 2.2.6 */
+		//if($ajax === false){ //only update these if we are in post, not at ajax that comes from the plugin in preview mode
 			/**
 			 * Save Custom Meta Things that Modify Skins
 			 **/
@@ -757,7 +771,7 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 				update_post_meta($post_id, 'eg_votes_count',0);
 			}
 
-		}
+		//}
 		
 		/**
 		 * Save Custom Meta from Custom Meta Submenu
@@ -1606,9 +1620,7 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 						update_option('tp_eg_global_enable_fontello', @$data['enable_fontello']);
 						update_option('tp_eg_global_enable_font_awesome', @$data['enable_font_awesome']);
 
-						update_option('tp_eg_enable_youtube_nocookie', @$data['nable_youtube_nocookie']);
-
-
+						update_option('tp_eg_enable_youtube_nocookie', @$data['enable_youtube_nocookie']);
 						
 						if(@$data['use_lightbox'] === 'jackbox'){
 							Essential_Grid_Jackbox::enable_jackbox();
@@ -2012,10 +2024,13 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 							$im = new Essential_Grid_Import();
 							if(isset($tp_grid_meta_fonts)){
 								$tp_grid_meta_fonts = json_decode($tp_grid_meta_fonts, true);
+								
+								/*
 								$grids = @$tp_grid_meta_fonts['grids'];
 								if(!empty($grids) && is_array($grids)){
 									$grids_imported = $im->import_grids($grids);
 								}
+								*/
 								
 								$custom_metas = @$tp_grid_meta_fonts['custom-meta'];
 								if(!empty($custom_metas) && is_array($custom_metas)){
@@ -2432,6 +2447,56 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 							$error = __('No Data Received', EG_TEXTDOMAIN);
 						}
 					break;
+					case "load_library":
+						$library = new Essential_Grid_Library();
+						$grids	 = $library->get_tp_template_grids();
+						ob_start();
+						$library->get_library_grids_html($grids);
+						$html = ob_get_contents();
+						ob_clean();
+						ob_end_clean();
+						
+						if($html !== false){
+							Essential_Grid::ajaxResponseData($html);
+						}else{
+							$error = __('Library could not be loaded', EG_TEXTDOMAIN);
+						}
+					break;
+					case 'download_library_template':
+						$uid		= $base->getPostVar('uid', false);
+						$uid		= esc_attr($uid);
+						
+						if($uid == ''){
+							$error = __('ID missing, something went wrong. Please try again!', EG_TEXTDOMAIN);
+						}else{
+							if(!is_array($uid)){
+								$uid = (array)$uid;
+							}
+							$library	= new Essential_Grid_Library();
+							$filepath	= $library->_download_template($uid); //can be single or multiple, depending on $package beeing false or true
+							
+							if($filepath !== false){
+								
+							}
+							var_dump($filepath);
+							
+						}
+					break;
+					case 'import_grid_online':
+						$base	 = new Essential_Grid_Base();
+						$library = new Essential_Grid_Library();
+						$uid	 = (isset($data['uid'])) ? $data['uid'] : '';
+						$zip	 = (isset($data['zip'])) ? $data['zip'] : '';
+						
+						$return	 = $library->import_grid($uid, $zip);
+
+						if($return){
+							Essential_Grid::ajaxResponseSuccess(__('Successfully imported Grid', EG_TEXTDOMAIN), array('is_redirect' => true, 'redirect_url' => self::getViewUrl('','','essential-'.Essential_Grid_Admin::VIEW_START)));
+						}else{
+							$error = __('Failed to import Grid', EG_TEXTDOMAIN);
+						}
+
+					break;
 					default:
 						$error = true;
 					break;
@@ -2599,5 +2664,70 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 		<?php
 
 		}
+
+		/**
+	 * Enqueue Gutenberg editor blocks styles and scripts
+	 */
+	public function enqueue_block_editor_assets() {
+		$block_path = '/admin/includes/gutenberg-blocks/assets/js/editor.blocks.js';
+		$style_path = '/admin/includes/gutenberg-blocks/assets/css/blocks.editor.css';
+		// Enqueue the bundled block JS file
+		wp_enqueue_script(
+			'essgrid-blocks-js',
+			EG_PLUGIN_URL . $block_path,
+			[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ],
+			filemtime( EG_PLUGIN_PATH . $block_path )
+		);
+	
+		// Enqueue optional editor only styles
+		wp_enqueue_style(
+			'essgrid-blocks-editor-css',
+			EG_PLUGIN_URL . $style_path,
+			[ 'wp-blocks' ],
+			filemtime( EG_PLUGIN_PATH . $style_path )
+		);
+	}
+
+	/**
+	 * Enqueue Gutenberg editor blocks assets
+	 */
+	public function enqueue_assets() {
+		$style_path = '/admin/includes/gutenberg-blocks/assets/css/blocks.style.css';
+		wp_enqueue_style(
+			'essgrid-blocks',
+			EG_PLUGIN_URL . $style_path,
+			[ 'wp-blocks' ],
+			filemtime( EG_PLUGIN_PATH . $style_path )
+		);
+	}
+
+	/**
+	 * Add ThemePunch Gutenberg Block Category
+	 */
+	public function create_block_category( $categories, $post ) {
+		if($this->in_array_r('themepunch',$categories)) return $categories;
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug' => 'themepunch',
+					'title' => __( 'ThemePunch', 'essgrid' ),
+				),
+			)
+		);
+	}
+
+	/**
+	 * Check Array for Value
+	 */
+	public function in_array_r($needle, $haystack, $strict = false) {
+		foreach ($haystack as $item) {
+			if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && $this->in_array_r($needle, $item, $strict))) {
+				return true;
+			}
+		}
+	
+		return false;
+	}
 	
 }

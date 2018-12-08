@@ -5,8 +5,8 @@ Plugin Name: Easy Updates Manager
 Plugin URI: https://easyupdatesmanager.com
 Description: Manage and disable WordPress updates, including core, plugin, theme, and automatic updates - Works with Multisite and has built-in logging features.
 Author: Easy Updates Manager Team
-Version: 7.0.3
-Requires at least: 4.7
+Version: 8.0.3
+Requires at least: 4.5
 Author URI: https://easyupdatesmanager.com
 Contributors: kidsguide, ronalfy
 Text Domain: stops-core-theme-and-plugin-updates
@@ -18,8 +18,10 @@ Network: true
 
 if (!defined('ABSPATH')) die('No direct access allowed');
 if (!defined('EASY_UPDATES_MANAGER_MAIN_PATH')) define('EASY_UPDATES_MANAGER_MAIN_PATH', plugin_dir_path(__FILE__));
-if (!defined('EASY_UPDATES_MANAGER_VERSION')) define('EASY_UPDATES_MANAGER_VERSION', '7.0.3');
+if (!defined('EASY_UPDATES_MANAGER_VERSION')) define('EASY_UPDATES_MANAGER_VERSION', '8.0.3');
 if (!defined('EASY_UPDATES_MANAGER_URL')) define('EASY_UPDATES_MANAGER_URL', plugin_dir_url(__FILE__));
+if (!defined('EASY_UPDATES_MANAGER_SITE_URL')) define('EASY_UPDATES_MANAGER_SITE_URL', 'https://easyupdatesmanager.com/');
+if (!defined('EASY_UPDATES_MANAGER_SLUG')) define('EASY_UPDATES_MANAGER_SLUG', plugin_basename(__FILE__));
 
 if (!class_exists('MPSUM_Updates_Manager')) {
 	/**
@@ -55,18 +57,11 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		private $template_directories;
 
 		/**
-		 * Options class instance
-		 *
-		 * @var object
-		 */
-		protected static $_options_instance = null;
-
-		/**
 		 * Notice class instance
 		 *
 		 * @var object
 		 */
-		protected static $_notices_instance = null;
+		protected static $notices_instance = null;
 
 		// Minimum PHP version required to run this plugin
 		const PHP_REQUIRED = '5.3';
@@ -84,7 +79,7 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @return MPSUM_Updates_Manager Instance of the class.
 		 */
 		public static function get_instance() {
-			if ( null == self::$instance ) {
+			if (null == self::$instance) {
 				self::$instance = new self;
 			}
 			return self::$instance;
@@ -101,8 +96,24 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @return string plugin basename
 		 */
 		public static function get_plugin_basename() {
-			return plugin_basename( __FILE__ );
+			return EASY_UPDATES_MANAGER_SLUG;
 		}
+
+		/**
+		 * Get the WordPress version
+		 *
+		 * @return String - the version
+		 */
+		public function get_wordpress_version() {
+			static $got_wp_version = false;
+			if (!$got_wp_version) {
+				global $wp_version;
+				@include(ABSPATH.WPINC.'/version.php');
+				$got_wp_version = $wp_version;
+			}
+			return $got_wp_version;
+		}
+
 
 		/**
 		 * Class constructor.
@@ -113,22 +124,32 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @access private
 		 */
 		private function __construct() {
-
-			spl_autoload_register( array( $this, 'loader' ) );
-
-			add_action( 'init', array( $this, 'init' ) );
-			add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
-			add_action('admin_init', array($this, 'admin_init'));
-			add_action('wp_ajax_easy_updates_manager_ajax', array($this, 'easy_updates_manager_ajax_handler'));
-			register_deactivation_hook(__FILE__, array($this, 'deactivation_hook'));
+			$has_errors = false;
 
 			if (version_compare(PHP_VERSION, self::PHP_REQUIRED, '<')) {
 				add_action('admin_notices', array($this, 'admin_notice_insufficient_php'));
+				if (is_multisite()) {
+					add_action('network_admin_notices', array($this, 'admin_notice_insufficient_php'));
+				}
+				$has_errors = true;
 			}
 
 			include ABSPATH.WPINC.'/version.php';
 			if (version_compare($wp_version, self::WP_REQUIRED, '<')) {
 				add_action('admin_notices', array($this, 'admin_notice_insufficient_wp'));
+				if (is_multisite()) {
+					add_action('network_admin_notices', array($this, 'admin_notice_insufficient_wp'));
+				}
+				$has_errors = true;
+			}
+			if (!$has_errors) {
+				spl_autoload_register(array($this, 'loader'));
+				add_action('init', array($this, 'init'));
+				add_action('plugins_loaded', array($this, 'plugins_loaded'));
+				add_action('admin_init', array($this, 'admin_init'));
+				add_action('wp_ajax_easy_updates_manager_ajax', array($this, 'easy_updates_manager_ajax_handler'));
+				new MPSUM_UpdraftCentral();
+				register_deactivation_hook(__FILE__, array($this, 'deactivation_hook'));
 			}
 		} //end constructor
 
@@ -142,15 +163,19 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 */
 		public function init() {
 			/* Localization Code */
-			load_plugin_textdomain( 'stops-core-theme-and-plugin-updates', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain('stops-core-theme-and-plugin-updates', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 
 			// Logging
-			$options = MPSUM_Updates_Manager::get_options( 'core' );
-			if ( isset( $options[ 'logs' ] ) && 'on' == $options[ 'logs' ] ) {
+			$options = MPSUM_Updates_Manager::get_options('core');
+			if (!isset($options['logs'])) {
+				$options['logs'] = 'on';
+				MPSUM_Updates_Manager::update_options($options, 'core');
+			}
+			if ('on' === $options['logs']) {
 				MPSUM_Logs::run();
 			}
 
-			MPSUM_Admin_Ajax::run();
+			MPSUM_Admin_Ajax::get_instance();
 		}
 
 		/**
@@ -164,10 +189,10 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @param string $path Relative path to the asset.
 		 * @return string Absolute path to the relative asset.
 		 */
-		public static function get_plugin_dir( $path = '' ) {
-			$dir = rtrim( plugin_dir_path(__FILE__), '/' );
-			if ( !empty( $path ) && is_string( $path) )
-				$dir .= '/' . ltrim( $path, '/' );
+		public static function get_plugin_dir($path = '') {
+			$dir = rtrim(plugin_dir_path(__FILE__), '/');
+			if (!empty($path) && is_string($path))
+				$dir .= '/' . ltrim($path, '/');
 			return $dir;
 		}
 
@@ -182,10 +207,10 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @param string $path Relative path to the asset.
 		 * @return string Web path to the relative asset.
 		 */
-		public static function get_plugin_url( $path = '' ) {
-			$dir = rtrim( plugin_dir_url(__FILE__), '/' );
-			if ( !empty( $path ) && is_string( $path) )
-				$dir .= '/' . ltrim( $path, '/' );
+		public static function get_plugin_url($path = '') {
+			$dir = rtrim(plugin_dir_url(__FILE__), '/');
+			if (!empty($path) && is_string($path))
+				$dir .= '/' . ltrim($path, '/');
 			return $dir;
 		}
 
@@ -201,27 +226,33 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @param  bool	  $force_reload Whether to retrieve cached options or forcefully retrieve from the database.
 		 * @return array All options if no context, or associative array if context is set.	 Empty array if no options.
 		 */
-		public static function get_options( $context = '', $force_reload = false ) {
+		public static function get_options($context = '', $force_reload = false) {
 			// Try to get cached options
 			$options = self::$options;
-			if ( false === $options || true === $force_reload ) {
-				$options = get_site_option( 'MPSUM', false, false );
+			if (false === $options || true === $force_reload) {
+				$options = get_site_option('MPSUM', false, false);
 			}
 
-			if ( false === $options ) {
+			if (false === $options) {
 				$options = self::maybe_migrate_options();
 			}
 
+			if ('advanced' === $context) {
+				$options = self::maybe_migrate_excluded_users_options($options);
+			}
+			
 			// Store options
-			if ( !is_array( $options ) ) {
+			if (!is_array($options)) {
 				$options = array();
 			}
+
+			// Assign options for caching
 			self::$options = $options;
 
 			// Attempt to get context
-			if ( !empty( $context ) && is_string( $context ) ) {
-				if ( array_key_exists( $context, $options ) ) {
-					return (array)$options[ $context ];
+			if (!empty($context) && is_string($context)) {
+				if (array_key_exists($context, $options)) {
+					return (array) $options[$context];
 				} else {
 					return array();
 				}
@@ -240,13 +271,13 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 *
 		 * @param string $class_name The name of the class.
 		 */
-		private function loader( $class_name ) {
-			if ( class_exists( $class_name, false ) || false === strpos( $class_name, 'MPSUM' ) ) {
+		private function loader($class_name) {
+			if (class_exists($class_name, false) || false === strpos($class_name, 'MPSUM')) {
 				return;
 			}
-			$file = MPSUM_Updates_Manager::get_plugin_dir( "includes/{$class_name}.php" );
-			if ( file_exists( $file ) ) {
-				include_once( $file );
+			$file = MPSUM_Updates_Manager::get_plugin_dir("includes/{$class_name}.php");
+			if (file_exists($file)) {
+				include_once($file);
 			}
 		}
 
@@ -262,70 +293,94 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 */
 		public static function maybe_migrate_options() {
 			$options = false;
-			$original_options = get_option( '_disable_updates', false );
+			$original_options = get_option('_disable_updates', false);
 
-			if ( false !== $original_options && is_array( $original_options ) ) {
+			if (false !== $original_options && is_array($original_options)) {
 				$options = array(
 					'core' => array(),
 					'plugins' => array(),
 					'themes' => array()
 				);
 				// Global WP Updates
-				if ( isset( $original_options[ 'all' ] ) && "1" === $original_options[ 'all' ] ) {
-					$options[ 'core' ][ 'all_updates' ] = 'off';
+				if (isset($original_options['all']) && "1" === $original_options['all']) {
+					$options['core']['all_updates'] = 'off';
 				}
 				// Global Plugin Updates
-				if ( isset( $original_options[ 'plugin' ] ) && "1" === $original_options[ 'plugin' ] ) {
-					$options[ 'core' ][ 'plugin_updates' ] = 'off';
+				if (isset($original_options['plugin']) && "1" === $original_options['plugin']) {
+					$options['core']['plugin_updates'] = 'off';
 				}
 				// Global Theme Updates
-				if ( isset( $original_options[ 'theme' ] ) && "1" === $original_options[ 'theme' ] ) {
-					$options[ 'core' ][ 'theme_updates' ] = 'off';
+				if (isset($original_options['theme']) && "1" === $original_options['theme']) {
+					$options['core']['theme_updates'] = 'off';
 				}
 				// Global Core Updates
-				if ( isset( $original_options[ 'core' ] ) && "1" === $original_options[ 'core' ] ) {
-					$options[ 'core' ][ 'core_updates' ] = 'off';
+				if (isset($original_options['core']) && "1" === $original_options['core']) {
+					$options['core']['core_updates'] = 'off';
 				}
 				// Global Individual Theme Updates
-				if ( isset( $original_options[ 'it' ] ) && "1" === $original_options[ 'it' ] ) {
-					if ( isset( $original_options[ 'themes' ] ) && is_array( $original_options[ 'themes' ] ) ) {
-						$options[ 'themes' ] = 	$original_options[ 'themes' ];
+				if (isset($original_options['it']) && "1" === $original_options['it']) {
+					if (isset($original_options['themes']) && is_array($original_options['themes'])) {
+						$options['themes'] = $original_options['themes'];
 					}
 				}
 				// Global Individual Plugin Updates
-				if ( isset( $original_options[ 'ip' ] ) && "1" === $original_options[ 'ip' ] ) {
-					if ( isset( $original_options[ 'plugins' ] ) && is_array( $original_options[ 'plugins' ] ) ) {
-						$options[ 'plugins' ] = 	$original_options[ 'plugins' ];
+				if (isset($original_options['ip']) && "1" === $original_options['ip']) {
+					if (isset($original_options['plugins']) && is_array($original_options['plugins'])) {
+						$options['plugins'] = $original_options['plugins'];
 					}
 				}
 				// Browser Nag
-				if ( isset( $original_options[ 'bnag' ] ) && "1" === $original_options[ 'bnag' ] ) {
-					$options[ 'core' ][ 'misc_browser_nag' ] = 'off';
+				if (isset($original_options['bnag']) && "1" === $original_options['bnag']) {
+					$options['core']['misc_browser_nag'] = 'off';
 				}
 				// WordPress Version
-				if ( isset( $original_options[ 'wpv' ] ) && "1" === $original_options[ 'wpv' ] ) {
-					$options[ 'core' ][ 'misc_wp_footer' ] = 'off';
+				if (isset($original_options['wpv']) && "1" === $original_options['wpv']) {
+					$options['core']['misc_wp_footer'] = 'off';
 				}
 				// Translation Updates
-				if ( isset( $original_options[ 'auto-translation-updates' ] ) && "1" === $original_options[ 'auto-translation-updates' ] ) {
-					$options[ 'core' ][ 'automatic_translation_updates' ] = 'off';
+				if (isset($original_options['auto-translation-updates']) && "1" === $original_options['auto-translation-updates']) {
+					$options['core']['automatic_translation_updates'] = 'off';
 				}
 				// Translation Updates
-				if ( isset( $original_options[ 'auto-core-emails' ] ) && "1" === $original_options[ 'auto-core-emails' ] ) {
-					$options[ 'core' ][ 'notification_core_update_emails' ] = 'off';
+				if (isset($original_options['auto-core-emails']) && "1" === $original_options['auto-core-emails']) {
+					$options['core']['notification_core_update_emails'] = 'off';
 				}
 				// Automatic Updates
-				if ( isset( $original_options[ 'abup' ] ) && "1" === $original_options[ 'abup' ] ) {
-					$options[ 'core' ][ 'automatic_major_updates' ] = 'off';
-					$options[ 'core' ][ 'automatic_minor_updates' ] = 'off';
-					$options[ 'core' ][ 'automatic_plugin_updates' ] = 'off';
-					$options[ 'core' ][ 'automatic_theme_updates' ] = 'off';
+				if (isset($original_options['abup']) && "1" === $original_options['abup']) {
+					$options['core']['automatic_major_updates'] = 'off';
+					$options['core']['automatic_minor_updates'] = 'off';
+					$options['core']['automatic_plugin_updates'] = 'off';
+					$options['core']['automatic_theme_updates'] = 'off';
 				}
 
-				delete_option( '_disable_updates' );
-				delete_site_option( '_disable_updates' );
+				delete_option('_disable_updates');
+				delete_site_option('_disable_updates');
 				MPSUM_Updates_Manager::update_options($options);
+			}
+			return $options;
+		}
 
+		/**
+		 * Migrates `excluded_users` option to `advanced` context
+		 *
+		 * @param array $options Array of plugin options
+		 *
+		 * @return array Updated array of plugin options
+		 */
+		public static function maybe_migrate_excluded_users_options($options) {
+			if (isset($options['advanced']['excluded_users'])) {
+				if (isset($options['excluded_usders'])) {
+					unset($options['excluded_users']);
+				}
+				return $options;
+			}
+			if (isset($options['excluded_users'])) {
+				$options['advanced']['excluded_users'] = $options['excluded_users'];
+				unset($options['excluded_users']);
+			} elseif (isset($options['advanced']['excluded_users']) && isset($options['excluded_users'])) {
+				$options['advanced']['excluded_users'] = $options['excluded_users'];
+			} else {
+				$options['advanced']['excluded_users'] = array();
 			}
 			return $options;
 		}
@@ -341,24 +396,28 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @internal Uses plugins_loaded action
 		 */
 		public function plugins_loaded() {
-
+			
 			// Skip disable updates if a user is excluded
 			$disable_updates_skip = false;
-			if ( current_user_can( 'install_plugins' ) ) {
+			if (current_user_can('update_plugins')) {
 				$current_user = wp_get_current_user();
 				$current_user_id = $current_user->ID;
-				$excluded_users = MPSUM_Updates_Manager::get_options( 'excluded_users' );
-				if ( in_array( $current_user_id, $excluded_users ) ) {
+				$advanced_options = MPSUM_Updates_Manager::get_options('advanced');
+				$excluded_users = isset($advanced_options['excluded_users']) ? $advanced_options['excluded_users'] : array();
+				if (in_array($current_user_id, $excluded_users)) {
 					$disable_updates_skip = true;
 				}
 			}
-			if ( false === $disable_updates_skip ) {
+			if (false === $disable_updates_skip) {
 				MPSUM_Disable_Updates::run();
 			}
 
-			$not_doing_ajax = ( !defined( 'DOING_AJAX' ) || !DOING_AJAX );
-			$not_admin_disabled = ( !defined( 'MPSUM_DISABLE_ADMIN' ) || !MPSUM_DISABLE_ADMIN );
-			if ( is_admin() && $not_doing_ajax && $not_admin_disabled && !$disable_updates_skip ) {
+			$not_doing_ajax = (!defined('DOING_AJAX') || !DOING_AJAX);
+			$not_admin_disabled = true;
+			if (defined('MPSUM_DISABLE_ADMIN')) {
+				$not_admin_disabled = MPSUM_DISABLE_ADMIN ? false : true;
+			}
+			if (current_user_can('manage_options') && $not_doing_ajax && $not_admin_disabled && !$disable_updates_skip) {
 				MPSUM_Admin::run();
 			}
 			$this->check_premium();
@@ -366,6 +425,8 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 
 		/**
 		 * Checks if this is the premium version and loads it. It also ensures that if the free version is installed then it is disabled with an appropriate error message.
+		 *
+		 *  @returns true if premium, false if not
 		 */
 		private function check_premium() {
 
@@ -374,16 +435,8 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 				include_once(EASY_UPDATES_MANAGER_MAIN_PATH . 'premium.php');
 			}
 
-			if ($this->is_active('premium') && false !== ($free_plugin = $this->is_active('free'))) {
-				if (!function_exists('deactivate_plugins')) include_once(ABSPATH.'wp-admin/includes/plugin.php');
-				deactivate_plugins($free_plugin);
-				// Registers the notice letting the user know it cannot be active if premium is active.
-				add_action('admin_notices', array($this, 'show_admin_notice_premium'));
-				return;
-			}
-
-			// Loads the language file.
-			load_plugin_textdomain('stops-core-theme-and-plugin-updates', false, EASY_UPDATES_MANAGER_MAIN_PATH . 'languages');
+			$utils = MPSUM_Utils::get_instance();
+			$utils->maybe_deactivate_free_version();
 		}
 
 		/**
@@ -395,20 +448,12 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		}
 
 		/**
-		 * Check whether one of free/Premium is active (whether it is this instance or not)
+		 * Checks whether this is premium plugin or not
 		 *
-		 * @param String $which - 'free' or 'premium'
-		 *
-		 * @return String|Boolean - plugin path (if installed) or false if not
+		 * @return Boolean - returns true if premium otherwise false
 		 */
-		private function is_active($which = 'free') {
-			$active_plugins = $this->get_active_plugins();
-			foreach ($active_plugins as $file) {
-				if ('main.php' == basename($file)) {
-					$plugin_dir = WP_PLUGIN_DIR.'/'.dirname($file);
-					if (('free' == $which && !file_exists($plugin_dir.'/premium.php')) || ('free' != $which && file_exists($plugin_dir.'/premium.php'))) return $file;
-				}
-			}
+		public function is_premium() {
+			if (file_exists(__DIR__ . '/premium.php')) return true;
 			return false;
 		}
 
@@ -423,21 +468,20 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @param array	 $options Associative array of plugin options.
 		 * @param string $context Array key of which options to update
 		 */
-		public static function update_options( $options = array(), $context = '' ) {
+		public static function update_options($options = array(), $context = '') {
 			$options_to_save = self::get_options();
 
-			if ( !empty( $context ) && is_string( $context ) ) {
-				$options_to_save[ $context ] = $options;
+			if (!empty($context) && is_string($context)) {
+				$options_to_save[$context] = $options;
 			} else {
 				$options_to_save = $options;
 			}
-
-			self::$options = $options_to_save;
 			if (is_multisite()) {
-				update_site_option( 'MPSUM', $options_to_save );
+				update_site_option('MPSUM', $options_to_save);
 			} else {
-				update_option( 'MPSUM', $options_to_save );
+				update_option('MPSUM', $options_to_save);
 			}
+			self::$options = $options_to_save;
 		}
 
 		/**
@@ -446,11 +490,11 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @param string $option Option key to be updated
 		 * @param mixed  $value  Option value to be updated
 		 */
-		public static function update_option( $option, $value  ) {
+		public static function update_option($option, $value) {
 			if (is_multisite()) {
-				update_site_option( $option, $value );
+				update_site_option($option, $value);
 			} else {
-				update_option( $option, $value );
+				update_option($option, $value);
 			}
 		}
 
@@ -460,11 +504,11 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @return object object of Easy_Updates_Manager_Notices
 		 */
 		public static function get_notices() {
-			if (empty(self::$_notices_instance)) {
+			if (empty(self::$notices_instance)) {
 				if (!class_exists('Easy_Updates_Manager_Notices')) include_once(EASY_UPDATES_MANAGER_MAIN_PATH.'includes/easy-updates-manager-notices.php');
-				self::$_notices_instance = new Easy_Updates_Manager_Notices();
+				self::$notices_instance = new Easy_Updates_Manager_Notices();
 			}
-			return self::$_notices_instance;
+			return self::$notices_instance;
 		}
 
 		/**
@@ -497,7 +541,7 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		public function is_installed($name) {
 
 			// Needed to have the 'get_plugins()' function
-			if ( !function_exists( 'get_plugins' ) ) {
+			if (!function_exists('get_plugins')) {
 				include_once(ABSPATH.'wp-admin/includes/plugin.php');
 			}
 
@@ -508,6 +552,7 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 
 			$plugin_info['installed'] = false;
 			$plugin_info['active'] = false;
+
 
 			// Loops around each plugin available.
 			foreach ($get_plugins as $key => $value) {
@@ -531,24 +576,29 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 */
 		public function admin_init() {
 			$pagenow = $GLOBALS['pagenow'];
-			
-			$this->register_template_directories();
-			
-			if ('index.php' != $pagenow) return;
 
+			$this->register_template_directories();
+
+			if ('index.php' != $pagenow) return;
 			if (current_user_can('update_plugins') || (defined('EASY_UPDATES_MANAGER_FORCE_DASHNOTICE') && EASY_UPDATES_MANAGER_FORCE_DASHNOTICE)) {
 				$dismissed_until = get_site_option('easy_updates_manager_dismiss_dash_notice_until', 0);
-				if ( isset( $_GET[ 'page' ] ) && 'mpsum-update-options' == $_GET[ 'page' ] ) {
-					$dismissed_until = get_site_option( 'easy_updates_manager_dismiss_eum_notice_until', 0 );
+				if (isset($_GET['page']) && 'mpsum-update-options' == $_GET['page']) {
+					$dismissed_until = get_site_option('easy_updates_manager_dismiss_eum_notice_until', 0);
 				}
-				$installed = $installed_for= true;
+				$installed = $installed_for = true;
 				if (file_exists(EASY_UPDATES_MANAGER_MAIN_PATH . 'index.html')) {
 					$installed = filemtime(EASY_UPDATES_MANAGER_MAIN_PATH . 'index.html');
 					$installed_for = (time() - $installed);
 				}
-				add_action( 'load-index.php', array( $this, 'maybe_show_admin_notice_upgraded' ) );
-       
-				if (!isset($_GET['page']) || 'mpsum-update-options' !== $_GET['page']) return;
+				$is_eum_admin = false;
+				if (isset($_GET['page']) && 'mpsum-update-options' === $_GET['page']) {
+					$is_eum_admin = true;
+				}
+				if (!$is_eum_admin) {
+					add_action('all_admin_notices', array($this, 'maybe_show_admin_notice_upgraded'));
+				}
+
+				if (!$is_eum_admin) return;
 				if (($installed && time() > $dismissed_until && $installed_for < (14 * 86400) && !defined('EASY_UPDATES_MANAGER_NOADS_B')) || (defined('EASY_UPDATES_MANAGER_FORCE_DASHNOTICE') && EASY_UPDATES_MANAGER_FORCE_DASHNOTICE)) {
 					add_action('all_admin_notices', array($this, 'show_admin_notice_upgraded'));
 				} else {
@@ -562,12 +612,12 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @return void
 		 */
 		public function maybe_show_admin_notice_upgraded() {
-			$time = get_site_option( 'easy_updates_manager_dismiss_dash_notice_until' );
+			$time = get_site_option('easy_updates_manager_dismiss_dash_notice_until');
+			$enable_notices = get_site_option('easy_updates_manager_enable_notices', 'on');
 			$new_time = time() . '';
-			if ( $new_time > $time ) {
+			if ($new_time > $time && 'on' === $enable_notices) {
 				$this->include_template('notices/thanks-for-using-main-dash.php');
 			}
-			
 		}
 		/**
 		 * Display welcome dashboard
@@ -575,7 +625,10 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 		 * @return void
 		 */
 		public function show_admin_notice_upgraded() {
-			$this->include_template('notices/thanks-for-using-main-dash.php');
+			$enable_notices = get_site_option('easy_updates_manager_enable_notices', 'on');
+			if ('on' === $enable_notices) {
+				$this->include_template('notices/thanks-for-using-main-dash.php');
+			}
 		}
 
 		/**
@@ -605,13 +658,15 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 			$results = array();
 
 			// Some commands that are available via AJAX only.
-			if( 'dismiss_eum_notice_until' == $subaction ) {
+			if ('dismiss_eum_notice_until' == $subaction) {
 				update_site_option('easy_updates_manager_dismiss_eum_notice_until', (time() + 90 * 86400));
 			} elseif ('dismiss_dash_notice_until' == $subaction) {
 				update_site_option('easy_updates_manager_dismiss_dash_notice_until', (time() + 366 * 86400));
 			} elseif ('dismiss_page_notice_until' == $subaction) {
 				update_site_option('easy_updates_manager_dismiss_page_notice_until', (time() + 84 * 86400));
-			} elseif  ('dismiss_survey_notice_until' == $subaction) {
+			} elseif ('dismiss_season_notice_until' == $subaction) {
+				update_site_option('easy_updates_manager_dismiss_season_notice_until', (time() + 84 * 86400));
+			} elseif ('dismiss_survey_notice_until' == $subaction) {
 				update_site_option('easy_updates_manager_dismiss_survey_notice_until', (time() + 366 * 86400));
 			}
 
@@ -791,8 +846,7 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 				$cron->set_default_cron();
 			}
 		}
-
-	} // end class MPSUM_Updates_Manager
+	}
 }
 
 if (!function_exists('Easy_Updates_Manager')) {

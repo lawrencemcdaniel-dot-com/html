@@ -362,7 +362,18 @@ if ( fusion_is_element_enabled( 'fusion_gallery' ) ) {
 
 				$attr = array();
 
-				$attr['href']  = $this->args['pic_link'];
+				if ( 'fixed' === $this->args['picture_size'] && $this->image_data['id'] ) {
+					$image_data = fusion_library()->images->get_attachment_data( $this->image_data['id'], 'full' );
+
+					if ( $image_data['url'] ) {
+						$attr['href'] = $image_data['url'];
+					}
+				}
+
+				if ( ! isset( $attr['href'] ) ) {
+					$attr['href']  = $this->args['pic_link'];
+				}
+
 				$attr['class'] = 'fusion-lightbox';
 
 				$attr['data-rel'] = 'iLightbox[' . substr( md5( $this->args['image_ids'] ), 13 ) . ']';

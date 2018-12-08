@@ -1,52 +1,75 @@
 === Easy Updates Manager ===
 Contributors: davidanderson, kidsguide, ronalfy, roary86, bigwing, webulous
 Tags: updates manager, easy updates manager, disable updates manager, disable updates, update control, plugin updates, theme updates, core updates, automatic updates, multisite, logs
-Requires at least: 4.7
-Tested up to: 4.9
-Stable tag: 7.0.3
+Requires at least: 4.5
+Requires PHP: 5.3
+Donate link: https://easyupdatesmanager.com
+Tested up to: 5.0
+Stable tag: 8.0.3
 License: GPLv2 or later
 
-Manage all your WordPress updates, including individual updates, automatic updates, logs, and loads more. Also works very well with WordPress Multisite.
+Manage all your WordPress updates, including individual updates, automatic updates, logs, and loads more. This also works very well with WordPress Multisite.
 
 == Description ==
-Easy Updates Manager is a light yet powerful plugin which enables you to manage all types of updates on your single site install or in WordPress Multisite. With loads of settings making endless possibilities for configuration, Easy Updates Manager is an obvious choice for anyone wanting to take control of their websites updates.
+Easy Updates Manager is a light yet powerful plugin that allows you to manage all kinds of update- both on your single site install, or in WordPress Multisite. With a huge number of settings for endless configuration, Easy Updates Manager is an obvious choice for anyone wanting to take control of their website updates.
 
-[youtube https://www.youtube.com/watch?v=UEcS3meVv6g&feature=youtu.be]
+https://vimeo.com/288535460
 
-= Features Include =
+= Free Features Include =
 <ul>
-<li>All Updates - This setting quite easily just overrides all other settings and disables everything.</li>
-<li>WordPress Core Updates- This setting is used to toggle on and off the WordPress core updates.</li>
-<li>Plugin Updates - This setting is used to disable all plugin updates on your website.</li>
-<li>Theme Updates - This setting is used to disable all theme updates on your website.</li>
-<li>Major Releases - This setting toggles whether or not you want the major WordPress core versions to automatically update themselves.</li>
-<li>Minor Releases - This setting toggles whether or not you want the minor WordPress core versions to automatically update themselves.</li>
-<li>Development Updates - This setting toggles whether or not you want the bleeding edge version of WordPress to automatically update itself.</li>
-<li>Plugin Updates - This setting can either automatically update all your plugins, or automatically update any select plugins you want.</li>
-<li>Theme Updates - This setting can either automatically update all your themes, or automatically update any select themes you want.</li>
-<li>Translation Updates - This setting can unable automatic updating for translation updates.</li>
-<li>Core Update E-mails - This setting disables the core update e-mails.</li>
-<li>Browser Nag - This setting removes the WordPress browser nag which appears when you are using an older browser.</li>
-<li>WordPress Version in Footer - This setting will remove the WordPress version in the admin footer on your website.</li>
-<li>Disable plugin updates and automatic updates individually by selecting which plugins on a table. Also able to bulk select plugins.</li>
-<li>Disable theme updates and automatic updates individually by selecting which themes on a table. Also able to bulk select themes.</li>
-<li>The ability to block users from configuring the settings.</li>
-<li>The ability to select which users can still see and perform updates.</li>
-<li>The ability to update some third party plugins.</li>
-<li>Logging plugin updates</li>
+<li>Disable all updates with one click</li>
+<li>Enable automatic updates with one click</li>
+<li>Deeply customize your automatic update settings</li>
+<li>Use logs to determine what and when something is updated</li>
+<li>Hide plugin and theme updates (if custom developed)</li>
+<li>Select which plugins and themes can be automatically updated</li>
+<li>Disable core, plugin, theme, and translation updates</li>
+<li>Force Updates to check that automatic updates are working</li>
+<li>Integrate with <a href="https://updraftplus.com/">UpdraftPlus</a></li>
+<li>Configure email notification settings</li>
+<li>And much more…</li>
 </ul>
 
-For more information on how to use Easy Updates Manager, check out our <a href="https://easyupdatesmanager.com">website</a> and <a href="https://github.com/easy-updates-manager/easy-updates-manager/wiki">wiki</a>.
+= Go Premium =
 
-If you want to contribute to the translation, please go to https://translate.wordpress.org/, select your language and search for plugin Easy Updates Manager. We appreciate all the translation help we can get.
+Visit <a href="https://easyupdatesmanager.com">easyupdatesmanager.com</a> to upgrade to our premium features.
+
+https://vimeo.com/289883791
+
+Premium features include:
+<ul>
+<li>Safe mode: ensures updates are compatible with your WordPress version and your server's PHP version</li>
+<li>Schedule for automatic updates: runs the updates when you want them to avoid any downtime</li>
+<li>External logging - Get alerts when new updates have been logged</li>
+<li>Anonymization - Control what is sent to the WordPress API</li>
+<li>Delayed updates - Delay automatic updates in the case of hotfixes and frequent releases</li>
+<li>Auto backups: integrates with <a href="https://updraftplus.com/">UpdraftPlus</a> and take a backup before your site is updated</li>
+<li>UpdraftCentral: fully integrates with <a href="https://updraftplus.com/updraftcentral/">UpdraftCentral</a></li>
+<li>Log clearing schedule: keeps your logs table under control and deletes entries according to your own schedule</li>
+<li>Import/Export settings: exports your settings from one site to another for quick configuration</li>
+<li>Email notification of updates: gives you weekly or monthly reports of pending updates </li>
+<li>White label: disables notices and customizes what the client sees</li>
+<li>Check plugins: runs a check of plugins that have been removed from the WordPress Plugin Directory</li>
+<li>Webhook: integrates with third-party services to run automatic updates via cron or even Zapier</li>
+<li>Export logs: exports logs for printing, or downloads a CSV or JSON file for a date range</li>
+</ul>
+
+> For more information on Easy Updates Manager Premium, <a href="https://easyupdatesmanager.com">check out our website at easyupdatesmanager.com</a>.
+
+= Translations =
+
+If you want to contribute to the translation, <a href="https://translate.wordpress.org/projects/wp-plugins/stops-core-theme-and-plugin-updates">please visit our translation section</a>. We appreciate all the translation help we can get.
 
 == Screenshots ==
 1. Single site install settings page location
 2. Multisite install settings page location
 3. General Tab with main options
 4. Plugins tab with individual options allowed
-5. Logs feature
-6. Advanced Tab
+5. Themes tab with individual options allowed
+6. Logs feature
+7. Premium logs feature
+8. Advanced tab
+9. Premium advanced tab
 
 
 == Installation ==
@@ -65,7 +88,7 @@ If you want to contribute to the translation, please go to https://translate.wor
 
 Activate the plugin after installation.  If you are on Multisite, the plugin must be network-activated.
 
-For additional information for Easy Updates Manager check out our <a href="https://github.com/easy-updates-manager/easy-updates-manager/wiki">wiki</a>.
+For additional information for Easy Updates Manager check out our website at <a href="https://easyupdatesmanager.com">easyupdatesmanager.com</a>.
 
 == Frequently Asked Questions ==
 = Do you support older WordPress versions? =
@@ -78,38 +101,107 @@ Unfortunately, we do not support older versions of WordPress or the non-current 
 
 = How do I change the WordPress update notification e-mail? =
 
-Go to the General tab in our settings. You can enter a single email address, or multiple if you comma separate them.
+Go to the General tab in our settings. You can enter a single email address, or multiple if you comma-separate them.
 
 = Automatic Updates =
 
 Check out our video on how the automatic updating works in WordPress.
-[youtube https://www.youtube.com/watch?v=Rgj2fAQlxrc]
+
+https://vimeo.com/291084023
 
 = How Do I Enable Logging? =
 
-[youtube https://www.youtube.com/watch?v=jTDgUo3CIrw]
+Check out our video on how logs work.
 
-= Does Logging work with Jetpack Manage? =
+https://vimeo.com/291084061
 
-Not currently.
+= Does Easy Updates Manager work with third-party plugins and themes? =
 
-= Does Easy Updates Manager work with third party plugins and themes? =
-
-Since third party providers use custom update mechanisms, we cannot guarantee that they will work with Easy Updates Manager.
+Since third-party providers use custom update mechanisms, we cannot guarantee that they will work with Easy Updates Manager.
 
 = Additional Information and FAQ =
 
-For additional information and FAQs for Easy Updates Manager check out our <a href="https://github.com/easy-updates-manager/easy-updates-manager/wiki">wiki</a>.
+For additional information and FAQs for Easy Updates Manager <a href="https://easyupdatesmanager.com">check out our website</a>.
 
 == Changelog ==
 
-= 7.0.3 - 2018-06-26 = 
+= 8.0.3 - 2018-12-04 =
+
+* TWEAK: Added seasonal notices
+* FEATURE: Logs are on by default
+* FEATURE: Logs are now displayed by default in UpdraftCentral
+* FEATURE: (Premium) White label settings can now be exported and imported
+
+= 8.0.2 - 2018-11-02 =
+
+* FEATURE: Can disable the admin bar in Advanced settings
+* FIX: Resolving i18n issues
+* FIX: Unknown command error occasionally shows up when clicking on a General option
+* FIX: Plugins in rollback functionality showing re-activated when they are not
+* FIX: Reset options would fail because of missing $wpdb variable
+* TWEAK: Removing error logs for developers with debug on
+* TWEAK: General options are grayed out if you disable updates
+* TWEAK: Updating screenshots
+
+= 8.0.1 - 2018-10-30 =
+
+* FEATURE: Shows active versions if a plugin or theme is active
+* FEATURE: (Multisite) Checks to see if any sites in the network have a plugin or theme installed
+* FEATURE: Plugin can now be fully controlled by UpdraftCentral plugin
+* FEATURE: (Premium) Scheduled log clearance
+* FEATURE: (Premium) Automatic backup before auto update
+* FEATURE: (Premium) Automatic update scheduling
+* FEATURE: (Premium) Send Anonymous update request or request with random data to protect privacy
+* FEATURE: (Premium) Import and Export settings
+* FEATURE: (Premium) Introduce Safe Mode for PHP compatibility checks and WordPress version checks
+* FEATURE: (Premium) Logs of automatic update events can be send to external channels such as slack, email, php error log and syslog
+* FEATURE: (Premium) Send weekly or monthly emails of update notifications
+* FEATURE: (Premium) Webhook to integrate with third-party services
+* FEATURE: (Premium) Show plugins that have been removed from the WordPress Plugin Directory
+* FEATURE: (Premium) Ability to whitelist the plugin
+* FEATURE: (Premium) Ability to search the logs by user or asset name
+* FEATURE: (Premium) Ability to export logs for a date range and print them, download a CSV, or download a JSON format
+* FEATURE: (Premium) Check for PHP parse errors during automatic updates and de-activate problem problems automatically
+* FEATURE: (Premium) Check for plugins de-activated during auto-update and attempt to re-activate them automatically
+* FIX: Clicking more details on plugins tab properly shows a modal
+* FIX: Force Updates removes a space in the updates panel if there are still updates after it runs
+* FIX: Clicking any type of filter in logs shows an error message
+* FIX: Add a JS polyfill to provide support for IE11
+* FIX: Admin notices show up twice in the options page
+* FIX: Plugin/Themes/Log tab were causing an undefined hook suffix error upon save
+* FIX: Removing filters in 7.0.3 allowed updates for plugins and themes to be shown
+* REFACTOR: Advanced tab settings page refactoring
+* TWEAK: Tidy up UI
+* TWEAK: Changes in user capability checks
+* TWEAK: Mark as supporting WordPress 5.0
+* TWEAK: Option to take backup before force updates
+* TWEAK: Dashboard notice. Welcome notice now shows our other plugins
+* TWEAK: Allow a filter to disable the updates lock option for more reliability in testing
+* TWEAK: Easy Updates Manager now displays in the multisite dashboard menu
+* TWEAK: Easy Updates Manager now displays in the admin bar
+* TWEAK: Force Updates displays more contextual errors if automatic updates are somehow modified or disabled
+* TWEAK: Enabling or disabling logs no longer requires a refresh
+* TWEAK: Select General Tab if tab is invalid
+* TWEAK: Advanced settings adhere to browser history
+* TWEAK: Reset Options forces browser to reload for better UX in the Advanced tab
+* TWEAK: Force Updates has a better description of what it does
+* TWEAK: Clearing logs now clears the logs data upon success
+* TWEAK: Logs can now be filtered in ascending or descending order
+* TWEAK: Translations now show or hide properly if plugins, WordPress Core, or theme updates are disabled
+* TWEAK: Help tab updated
+* TWEAK: Email status message shows successful if they are valid emails
+* TWEAK: Plugin and Theme options save via Ajax immediately with no save button necessary
+* TWEAK: Adding loading animation to General tab to prevent multiple states from occurring at once
+
+= 7.0.3 - 2018-06-26 =
 
 * TWEAK: Disabling themes and plugins no longer disables translations.
 * TWEAK: Dashboard notices about other plugins of potential interest now only show on the Easy Updates Manager pages
 
 = 7.0.2 - 2018-06-18 =
 
+* FIX: Removed multiple log entries and version numbers caching issue
+* FIX: Fix for headers already sent warning
 * TWEAK: Make all settings tabs work via ajax calls
 * TWEAK: Show and hide logs tab upon enable and disable
 * TWEAK: Add admin notices for insufficient php and wp versions
@@ -131,35 +223,9 @@ For additional information and FAQs for Easy Updates Manager check out our <a hr
 
 * Admin UI overhaul based on past data. It is now very obvious which settings are enabled. Thanks for all the feedback.
 
-= 6.4.8 =
-Released 2017-11-24
-
-* Fixing plugin and theme tab CSS issues.
-
-= 6.4.7 =
-Released 2017-11-24
-
-* Fixing theme tab style issue.
-
-= 6.4.6 =
-Released 2017-11-24
-
-* Added icons to the plugins and themes screen to align it with WordPress 4.9.
-
-= 6.4.4 =
-Released 2017-11-07
-
-* Removed wizard. It was annoying too many people. A better admin UI may help with this.
-* Bug fix: tracking could not be disabled if you enabled it, and Reset All Options. Tracking be disabled under the Advanced Tab.
-* Enhancement: Logs now show a From (version) and a To (version) to satisfy a user feature request and will hopefully make logs that more useful.
-
-= 6.4.0 =
-Released 2017-08-01
-
-* New wizard for new users of the plugin. Automatic updates are recommended by default.
-
-For past changelogs, please visit our <a href="https://github.com/easy-updates-manager/easy-updates-manager/releases">GitHub</a>.
+For past changelogs, <a href="https://easyupdatesmanager.com/blog/">please visit our blog</a>.
 
 == Upgrade Notice ==
-* 7.0.3: Dashboard notices were appearing on pages where they were not intended to appear
+* 8.0.3: Seasonal notices. Logs are on by default.
+* 8.0.2: Removing error logs for developers. Faster loading time for General options. 8.0.1: Numerous bug fixes, features, and UX enhancements.
 

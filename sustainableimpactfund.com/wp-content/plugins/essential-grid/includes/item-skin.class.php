@@ -31,6 +31,10 @@ class Essential_Grid_Item_Skin {
     private $media_poster_css = array();
     private $google_fonts = array();
     private $cover_image = '';
+	private $cover_shadow = array();
+	private $wrapper_shadow = array();
+	private $media_shadow = array();
+	private $content_shadow = array();
 	
 	/* 2.1.6.2 */
 	private $grid_item_animation = 'none';
@@ -819,6 +823,7 @@ class Essential_Grid_Item_Skin {
 
 		$container_class = ' eg-'.esc_attr($this->handle).'-container';
 		$li_class = ' eg-'.esc_attr($this->handle).'-wrapper';
+		$li_skin = ' data-skin="' . esc_attr($this->handle) . '"';
 		
 		$li_class .= ($is_post) ? ' eg-post-id-'.@$this->post['ID'] : ' eg-post-id-'.$this->item_counter;
 		$li_id = ($is_post) ? 'eg-'.$this->grid_id.'-post-id-'.@$this->post['ID'] : 'eg-'.$this->grid_id.'-post-id-'.$this->item_counter;
@@ -906,6 +911,18 @@ class Essential_Grid_Item_Skin {
         $cover_animation_delay_center = '';
         $cover_animation_bottom = '';
         $cover_animation_delay_bottom = '';
+		
+        $cover_animation_duration_top = '';
+        $cover_animation_duration_center = '';
+        $cover_animation_duration_bottom = '';
+		
+		$cover_animation_color_top = '';
+		$cover_animation_color_center = '';
+		$cover_animation_color_bottom = '';
+		
+		$cover_wrapper_overflow = '';
+		$cover_blend_mode = $base->getVar($this->params, 'cover-blend-mode', 'normal');
+		$cover_blend_mode = $cover_blend_mode === 'normal' ? '' : ' esg-cover-blend-' . $cover_blend_mode;
         
 		/* 2.1.6 */
 		$force_key = wp_is_mobile() ? 'cover-always-visible-mobile' : 'cover-always-visible-desktop';
@@ -916,13 +933,19 @@ class Essential_Grid_Item_Skin {
 			/* 2.1.6 */
 			if(empty($force_show_cover) || $force_show_cover === 'false') {
 				$cover_animation_center = 'esg-'.$base->getVar($this->params, 'cover-animation-center', 'fade').$base->getVar($this->params, 'cover-animation-center-type', '');
+				
+				/* 2.2.6 */
+				if(preg_match('/spiral|circle/', $cover_animation_center)) $cover_wrapper_overflow = ' esg-cover-overflow';
+				if(preg_match('/line|spiral|circle/', $cover_animation_center)) $cover_animation_color_center = ' data-animcolor="' . $base->getVar($this->params, 'cover-animation-color-center', '#FFFFFF') . '"';
 			}
 			else {
 				$cover_animation_center = 'esg-none';
 			}
             
-            if($cover_animation_center != 'esg-none' && $cover_animation_center != ' esg-noneout')
+            if($cover_animation_center != 'esg-none' && $cover_animation_center != ' esg-noneout') {
                 $cover_animation_delay_center = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-center', 0, 'i') / 100, 2).'"';
+				$cover_animation_duration_center = ' data-duration="'.$base->getVar($this->params, 'cover-animation-duration-center', 'default').'"';
+			}
             
         }else{
             
@@ -931,6 +954,16 @@ class Essential_Grid_Item_Skin {
 				$cover_animation_top = 'esg-'.$base->getVar($this->params, 'cover-animation-top', 'fade').$base->getVar($this->params, 'cover-animation-top-type', '');
 				$cover_animation_center = 'esg-'.$base->getVar($this->params, 'cover-animation-center', 'fade').$base->getVar($this->params, 'cover-animation-center-type', '');
 				$cover_animation_bottom = 'esg-'.$base->getVar($this->params, 'cover-animation-bottom', 'fade').$base->getVar($this->params, 'cover-animation-bottom-type', '');
+				
+				/* 2.2.6 */
+				if(preg_match('/spiral|circle/', $cover_animation_top) || preg_match('/spiral|circle/', $cover_animation_center) || preg_match('/spiral|circle/', $cover_animation_bottom)) {
+					$cover_wrapper_overflow = ' esg-cover-overflow';
+				}
+				
+				if(preg_match('/line|spiral|circle/', $cover_animation_top)) $cover_animation_color_top = ' data-animcolor="' . $base->getVar($this->params, 'cover-animation-color-top', '#FFFFFF') . '"';
+				if(preg_match('/line|spiral|circle/', $cover_animation_center)) $cover_animation_color_center = ' data-animcolor="' . $base->getVar($this->params, 'cover-animation-color-center', '#FFFFFF') . '"';
+				if(preg_match('/line|spiral|circle/', $cover_animation_bottom)) $cover_animation_color_bottom = ' data-animcolor="' . $base->getVar($this->params, 'cover-animation-color-bottom', '#FFFFFF') . '"';
+				
 			}
 			else {
 				$cover_animation_top = 'esg-none';
@@ -938,14 +971,20 @@ class Essential_Grid_Item_Skin {
 				$cover_animation_bottom = 'esg-none';
 			}
 			
-            if($cover_animation_top != 'esg-none' && $cover_animation_top != ' esg-noneout')
+            if($cover_animation_top != 'esg-none' && $cover_animation_top != ' esg-noneout') {
                 $cover_animation_delay_top = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-top', 0, 'i') / 100, 2).'"';
+				$cover_animation_duration_top = ' data-duration="'.$base->getVar($this->params, 'cover-animation-duration-top', 'default').'"';
+			}
 			
-            if($cover_animation_center != 'esg-none' && $cover_animation_center != ' esg-noneout')
+            if($cover_animation_center != 'esg-none' && $cover_animation_center != ' esg-noneout') {
                 $cover_animation_delay_center = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-center', 0, 'i') / 100, 2).'"';
+				$cover_animation_duration_center = ' data-duration="'.$base->getVar($this->params, 'cover-animation-duration-center', 'default').'"';
+			}
             
-            if($cover_animation_bottom != 'esg-none' && $cover_animation_bottom != ' esg-noneout')
+            if($cover_animation_bottom != 'esg-none' && $cover_animation_bottom != ' esg-noneout') {
                 $cover_animation_delay_bottom = ' data-delay="'.round($base->getVar($this->params, 'cover-animation-delay-bottom', 0, 'i') / 100, 2).'"';
+				$cover_animation_duration_bottom = ' data-duration="'.$base->getVar($this->params, 'cover-animation-duration-bottom', 'default').'"';
+			}
 			
         }
 		
@@ -1028,6 +1067,7 @@ class Essential_Grid_Item_Skin {
         
         //group is for cover container
         $cover_group_animation_delay = '';
+		$cover_group_animation_duration = '';
         
 		/* 2.1.6 */
 		if(empty($disable_group_animation)) {
@@ -1037,10 +1077,13 @@ class Essential_Grid_Item_Skin {
 			$cover_group_animation = 'esg-none';
 		}
 		
-        if($cover_group_animation != 'esg-none')
+        if($cover_group_animation != 'esg-none') {
             $cover_group_animation_delay = ' data-delay="'.round($base->getVar($this->params, 'cover-group-animation-delay', 0, 'i') / 100, 2).'"';
-        else
+			$cover_group_animation_duration = ' data-duration="'.$base->getVar($this->params, 'cover-group-animation-duration', 'deafult').'"';
+		}
+        else {
             $cover_group_animation = '';
+		}
 		
 		// 2.2.5
 		if($cover_group_animation) {
@@ -1055,11 +1098,17 @@ class Essential_Grid_Item_Skin {
         
         //media is for media container
         $media_animation_delay = '';
+		$media_animation_duration = '';
         $media_animation = 'esg-'.$base->getVar($this->params, 'media-animation', 'fade');
-        if($media_animation != 'esg-none')
+		$media_blur = strpos($media_animation, 'blur') === false ? '' : ' data-bluramount="' . $base->getVar($this->params, 'media-animation-blur', '5') . '"';
+		
+        if($media_animation != 'esg-none') {
             $media_animation_delay = ' data-delay="'.round($base->getVar($this->params, 'media-animation-delay', 0, 'i') / 100, 2).'"';
-        else
+			$media_animation_duration = ' data-duration="'.$base->getVar($this->params, 'media-animation-duration', 'default').'"';
+		}
+        else {
             $media_animation = '';
+		}
 		
 		if($this->load_more_element == true) $li_class .= ' eg-newli';
 		
@@ -1146,7 +1195,16 @@ class Essential_Grid_Item_Skin {
 		}
 		
         //echo '<!-- PORTFOLIO ITEM '.$this->id.' -->'."\n";
-        echo '<li id="'.$li_id.'" class="filterall'.$filters.$li_class;
+		
+		$cltitle = '';
+		if($demo === 'skinchoose') {
+			
+			$li_class .= ' eg-tooltip-wrap';
+			$cltitle = 'title="'.__('Select Skin', EG_TEXTDOMAIN). '" ';
+			
+		}
+		
+        echo '<li ' . $cltitle . 'id="'.$li_id.'"'.$li_skin.' class="filterall'.$filters.$li_class;
 		if($demo == 'custom') echo ' eg-newli'; //neccesary for refresh of preview grid if new li will be added
 		echo '"'.$sortings.$meta_item_style.$cobbles_data.$item_animation.'>'."\n";
         
@@ -1154,15 +1212,9 @@ class Essential_Grid_Item_Skin {
             //check if fav or not
             
 			$showid = (isset($_GET['showid'])) ? ' (ID: '.$this->id.')' : '';
+			$cl = ($demo == 'skinchoose') ? 'esg-screenselect-toolbar' : ''; //show only in grid editor at skin chooser
 			
-			$cl = ($demo == 'skinchoose') ? 'esg-screenselect-toolbar eg-tooltip-wrap' : ''; //show only in grid editor at skin chooser
-			$cltitle = ($demo == 'skinchoose') ? 'title="'.__('Select Skin', EG_TEXTDOMAIN).'"' :''; //Show Title only at Skin Chooser
-			
-			if($demo == 'skinchoose') {
-				echo '<a href="admin.php?page=essential-grid&view=grid-item-skin-editor&create=' . $this->id . '" class="eg-edit-skin-button eg-overview-button revyellow eg-tooltip-wrap" target="_blank" title="' . __('Edit Skin', EG_TEXTDOMAIN) . '"><i class="eg-icon-tint"></i></a>';
-			}
-			
-            echo '<div '.$cltitle.' class="'.$cl.'" style="display:block !important;width:100%;height:30px;top:0px;left:0px;position:relative;z-index:10;background-color: #3498DB; padding: 0;">'."\n";
+            echo '<div class="'.$cl.'" style="display:block !important;width:100%;height:30px;top:0px;left:0px;position:relative;z-index:10;background-color: #3498DB; padding: 0;">'."\n";
             echo '          <div class="btn-wrap-item-skin-overview-'.$this->id.'">'."\n";
             echo '<div class="eg-item-skin-overview-name">'.$this->name.$showid."</div>\n";
 			
@@ -1174,7 +1226,7 @@ class Essential_Grid_Item_Skin {
 				echo '<a href="javascript:void(0);" title="'.__('Duplicate Skin', EG_TEXTDOMAIN).'" class="eg-ov-3 eg-overview-button eg-btn-duplicate-item-skin revcarrot eg-tooltip-wrap " id="eg-duplicate-'. $this->id .'"><i class="eg-icon-picture"></i></a>';
 				echo '<a href="javascript:void(0);" title="'.__('Delete Skin', EG_TEXTDOMAIN).'" class="eg-ov-4 eg-overview-button eg-btn-delete-item-skin revred eg-tooltip-wrap " id="eg-delete-'. $this->id .'"><i class="eg-icon-trash"></i></a>';
 			}elseif($demo == 'skinchoose'){
-				echo '<div title="'.__('Select Skin', EG_TEXTDOMAIN).'" class="eg-fakeinput"></div>';
+				echo '<a href="admin.php?page=essential-grid&view=grid-item-skin-editor&create=' . $this->id . '" class="eg-edit-skin-button eg-overview-button revyellow eg-tooltip-wrap" target="_blank" title="' . __('Edit Skin', EG_TEXTDOMAIN) . '"><i class="eg-icon-tint"></i></a>';
 				echo '<input class="eg-tooltip-wrap " style="position: absolute; right: 0; top: 0;" type="radio" value="'.$this->id.'" title="'. __('Choose Skin', EG_TEXTDOMAIN).'" name="entry-skin"';
 				if($choosen_skin == '-1')
 					echo ' checked="checked"';
@@ -1187,7 +1239,7 @@ class Essential_Grid_Item_Skin {
             echo '          <div class="clear"></div>'."\n\n";
             echo '       </div>'."\n\n";
         }elseif($demo == 'preview'){
-		
+			$this->post['ID'] = isset($this->post['ID']) ? $this->post['ID'] : "";
 			$is_visible = $grid->check_if_visible($this->post['ID'], $this->grid_id);
 			$vis_icon = ($is_visible) ? 'eg-icon-eye' : 'eg-icon-eye-off';
 			$vis_icon_color = ($is_visible) ? 'revblue' : 'revred';			
@@ -1608,6 +1660,7 @@ class Essential_Grid_Item_Skin {
 											
 										case 'youtube':
 											$http = (is_ssl()) ? 'https' : 'http';
+											$enable_youtube_nocookie = get_option('tp_eg_enable_youtube_nocookie', 'false');
 											$lb_source = $enable_youtube_nocookie!='false' ? $http.'://www.youtube-nocookie.com/embed/'.$this->media_sources[$order] : $lb_source = $http.'://www.youtube.com/watch?v='.$this->media_sources[$order];
 											$lb_addition = ($this->video_ratios['youtube'] == '1') ? '' : ' data-ratio="4:3"';
 											$lb_class = ' esgbox';
@@ -1873,12 +1926,12 @@ class Essential_Grid_Item_Skin {
 		}
 		
         //echo '    <!-- THE CONTAINER FOR THE MEDIA AND THE COVER EFFECTS -->'."\n";
-        echo '    <div class="esg-media-cover-wrapper">'."\n";
+        echo '    <div class="esg-media-cover-wrapper' . $cover_wrapper_overflow . '">'."\n";
         //echo '            <!-- THE MEDIA OF THE ENTRY -->'."\n";
 		if($demo == 'overview' || $demo == 'skinchoose'){
-			echo '            <div class="esg-entry-media'.$media_animation.'"'.$media_animation_delay.'><img src="'.EG_PLUGIN_URL.'admin/assets/images/'.$this->cover_image.'"></div>'."\n\n";
+			echo '            <div class="esg-entry-media'.$media_animation.'"'.$media_animation_delay.$media_animation_duration.$media_blur.$data_transition_media.'><img src="'.EG_PLUGIN_URL.'admin/assets/images/'.$this->cover_image.'"></div>'."\n\n";
 		}else{
-			$echo_media = '<div class="esg-entry-media'.$media_animation.'"'.$media_animation_delay.$data_transition_media.'>'.$echo_media.'</div>'."\n\n";
+			$echo_media = '<div class="esg-entry-media'.$media_animation.'"'.$media_animation_delay.$media_animation_duration.$media_blur.$data_transition_media.'>'.$echo_media.'</div>'."\n\n";
 			//echo media from top here
 			if($link_set_to == 'media' && $link_type_link !== 'none'){ //set link on whole media
 				$echo_media = str_replace('%REPLACE%', $echo_media, $link_wrapper);
@@ -1896,7 +1949,7 @@ class Essential_Grid_Item_Skin {
 				if($link_set_to == 'cover' && $link_type_link !== 'none')
 					$cover_attr = ' data-clickable="on"';
 				
-				echo '            <div class="esg-entry-cover'.$cover_group_animation.'"'.$cover_group_animation_delay.$cover_attr.$data_transition_group.'>'."\n\n";
+				echo '            <div class="esg-entry-cover'.$cover_group_animation.'"'.$cover_group_animation_delay.$cover_group_animation_duration.$cover_attr.$data_transition_group.'>'."\n\n";
 				//echo '                <!-- THE COLORED OVERLAY -->'."\n";
 				
 				if($link_set_to == 'cover' && $link_type_link !== 'none'){
@@ -1909,28 +1962,28 @@ class Essential_Grid_Item_Skin {
 				}
 			}
 			if($cover_type == 'full'){
-				$echo_c = '                <div class="esg-overlay'.$cover_animation_center.$container_class.'"'.$cover_animation_delay_center.$meta_cover_style.$data_transition_center.'></div>'."\n\n";
+				$echo_c = '                <div class="esg-overlay'.$cover_animation_center.$container_class.$cover_blend_mode.'"'.$cover_animation_delay_center.$cover_animation_duration_center.$meta_cover_style.$data_transition_center.$cover_animation_color_center.'></div>'."\n\n";
 				if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 					$echo_c = str_replace('%REPLACE%', $echo_c, $link_wrapper);
 				}
 				echo $echo_c;
 			}else{
 				if($t_layer > 0){
-					$echo_t = '                <div class="esg-overlay esg-top'.$cover_animation_top.$container_class.'"'.$cover_animation_delay_top.$meta_cover_style.$data_transition_top.'></div>'."\n\n";
+					$echo_t = '                <div class="esg-overlay esg-top'.$cover_animation_top.$container_class.$cover_blend_mode.'"'.$cover_animation_delay_top.$cover_animation_duration_top.$meta_cover_style.$data_transition_top.$cover_animation_color_top.'></div>'."\n\n";
 					if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 						$echo_t = str_replace('%REPLACE%', $echo_t, $link_wrapper);
 					}
 					echo $echo_t;
 				}
 				if($c_layer > 0){
-					$echo_c = '                <div class="esg-overlay esg-center'.$cover_animation_center.$container_class.'"'.$cover_animation_delay_center.$meta_cover_style.$data_transition_center.'></div>'."\n\n";
+					$echo_c = '                <div class="esg-overlay esg-center'.$cover_animation_center.$container_class.$cover_blend_mode.'"'.$cover_animation_delay_center.$cover_animation_duration_center.$meta_cover_style.$data_transition_center.$cover_animation_color_center.'></div>'."\n\n";
 					if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 						$echo_c = str_replace('%REPLACE%', $echo_c, $link_wrapper);
 					}
 					echo $echo_c;
 				}
 				if($b_layer > 0){
-					$echo_b = '                <div class="esg-overlay esg-bottom'.$cover_animation_bottom.$container_class.'"'.$cover_animation_delay_bottom.$meta_cover_style.$data_transition_bottom.'></div>'."\n\n";
+					$echo_b = '                <div class="esg-overlay esg-bottom'.$cover_animation_bottom.$container_class.$cover_blend_mode.'"'.$cover_animation_delay_bottom.$cover_animation_duration_bottom.$meta_cover_style.$data_transition_bottom.$cover_animation_color_bottom.'></div>'."\n\n";
 					if($link_set_to == 'cover' && $link_type_link !== 'none' && $link_inserted === false){ //set link on whole cover
 						$echo_b = str_replace('%REPLACE%', $echo_b, $link_wrapper);
 					}
@@ -2053,12 +2106,13 @@ class Essential_Grid_Item_Skin {
 					<div id="esg-add-new-custom-youtube" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0"><i class="eg-icon-youtube-squared"></i></div>
 					<div class="esg-absolute eg-addnewitem-element-3 esg-transition" data-transition="esg-falldownout" data-delay="0.1"><i class="eg-icon-plus"></i></div>
 					<div class="esg-bottom eg-addnewitem-element-2 esg-transition" data-transition="esg-flipup" data-delay="0.1">'. __('CHOOSE YOUR ITEM', EG_TEXTDOMAIN) .'</div>
-					<div id="esg-add-new-custom-vimeo" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-5 esg-transition" data-transition="esg-slideup" data-delay="0.1"><i class="eg-icon-vimeo-squared"></i></div>
+					<div id="esg-add-new-custom-vimeo" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-space esg-transition" data-transition="esg-slideup" data-delay="0.1"><i class="eg-icon-vimeo-squared"></i></div>
 					<div id="esg-add-new-custom-html5" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0.2" style="visibility: hidden"><i class="eg-icon-video"></i></div>
 					<div class="esg-center eg-addnewitem-element-4 esg-none esg-clear" style="height: 5px; visibility: hidden;"></div>
 					<div id="esg-add-new-custom-image" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0.3"><i class="eg-icon-picture-1"></i></div>
 					<div id="esg-add-new-custom-soundcloud" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-5 esg-transition" data-transition="esg-slideup" data-delay="0.4"><i class="eg-icon-soundcloud"></i></div>
-					<div id="esg-add-new-custom-text" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0.5"><i class="eg-icon-font"></i></div>
+					<div id="esg-add-new-custom-text" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 eg-addnewitem-element-6 esg-transition" data-transition="esg-slideup" data-delay="0.5"><i class="eg-icon-font"></i></div>
+					<div id="esg-add-new-custom-blank" class="esg-open-edit-dialog esg-center eg-addnewitem-element-1 esg-transition" data-transition="esg-slideup" data-delay="0.6"><i class="eg-icon-cancel"></i></div>
 				</div>
 			</div>
 		</li>');
@@ -2172,12 +2226,25 @@ class Essential_Grid_Item_Skin {
         
 		if(empty($this->post)) return false; //check if we have already a post
 		
-		$values = get_post_custom($this->post['ID']);
+		$values = isset($this->post['ID']) ? get_post_custom($this->post['ID']) : false;
+		if(!empty($values)) {
 		
-		$eg_settings_custom_meta_skin = isset($values['eg_settings_custom_meta_skin']) ? unserialize($values['eg_settings_custom_meta_skin'][0]) : "";
-		$eg_settings_custom_meta_element = isset($values['eg_settings_custom_meta_element']) ? unserialize($values['eg_settings_custom_meta_element'][0]) : "";
-		$eg_settings_custom_meta_setting = isset($values['eg_settings_custom_meta_setting']) ? unserialize($values['eg_settings_custom_meta_setting'][0]) : "";
-		$eg_settings_custom_meta_style = isset($values['eg_settings_custom_meta_style']) ? unserialize($values['eg_settings_custom_meta_style'][0]) : "";
+			$eg_settings_custom_meta_skin = isset($values['eg_settings_custom_meta_skin']) ? unserialize($values['eg_settings_custom_meta_skin'][0]) : "";
+			$eg_settings_custom_meta_element = isset($values['eg_settings_custom_meta_element']) ? unserialize($values['eg_settings_custom_meta_element'][0]) : "";
+			$eg_settings_custom_meta_setting = isset($values['eg_settings_custom_meta_setting']) ? unserialize($values['eg_settings_custom_meta_setting'][0]) : "";
+			$eg_settings_custom_meta_style = isset($values['eg_settings_custom_meta_style']) ? unserialize($values['eg_settings_custom_meta_style'][0]) : "";
+			
+		}
+		/* 2.2.6 */
+		else {
+		
+			$values = $this->post;
+			$eg_settings_custom_meta_skin = isset($values['eg_settings_custom_meta_skin']) ? $values['eg_settings_custom_meta_skin'] : "";
+			$eg_settings_custom_meta_element = isset($values['eg_settings_custom_meta_element']) ? $values['eg_settings_custom_meta_element'] : "";
+			$eg_settings_custom_meta_setting = isset($values['eg_settings_custom_meta_setting']) ? $values['eg_settings_custom_meta_setting'] : "";
+			$eg_settings_custom_meta_style = isset($values['eg_settings_custom_meta_style']) ? $values['eg_settings_custom_meta_style'] : "";
+		
+		}
 		
 		$eg_meta = array();
 		
@@ -2196,7 +2263,6 @@ class Essential_Grid_Item_Skin {
 		unset($values['eg_settings_custom_meta_style']);
 		
 		$values['eg-meta-style'] = $eg_meta;
-		
 		$this->post_meta = apply_filters('essgrid_set_post_meta_values', $values);
         
     }
@@ -2651,6 +2717,34 @@ class Essential_Grid_Item_Skin {
 						$css .= '	'.$style.': '.stripslashes($value).';'."\n"; // !important;
 					}
 					$css .= '}'."\n";
+					
+					/* 2.2.6 */
+					if(isset($this->media_shadow[$skin_id])) {
+						
+						$cover_duration = $base->getVar($this->params, 'cover-animation-duration-center', 300);
+						if($cover_duration === 'default') $cover_duration = 300;
+						
+						$cover_delay = $base->getVar($this->params, 'cover-animation-delay-center', '0');
+						$cover_duration = intval($cover_duration) * 0.001;
+						$cover_delay = floatval($cover_delay);
+						
+						if(!$cover_delay) {
+							$cover_delay = '';
+						}
+						else {
+							$cover_delay = $cover_delay * 0.01;
+							$cover_delay = (string)$cover_delay . 's';
+						}
+							
+						$css .= '.eg-'.esc_attr($handle).'-wrapper .esg-entry-media-wrapper {'."\n";
+						$css .= '	transition: box-shadow ' . $cover_duration . 's ease-out ' . $cover_delay . ';';
+						$css .= '}'."\n";
+						$css .= '.eg-'.esc_attr($handle).'-wrapper.esg-hovered .esg-entry-media-wrapper {'."\n";
+						$css .= '	box-shadow: ' . $this->media_shadow[$skin_id] . ';'."\n";
+						$css .= '}'."\n";
+					
+					}
+					
 					echo $base->compress_css($css);
 					echo '</style>'."\n";
 				}
@@ -2671,6 +2765,34 @@ class Essential_Grid_Item_Skin {
 						$css .= '	'.$style.': '.stripslashes($value).';'."\n"; // !important;
 					}
 					$css .= '}'."\n";
+					
+					/* 2.2.6 */
+					if(isset($this->cover_shadow[$skin_id])) {
+						
+						$cover_duration = $base->getVar($this->params, 'cover-animation-duration-center', 300);
+						if($cover_duration === 'default') $cover_duration = 300;
+						
+						$cover_delay = $base->getVar($this->params, 'cover-animation-delay-center', '0');
+						$cover_duration = intval($cover_duration) * 0.001;
+						$cover_delay = floatval($cover_delay);
+						
+						if(!$cover_delay) {
+							$cover_delay = '';
+						}
+						else {
+							$cover_delay = $cover_delay * 0.01;
+							$cover_delay = (string)$cover_delay . 's';
+						}
+							
+						$css .= '.eg-'.esc_attr($handle).'-container {'."\n";
+						$css .= '	transition: box-shadow ' . $cover_duration . 's ease-out ' . $cover_delay . ';';
+						$css .= '}'."\n";
+						$css .= '.esg-hovered .eg-'.esc_attr($handle).'-container {'."\n";
+						$css .= '	box-shadow: ' . $this->cover_shadow[$skin_id] . ';'."\n";
+						$css .= '}'."\n";
+					
+					}
+					
 					echo $base->compress_css($css);
 					echo '</style>'."\n";
 				}
@@ -2691,6 +2813,34 @@ class Essential_Grid_Item_Skin {
 						$css .= '	'.$style.': '.stripslashes($value).';'."\n"; // !important
 					}
 					$css .= '}'."\n";
+					
+					/* 2.2.6 */
+					if(isset($this->content_shadow[$skin_id])) {
+						
+						$cover_duration = $base->getVar($this->params, 'cover-animation-duration-center', 300);
+						if($cover_duration === 'default') $cover_duration = 300;
+						
+						$cover_delay = $base->getVar($this->params, 'cover-animation-delay-center', '0');
+						$cover_duration = intval($cover_duration) * 0.001;
+						$cover_delay = floatval($cover_delay);
+						
+						if(!$cover_delay) {
+							$cover_delay = '';
+						}
+						else {
+							$cover_delay = $cover_delay * 0.01;
+							$cover_delay = (string)$cover_delay . 's';
+						}
+							
+						$css .= '.eg-'.esc_attr($handle).'-content {'."\n";
+						$css .= '	transition: box-shadow ' . $cover_duration . 's ease-out ' . $cover_delay . ';';
+						$css .= '}'."\n";
+						$css .= '.esg-hovered .eg-'.esc_attr($handle).'-content{'."\n";
+						$css .= '	box-shadow: ' . $this->content_shadow[$skin_id] . ';'."\n";
+						$css .= '}'."\n";
+					
+					}
+					
 					echo $base->compress_css($css);
 					echo '</style>'."\n";
 				}
@@ -2714,6 +2864,34 @@ class Essential_Grid_Item_Skin {
 						}
 					}
 					$css .= '}'."\n";
+					
+					/* 2.2.6 */
+					if(isset($this->wrapper_shadow[$skin_id])) {
+						
+						$cover_duration = $base->getVar($this->params, 'cover-animation-duration-center', 300);
+						if($cover_duration === 'default') $cover_duration = 300;
+						
+						$cover_delay = $base->getVar($this->params, 'cover-animation-delay-center', '0');
+						$cover_duration = intval($cover_duration) * 0.001;
+						$cover_delay = floatval($cover_delay);
+						
+						if(!$cover_delay) {
+							$cover_delay = '';
+						}
+						else {
+							$cover_delay = $cover_delay * 0.01;
+							$cover_delay = (string)$cover_delay . 's';
+						}
+							
+						$css .= '.eg-'.esc_attr($handle).'-wrapper {'."\n";
+						$css .= '	transition: box-shadow ' . $cover_duration . 's ease-out ' . $cover_delay . ';';
+						$css .= '}'."\n";
+						$css .= '.eg-'.esc_attr($handle).'-wrapper.esg-hovered {'."\n";
+						$css .= '	box-shadow: ' . $this->wrapper_shadow[$skin_id] . ' !important;'."\n";
+						$css .= '}'."\n";
+					
+					}
+					
 					echo $base->compress_css($css);
 					echo '</style>'."\n";
 				}
@@ -2748,16 +2926,15 @@ class Essential_Grid_Item_Skin {
     }
 	
 	
-	public function output_element_css_by_meta($id = false){
+	public function output_element_css_by_meta($id = false, $grid_preview = false){
+		
 		$base = new Essential_Grid_Base();
 		
 		$disallowed = array('transition', 'transition-delay');
 		
 		$allowed_wrap_styles = Essential_Grid_Item_Element::get_allowed_styles_for_wrap();
 		
-		$post_Class = ($id === false) ? '' : $id;
-		
-		$p_class = '.eg-post-'.$post_Class;
+		$p_class = ($id === false) ? '' : '.eg-post-' . $id;
 		
 		if(!empty($this->layers_meta_css['idle'])){
 			echo '<style type="text/css">';
@@ -2771,6 +2948,10 @@ class Essential_Grid_Item_Skin {
 				$d_i = $this->layers_css[$this->id]['settings'][$class]['important']; //add important or not
 				
                 if(!empty($settings)){
+					
+					// 2.2.6
+					if(!empty($grid_preview) && !empty($this->grid_id)) $css .= '[id^="esg-grid-' . $this->grid_id . '"] ';
+					
                     $css .= '.'.$class.$p_class.' {'."\n";
                     foreach($settings as $style => $value){
 						if(!in_array($style, $forbidden) && !in_array($style, $disallowed))
@@ -2943,7 +3124,10 @@ class Essential_Grid_Item_Skin {
 		$this->wrapper_css[$this->id]['background'] = $fullBgColor;
 		$this->wrapper_css[$this->id]['padding'] = implode('px ', $base->getVar($this->params, 'full-padding', array('0'))).'px';
 		$this->wrapper_css[$this->id]['border-width'] = implode('px ', $base->getVar($this->params, 'full-border', array('0'))).'px';
-		$this->wrapper_css[$this->id]['border-radius'] = implode('px ', $base->getVar($this->params, 'full-border-radius', array('0'))).'px';
+		
+		$border_type = $base->getVar($this->params, 'full-border-radius-type', 'px');
+		$this->wrapper_css[$this->id]['border-radius'] = implode($border_type . ' ', $base->getVar($this->params, 'full-border-radius', array('0'))) . $border_type;
+		
 		$this->wrapper_css[$this->id]['border-color'] = $base->getVar($this->params, 'full-border-color', '#FFF');
 		$this->wrapper_css[$this->id]['border-style'] = $base->getVar($this->params, 'full-border-style', 'none');
 		$overflow = $base->getVar($this->params, 'full-overflow-hidden', 'false');
@@ -2956,7 +3140,10 @@ class Essential_Grid_Item_Skin {
 		$this->content_css[$this->id]['background'] = $contentBgColor;
 		$this->content_css[$this->id]['padding'] = implode('px ', $base->getVar($this->params, 'content-padding', array('0'))).'px';
 		$this->content_css[$this->id]['border-width'] = implode('px ', $base->getVar($this->params, 'content-border', array('0'))).'px';
-		$this->content_css[$this->id]['border-radius'] = implode('px ', $base->getVar($this->params, 'content-border-radius', array('0'))).'px';
+		
+		$border_type = $base->getVar($this->params, 'content-border-radius-type', 'px');
+		$this->content_css[$this->id]['border-radius'] = implode($border_type . ' ', $base->getVar($this->params, 'content-border-radius', array('0'))) . $border_type;
+		
 		$this->content_css[$this->id]['border-color'] = $base->getVar($this->params, 'content-border-color', '#FFF');
 		$this->content_css[$this->id]['border-style'] = $base->getVar($this->params, 'content-border-style', 'none');
 		$this->content_css[$this->id]['text-align'] = $base->getVar($this->params, 'content-align', 'left');
@@ -2969,18 +3156,63 @@ class Essential_Grid_Item_Skin {
 		// $shadow_alpha = $base->getVar($this->params, 'content-shadow-alpha', '100');
 		// $shadow_rgba = Essential_Grid_Base::hex2rgba($shadow_color, $shadow_alpha);
 		
+		/* 2.2.6 */
+		$shadow_anim = $base->getVar($this->params, 'content-box-shadow-hover', 'false') == 'true';
+		$inset = $base->getVar($this->params, 'content-box-shadow-inset', 'false') == 'true' ? 'inset ' : '';
+		
 		if($shadow_place == 'media'){
-			$this->media_css[$this->id]['box-shadow'] = $shadow_values.' '.$shadow_rgba;
-			$this->media_css[$this->id]['-moz-box-shadow'] = $shadow_values.' '.$shadow_rgba;
-			$this->media_css[$this->id]['-webkit-box-shadow'] = $shadow_values.' '.$shadow_rgba;
-		}elseif($shadow_place == 'content'){
-			$this->content_css[$this->id]['box-shadow'] = $shadow_values.' '.$shadow_rgba;
-			$this->content_css[$this->id]['-moz-box-shadow'] = $shadow_values.' '.$shadow_rgba;
-			$this->content_css[$this->id]['-webkit-box-shadow'] = $shadow_values.' '.$shadow_rgba;
-		}elseif($shadow_place == 'both'){
-			$this->wrapper_css[$this->id]['box-shadow'] = $shadow_values.' '.$shadow_rgba;
-			$this->wrapper_css[$this->id]['-moz-box-shadow'] = $shadow_values.' '.$shadow_rgba;
-			$this->wrapper_css[$this->id]['-webkit-box-shadow'] = $shadow_values.' '.$shadow_rgba;
+			
+			if(!$shadow_anim) {
+				$this->media_css[$this->id]['box-shadow'] = $inset . $shadow_values.' '.$shadow_rgba;
+			}
+			else {
+				$this->media_css[$this->id]['box-shadow'] = 'none';
+				$this->media_shadow[$this->id] = $inset . $shadow_values.' '.$shadow_rgba;
+			}
+			
+		}
+		else if($shadow_place == 'content'){
+			
+			if(!$shadow_anim) {
+				$this->content_css[$this->id]['box-shadow'] = $inset . $shadow_values.' '.$shadow_rgba;
+			}
+			else {
+				$this->content_css[$this->id]['box-shadow'] = 'none';
+				$this->content_shadow[$this->id] = $inset . $shadow_values.' '.$shadow_rgba;
+			}
+			
+		}
+		else if($shadow_place == 'both'){
+			
+			if(!$shadow_anim) {
+				$this->wrapper_css[$this->id]['box-shadow'] = $inset . $shadow_values.' '.$shadow_rgba;
+			}
+			else {
+				$this->wrapper_css[$this->id]['box-shadow'] = 'none';
+				$this->wrapper_shadow[$this->id] = $inset . $shadow_values.' '.$shadow_rgba;
+			}
+			
+		}
+		else if($shadow_place == 'cover'){
+			
+			/* 2.2.6 */
+			$cover_direction = $base->getVar($this->params, 'cover-animation-center-type', '');
+			$cover_type = $base->getVar($this->params, 'cover-type', 'full');
+			
+			if($cover_type === 'content') $shadow_anim = false;
+			if(!$shadow_anim || $cover_direction === 'out') {
+				$this->cover_css[$this->id]['box-shadow'] = 'inset '.$shadow_values.' '.$shadow_rgba;
+			}
+			if($shadow_anim) {
+				if($cover_direction !== 'out') {
+					$this->cover_css[$this->id]['box-shadow'] = 'none';
+					$this->cover_shadow[$this->id] = 'inset '.$shadow_values.' '.$shadow_rgba;
+				}
+				else {
+					$this->cover_shadow[$this->id] = 'none';
+				}
+			}
+			
 		}
 		
 	}
@@ -2991,6 +3223,7 @@ class Essential_Grid_Item_Skin {
 	 * @since: 2.0
      */
 	public function register_layer_css($layer = false, $demo = false){
+		
 		$base = new Essential_Grid_Base();
 		if($layer === false){
 			if(!empty($this->layers)){
@@ -3132,6 +3365,21 @@ class Essential_Grid_Item_Skin {
 							break;
 						}
 					}
+				}
+				
+				// 2.2.6
+				$min_height = $base->getVar($layer['settings'], 'min-height', '0');
+				$max_height = $base->getVar($layer['settings'], 'max-height', 'none');
+				
+				if($min_height != '0' || $max_height !== 'none') {
+					
+					$span = '<span style="display: block;';
+					
+					if($min_height != '0') $span .= 'min-height: ' . $min_height . 'px;';
+					if($max_height != 'none') $span .= 'max-height: ' . $max_height . 'px';
+					
+					$text = $span . '">' . $text . '</span>';
+					
 				}
 				
 			}
@@ -3888,6 +4136,7 @@ class Essential_Grid_Item_Skin {
 		}
 		
 		$delay = '';
+		$duration = '';
 		$transition_split = '';
 		
 		if($masonry){
@@ -3907,6 +4156,7 @@ class Essential_Grid_Item_Skin {
 				//$transition_split = '';
 			}else{
 				$delay = ' data-delay="'.round($base->getVar($layer['settings'], 'delay', 0) / 100, 2).'"';
+				$duration = ' data-duration="'.$base->getVar($layer['settings'], 'duration', 'default').'"';
 				
 				if(isset($layer['id'])) $meta_tran_delay = $this->get_meta_element_change($layer['id'], 'transition-delay'); //check if we have meta transition-delay set
 				else $meta_tran_delay = false;
@@ -3918,7 +4168,7 @@ class Essential_Grid_Item_Skin {
 			// 2.2.5
 			if($transition) {
 				
-				$data_transition_transition = ' data-transition="' . $transition . '"';
+				$data_transition_transition = ' data-transition="' . trim($transition) . '"';
 				$transition = ' esg-transition';
 				
 			}
@@ -4084,6 +4334,27 @@ class Essential_Grid_Item_Skin {
 				}
 			}
 			
+			// 2.2.6
+			$min_height = $base->getVar($layer['settings'], 'min-height', '0');
+			$max_height = $base->getVar($layer['settings'], 'max-height', 'none');
+			
+			if($min_height != '0' || $max_height !== 'none') {
+				
+				$span = '<span style="display: block;';
+				
+				if($min_height != '0') {
+					$min_height = intval($min_height);
+					$span .= 'min-height: ' . $min_height . 'px;';
+				}
+				if($max_height != 'none') {
+					$max_height = intval($max_height);
+					$span .= 'overflow: hidden; height: ' . $max_height . 'px; max-height: ' . $max_height . 'px';
+				}
+				
+				$text = $span . '">' . $text . '</span>';
+				
+			}
+			
 		}
 		
 		$link_to = $base->getVar($layer['settings'], 'link-type', 'none');
@@ -4241,6 +4512,7 @@ class Essential_Grid_Item_Skin {
 									break;
 									case 'youtube':
 										$http = (is_ssl()) ? 'https' : 'http';
+										$enable_youtube_nocookie = get_option('tp_eg_enable_youtube_nocookie', 'false');
 										$lb_source = $enable_youtube_nocookie!='false' ? $http.'://www.youtube-nocookie.com/embed/'.$this->media_sources[$order] : $lb_source = $http.'://www.youtube.com/watch?v='.$this->media_sources[$order];
 										
 										$lb_class = ' esgbox';
@@ -4711,7 +4983,12 @@ class Essential_Grid_Item_Skin {
 		//check for special styling coming from post option and set css to the queue
 		if(isset($layer['id'])) $this->set_meta_element_changes($layer['id'], $unique_class);
 		
-		$post_class = (!isset($post['ID'])) ? '' : ' eg-post-'.$post['ID'];
+		if($is_post) {
+			$post_class = (!isset($post['ID'])) ? '' : ' eg-post-'.$post['ID'];
+		}
+		else {
+			$post_class = isset($this->post['post_id']) && !empty($this->post['post_id']) ? ' eg-post-'.$this->post['post_id'] : '';
+		}
 		
 		if($base->text_has_certain_tag($text, 'a') && !$do_ignore_styles){ //check if a tag exists, if yes, class will be set to a tags and not the wrapping div, also the div will receive the position and other stylings // && @$layer['settings']['source'] !== 'text'
 			if($is_woo_cats && strpos($text, 'class="') !== false || $is_woo_button || $is_filter_cat && strpos($text, 'class="') !== false){ //add to the classes instead of creating own class attribute if it is woocommerce cats AND a class can be found
@@ -4748,7 +5025,7 @@ class Essential_Grid_Item_Skin {
 		}elseif(trim($text) !== ''){ //}elseif(!empty($text)){
 			
 			$use_tag = $base->getVar($layer['settings'], 'tag-type', 'div');
-			echo '				<'.$use_tag.' class="esg-'.$class.$post_class.$video_play.$ajax_class.' '.$hideunderClass.$unique_class.$transition.'"'.$ajax_attr.$transition_split.$delay.$hideunderHTML;
+			echo '				<'.$use_tag.' class="esg-'.$class.$post_class.$video_play.$ajax_class.' '.$hideunderClass.$unique_class.$transition.'"'.$ajax_attr.$transition_split.$delay.$duration.$hideunderHTML;
 			echo ($demo == 'custom') ? $demo_element_type : '';
 			echo $data_transition_transition . '>';
 			

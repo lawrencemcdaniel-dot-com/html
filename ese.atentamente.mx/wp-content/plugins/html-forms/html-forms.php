@@ -3,7 +3,7 @@
 Plugin Name: HTML Forms
 Plugin URI: https://www.htmlforms.io/#utm_source=wp-plugin&utm_medium=html-forms&utm_campaign=plugins-page
 Description: Not just another forms plugin. Simple and flexible.
-Version: 1.3.2
+Version: 1.3.3
 Author: ibericode
 Author URI: https://ibericode.com/
 License: GPL v3
@@ -76,7 +76,7 @@ function _install() {
 
 }
 
-define( 'HTML_FORMS_VERSION', '1.3.2' );
+define( 'HTML_FORMS_VERSION', '1.3.3' );
 
 if( ! function_exists( 'hf_get_form' ) ) {
     require __DIR__ . '/vendor/autoload.php';
@@ -84,3 +84,4 @@ if( ! function_exists( 'hf_get_form' ) ) {
 
 register_activation_hook( __FILE__, 'HTML_Forms\\_install');
 add_action( 'plugins_loaded', 'HTML_Forms\\_bootstrap', 10 );
+

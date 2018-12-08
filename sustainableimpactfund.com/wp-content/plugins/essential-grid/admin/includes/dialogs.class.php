@@ -638,20 +638,20 @@ class Essential_Grid_Dialogs {
 						</select>
 					</div>
 				</div>
-				<div>
+				<div id="eg-custom-item-options">
 					
 					<?php
 					
-					echo '<div class="eg-elset-title" data-collapse="esg-item-skin-elements-settings">';	
+					echo '<div class="eg-elset-title for-blank" data-collapse="esg-item-skin-elements-settings">';	
 					_e('Item Settings', EG_TEXTDOMAIN);
 					echo '<i class="eg-icon-up-dir"></i>';
 					echo '</div>';
-					echo '<div id="esg-item-skin-elements-settings">';
+					echo '<div id="esg-item-skin-elements-settings" class="for-blank">';
 					echo '<div class="eg-elset-row"><div class="eg-elset-label"  for="post-link">'.__('Link To:', EG_TEXTDOMAIN).':</div><input name="post-link" value="" /></div>';
 					
-					echo '<div class="eg-elset-row"><div class="eg-elset-label"  for="custom-filter">'.__('Filter(s) (comma seperated)', EG_TEXTDOMAIN).':</div><input name="custom-filter" value="" /></div>';
+					echo '<div id="eg-custom-for-blank-wrap" class="eg-elset-row"><div class="eg-elset-label"  for="custom-filter">'.__('Filter(s) (comma seperated)', EG_TEXTDOMAIN).':</div><input name="custom-filter" value="" /></div>';
 					?>
-					<div class="eg-elset-row">
+					<div class="eg-elset-row for-blank">
 						<div class="eg-elset-label" for="cobbles">
 							<?php _e('Cobbles Element Size:', EG_TEXTDOMAIN); ?>
 						</div>
@@ -685,6 +685,15 @@ class Essential_Grid_Dialogs {
 							?>
 						</select>
 					</div>
+					
+					<div class="eg-elset-row" style="margin-bottom: 5px">
+						<div class="eg-elset-label">
+							<?php _e('Item Skin Modifications:', EG_TEXTDOMAIN); ?>
+						</div>
+						<a class="button-primary revblue eg-add-custom-meta-field" href="javascript:void(0);" id="eg-add-custom-meta-field-custom"><?php _e('Add New Custom Skin Rule', EG_TEXTDOMAIN); ?></a>
+						<div class="eg-advanced-param" id="eg-advanced-param-custom" style="margin: 20px 0"></div>
+					</div>
+					
 					</div>
 					<?php 
 					
@@ -826,14 +835,17 @@ class Essential_Grid_Dialogs {
 							</div>
 							<?php
 						}
-					}else{
-						_e('No metas available yet. Add some through the Custom Meta menu of Essential Grid.', EG_TEXTDOMAIN);
+					}
+					/*
+					else{
+						_e('<span class="esg-blank-hide-meta-notice">No metas available yet. Add some through the Custom Meta menu of Essential Grid.</span>', EG_TEXTDOMAIN);
 						?><div style="clear:both; height:20px"></div><?php 			
 					}
+					*/
 					
 					echo '</div>';
 					
-					echo '<div class="eg-elset-title collapse" data-collapse="esg-item-skin-elements-other">';	
+					echo '<div class="eg-elset-title collapse esg-blank-hideable" data-collapse="esg-item-skin-elements-other">';	
 					_e('Other', EG_TEXTDOMAIN);
 					echo '<i class="eg-icon-down-dir"></i>';
 					echo '</div>';
@@ -889,6 +901,39 @@ class Essential_Grid_Dialogs {
 				?>
 			</form>
 			<script type="text/javascript">
+				
+				<?php 
+				
+					$advanced = array();
+					$base = new Essential_Grid_Base();
+					$item_skin = new Essential_Grid_Item_Skin();
+					$item_elements = new Essential_Grid_Item_Element();
+					$eg_skins = $item_skin->get_essential_item_skins();
+
+					foreach($eg_skins as $skin){
+						if(!empty($skin['layers'])){
+							$advanced[$skin['id']]['name'] = $skin['name'];
+							$advanced[$skin['id']]['handle'] = $skin['handle'];
+							foreach($skin['layers'] as $layer){
+								if(empty($layer)) continue; //some layers may be NULL...
+								
+								//check if special, ignore special elements
+								$settings = $layer['settings'];
+								if(!empty($settings) && isset($settings['special']) && $settings['special'] == 'true') continue;
+								
+								/* 2.1.6 */
+								if(isset($layer['id'])) $advanced[$skin['id']]['layers'][] = $layer['id'];
+							}
+						}
+					}
+					
+					$eg_elements = $item_elements->get_allowed_meta();
+					
+				?>
+				
+				AdminEssentials.setInitSkinsJson(<?php echo $base->jsonEncodeForClientSide($advanced); ?>);
+				AdminEssentials.setInitStylingJson(<?php echo $base->jsonEncodeForClientSide($eg_elements); ?>);
+			
 				jQuery('.eg-image-add').click(function(e) {
 					e.preventDefault();
 					AdminEssentials.upload_image_img(jQuery(this).data('setto'));

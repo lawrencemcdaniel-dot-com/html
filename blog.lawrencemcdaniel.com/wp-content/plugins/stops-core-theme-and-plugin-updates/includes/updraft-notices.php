@@ -90,6 +90,11 @@ abstract class Updraft_Notices_1_0 {
 	 */
 	public function do_notice($notice = false, $position = 'top', $return_instead_of_echo = false) {
 
+		$enable_notices = get_site_option('easy_updates_manager_enable_notices', 'on');
+		if ('off' === $enable_notices) {
+			return '';
+		}
+
 		$this->notices_init();
 	
 		if (false === $notice) $notice = apply_filters('updraft_notices_force_id', false, $this);

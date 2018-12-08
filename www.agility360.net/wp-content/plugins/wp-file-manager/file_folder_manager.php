@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/wp-file-manager
   Description: Manage your WP files.
   Author: mndpsingh287
-  Version: 3.2
+  Version: 3.7
   Author URI: https://profiles.wordpress.org/mndpsingh287
   License: GPLv2
 **/
@@ -29,6 +29,11 @@ if(!class_exists('mk_file_folder_manager')):
 			 */
 			 add_action( 'wp_ajax_mk_filemanager_verify_email', array(&$this, 'mk_filemanager_verify_email_callback'));
 			 add_action( 'wp_ajax_verify_filemanager_email', array(&$this, 'verify_filemanager_email_callback') );
+			 // php syntax
+			 add_action( 'wp_ajax_mk_check_filemanager_php_syntax', array(&$this, 'mk_check_filemanager_php_syntax_callback'));
+			 add_action( 'wp_ajax_nopriv_mk_check_filemanager_php_syntax', array(&$this, 'mk_check_filemanager_php_syntax_callback') );
+			 add_action('admin_init', array(&$this, 'remove_fm_temp_file'));
+
 		}
 		
    		/* Verify Email*/
@@ -218,13 +223,6 @@ if(!class_exists('mk_file_folder_manager')):
 			 include('inc/system_properties.php');
 			endif;
 		}
-		/* Contribute */
-		public function wp_file_manager_contribute()
-		{
-			if(is_admin()):		  
-			 include('inc/contribute.php');
-			endif;
-		}
 		/*
 		 Root
 		*/
@@ -331,7 +329,7 @@ if(!class_exists('mk_file_folder_manager')):
 							'uploadOrder'   => array('deny', 'allow'),      // allowed Mimetype `image` and `text/plain` only
 							'accessControl' => 'access',                     // disable and hide dot starting files (OPTIONAL)
 							'acceptedName' => 'validName',
-							'disabled' => array('help'),
+							'disabled' => array('help','preference'),
 							'attributes' => $mk_restrictions
 						)
 					)
@@ -465,6 +463,38 @@ if(!class_exists('mk_file_folder_manager')):
 		echo '<script>';
 		 echo 'window.location.href="'.$url.'"';
 		echo '</script>' ;
+	  }
+	  /* Remove Fm Temp File */
+	  public function remove_fm_temp_file() {
+		 $upload_dir   = wp_upload_dir(); 
+		 $fm_temp = $upload_dir['basedir'].'/fm_temp.php'; 
+		 if(file_exists($fm_temp)) {
+			unlink($fm_temp); 
+		 }
+	  }
+	  /* Check php Syntax Errors */ 
+	  public function mk_check_filemanager_php_syntax_callback() {
+		 $filename = isset($_POST['filename']) ? sanitize_file_name($_POST['filename']) : '';
+		 $fileMime = isset($_POST['filemime']) ? sanitize_mime_type($_POST['filemime']) : '';
+		 $code = stripslashes($_POST['code']);
+		 if(is_user_logged_in() && $fileMime == 'text/x-php') {
+				    $current_user = wp_get_current_user();
+					$upload_dir   = wp_upload_dir(); 
+					if ( isset( $current_user->user_login ) && ! empty( $upload_dir['basedir'] ) ) {
+						$fm_temp = $upload_dir['basedir'].'/fm_temp.php';
+						$handle = fopen($fm_temp, 'w');
+						fwrite($handle, $code);
+						$check = shell_exec('php -l '.$fm_temp);
+						if(strpos($check, 'No syntax errors') === false) {
+						    echo str_replace($fm_temp, "<strong>".$filename."</strong>", $check);							
+						} else {
+							echo '1';											
+						}						
+					}
+			  } else {
+				  echo '1';
+			  }
+		 die;		  
 	  }
 
 	}

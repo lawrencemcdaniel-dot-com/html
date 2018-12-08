@@ -74,6 +74,53 @@ class Essential_Grid_Import {
 					$skin = $item_skin->get_id_by_handle($check['entry-skin']);
 					if(!empty($skin)){
 						$check['entry-skin'] = $skin['id'];
+						
+						// 2.3
+						// convert all skin modifications to the current skin ID
+						// ... and also convert blank skin item IDs
+						if(isset($i_grid['layers']) && !empty($i_grid['layers'])) {
+						
+							$mods = json_decode($i_grid['layers'], true);
+							$blankSkinId = false;
+							
+							foreach($mods as $key => $val) {
+								
+								// convert skin modifications
+								$mod = json_decode($mods[$key], true);
+								if(isset($mod['eg_settings_custom_meta_skin']) && !empty($mod['eg_settings_custom_meta_skin'])) {
+									
+									$skin_mods = $mod['eg_settings_custom_meta_skin'];
+									$mod_ids = array();
+									foreach($skin_mods as $i) {
+										$mod_ids[] = $skin['id'];
+									}
+									$mod['eg_settings_custom_meta_skin'] = $mod_ids;
+									
+								}
+								
+								// convert blank skin IDs
+								if(isset($mod['custom-type']) && !empty($mod['custom-type'])) {
+									
+									$alternateSkin = $mod['custom-type'];
+									if($alternateSkin === 'blank') {
+										
+										// only get the ID once and store it outside the loop
+										if(empty($blankSkinId)) {
+											$blankSkin = $item_skin->get_id_by_handle('esgblankskin');
+											if(!empty($blankSkin) && isset($blankSkin['id'])) $blankSkinId = $blankSkin['id'];
+										}
+										if(!empty($blankSkinId)) $mod['use-skin'] = $blankSkinId;
+										
+									}
+									
+								}
+								
+								$mods[$key] = json_encode($mod);
+							}
+							$i_grid['layers'] = json_encode($mods);
+							
+						}
+						
 					}
 					$i_grid['params'] = json_encode($check);
 				}
@@ -500,7 +547,7 @@ class Essential_Grid_Import {
 	
 	
 	public function import_global_styles($import_global_styles, $check_append = true){
-		$d = apply_filters('essgrid_import_global_styles', array('import_global_styles' => $import_global_styles, 'import_handles' => $import_handles, 'check_append' => $check_append));
+		$d = apply_filters('essgrid_import_global_styles', array('import_global_styles' => $import_global_styles, 'import_handles' => true, 'check_append' => $check_append));
 		$import_global_styles = $d['import_global_styles'];
 		$check_append = $d['check_append'];
 		

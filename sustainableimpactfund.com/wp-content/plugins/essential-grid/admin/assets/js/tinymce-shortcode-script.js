@@ -1,4 +1,5 @@
 //(function() {
+
 	if(typeof(eg_lang) == 'undefined'){
 		eg_lang = {};
 		
@@ -12,6 +13,7 @@
 	}
 
 	if(typeof(tinymce) !== 'undefined'){
+
 		tinymce.PluginManager.add('essgrid_sc_button', function( editor, url ) {
 			editor.addButton('essgrid_sc_button', {
 				title: eg_lang.essential_grid_shortcode_creator,
@@ -170,6 +172,7 @@
 		}
 		
 		content += '][/ess_grid]';
+
 		
 		if(!ess_grid_is_vc){
 			
@@ -363,6 +366,7 @@
 	
 	jQuery('body').on('click', '#eg-create-relatedpost-grid', function(){
 		esg_create_by_predefined = 'related';
+		console.log("jo");
 		jQuery('#eg-goto-step-2').click();
 	});
 	
@@ -426,6 +430,24 @@
 		jQuery('#eg-custom-elements-wrap').sortable({
 			containment: '#eg-custom-elements-wrap'
 		});
+
+		//Gutenberg addition
+		if( jQuery('body').hasClass('gutenberg-editor-page') ){
+			jQuery('body').on('change', 'select[name="ess-grid-existing-grid"]', function(){
+				$selected = jQuery('select[name="ess-grid-existing-grid"] option:selected');
+				selected_val = $selected.val();
+				selected_val = '[ess_grid alias="'+selected_val+'"][/ess_grid]';
+				selected_title = $selected.text();
+				grid_slug = jQuery('.grid_slug');
+				grid_slug.val(selected_val);
+				window.essgrid_react.state.text = selected_val; 
+				window.essgrid_react.props.attributes.text = selected_val;
+				window.essgrid_react.state.gridTitle = selected_title;
+				window.essgrid_react.props.attributes.gridTitle = selected_title;
+				window.essgrid_react.forceUpdate();
+				jQuery('#ess-grid-tiny-mce-dialog').dialog('close');
+			});
+		}
 	});
 	
 	jQuery('body').on('change', 'select[name="ess-grid-tiny-entry-skin"]', function(){

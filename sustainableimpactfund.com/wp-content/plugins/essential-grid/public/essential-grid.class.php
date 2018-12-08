@@ -20,7 +20,7 @@ class Essential_Grid {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	const VERSION = '2.2.5';
+	const VERSION = '2.3';
 	const TABLE_GRID = 'eg_grids';
 	const TABLE_ITEM_SKIN = 'eg_item_skins';
 	const TABLE_ITEM_ELEMENTS = 'eg_item_elements';
@@ -75,7 +75,7 @@ class Essential_Grid {
 			// Load plugin text domain
 			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 			
-			$add_cpt = apply_filters('essgrid_set_cpt', get_option('tp_eg_enable_custom_post_type', 'true'));
+			$add_cpt = apply_filters('essgrid_set_cpt', get_option('tp_eg_enable_custom_post_type', 'false'));
 			
 			if($add_cpt == 'true' || $add_cpt === true)
 				add_action( 'init', array( $this, 'register_custom_post_type' ) );
@@ -535,12 +535,14 @@ class Essential_Grid {
 						}
 						
 						if($id == 1){
+							$filterall_visible = $grid->get_param_by_handle('filter-all-visible');
 							$all_text = $grid->get_param_by_handle('filter-all-text');
 							$listing_type = $grid->get_param_by_handle('filter-listing', 'list');
 							$listing_text = $grid->get_param_by_handle('filter-dropdown-text');
 							$show_count = $grid->get_param_by_handle('filter-counter', 'off');
 							$selected = $grid->get_param_by_handle('filter-selected', array());
 						}else{
+							$filterall_visible = $grid->get_param_by_handle('filter-all-visible-'.$id);
 							$all_text = $grid->get_param_by_handle('filter-all-text-'.$id);
 							$listing_type = $grid->get_param_by_handle('filter-listing-'.$id, 'list');
 							$listing_text = $grid->get_param_by_handle('filter-dropdown-text-'.$id);
@@ -601,6 +603,7 @@ class Essential_Grid {
 						
 						$navigation_c->set_filter_settings('filter', $filters_arr);
 						$navigation_c->set_filter_text($all_text);
+						$navigation_c->set_filterall_visible($filterall_visible);
 						$navigation_c->set_dropdown_text($listing_text);
 						$navigation_c->set_show_count($show_count);
 						$navigation_c->set_filter_type($filter_allow);
@@ -737,14 +740,14 @@ class Essential_Grid {
 		
 		$taxArgs = array();
 		$taxArgs["hierarchical"] = true;
-		$taxArgs["label"] = __("Custom Categories", EG_TEXTDOMAIN);
-		$taxArgs["singular_label"] = __("Custom Categorie", EG_TEXTDOMAIN);
+		$taxArgs["label"] = __("Categories", EG_TEXTDOMAIN);
+		$taxArgs["singular_label"] = __("Category", EG_TEXTDOMAIN);
 		$taxArgs["rewrite"] = true;
 		$taxArgs["public"] = true;
 		$taxArgs["show_admin_column"] = true;
 		
 		$postArgs = array();
-		$postArgs["label"] = __("Ess. Grid Example Posts", EG_TEXTDOMAIN);
+		$postArgs["label"] = __("Ess. Grid Posts", EG_TEXTDOMAIN);
 		$postArgs["singular_label"] = __("Ess. Grid Post", EG_TEXTDOMAIN);
 		$postArgs["public"] = true;
 		$postArgs["capability_type"] = "post";
@@ -2241,6 +2244,7 @@ class Essential_Grid {
 		$hover_animation = $base->getVar($this->grid_params, 'hover-animation', 'fade');
 		$filter_allow = $base->getVar($this->grid_params, 'filter-arrows', 'single');
 		$filter_start = $base->getVar($this->grid_params, 'filter-start', '');
+		$filterall_visible = $base->getVar($this->grid_params, 'filter-all-visible', 'on');
 		$filter_all_text = $base->getVar($this->grid_params, 'filter-all-text', __('Filter - All', EG_TEXTDOMAIN));
 		$filter_dropdown_text = $base->getVar($this->grid_params, 'filter-dropdown-text', __('Filter Categories', EG_TEXTDOMAIN));
 		$show_count = $base->getVar($this->grid_params, 'filter-counter', 'off');
@@ -2291,6 +2295,7 @@ class Essential_Grid {
 			$navigation_c->set_special_class('esg-fgc-'.$this->grid_id);
 			$navigation_c->set_dropdown_text($filter_dropdown_text);
 			$navigation_c->set_show_count($show_count);
+			$navigation_c->set_filterall_visible($filterall_visible);
 			$navigation_c->set_filter_text($filter_all_text);
 			$navigation_c->set_specific_styles($nav_styles);
 			$navigation_c->set_search_text($search_text);
@@ -2409,20 +2414,26 @@ class Essential_Grid {
 				// 2.1.6.2
 				$item_skin->set_grid_item_animation($base, $this->grid_params);
 				
+				// 2.2.6
+				$item_skin->set_post_values($entry);
+				
 				ob_start();
 				$item_skin->output_item_skin($grid_preview);
 				$skins_html.= ob_get_contents();
 				ob_clean();
 				ob_end_clean();
 				
-				if($only_elements == false && $grid_preview == false){
-					ob_start();
+				// 2.2.6
+				//if($only_elements == false && $grid_preview == false){
 					$id = (isset($entry['post_id'])) ? $entry['post_id'] : '';
-					$item_skin->output_element_css_by_meta($id);
-					$skins_css.= ob_get_contents();
-					ob_clean();
-					ob_end_clean();
-				}
+					if(!empty($id)) {
+						ob_start();
+						$item_skin->output_element_css_by_meta($id);
+						$skins_css.= ob_get_contents();
+						ob_clean();
+						ob_end_clean();
+					}
+				//}
 				
 			}
 		}
@@ -2691,6 +2702,7 @@ class Essential_Grid {
 				$filters_arr['filter'.$fil_id]['filter-listing'] = $base->getVar($this->grid_params, 'filter-listing'.$fil_id, 'list');
 				$filters_arr['filter'.$fil_id]['filter-selected'] = $base->getVar($this->grid_params, 'filter-selected'.$fil_id, array());
 				
+				$filterall_visible = $base->getVar($this->grid_params, 'filter-all-visible'.$fil_id, 'on');
 				$filter_all_text = $base->getVar($this->grid_params, 'filter-all-text'.$fil_id, __('Filter - All', EG_TEXTDOMAIN));
 				$filter_dropdown_text = $base->getVar($this->grid_params, 'filter-dropdown-text'.$fil_id, __('Filter Categories', EG_TEXTDOMAIN));
 				$show_count = $base->getVar($this->grid_params, 'filter-counter'.$fil_id, 'off');
@@ -2745,6 +2757,7 @@ class Essential_Grid {
 				$navigation_c->set_filter_settings('filter'.$fil_id, $filters_arr['filter'.$fil_id]);
 				
 				$navigation_c->set_filter_text($filter_all_text, $fil_id);
+				$navigation_c->set_filterall_visible($filterall_visible, $fil_id);
 				$navigation_c->set_dropdown_text($filter_dropdown_text, $fil_id);
 				$navigation_c->set_show_count($show_count, $fil_id);
 			}
@@ -2974,13 +2987,14 @@ class Essential_Grid {
 				ob_clean();
 				ob_end_clean();
 				
-				if($grid_preview == false){
+				// 2.2.6
+				//if($grid_preview == false){
 					ob_start();
 					$item_skin->output_element_css_by_meta($post['ID']);
 					$skins_css.= ob_get_contents();
 					ob_clean();
 					ob_end_clean();
-				}
+				//}
 			}
 		}else{
 			return false;
@@ -3417,11 +3431,24 @@ class Essential_Grid {
 				$item_skin->register_layer_css();
 				$item_skin->register_skin_css();
 				
+				// 2.2.6
+				$item_skin->set_post_values($entry);
+				
 				ob_start();
 				$item_skin->output_item_skin();
 				$skins_html.= ob_get_contents();
 				ob_clean();
 				ob_end_clean();
+				
+				// 2.2.6
+				$id = (isset($entry['post_id'])) ? $entry['post_id'] : '';
+				if(!empty($id)) {
+					ob_start();
+					$item_skin->output_element_css_by_meta($id);
+					$skins_html.= ob_get_contents();
+					ob_clean();
+					ob_end_clean();
+				}
 				
 			}
 		}else{
@@ -3813,6 +3840,13 @@ class Essential_Grid {
         $load_more_type = $base->getVar($this->grid_params, 'load-more', 'on');
 		$rows = $base->getVar($this->grid_params, 'rows', 4, 'i');
 		
+		if(wp_is_mobile()) {
+			
+			$mobile_rows = $base->getVar($this->grid_params, 'enable-rows-mobile', 'off') === 'on';
+			if($mobile_rows) $rows = $base->getVar($this->grid_params, 'rows-mobile', 3, 'i');
+			
+		}
+		
         $columns = $base->getVar($this->grid_params, 'columns', '');
         $columns = $base->set_basic_colums($columns);
 		
@@ -3831,6 +3865,9 @@ class Essential_Grid {
         
         $columns_width = $base->set_basic_colums_width($columns_width);
         $masonry_content_height = $base->set_basic_masonry_content_height($masonry_content_height);
+		
+		// 2.2.6
+		$hide_blankitems_at = $base->getVar($this->grid_params, 'blank-item-breakpoint', '1');
         
         $space = $base->getVar($this->grid_params, 'spacings', 0, 'i');
         $page_animation = $base->getVar($this->grid_params, 'grid-animation', 'scale');
@@ -3863,6 +3900,22 @@ class Essential_Grid {
 				$start_animation_delay = 0;
 				$hide_markup_before_load = 'off';
 			}
+			
+		}
+		
+		// 2.2.6
+		if($rows_unlimited === 'off') {
+			
+			$touchswipe = $base->getVar($this->grid_params, 'pagination-touchswipe', 'off');
+			$dragvertical = $base->getVar($this->grid_params, 'pagination-dragvertical', 'on');
+			$swipebuffer = $base->getVar($this->grid_params, 'pagination-swipebuffer', 30, 'i');
+			
+		}
+		else {
+			
+			$touchswipe = 'off';
+			$dragvertical = 'off';
+			$swipebuffer = 30;
 			
 		}
         
@@ -4276,6 +4329,11 @@ class Essential_Grid {
 		echo '        viewportBuffer: ' . $viewport_buffer . ',' . "\n";
         echo '        youtubeNoCookie:"'.get_option('tp_eg_enable_youtube_nocookie', 'false').'",'."\n";
 		echo '        convertFilterMobile:' . $filter_mobile_conversion . ',' . "\n";
+		
+		// 2.2.6
+		echo '        paginationSwipe: "' . $touchswipe . '",' . "\n";
+		echo '        paginationDragVer: "' . $dragvertical . '",' . "\n";
+		echo '        pageSwipeThrottle: ' . $swipebuffer . ',' . "\n";
 
 
 		if($wait_for_fonts === 'true'){
@@ -4306,6 +4364,10 @@ class Essential_Grid {
         if($layout != 'masonry' || $layout == 'masonry' && $auto_ratio != 'true'){
             echo '        aspectratio:"'.$aspect_ratio_x.':'.$aspect_ratio_y.'",'."\n";
         }
+		
+		// 2.2.6
+		echo '        hideBlankItemsAt: "' . $hide_blankitems_at . '",' . "\n";
+		
         echo '        responsiveEntries: ['."\n";
         echo '						{ width:'.$columns_width['0'].',amount:'.$columns['0'].',mmheight:'.$masonry_content_height['0'].'},'."\n";
         echo '						{ width:'.$columns_width['1'].',amount:'.$columns['1'].',mmheight:'.$masonry_content_height['1'].'},'."\n";
@@ -4657,11 +4719,13 @@ class Essential_Grid {
 		
 		$filter_allow = $base->getVar($this->grid_params, 'filter-arrows', 'single');
 		$filter_start = $grid->getVar($this->grid_params,'filter-start', '');
+		$filterall_visible = $base->getVar($this->grid_params, 'filter-all-visible', 'on');
 		$filter_all_text = $base->getVar($this->grid_params, 'filter-all-text', __('Filter - All', EG_TEXTDOMAIN));
 		$filter_dropdown_text = $base->getVar($this->grid_params, 'filter-dropdown-text', __('Filter Categories', EG_TEXTDOMAIN));
 		$show_count = $base->getVar($this->grid_params, 'filter-counter', 'off');
 		
 		$nav->set_filter_text($filter_all_text);
+		$nav->set_filterall_visible($filterall_visible);
 		$nav->set_dropdown_text($filter_dropdown_text);
 		$nav->set_show_count($show_count);
 
@@ -4762,6 +4826,7 @@ class Essential_Grid {
 		
 		$filter_allow = $base->getVar($this->grid_params, 'filter-arrows', 'single');
 		$filter_start = $base->getVar($this->grid_params, 'filter-start', '');
+		$filterall_visible = $base->getVar($this->grid_params, 'filter-all-visible', 'on');
 		$filter_all_text = $base->getVar($this->grid_params, 'filter-all-text', __('Filter - All', EG_TEXTDOMAIN));
 		$filter_dropdown_text = $base->getVar($this->grid_params, 'filter-dropdown-text', __('Filter Categories', EG_TEXTDOMAIN));
 		$show_count = $base->getVar($this->grid_params, 'filter-counter', 'off');
@@ -4770,6 +4835,7 @@ class Essential_Grid {
 		$nav->set_show_count($show_count);
 		
 		$nav->set_filter_text($filter_all_text);
+		$nav->set_filterall_visible($filterall_visible);
 
 		$found_filter = array();
 

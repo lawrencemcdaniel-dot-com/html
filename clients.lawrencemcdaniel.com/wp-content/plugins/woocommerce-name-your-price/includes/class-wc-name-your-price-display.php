@@ -104,7 +104,7 @@ class WC_Name_Your_Price_Display {
 			'annual_price_factors' =>  WC_Name_Your_Price_Helpers::annual_price_factors()
 		);
 
-		wp_localize_script( 'woocommerce-nyp', 'woocommerce_nyp_params', $params );
+		wp_localize_script( 'woocommerce-nyp', 'woocommerce_nyp_params', apply_filters( 'nyp_script_params', $params ) );
 
 	}
 
@@ -376,8 +376,9 @@ class WC_Name_Your_Price_Display {
 	 */
 	public function variation_is_visible( $visible, $variation_id, $product_id ){
 
-		if( WC_Name_Your_Price_Helpers::is_nyp( $variation_id ) )
+		if( WC_Name_Your_Price_Helpers::is_nyp( $variation_id ) ) {
 			$visible = TRUE;
+		}
 
 		return $visible;
 	}

@@ -31,6 +31,7 @@ class Essential_Grid_Navigation {
     private $styles = array();
 	
     private $filter_all_text = array();
+	private $filterall_visible = array();
     private $filter_dropdown_text = array();
     private $filter_show_count = array();
     private $spacing = false;
@@ -46,6 +47,7 @@ class Essential_Grid_Navigation {
 		
 		$this->grid_id = $grid_id;
 		$this->filter_all_text['filter'] = __('Filter - All', EG_TEXTDOMAIN);
+		$this->filterall_visible['filter'] = 'on';
 		$this->filter_dropdown_text['filter'] = __('Filter Categories', EG_TEXTDOMAIN);
 		$this->filter_show_count['filter'] = 'off';
 		$this->sort_by_text = __('Sort By ', EG_TEXTDOMAIN);
@@ -340,6 +342,17 @@ class Essential_Grid_Navigation {
 		
 	}
 	
+	/**
+	 * Set Filter All Visiblity
+	 */
+	public function set_filterall_visible($visible, $key = ''){
+
+		$a = apply_filters('essgrid_set_filterall_visible', array('visible' => $visible, 'key' => $key));
+		
+		$this->filterall_visible['filter'.$a['key']] = __($a['visible'], EG_TEXTDOMAIN);
+		
+	}
+	
 	
 	/**
 	 * Set Sort By Text
@@ -578,9 +591,9 @@ class Essential_Grid_Navigation {
 		
 		$sel = (!empty($this->filter_start_select)) ? '' : ' selected';
 		
-		/* 2.1.6 hide Filter-All button if text is empty */
+		/* 2.2.6 hide Filter-All button if text is empty */
 		$all_filter_text = $this->filter_all_text['filter'];
-		$hideallfilter = !empty($this->filter_all_text['filter']) ? '' : ' style="display: none"';
+		$hideallfilter = $this->filterall_visible['filter'] === 'on' ? '' : ' style="display: none"';
         $f .= '<div class="esg-filterbutton'.$sel.' esg-allfilter" data-filter="filterall" data-fid="-1"'.$hideallfilter.'><span>'.$all_filter_text.'</span></div>';
 		
 		if($demo === 'skinchoose'){
@@ -639,22 +652,28 @@ class Essential_Grid_Navigation {
 		if($this->spacing !== false) $f .= $this->spacing;
 		$f .= '>';
 		
+		$filtertext = __('Filter Categories', EG_TEXTDOMAIN);
+		if(array_key_exists('filter'.$type, $this->filter_dropdown_text)) {
+			$filtertext = $this->filter_dropdown_text['filter'.$type];
+		}
+		
 		if($listing == 'dropdown'){
 			// 2.2.5
-			$f .= '<div class="esg-selected-filterbutton esg-mobile-filter-button"><span>'.$this->filter_dropdown_text['filter'.$type].'</span><i class="eg-icon-down-open"></i></div>';
+			$f .= '<div class="esg-selected-filterbutton esg-mobile-filter-button"><span>'.$filtertext.'</span><i class="eg-icon-down-open"></i></div>';
 			
 			$f .= '<div class="esg-dropdown-wrapper">';
 		}
 		else {
 			// 2.2.5
-			$f .= '<div class="esg-mobile-filter-button"><span>'.$this->filter_dropdown_text['filter'.$type].'</span><i class="eg-icon-down-open"></i></div>';
+			$f .= '<div class="esg-mobile-filter-button"><span>'.$filtertext.'</span><i class="eg-icon-down-open"></i></div>';
 		}
 		
 		$sel = (!empty($this->filter_start_select)) ? '' : ' selected';
 		
-		/* 2.1.6 hide Filter-All button if text is empty */
+		/* 2.2.6 hide Filter-All button if text is empty */
 		$all_filter_text = @$this->filter_all_text['filter'.$type];
-		$hideallfilter = !empty($this->filter_all_text['filter']) ? '' : ' style="display: none"';
+		$hideallfilter = @$this->filterall_visible['filter'.$type] === 'on' ? '' : ' style="display: none"';
+		
 		$f .= '<div class="esg-filterbutton'.$sel.' esg-allfilter" data-filter="filterall" data-fid="-1"'.$hideallfilter.'><span>'.$all_filter_text.'</span></div>';
 		
         if($demo){

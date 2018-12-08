@@ -58,7 +58,7 @@ $eg_settings_custom_meta_element = isset($values['eg_settings_custom_meta_elemen
 $eg_settings_custom_meta_setting = isset($values['eg_settings_custom_meta_setting']) ? unserialize($values['eg_settings_custom_meta_setting'][0]) : "";
 $eg_settings_custom_meta_style = isset($values['eg_settings_custom_meta_style']) ? unserialize($values['eg_settings_custom_meta_style'][0]) : "";
 
-if(!isset($disable_advanced) || $disable_advanced == false){
+//if(!isset($disable_advanced) || $disable_advanced == false){
 	$eg_meta = array();
 	
 	if(!empty($eg_settings_custom_meta_skin)){
@@ -93,7 +93,7 @@ if(!isset($disable_advanced) || $disable_advanced == false){
 
 	$eg_elements = $item_elements->get_allowed_meta();
 	
-}
+//}
 
 $custom_meta = $meta->get_all_meta(false);
 
@@ -124,7 +124,7 @@ wp_nonce_field('eg_meta_box_nonce', 'essential_grid_meta_box_nonce');
 	#eg-meta-box .wp-picker-container		 	  {	line-height: 20px;vertical-align: middle; }
 	
 	#eg-meta-box .wp-picker-container .wp-color-result	{	margin:0px;}
-	#eg-meta-box .eg-custom-meta-setting-wrap {	line-height: 45px; border-bottom:1px solid #f1f1f1; padding:10px 0px; }	
+	#eg-meta-box .eg-custom-meta-setting-wrap {	line-height: 45px}	
 	
 	#eg-meta-box .eg-cs-row			{	height:45px;}
 /*	#eg-meta-box .eg-cs-row-min		{	min-height:45px;}		*/
@@ -271,11 +271,11 @@ wp_nonce_field('eg_meta_box_nonce', 'essential_grid_meta_box_nonce');
 	<li class="eg-option-tabber <?php echo $selectedtab; ?>" data-target="#eg-custommeta-options"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-list-view"></span><?php _e('Custom Meta', EG_TEXTDOMAIN); ?></li>
 	<li class="eg-option-tabber" data-target="#eg-source-options"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-admin-media"></span><?php _e('Alternative Sources', EG_TEXTDOMAIN); ?></li>
 	<?php
-	if(!isset($disable_advanced) || $disable_advanced == false){
+	//if(!isset($disable_advanced) || $disable_advanced == false){
 	?>
 		<li class="eg-option-tabber" data-target="#eg-skin-options"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-admin-appearance"></span><?php _e('Skin Modifications', EG_TEXTDOMAIN); ?></li>
 	<?php
-	}
+	//}
 	?>
 	<li class="eg-option-tabber" data-target="#eg-featured-grid-options" style="margin-right: 0"><span style="font-size: 18px;line-height: 18px;margin-right: 10px;" class="dashicons dashicons-screenoptions"></span><?php _e('Featured Grid', EG_TEXTDOMAIN); ?></li>
 </ul>
@@ -297,12 +297,19 @@ if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are
 				<option value="1:1"<?php selected($cobbles, '1:1'); ?>><?php _e('width 1, height 1', EG_TEXTDOMAIN); ?></option>
 				<option value="1:2"<?php selected($cobbles, '1:2'); ?>><?php _e('width 1, height 2', EG_TEXTDOMAIN); ?></option>
 				<option value="1:3"<?php selected($cobbles, '1:3'); ?>><?php _e('width 1, height 3', EG_TEXTDOMAIN); ?></option>
+				<option value="1:4"<?php selected($cobbles, '1:4'); ?>><?php _e('width 1, height 4', EG_TEXTDOMAIN); ?></option>
 				<option value="2:1"<?php selected($cobbles, '2:1'); ?>><?php _e('width 2, height 1', EG_TEXTDOMAIN); ?></option>
 				<option value="2:2"<?php selected($cobbles, '2:2'); ?>><?php _e('width 2, height 2', EG_TEXTDOMAIN); ?></option>
 				<option value="2:3"<?php selected($cobbles, '2:3'); ?>><?php _e('width 2, height 3', EG_TEXTDOMAIN); ?></option>
+				<option value="2:4"<?php selected($cobbles, '2:4'); ?>><?php _e('width 2, height 4', EG_TEXTDOMAIN); ?></option>
 				<option value="3:1"<?php selected($cobbles, '3:1'); ?>><?php _e('width 3, height 1', EG_TEXTDOMAIN); ?></option>
 				<option value="3:2"<?php selected($cobbles, '3:2'); ?>><?php _e('width 3, height 2', EG_TEXTDOMAIN); ?></option>
 				<option value="3:3"<?php selected($cobbles, '3:3'); ?>><?php _e('width 3, height 3', EG_TEXTDOMAIN); ?></option>
+				<option value="3:4"<?php selected($cobbles, '3:4'); ?>><?php _e('width 3, height 4', EG_TEXTDOMAIN); ?></option>
+				<option value="4:1"<?php selected($cobbles, '4:1'); ?>><?php _e('width 4, height 1', EG_TEXTDOMAIN); ?></option>
+				<option value="4:2"<?php selected($cobbles, '4:2'); ?>><?php _e('width 4, height 2', EG_TEXTDOMAIN); ?></option>
+				<option value="4:3"<?php selected($cobbles, '4:3'); ?>><?php _e('width 4, height 3', EG_TEXTDOMAIN); ?></option>
+				<option value="4:4"<?php selected($cobbles, '4:4'); ?>><?php _e('width 4, height 4', EG_TEXTDOMAIN); ?></option>
 			</select>
 			<div style="clear:both; height: 20px;"></div>
 			<?php
@@ -597,17 +604,18 @@ if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are
 	<?php
 	do_action('essgrid_add_meta_options', $values);
 	
-	if(!isset($disable_advanced) || $disable_advanced == false){
+	/* 2.2.6 */
+	//if(!isset($disable_advanced) || $disable_advanced == false){
 		?>
 		</div><!-- END OF EG OPTION TAB -->
 		
 		<div id="eg-skin-options" class="eg-options-tab">
 		<!--<h2><span style="margin:5px 10px 0px 10px"class="dashicons dashicons-admin-generic"></span><?php _e('Custom Post Based Skin Modifications', EG_TEXTDOMAIN); ?></h2>-->
 		<div id="eg-advanced-param-wrap">
-			<div id="eg-advanced-param">
+			<div class="eg-advanced-param" id="eg-advanced-param-post">
 				
 			</div>
-			<a class="button-primary revblue" href="javascript:void(0);" id="eg-add-custom-meta-field" style="margin-top:10px !important"><?php _e('Add New Custom Skin Rule', EG_TEXTDOMAIN); ?></a>
+			<a class="button-primary revblue eg-add-custom-meta-field" href="javascript:void(0);" id="eg-add-custom-meta-field-post" style="margin-top:10px !important"><?php _e('Add New Custom Skin Rule', EG_TEXTDOMAIN); ?></a>
 			<div class="eg-notifcation">
 				<div class="dashicons dashicons-lightbulb" style="float:left;margin-right:10px;"></div>
 				<div style="float:left; "><?php _e("For default Skin Settings please use the Essential Grid Skin Editor.<br> Only add Rules here to change the Skin Element Styles only for this Post !<br>Every rule defined here will overwrite the Global Skin settings explicit for this Post in the Grid where the Skin is used. ", EG_TEXTDOMAIN); ?></div>
@@ -617,7 +625,7 @@ if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are
 		</div>
 		
 		<?php
-	}  
+	//}  
 		if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are in preview mode
 		?>
 		</form>
@@ -649,6 +657,7 @@ if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are
 <input type="hidden" name="eg_custom_meta_216" value="true" />
 
 <script type="text/javascript">
+
 	jQuery(function(){
 	
 		jQuery('.eg-option-tabber').click(function() {
@@ -695,17 +704,16 @@ if(isset($disable_advanced) && $disable_advanced == true){ //only show if we are
 		
 		
 		<?php
-		if(!isset($disable_advanced) || $disable_advanced == false){
+		//if(!isset($disable_advanced) || $disable_advanced == false){
 		?>
 		
 		AdminEssentials.setInitSkinsJson(<?php echo $base->jsonEncodeForClientSide($advanced); ?>);
 		AdminEssentials.setInitElementsJson(<?php echo $base->jsonEncodeForClientSide($eg_meta); ?>);
 		AdminEssentials.setInitStylingJson(<?php echo $base->jsonEncodeForClientSide($eg_elements); ?>);
-		
-		AdminEssentials.initMetaBox();
+		AdminEssentials.initMetaBox('post');
 		
 		<?php
-		}
+		//}
 		?>
 		if(jQuery('#eg_sources_image-img').attr('src') !== '')
 			jQuery('#eg_sources_image-img').show();

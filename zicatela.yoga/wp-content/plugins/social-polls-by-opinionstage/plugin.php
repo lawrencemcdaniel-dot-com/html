@@ -3,7 +3,7 @@
 Plugin Name: Poll, Survey, Form & Quiz Maker by OpinionStage
 Plugin URI: https://www.opinionstage.com
 Description: Add a highly engaging poll, survey, quiz or contact form builder to your site. You can add the poll, survey, quiz or form to any post/page or to the sidebar.
-Version: 19.6.4
+Version: 19.6.9
 Author: OpinionStage.com
 Author URI: https://www.opinionstage.com
 Text Domain: social-polls-by-opinionstage
@@ -24,7 +24,7 @@ if ( defined('WP_DEBUG') && true === WP_DEBUG ) {
 	}
 }
 
-define('OPINIONSTAGE_WIDGET_VERSION', '19.6.4');
+define('OPINIONSTAGE_WIDGET_VERSION', '19.6.9');
 
 define('OPINIONSTAGE_TEXT_DOMAIN', 'social-polls-by-opinionstage');
 
@@ -54,6 +54,11 @@ define('OPINIONSTAGE_GETTING_STARTED_SLUG', 'opinionstage-getting-started');
 define('OPINIONSTAGE_LOGIN_CALLBACK_SLUG', 'opinionstage-login-callback');
 
 // Check if active plugin file is plugin.php on plugin activate hook
+function opinionstage_plugin_activated($plugin) {
+	if( $plugin == plugin_basename( __FILE__ ) ) {
+        exit( wp_redirect("admin.php?page=".OPINIONSTAGE_GETTING_STARTED_SLUG) );
+    }
+}
 function opinionstage_plugin_activate() {
 	// all good. delete old file
 	if( file_exists(__DIR__ . '/opinionstage-polls.php') ){
@@ -62,6 +67,7 @@ function opinionstage_plugin_activate() {
 }
 register_activation_hook( __FILE__, 'opinionstage_plugin_activate' );
 add_action( 'init', 'opinionstage_plugin_activate' );
+add_action( 'activated_plugin', 'opinionstage_plugin_activated' );
 
 require_once( plugin_dir_path( __FILE__ ).'includes/opinionstage-functions.php' );
 
@@ -83,7 +89,10 @@ if (opinionstage_check_plugin_available('opinionstage_popup')) {
 			require( plugin_dir_path( __FILE__ ).'public/init.php' );
 		}
 	}
-
+	//Check For Gutenberg
+	if( function_exists( 'is_gutenberg_page' ) ) {        
+		require( plugin_dir_path( __FILE__ ).'gutenberg/init.php' );
+	}
 	add_action('widgets_init', 'opinionstage_init_widget');
 	add_action('plugins_loaded', 'opinionstage_init');
 }

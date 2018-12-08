@@ -9,7 +9,7 @@
  * Plugin Name:       Essential Grid
  * Plugin URI:        https://essential.themepunch.com
  * Description:       Essential Grid - The Original Premium Grid Plugin
- * Version:           2.2.5
+ * Version:           2.3
  * Author:            ThemePunch
  * Author URI:        https://themepunch.com
  * Text Domain:       essential-grid
@@ -73,6 +73,12 @@ require_once(EG_PLUGIN_PATH . '/includes/social-gallery.class.php');
 
 require_once(EG_PLUGIN_PATH . '/includes/external-sources.class.php');
 require_once(EG_PLUGIN_PATH . '/includes/wordpress-update-fix.class.php');
+
+require_once(EG_PLUGIN_PATH . 'includes/loadbalancer.class.php');
+$esg_rsl			= (isset($_GET['esg_refresh_server'])) ? true : false;
+$esglb				= new Essential_Grid_LoadBalancer();
+$GLOBALS['esglb']	= $esglb;
+$esglb->refresh_server_list($esg_rsl);
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
@@ -183,6 +189,8 @@ if(is_admin()){ // && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX )
 	require_once(EG_PLUGIN_PATH . '/admin/includes/newsletter.class.php');
 
 	// require_once(EG_PLUGIN_PATH . 'admin/includes/addon-admin.class.php');
+
+	require_once(EG_PLUGIN_PATH . '/admin/includes/library.class.php');
 	
 	add_action('plugins_loaded', array( 'Essential_Grid_Admin', 'do_update_checks' )); //add update checks
 	

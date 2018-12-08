@@ -5,7 +5,7 @@
  * Copyright (c) 2013-2018 tokkonopapa (tokkonopapa@yahoo.com)
  * This software is released under the MIT License.
  */
-(function ($, window, document) {
+(function ($, window, document, undefined) {
 	// External variables
 	var skip_error = false,
 	    timer_stack = [],
@@ -22,7 +22,7 @@
 			'%': 'ip_geo_block_',
 			'!': 'ip_geo_block_settings_'
 		};
-		return 'undefined' !== typeof id ? keys[selector] + id : keys.$ + selector;
+		return id !== undefined ? keys[selector] + id : keys.$ + selector;
 	}
 
 	function escapeHTML(str) {
@@ -37,10 +37,6 @@
 		}).replace(/&amp;(#\d{2,4}|\w{4,7});/g, "&$1;"); // revert html character entity
 	}
 
-	function is_blocked( result ) {
-		return -1 === result.indexOf('pass');
-	}
-
 	function stripTag(str) {
 		return str ? escapeHTML(str.toString().replace(/(<([^>]+)>)/ig, '')) : '';
 	}
@@ -49,7 +45,7 @@
 		var w = $(window).width();
 		if (w !== window_width) {
 			window_width = w;
-			if ('undefined' === typeof timer_stack[name]) {
+			if (timer_stack[name] === undefined) {
 				timer_stack[name] = {id: false, callback: callback};
 			}
 			$(window).off('resize').on('resize', function (/*event*/) {
@@ -86,7 +82,7 @@
 
 	function redirect(page, tab) {
 		if (-1 !== window.location.href.indexOf(page)) {
-			window.location = stripTag(page) + (tab ? '&' + stripTag(tab) : '') + '&ip-geo-block-auth-nonce=' + ip_geo_block_auth.nonce;
+			window.location = stripTag(page) + (tab ? '&' + stripTag(tab) : '') + '&' + (ip_geo_block_auth.key ? (ip_geo_block_auth.key + '=' + ip_geo_block_auth.nonce) : '');
 		}
 	}
 
@@ -98,7 +94,12 @@
 		request.action = ip_geo_block.action;
 		request.nonce  = ip_geo_block.nonce;
 
-		$.post(ip_geo_block.url, request)
+		$.ajax({
+			type: 'POST',
+			url: ip_geo_block.url,
+			data: request,
+			dataType: 'json'
+		})
 
 		.done(function (data/*, textStatus, jqXHR*/) {
 			if (callback) {
@@ -265,6 +266,10 @@
 		}
 	}
 
+	function is_blocked(result) {
+		return -1 === result.indexOf('pass');
+	}
+
 	/**
 	 * jQuery deserialize plugin based on https://gist.github.com/nissuk/835256
 	 *
@@ -279,8 +284,8 @@
 			for (key in json) {
 				if(json.hasOwnProperty(key)) {
 					try {
-						name = decodeURIComponent(key); // URIError: malformed URI sequence
-						value = decodeURIComponent(json[key]);
+						name = stripTag(decodeURIComponent(key)); // URIError: malformed URI sequence
+						value = stripTag(decodeURIComponent(json[key]));
 
 						if (!data.hasOwnProperty(name)) { // !(name in data)
 							data[name] = [];
@@ -377,7 +382,7 @@
 		viewPie: [],
 		drawPie: function (id) {
 			var i, data;
-			if ('undefined' === typeof chart.dataPie[id]) {
+			if (chart.dataPie[id] === undefined) {
 				i = chart.dataPie[id] = new window.google.visualization.DataTable();
 				i.addColumn('string', 'Country');
 				i.addColumn('number', 'Requests');
@@ -385,14 +390,14 @@
 				chart.dataPie[id].addRows(data);
 			}
 
-			if ('undefined' === typeof chart.viewPie[id]) {
+			if (chart.viewPie[id] === undefined) {
 				chart.viewPie[id] = new window.google.visualization.PieChart(
 					document.getElementById(id)
 				);
 			}
 
-			if ('undefined' !== typeof chart.dataPie[id] &&
-			    'undefined' !== typeof chart.viewPie[id] &&
+			if (chart.dataPie[id] !== undefined &&
+			    chart.viewPie[id] !== undefined &&
 			    0 < (i = $('#' + id).width())) {
 				chart.viewPie[id].draw(chart.dataPie[id], {
 					backgroundColor: { fill: 'transparent' },
@@ -412,7 +417,7 @@
 		viewLine: [],
 		drawLine: function (id, datetype) {
 			var i, n, data;
-			if ('undefined' === typeof chart.dataLine[id]) {
+			if (chart.dataLine[id] === undefined) {
 				i = chart.dataLine[id] = new window.google.visualization.DataTable();
 				i.addColumn(datetype, 'Date'   );
 				i.addColumn('number', 'comment');
@@ -428,14 +433,14 @@
 				chart.dataLine[id].addRows(data);
 			}
 
-			if ('undefined' === typeof chart.viewLine[id]) {
+			if (chart.viewLine[id] === undefined) {
 				chart.viewLine[id] = new window.google.visualization.LineChart(
 					document.getElementById(id)
 				);
 			}
 
-			if ('undefined' !== typeof chart.dataLine[id] &&
-			    'undefined' !== typeof chart.viewLine[id] &&
+			if (chart.dataLine[id] !== undefined &&
+			    chart.viewLine[id] !== undefined &&
 			    0 < (i = $('#' + id).width())) {
 				chart.viewLine[id].draw(chart.dataLine[id], {
 					legend: { position: 'bottom' },
@@ -456,17 +461,17 @@
 		dataStacked: [],
 		viewStacked: [],
 		drawStacked: function (id) {
-			var i, w, data, range, $id = $('#' + id);
+			var i, w, data, range, $id = $('#' + stripTag(id));
 
-			if ('undefined' === typeof chart.dataStacked[id]) {
+			if (chart.dataStacked[id] === undefined) {
 				data = $.parseJSON($id.attr('data-' + id));
 				if (data) {
-					data.unshift(['site', 'comment', 'xmlrpc', 'login', 'admin', 'poblic', { role: 'link' } ]);
+					data.unshift(['site', 'comment', 'xmlrpc', 'login', 'admin', 'public', { role: 'link' } ]);
 					chart.dataStacked[id] = window.google.visualization.arrayToDataTable(data);
 				}
 			}
 
-			if ('undefined' === typeof chart.viewStacked[id]) {
+			if (chart.viewStacked[id] === undefined) {
 				chart.viewStacked[id] = new window.google.visualization.BarChart(
 					document.getElementById(id)
 				);
@@ -482,8 +487,8 @@
 
 					for (i = 0; i < n; i++) {
 						info.push({
-							label: data.getValue(i, 0),
-							link:  data.getValue(i, 6)
+							label: /*escapeHTML(*/data.getValue(i, 0)/*)*/,
+							link:  /*escapeHTML(*/data.getValue(i, 6)/*)*/
 						});
 					}
 
@@ -506,8 +511,8 @@
 			}
 
 			if (0 < (w = $id.width()) &&
-			    'undefined' !== typeof chart.dataStacked[id] &&
-			    'undefined' !== typeof chart.viewStacked[id]) {
+			    chart.dataStacked[id] !== undefined &&
+			    chart.viewStacked[id] !== undefined) {
 
 				i = ID('range');
 				range = $.parseJSON($('.' + i).attr('data-' + i));
@@ -555,7 +560,7 @@
 				data = array_chunk(data, row);
 
 				$(ID('.', 'network')).each(function (index, obj) {
-					if ('undefined' !== typeof data[index]) {
+					if (data[index] !== undefined) {
 						id = $(obj).attr('id');
 						dt = chart.dataStacked[id];
 						n = Math.min(row, data[index].length);
@@ -609,7 +614,7 @@
 
 	// Load / Save cookie using wpCookies in wp-includes/js/utils.js
 	function loadCookie(tabNo) {
-		var i, cookie = ('undefined' !== typeof wpCookies && wpCookies.getHash('ip-geo-block')) || [];
+		var i, cookie = (wpCookies !== undefined && wpCookies.getHash('ip-geo-block')) || [];
 
 		for (i in cookie) {
 			if(cookie.hasOwnProperty(i)) {
@@ -617,7 +622,7 @@
 			}
 		}
 
-		if ('undefined' === typeof cookie[tabNo]) {
+		if (cookie[tabNo] === undefined) {
 			cookie[tabNo] = [];
 		}
 
@@ -630,7 +635,7 @@
 
 		$.each(cookie, function(i, obj) {
 			c[i] = '';
-			if ('undefined' !== typeof obj) {
+			if (obj !== undefined) {
 				n = obj.length;
 				if (n) {
 					c[i] = (obj[0] || 'o').toString();
@@ -642,7 +647,7 @@
 		});
 
 		// setHash( name, value, expires, path, domain, secure )
-		if ('undefined' !== typeof wpCookies) {
+		if (wpCookies !== undefined) {
 			wpCookies.setHash(
 				'ip-geo-block', c, new Date(Date.now() + 2592000000), ip_geo_block_auth.home + ip_geo_block_auth.admin
 			);
@@ -902,7 +907,7 @@
 					cmd: cmd,
 					which: data
 				}, function (data) {
-					if ('undefined' !== typeof data.page) {
+					if (data.page !== undefined) {
 						redirect(data.page, 'tab=' + tabNo);
 					} else if (data) {
 						table.ajax.reload();
@@ -997,9 +1002,9 @@
 			// Name of base class
 			var name = ID('%', 'settings');
 
-			/*---------------------------
-			 * Validation rule settings
-			 *---------------------------*/
+			/*--------------------------------
+			 * Validation rules and behavior
+			 *--------------------------------*/
 			// Scan your country code
 			$('[id^="' + ID('scan-') + '"]').on('click', function (/*event*/) {
 				var $this = $(this),
@@ -1373,7 +1378,7 @@
 
 			// Export settings
 			$(ID('#', 'export')).on('click', function (/*event*/) {
-				if ('undefined' === typeof JSON) {
+				if (JSON === undefined) {
 					notice_html5();
 					return false;
 				}
@@ -1394,7 +1399,7 @@
 
 			// Import settings
 			$(ID('#', 'file-dialog')).on('change', function (event) {
-				if ('undefined' === typeof window.FileReader) {
+				if (window.FileReader === undefined) {
 					notice_html5();
 					return false;
 				}
@@ -1404,7 +1409,7 @@
 					readfile(file, function (data) {
 						data = JSON.parse(data);
 						id = name + '[signature]';
-						if ('undefined' !== typeof data[id]) {
+						if (data[id] !== undefined) {
 							data[id] = encode_str(data[id]);
 						}
 						ajax_post('export-import', {
@@ -1475,7 +1480,7 @@
 					confirm(ip_geo_block.msg[0], function () {
 						ajax_post('login-loading', {
 							cmd: 'delete-link'
-						}, function (data) {
+						}, function (/*data*/) {
 							$this.text(ip_geo_block.msg[2]);
 							$this.addClass(type).nextAll(ID('.', 'desc')).remove();
 						});
@@ -1485,9 +1490,9 @@
 			});
 
 			// Manipulate DB table for validation logs
-			$(ID('@', 'init_table')).on('click', function (/*event*/) {
+			$(ID('@', 'diag_tables')).on('click', function (/*event*/) {
 				confirm(ip_geo_block.msg[0], function () {
-					ajax_table('init-table');
+					ajax_table('diag-tables');
 				});
 				return false;
 			});
@@ -1563,8 +1568,7 @@
 
 			// Submit
 			$('#submit').on('click', function (/*event*/) {
-				var elm = $(ID('@', 'signature')),
-				    str = elm.val();
+				var elm = $(ID('@', 'signature')), str = elm.val();
 				if (str.indexOf(',') !== -1) {
 					elm.val(encode_str(str));
 				}
@@ -1723,9 +1727,9 @@
 					timer_pause = null;
 				}
 			},
-			live_start = function () {
+			live_start = function (cmd) {
 				clear_timer();
-				ajax_post('live-loading', {
+				ajax_post(cmd === undefined ? 'live-loading' : null, {
 					cmd: 'live-start'
 				}, function (res) {
 					if (res.error) {
@@ -1738,11 +1742,14 @@
 						}
 						table.draw(false); // the current page will still be shown.
 					}
-					timer_start = window.setTimeout(live_start, ip_geo_block.interval * 1000);
+					if (cmd === undefined) {
+						// keep updating
+						timer_start = window.setTimeout(live_start, ip_geo_block.interval * 1000);
+					}
 				});
 			},
 			live_stop = function (cmd, callback) {
-				clear_timer();
+				live_start(false); // once read out the buffer
 				ajax_post(null, {
 					cmd: cmd || 'live-stop',
 					callback: callback
@@ -1752,8 +1759,8 @@
 				live_stop('live-pause', function () {
 					$timer_pause.addClass(ID('live-timer'));
 					timer_pause = window.setTimeout(function () {
-						clear_timer();
 						$(ID('#', 'live-log-stop')).prop('checked', true);
+						live_stop();
 					}, ip_geo_block.timeout * 1000);
 				});
 			},

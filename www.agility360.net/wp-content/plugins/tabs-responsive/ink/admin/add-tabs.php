@@ -9,8 +9,7 @@
 	</style>
 	<h1>Tabs Design Template </h1>
 		<div style="overflow:hidden;display:block;width:100%;padding-top:20px">
-			
-			<div class="col-md-3">
+	<div class="col-md-3">
 				<div class="demoftr">	
 					
 					<div class="">
@@ -38,11 +37,11 @@
 					<div style="padding:13px;overflow:hidden; background: #EFEFEF; border-top: 1px dashed #ccc;">
 						<h3 class="text-center pull-left" style="margin-top: 10px;margin-bottom: 10px;font-weight:900">Pro Templates </h3>
 						<a type="button"  class="pull-right btn btn-danger design_btn" id="templates_btn2" target="_blank" href="http://demo.wpshopmart.com/tabs-pro-plugin-demo-for-wordpress/" >Check Demo</a>
-							</div>		
+					</div>		
 				</div>	
 			</div>
 			
-			</div>
+	</div>
 		
 	
 	

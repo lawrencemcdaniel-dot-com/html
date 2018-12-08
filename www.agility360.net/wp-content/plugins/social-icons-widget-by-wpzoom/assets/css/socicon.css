@@ -314,7 +314,7 @@
 }
 
 .socicon-eyeem:before {
-    content: "\e901"
+    content: "\e902"
 }
 
 .socicon-facebook {
@@ -531,6 +531,15 @@
 
 .socicon-mail:before {
     content: "\e01f"
+}
+
+.socicon-mastodon {
+    background-color: #2B8BD0;
+    color: #2B8BD0;
+}
+
+.socicon-mastodon:before {
+    content: "\e913"
 }
 
 .socicon-medium {
@@ -1179,6 +1188,18 @@
 .zoom-social-icons-list {
     margin: 0;
     padding: 0;
+}
+
+.zoom-social-icons-widget .zoom-social-icons-list--align-left {
+    text-align: left;
+}
+
+.zoom-social-icons-widget .zoom-social-icons-list--align-right {
+    text-align: right;
+}
+
+.zoom-social-icons-widget .zoom-social-icons-list--align-center {
+    text-align: center;
 }
 
 

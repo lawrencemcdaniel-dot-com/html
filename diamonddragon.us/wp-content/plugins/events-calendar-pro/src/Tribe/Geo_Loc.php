@@ -1226,6 +1226,11 @@ class Tribe__Events__Pro__Geo_Loc {
 			return;
 		}
 
+		// This is only available when a custom Geolocation data API key is being used.
+		if ( tribe_is_using_basic_gmaps_api() ) {
+			return;
+		}
+
 		$done = get_option( '_tribe_geoloc_fixed' );
 
 		if ( ! empty( $done ) ) {

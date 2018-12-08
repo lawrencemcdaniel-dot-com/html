@@ -45,8 +45,12 @@
 						$button_text = __('Get WP-Optimize', 'stops-core-theme-and-plugin-updates');
 					} elseif ('metaslider' == $button_meta) {
 						$button_text = __('Get MetaSlider', 'stops-core-theme-and-plugin-updates');
-					}  elseif ('eum_survey' == $button_meta) {
+					} elseif ('eum_survey' == $button_meta) {
 						$button_text = __('Take Survey', 'stops-core-theme-and-plugin-updates');
+					} elseif ('eum_rate' == $button_meta) {
+						$button_text = __('Rate Plugin', 'stops-core-theme-and-plugin-updates');
+					} elseif ('eum_premium' == $button_meta) {
+						$button_text = __('Get Premium', 'stops-core-theme-and-plugin-updates');
 					}
 					$easy_updates_manager->easy_updates_manager_url($button_link, $button_text, null, 'class="updraft_notice_link"');
 					}

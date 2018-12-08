@@ -97,11 +97,19 @@ endif; // extension_loaded( 'pdo_sqlite' )
 		);
 
 		// Preset filters
-		$filters = apply_filters( $plugin_slug . '-logs-preset', array() );
+		$filters = has_filter( $plugin_slug . '-logs-preset' ) ? apply_filters( $plugin_slug . '-logs-preset', array() ) : $context->preset_filters();
 		if ( ! empty( $filters ) ) {
+			// allowed tags and attributes
+			$allow_tags = array(
+				'span' => array(
+					'class' => 1,
+					'title' => 1,
+				)
+			);
+
 			$html = '<ul id="ip-geo-block-logs-preset">';
 			foreach ( $filters as $filter ) {
-				$html .= '<li><a href="#!" data-value="' . esc_attr( $filter['value'] ) . '">' . esc_html( $filter['title'] ) . '</a></li>';
+				$html .= '<li><a href="#!" data-value="' . esc_attr( $filter['value'] ) . '">' . IP_Geo_Block_Util::kses( $filter['title'], $allow_tags ) . '</a></li>';
 			}
 
 			add_settings_field(
@@ -183,13 +191,18 @@ endif; // $options['validation']['reclogs']
 	 * Function that fills the section with the desired content.
 	 *
 	 */
+	private static function dashboard_url() {
+		$options = IP_Geo_Block::get_option();
+		$context = IP_Geo_Block_Admin::get_instance();
+		return $context->dashboard_url( $options['network_wide'] );
+	}
+
 	public static function validation_logs() {
 		echo '<table id="', IP_Geo_Block::PLUGIN_NAME, '-validation-logs" class="', IP_Geo_Block::PLUGIN_NAME, '-dataTable display" cellspacing="0" width="100%">', "\n", '<thead></thead><tbody></tbody></table>', "\n";
 	}
 
 	public static function warn_accesslog() {
-		$context = IP_Geo_Block_Admin::get_instance();
-		$url = esc_url( add_query_arg( array( 'page' => IP_Geo_Block::PLUGIN_NAME, 'tab' => '0', 'sec' => 3 ), $context->dashboard_url() ) . '#' . IP_Geo_Block::PLUGIN_NAME . '-section-3' );
+		$url = esc_url( add_query_arg( array( 'page' => IP_Geo_Block::PLUGIN_NAME, 'tab' => '0', 'sec' => 3 ), self::dashboard_url() ) . '#' . IP_Geo_Block::PLUGIN_NAME . '-section-3' );
 		echo '<p style="padding:0 1em">', sprintf( __( '[ %sRecord &#8220;Validation logs&#8221;%s ] is disabled.', 'ip-geo-block' ), '<a href="' . $url . '">', '</a>' ), '</p>', "\n";
 		echo '<p style="padding:0 1em">', __( 'Please set the proper condition to record and analyze the validation logs.', 'ip-geo-block' ), '</p>', "\n";
 	}
