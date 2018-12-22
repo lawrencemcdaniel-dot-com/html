@@ -88,7 +88,7 @@ $settings_widget_std_design = array(
 $control_widget_area_sidebar = array(
   'key'   => 'widget_area_sidebar',
   'type'  => 'sidebar',
-  'label' => __( 'Sidebar', '__x__' ),
+  'label' => __( 'Widget Area', '__x__' ),
 );
 
 $control_widget_area_base_font_size = array(

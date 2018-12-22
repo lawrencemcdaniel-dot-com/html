@@ -1509,8 +1509,8 @@ function sfsfi_getCookie(s) {
 
 function sfsi_hideFooter() {}
 window.onerror = function() {},
-SFSI = jQuery.noConflict(),
-SFSI(window).load(function() {
+SFSI = jQuery,
+SFSI(window).on('load',function() {
     SFSI("#sfpageLoad").fadeOut(2e3);
 });
 
@@ -2455,3 +2455,38 @@ SFSI("body").on("click", ".sfsi_tokenGenerateButton a", function(){
     }
         
 });
+SFSI(document).ready(function(){
+    SFSI('#sfsi_jivo_offline_chat .tab-link').click(function(){
+        var cur=SFSI(this);
+        if(!cur.hasClass('active')){
+            var target=cur.find('a').attr('href');
+            cur.parent().children().removeClass('active');
+            cur.addClass('active');
+            SFSI('#sfsi_jivo_offline_chat .tabs').children().hide();
+            SFSI(target).show();
+        }        
+    });
+    SFSI('#sfsi_jivo_offline_chat #sfsi_sales form').submit(function(event){
+        event&event.preventDefault();
+        // console.log(event);
+        var target=SFSI(this).parents('.tab-content');
+        SFSI.ajax({
+            url:ajax_object.ajax_url,
+            type:"post",
+            data:{
+                action: "sfsiOfflineChatMessage",
+                message: SFSI(this).find('textarea[name="question"]').val(),
+                email:   SFSI(this).find('input[name="email"]').val(),
+            }
+        }).done(function(){
+            target.find('.before_message_sent').hide();
+            target.find('.after_message_sent').show();
+        });
+    })
+});
+function sfsi_close_offline_chat(e){
+    e&&e.preventDefault();
+
+    SFSI('#sfsi_jivo_offline_chat').hide();
+    SFSI('#sfsi_dummy_chat_icon').show();
+}

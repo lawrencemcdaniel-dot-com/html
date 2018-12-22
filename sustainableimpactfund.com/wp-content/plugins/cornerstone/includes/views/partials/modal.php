@@ -50,6 +50,7 @@ $atts_modal_content = array(
 $output_modal_content = do_shortcode($modal_content);
 
 if (isset($modal_content_dynamic_rendering) && $modal_content_dynamic_rendering) {
+  $output_modal_content = apply_filters( 'cs_dynamic_rendering', $output_modal_content );
   $output_modal_content = "<script type=\"text/cs-toggle-template\">$output_modal_content</script>";
   $atts_modal_content['data-x-toggleable-content'] = $mod_id;
 }

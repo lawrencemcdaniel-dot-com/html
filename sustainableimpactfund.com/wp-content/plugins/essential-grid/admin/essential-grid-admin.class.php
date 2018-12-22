@@ -2670,12 +2670,12 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 	 */
 	public function enqueue_block_editor_assets() {
 		$block_path = '/admin/includes/gutenberg-blocks/assets/js/editor.blocks.js';
-		$style_path = '/admin/includes/gutenberg-blocks/assets/css/blocks.editor.css';
+		$style_path = '/admin/includes/gutenberg-blocks/assets/css/blocks.style.css';
 		// Enqueue the bundled block JS file
 		wp_enqueue_script(
 			'essgrid-blocks-js',
 			EG_PLUGIN_URL . $block_path,
-			[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ],
+			array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ),
 			filemtime( EG_PLUGIN_PATH . $block_path )
 		);
 	
@@ -2683,7 +2683,8 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 		wp_enqueue_style(
 			'essgrid-blocks-editor-css',
 			EG_PLUGIN_URL . $style_path,
-			[ 'wp-blocks' ],
+			//array('wp-blocks' ),
+			'',
 			filemtime( EG_PLUGIN_PATH . $style_path )
 		);
 	}

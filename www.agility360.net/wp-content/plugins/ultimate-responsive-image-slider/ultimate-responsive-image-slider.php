@@ -3,13 +3,13 @@
 Plugin Name: Ultimate Responsive Image Slider
 Plugin URI:  https://wordpress.org/plugins/ultimate-responsive-image-slider/
 Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
-Version:     3.2.12
+Version:     3.2.13
 Author:      WP Frank
 Author URI:  https://wpfrank.com/
 Text Domain: ultimate-responsive-image-slider
 Domain Path: /languages
 License:     GPL2
- 
+
 Ultimate Responsive Image Slider is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or any later version.
@@ -203,9 +203,9 @@ class URIS {
 	public function add_all_ris_meta_boxes() {
 		add_meta_box( __('Add Slides', URIS_TD), __('Add Slides', URIS_TD), array(&$this, 'ris_generate_add_image_meta_box_function'), 'ris_gallery', 'normal', 'low' );
 		add_meta_box( __('Apply Setting On Ultimate Responsive Image Slider', URIS_TD), __('Apply Setting On Ultimate Responsive Image Slider', URIS_TD), array(&$this, 'ris_settings_meta_box_function'), 'ris_gallery', 'normal', 'low');
-		add_meta_box( __('Upgrade To Pro Plugin', URIS_TD), __('Upgrade To Pro Plugin', URIS_TD), array(&$this, 'ris_upgrade_to_pro_meta_box_function'), 'ris_gallery', 'normal', 'low');
 		add_meta_box ( __('Copy Slider Shortcode', URIS_TD), __('Copy Slider Shortcode', URIS_TD), array(&$this, 'ris_shotcode_meta_box_function'), 'ris_gallery', 'side', 'low');
 		add_meta_box('Show US Some Love & Rate Us', 'Show US Some Love & Rate Us', array(&$this, 'uris_Rate_us_meta_box_function'), 'ris_gallery', 'side', 'low');
+		add_meta_box( __('Upgrade To Pro Plugin', URIS_TD), __('Upgrade To Pro Plugin', URIS_TD), array(&$this, 'ris_upgrade_to_pro_meta_box_function'), 'ris_gallery', 'side', 'low');
 	}
 	
 	//Rate Us Meta Box
@@ -569,15 +569,14 @@ global $URIS;
 $URIS = URIS::forge();
 
 // Review Notice Box
-add_action( "admin_notices", "uris_admin_notice_resport" );
+// add_action( "admin_notices", "uris_admin_notice_resport" );
 function uris_admin_notice_resport() {
 	global $pagenow;
 	$uris_screen = get_current_screen();
 	if ( $pagenow == 'edit.php' && $uris_screen->post_type == "ris_gallery" ) {
-		require_once ( 'uris-promote.php' );
+		require_once ( 'uris-feature-admin-notice.php' );
 	}
 }
-
 
 /**
  * upgrade to pro
@@ -595,4 +594,5 @@ function uris_pro_SettingsPage() {
  * URIS Short Code
  */
 require_once("ultimate-responsive-image-slider-short-code.php");
+require_once( 'products.php' );
 ?>

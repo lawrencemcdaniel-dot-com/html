@@ -1,9 +1,9 @@
 === Page Builder by SiteOrigin ===
 Tags: page builder, responsive, widget, widgets, builder, page, admin, gallery, content, cms, pages, post, css, layout, grid
 Requires at least: 4.4
-Tested up to: 4.9
-Stable tag: 2.9.5
-Build time: 2018-12-06T23:34:37-08:00
+Tested up to: 5.0
+Stable tag: 2.9.7
+Build time: 2018-12-14T11:15:17-08:00
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Donate link: https://siteorigin.com/downloads/contribution/
@@ -95,6 +95,15 @@ Page Builder is actively developed and updated, so generally I'd recommend that 
 We've tried to ensure that Page Builder is compatible with most plugin widgets. It's best to just download Page Builder and test for yourself.
 
 == Changelog ==
+
+= 2.9.7 - 14 December 2018 =
+* Add setting to use Classic Editor for new posts of types selected in Page Builder settings.
+* Prevent showing the 'Add New' dropdown for SO custom post types.
+* Display notice indicating how to disable Classic Editor for new Page Builder post types.
+
+= 2.9.6 - 10 December 2018 =
+* Default to Page Builder interface for post types set to use Page Builder in Settings.
+* Add check for WooCommerce 'product' type to prevent output of 'Add New' dropdown.
 
 = 2.9.5 - 6 December 2018 =
 * Layout block: Default to preview state if block has panels data.

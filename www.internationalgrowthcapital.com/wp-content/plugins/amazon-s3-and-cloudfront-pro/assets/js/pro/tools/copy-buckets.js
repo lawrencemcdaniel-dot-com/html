@@ -1,4 +1,4 @@
-(function( $, as3cfModal ) {
+( function( $, as3cfModal ) {
 
 	as3cfpro.Tools = as3cfpro.Tools ? as3cfpro.Tools : {};
 
@@ -130,7 +130,8 @@
 		 * Hide bucket select UI.
 		 */
 		lockBucketSelect: function() {
-			$( '#as3cf-change-bucket' ).hide();
+			$( 'a.as3cf-change-provider' ).hide();
+			$( 'a.as3cf-change-bucket' ).hide();
 			$( '#as3cf-bucket-select-locked' ).show();
 		},
 
@@ -138,7 +139,8 @@
 		 * Show bucket select UI.
 		 */
 		unlockBucketSelect: function() {
-			$( '#as3cf-change-bucket' ).show();
+			$( 'a.as3cf-change-provider' ).show();
+			$( 'a.as3cf-change-bucket' ).show();
 			$( '#as3cf-bucket-select-locked' ).hide();
 		}
 
@@ -146,28 +148,6 @@
 
 	// Event Handlers
 	$( document ).ready( function() {
-		// Listen for bucket change
-		$( '#tab-media' ).on( 'bucket-change', function( event, canWrite ) {
-			if ( false === canWrite ) {
-				return;
-			}
-
-			var uploader = as3cfpro.Sidebar.getTool( 'media', 'uploader' );
-
-			if ( null != uploader.total_on_provider && uploader.total_on_provider <= 0 ) {
-				return;
-			}
-
-			setTimeout( function() {
-				as3cfpro.Tools.CopyBuckets.showPrompt();
-			}, 300 );
-		} );
-
-		// Listen for prompt responses
-		$( 'body' ).on( 'click', '.as3cf-copy-buckets-prompt [data-copy-buckets]', function( event ) {
-			as3cfpro.Tools.CopyBuckets.handlePromptResponse( event );
-		} );
-
 		// Toggle bucket lock on page load
 		if ( null != as3cfpro.Sidebar.tools.media.copy_buckets ) {
 			as3cfpro.Tools.CopyBuckets.toggleBucketSelect( as3cfpro.Sidebar.tools.media.copy_buckets );
@@ -179,4 +159,4 @@
 		} );
 	} );
 
-})( jQuery, as3cfModal );
+} )( jQuery, as3cfModal );

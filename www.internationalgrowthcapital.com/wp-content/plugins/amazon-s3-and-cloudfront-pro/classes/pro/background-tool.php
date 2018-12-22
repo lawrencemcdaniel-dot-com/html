@@ -119,7 +119,7 @@ abstract class Background_Tool extends Tool {
 	 * @return array
 	 */
 	public function add_js_nonces( $js_nonces ) {
-		$js_nonces['tools'][ $this->tool_key ] = $this->create_tool_nonces();
+		$js_nonces['tools'][ $this->tool_key ]            = $this->create_tool_nonces();
 		$js_nonces[ 'dismiss_errors_' . $this->tool_key ] = wp_create_nonce( 'dismiss-errors-' . $this->tool_slug );
 
 		return $js_nonces;
@@ -148,6 +148,13 @@ abstract class Background_Tool extends Tool {
 	public function ajax_handle_start() {
 		check_ajax_referer( $this->tool_key . '_start', 'nonce' );
 
+		$this->handle_start();
+	}
+
+	/**
+	 * Handle start.
+	 */
+	public function handle_start() {
 		if ( $this->is_queued() ) {
 			return;
 		}

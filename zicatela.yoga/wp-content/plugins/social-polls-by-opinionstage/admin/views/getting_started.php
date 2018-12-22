@@ -49,9 +49,15 @@ defined( 'ABSPATH' ) or die();
 			<div class="text-section-getting-stared-os">
 				<p><b>Need more information?</b></p>
 				<ul>
-					<li><a href="https://www.opinionstage.com/blog/how-to-add-interactive-content-on-wordpress/?utm_campaign=WPMainPI&amp;utm_medium=linkgettingstarted&amp;utm_source=wordpress&amp;o=wp35e8" target="_blank">Getting started tutorial</a></li>
-					<li><a href="https://www.opinionstage.com/discover?utm_campaign=WPMainPI&amp;utm_medium=linkexamples&amp;utm_source=wordpress&amp;o=wp35e8" target="_blank">View examples</a></li>
-					<li><a href="https://help.opinionstage.com/?utm_campaign=WPMainPI&amp;utm_medium=linkhelpcenter&amp;utm_source=wordpress&amp;o=wp35e8" target="_blank">Opinion Stage help center</a></li>
+					<li>
+						<?php echo opinionstage_link('Getting started tutorial', 'blog/how-to-add-interactive-content-on-wordpress'); ?>
+					</li>
+					<li>
+						<?php echo opinionstage_link('View Templates', 'templates'); ?>
+					</li>
+					<li>
+						<a href="https://help.opinionstage.com/?utm_campaign=WPMainPI&amp;utm_medium=linkhelpcenter&amp;utm_source=wordpress&amp;o=wp35e8" target="_blank">Opinion Stage help center</a>
+					</li>
 				</ul>
 			</div>
 		</div>

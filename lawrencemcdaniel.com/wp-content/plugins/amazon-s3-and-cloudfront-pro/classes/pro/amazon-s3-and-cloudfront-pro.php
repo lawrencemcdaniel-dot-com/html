@@ -1233,11 +1233,12 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * Interfaces to the $licence object instead of making it public.
 	 *
 	 * @param bool $skip_transient_check
+	 * @param bool $skip_expired_check
 	 *
 	 * @return bool
 	 */
-	public function is_valid_licence( $skip_transient_check = false ) {
-		return $this->licence->is_valid_licence( $skip_transient_check );
+	public function is_valid_licence( $skip_transient_check = false, $skip_expired_check = true ) {
+		return $this->licence->is_valid_licence( $skip_transient_check, $skip_expired_check );
 	}
 
 	/**
@@ -1328,7 +1329,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 
 		if ( isset( $this->licence ) ) {
 			if ( ! $this->is_valid_licence() ) {
-				// Empty, invalid or expired license
+				// Empty or invalid license.
 				$this->_is_pro_plugin_setup[ $with_credentials ] = false;
 
 				return $this->_is_pro_plugin_setup[ $with_credentials ];

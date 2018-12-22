@@ -431,8 +431,8 @@
 			containment: '#eg-custom-elements-wrap'
 		});
 
-		//Gutenberg addition
-		if( jQuery('body').hasClass('gutenberg-editor-page') ){
+		//Gutenberg addition 2.3.1
+		if( jQuery('body').hasClass('gutenberg-editor-page') || jQuery('body').hasClass('block-editor-page') || jQuery('body').hasClass('wp-editor') ){
 			jQuery('body').on('change', 'select[name="ess-grid-existing-grid"]', function(){
 				$selected = jQuery('select[name="ess-grid-existing-grid"] option:selected');
 				selected_val = $selected.val();

@@ -824,6 +824,25 @@ return array(
       '400'
     )
   ),
+  'baijamjuree' => array(
+    'source' => 'google',
+    'family' => 'Bai Jamjuree',
+    'stack' => '"Bai Jamjuree", sans-serif',
+    'weights' => array(
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
   'baloo' => array(
     'source' => 'google',
     'family' => 'Baloo',
@@ -1579,6 +1598,23 @@ return array(
       '400'
     )
   ),
+  'chakrapetch' => array(
+    'source' => 'google',
+    'family' => 'Chakra Petch',
+    'stack' => '"Chakra Petch", sans-serif',
+    'weights' => array(
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
   'changa' => array(
     'source' => 'google',
     'family' => 'Changa',
@@ -1608,6 +1644,15 @@ return array(
     'stack' => '"Chango", display',
     'weights' => array(
       '400'
+    )
+  ),
+  'charmonman' => array(
+    'source' => 'google',
+    'family' => 'Charmonman',
+    'stack' => '"Charmonman", handwriting',
+    'weights' => array(
+      '400',
+      '700'
     )
   ),
   'chathura' => array(
@@ -2613,6 +2658,25 @@ return array(
     'family' => 'Expletus Sans',
     'stack' => '"Expletus Sans", display',
     'weights' => array(
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
+  'fahkwang' => array(
+    'source' => 'google',
+    'family' => 'Fahkwang',
+    'stack' => '"Fahkwang", sans-serif',
+    'weights' => array(
+      '200',
+      '200i',
+      '300',
+      '300i',
       '400',
       '400i',
       '500',
@@ -3926,6 +3990,29 @@ return array(
       '400'
     )
   ),
+  'k2d' => array(
+    'source' => 'google',
+    'family' => 'K2D',
+    'stack' => '"K2D", sans-serif',
+    'weights' => array(
+      '100',
+      '100i',
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i',
+      '800',
+      '800i'
+    )
+  ),
   'kadwa' => array(
     'source' => 'google',
     'family' => 'Kadwa',
@@ -4132,6 +4219,60 @@ return array(
       '400'
     )
   ),
+  'koho' => array(
+    'source' => 'google',
+    'family' => 'KoHo',
+    'stack' => '"KoHo", sans-serif',
+    'weights' => array(
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
+  'kodchasan' => array(
+    'source' => 'google',
+    'family' => 'Kodchasan',
+    'stack' => '"Kodchasan", sans-serif',
+    'weights' => array(
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
+  'kosugi' => array(
+    'source' => 'google',
+    'family' => 'Kosugi',
+    'stack' => '"Kosugi", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
+  'kosugimaru' => array(
+    'source' => 'google',
+    'family' => 'Kosugi Maru',
+    'stack' => '"Kosugi Maru", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
   'kottaone' => array(
     'source' => 'google',
     'family' => 'Kotta One',
@@ -4180,6 +4321,25 @@ return array(
     'stack' => '"Krona One", sans-serif',
     'weights' => array(
       '400'
+    )
+  ),
+  'krub' => array(
+    'source' => 'google',
+    'family' => 'Krub',
+    'stack' => '"Krub", sans-serif',
+    'weights' => array(
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
     )
   ),
   'kumarone' => array(
@@ -4567,6 +4727,34 @@ return array(
       '400'
     )
   ),
+  'mplus1p' => array(
+    'source' => 'google',
+    'family' => 'M PLUS 1p',
+    'stack' => '"M PLUS 1p", sans-serif',
+    'weights' => array(
+      '100',
+      '300',
+      '400',
+      '500',
+      '700',
+      '800',
+      '900'
+    )
+  ),
+  'mplusrounded1c' => array(
+    'source' => 'google',
+    'family' => 'M PLUS Rounded 1c',
+    'stack' => '"M PLUS Rounded 1c", sans-serif',
+    'weights' => array(
+      '100',
+      '300',
+      '400',
+      '500',
+      '700',
+      '800',
+      '900'
+    )
+  ),
   'macondo' => array(
     'source' => 'google',
     'family' => 'Macondo',
@@ -4633,6 +4821,25 @@ return array(
     'stack' => '"Mako", sans-serif',
     'weights' => array(
       '400'
+    )
+  ),
+  'mali' => array(
+    'source' => 'google',
+    'family' => 'Mali',
+    'stack' => '"Mali", handwriting',
+    'weights' => array(
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
     )
   ),
   'mallanna' => array(
@@ -5422,6 +5629,25 @@ return array(
       '400'
     )
   ),
+  'niramit' => array(
+    'source' => 'google',
+    'family' => 'Niramit',
+    'stack' => '"Niramit", sans-serif',
+    'weights' => array(
+      '200',
+      '200i',
+      '300',
+      '300i',
+      '400',
+      '400i',
+      '500',
+      '500i',
+      '600',
+      '600i',
+      '700',
+      '700i'
+    )
+  ),
   'nixieone' => array(
     'source' => 'google',
     'family' => 'Nixie One',
@@ -5468,6 +5694,14 @@ return array(
       '400'
     )
   ),
+  'notable' => array(
+    'source' => 'google',
+    'family' => 'Notable',
+    'stack' => '"Notable", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
   'nothingyoucoulddo' => array(
     'source' => 'google',
     'family' => 'Nothing You Could Do',
@@ -5498,6 +5732,58 @@ return array(
       '700i'
     )
   ),
+  'notosansjp' => array(
+    'source' => 'google',
+    'family' => 'Noto Sans JP',
+    'stack' => '"Noto Sans JP", sans-serif',
+    'weights' => array(
+      '100',
+      '300',
+      '400',
+      '500',
+      '700',
+      '900'
+    )
+  ),
+  'notosanskr' => array(
+    'source' => 'google',
+    'family' => 'Noto Sans KR',
+    'stack' => '"Noto Sans KR", sans-serif',
+    'weights' => array(
+      '100',
+      '300',
+      '400',
+      '500',
+      '700',
+      '900'
+    )
+  ),
+  'notosanssc' => array(
+    'source' => 'google',
+    'family' => 'Noto Sans SC',
+    'stack' => '"Noto Sans SC", sans-serif',
+    'weights' => array(
+      '100',
+      '300',
+      '400',
+      '500',
+      '700',
+      '900'
+    )
+  ),
+  'notosanstc' => array(
+    'source' => 'google',
+    'family' => 'Noto Sans TC',
+    'stack' => '"Noto Sans TC", sans-serif',
+    'weights' => array(
+      '100',
+      '300',
+      '400',
+      '500',
+      '700',
+      '900'
+    )
+  ),
   'notoserif' => array(
     'source' => 'google',
     'family' => 'Noto Serif',
@@ -5507,6 +5793,62 @@ return array(
       '400i',
       '700',
       '700i'
+    )
+  ),
+  'notoserifjp' => array(
+    'source' => 'google',
+    'family' => 'Noto Serif JP',
+    'stack' => '"Noto Serif JP", serif',
+    'weights' => array(
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '900'
+    )
+  ),
+  'notoserifkr' => array(
+    'source' => 'google',
+    'family' => 'Noto Serif KR',
+    'stack' => '"Noto Serif KR", serif',
+    'weights' => array(
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '900'
+    )
+  ),
+  'notoserifsc' => array(
+    'source' => 'google',
+    'family' => 'Noto Serif SC',
+    'stack' => '"Noto Serif SC", serif',
+    'weights' => array(
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '900'
+    )
+  ),
+  'notoseriftc' => array(
+    'source' => 'google',
+    'family' => 'Noto Serif TC',
+    'stack' => '"Noto Serif TC", serif',
+    'weights' => array(
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '900'
     )
   ),
   'novacut' => array(
@@ -7120,6 +7462,22 @@ return array(
       '400'
     )
   ),
+  'sawarabigothic' => array(
+    'source' => 'google',
+    'family' => 'Sawarabi Gothic',
+    'stack' => '"Sawarabi Gothic", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
+  'sawarabimincho' => array(
+    'source' => 'google',
+    'family' => 'Sawarabi Mincho',
+    'stack' => '"Sawarabi Mincho", sans-serif',
+    'weights' => array(
+      '400'
+    )
+  ),
   'scada' => array(
     'source' => 'google',
     'family' => 'Scada',
@@ -7618,6 +7976,15 @@ return array(
     'stack' => '"Sriracha", handwriting',
     'weights' => array(
       '400'
+    )
+  ),
+  'srisakdi' => array(
+    'source' => 'google',
+    'family' => 'Srisakdi',
+    'stack' => '"Srisakdi", display',
+    'weights' => array(
+      '400',
+      '700'
     )
   ),
   'stalemate' => array(

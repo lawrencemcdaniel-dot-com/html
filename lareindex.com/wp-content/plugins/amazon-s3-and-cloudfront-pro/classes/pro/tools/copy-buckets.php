@@ -37,8 +37,11 @@ class Copy_Buckets extends Background_Tool {
 		}
 
 		// Prompt
+		add_filter( 'as3cf_media_tab_storage_classes', array( $this, 'media_tab_storage_classes' ) );
+		add_action( 'as3cf_pre_media_settings', array( $this, 'render_modal' ) );
+		add_filter( 'as3cf_handle_post_request', array( $this, 'handle_post_request' ) );
+		add_filter( 'as3cf_action_for_changed_settings_key', array( $this, 'action_for_changed_settings_key' ), 10, 2 );
 		add_action( 'as3cfpro_load_assets', array( $this, 'load_assets' ) );
-		add_action( 'as3cf_after_settings', array( $this, 'render_modal' ) );
 		add_filter( 'as3cfpro_js_strings', array( $this, 'add_js_strings' ) );
 	}
 
@@ -56,12 +59,55 @@ class Copy_Buckets extends Background_Tool {
 	}
 
 	/**
-	 * AJAX handle start.
+	 * Maybe start copy buckets process via post request.
+	 *
+	 * @param array $changed_keys
+	 *
+	 * @return array
 	 */
-	public function ajax_handle_start() {
-		parent::ajax_handle_start();
+	public function handle_post_request( $changed_keys ) {
+		if (
+			! empty( $_GET['action'] ) &&
+			'copy-buckets' === $_GET['action'] &&
+			! $this->as3cf->get_provider()->needs_access_keys() &&
+			$this->as3cf->get_setting( 'bucket' ) &&
+			! empty( $_POST['copy-buckets'] )
+		) {
+			$this->handle_start();
+		}
 
-		$this->as3cf->end_ajax( array( 'success' => true ) );
+		return $changed_keys;
+	}
+
+	/**
+	 * Should the Copy Buckets prompt be the next action?
+	 *
+	 * @param string $action
+	 * @param string $key
+	 *
+	 * @return string
+	 */
+	public function action_for_changed_settings_key( $action, $key ) {
+		if ( empty( $action ) && in_array( $key, array( 'bucket', 'region' ) ) && $this->count_media_files() ) {
+			return 'copy-buckets';
+		}
+
+		return $action;
+	}
+
+	/**
+	 * Adjust media tab's class attribute.
+	 *
+	 * @param string $storage_classes Class names related to storage provider.
+	 *
+	 * @return string
+	 */
+	public function media_tab_storage_classes( $storage_classes ) {
+		if ( ! empty( $_GET['action'] ) && 'copy-buckets' === $_GET['action'] ) {
+			$storage_classes .= ' as3cf-copy-buckets';
+		}
+
+		return $storage_classes;
 	}
 
 	/**

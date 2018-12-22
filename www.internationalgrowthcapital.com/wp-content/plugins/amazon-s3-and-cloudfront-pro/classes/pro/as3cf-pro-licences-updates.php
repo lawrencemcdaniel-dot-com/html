@@ -184,7 +184,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	 * @return array $addons
 	 */
 	function inject_addon_page_links( $addons ) {
-		if ( ! $this->is_valid_licence( true ) ) {
+		if ( ! $this->is_valid_licence( true, false ) ) {
 			return $addons;
 		}
 
@@ -737,7 +737,6 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 						// No plugins, remove the var
 						unset( $_GET['plugins'] );
 					}
-
 				} elseif ( isset( $_POST['checked'] ) ) {
 					foreach ( $_POST['checked'] as $key => $checked_plugin ) {
 						if ( in_array( $checked_plugin, array( $plugin, urlencode( $plugin ) ) ) ) {

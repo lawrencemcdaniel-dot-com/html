@@ -36,7 +36,9 @@ function x_boot_registry() {
       'functions/updates/class-plugin-updater'
     ),
 
-    'init' => array(),
+    'init' => array(
+      'functions/frontend/conditionals',
+    ),
 
     'front_end' => array(
       'functions/frontend/view-routing',
@@ -52,8 +54,7 @@ function x_boot_registry() {
       'functions/frontend/social',
       'functions/frontend/breadcrumbs',
       'functions/frontend/pagination',
-      'functions/frontend/featured',
-      'functions/frontend/conditionals',
+      'functions/frontend/featured'
     ),
 
     'logged_in' => array(

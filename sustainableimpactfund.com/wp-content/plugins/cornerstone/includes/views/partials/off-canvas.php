@@ -50,6 +50,7 @@ $atts_off_canvas_content = array(
 $output_off_canvas_content = do_shortcode($off_canvas_content);
 
 if (isset($off_canvas_content_dynamic_rendering) && $off_canvas_content_dynamic_rendering) {
+  $output_off_canvas_content = apply_filters( 'cs_dynamic_rendering', $output_off_canvas_content );
   $output_off_canvas_content = "<script type=\"text/cs-toggle-template\">$output_off_canvas_content</script>";
   $atts_off_canvas_content['data-x-toggleable-content'] = $mod_id;
 }

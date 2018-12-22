@@ -137,7 +137,7 @@ class Cornerstone_Styling extends Cornerstone_Plugin_Component {
   }
 
   protected function post_process( $css, $minify = true ) {
-    $output = preg_replace_callback('/%%post ([\w-:]+?)%%([\s\S]*?)%%\/post%%/', array( $this, 'post_process_replacer' ), $css );
+    $output = preg_replace_callback('/%%post ([\w:\-]+?)%%([\s\S]*?)%%\/post%%/', array( $this, 'post_process_replacer' ), $css );
     return ( $minify ) ? $this->clean_css( $output ) : $output;
   }
 

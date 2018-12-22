@@ -1037,7 +1037,21 @@ function sfsi_bannerOption(){
                     });
                 });
         </script>';
-    }   
+    }
+    die();
+}
+add_action('wp_ajax_sfsiOfflineChatMessage','sfsi_OfflineChatMessage');
+
+function sfsi_OfflineChatMessage(){
+    error_reporting(0);
+    extract($_POST);
+    $body="<table><tr><th>Site:</th><td>".home_url()."</td></tr><tr><th>Plugin:</th><td>Old Plugin</td></tr><tr><th>Email:</th><td>".$email."</td></tr><tr><th>Message:</th><td>".$message."</td></tr></table>";
+    $sent=wp_mail('help@ultimatelysocial.com',"New question from user",$body,array('Content-Type: text/html; charset=UTF-8'));
+    if(isset($sent)&&(true===$sent)){
+        echo "success";
+    }else{
+        echo "failure";
+    }
     die();
 }
 ?>

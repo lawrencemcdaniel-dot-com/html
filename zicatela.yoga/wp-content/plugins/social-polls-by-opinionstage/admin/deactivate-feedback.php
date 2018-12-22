@@ -11,10 +11,6 @@ function add_deactivate_feedback_form() {
 		return;
 	}
 
-	if(opinionstage_user_access_token() == null){
-		return; 
-	}
-
 	include 'views/deactivate-feedback-form.php';
 }
 

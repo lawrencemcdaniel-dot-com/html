@@ -287,6 +287,7 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
     $this->setup_context_all_register_hooks();
     add_action( '_cs_rendering_global_block_begin', array( $this, 'setup_context_all_teardown_hooks' ) );
     add_action( '_cs_rendering_global_block_end',   array( $this, 'setup_context_all_register_hooks' ) );
+    add_action( 'cs_dynamic_rendering', array($this, 'dynamic_rendering_filter') );
   }
 
   public function setup_context_all_register_hooks() {
@@ -297,6 +298,7 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
     add_action( 'x_render_children', 'cornerstone_preview_container_output' );
   }
 
+  // Um... shouldn't these be remove calls? Will need to test Global Block nesting...
   public function setup_context_all_teardown_hooks() {
     add_filter( 'x_breadcrumbs_data', 'x_bars_sample_breadcrumbs', 10, 2 );
     add_filter('cornerstone_css_post_process_color', array( $this, 'post_process_attr' ) );
@@ -342,8 +344,8 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
   //}
 
   public function post_process_attr( $value ) {
-    
-    // if ( preg_match('/{{data\.(.+?)}}/', $value, $matches ) ) { 
+
+    // if ( preg_match('/{{data\.(.+?)}}/', $value, $matches ) ) {
     //   if ( isset($matches[1]) ) {
     //     $attr = $matches[1];
     //     return "{{transform post-process-attr $attr}}";
@@ -361,6 +363,23 @@ class Cornerstone_Element_Renderer extends Cornerstone_Plugin_Component {
     foreach ($fonts as $font) {
       $this->fonts[$font['_id']] = true;
     }
+  }
+
+  //
+  // Dynamic Rendering
+  // We don't want the content to be base64 encoded.
+  //
+
+  public function dynamic_rendering_filter($content) {
+    return $this->unwrap_base64($this->restore_html($content));
+  }
+
+  public function unwrap_base64($content) {
+    return preg_replace_callback('/{{base64content "(.*?)"\s*?}}/', array($this, 'unwrap_base64_cb'), $content);
+  }
+
+  public function unwrap_base64_cb($match) {
+    return $this->unwrap_base64(base64_decode($match[1]));
   }
 
 }

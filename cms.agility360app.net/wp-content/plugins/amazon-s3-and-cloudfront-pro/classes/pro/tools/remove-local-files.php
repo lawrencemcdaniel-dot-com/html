@@ -28,10 +28,10 @@ class Remove_Local_Files extends Background_Tool {
 			return;
 		}
 
-		add_action( 'as3cfpro_load_assets', array( $this, 'load_assets' ) );
-		add_action( 'as3cf_form_hidden_fields', array( $this, 'render_hidden_field' ) );
-		add_action( 'as3cf_after_settings', array( $this, 'render_modal' ) );
-		add_action( 'as3cf_pre_save_settings', array( $this, 'maybe_start_tool_on_settings_save' ) );
+		add_filter( 'as3cf_media_tab_storage_classes', array( $this, 'media_tab_storage_classes' ) );
+		add_action( 'as3cf_pre_media_settings', array( $this, 'render_modal' ) );
+		add_filter( 'as3cf_handle_post_request', array( $this, 'handle_post_request' ) );
+		add_filter( 'as3cf_action_for_changed_settings_key', array( $this, 'action_for_changed_settings_key' ), 10, 2 );
 	}
 
 	/**
@@ -48,69 +48,66 @@ class Remove_Local_Files extends Background_Tool {
 	}
 
 	/**
-	 * Load assets.
+	 * Maybe start remove local files process via post request.
+	 *
+	 * @param array $changed_keys
+	 *
+	 * @return array
 	 */
-	public function load_assets() {
-		if ( ! $this->should_display_prompt() ) {
-			return;
+	public function handle_post_request( $changed_keys ) {
+		if (
+			! empty( $_GET['action'] ) &&
+			'remove-local-files' === $_GET['action'] &&
+			! $this->as3cf->get_provider()->needs_access_keys() &&
+			$this->as3cf->get_setting( 'bucket' ) &&
+			! empty( $_POST['remove-local-files'] )
+		) {
+			$this->handle_start();
 		}
 
-		$this->as3cf->enqueue_script( 'as3cf-pro-remove-local-files', 'assets/js/pro/tools/remove-local-files', array(
-			'jquery',
-			'wp-util',
-		) );
+		return $changed_keys;
 	}
 
 	/**
-	 * Render hidden form field on settings screen.
+	 * Should the Remove all files from server prompt be the next action?
+	 *
+	 * @param string $action
+	 * @param string $key
+	 *
+	 * @return string
 	 */
-	public function render_hidden_field() {
-		if ( ! $this->should_display_prompt() ) {
-			return;
+	public function action_for_changed_settings_key( $action, $key ) {
+		if ( empty( $action ) && 'remove-local-file' === $key && $this->should_render() ) {
+			return 'remove-local-files';
 		}
 
-		echo '<input type="hidden" name="remove-local-files-prompt" value="0" />';
+		return $action;
+	}
+
+	/**
+	 * Adjust media tab's class attribute.
+	 *
+	 * @param string $storage_classes Class names related to storage provider.
+	 *
+	 * @return string
+	 */
+	public function media_tab_storage_classes( $storage_classes ) {
+		if ( ! empty( $_GET['action'] ) && 'remove-local-files' === $_GET['action'] ) {
+			$storage_classes .= ' as3cf-remove-local-files';
+		}
+
+		return $storage_classes;
 	}
 
 	/**
 	 * Render modal in footer.
 	 */
 	public function render_modal() {
-		if ( ! $this->should_display_prompt() ) {
+		if ( ! $this->should_render() ) {
 			return;
 		}
 
 		$this->as3cf->render_view( 'modals/remove-local-files' );
-	}
-
-	/**
-	 * Should we display the prompt to the user?
-	 *
-	 * @return bool
-	 */
-	protected function should_display_prompt() {
-		if ( $this->count_media_files() > 0 ) {
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Maybe start removal if user selected 'Yes' to prompt.
-	 */
-	public function maybe_start_tool_on_settings_save() {
-		if ( ! isset( $_POST['remove-local-files-prompt'] ) || 0 === (int) $_POST['remove-local-files-prompt'] ) {
-			return;
-		}
-
-		if ( $this->is_queued() ) {
-			return;
-		}
-
-		$session = $this->create_session();
-
-		$this->background_process->push_to_queue( $session )->save()->dispatch();
 	}
 
 	/**
@@ -120,21 +117,6 @@ class Remove_Local_Files extends Background_Tool {
 	 */
 	public function should_render() {
 		return $this->count_media_files() && (bool) $this->as3cf->get_setting( 'remove-local-file', false );
-	}
-
-	/**
-	 * Count media files in bucket.
-	 *
-	 * @return int
-	 */
-	protected function count_media_files() {
-		static $count;
-
-		if ( is_null( $count ) ) {
-			$count = $this->as3cf->get_media_library_provider_total( true );
-		}
-
-		return $count;
 	}
 
 	/**

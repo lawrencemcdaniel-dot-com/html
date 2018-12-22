@@ -46,7 +46,7 @@ $atts_search_submit = array(
   'class'                => 'x-search-btn x-search-btn-submit',
   'type'                 => 'button',
   'data-x-search-submit' => '',
-  'tabindex'             => ''
+  'tabindex'             => 0
 );
 
 $atts_search_input = array(
@@ -54,7 +54,7 @@ $atts_search_input = array(
   'class'    => 'x-search-input',
   'type'     => 'search',
   'name'     => 's',
-  'tabindex' => ''
+  'tabindex' => 0
 );
 
 if ( ! empty( $search_placeholder ) ) {
@@ -65,7 +65,7 @@ $atts_search_clear = array(
   'class'               => 'x-search-btn x-search-btn-clear',
   'type'                => 'button',
   'data-x-search-clear' => '',
-  'tabindex'            => ''
+  'tabindex'            => 0
 );
 
 

@@ -3,8 +3,8 @@ Contributors: FARAZFRANK
 Donate link: https://www.wpfrank.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
-Tested up to: 4.9.8
-Stable tag: 3.2.12
+Tested up to: 5.0.1
+Stable tag: 3.2.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -126,6 +126,10 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 
 == Changelog ==
 For more information, see [WP Frank](https://wpfrank.com/)
+
+= V 3.2.13 =
+* Added Our Premium Plugins
+* Fixed bug when updating image URLs after website migration
 
 = V 3.2.12 =
 - Fixed Pro Banner Placement

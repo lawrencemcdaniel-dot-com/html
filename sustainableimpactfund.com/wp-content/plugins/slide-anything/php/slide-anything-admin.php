@@ -1661,15 +1661,16 @@ function cpt_slider_style_content($post) {
 
 	echo "<h4 style='margin-top:10px !important;'>Other Settings:</h4>";
 
-	// USE 'window.onload' EVENT (checkbox)
+	// USE 'DOMContentLoaded' EVENT (checkbox)
 	$window_onload = get_post_meta($post->ID, 'sa_window_onload', true);
 	if ($window_onload == '') {
 		$window_onload = '0';
 	}
-	$tooltip =  'Use window.onload event (not document.ready). Use this option if your slider is ';
-	$tooltip .= 'not being sized correctly within your page container (sometimes occurs with Visual Composer full-width sections).';
+	$tooltip =  'Load the Slide Anything JavaScript during the DOMContentLoaded event. Use this option if jQuery ';
+	$tooltip .= 'is loading in your theme footer and you are getting the JavaScript error message ';
+	$tooltip .= '&quot;Uncaught ReferenceError: jQuery is not defined&quot;.';
 	echo "<div id='sa_window_onload_line'>";
-	echo "<span class='sa_tooltip' title='".$tooltip."'></span><span style='min-width:160px;'>Use 'window.onload' event:</span>";
+	echo "<span class='sa_tooltip' title='".$tooltip."'></span><span style='min-width:160px;'>DOMContentLoaded event:</span>";
 	if ($window_onload == '1') {
 		echo "<input type='checkbox' id='sa_window_onload' name='sa_window_onload' value='1' checked/>";
 	} else {

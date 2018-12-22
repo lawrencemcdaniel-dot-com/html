@@ -21,7 +21,7 @@ function opinionstage_register_menu_page() {
 			add_submenu_page(OPINIONSTAGE_MENU_SLUG, 'Placements', 'Placements', 'edit_posts', OPINIONSTAGE_PLACEMENT_SLUG , 'opinionstage_load_template' );
 			add_submenu_page(OPINIONSTAGE_MENU_SLUG, 'Getting Started', 'Getting Started', 'edit_posts', OPINIONSTAGE_GETTING_STARTED_SLUG,'opinionstage_load_template' );
 			add_submenu_page(OPINIONSTAGE_MENU_SLUG, 'Help Center', 'Help Center', 'edit_posts', 'https://help.opinionstage.com/?utm_campaign=WPMainPI&utm_medium=linkhelpcenter&utm_source=wordpress&o=wp35e8' );
-			add_submenu_page(OPINIONSTAGE_MENU_SLUG, 'Live Examples', 'Live Examples', 'edit_posts', 'https://www.opinionstage.com/discover?utm_campaign=WPMainPI&utm_medium=linkexamples&utm_source=wordpress&o=wp35e8' );
+			add_submenu_page(OPINIONSTAGE_MENU_SLUG, 'Templates', 'Templates', 'edit_posts', 'https://www.opinionstage.com/templates?utm_campaign=WPMainPI&utm_medium=linkexamples&utm_source=wordpress&o=wp35e8' );
 		}else{
 			add_menu_page(
 				__('Opinion Stage', OPINIONSTAGE_TEXT_DOMAIN),
@@ -36,7 +36,7 @@ function opinionstage_register_menu_page() {
 			add_submenu_page(OPINIONSTAGE_GETTING_STARTED_SLUG, 'Create...', 'Create...', 'edit_posts', OPINIONSTAGE_MENU_SLUG, 'opinionstage_load_template');
 			add_submenu_page(OPINIONSTAGE_GETTING_STARTED_SLUG, 'Placements', 'Placements', 'edit_posts', OPINIONSTAGE_PLACEMENT_SLUG , 'opinionstage_load_template' );
 			add_submenu_page(OPINIONSTAGE_GETTING_STARTED_SLUG, 'Help Center', 'Help Center', 'edit_posts', 'https://help.opinionstage.com/?utm_campaign=WPMainPI&utm_medium=linkhelpcenter&utm_source=wordpress&o=wp35e8' );
-			add_submenu_page(OPINIONSTAGE_GETTING_STARTED_SLUG, 'Live Examples', 'Live Examples', 'edit_posts', 'https://www.opinionstage.com/discover?utm_campaign=WPMainPI&utm_medium=linkexamples&utm_source=wordpress&o=wp35e8' );
+			add_submenu_page(OPINIONSTAGE_GETTING_STARTED_SLUG, 'Templates', 'Templates', 'edit_posts', 'https://www.opinionstage.com/templates?utm_campaign=WPMainPI&utm_medium=linkexamples&utm_source=wordpress&o=wp35e8' );
 		}
 	}
 }

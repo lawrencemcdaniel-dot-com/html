@@ -27,7 +27,7 @@
 	};
 
 	/**
-	 * Set the access keys using the values in the settings fields.
+	 * Set the license key using the values in the settings fields.
 	 */
 	LicenceApi.prototype.activate = function() {
 		var licenceKey = $.trim( this.$key.val() );
@@ -53,7 +53,7 @@
 	};
 
 	/**
-	 * Remove the access keys from the database and clear the fields.
+	 * Remove the license key from the database and clear the fields.
 	 */
 	LicenceApi.prototype.remove = function() {
 		return this.sendRequest( 'remove' )
@@ -173,37 +173,6 @@
 		return inputsObject;
 	}
 
-	$( document ).on( 'as3cf.tabRendered', function( event, hash ) {
-		if ( 'support' === hash && '1' === as3cfpro.strings.has_licence ) {
-			initSupportTab();
-		} else if ( 'licence' === hash ) {
-			$( '.as3cf-licence-input' ).focus();
-		}
-
-		editcheckLicenseURL( hash );
-		toggleSidebarTools( hash );
-	} );
-
-	/**
-	 * Extend the buckets set method to refresh the media upload notice
-	 *
-	 * @type {as3cf.buckets.set}
-	 */
-	var originalBucketSet = as3cf.buckets.set;
-	as3cf.buckets.set = function( bucket, region, region_name, canWrite ) {
-		// Store the active bucket before the selection has been made
-		var activeBucket = $( '#' + as3cfModal.prefix + '-active-bucket' ).text();
-
-		// Run the parent set bucket method
-		originalBucketSet( bucket, region, region_name, canWrite );
-
-		if ( 'as3cf' === as3cfModal.prefix && '' === activeBucket.trim() ) {
-			// If we are setting the bucket for the first time,
-			// trigger the render of the pro tools
-			renderSidebarTools();
-		}
-	};
-
 	/**
 	 * Edit the hash of the check licence URL so we reload to the correct tab
 	 *
@@ -230,30 +199,6 @@
 
 			$( '.as3cf-pro-check-again' ).attr( 'href', checkLicenseURL );
 		}
-	}
-
-	/**
-	 * Render the sidebar tools
-	 */
-	function renderSidebarTools() {
-		$.ajax( {
-			url: ajaxurl,
-			type: 'POST',
-			dataType: 'json',
-			cache: false,
-			data: {
-				action: 'as3cfpro_render_sidebar_tools',
-				nonce: as3cfpro.nonces.render_sidebar_tools
-			},
-			success: function( response ) {
-				if ( true === response.success && 'undefined' !== typeof response.data ) {
-					$( '.as3cf-sidebar.pro' ).empty();
-					$( '.as3cf-sidebar.pro' ).prepend( response.data );
-					var hash = getURLHash();
-					toggleSidebarTools( hash );
-				}
-			}
-		} );
 	}
 
 	/**
@@ -284,6 +229,30 @@
 		return hash;
 	}
 
+	/**
+	 * Render the sidebar tools
+	 */
+	function renderSidebarTools() {
+		$.ajax( {
+			url: ajaxurl,
+			type: 'POST',
+			dataType: 'json',
+			cache: false,
+			data: {
+				action: 'as3cfpro_render_sidebar_tools',
+				nonce: as3cfpro.nonces.render_sidebar_tools
+			},
+			success: function( response ) {
+				if ( true === response.success && 'undefined' !== typeof response.data ) {
+					$( '.as3cf-sidebar.pro' ).empty();
+					$( '.as3cf-sidebar.pro' ).prepend( response.data );
+					var hash = getURLHash();
+					toggleSidebarTools( hash );
+				}
+			}
+		} );
+	}
+
 	$main.on( 'click', '[data-as3cf-licence-action]', function( event ) {
 		var action = $( this ).data( 'as3cfLicenceAction' );
 		var api = new LicenceApi();
@@ -293,6 +262,17 @@
 		if ( 'function' === typeof api[action] ) {
 			api[action]();
 		}
+	} );
+
+	$( document ).on( 'as3cf.tabRendered', function( event, hash ) {
+		if ( 'support' === hash && '1' === as3cfpro.strings.has_licence ) {
+			initSupportTab();
+		} else if ( 'licence' === hash ) {
+			$( '.as3cf-licence-input' ).focus();
+		}
+
+		editcheckLicenseURL( hash );
+		toggleSidebarTools( hash );
 	} );
 
 	$( document ).ready( function() {

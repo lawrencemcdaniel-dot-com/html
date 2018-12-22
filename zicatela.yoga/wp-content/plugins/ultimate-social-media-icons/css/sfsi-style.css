@@ -2240,7 +2240,7 @@ ul.cstmskin_iconlist {
     top: -8px;
     white-space: pre;
     width: 33px;
-	height: 20px;
+	height: 24px;
     z-index: 9;
 }
 .sfsi_wicons a.sficn, .sfsi_wicons .sfsi_inside a, .sfsi_Sicons div a
@@ -2257,3 +2257,24 @@ ul.cstmskin_iconlist {
 }
 .sfsi_wicons a{box-shadow:none !important;}
 a.sficn{ cursor: pointer; }
+.sfsi_Sicons .fb_iframe_widget>span{
+        vertical-align:top!important;
+}
+.sfsi_Sicons .sf_fb{
+    margin:0 0 0 5px !important;
+}
+.sfsi_Sicons .sf_google{
+    margin:-1px 10px !important;
+}
+
+.disabled_checkbox .sfsi_right_info:before {
+    position: absolute;
+    content: "";
+    width: 45%;
+    height: 60px;
+    display: inline-block;
+    z-index: 99;
+    margin-left: -40px;
+    margin-top: -14px;
+    background: rgba(255,255,255,.8);
+}

@@ -65,7 +65,7 @@ $condition_bg_upper_parallax = array( $k_pre . 'bg_upper_parallax' => true );
 $options_bg_type = array(
   'choices' => array(
     array( 'value' => 'none',  'icon' => 'ban'        ),
-    array( 'value' => 'color', 'icon' => 'eyedropper' ),
+    array( 'value' => 'color', 'icon' => 'eye-dropper' ),
     array( 'value' => 'image', 'icon' => 'image'  ),
     array( 'value' => 'video', 'icon' => 'film'       ),
   )

@@ -8,7 +8,7 @@ wp_enqueue_style( 'uris-feature-notice-css', URIS_PLUGIN_URL . 'css/uris-feature
     <div class="wb_plugin_feature_banner default_pattern pattern_ ">
         <div class="wb-col-md-6 wb-col-sm-12 box">
             <div class="ribbon"><span>Check Pro</span></div>
-            <img class="wp-img-responsive" src="<?php echo URIS_PLUGIN_URL . 'img/ultimate.PNG'; ?>" alt="img">
+            <img class="wp-img-responsive" src="<?php echo URIS_PLUGIN_URL . 'img/ultimate.png'; ?>" alt="img">
         </div>
         <div class="wb-col-md-6 wb-col-sm-12 wb_banner_featurs-list">
             <span class="gp_banner_head"><h2><?php _e( 'Ultimate Responsive Image Slider Pro Features', URIS_TD ); ?> </h2></span>
@@ -27,7 +27,7 @@ wp_enqueue_style( 'uris-feature-notice-css', URIS_PLUGIN_URL . 'css/uris-feature
             <div class="wp_btn-grup">
                 <a class="wb_button-primary" href="https://wpfrank.com/demo/ultimate-responsive-image-slider-pro/"
                    target="_blank"><?php _e( 'Check Pro Demo', URIS_TD ); ?></a>
-                <a class="wb_button-primary" href="https://wpfrank.com/account/signup/ultimate-responsive-image-slider-pro/"
+                <a class="wb_button-primary" href="https://wpfrank.com/account/signup/ultimate-responsive-image-slider-pro"
                    target="_blank"><?php _e( 'Buy Pro', URIS_TD ); ?> $21</a>
             </div>
 

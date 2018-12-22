@@ -331,4 +331,19 @@ abstract class Tool {
 	public static function show_tool_constant() {
 		return AS3CF_Utils::get_first_defined_constant( static::$show_tool_constants );
 	}
+
+	/**
+	 * Count media files in bucket.
+	 *
+	 * @return int
+	 */
+	protected function count_media_files() {
+		static $count;
+
+		if ( is_null( $count ) ) {
+			$count = $this->as3cf->get_media_library_provider_total( true );
+		}
+
+		return $count;
+	}
 }

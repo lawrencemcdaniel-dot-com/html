@@ -202,7 +202,7 @@ function x_values_accordion( $settings = array() ) {
     'accordion_header_bg_color_alt'             => x_module_value( 'rgba(255, 255, 255, 1)', 'style:color' ),
 
     'accordion_header_indicator_type'           => x_module_value( 'text', 'markup' ),
-    'accordion_header_indicator_text'           => x_module_value( '&#x25b8;', 'attr:html' ),
+    'accordion_header_indicator_text'           => x_module_value( '&#x25b8;', 'markup' ),
     'accordion_header_indicator_icon'           => x_module_value( 'caret-right', 'markup' ),
     'accordion_header_indicator_font_size'      => x_module_value( '1em', 'style' ),
     'accordion_header_indicator_width'          => x_module_value( 'auto', 'style' ),

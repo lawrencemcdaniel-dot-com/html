@@ -20,7 +20,7 @@ class Essential_Grid {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	const VERSION = '2.3';
+	const VERSION = '2.3.1';
 	const TABLE_GRID = 'eg_grids';
 	const TABLE_ITEM_SKIN = 'eg_item_skins';
 	const TABLE_ITEM_ELEMENTS = 'eg_item_elements';
@@ -183,6 +183,7 @@ class Essential_Grid {
 		$js_to_footer = (get_option('tp_eg_js_to_footer', 'false') == 'true') ? true : false;
 		$enable_log = (get_option('tp_eg_enable_log', 'false') == 'true') ? true : false;
 		
+		wp_enqueue_script( 'jquery' );
 		//wp_register_script( 'themepunchboxext', EG_PLUGIN_URL . 'public/assets/js/lightbox.js', array('jquery'), self::VERSION, $js_to_footer);
 		$waitfor = array( 'jquery' );
 		

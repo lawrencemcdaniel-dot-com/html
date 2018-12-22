@@ -444,8 +444,8 @@ class Cornerstone_Router extends Cornerstone_Plugin_Component {
 
     if ( ! isset( $this->ajax_url ) ) {
       $this->ajax_url = ( $this->endpoint_available() )
-      ? home_url( $this->endpoint )
-      : $this->get_fallback_ajax_url();
+        ? apply_filters( 'cs_ajax_url', home_url( $this->endpoint ), $this->endpoint )
+        : $this->get_fallback_ajax_url();
     }
 
     return $this->ajax_url;

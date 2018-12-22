@@ -7,6 +7,7 @@ return array(
   // Messaging
   'welcome-app'       => __( '<strong>Howdy!</strong> What would you like to launch?', 'cornerstone' ),
   'save'              => __( 'Save', 'cornerstone' ),
+  'apply'             => __( 'Apply', 'cornerstone' ),
   'loading'           => __( 'Loading&hellip;', 'cornerstone' ),
   'unauthorized'      => __( 'You don&apos;t have permission to do that.', 'cornerstone' ),
   'exit-to-dashboard' => __( 'Exit to Dashboard', 'cornerstone' ),
@@ -72,6 +73,7 @@ return array(
 
   // Inspector
   'inspector.na-title' => __( 'Nothing Selected', 'cornerstone' ),
+  'inspector.na-message' => __( 'Click an element in the site preview, or use the magnifying glass icon on elements in the <strong>Layout</strong> pane.', 'cornerstone' ),
   'inspector.search'   => __( 'Search Inspector...', 'cornerstone' ),
   'inspector.apply-preset-warning' => __( 'This action will replace all element styling. Proceed?', 'cornerstone' ),
 
@@ -104,12 +106,21 @@ return array(
   'assignments.multiple-assignments' => __( 'Multiple Assignments', 'cornerstone' ),
 
   // Elements
-  'elements-confirm-delete' => __( 'Are you sure you want to delete this {{title}}? This can not be undone.', 'cornerstone' ),
-  'elements-confirm-erase' => __( 'Are you sure you want to delete this element&apos;s contents? This can not be undone.', 'cornerstone' ),
+  'elements-confirm-delete' => __( 'Are you sure you want to delete this {{title}}?', 'cornerstone' ),
+  'elements-confirm-erase' => __( 'Are you sure you want to delete this element&apos;s contents?', 'cornerstone' ),
   'elements-undefined-preview' => __( 'This element could not render because its definition is missing. You might need to activate a plugin.', 'cornerstone' ),
   'elements-preview-unavailable' => __( 'No Preview Available (<a target="_blank" href="{{url}}">View Live</a>)', 'cornerstone' ),
   'elements-undefined-inspector-title' => __( 'Undefined Element', 'cornerstone' ),
   'elements-undefined-inspector-message' => __( 'The definition for this element could not be located. You may need to activate a plugin. The type declared for this element is: <strong>{{type}}</strong>', 'cornerstone' ),
+
+  // Presets
+  'presets.placeholder'     => __( 'Nothing Selected', 'cornerstone' ),
+  'presets.na'              => __( 'No Presets', 'cornerstone' ),
+  'presets.save'            => __( 'Save Preset', 'cornerstone' ),
+  'presets.apply'           => __( 'Apply Preset', 'cornerstone' ),
+  'presets.replace-content' => __( 'Replace Content', 'cornerstone' ),
+  'presets.apply-confirm'   => __( 'Yes, Apply', 'cornerstone' ),
+  'presets.apply-decline'   => __( 'No thanks', 'cornerstone' ),
 
   // Confirm
   'confirm-yep'  => __( 'Yes, Proceed', 'cornerstone' ),

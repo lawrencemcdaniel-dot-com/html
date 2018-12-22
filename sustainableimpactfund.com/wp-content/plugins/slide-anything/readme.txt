@@ -249,6 +249,12 @@ Adding a SLIDE ANYTHING slider using the WordPress 5.0 'Block Editor' is pretty 
 = 2.1.19 =
 * Small enhancement - The Slide Anything container is now set to hidden (visibility:hidden) until all the slides have been displayed and owl-carousel JavaScript code executed, then the SA container is set to visible (visibility:visible). This presents a cleaner page loading experience without the individual slide containers (DIVS) sometimes being displayed (even for a fraction of a second) prior to slider initialisation.
 
+= 2.1.20 =
+* Bug Fix - Fixed an issue where the Slide Anything JavaScript code was not being generated with certain newer themes.
+
+= 2.1.21 =
+* Replace the 'Load JavaScript during window.onload event' option with a 'Load JavaScript during DOMContentLoaded event' option, which is a much better solution.
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -408,3 +414,9 @@ Adding a SLIDE ANYTHING slider using the WordPress 5.0 'Block Editor' is pretty 
 
 = 2.1.19 =
 * Small enhancement - The Slide Anything container is now set to hidden (visibility:hidden) until all the slides have been displayed and owl-carousel JavaScript code executed, then the SA container is set to visible (visibility:visible). This presents a cleaner page loading experience without the individual slide containers (DIVS) sometimes being displayed (even for a fraction of a second) prior to slider initialisation.
+
+= 2.1.20 =
+* Bug Fix - Fixed an issue where the Slide Anything JavaScript code was not being generated with certain newer themes.
+
+= 2.1.21 =
+* Replace the 'Load JavaScript during window.onload event' option with a 'Load JavaScript during DOMContentLoaded event' option, which is a much better solution.

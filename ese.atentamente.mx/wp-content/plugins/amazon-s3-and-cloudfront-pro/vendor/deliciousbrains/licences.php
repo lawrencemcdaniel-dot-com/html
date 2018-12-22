@@ -162,10 +162,11 @@ abstract class Delicious_Brains_API_Licences extends Delicious_Brains_API_Base {
 	 * Checks whether the saved licence has expired or not.
 	 *
 	 * @param bool $skip_transient_check
+	 * @param bool $skip_expired_check
 	 *
 	 * @return bool
 	 */
-	public function is_valid_licence( $skip_transient_check = false ) {
+	public function is_valid_licence( $skip_transient_check = false, $skip_expired_check = true ) {
 		$response = $this->is_licence_expired( $skip_transient_check );
 
 		if ( isset( $response['dbrains_api_down'] ) ) {
@@ -173,8 +174,8 @@ abstract class Delicious_Brains_API_Licences extends Delicious_Brains_API_Base {
 		}
 
 		if ( $this->plugin->expired_licence_is_valid && isset( $response['errors']['subscription_expired'] ) && 1 === count( $response['errors'] ) ) {
-			// Don't cripple the plugin's functionality if the user's licence is expired
-			return true;
+			// Maybe don't cripple the plugin's functionality if the user's licence is expired.
+			return $skip_expired_check;
 		}
 
 		return ( isset( $response['errors'] ) ) ? false : true;

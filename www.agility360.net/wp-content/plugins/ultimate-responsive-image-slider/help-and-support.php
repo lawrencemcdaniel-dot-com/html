@@ -71,7 +71,7 @@ if(isset($_REQUEST['urispchangeurl']) ) {
 				);
 			}
 			update_post_meta($URISP_Id, 'ris_all_photos_details', base64_encode(serialize($ImagesArray)));
-			$ImagesArray="";
+			$ImagesArray = array();
 		}	
 	endwhile; 
 }

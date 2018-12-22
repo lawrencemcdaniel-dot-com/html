@@ -452,235 +452,230 @@ function slide_anything_shortcode($atts) {
 
 			// ### ENQUEUE JQUERY SCRIPT IF IT HAS NOT ALREADY BEEN LOADED ###
 			if (!wp_script_is('jquery', 'done')) {
-				wp_enqueue_script('jquery');
+				wp_enqueue_script('jquery', false, array(), false, false);
 			}
 
 
 
 			// ### GENERATE JQUERY CODE FOR THE OWL CAROUSEL SLIDER ###
-			if (wp_script_is('jquery', 'done')) { // Only generate JQuery code if JQuery has been loaded
-				if (($slide_data['items_width1'] == 1) && ($slide_data['items_width2'] == 1) && ($slide_data['items_width3'] == 1) &&
-					 ($slide_data['items_width4'] == 1) && ($slide_data['items_width5'] == 1) && ($slide_data['items_width6'] == 1)) {
-					$single_item = 1;
-				} else {
-					$single_item = 0;
-				}
-				$output .= "<script type='text/javascript'>\n";
-				if ($slide_data['sa_window_onload'] == '1') {
-					$output .= "	jQuery(window).load(function() {\n";
-				} else {
-					$output .= "	jQuery(document).ready(function() {\n";
-				}
+			if (($slide_data['items_width1'] == 1) && ($slide_data['items_width2'] == 1) && ($slide_data['items_width3'] == 1) &&
+				 ($slide_data['items_width4'] == 1) && ($slide_data['items_width5'] == 1) && ($slide_data['items_width6'] == 1)) {
+				$single_item = 1;
+			} else {
+				$single_item = 0;
+			}
+			$output .= "<script type='text/javascript'>\n";
+			if ($slide_data['sa_window_onload'] == '1') {
+				$output .= "	document.addEventListener('DOMContentLoaded', function() {\n";
+			} else {
+				$output .= "	jQuery(document).ready(function() {\n";
+			}
 
-				// JQUERY CODE FOR OWN CAROUSEL
-				$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."').owlCarousel({\n";
-				if ($single_item == 1) {
-					$output .= "			items : 1,\n";
-					if (($slide_data['transition'] == 'Fade') || ($slide_data['transition'] == 'fade')) {
-						$output .= "			animateOut : 'fadeOut',\n";
-					} elseif (($slide_data['transition'] == 'Slide Down') || ($slide_data['transition'] == 'goDown')) {
-						$output .= "			animateOut : 'slideOutDown',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					} elseif ($slide_data['transition'] == 'Zoom In') {
-						$output .= "			animateOut : 'fadeOut',\n";
-						$output .= "			animateIn : 'zoomIn',\n";
-					} elseif ($slide_data['transition'] == 'Zoom Out') {
-						$output .= "			animateOut : 'zoomOut',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					} elseif ($slide_data['transition'] == 'Flip Out X') {
-						$output .= "			animateOut : 'flipOutX',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					} elseif ($slide_data['transition'] == 'Flip Out Y') {
-						$output .= "			animateOut : 'flipOutY',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					} elseif ($slide_data['transition'] == 'Rotate Left') {
-						$output .= "			animateOut : 'rotateOutDownLeft',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					} elseif ($slide_data['transition'] == 'Rotate Right') {
-						$output .= "			animateOut : 'rotateOutDownRight',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					} elseif ($slide_data['transition'] == 'Bounce Out') {
-						$output .= "			animateOut : 'bounceOut',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					} elseif ($slide_data['transition'] == 'Roll Out') {
-						$output .= "			animateOut : 'rollOut',\n";
-						$output .= "			animateIn : 'fadeIn',\n";
-					}
-					$output .= "			smartSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
-				} else {
-					$output .= "			responsive:{\n";
-					$output .= "				0:{ items:".esc_attr($slide_data['items_width1'])." },\n";
-					$output .= "				480:{ items:".esc_attr($slide_data['items_width2'])." },\n";
-					$output .= "				768:{ items:".esc_attr($slide_data['items_width3'])." },\n";
-					$output .= "				980:{ items:".esc_attr($slide_data['items_width4'])." },\n";
-					$output .= "				1200:{ items:".esc_attr($slide_data['items_width5'])." },\n";
-					$output .= "				1500:{ items:".esc_attr($slide_data['items_width6'])." }\n";
-					$output .= "			},\n";
-				}
-				if ($slide_data['slide_duration'] == 0) {
-					$output .= "			autoplay : false,\n";
-					$output .= "			autoplayHoverPause : false,\n";
-				} else {
-					$output .= "			autoplay : true,\n";
-					$output .= "			autoplayTimeout : ".esc_attr($slide_data['slide_duration']).",\n";
-					$output .= "			autoplayHoverPause : ".esc_attr($slide_data['stop_hover']).",\n";
+			// JQUERY CODE FOR OWN CAROUSEL
+			$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."').owlCarousel({\n";
+			if ($single_item == 1) {
+				$output .= "			items : 1,\n";
+				if (($slide_data['transition'] == 'Fade') || ($slide_data['transition'] == 'fade')) {
+					$output .= "			animateOut : 'fadeOut',\n";
+				} elseif (($slide_data['transition'] == 'Slide Down') || ($slide_data['transition'] == 'goDown')) {
+					$output .= "			animateOut : 'slideOutDown',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
+				} elseif ($slide_data['transition'] == 'Zoom In') {
+					$output .= "			animateOut : 'fadeOut',\n";
+					$output .= "			animateIn : 'zoomIn',\n";
+				} elseif ($slide_data['transition'] == 'Zoom Out') {
+					$output .= "			animateOut : 'zoomOut',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
+				} elseif ($slide_data['transition'] == 'Flip Out X') {
+					$output .= "			animateOut : 'flipOutX',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
+				} elseif ($slide_data['transition'] == 'Flip Out Y') {
+					$output .= "			animateOut : 'flipOutY',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
+				} elseif ($slide_data['transition'] == 'Rotate Left') {
+					$output .= "			animateOut : 'rotateOutDownLeft',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
+				} elseif ($slide_data['transition'] == 'Rotate Right') {
+					$output .= "			animateOut : 'rotateOutDownRight',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
+				} elseif ($slide_data['transition'] == 'Bounce Out') {
+					$output .= "			animateOut : 'bounceOut',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
+				} elseif ($slide_data['transition'] == 'Roll Out') {
+					$output .= "			animateOut : 'rollOut',\n";
+					$output .= "			animateIn : 'fadeIn',\n";
 				}
 				$output .= "			smartSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
-				$output .= "			fluidSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
-				$output .= "			autoplaySpeed : ".esc_attr($slide_data['slide_transition']).",\n";
-				$output .= "			navSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
-				$output .= "			dotsSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
-				$output .= "			loop : ".esc_attr($slide_data['loop_slider']).",\n";
-				$output .= "			nav : ".esc_attr($slide_data['nav_arrows']).",\n";
-				$output .= "			navText : ['',''],\n";
-				$output .= "			dots : ".esc_attr($slide_data['pagination']).",\n";
-				$output .= "			responsiveRefreshRate : 200,\n";
-				if ($slide_data['slide_by'] == 'page') {
-					$output .= "			slideBy : 'page',\n";
-				} else {
-					$output .= "			slideBy : ".esc_attr($slide_data['slide_by']).",\n";
-				}
-				$output .= "			mergeFit : true,\n";
-				//$output .= "			URLhashListener : true,\n";
-				$output .= "			autoHeight : ".esc_attr($slide_data['auto_height']).",\n";
-				if ($slide_data['lazy_load_images'] == '1') {
-					$output .= "			lazyLoad : true,\n";
-					$output .= "			lazyLoadEager: 1,\n";
-				}
-				$output .= "			mouseDrag : ".esc_attr($slide_data['mouse_drag']).",\n";
-				$output .= "			touchDrag : ".esc_attr($slide_data['touch_drag'])."\n";
-				$output .= "		});\n";
-
-				// MAKE SLIDER VISIBLE (AFTER 'WINDOW ONLOAD' OR 'DOCUMENT READY' EVENT)
-				$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."').css('visibility', 'visible');\n";
-
-				// JAVASCRIPT 'WINDOW RESIZE' EVENT TO SET CSS 'min-height' OF SLIDES WITHIN THIS SLIDER
-				$slide_min_height = $slide_data['slide_min_height_perc'];
-				if (strpos($slide_min_height, 'px') !== false) {
-					$slide_min_height = 0;
-				}
-				if (($slide_min_height != '') && ($slide_min_height != '0')) {
-					$output .= "		sa_resize_".esc_attr($slide_data['css_id'])."();\n";	// initial call of resize function
-					$output .= "		window.addEventListener('resize', sa_resize_".esc_attr($slide_data['css_id']).");\n"; // create resize event
-											// RESIZE EVENT FUNCTION (to set slide CSS 'min-heigh')
-					$output .= "		function sa_resize_".esc_attr($slide_data['css_id'])."() {\n";
-												// get slide min height setting
-					$output .= "			var min_height = '".$slide_min_height."';\n";
-												// get window width
-					$output .= "			var win_width = jQuery(window).width();\n";
-					$output .= "			var slider_width = jQuery('#".esc_attr($slide_data['css_id'])."').width();\n";
-												// calculate slide width according to window width & number of slides
-					$output .= "			if (win_width < 480) {\n";
-					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width1']).";\n";
-					$output .= "			} else if (win_width < 768) {\n";
-					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width2']).";\n";
-					$output .= "			} else if (win_width < 980) {\n";
-					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width3']).";\n";
-					$output .= "			} else if (win_width < 1200) {\n";
-					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width4']).";\n";
-					$output .= "			} else if (win_width < 1500) {\n";
-					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width5']).";\n";
-					$output .= "			} else {\n";
-					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width6']).";\n";
-					$output .= "			}\n";
-					$output .= "			slide_width = Math.round(slide_width);\n";
-												// calculate CSS 'min-height' using the captured 'min-height' data settings for this slider
-					$output .= "			var slide_height = '0';\n";
-					$output .= "			if (min_height == 'aspect43') {\n";
-					$output .= "				slide_height = (slide_width / 4) * 3;";
-					$output .= "				slide_height = Math.round(slide_height);\n";
-					$output .= "			} else if (min_height == 'aspect169') {\n";
-					$output .= "				slide_height = (slide_width / 16) * 9;";
-					$output .= "				slide_height = Math.round(slide_height);\n";
-					$output .= "			} else {\n";
-					$output .= "				slide_height = (slide_width / 100) * min_height;";
-					$output .= "				slide_height = Math.round(slide_height);\n";
-					$output .= "			}\n";
-												// set the slide 'min-height' css value
-					$output .= "			jQuery('#".esc_attr($slide_data['css_id'])." .owl-item .sa_hover_container').css('min-height', slide_height+'px');\n";
-					$output .= "		}\n";
-				}
-				$output .= "	});\n";
-				$output .= "</script>\n";
+			} else {
+				$output .= "			responsive:{\n";
+				$output .= "				0:{ items:".esc_attr($slide_data['items_width1'])." },\n";
+				$output .= "				480:{ items:".esc_attr($slide_data['items_width2'])." },\n";
+				$output .= "				768:{ items:".esc_attr($slide_data['items_width3'])." },\n";
+				$output .= "				980:{ items:".esc_attr($slide_data['items_width4'])." },\n";
+				$output .= "				1200:{ items:".esc_attr($slide_data['items_width5'])." },\n";
+				$output .= "				1500:{ items:".esc_attr($slide_data['items_width6'])." }\n";
+				$output .= "			},\n";
 			}
+			if ($slide_data['slide_duration'] == 0) {
+				$output .= "			autoplay : false,\n";
+				$output .= "			autoplayHoverPause : false,\n";
+			} else {
+				$output .= "			autoplay : true,\n";
+				$output .= "			autoplayTimeout : ".esc_attr($slide_data['slide_duration']).",\n";
+				$output .= "			autoplayHoverPause : ".esc_attr($slide_data['stop_hover']).",\n";
+			}
+			$output .= "			smartSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
+			$output .= "			fluidSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
+			$output .= "			autoplaySpeed : ".esc_attr($slide_data['slide_transition']).",\n";
+			$output .= "			navSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
+			$output .= "			dotsSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
+			$output .= "			loop : ".esc_attr($slide_data['loop_slider']).",\n";
+			$output .= "			nav : ".esc_attr($slide_data['nav_arrows']).",\n";
+			$output .= "			navText : ['',''],\n";
+			$output .= "			dots : ".esc_attr($slide_data['pagination']).",\n";
+			$output .= "			responsiveRefreshRate : 200,\n";
+			if ($slide_data['slide_by'] == 'page') {
+				$output .= "			slideBy : 'page',\n";
+			} else {
+				$output .= "			slideBy : ".esc_attr($slide_data['slide_by']).",\n";
+			}
+			$output .= "			mergeFit : true,\n";
+			$output .= "			autoHeight : ".esc_attr($slide_data['auto_height']).",\n";
+			if ($slide_data['lazy_load_images'] == '1') {
+				$output .= "			lazyLoad : true,\n";
+				$output .= "			lazyLoadEager: 1,\n";
+			}
+			$output .= "			mouseDrag : ".esc_attr($slide_data['mouse_drag']).",\n";
+			$output .= "			touchDrag : ".esc_attr($slide_data['touch_drag'])."\n";
+			$output .= "		});\n";
+
+			// MAKE SLIDER VISIBLE (AFTER 'WINDOW ONLOAD' OR 'DOCUMENT READY' EVENT)
+			$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."').css('visibility', 'visible');\n";
+
+			// JAVASCRIPT 'WINDOW RESIZE' EVENT TO SET CSS 'min-height' OF SLIDES WITHIN THIS SLIDER
+			$slide_min_height = $slide_data['slide_min_height_perc'];
+			if (strpos($slide_min_height, 'px') !== false) {
+				$slide_min_height = 0;
+			}
+			if (($slide_min_height != '') && ($slide_min_height != '0')) {
+				$output .= "		sa_resize_".esc_attr($slide_data['css_id'])."();\n";	// initial call of resize function
+				$output .= "		window.addEventListener('resize', sa_resize_".esc_attr($slide_data['css_id']).");\n"; // create resize event
+										// RESIZE EVENT FUNCTION (to set slide CSS 'min-heigh')
+				$output .= "		function sa_resize_".esc_attr($slide_data['css_id'])."() {\n";
+											// get slide min height setting
+				$output .= "			var min_height = '".$slide_min_height."';\n";
+											// get window width
+				$output .= "			var win_width = jQuery(window).width();\n";
+				$output .= "			var slider_width = jQuery('#".esc_attr($slide_data['css_id'])."').width();\n";
+											// calculate slide width according to window width & number of slides
+				$output .= "			if (win_width < 480) {\n";
+				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width1']).";\n";
+				$output .= "			} else if (win_width < 768) {\n";
+				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width2']).";\n";
+				$output .= "			} else if (win_width < 980) {\n";
+				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width3']).";\n";
+				$output .= "			} else if (win_width < 1200) {\n";
+				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width4']).";\n";
+				$output .= "			} else if (win_width < 1500) {\n";
+				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width5']).";\n";
+				$output .= "			} else {\n";
+				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width6']).";\n";
+				$output .= "			}\n";
+				$output .= "			slide_width = Math.round(slide_width);\n";
+											// calculate CSS 'min-height' using the captured 'min-height' data settings for this slider
+				$output .= "			var slide_height = '0';\n";
+				$output .= "			if (min_height == 'aspect43') {\n";
+				$output .= "				slide_height = (slide_width / 4) * 3;";
+				$output .= "				slide_height = Math.round(slide_height);\n";
+				$output .= "			} else if (min_height == 'aspect169') {\n";
+				$output .= "				slide_height = (slide_width / 16) * 9;";
+				$output .= "				slide_height = Math.round(slide_height);\n";
+				$output .= "			} else {\n";
+				$output .= "				slide_height = (slide_width / 100) * min_height;";
+				$output .= "				slide_height = Math.round(slide_height);\n";
+				$output .= "			}\n";
+											// set the slide 'min-height' css value
+				$output .= "			jQuery('#".esc_attr($slide_data['css_id'])." .owl-item .sa_hover_container').css('min-height', slide_height+'px');\n";
+				$output .= "		}\n";
+			}
+			$output .= "	});\n";
+			$output .= "</script>\n";
 
 
 
 			// ### GENERATE JQUERY CODE FOR THE MAGNIFIC POPUP ###
-			if (wp_script_is('jquery', 'done')) { // Only generate JQuery code if JQuery has been loaded
-				if (($sa_pro_version) && ($lightbox_count > 0)) {
-					$output .= "<script type='text/javascript'>\n";
-					$output .= "jQuery(document).ready(function() {\n";
-					$output .= "	jQuery('#".$lightbox_gallery_id."').magnificPopup({\n";
-					$output .= "		items: [\n";
-					$count = 0;
-					for ($i = 1; $i <= $slide_data['num_slides']; $i++) {
-						// LOOP THROUGH EACH SLIDE
-						if (($slide_data["slide".$i."_popup_type"] == 'IMAGE') && ($slide_data["slide".$i."_popup_image"] != '')) {
-							// SLIDE CONTAINS AN IMAGE POPUP
-							$img_url = $slide_data["slide".$i."_popup_image"];
-							$img_title = $slide_data["slide".$i."_popup_imagetitle"];
-							if ($img_title != '') {
-								$output .= "			{ src: '".esc_attr($img_url)."', title: '".esc_attr($img_title)."' }";
-							} else {
-								$output .= "			{ src: '".esc_attr($img_url)."' }";
-							}
-							$count++;
-							if ($count < $lightbox_count) {	$output .= ",\n"; }
-							else {									$output .= "\n"; }
+			if (($sa_pro_version) && ($lightbox_count > 0)) {
+				$output .= "<script type='text/javascript'>\n";
+				$output .= "jQuery(document).ready(function() {\n";
+				$output .= "	jQuery('#".$lightbox_gallery_id."').magnificPopup({\n";
+				$output .= "		items: [\n";
+				$count = 0;
+				for ($i = 1; $i <= $slide_data['num_slides']; $i++) {
+					// LOOP THROUGH EACH SLIDE
+					if (($slide_data["slide".$i."_popup_type"] == 'IMAGE') && ($slide_data["slide".$i."_popup_image"] != '')) {
+						// SLIDE CONTAINS AN IMAGE POPUP
+						$img_url = $slide_data["slide".$i."_popup_image"];
+						$img_title = $slide_data["slide".$i."_popup_imagetitle"];
+						if ($img_title != '') {
+							$output .= "			{ src: '".esc_attr($img_url)."', title: '".esc_attr($img_title)."' }";
+						} else {
+							$output .= "			{ src: '".esc_attr($img_url)."' }";
 						}
-						if (($slide_data["slide".$i."_popup_type"] == 'VIDEO') && ($slide_data["slide".$i."_popup_video_id"] != '')) {
-							// SLIDE CONTAINS A VIDEO POPUP
-							$video_id = $slide_data["slide".$i."_popup_video_id"];
-							$video_type = $slide_data["slide".$i."_popup_video_type"];
-							if ($video_type == 'youtube') {
-								$video_url = "http://www.youtube.com/watch?v=".$video_id;
-							} elseif ($video_type == 'vimeo') {
-								$video_url = "http://vimeo.com/".$video_id;
-							}
-							$output .= "			{ src: '".esc_attr($video_url)."', type: 'iframe' }";
-							$count++;
-							if ($count < $lightbox_count) {	$output .= ",\n"; }
-							else {									$output .= "\n"; }
-						}
-						if ($slide_data["slide".$i."_popup_type"] == 'HTML') {
-							// SLIDE CONTAINS A HTML POPUP
-							$popup_css_id = "#".$slide_data["slide".$i."_popup_css_id"];
-							$output .= "			{ src: '".esc_attr($popup_css_id)."', type: 'inline' }";
-							$count++;
-							if ($count < $lightbox_count) {	$output .= ",\n"; }
-							else {									$output .= "\n"; }
-						}
+						$count++;
+						if ($count < $lightbox_count) {	$output .= ",\n"; }
+						else {									$output .= "\n"; }
 					}
-					$output .= "		],\n";
-					$output .= "		gallery: { enabled: true, tCounter: '' },\n";
-					$output .= "		mainClass: 'sa_popup',\n";
-					$output .= "		closeBtnInside: true,\n";
-					$output .= "		fixedContentPos: true,\n";
-					if ($slide_data['slide_duration'] != 0) {
-						$output .= "		callbacks: {\n";
-						$output .= "			open: function() {\n";
-						$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('stop.owl.autoplay');\n";
-						$output .= "			},\n";
-						$output .= "			close: function() {\n";
-						$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('play.owl.autoplay');\n";
-						$output .= "			}\n";
-						$output .= "		},\n";
+					if (($slide_data["slide".$i."_popup_type"] == 'VIDEO') && ($slide_data["slide".$i."_popup_video_id"] != '')) {
+						// SLIDE CONTAINS A VIDEO POPUP
+						$video_id = $slide_data["slide".$i."_popup_video_id"];
+						$video_type = $slide_data["slide".$i."_popup_video_type"];
+						if ($video_type == 'youtube') {
+							$video_url = "http://www.youtube.com/watch?v=".$video_id;
+						} elseif ($video_type == 'vimeo') {
+							$video_url = "http://vimeo.com/".$video_id;
+						}
+						$output .= "			{ src: '".esc_attr($video_url)."', type: 'iframe' }";
+						$count++;
+						if ($count < $lightbox_count) {	$output .= ",\n"; }
+						else {									$output .= "\n"; }
 					}
-					$output .= "		type: 'image'\n";
-					$output .= "	});\n";
-					$output .= "});\n";
-
-					// JAVASCRIPT FUNCTION WHICH OPENS THIS MAGNIFIC POPUP ON A SPECIFIED SLIDE
-					$output .= "function ".$lightbox_function."(slide) {\n";
-					$output .= "	jQuery('#".$lightbox_gallery_id."').magnificPopup('open');\n";
-					$output .= "	jQuery('#".$lightbox_gallery_id."').magnificPopup('goTo', slide-1);\n";
-					$output .= "}\n";
-					$output .= "</script>\n";
-
-					// DIV CONTAINER WHICH HOLDS THIS MAGNIFIC POPUP CONTENT (HIDDEN)
-					$output .= "<div id='".$lightbox_gallery_id."' style='display:none;'></div>\n";
+					if ($slide_data["slide".$i."_popup_type"] == 'HTML') {
+						// SLIDE CONTAINS A HTML POPUP
+						$popup_css_id = "#".$slide_data["slide".$i."_popup_css_id"];
+						$output .= "			{ src: '".esc_attr($popup_css_id)."', type: 'inline' }";
+						$count++;
+						if ($count < $lightbox_count) {	$output .= ",\n"; }
+						else {									$output .= "\n"; }
+					}
 				}
+				$output .= "		],\n";
+				$output .= "		gallery: { enabled: true, tCounter: '' },\n";
+				$output .= "		mainClass: 'sa_popup',\n";
+				$output .= "		closeBtnInside: true,\n";
+				$output .= "		fixedContentPos: true,\n";
+				if ($slide_data['slide_duration'] != 0) {
+					$output .= "		callbacks: {\n";
+					$output .= "			open: function() {\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('stop.owl.autoplay');\n";
+					$output .= "			},\n";
+					$output .= "			close: function() {\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."').trigger('play.owl.autoplay');\n";
+					$output .= "			}\n";
+					$output .= "		},\n";
+				}
+				$output .= "		type: 'image'\n";
+				$output .= "	});\n";
+				$output .= "});\n";
+
+				// JAVASCRIPT FUNCTION WHICH OPENS THIS MAGNIFIC POPUP ON A SPECIFIED SLIDE
+				$output .= "function ".$lightbox_function."(slide) {\n";
+				$output .= "	jQuery('#".$lightbox_gallery_id."').magnificPopup('open');\n";
+				$output .= "	jQuery('#".$lightbox_gallery_id."').magnificPopup('goTo', slide-1);\n";
+				$output .= "}\n";
+				$output .= "</script>\n";
+
+				// DIV CONTAINER WHICH HOLDS THIS MAGNIFIC POPUP CONTENT (HIDDEN)
+				$output .= "<div id='".$lightbox_gallery_id."' style='display:none;'></div>\n";
 			}
 		}
 	}

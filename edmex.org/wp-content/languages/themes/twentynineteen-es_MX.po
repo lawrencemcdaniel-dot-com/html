@@ -19,6 +19,11 @@ msgstr ""
 msgid "Twenty Nineteen"
 msgstr ""
 
+#. translators: %s: parent post link
+#: single.php:31
+msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
+msgstr ""
+
 #: image.php:87
 msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
@@ -34,11 +39,11 @@ msgstr ""
 msgid "Twenty Nineteen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
 msgstr ""
 
-#: inc/template-functions.php:219
+#: inc/template-functions.php:216
 msgid "Back"
 msgstr ""
 
-#: inc/template-functions.php:211
+#: inc/template-functions.php:208
 msgid "More"
 msgstr ""
 
@@ -144,11 +149,12 @@ msgid_plural "%d Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: template-parts/post/author-bio.php:18
+#: template-parts/post/author-bio.php:26
 msgid "View more posts"
 msgstr ""
 
-#: template-parts/post/author-bio.php:13
+#. translators: %s: post author
+#: template-parts/post/author-bio.php:17
 msgid "Published by %s"
 msgstr ""
 
@@ -185,36 +191,31 @@ msgstr "¿Preparado para publicar tu primera entrada? <a href=\"%1$s\">Empieza a
 msgid "Nothing Found"
 msgstr "Nada encontrado"
 
-#: single.php:41
+#: single.php:42
 msgid "Previous post:"
 msgstr ""
 
-#: single.php:40
+#: single.php:41
 msgid "Previous Post"
 msgstr "Entrada anterior:"
 
-#: single.php:38
+#: single.php:39
 msgid "Next post:"
 msgstr ""
 
-#: single.php:37
+#: single.php:38
 msgid "Next Post"
 msgstr "Siguiente entrada"
-
-#: single.php:30
-msgctxt "Parent post link"
-msgid "<span class=\"meta-nav\">Published in</span><br/><span class=\"post-title\">%title</span>"
-msgstr ""
 
 #: search.php:22
 msgid "Search results for:"
 msgstr ""
 
-#: inc/template-tags.php:232
+#: inc/template-tags.php:234
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:231
+#: inc/template-tags.php:230
 msgid "Newer posts"
 msgstr ""
 
@@ -349,21 +350,20 @@ msgstr ""
 msgid "Join the Conversation"
 msgstr ""
 
-#: classes/class-twentynineteen-walker-comment.php:87
+#: classes/class-twentynineteen-walker-comment.php:92
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: classes/class-twentynineteen-walker-comment.php:82
+#: classes/class-twentynineteen-walker-comment.php:87
 msgid "Edit"
 msgstr ""
 
 #. translators: 1: comment date, 2: comment time
-#: classes/class-twentynineteen-walker-comment.php:74
+#: classes/class-twentynineteen-walker-comment.php:79
 msgid "%1$s at %2$s"
 msgstr ""
 
-#. translators: %s: comment author link
-#: classes/class-twentynineteen-walker-comment.php:60
+#: classes/class-twentynineteen-walker-comment.php:59
 msgid "%s <span class=\"screen-reader-text says\">says:</span>"
 msgstr ""
 
