@@ -9,5 +9,6 @@ require( plugin_dir_path( __FILE__ ).'menu-page.php' );
 require( plugin_dir_path( __FILE__ ).'deactivate-feedback.php' );
 require( plugin_dir_path( __FILE__ ).'admin-page-loader.php' );
 require( plugin_dir_path( __FILE__ ).'menu-target.php' );
+require( plugin_dir_path( __FILE__ ).'opinionstage-tracking-user-notice.php' );
 	
 ?>

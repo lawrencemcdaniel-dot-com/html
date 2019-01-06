@@ -1,0 +1,993 @@
+0000.000 (0) Opened log file at time: Wed, 02 Jan 2019 18:21:59 +0000 on https://steelmodular.us
+0000.008 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 28M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.013 (0) Free space on disk containing Updraft's temporary directory: 85395.7 MB
+0000.020 (0) Tasks: Backup files: 1 (schedule: weekly) Backup DB:  (schedule: weekly)
+0000.025 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.041 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1546016334, seconds_ago=436985)
+0000.062 (0) Set semaphore last lock (fd) time to 2019-01-02 18:21:59
+0000.068 (0) Semaphore lock (fd) complete
+0000.088 (0) Backup run: resumption=0, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (0s ago), job type=backup
+0000.099 (0) Scheduling a resumption (1) after 300 seconds (1546453619) in case this run gets aborted
+0000.118 (0) Checking if we have a zip executable available
+0000.124 (0) Testing: /usr/bin/zip
+0000.133 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.139 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.144 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.149 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.155 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.164 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.169 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.180 (0) Working binary zip found: /usr/bin/zip
+0000.191 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.197 (0) Creation of backups of directories: beginning
+0000.214 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.419 (0) Total entities for the zip file: 1433 directories, 7942 files (0 skipped as non-modified), 102.1 MB
+0000.427 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.434 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.442 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.449 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.456 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.462 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.6 MB, 7942 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.184 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: size is now: 4.30 MB
+0001.197 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 600 files added (on-disk size: 4409.4 KB)
+0001.204 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 700 files added (on-disk size: 4409.4 KB)
+0001.211 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 800 files added (on-disk size: 4409.4 KB)
+0001.217 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 900 files added (on-disk size: 4409.4 KB)
+0001.223 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1000 files added (on-disk size: 4409.4 KB)
+0001.229 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 7942 files batched, 501 (1002) added so far); re-opening (prior size: 4409.4 KB)
+0001.561 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: size is now: 5.70 MB
+0001.575 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1100 files added (on-disk size: 5791.8 KB)
+0001.582 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1200 files added (on-disk size: 5791.8 KB)
+0001.589 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1300 files added (on-disk size: 5791.8 KB)
+0001.595 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1400 files added (on-disk size: 5791.8 KB)
+0001.602 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1500 files added (on-disk size: 5791.8 KB)
+0001.608 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 7942 files batched, 501 (1503) added so far); re-opening (prior size: 5791.8 KB)
+0001.816 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: size is now: 7.00 MB
+0001.831 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1600 files added (on-disk size: 7174 KB)
+0001.837 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1700 files added (on-disk size: 7174 KB)
+0001.843 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1800 files added (on-disk size: 7174 KB)
+0001.850 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 1900 files added (on-disk size: 7174 KB)
+0001.856 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2000 files added (on-disk size: 7174 KB)
+0001.862 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.4 MB, 7942 files batched, 501 (2004) added so far); re-opening (prior size: 7174 KB)
+0002.187 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: size is now: 9.20 MB
+0002.201 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2100 files added (on-disk size: 9459.2 KB)
+0002.208 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2200 files added (on-disk size: 9459.2 KB)
+0002.215 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2300 files added (on-disk size: 9459.2 KB)
+0002.221 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2400 files added (on-disk size: 9459.2 KB)
+0002.228 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2500 files added (on-disk size: 9459.2 KB)
+0002.234 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.7 MB, 7942 files batched, 501 (2505) added so far); re-opening (prior size: 9459.2 KB)
+0002.334 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2600 files added (on-disk size: 9834.8 KB)
+0002.341 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2700 files added (on-disk size: 9834.8 KB)
+0002.349 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2800 files added (on-disk size: 9834.8 KB)
+0002.356 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 2900 files added (on-disk size: 9834.8 KB)
+0002.363 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3000 files added (on-disk size: 9834.8 KB)
+0002.370 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.3 MB, 7942 files batched, 501 (3006) added so far); re-opening (prior size: 9834.8 KB)
+0002.732 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: size is now: 13.00 MB
+0002.746 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3100 files added (on-disk size: 13345 KB)
+0002.753 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3200 files added (on-disk size: 13345 KB)
+0002.759 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3300 files added (on-disk size: 13345 KB)
+0002.766 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3400 files added (on-disk size: 13345 KB)
+0002.773 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3500 files added (on-disk size: 13345 KB)
+0002.778 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.6 MB, 7942 files batched, 501 (3507) added so far); re-opening (prior size: 13345 KB)
+0003.245 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3600 files added (on-disk size: 15676.3 KB)
+0003.251 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3700 files added (on-disk size: 15676.3 KB)
+0003.258 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3800 files added (on-disk size: 15676.3 KB)
+0003.264 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 3900 files added (on-disk size: 15676.3 KB)
+0003.270 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4000 files added (on-disk size: 15676.3 KB)
+0003.275 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.6 MB, 7942 files batched, 501 (4008) added so far); re-opening (prior size: 15676.3 KB)
+0003.905 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4100 files added (on-disk size: 18669.4 KB)
+0003.913 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4200 files added (on-disk size: 18669.4 KB)
+0003.919 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4300 files added (on-disk size: 18669.4 KB)
+0003.925 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4400 files added (on-disk size: 18669.4 KB)
+0003.932 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4500 files added (on-disk size: 18669.4 KB)
+0003.937 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.9 MB, 7942 files batched, 501 (4509) added so far); re-opening (prior size: 18669.4 KB)
+0004.258 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4600 files added (on-disk size: 20937 KB)
+0004.269 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4700 files added (on-disk size: 20937 KB)
+0004.277 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4800 files added (on-disk size: 20937 KB)
+0004.283 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 4900 files added (on-disk size: 20937 KB)
+0004.290 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5000 files added (on-disk size: 20937 KB)
+0004.295 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.1 MB, 7942 files batched, 501 (5010) added so far); re-opening (prior size: 20937 KB)
+0004.807 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5100 files added (on-disk size: 23828.8 KB)
+0004.814 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5200 files added (on-disk size: 23828.8 KB)
+0004.821 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5300 files added (on-disk size: 23828.8 KB)
+0004.827 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5400 files added (on-disk size: 23828.8 KB)
+0004.833 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5500 files added (on-disk size: 23828.8 KB)
+0004.839 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.1 MB, 7942 files batched, 501 (5511) added so far); re-opening (prior size: 23828.8 KB)
+0005.126 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5600 files added (on-disk size: 25424.8 KB)
+0005.133 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5700 files added (on-disk size: 25424.8 KB)
+0005.139 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5800 files added (on-disk size: 25424.8 KB)
+0005.145 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 5900 files added (on-disk size: 25424.8 KB)
+0005.152 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6000 files added (on-disk size: 25424.8 KB)
+0005.158 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (20 MB, 7942 files batched, 501 (6012) added so far); re-opening (prior size: 25424.8 KB)
+0006.109 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: size is now: 30.30 MB
+0006.123 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6100 files added (on-disk size: 31047.1 KB)
+0006.129 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6200 files added (on-disk size: 31047.1 KB)
+0006.136 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6300 files added (on-disk size: 31047.1 KB)
+0006.142 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6400 files added (on-disk size: 31047.1 KB)
+0006.149 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6500 files added (on-disk size: 31047.1 KB)
+0006.155 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.7 MB, 7942 files batched, 501 (6513) added so far); re-opening (prior size: 31047.1 KB)
+0006.465 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6600 files added (on-disk size: 32229.4 KB)
+0006.472 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6700 files added (on-disk size: 32229.4 KB)
+0006.479 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6800 files added (on-disk size: 32229.4 KB)
+0006.486 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 6900 files added (on-disk size: 32229.4 KB)
+0006.493 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7000 files added (on-disk size: 32229.4 KB)
+0006.498 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.5 MB, 7942 files batched, 501 (7014) added so far); re-opening (prior size: 32229.4 KB)
+0006.747 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7100 files added (on-disk size: 32830.4 KB)
+0006.754 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7200 files added (on-disk size: 32830.4 KB)
+0006.760 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7300 files added (on-disk size: 32830.4 KB)
+0006.767 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7400 files added (on-disk size: 32830.4 KB)
+0006.773 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7500 files added (on-disk size: 32830.4 KB)
+0006.779 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.3 MB, 7942 files batched, 501 (7515) added so far); re-opening (prior size: 32830.4 KB)
+0007.012 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7600 files added (on-disk size: 34127.7 KB)
+0007.019 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7700 files added (on-disk size: 34127.7 KB)
+0007.025 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7800 files added (on-disk size: 34127.7 KB)
+0007.031 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip.tmp: 7900 files added (on-disk size: 34127.7 KB)
+0007.525 (0) Created plugins zip (0) - 35078 KB in 7.3 s (4801.8 KB/s) (sha1: ac04f02c1b78efb065801cd918553745a875e9a2, sha256: feb292072a58e7748720c9ce2edefd6807e8116b4e3c81fbef8017d8ef6f67db)
+0007.537 (0) Beginning creation of dump of themes (split every: 400 MB)
+0007.582 (0) Total entities for the zip file: 240 directories, 1538 files (0 skipped as non-modified), 18.2 MB
+0007.588 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0007.594 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.601 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0007.607 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0007.614 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0007.619 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.9 MB, 1538 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.865 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: size is now: 1.20 MB
+0007.879 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 600 files added (on-disk size: 1200.1 KB)
+0007.886 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 700 files added (on-disk size: 1200.1 KB)
+0007.892 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 800 files added (on-disk size: 1200.1 KB)
+0007.899 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 900 files added (on-disk size: 1200.1 KB)
+0007.906 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 1000 files added (on-disk size: 1200.1 KB)
+0007.911 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (11.4 MB, 1538 files batched, 501 (1002) added so far); re-opening (prior size: 1200.1 KB)
+0008.437 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: size is now: 5.00 MB
+0008.453 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 1100 files added (on-disk size: 5087.2 KB)
+0008.461 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 1200 files added (on-disk size: 5087.2 KB)
+0008.468 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 1300 files added (on-disk size: 5087.2 KB)
+0008.474 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 1400 files added (on-disk size: 5087.2 KB)
+0008.481 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: 1500 files added (on-disk size: 5087.2 KB)
+0008.488 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 1538 files batched, 501 (1503) added so far); re-opening (prior size: 5087.2 KB)
+0008.693 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip.tmp: size is now: 6.30 MB
+0008.805 (0) Created themes zip (0) - 6481.7 KB in 1.3 s (5134.4 KB/s) (sha1: e077ce72079451a207c3347c0d3eb69cbd27aa2a, sha256: 899fcd0bede48fded97de3d649dce49f8be0420c2b54332babe5720c24d24e17)
+0008.818 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0008.823 (0) Looking for candidates to backup in: /var/www/html/steelmodular.us/wp-content/uploads
+0008.828 (0) finding files: 2018: adding to list (1)
+0008.834 (0) finding files: backup: skipping: excluded by options (glob)
+0008.840 (0) finding files: fusion-styles: adding to list (2)
+0008.846 (0) finding files: fusion-scripts: adding to list (3)
+0008.852 (0) finding files: revslider: adding to list (4)
+0008.858 (0) finding files: 2019: adding to list (5)
+0008.863 (0) finding files: 2017: adding to list (6)
+0008.869 (0) finding files: fusionredux: adding to list (7)
+0008.874 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0008.917 (0) Total entities for the zip file: 186 directories, 469 files (0 skipped as non-modified), 13.3 MB
+0008.923 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0008.930 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0008.936 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0008.942 (0) Zip: backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0009.429 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip.tmp: size is now: 8.90 MB
+0009.531 (0) Created uploads zip (0) - 9149 KB in 0.7 s (14058.3 KB/s) (sha1: 742ec0c3fe4e00bc4a78b6108582a4252bc0c2f1, sha256: 6394c83c1ad3e1a6c4240db0bf581a87cdfd51ad605c30a2e24eef9ca36809b9)
+0009.543 (0) Beginning backup of other directories found in the content directory (index: 0)
+0009.550 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0009.556 (0) Looking for candidates to backup in: /var/www/html/steelmodular.us/wp-content
+0009.561 (0) finding files: wflogs: adding to list (1)
+0009.567 (0) finding files: index.php: adding to list (2)
+0009.573 (0) finding files: upgrade: skipping: excluded by options
+0009.579 (0) finding files: updraft: skipping: this is the updraft directory
+0009.585 (0) finding files: themes: skipping: this is the themes directory
+0009.590 (0) finding files: advanced-cache.php: adding to list (3)
+0009.596 (0) finding files: uploads: skipping: this is the uploads directory
+0009.603 (0) finding files: cache: skipping: excluded by options
+0009.609 (0) finding files: wp-rocket-config: adding to list (4)
+0009.614 (0) finding files: plugins: skipping: this is the plugins directory
+0009.626 (0) Total entities for the zip file: 2 directories, 14 files (0 skipped as non-modified), 5.2 MB
+0009.969 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip.tmp: size is now: 2.30 MB
+0010.016 (0) Created others zip (0) - 2326.3 KB in 0.4 s (5871.4 KB/s) (sha1: 9150bf3cb805495393ee3cc7701dd9748c7c9745, sha256: 430d37b2b4cce9e146da3279b20fd3f709a8623996d196c952af905d1e7047f6)
+0010.042 (0) Saving backup status to database (elements: 8)
+0010.061 (0) Beginning creation of database dump (WordPress DB)
+0010.072 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0010.117 (0) Binary mysqldump: error (code: 2)
+0010.165 (0) Table wp_options: Total expected rows (approximate): 325
+0010.211 (0) Table wp_options: Total rows added: 327 in 0.04 seconds
+0010.217 (0) Table wp_options: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_options.table.gz - 136.6 KB)
+0010.237 (0) Table wp_users: Total expected rows (approximate): 0
+0010.248 (0) Table wp_users: Total rows added: 1 in 0.00 seconds
+0010.255 (0) Table wp_users: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_users.table.gz - 0.5 KB)
+0010.276 (0) Table wp_usermeta: Total expected rows (approximate): 33
+0010.287 (0) Table wp_usermeta: Total rows added: 33 in 0.00 seconds
+0010.293 (0) Table wp_usermeta: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_usermeta.table.gz - 2.3 KB)
+0010.317 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0010.326 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0010.332 (0) Table wp_commentmeta: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0010.352 (0) Table wp_comments: Total expected rows (approximate): 0
+0010.362 (0) Table wp_comments: Total rows added: 1 in 0.00 seconds
+0010.368 (0) Table wp_comments: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_comments.table.gz - 0.7 KB)
+0010.387 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0010.396 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0010.402 (0) Table wp_imagify_files: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0010.422 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0010.431 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0010.437 (0) Table wp_imagify_folders: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0010.458 (0) Table wp_links: Total expected rows (approximate): 0
+0010.468 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0010.474 (0) Table wp_links: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_links.table.gz - 0.4 KB)
+0010.493 (0) Table wp_postmeta: Total expected rows (approximate): 2399
+0010.520 (0) Table wp_postmeta: Total rows added: 2456 in 0.02 seconds
+0010.527 (0) Table wp_postmeta: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_postmeta.table.gz - 22.5 KB)
+0010.547 (0) Table wp_posts: Total expected rows (approximate): 108
+0010.574 (0) Table wp_posts: Total rows added: 126 in 0.02 seconds
+0010.581 (0) Table wp_posts: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_posts.table.gz - 58.7 KB)
+0010.601 (0) Table wp_term_relationships: Total expected rows (approximate): 94
+0010.611 (0) Table wp_term_relationships: Total rows added: 94 in 0.00 seconds
+0010.617 (0) Table wp_term_relationships: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_term_relationships.table.gz - 0.6 KB)
+0010.637 (0) Table wp_term_taxonomy: Total expected rows (approximate): 33
+0010.646 (0) Table wp_term_taxonomy: Total rows added: 33 in 0.00 seconds
+0010.652 (0) Table wp_term_taxonomy: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_term_taxonomy.table.gz - 0.7 KB)
+0010.672 (0) Table wp_termmeta: Total expected rows (approximate): 3
+0010.681 (0) Table wp_termmeta: Total rows added: 3 in 0.00 seconds
+0010.688 (0) Table wp_termmeta: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_termmeta.table.gz - 0.6 KB)
+0010.709 (0) Table wp_terms: Total expected rows (approximate): 33
+0010.718 (0) Table wp_terms: Total rows added: 33 in 0.00 seconds
+0010.724 (0) Table wp_terms: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_terms.table.gz - 0.8 KB)
+0010.744 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 302
+0010.754 (0) Table wp_yoast_seo_links: Total rows added: 302 in 0.01 seconds
+0010.760 (0) Table wp_yoast_seo_links: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_yoast_seo_links.table.gz - 2.6 KB)
+0010.781 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 22
+0010.790 (0) Table wp_yoast_seo_meta: Total rows added: 25 in 0.00 seconds
+0010.796 (0) Table wp_yoast_seo_meta: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0010.817 (0) Table wp_eum_logs: Total expected rows (approximate): 9
+0010.826 (0) Table wp_eum_logs: Total rows added: 11 in 0.00 seconds
+0010.832 (0) Table wp_eum_logs: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_eum_logs.table.gz - 0.7 KB)
+0010.852 (0) Table wp_revslider_css: Total expected rows (approximate): 121
+0010.864 (0) Table wp_revslider_css: Total rows added: 121 in 0.01 seconds
+0010.870 (0) Table wp_revslider_css: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_css.table.gz - 5.2 KB)
+0010.891 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0010.900 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0010.906 (0) Table wp_revslider_layer_animations: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0010.927 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0010.936 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0010.942 (0) Table wp_revslider_navigations: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0010.963 (0) Table wp_revslider_sliders: Total expected rows (approximate): 0
+0010.973 (0) Table wp_revslider_sliders: Total rows added: 1 in 0.00 seconds
+0010.979 (0) Table wp_revslider_sliders: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_sliders.table.gz - 3 KB)
+0010.999 (0) Table wp_revslider_slides: Total expected rows (approximate): 2
+0011.010 (0) Table wp_revslider_slides: Total rows added: 2 in 0.01 seconds
+0011.016 (0) Table wp_revslider_slides: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_slides.table.gz - 9.3 KB)
+0011.037 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0011.046 (0) Table wp_revslider_static_slides: Total rows added: 1 in 0.00 seconds
+0011.052 (0) Table wp_revslider_static_slides: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0011.071 (0) Table wp_wfblockediplog: Total expected rows (approximate): 0
+0011.080 (0) Table wp_wfblockediplog: Total rows added: 0 in 0.00 seconds
+0011.086 (0) Table wp_wfblockediplog: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfblockediplog.table.gz - 0.3 KB)
+0011.105 (0) Table wp_wfblocks7: Total expected rows (approximate): 0
+0011.114 (0) Table wp_wfblocks7: Total rows added: 0 in 0.00 seconds
+0011.120 (0) Table wp_wfblocks7: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfblocks7.table.gz - 0.4 KB)
+0011.139 (0) Table wp_wfconfig: Total expected rows (approximate): 242
+0011.164 (0) Table wp_wfconfig: Total rows added: 246 in 0.02 seconds
+0011.170 (0) Table wp_wfconfig: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfconfig.table.gz - 360.7 KB)
+0011.189 (0) Table wp_wfcrawlers: Total expected rows (approximate): 0
+0011.198 (0) Table wp_wfcrawlers: Total rows added: 2 in 0.00 seconds
+0011.205 (0) Table wp_wfcrawlers: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfcrawlers.table.gz - 0.5 KB)
+0011.224 (0) Table wp_wffilechanges: Total expected rows (approximate): 0
+0011.233 (0) Table wp_wffilechanges: Total rows added: 0 in 0.00 seconds
+0011.238 (0) Table wp_wffilechanges: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wffilechanges.table.gz - 0.3 KB)
+0011.258 (0) Table wp_wffilemods: Total expected rows (approximate): 8079
+0011.442 (0) Table wp_wffilemods: Total rows added: 9104 in 0.18 seconds
+0011.449 (0) Table wp_wffilemods: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wffilemods.table.gz - 799.6 KB)
+0011.471 (0) Table wp_wfhits: Total expected rows (approximate): 27
+0011.481 (0) Table wp_wfhits: Total rows added: 27 in 0.00 seconds
+0011.486 (0) Table wp_wfhits: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfhits.table.gz - 1.5 KB)
+0011.507 (0) Table wp_wfhoover: Total expected rows (approximate): 0
+0011.515 (0) Table wp_wfhoover: Total rows added: 0 in 0.00 seconds
+0011.521 (0) Table wp_wfhoover: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfhoover.table.gz - 0.3 KB)
+0011.541 (0) Table wp_wfissues: Total expected rows (approximate): 2
+0011.550 (0) Table wp_wfissues: Total rows added: 2 in 0.00 seconds
+0011.556 (0) Table wp_wfissues: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfissues.table.gz - 1.4 KB)
+0011.575 (0) Table wp_wfknownfilelist: Total expected rows (approximate): 9207
+0011.667 (0) Table wp_wfknownfilelist: Total rows added: 9104 in 0.09 seconds
+0011.673 (0) Table wp_wfknownfilelist: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfknownfilelist.table.gz - 93.2 KB)
+0011.692 (0) Table wp_wflivetraffichuman: Total expected rows (approximate): 0
+0011.701 (0) Table wp_wflivetraffichuman: Total rows added: 0 in 0.00 seconds
+0011.707 (0) Table wp_wflivetraffichuman: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wflivetraffichuman.table.gz - 0.3 KB)
+0011.727 (0) Table wp_wflocs: Total expected rows (approximate): 0
+0011.735 (0) Table wp_wflocs: Total rows added: 0 in 0.00 seconds
+0011.741 (0) Table wp_wflocs: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wflocs.table.gz - 0.4 KB)
+0011.760 (0) Table wp_wflogins: Total expected rows (approximate): 22
+0011.770 (0) Table wp_wflogins: Total rows added: 24 in 0.00 seconds
+0011.776 (0) Table wp_wflogins: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wflogins.table.gz - 1 KB)
+0011.795 (0) Table wp_wfnotifications: Total expected rows (approximate): 0
+0011.805 (0) Table wp_wfnotifications: Total rows added: 9 in 0.00 seconds
+0011.811 (0) Table wp_wfnotifications: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfnotifications.table.gz - 0.7 KB)
+0011.831 (0) Table wp_wfpendingissues: Total expected rows (approximate): 0
+0011.839 (0) Table wp_wfpendingissues: Total rows added: 0 in 0.00 seconds
+0011.845 (0) Table wp_wfpendingissues: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfpendingissues.table.gz - 0.4 KB)
+0011.864 (0) Table wp_wfreversecache: Total expected rows (approximate): 0
+0011.873 (0) Table wp_wfreversecache: Total rows added: 1 in 0.00 seconds
+0011.879 (0) Table wp_wfreversecache: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfreversecache.table.gz - 0.4 KB)
+0011.899 (0) Table wp_wfsnipcache: Total expected rows (approximate): 0
+0011.907 (0) Table wp_wfsnipcache: Total rows added: 0 in 0.00 seconds
+0011.914 (0) Table wp_wfsnipcache: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfsnipcache.table.gz - 0.4 KB)
+0011.935 (0) Table wp_wfstatus: Total expected rows (approximate): 941
+0011.952 (0) Table wp_wfstatus: Total rows added: 957 in 0.01 seconds
+0011.958 (0) Table wp_wfstatus: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfstatus.table.gz - 17.2 KB)
+0011.977 (0) Table wp_wftrafficrates: Total expected rows (approximate): 0
+0011.986 (0) Table wp_wftrafficrates: Total rows added: 0 in 0.00 seconds
+0011.992 (0) Table wp_wftrafficrates: finishing file (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wftrafficrates.table.gz - 0.3 KB)
+0012.011 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_options.table.gz (1/42): adding to final database dump
+0012.039 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_users.table.gz (2/42): adding to final database dump
+0012.045 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_usermeta.table.gz (3/42): adding to final database dump
+0012.051 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_commentmeta.table.gz (4/42): adding to final database dump
+0012.057 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_comments.table.gz (5/42): adding to final database dump
+0012.062 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_imagify_files.table.gz (6/42): adding to final database dump
+0012.068 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_imagify_folders.table.gz (7/42): adding to final database dump
+0012.073 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_links.table.gz (8/42): adding to final database dump
+0012.079 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_postmeta.table.gz (9/42): adding to final database dump
+0012.089 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_posts.table.gz (10/42): adding to final database dump
+0012.106 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_term_relationships.table.gz (11/42): adding to final database dump
+0012.112 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_term_taxonomy.table.gz (12/42): adding to final database dump
+0012.118 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_termmeta.table.gz (13/42): adding to final database dump
+0012.124 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_terms.table.gz (14/42): adding to final database dump
+0012.129 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_yoast_seo_links.table.gz (15/42): adding to final database dump
+0012.135 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_yoast_seo_meta.table.gz (16/42): adding to final database dump
+0012.140 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_eum_logs.table.gz (17/42): adding to final database dump
+0012.145 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_css.table.gz (18/42): adding to final database dump
+0012.152 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_layer_animations.table.gz (19/42): adding to final database dump
+0012.158 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_navigations.table.gz (20/42): adding to final database dump
+0012.163 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_sliders.table.gz (21/42): adding to final database dump
+0012.170 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_slides.table.gz (22/42): adding to final database dump
+0012.177 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_revslider_static_slides.table.gz (23/42): adding to final database dump
+0012.184 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfblockediplog.table.gz (24/42): adding to final database dump
+0012.189 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfblocks7.table.gz (25/42): adding to final database dump
+0012.195 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfconfig.table.gz (26/42): adding to final database dump
+0012.214 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfcrawlers.table.gz (27/42): adding to final database dump
+0012.220 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wffilechanges.table.gz (28/42): adding to final database dump
+0012.225 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wffilemods.table.gz (29/42): adding to final database dump
+0012.290 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfhits.table.gz (30/42): adding to final database dump
+0012.297 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfhoover.table.gz (31/42): adding to final database dump
+0012.303 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfissues.table.gz (32/42): adding to final database dump
+0012.308 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfknownfilelist.table.gz (33/42): adding to final database dump
+0012.334 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wflivetraffichuman.table.gz (34/42): adding to final database dump
+0012.340 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wflocs.table.gz (35/42): adding to final database dump
+0012.345 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wflogins.table.gz (36/42): adding to final database dump
+0012.351 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfnotifications.table.gz (37/42): adding to final database dump
+0012.357 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfpendingissues.table.gz (38/42): adding to final database dump
+0012.362 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfreversecache.table.gz (39/42): adding to final database dump
+0012.369 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfsnipcache.table.gz (40/42): adding to final database dump
+0012.374 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wfstatus.table.gz (41/42): adding to final database dump
+0012.382 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db-table-wp_wftrafficrates.table.gz (42/42): adding to final database dump
+0012.388 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: finished writing out complete database file (1504 KB)
+0012.426 (0) Total database tables backed up: 42 (backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz, size: 1556702, sha256)
+0012.460 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0012.467 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0012.474 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0012.480 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+0012.486 (0) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+0012.491 (0) Saving backup history. Total backup size: 53.3 MB
+0012.507 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0012.525 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0012.530 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+0013.061 (0) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+0013.067 (0) An error condition has occurred for the first time during this job
+0013.080 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+0013.087 (0) Number of backup sets in history: 8; groups (db): 1
+0013.093 (0) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+0013.098 (0) This backup set is the backup set just made, so will not be deleted.
+0013.098 (0) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+0013.098 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.104 (0) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+0013.104 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.104 (0) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0013.104 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.104 (0) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0013.104 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.104 (0) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0013.104 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.104 (0) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0013.104 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.104 (0) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0013.104 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.104 (0) Number of backup sets in history: 8; groups (files): 1
+0013.110 (0) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+0013.110 (0) This backup set is the backup set just made, so will not be deleted.
+0013.115 (0) This backup set is the backup set just made, so will not be deleted.
+0013.115 (0) This backup set is the backup set just made, so will not be deleted.
+0013.115 (0) This backup set is the backup set just made, so will not be deleted.
+0013.115 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+0013.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+0013.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0013.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0013.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0013.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0013.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0013.121 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0013.121 (0) Retain: saving new backup history (sets now: 8) and finishing retain operation
+0013.135 (0) Resume backup (6dd2cfb176cc, 0): finish run
+0013.151 (0) Decremented the semaphore (fd) by 1
+0013.162 (0) Semaphore (fd) unlocked
+0013.167 (0) There were errors in the uploads, so the 'resume' event is remaining scheduled
+0013.185 (0) Rescheduling resumption 1: moving to 100 seconds from now (1546453432)
+0013.197 (0) The backup has not finished; a resumption is scheduled
+0303.222 (1) Opened log file at time: Wed, 02 Jan 2019 18:27:02 +0000 on https://steelmodular.us
+0303.228 (1) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.6M | 28M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0303.235 (1) Free space on disk containing Updraft's temporary directory: 85342.3 MB
+0303.247 (1) Backup run: resumption=1, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (303s ago), job type=backup, previous check-in=12s
+0303.260 (1) Scheduling a resumption (2) after 300 seconds (1546453922) in case this run gets aborted
+0303.277 (1) Checking if we have a zip executable available
+0303.282 (1) Zip engine: found/will use a binary zip: /usr/bin/zip
+0303.286 (1) Creation of backups of directories: already finished
+0303.292 (1) Saving backup status to database (elements: 8)
+0303.310 (1) Database dump (WordPress DB): Creation was completed already
+0303.340 (1) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0303.345 (1) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0303.350 (1) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0303.356 (1) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+0303.361 (1) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+0303.367 (1) Saving backup history. Total backup size: 53.3 MB
+0303.383 (1) Requesting upload of the files that have not yet been successfully uploaded (5)
+0303.395 (1) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0303.400 (1) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+0303.901 (1) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+0303.908 (1) An error condition has occurred for the first time during this job
+0303.921 (1) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+0303.928 (1) Number of backup sets in history: 8; groups (db): 1
+0303.934 (1) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+0303.940 (1) This backup set is the backup set just made, so will not be deleted.
+0303.940 (1) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+0303.940 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.945 (1) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+0303.945 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.945 (1) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0303.945 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.945 (1) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0303.945 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.945 (1) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0303.945 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.945 (1) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0303.945 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.945 (1) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0303.945 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.946 (1) Number of backup sets in history: 8; groups (files): 1
+0303.951 (1) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+0303.951 (1) This backup set is the backup set just made, so will not be deleted.
+0303.957 (1) This backup set is the backup set just made, so will not be deleted.
+0303.957 (1) This backup set is the backup set just made, so will not be deleted.
+0303.957 (1) This backup set is the backup set just made, so will not be deleted.
+0303.957 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+0303.963 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+0303.963 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0303.963 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0303.963 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0303.963 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0303.963 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0303.963 (1) This backup set remains non-empty (f=1/d=1); will retain in history
+0303.963 (1) Retain: saving new backup history (sets now: 8) and finishing retain operation
+0303.978 (1) Resume backup (6dd2cfb176cc, 1): finish run
+0303.984 (1) There were errors in the uploads, so the 'resume' event is remaining scheduled
+0303.996 (1) The backup has not finished; a resumption is scheduled
+0900.051 (2) Opened log file at time: Wed, 02 Jan 2019 18:36:59 +0000 on https://steelmodular.us
+0900.057 (2) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 14M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0900.063 (2) Free space on disk containing Updraft's temporary directory: 85342.2 MB
+0900.075 (2) Backup run: resumption=2, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (900s ago), job type=backup
+0900.087 (2) Scheduling a resumption (3) after 300 seconds (1546454519) in case this run gets aborted
+0900.105 (2) Checking if we have a zip executable available
+0900.110 (2) Zip engine: found/will use a binary zip: /usr/bin/zip
+0900.114 (2) Creation of backups of directories: already finished
+0900.120 (2) Saving backup status to database (elements: 8)
+0900.137 (2) Database dump (WordPress DB): Creation was completed already
+0900.164 (2) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0900.169 (2) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0900.173 (2) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0900.179 (2) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+0900.184 (2) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+0900.190 (2) Saving backup history. Total backup size: 53.3 MB
+0900.204 (2) Requesting upload of the files that have not yet been successfully uploaded (5)
+0900.215 (2) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0900.221 (2) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+0900.823 (2) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+0900.829 (2) An error condition has occurred for the first time during this job
+0900.843 (2) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+0900.848 (2) Number of backup sets in history: 8; groups (db): 1
+0900.854 (2) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+0900.860 (2) This backup set is the backup set just made, so will not be deleted.
+0900.860 (2) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+0900.860 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.865 (2) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+0900.865 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.865 (2) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0900.865 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.865 (2) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0900.865 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.865 (2) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0900.865 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.866 (2) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0900.866 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.866 (2) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0900.866 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.866 (2) Number of backup sets in history: 8; groups (files): 1
+0900.871 (2) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+0900.871 (2) This backup set is the backup set just made, so will not be deleted.
+0900.877 (2) This backup set is the backup set just made, so will not be deleted.
+0900.877 (2) This backup set is the backup set just made, so will not be deleted.
+0900.877 (2) This backup set is the backup set just made, so will not be deleted.
+0900.877 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+0900.883 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+0900.883 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0900.883 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0900.883 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0900.883 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0900.883 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0900.883 (2) This backup set remains non-empty (f=1/d=1); will retain in history
+0900.883 (2) Retain: saving new backup history (sets now: 8) and finishing retain operation
+0900.898 (2) Resume backup (6dd2cfb176cc, 2): finish run
+0900.910 (2) There were errors in the uploads, so the 'resume' event is remaining scheduled
+0900.922 (2) The backup has not finished; a resumption is scheduled
+3050.949 (3) Opened log file at time: Wed, 02 Jan 2019 19:12:50 +0000 on https://steelmodular.us
+3050.956 (3) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 30M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+3050.962 (3) Free space on disk containing Updraft's temporary directory: 85342.2 MB
+3050.974 (3) Backup run: resumption=3, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (3051s ago), job type=backup
+3050.980 (3) Long time past since expected resumption time: approx expected=1546454519.7, now=1546456370.6, diff=1850.9
+3050.992 (3) [Warning] Your website is visited infrequently and UpdraftPlus is not getting the resources it hoped for; please read this page: https://updraftplus.com/faqs/why-am-i-getting-warnings-about-my-site-not-having-enough-visitors/
+3051.004 (3) Scheduling a resumption (4) after 300 seconds (1546456670) in case this run gets aborted
+3051.021 (3) Checking if we have a zip executable available
+3051.027 (3) Zip engine: found/will use a binary zip: /usr/bin/zip
+3051.032 (3) Creation of backups of directories: already finished
+3051.038 (3) Saving backup status to database (elements: 8)
+3051.056 (3) Database dump (WordPress DB): Creation was completed already
+3051.083 (3) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+3051.089 (3) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+3051.094 (3) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+3051.100 (3) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+3051.106 (3) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+3051.111 (3) Saving backup history. Total backup size: 53.3 MB
+3051.128 (3) Requesting upload of the files that have not yet been successfully uploaded (5)
+3051.140 (3) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+3051.145 (3) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+3051.643 (3) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+3051.651 (3) An error condition has occurred for the first time during this job
+3051.665 (3) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+3051.673 (3) Number of backup sets in history: 8; groups (db): 1
+3051.679 (3) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+3051.686 (3) This backup set is the backup set just made, so will not be deleted.
+3051.686 (3) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+3051.686 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.693 (3) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+3051.693 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.693 (3) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+3051.693 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.694 (3) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+3051.694 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.694 (3) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+3051.694 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.694 (3) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+3051.694 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.694 (3) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+3051.694 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.694 (3) Number of backup sets in history: 8; groups (files): 1
+3051.700 (3) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+3051.700 (3) This backup set is the backup set just made, so will not be deleted.
+3051.706 (3) This backup set is the backup set just made, so will not be deleted.
+3051.706 (3) This backup set is the backup set just made, so will not be deleted.
+3051.706 (3) This backup set is the backup set just made, so will not be deleted.
+3051.706 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.711 (3) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+3051.711 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.711 (3) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+3051.711 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.711 (3) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+3051.711 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.711 (3) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+3051.711 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.711 (3) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+3051.711 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.711 (3) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+3051.711 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.712 (3) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+3051.712 (3) This backup set remains non-empty (f=1/d=1); will retain in history
+3051.712 (3) Retain: saving new backup history (sets now: 8) and finishing retain operation
+3051.726 (3) Resume backup (6dd2cfb176cc, 3): finish run
+3051.737 (3) There were errors in the uploads, so the 'resume' event is remaining scheduled
+3051.749 (3) The backup has not finished; a resumption is scheduled
+3575.300 (4) Opened log file at time: Wed, 02 Jan 2019 19:21:34 +0000 on https://steelmodular.us
+3575.306 (4) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 4M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+3575.314 (4) Free space on disk containing Updraft's temporary directory: 85342.2 MB
+3575.327 (4) Backup run: resumption=4, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (3576s ago), job type=backup
+3575.340 (4) Scheduling a resumption (5) after 300 seconds (1546457195) in case this run gets aborted
+3575.358 (4) Checking if we have a zip executable available
+3575.363 (4) Zip engine: found/will use a binary zip: /usr/bin/zip
+3575.368 (4) Creation of backups of directories: already finished
+3575.374 (4) Saving backup status to database (elements: 8)
+3575.392 (4) Database dump (WordPress DB): Creation was completed already
+3575.418 (4) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+3575.424 (4) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+3575.429 (4) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+3575.435 (4) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+3575.440 (4) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+3575.446 (4) Saving backup history. Total backup size: 53.3 MB
+3575.461 (4) Requesting upload of the files that have not yet been successfully uploaded (5)
+3575.474 (4) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+3575.480 (4) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+3576.015 (4) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+3576.021 (4) An error condition has occurred for the first time during this job
+3576.034 (4) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+3576.041 (4) Number of backup sets in history: 8; groups (db): 1
+3576.047 (4) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+3576.052 (4) This backup set is the backup set just made, so will not be deleted.
+3576.052 (4) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+3576.053 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.058 (4) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+3576.058 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.058 (4) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+3576.058 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.058 (4) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+3576.058 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.058 (4) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+3576.058 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.058 (4) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+3576.058 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.058 (4) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+3576.058 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.058 (4) Number of backup sets in history: 8; groups (files): 1
+3576.064 (4) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+3576.064 (4) This backup set is the backup set just made, so will not be deleted.
+3576.069 (4) This backup set is the backup set just made, so will not be deleted.
+3576.069 (4) This backup set is the backup set just made, so will not be deleted.
+3576.069 (4) This backup set is the backup set just made, so will not be deleted.
+3576.069 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+3576.076 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+3576.076 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+3576.076 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+3576.076 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+3576.076 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+3576.076 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+3576.076 (4) This backup set remains non-empty (f=1/d=1); will retain in history
+3576.076 (4) Retain: saving new backup history (sets now: 8) and finishing retain operation
+3576.091 (4) Resume backup (6dd2cfb176cc, 4): finish run
+3576.102 (4) There were errors in the uploads, so the 'resume' event is remaining scheduled
+3576.115 (4) The backup has not finished; a resumption is scheduled
+3892.005 (5) Opened log file at time: Wed, 02 Jan 2019 19:26:51 +0000 on https://steelmodular.us
+3892.012 (5) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 6M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+3892.018 (5) Free space on disk containing Updraft's temporary directory: 85342.1 MB
+3892.030 (5) Backup run: resumption=5, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (3892s ago), job type=backup
+3892.043 (5) Scheduling a resumption (6) after 300 seconds (1546457511) in case this run gets aborted
+3892.060 (5) Checking if we have a zip executable available
+3892.066 (5) Zip engine: found/will use a binary zip: /usr/bin/zip
+3892.072 (5) Creation of backups of directories: already finished
+3892.079 (5) Saving backup status to database (elements: 8)
+3892.097 (5) Database dump (WordPress DB): Creation was completed already
+3892.125 (5) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+3892.130 (5) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+3892.136 (5) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+3892.142 (5) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+3892.147 (5) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+3892.153 (5) Saving backup history. Total backup size: 53.3 MB
+3892.169 (5) Requesting upload of the files that have not yet been successfully uploaded (5)
+3892.182 (5) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+3892.187 (5) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+3892.681 (5) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+3892.688 (5) An error condition has occurred for the first time during this job
+3892.701 (5) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+3892.708 (5) Number of backup sets in history: 8; groups (db): 1
+3892.713 (5) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+3892.719 (5) This backup set is the backup set just made, so will not be deleted.
+3892.719 (5) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+3892.719 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.725 (5) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+3892.725 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.725 (5) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+3892.725 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.725 (5) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+3892.725 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.725 (5) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+3892.725 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.725 (5) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+3892.725 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.725 (5) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+3892.725 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.725 (5) Number of backup sets in history: 8; groups (files): 1
+3892.731 (5) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+3892.731 (5) This backup set is the backup set just made, so will not be deleted.
+3892.737 (5) This backup set is the backup set just made, so will not be deleted.
+3892.737 (5) This backup set is the backup set just made, so will not be deleted.
+3892.737 (5) This backup set is the backup set just made, so will not be deleted.
+3892.737 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.742 (5) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+3892.742 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.743 (5) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+3892.743 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.743 (5) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+3892.743 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.743 (5) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+3892.743 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.743 (5) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+3892.743 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.743 (5) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+3892.743 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.743 (5) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+3892.743 (5) This backup set remains non-empty (f=1/d=1); will retain in history
+3892.743 (5) Retain: saving new backup history (sets now: 8) and finishing retain operation
+3892.758 (5) Resume backup (6dd2cfb176cc, 5): finish run
+3892.770 (5) There were errors in the uploads, so the 'resume' event is remaining scheduled
+3892.783 (5) The backup has not finished; a resumption is scheduled
+4607.916 (6) Opened log file at time: Wed, 02 Jan 2019 19:38:47 +0000 on https://steelmodular.us
+4607.923 (6) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+4607.929 (6) Free space on disk containing Updraft's temporary directory: 85342.1 MB
+4607.941 (6) Backup run: resumption=6, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (4608s ago), job type=backup
+4607.954 (6) Scheduling a resumption (7) after 300 seconds (1546458227) in case this run gets aborted
+4607.971 (6) Checking if we have a zip executable available
+4607.976 (6) Zip engine: found/will use a binary zip: /usr/bin/zip
+4607.982 (6) Creation of backups of directories: already finished
+4607.988 (6) Saving backup status to database (elements: 8)
+4608.007 (6) Database dump (WordPress DB): Creation was completed already
+4608.035 (6) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+4608.040 (6) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+4608.046 (6) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+4608.052 (6) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+4608.058 (6) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+4608.063 (6) Saving backup history. Total backup size: 53.3 MB
+4608.079 (6) Requesting upload of the files that have not yet been successfully uploaded (5)
+4608.091 (6) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+4608.097 (6) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+4608.598 (6) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+4608.604 (6) An error condition has occurred for the first time during this job
+4608.618 (6) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+4608.625 (6) Number of backup sets in history: 8; groups (db): 1
+4608.630 (6) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+4608.636 (6) This backup set is the backup set just made, so will not be deleted.
+4608.636 (6) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+4608.636 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.642 (6) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+4608.642 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.642 (6) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+4608.642 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.642 (6) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+4608.642 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.642 (6) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+4608.642 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.642 (6) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+4608.642 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.642 (6) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+4608.642 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.642 (6) Number of backup sets in history: 8; groups (files): 1
+4608.648 (6) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+4608.648 (6) This backup set is the backup set just made, so will not be deleted.
+4608.653 (6) This backup set is the backup set just made, so will not be deleted.
+4608.654 (6) This backup set is the backup set just made, so will not be deleted.
+4608.654 (6) This backup set is the backup set just made, so will not be deleted.
+4608.654 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.659 (6) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+4608.659 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.660 (6) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+4608.660 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.660 (6) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+4608.660 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.660 (6) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+4608.660 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.660 (6) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+4608.660 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.660 (6) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+4608.660 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.660 (6) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+4608.660 (6) This backup set remains non-empty (f=1/d=1); will retain in history
+4608.660 (6) Retain: saving new backup history (sets now: 8) and finishing retain operation
+4608.674 (6) Resume backup (6dd2cfb176cc, 6): finish run
+4608.685 (6) There were errors in the uploads, so the 'resume' event is remaining scheduled
+4608.698 (6) The backup has not finished; a resumption is scheduled
+5129.108 (7) Opened log file at time: Wed, 02 Jan 2019 19:47:28 +0000 on https://steelmodular.us
+5129.114 (7) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 26M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+5129.120 (7) Free space on disk containing Updraft's temporary directory: 85341.9 MB
+5129.136 (7) Backup run: resumption=7, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (5129s ago), job type=backup
+5129.154 (7) Scheduling a resumption (8) after 300 seconds (1546458748) in case this run gets aborted
+5129.171 (7) Checking if we have a zip executable available
+5129.176 (7) Zip engine: found/will use a binary zip: /usr/bin/zip
+5129.182 (7) Creation of backups of directories: already finished
+5129.187 (7) Saving backup status to database (elements: 8)
+5129.205 (7) Database dump (WordPress DB): Creation was completed already
+5129.233 (7) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+5129.239 (7) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+5129.244 (7) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+5129.249 (7) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+5129.255 (7) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+5129.261 (7) Saving backup history. Total backup size: 53.3 MB
+5129.277 (7) Requesting upload of the files that have not yet been successfully uploaded (5)
+5129.290 (7) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+5129.296 (7) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+5129.773 (7) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+5129.780 (7) An error condition has occurred for the first time during this job
+5129.792 (7) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+5129.800 (7) Number of backup sets in history: 8; groups (db): 1
+5129.805 (7) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+5129.811 (7) This backup set is the backup set just made, so will not be deleted.
+5129.811 (7) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+5129.811 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.817 (7) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+5129.817 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.817 (7) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+5129.817 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.817 (7) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+5129.817 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.817 (7) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+5129.817 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.817 (7) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+5129.817 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.817 (7) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+5129.817 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.817 (7) Number of backup sets in history: 8; groups (files): 1
+5129.823 (7) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+5129.823 (7) This backup set is the backup set just made, so will not be deleted.
+5129.832 (7) This backup set is the backup set just made, so will not be deleted.
+5129.832 (7) This backup set is the backup set just made, so will not be deleted.
+5129.832 (7) This backup set is the backup set just made, so will not be deleted.
+5129.832 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.838 (7) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+5129.838 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.838 (7) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+5129.838 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.838 (7) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+5129.838 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.838 (7) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+5129.838 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.838 (7) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+5129.838 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.839 (7) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+5129.839 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.839 (7) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+5129.839 (7) This backup set remains non-empty (f=1/d=1); will retain in history
+5129.839 (7) Retain: saving new backup history (sets now: 8) and finishing retain operation
+5129.853 (7) Resume backup (6dd2cfb176cc, 7): finish run
+5129.865 (7) There were errors in the uploads, so the 'resume' event is remaining scheduled
+5129.878 (7) The backup has not finished; a resumption is scheduled
+5910.021 (8) Opened log file at time: Wed, 02 Jan 2019 20:00:29 +0000 on https://steelmodular.us
+5910.027 (8) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 6M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+5910.033 (8) Free space on disk containing Updraft's temporary directory: 85341.8 MB
+5910.045 (8) Backup run: resumption=8, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (5910s ago), job type=backup
+5910.057 (8) Scheduling a resumption (9) after 300 seconds (1546459529) in case this run gets aborted
+5910.074 (8) Checking if we have a zip executable available
+5910.080 (8) Zip engine: found/will use a binary zip: /usr/bin/zip
+5910.086 (8) Creation of backups of directories: already finished
+5910.091 (8) Saving backup status to database (elements: 8)
+5910.109 (8) Database dump (WordPress DB): Creation was completed already
+5910.135 (8) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+5910.141 (8) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+5910.146 (8) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+5910.151 (8) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+5910.157 (8) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+5910.162 (8) Saving backup history. Total backup size: 53.3 MB
+5910.178 (8) Requesting upload of the files that have not yet been successfully uploaded (5)
+5910.190 (8) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+5910.196 (8) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+5910.732 (8) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+5910.740 (8) An error condition has occurred for the first time during this job
+5910.757 (8) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+5910.764 (8) Number of backup sets in history: 8; groups (db): 1
+5910.770 (8) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+5910.776 (8) This backup set is the backup set just made, so will not be deleted.
+5910.776 (8) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+5910.776 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.782 (8) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+5910.782 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.782 (8) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+5910.782 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.782 (8) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+5910.782 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.782 (8) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+5910.782 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.782 (8) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+5910.782 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.782 (8) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+5910.782 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.782 (8) Number of backup sets in history: 8; groups (files): 1
+5910.788 (8) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+5910.788 (8) This backup set is the backup set just made, so will not be deleted.
+5910.793 (8) This backup set is the backup set just made, so will not be deleted.
+5910.793 (8) This backup set is the backup set just made, so will not be deleted.
+5910.793 (8) This backup set is the backup set just made, so will not be deleted.
+5910.793 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.798 (8) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+5910.799 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.799 (8) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+5910.799 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.799 (8) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+5910.799 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.799 (8) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+5910.799 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.799 (8) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+5910.799 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.799 (8) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+5910.799 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.799 (8) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+5910.799 (8) This backup set remains non-empty (f=1/d=1); will retain in history
+5910.799 (8) Retain: saving new backup history (sets now: 8) and finishing retain operation
+5910.813 (8) Resume backup (6dd2cfb176cc, 8): finish run
+5910.825 (8) There were errors in the uploads, so the 'resume' event is remaining scheduled
+5910.837 (8) The backup has not finished; a resumption is scheduled
+6378.741 (9) Opened log file at time: Wed, 02 Jan 2019 20:08:18 +0000 on https://steelmodular.us
+6378.748 (9) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 64.3M | 14M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+6378.753 (9) Free space on disk containing Updraft's temporary directory: 85341.8 MB
+6378.766 (9) Backup run: resumption=9, nonce=6dd2cfb176cc, file_nonce=6dd2cfb176cc begun at=1546453319 (6379s ago), job type=backup
+6378.778 (9) The current run is resumption number 9, and there was nothing useful done on the last run (last useful run: 0) - will not schedule a further attempt until we see something useful happening this time
+6378.788 (9) Creation of backups of directories: already finished
+6378.794 (9) Saving backup status to database (elements: 8)
+6378.812 (9) Database dump (WordPress DB): Creation was completed already
+6378.838 (9) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+6378.844 (9) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+6378.849 (9) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+6378.855 (9) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-others.zip: others: This file has not yet been successfully uploaded: will queue
+6378.861 (9) backup_2019-01-02-1821_steelmodularus_6dd2cfb176cc-db.gz: db: This file has not yet been successfully uploaded: will queue
+6378.866 (9) Saving backup history. Total backup size: 53.3 MB
+6378.883 (9) Requesting upload of the files that have not yet been successfully uploaded (5)
+6378.895 (9) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+6378.901 (9) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+6379.439 (9) S3 Error: Failed to access bucket steelmodular.us. The AWS Access Key Id you provided does not exist in our records. (line: 91, file: /var/www/html/steelmodular.us/wp-content/plugins/updraftplus/vendor/aws/aws-sdk-php/src/Aws/Common/Exception/NamespaceExceptionFactory.php)
+6379.446 (9) An error condition has occurred for the first time during this job
+6379.459 (9) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+6379.465 (9) Number of backup sets in history: 8; groups (db): 1
+6379.471 (9) Examining (for databases) backup set with group_id=0, nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+6379.476 (9) This backup set is the backup set just made, so will not be deleted.
+6379.476 (9) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+6379.476 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.482 (9) Examining (for databases) backup set with group_id=0, nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+6379.482 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.482 (9) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+6379.482 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.482 (9) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+6379.482 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.482 (9) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+6379.482 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.482 (9) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+6379.482 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.482 (9) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+6379.482 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.482 (9) Number of backup sets in history: 8; groups (files): 1
+6379.487 (9) Examining (for files) backup set with nonce=6dd2cfb176cc, datestamp=1546453319 (Jan 02 2019 18:21:59)
+6379.487 (9) This backup set is the backup set just made, so will not be deleted.
+6379.493 (9) This backup set is the backup set just made, so will not be deleted.
+6379.493 (9) This backup set is the backup set just made, so will not be deleted.
+6379.493 (9) This backup set is the backup set just made, so will not be deleted.
+6379.493 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016334 (Dec 28 2018 16:58:54)
+6379.499 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Examining (for files) backup set with nonce=65d9f116a652, datestamp=1546016025 (Dec 28 2018 16:53:45)
+6379.499 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+6379.499 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+6379.499 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+6379.499 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+6379.499 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+6379.499 (9) This backup set remains non-empty (f=1/d=1); will retain in history
+6379.499 (9) Retain: saving new backup history (sets now: 8) and finishing retain operation
+6379.513 (9) Resume backup (6dd2cfb176cc, 9): finish run
+6379.525 (9) There were errors in the uploads, so the 'resume' event is remaining scheduled
+6379.537 (9) Fetching RSS news feed
+6379.703 (9) Fetched RSS news feed; result is a: SimplePie
+6379.718 (9) Sending email ('Files and database (Full backup)') report (attachments: 1, size: 105.6 KB) to: syste...
+6380.703 (9) The backup attempt has finished, apparently unsuccessfully

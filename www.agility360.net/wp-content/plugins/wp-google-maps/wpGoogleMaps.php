@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.54
+Version: 7.10.55
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,12 @@ Domain Path: /languages
 */
 
 /*
+ * 7.10.55 :- 2018-12-27 :- Medium priority
+ * Changed GoogleMap fitBounds to accept a WPGMZA.LatLngBounds
+ * Changed OLMap fitBounds to accept a WPGMZA.LatLngBounds
+ * Fixed WPGMZA.LatLngBounds setting individual coordinates to LatLngs
+ * Fixed WPGMZA.GoogleMap.fitBounds not working with native LatLngBounds
+ *
  * 7.10.54 :- 2018-12-20 :- Medium priority
  * Fixed default OpenLayers tiles being fetched over relative URL
  *
@@ -4240,6 +4246,7 @@ function wpgmaps_head_old() {
         $wpgmza_data['wpgmza_settings_force_jquery'] = sanitize_text_field($_POST['wpgmza_settings_force_jquery']);
         $wpgmza_data['wpgmza_settings_markerlist_category'] = sanitize_text_field($_POST['wpgmza_settings_markerlist_category']);
         $wpgmza_data['wpgmza_settings_markerlist_icon'] = sanitize_text_field($_POST['wpgmza_settings_markerlist_icon']);
+		$wpgmza_data['wpgmza_settings_markerlist_link'] = sanitize_text_field($_POST['wpgmza_settings_markerlist_link']);
         $wpgmza_data['wpgmza_settings_markerlist_title'] = sanitize_text_field($_POST['wpgmza_settings_markerlist_title']);
         $wpgmza_data['wpgmza_settings_markerlist_address'] = sanitize_text_field($_POST['wpgmza_settings_markerlist_address']);
         $wpgmza_data['wpgmza_settings_markerlist_description'] = sanitize_text_field($_POST['wpgmza_settings_markerlist_description']);

@@ -336,7 +336,7 @@ jQuery( document ).ready(function() {
 					foreach($RPGP_AllPhotosDetails as $RPGP_SinglePhotoDetails) {
 						$ThumbUrl = $RPGP_SinglePhotoDetails['rpggallery_admin_thumb'];
 						$j++; ?>
-						<img class="sp-thumbnail" src="<?php echo URIS_PLUGIN_URL; ?>img/loading.gif" data-src="<?php echo esc_url($ThumbUrl); ?>"/>
+						<img class="sp-thumbnail" src="<?php echo URIS_PLUGIN_URL; ?>img/loading.gif" data-src="<?php echo esc_url($ThumbUrl); ?>" alt="<?php _e( 'Loading image...', URIS_TD ); ?>"/>
 					<?php } // end of foreach 
 				}// end of is_array ?>
 			</div>

@@ -81,7 +81,7 @@ class WPFURIS_Product_Menu {
 	}
 
 	public static function products_assets() {
-		wp_enqueue_style( 'wpfrank-products', URIS_PLUGIN_URL . 'css/wpfrank-products.css' );
+		wp_enqueue_style( 'wpfrank-products', URIS_PLUGIN_URL . 'css/wpfrank-products.css', array(), '1.0', 'all' );
 	}
 }
 add_action( 'admin_menu' , array( 'WPFURIS_Product_Menu', 'create_menu' ) );

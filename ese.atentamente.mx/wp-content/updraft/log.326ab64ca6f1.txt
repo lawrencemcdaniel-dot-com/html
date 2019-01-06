@@ -1,0 +1,613 @@
+0000.000 (0) Opened log file at time: Sat, 05 Jan 2019 05:03:39 +0000 on https://ese.atentamente.mx
+0000.008 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: es_MX Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 91.8M | 80M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.013 (0) Free space on disk containing Updraft's temporary directory: 85322.1 MB
+0000.020 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.026 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.038 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1546536418, seconds_ago=128201)
+0000.060 (0) Set semaphore last lock (fd) time to 2019-01-05 05:03:39
+0000.065 (0) Semaphore lock (fd) complete
+0000.085 (0) Backup run: resumption=0, nonce=326ab64ca6f1, file_nonce=326ab64ca6f1 begun at=1546664619 (0s ago), job type=backup
+0000.096 (0) Scheduling a resumption (1) after 300 seconds (1546664919) in case this run gets aborted
+0000.115 (0) Checking if we have a zip executable available
+0000.121 (0) Testing: /usr/bin/zip
+0000.131 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.137 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.142 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.148 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.153 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.162 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.167 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.174 (0) Working binary zip found: /usr/bin/zip
+0000.184 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.190 (0) Creation of backups of directories: beginning
+0000.208 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.911 (0) Total entities for the zip file: 1601 directories, 9202 files (0 skipped as non-modified), 130.1 MB
+0000.919 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.926 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.933 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.940 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.946 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.952 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.6 MB, 9202 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.487 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: size is now: 4.30 MB
+0001.501 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 600 files added (on-disk size: 4444.6 KB)
+0001.508 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 700 files added (on-disk size: 4444.6 KB)
+0001.514 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 800 files added (on-disk size: 4444.6 KB)
+0001.521 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 900 files added (on-disk size: 4444.6 KB)
+0001.528 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1000 files added (on-disk size: 4444.6 KB)
+0001.533 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 9202 files batched, 501 (1002) added so far); re-opening (prior size: 4444.6 KB)
+0001.725 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: size is now: 5.70 MB
+0001.737 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1100 files added (on-disk size: 5827 KB)
+0001.744 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1200 files added (on-disk size: 5827 KB)
+0001.750 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1300 files added (on-disk size: 5827 KB)
+0001.756 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1400 files added (on-disk size: 5827 KB)
+0001.763 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1500 files added (on-disk size: 5827 KB)
+0001.769 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 9202 files batched, 501 (1503) added so far); re-opening (prior size: 5827 KB)
+0001.976 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: size is now: 7.00 MB
+0001.990 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1600 files added (on-disk size: 7209.2 KB)
+0001.996 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1700 files added (on-disk size: 7209.2 KB)
+0002.003 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1800 files added (on-disk size: 7209.2 KB)
+0002.010 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 1900 files added (on-disk size: 7209.2 KB)
+0002.016 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2000 files added (on-disk size: 7209.2 KB)
+0002.021 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.9 MB, 9202 files batched, 501 (2004) added so far); re-opening (prior size: 7209.2 KB)
+0002.474 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: size is now: 10.30 MB
+0002.485 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2100 files added (on-disk size: 10584.8 KB)
+0002.492 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2200 files added (on-disk size: 10584.8 KB)
+0002.497 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2300 files added (on-disk size: 10584.8 KB)
+0002.504 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2400 files added (on-disk size: 10584.8 KB)
+0002.510 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2500 files added (on-disk size: 10584.8 KB)
+0002.515 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.9 MB, 9202 files batched, 501 (2505) added so far); re-opening (prior size: 10584.8 KB)
+0002.605 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2600 files added (on-disk size: 11168.9 KB)
+0002.612 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2700 files added (on-disk size: 11168.9 KB)
+0002.619 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2800 files added (on-disk size: 11168.9 KB)
+0002.625 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 2900 files added (on-disk size: 11168.9 KB)
+0002.631 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3000 files added (on-disk size: 11168.9 KB)
+0002.637 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.3 MB, 9202 files batched, 501 (3006) added so far); re-opening (prior size: 11168.9 KB)
+0002.870 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3100 files added (on-disk size: 13301.5 KB)
+0002.878 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3200 files added (on-disk size: 13301.5 KB)
+0002.885 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3300 files added (on-disk size: 13301.5 KB)
+0002.891 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3400 files added (on-disk size: 13301.5 KB)
+0002.896 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3500 files added (on-disk size: 13301.5 KB)
+0002.902 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.7 MB, 9202 files batched, 501 (3507) added so far); re-opening (prior size: 13301.5 KB)
+0003.240 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: size is now: 16.60 MB
+0003.254 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3600 files added (on-disk size: 17037.3 KB)
+0003.261 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3700 files added (on-disk size: 17037.3 KB)
+0003.267 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3800 files added (on-disk size: 17037.3 KB)
+0003.273 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 3900 files added (on-disk size: 17037.3 KB)
+0003.280 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4000 files added (on-disk size: 17037.3 KB)
+0003.285 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.2 MB, 9202 files batched, 501 (4008) added so far); re-opening (prior size: 17037.3 KB)
+0003.698 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4100 files added (on-disk size: 19959.1 KB)
+0003.704 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4200 files added (on-disk size: 19959.1 KB)
+0003.712 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4300 files added (on-disk size: 19959.1 KB)
+0003.718 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4400 files added (on-disk size: 19959.1 KB)
+0003.725 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4500 files added (on-disk size: 19959.1 KB)
+0003.730 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.8 MB, 9202 files batched, 501 (4509) added so far); re-opening (prior size: 19959.1 KB)
+0003.864 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4600 files added (on-disk size: 21711.2 KB)
+0003.870 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4700 files added (on-disk size: 21711.2 KB)
+0003.877 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4800 files added (on-disk size: 21711.2 KB)
+0003.883 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 4900 files added (on-disk size: 21711.2 KB)
+0003.890 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5000 files added (on-disk size: 21711.2 KB)
+0003.896 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.4 MB, 9202 files batched, 501 (5010) added so far); re-opening (prior size: 21711.2 KB)
+0004.150 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5100 files added (on-disk size: 23413.2 KB)
+0004.156 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5200 files added (on-disk size: 23413.2 KB)
+0004.163 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5300 files added (on-disk size: 23413.2 KB)
+0004.170 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5400 files added (on-disk size: 23413.2 KB)
+0004.177 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5500 files added (on-disk size: 23413.2 KB)
+0004.182 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6 MB, 9202 files batched, 501 (5511) added so far); re-opening (prior size: 23413.2 KB)
+0004.380 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5600 files added (on-disk size: 25772.7 KB)
+0004.385 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5700 files added (on-disk size: 25772.7 KB)
+0004.392 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5800 files added (on-disk size: 25772.7 KB)
+0004.398 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 5900 files added (on-disk size: 25772.7 KB)
+0004.405 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6000 files added (on-disk size: 25772.7 KB)
+0004.410 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.6 MB, 9202 files batched, 501 (6012) added so far); re-opening (prior size: 25772.7 KB)
+0004.968 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6100 files added (on-disk size: 28639 KB)
+0004.975 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6200 files added (on-disk size: 28639 KB)
+0004.983 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6300 files added (on-disk size: 28639 KB)
+0004.990 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6400 files added (on-disk size: 28639 KB)
+0004.996 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6500 files added (on-disk size: 28639 KB)
+0005.002 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (11.3 MB, 9202 files batched, 501 (6513) added so far); re-opening (prior size: 28639 KB)
+0005.567 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6600 files added (on-disk size: 32323.5 KB)
+0005.574 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6700 files added (on-disk size: 32323.5 KB)
+0005.582 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6800 files added (on-disk size: 32323.5 KB)
+0005.589 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 6900 files added (on-disk size: 32323.5 KB)
+0005.595 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7000 files added (on-disk size: 32323.5 KB)
+0005.601 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.2 MB, 9202 files batched, 501 (7014) added so far); re-opening (prior size: 32323.5 KB)
+0005.847 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7100 files added (on-disk size: 34022.7 KB)
+0005.854 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7200 files added (on-disk size: 34022.7 KB)
+0005.861 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7300 files added (on-disk size: 34022.7 KB)
+0005.867 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7400 files added (on-disk size: 34022.7 KB)
+0005.875 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7500 files added (on-disk size: 34022.7 KB)
+0005.881 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (18.3 MB, 9202 files batched, 501 (7515) added so far); re-opening (prior size: 34022.7 KB)
+0006.619 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7600 files added (on-disk size: 39029.8 KB)
+0006.626 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7700 files added (on-disk size: 39029.8 KB)
+0006.632 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7800 files added (on-disk size: 39029.8 KB)
+0006.639 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 7900 files added (on-disk size: 39029.8 KB)
+0006.645 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8000 files added (on-disk size: 39029.8 KB)
+0006.650 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 9202 files batched, 501 (8016) added so far); re-opening (prior size: 39029.8 KB)
+0006.825 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8100 files added (on-disk size: 39896.7 KB)
+0006.832 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8200 files added (on-disk size: 39896.7 KB)
+0006.838 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8300 files added (on-disk size: 39896.7 KB)
+0006.845 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8400 files added (on-disk size: 39896.7 KB)
+0006.851 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8500 files added (on-disk size: 39896.7 KB)
+0006.856 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.4 MB, 9202 files batched, 501 (8517) added so far); re-opening (prior size: 39896.7 KB)
+0007.031 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8600 files added (on-disk size: 40901.3 KB)
+0007.038 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8700 files added (on-disk size: 40901.3 KB)
+0007.044 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8800 files added (on-disk size: 40901.3 KB)
+0007.051 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 8900 files added (on-disk size: 40901.3 KB)
+0007.058 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 9000 files added (on-disk size: 40901.3 KB)
+0007.064 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.9 MB, 9202 files batched, 501 (9018) added so far); re-opening (prior size: 40901.3 KB)
+0007.297 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 9100 files added (on-disk size: 41983.3 KB)
+0007.304 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip.tmp: 9200 files added (on-disk size: 41983.3 KB)
+0007.795 (0) Created plugins zip (0) - 42450.9 KB in 7.6 s (5599.3 KB/s) (sha1: e936cf5f688d1a490c0a5689410ed676502f5181, sha256: 4d7025a44778b22226173accd37dc0ac566f4e29dda7c48572083824b78fab1b)
+0007.807 (0) Beginning creation of dump of themes (split every: 400 MB)
+0007.845 (0) Total entities for the zip file: 240 directories, 1538 files (0 skipped as non-modified), 18.2 MB
+0007.853 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0007.859 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.866 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0007.873 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0007.879 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0007.884 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.9 MB, 1538 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.980 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: size is now: 1.20 MB
+0007.993 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 600 files added (on-disk size: 1200.1 KB)
+0007.999 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 700 files added (on-disk size: 1200.1 KB)
+0008.006 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 800 files added (on-disk size: 1200.1 KB)
+0008.013 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 900 files added (on-disk size: 1200.1 KB)
+0008.020 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 1000 files added (on-disk size: 1200.1 KB)
+0008.025 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (11.4 MB, 1538 files batched, 501 (1002) added so far); re-opening (prior size: 1200.1 KB)
+0008.522 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: size is now: 5.00 MB
+0008.536 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 1100 files added (on-disk size: 5087.2 KB)
+0008.542 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 1200 files added (on-disk size: 5087.2 KB)
+0008.549 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 1300 files added (on-disk size: 5087.2 KB)
+0008.555 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 1400 files added (on-disk size: 5087.2 KB)
+0008.562 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: 1500 files added (on-disk size: 5087.2 KB)
+0008.567 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 1538 files batched, 501 (1503) added so far); re-opening (prior size: 5087.2 KB)
+0008.776 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip.tmp: size is now: 6.30 MB
+0008.880 (0) Created themes zip (0) - 6481.7 KB in 1.1 s (6077.8 KB/s) (sha1: edf3a770816e97422d0e9dfc2b6c53e04adaa714, sha256: ce2e8e71b87f55407eab50425c5ddc7d2c2dbd0f6449ba14fec9833f87ac48e1)
+0008.892 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0008.897 (0) Looking for candidates to backup in: /var/www/html/ese.atentamente.mx/wp-content/uploads
+0008.904 (0) finding files: 2012: adding to list (1)
+0008.909 (0) finding files: 2018: adding to list (2)
+0008.915 (0) finding files: backup: skipping: excluded by options (glob)
+0008.920 (0) finding files: fusion-styles: adding to list (3)
+0008.926 (0) finding files: fusion_slider_exports: adding to list (4)
+0008.931 (0) finding files: woocommerce_uploads: adding to list (5)
+0008.937 (0) finding files: revslider: adding to list (6)
+0008.942 (0) finding files: 2015: adding to list (7)
+0008.947 (0) finding files: 2014: adding to list (8)
+0008.953 (0) finding files: 2016: adding to list (9)
+0008.958 (0) finding files: 2013: adding to list (10)
+0008.964 (0) finding files: 2019: adding to list (11)
+0008.970 (0) finding files: 2017: adding to list (12)
+0008.975 (0) finding files: wc-logs: adding to list (13)
+0008.981 (0) finding files: GeoLite2-Country.mmdb: adding to list (14)
+0008.987 (0) finding files: fusionredux: adding to list (15)
+0008.992 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0009.104 (0) Total entities for the zip file: 217 directories, 569 files (0 skipped as non-modified), 27 MB
+0009.110 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0009.117 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0009.123 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0009.130 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0009.136 (0) Zip: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip.tmp: 500 files added (on-disk size: 0 KB)
+0009.140 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17.7 MB, 569 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0009.644 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip.tmp: size is now: 14.60 MB
+0010.066 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip.tmp: size is now: 22.30 MB
+0010.274 (0) Created uploads zip (0) - 22790.1 KB in 1.3 s (17856.3 KB/s) (sha1: 6741433e1e6c66818326cf6f15d7ee588444fb7c, sha256: 952ac1f405215e08450fa092e95762ab2b2141c5d5672e630b526aa3968006a2)
+0010.286 (0) Beginning backup of other directories found in the content directory (index: 0)
+0010.291 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0010.297 (0) Looking for candidates to backup in: /var/www/html/ese.atentamente.mx/wp-content
+0010.303 (0) finding files: wflogs: adding to list (1)
+0010.308 (0) finding files: index.php: adding to list (2)
+0010.313 (0) finding files: upgrade: skipping: excluded by options
+0010.319 (0) finding files: updraft: skipping: this is the updraft directory
+0010.324 (0) finding files: themes: skipping: this is the themes directory
+0010.328 (0) finding files: advanced-cache.php: adding to list (3)
+0010.334 (0) finding files: languages: adding to list (4)
+0010.339 (0) finding files: uploads: skipping: this is the uploads directory
+0010.345 (0) finding files: cache: skipping: excluded by options
+0010.350 (0) finding files: wp-rocket-config: adding to list (5)
+0010.355 (0) finding files: plugins: skipping: this is the plugins directory
+0010.368 (0) Total entities for the zip file: 5 directories, 36 files (0 skipped as non-modified), 9 MB
+0010.873 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-others.zip.tmp: size is now: 3.30 MB
+0010.930 (0) Created others zip (0) - 3386.9 KB in 0.6 s (5954.8 KB/s) (sha1: e57abf8d221b1152a4847a6c7c5f098f923f5bce, sha256: ca042cfe9ff2c982e19fb542522d89c5b0e56d4cb110e1c112bd514eaeba448a)
+0010.954 (0) Saving backup status to database (elements: 8)
+0010.973 (0) Beginning creation of database dump (WordPress DB)
+0010.985 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0011.038 (0) Binary mysqldump: error (code: 2)
+0011.106 (0) Table wp_options: Total expected rows (approximate): 503
+0011.154 (0) Table wp_options: Total rows added: 509 in 0.04 seconds
+0011.161 (0) Table wp_options: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_options.table.gz - 144.2 KB)
+0011.181 (0) Table wp_users: Total expected rows (approximate): 2
+0011.190 (0) Table wp_users: Total rows added: 3 in 0.00 seconds
+0011.196 (0) Table wp_users: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_users.table.gz - 0.7 KB)
+0011.216 (0) Table wp_usermeta: Total expected rows (approximate): 96
+0011.225 (0) Table wp_usermeta: Total rows added: 98 in 0.00 seconds
+0011.231 (0) Table wp_usermeta: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_usermeta.table.gz - 3.7 KB)
+0011.250 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0011.258 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0011.265 (0) Table wp_commentmeta: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0011.284 (0) Table wp_comments: Total expected rows (approximate): 3
+0011.294 (0) Table wp_comments: Total rows added: 3 in 0.00 seconds
+0011.300 (0) Table wp_comments: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_comments.table.gz - 0.9 KB)
+0011.319 (0) Table wp_imagify_files: Total expected rows (approximate): 386
+0011.334 (0) Table wp_imagify_files: Total rows added: 386 in 0.01 seconds
+0011.341 (0) Table wp_imagify_files: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_imagify_files.table.gz - 13.9 KB)
+0011.360 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0011.369 (0) Table wp_imagify_folders: Total rows added: 1 in 0.00 seconds
+0011.375 (0) Table wp_imagify_folders: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0011.395 (0) Table wp_links: Total expected rows (approximate): 0
+0011.404 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0011.411 (0) Table wp_links: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_links.table.gz - 0.4 KB)
+0011.431 (0) Table wp_postmeta: Total expected rows (approximate): 3844
+0011.469 (0) Table wp_postmeta: Total rows added: 3803 in 0.03 seconds
+0011.476 (0) Table wp_postmeta: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_postmeta.table.gz - 36.4 KB)
+0011.494 (0) Table wp_posts: Total expected rows (approximate): 203
+0011.521 (0) Table wp_posts: Total rows added: 203 in 0.02 seconds
+0011.527 (0) Table wp_posts: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_posts.table.gz - 52.7 KB)
+0011.546 (0) Table wp_term_relationships: Total expected rows (approximate): 73
+0011.555 (0) Table wp_term_relationships: Total rows added: 73 in 0.00 seconds
+0011.561 (0) Table wp_term_relationships: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_term_relationships.table.gz - 0.6 KB)
+0011.581 (0) Table wp_term_taxonomy: Total expected rows (approximate): 128
+0011.591 (0) Table wp_term_taxonomy: Total rows added: 129 in 0.00 seconds
+0011.597 (0) Table wp_term_taxonomy: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_term_taxonomy.table.gz - 1.2 KB)
+0011.617 (0) Table wp_termmeta: Total expected rows (approximate): 169
+0011.627 (0) Table wp_termmeta: Total rows added: 173 in 0.00 seconds
+0011.634 (0) Table wp_termmeta: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_termmeta.table.gz - 2.2 KB)
+0011.654 (0) Table wp_terms: Total expected rows (approximate): 128
+0011.663 (0) Table wp_terms: Total rows added: 129 in 0.00 seconds
+0011.669 (0) Table wp_terms: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_terms.table.gz - 1.9 KB)
+0011.690 (0) Table wp_woocommerce_order_itemmeta: Total expected rows (approximate): 18
+0011.699 (0) Table wp_woocommerce_order_itemmeta: Total rows added: 18 in 0.00 seconds
+0011.705 (0) Table wp_woocommerce_order_itemmeta: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_order_itemmeta.table.gz - 0.6 KB)
+0011.725 (0) Table wp_woocommerce_payment_tokenmeta: Total expected rows (approximate): 0
+0011.733 (0) Table wp_woocommerce_payment_tokenmeta: Total rows added: 0 in 0.00 seconds
+0011.739 (0) Table wp_woocommerce_payment_tokenmeta: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_payment_tokenmeta.table.gz - 0.4 KB)
+0011.758 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 526
+0011.770 (0) Table wp_yoast_seo_links: Total rows added: 526 in 0.01 seconds
+0011.777 (0) Table wp_yoast_seo_links: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_yoast_seo_links.table.gz - 4.2 KB)
+0011.796 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 1792
+0011.811 (0) Table wp_yoast_seo_meta: Total rows added: 1886 in 0.01 seconds
+0011.818 (0) Table wp_yoast_seo_meta: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_yoast_seo_meta.table.gz - 5 KB)
+0011.837 (0) Table wp_eum_logs: Total expected rows (approximate): 8
+0011.846 (0) Table wp_eum_logs: Total rows added: 10 in 0.00 seconds
+0011.852 (0) Table wp_eum_logs: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_eum_logs.table.gz - 0.7 KB)
+0011.872 (0) Table wp_hf_submissions: Total expected rows (approximate): 0
+0011.881 (0) Table wp_hf_submissions: Total rows added: 0 in 0.00 seconds
+0011.890 (0) Table wp_hf_submissions: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_hf_submissions.table.gz - 0.4 KB)
+0011.918 (0) Table wp_layerslider: Total expected rows (approximate): 0
+0011.926 (0) Table wp_layerslider: Total rows added: 0 in 0.00 seconds
+0011.932 (0) Table wp_layerslider: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_layerslider.table.gz - 0.4 KB)
+0011.950 (0) Table wp_layerslider_revisions: Total expected rows (approximate): 0
+0011.959 (0) Table wp_layerslider_revisions: Total rows added: 0 in 0.00 seconds
+0011.965 (0) Table wp_layerslider_revisions: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_layerslider_revisions.table.gz - 0.3 KB)
+0011.984 (0) Table wp_revslider_css: Total expected rows (approximate): 117
+0011.995 (0) Table wp_revslider_css: Total rows added: 129 in 0.01 seconds
+0012.001 (0) Table wp_revslider_css: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_css.table.gz - 5.5 KB)
+0012.021 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 4
+0012.030 (0) Table wp_revslider_layer_animations: Total rows added: 4 in 0.00 seconds
+0012.036 (0) Table wp_revslider_layer_animations: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_layer_animations.table.gz - 0.7 KB)
+0012.054 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0012.062 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0012.068 (0) Table wp_revslider_navigations: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0012.086 (0) Table wp_revslider_sliders: Total expected rows (approximate): 0
+0012.095 (0) Table wp_revslider_sliders: Total rows added: 1 in 0.00 seconds
+0012.101 (0) Table wp_revslider_sliders: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_sliders.table.gz - 2.6 KB)
+0012.121 (0) Table wp_revslider_slides: Total expected rows (approximate): 3
+0012.134 (0) Table wp_revslider_slides: Total rows added: 3 in 0.01 seconds
+0012.140 (0) Table wp_revslider_slides: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_slides.table.gz - 9.5 KB)
+0012.158 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0012.167 (0) Table wp_revslider_static_slides: Total rows added: 1 in 0.00 seconds
+0012.173 (0) Table wp_revslider_static_slides: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0012.194 (0) Table wp_wc_download_log: Total expected rows (approximate): 0
+0012.202 (0) Table wp_wc_download_log: Total rows added: 0 in 0.00 seconds
+0012.208 (0) Table wp_wc_download_log: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wc_download_log.table.gz - 0.4 KB)
+0012.226 (0) Table wp_wc_webhooks: Total expected rows (approximate): 0
+0012.234 (0) Table wp_wc_webhooks: Total rows added: 0 in 0.00 seconds
+0012.240 (0) Table wp_wc_webhooks: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wc_webhooks.table.gz - 0.5 KB)
+0012.259 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0012.268 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0012.274 (0) Table wp_wfBadLeechers: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0012.293 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0012.302 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0012.308 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0012.326 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 0
+0012.334 (0) Table wp_wfBlockedIPLog: Total rows added: 0 in 0.00 seconds
+0012.340 (0) Table wp_wfBlockedIPLog: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBlockedIPLog.table.gz - 0.3 KB)
+0012.360 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0012.368 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0012.374 (0) Table wp_wfBlocks7: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0012.394 (0) Table wp_wfConfig: Total expected rows (approximate): 246
+0012.418 (0) Table wp_wfConfig: Total rows added: 250 in 0.02 seconds
+0012.423 (0) Table wp_wfConfig: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfConfig.table.gz - 363.9 KB)
+0012.442 (0) Table wp_wfCrawlers: Total expected rows (approximate): 1
+0012.452 (0) Table wp_wfCrawlers: Total rows added: 2 in 0.00 seconds
+0012.458 (0) Table wp_wfCrawlers: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfCrawlers.table.gz - 0.5 KB)
+0012.478 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0012.486 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0012.492 (0) Table wp_wfFileChanges: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0012.511 (0) Table wp_wfFileMods: Total expected rows (approximate): 9735
+0012.722 (0) Table wp_wfFileMods: Total rows added: 10379 in 0.21 seconds
+0012.728 (0) Table wp_wfFileMods: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfFileMods.table.gz - 916 KB)
+0012.748 (0) Table wp_wfHits: Total expected rows (approximate): 212
+0012.761 (0) Table wp_wfHits: Total rows added: 222 in 0.01 seconds
+0012.767 (0) Table wp_wfHits: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfHits.table.gz - 7.6 KB)
+0012.791 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0012.799 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0012.805 (0) Table wp_wfHoover: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0012.824 (0) Table wp_wfIssues: Total expected rows (approximate): 1
+0012.834 (0) Table wp_wfIssues: Total rows added: 1 in 0.00 seconds
+0012.840 (0) Table wp_wfIssues: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfIssues.table.gz - 1 KB)
+0012.860 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 10533
+0012.990 (0) Table wp_wfKnownFileList: Total rows added: 10379 in 0.12 seconds
+0013.007 (0) Table wp_wfKnownFileList: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfKnownFileList.table.gz - 105.7 KB)
+0013.046 (0) Table wp_wfLeechers: Total expected rows (approximate): 0
+0013.054 (0) Table wp_wfLeechers: Total rows added: 0 in 0.00 seconds
+0013.060 (0) Table wp_wfLeechers: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLeechers.table.gz - 0.3 KB)
+0013.079 (0) Table wp_wfLiveTrafficHuman: Total expected rows (approximate): 1
+0013.088 (0) Table wp_wfLiveTrafficHuman: Total rows added: 0 in 0.00 seconds
+0013.094 (0) Table wp_wfLiveTrafficHuman: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLiveTrafficHuman.table.gz - 0.3 KB)
+0013.114 (0) Table wp_wfLocs: Total expected rows (approximate): 1
+0013.122 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0013.128 (0) Table wp_wfLocs: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLocs.table.gz - 0.4 KB)
+0013.148 (0) Table wp_wfLogins: Total expected rows (approximate): 30
+0013.158 (0) Table wp_wfLogins: Total rows added: 108 in 0.01 seconds
+0013.165 (0) Table wp_wfLogins: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLogins.table.gz - 2.8 KB)
+0013.185 (0) Table wp_wfNet404s: Total expected rows (approximate): 0
+0013.194 (0) Table wp_wfNet404s: Total rows added: 0 in 0.00 seconds
+0013.199 (0) Table wp_wfNet404s: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfNet404s.table.gz - 0.3 KB)
+0013.219 (0) Table wp_wfNotifications: Total expected rows (approximate): 15
+0013.229 (0) Table wp_wfNotifications: Total rows added: 58 in 0.00 seconds
+0013.235 (0) Table wp_wfNotifications: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfNotifications.table.gz - 1.3 KB)
+0013.255 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0013.263 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0013.270 (0) Table wp_wfPendingIssues: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0013.290 (0) Table wp_wfReverseCache: Total expected rows (approximate): 0
+0013.298 (0) Table wp_wfReverseCache: Total rows added: 0 in 0.00 seconds
+0013.304 (0) Table wp_wfReverseCache: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfReverseCache.table.gz - 0.3 KB)
+0013.322 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0013.330 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0013.336 (0) Table wp_wfSNIPCache: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0013.357 (0) Table wp_wfScanners: Total expected rows (approximate): 0
+0013.365 (0) Table wp_wfScanners: Total rows added: 0 in 0.00 seconds
+0013.371 (0) Table wp_wfScanners: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfScanners.table.gz - 0.3 KB)
+0013.391 (0) Table wp_wfStatus: Total expected rows (approximate): 953
+0013.408 (0) Table wp_wfStatus: Total rows added: 953 in 0.01 seconds
+0013.415 (0) Table wp_wfStatus: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfStatus.table.gz - 17.6 KB)
+0013.434 (0) Table wp_wfTrafficRates: Total expected rows (approximate): 0
+0013.443 (0) Table wp_wfTrafficRates: Total rows added: 0 in 0.00 seconds
+0013.449 (0) Table wp_wfTrafficRates: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfTrafficRates.table.gz - 0.3 KB)
+0013.469 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0013.478 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0013.484 (0) Table wp_wfVulnScanners: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0013.503 (0) Table wp_woocommerce_api_keys: Total expected rows (approximate): 0
+0013.512 (0) Table wp_woocommerce_api_keys: Total rows added: 0 in 0.00 seconds
+0013.518 (0) Table wp_woocommerce_api_keys: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_api_keys.table.gz - 0.4 KB)
+0013.538 (0) Table wp_woocommerce_attribute_taxonomies: Total expected rows (approximate): 0
+0013.546 (0) Table wp_woocommerce_attribute_taxonomies: Total rows added: 0 in 0.00 seconds
+0013.552 (0) Table wp_woocommerce_attribute_taxonomies: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_attribute_taxonomies.table.gz - 0.4 KB)
+0013.573 (0) Table wp_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0013.581 (0) Table wp_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.00 seconds
+0013.587 (0) Table wp_woocommerce_downloadable_product_permissions: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_downloadable_product_permissions.table.gz - 0.5 KB)
+0013.606 (0) Table wp_woocommerce_log: Total expected rows (approximate): 0
+0013.615 (0) Table wp_woocommerce_log: Total rows added: 0 in 0.00 seconds
+0013.621 (0) Table wp_woocommerce_log: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_log.table.gz - 0.4 KB)
+0013.640 (0) Table wp_woocommerce_order_items: Total expected rows (approximate): 1
+0013.650 (0) Table wp_woocommerce_order_items: Total rows added: 2 in 0.00 seconds
+0013.656 (0) Table wp_woocommerce_order_items: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_order_items.table.gz - 0.4 KB)
+0013.674 (0) Table wp_woocommerce_payment_tokens: Total expected rows (approximate): 0
+0013.682 (0) Table wp_woocommerce_payment_tokens: Total rows added: 0 in 0.00 seconds
+0013.688 (0) Table wp_woocommerce_payment_tokens: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_payment_tokens.table.gz - 0.4 KB)
+0013.706 (0) Table wp_woocommerce_sessions: Total expected rows (approximate): 1
+0013.715 (0) Table wp_woocommerce_sessions: Total rows added: 0 in 0.00 seconds
+0013.721 (0) Table wp_woocommerce_sessions: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_sessions.table.gz - 0.4 KB)
+0013.741 (0) Table wp_woocommerce_shipping_zone_locations: Total expected rows (approximate): 0
+0013.750 (0) Table wp_woocommerce_shipping_zone_locations: Total rows added: 0 in 0.00 seconds
+0013.756 (0) Table wp_woocommerce_shipping_zone_locations: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_shipping_zone_locations.table.gz - 0.4 KB)
+0013.779 (0) Table wp_woocommerce_shipping_zone_methods: Total expected rows (approximate): 0
+0013.787 (0) Table wp_woocommerce_shipping_zone_methods: Total rows added: 0 in 0.00 seconds
+0013.793 (0) Table wp_woocommerce_shipping_zone_methods: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_shipping_zone_methods.table.gz - 0.4 KB)
+0013.813 (0) Table wp_woocommerce_shipping_zones: Total expected rows (approximate): 0
+0013.821 (0) Table wp_woocommerce_shipping_zones: Total rows added: 0 in 0.00 seconds
+0013.827 (0) Table wp_woocommerce_shipping_zones: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_shipping_zones.table.gz - 0.3 KB)
+0013.846 (0) Table wp_woocommerce_tax_rate_locations: Total expected rows (approximate): 0
+0013.854 (0) Table wp_woocommerce_tax_rate_locations: Total rows added: 0 in 0.00 seconds
+0013.861 (0) Table wp_woocommerce_tax_rate_locations: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_tax_rate_locations.table.gz - 0.4 KB)
+0013.880 (0) Table wp_woocommerce_tax_rates: Total expected rows (approximate): 0
+0013.889 (0) Table wp_woocommerce_tax_rates: Total rows added: 0 in 0.00 seconds
+0013.895 (0) Table wp_woocommerce_tax_rates: finishing file (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_tax_rates.table.gz - 0.4 KB)
+0013.913 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_options.table.gz (1/67): adding to final database dump
+0013.943 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_users.table.gz (2/67): adding to final database dump
+0013.948 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_usermeta.table.gz (3/67): adding to final database dump
+0013.954 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_commentmeta.table.gz (4/67): adding to final database dump
+0013.961 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_comments.table.gz (5/67): adding to final database dump
+0013.966 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_imagify_files.table.gz (6/67): adding to final database dump
+0013.973 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_imagify_folders.table.gz (7/67): adding to final database dump
+0013.978 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_links.table.gz (8/67): adding to final database dump
+0013.984 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_postmeta.table.gz (9/67): adding to final database dump
+0013.997 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_posts.table.gz (10/67): adding to final database dump
+0014.021 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_term_relationships.table.gz (11/67): adding to final database dump
+0014.032 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_term_taxonomy.table.gz (12/67): adding to final database dump
+0014.044 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_termmeta.table.gz (13/67): adding to final database dump
+0014.055 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_terms.table.gz (14/67): adding to final database dump
+0014.064 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_order_itemmeta.table.gz (15/67): adding to final database dump
+0014.078 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_payment_tokenmeta.table.gz (16/67): adding to final database dump
+0014.084 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_yoast_seo_links.table.gz (17/67): adding to final database dump
+0014.093 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_yoast_seo_meta.table.gz (18/67): adding to final database dump
+0014.101 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_eum_logs.table.gz (19/67): adding to final database dump
+0014.107 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_hf_submissions.table.gz (20/67): adding to final database dump
+0014.113 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_layerslider.table.gz (21/67): adding to final database dump
+0014.119 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_layerslider_revisions.table.gz (22/67): adding to final database dump
+0014.125 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_css.table.gz (23/67): adding to final database dump
+0014.132 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_layer_animations.table.gz (24/67): adding to final database dump
+0014.140 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_navigations.table.gz (25/67): adding to final database dump
+0014.146 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_sliders.table.gz (26/67): adding to final database dump
+0014.152 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_slides.table.gz (27/67): adding to final database dump
+0014.161 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_revslider_static_slides.table.gz (28/67): adding to final database dump
+0014.167 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wc_download_log.table.gz (29/67): adding to final database dump
+0014.172 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wc_webhooks.table.gz (30/67): adding to final database dump
+0014.178 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBadLeechers.table.gz (31/67): adding to final database dump
+0014.185 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBlockedCommentLog.table.gz (32/67): adding to final database dump
+0014.192 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBlockedIPLog.table.gz (33/67): adding to final database dump
+0014.198 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfBlocks7.table.gz (34/67): adding to final database dump
+0014.203 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfConfig.table.gz (35/67): adding to final database dump
+0014.223 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfCrawlers.table.gz (36/67): adding to final database dump
+0014.229 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfFileChanges.table.gz (37/67): adding to final database dump
+0014.235 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfFileMods.table.gz (38/67): adding to final database dump
+0014.307 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfHits.table.gz (39/67): adding to final database dump
+0014.314 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfHoover.table.gz (40/67): adding to final database dump
+0014.319 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfIssues.table.gz (41/67): adding to final database dump
+0014.323 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfKnownFileList.table.gz (42/67): adding to final database dump
+0014.349 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLeechers.table.gz (43/67): adding to final database dump
+0014.355 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLiveTrafficHuman.table.gz (44/67): adding to final database dump
+0014.360 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLocs.table.gz (45/67): adding to final database dump
+0014.366 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfLogins.table.gz (46/67): adding to final database dump
+0014.372 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfNet404s.table.gz (47/67): adding to final database dump
+0014.378 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfNotifications.table.gz (48/67): adding to final database dump
+0014.383 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfPendingIssues.table.gz (49/67): adding to final database dump
+0014.389 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfReverseCache.table.gz (50/67): adding to final database dump
+0014.394 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfSNIPCache.table.gz (51/67): adding to final database dump
+0014.401 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfScanners.table.gz (52/67): adding to final database dump
+0014.406 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfStatus.table.gz (53/67): adding to final database dump
+0014.415 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfTrafficRates.table.gz (54/67): adding to final database dump
+0014.421 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_wfVulnScanners.table.gz (55/67): adding to final database dump
+0014.427 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_api_keys.table.gz (56/67): adding to final database dump
+0014.434 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_attribute_taxonomies.table.gz (57/67): adding to final database dump
+0014.440 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_downloadable_product_permissions.table.gz (58/67): adding to final database dump
+0014.446 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_log.table.gz (59/67): adding to final database dump
+0014.451 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_order_items.table.gz (60/67): adding to final database dump
+0014.457 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_payment_tokens.table.gz (61/67): adding to final database dump
+0014.464 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_sessions.table.gz (62/67): adding to final database dump
+0014.469 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_shipping_zone_locations.table.gz (63/67): adding to final database dump
+0014.474 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_shipping_zone_methods.table.gz (64/67): adding to final database dump
+0014.479 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_shipping_zones.table.gz (65/67): adding to final database dump
+0014.484 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_tax_rate_locations.table.gz (66/67): adding to final database dump
+0014.490 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db-table-wp_woocommerce_tax_rates.table.gz (67/67): adding to final database dump
+0014.495 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db.gz: finished writing out complete database file (1688 KB)
+0014.537 (0) Total database tables backed up: 67 (backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db.gz, size: 1748048, sha256)
+0014.572 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0014.578 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0014.587 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0014.593 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-others.zip: others: This file has not yet been successfully uploaded: will queue
+0014.599 (0) backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db.gz: db: This file has not yet been successfully uploaded: will queue
+0014.604 (0) Saving backup history. Total backup size: 75 MB
+0014.621 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0014.639 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0014.645 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-0782a4a3287dd6c5134195791cdc63ab)
+0014.999 (0) S3 upload (): backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip (chunks: 9) -> s3://ese.atentamente.mx/backups/backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip
+0015.091 (0) S3 chunked upload: got multipart ID: 1u8i9YFlE4YdCj_mGKOFR9vK2OeyWTz8bRMZyDnbmqc78Iuw4ySD3OVwtaII7ov70hpt9hALDDz5nQUj35XEidZMgMfwKpvxTCD9P04nZ5g4RQjYC7NjK6OWXxyF0l.O
+0016.156 (0) S3 chunked upload: 11.1 % uploaded (1, "fa39842f09961e5f6afbaba1093ed7cc")
+0016.766 (0) S3 chunked upload: 22.2 % uploaded (2, "0449687dae4f07b948b60eb2b0cd63bc")
+0017.224 (0) S3 chunked upload: 33.3 % uploaded (3, "517c8baf4c88b10e0d959308c8578fea")
+0017.672 (0) S3 chunked upload: 44.4 % uploaded (4, "0b7b93fc7a7b2367569404c974741bc0")
+0018.107 (0) S3 chunked upload: 55.6 % uploaded (5, "8edf1f483ecdeab5428e2c25b78f011e")
+0018.586 (0) S3 chunked upload: 66.7 % uploaded (6, "44ab001c05cd288ba112a0fbf18fb26f")
+0019.078 (0) S3 chunked upload: 77.8 % uploaded (7, "9276777660f2cd88a0e5d03933804905")
+0019.619 (0) S3 chunked upload: 88.9 % uploaded (8, "a2fbea469ca6b746a88c3aceb95303c8")
+0019.936 (0) S3 chunked upload: 100 % uploaded (9, "417d3cf201a845223e460341810ab04c")
+0019.956 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0020.195 (0) S3 upload (plugins0): re-assembly succeeded
+0020.203 (0) Recording as successfully uploaded: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip
+0020.221 (0) Deleting local file: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-plugins.zip: OK
+0020.226 (0) S3 upload (): backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip (chunks: 2) -> s3://ese.atentamente.mx/backups/backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip
+0020.317 (0) S3 chunked upload: got multipart ID: SG9ZJLBAstBPj3dbBpWBTv0UyPOkMKn7IOeWyXe_FEHNeTOQj.EIoOUU5TX7S13JPadgnYPPceBgkuSUpIZ0wX96M03pkN_uUzqqhpsdUbJMOnI0MI4nfnwpfhvULwl.
+0020.890 (0) S3 chunked upload: 50 % uploaded (1, "6c9326267c91625e1c08c1a1d5fe07b3")
+0021.180 (0) S3 chunked upload: 100 % uploaded (2, "0d602bac93d6a5beae3fe6b49ea0a882")
+0021.200 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0021.392 (0) S3 upload (themes0): re-assembly succeeded
+0021.399 (0) Recording as successfully uploaded: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip
+0021.412 (0) Deleting local file: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-themes.zip: OK
+0021.418 (0) S3 upload (): backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip (chunks: 5) -> s3://ese.atentamente.mx/backups/backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip
+0021.538 (0) S3 chunked upload: got multipart ID: rcme3fnaKUzkgOUEIxe0VHt_j7qXDREEsIqX10LyoGq3TRPsxrEndubXKihVkT_jdCRkfe5zHXFfkJF6rRnKWTkC5YR1EmNV8u2UKWRueNom9z9nOhKGT.ZOCJxwjS.C
+0022.076 (0) S3 chunked upload: 20 % uploaded (1, "cdfbbbb7e253adbcf6182755bfbe41ad")
+0022.594 (0) S3 chunked upload: 40 % uploaded (2, "291d709b21ad076bd8877d7e719ee992")
+0023.124 (0) S3 chunked upload: 60 % uploaded (3, "3ca5e286c18922ff7241aae6013ded26")
+0023.658 (0) S3 chunked upload: 80 % uploaded (4, "65536a3f1a87ce8d8822a8cbf2304144")
+0024.062 (0) S3 chunked upload: 100 % uploaded (5, "0980a81be653faf8267459ef879114f0")
+0024.083 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0024.289 (0) S3 upload (uploads0): re-assembly succeeded
+0024.296 (0) Recording as successfully uploaded: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip
+0024.312 (0) Deleting local file: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-uploads.zip: OK
+0024.318 (0) S3 upload (): backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-others.zip (chunks: 1) -> s3://ese.atentamente.mx/backups/backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-others.zip
+0024.828 (0) S3 regular upload: success
+0024.835 (0) Recording as successfully uploaded: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-others.zip
+0024.848 (0) Deleting local file: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-others.zip: OK
+0024.854 (0) S3 upload (): backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db.gz (chunks: 1) -> s3://ese.atentamente.mx/backups/backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db.gz
+0025.174 (0) S3 regular upload: success
+0025.181 (0) Recording as successfully uploaded: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db.gz
+0025.194 (0) Deleting local file: backup_2019-01-04-2303_eseatentamentemx_326ab64ca6f1-db.gz: OK
+0025.207 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+0025.215 (0) Number of backup sets in history: 11; groups (db): 1
+0025.220 (0) Examining (for databases) backup set with group_id=0, nonce=326ab64ca6f1, datestamp=1546664619 (Jan 05 2019 05:03:39)
+0025.226 (0) This backup set is the backup set just made, so will not be deleted.
+0025.226 (0) Examining (for databases) backup set with group_id=0, nonce=690d7000a856, datestamp=1546536418 (Jan 03 2019 17:26:58)
+0025.226 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.231 (0) Examining (for databases) backup set with group_id=0, nonce=9ee1ef5a5d0d, datestamp=1546170475 (Dec 30 2018 11:47:55)
+0025.231 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.231 (0) Examining (for databases) backup set with group_id=0, nonce=f0cbf3f7cf08, datestamp=1546038635 (Dec 28 2018 23:10:35)
+0025.232 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.232 (0) Examining (for databases) backup set with group_id=0, nonce=227e7740c093, datestamp=1545484190 (Dec 22 2018 13:09:50)
+0025.232 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.232 (0) Examining (for databases) backup set with group_id=0, nonce=1dd20e45ed4b, datestamp=1545362583 (Dec 21 2018 03:23:03)
+0025.232 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.232 (0) Examining (for databases) backup set with group_id=0, nonce=5ad831f25fad, datestamp=1545275461 (Dec 20 2018 03:11:01)
+0025.232 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.232 (0) Examining (for databases) backup set with group_id=0, nonce=7df114dafe3a, datestamp=1544614360 (Dec 12 2018 11:32:40)
+0025.232 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.232 (0) Examining (for databases) backup set with group_id=0, nonce=19fd9ebb8561, datestamp=1544489640 (Dec 11 2018 00:54:00)
+0025.232 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.232 (0) Examining (for databases) backup set with group_id=0, nonce=b0915d3098fe, datestamp=1544306862 (Dec 08 2018 22:07:42)
+0025.232 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.232 (0) Examining (for databases) backup set with group_id=0, nonce=2f222549ee5d, datestamp=1543884286 (Dec 04 2018 00:44:46)
+0025.232 (0) 1543884286: db: this set includes a database (backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-db.gz); db count is now 10
+0025.232 (0) 1543884286: db: over retain limit (10); will delete this database
+0025.232 (0) Delete file: backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-db.gz, service=s3
+0025.238 (0) S3: Delete remote: bucket=ese.atentamente.mx, URI=backups/backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-db.gz
+0025.351 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0025.356 (0) Number of backup sets in history: 11; groups (files): 1
+0025.361 (0) Examining (for files) backup set with nonce=326ab64ca6f1, datestamp=1546664619 (Jan 05 2019 05:03:39)
+0025.361 (0) This backup set is the backup set just made, so will not be deleted.
+0025.367 (0) This backup set is the backup set just made, so will not be deleted.
+0025.367 (0) This backup set is the backup set just made, so will not be deleted.
+0025.367 (0) This backup set is the backup set just made, so will not be deleted.
+0025.367 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.372 (0) Examining (for files) backup set with nonce=690d7000a856, datestamp=1546536418 (Jan 03 2019 17:26:58)
+0025.372 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.372 (0) Examining (for files) backup set with nonce=9ee1ef5a5d0d, datestamp=1546170475 (Dec 30 2018 11:47:55)
+0025.372 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.372 (0) Examining (for files) backup set with nonce=f0cbf3f7cf08, datestamp=1546038635 (Dec 28 2018 23:10:35)
+0025.372 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.372 (0) Examining (for files) backup set with nonce=227e7740c093, datestamp=1545484190 (Dec 22 2018 13:09:50)
+0025.372 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.373 (0) Examining (for files) backup set with nonce=1dd20e45ed4b, datestamp=1545362583 (Dec 21 2018 03:23:03)
+0025.373 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.373 (0) Examining (for files) backup set with nonce=5ad831f25fad, datestamp=1545275461 (Dec 20 2018 03:11:01)
+0025.373 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.373 (0) Examining (for files) backup set with nonce=7df114dafe3a, datestamp=1544614360 (Dec 12 2018 11:32:40)
+0025.373 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.373 (0) Examining (for files) backup set with nonce=19fd9ebb8561, datestamp=1544489640 (Dec 11 2018 00:54:00)
+0025.373 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.373 (0) Examining (for files) backup set with nonce=b0915d3098fe, datestamp=1544306862 (Dec 08 2018 22:07:42)
+0025.373 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.373 (0) Examining (for files) backup set with nonce=2f222549ee5d, datestamp=1543884286 (Dec 04 2018 00:44:46)
+0025.373 (0) plugins: over retain limit (10); will delete this file entity
+0025.373 (0) themes: over retain limit (10); will delete this file entity
+0025.373 (0) uploads: over retain limit (10); will delete this file entity
+0025.373 (0) others: over retain limit (10); will delete this file entity
+0025.373 (0) Delete file: backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-plugins.zip, service=s3
+0025.379 (0) Delete file: backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-themes.zip, service=s3
+0025.384 (0) Delete file: backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-uploads.zip, service=s3
+0025.390 (0) Delete file: backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-others.zip, service=s3
+0025.395 (0) S3: Delete remote: bucket=ese.atentamente.mx, URI=backups/backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-plugins.zip
+0025.521 (0) S3: Delete remote: bucket=ese.atentamente.mx, URI=backups/backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-themes.zip
+0025.628 (0) S3: Delete remote: bucket=ese.atentamente.mx, URI=backups/backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-uploads.zip
+0025.763 (0) S3: Delete remote: bucket=ese.atentamente.mx, URI=backups/backup_2018-12-03-1844_eseatentamentemx_2f222549ee5d-others.zip
+0025.874 (0) This backup set is now empty; will remove from history
+0025.879 (0) Deleting log file (log.2f222549ee5d.txt)
+0025.885 (0) Retain: saving new backup history (sets now: 10) and finishing retain operation
+0025.909 (0) Resume backup (326ab64ca6f1, 0): finish run
+0025.925 (0) Decremented the semaphore (fd) by 1
+0025.936 (0) Semaphore (fd) unlocked
+0025.942 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0025.961 (0) The backup apparently succeeded and is now complete
+0025.967 (0) Fetching RSS news feed
+0026.095 (0) Fetched RSS news feed; result is a: SimplePie
+0026.111 (0) Sending email ('Archivos y base de datos (Respaldo completo)') report (attachments: 0, size: 0 KB) to: edx.a...
+0026.378 (0) El respaldo aparentemente fue exitoso y ya terminó

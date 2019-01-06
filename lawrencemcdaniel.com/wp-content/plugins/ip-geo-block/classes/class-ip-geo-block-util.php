@@ -19,7 +19,7 @@ class IP_Geo_Block_Util {
 		static $offset = NULL;
 		static $format = NULL;
 
-		NULL === $offset and $offset = wp_timezone_override_offset() * HOUR_IN_SECONDS;
+		NULL === $offset and $offset = wp_timezone_override_offset() * HOUR_IN_SECONDS; // @since 2.8.0
 		NULL === $format and $format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 
 		return date_i18n( $fmt ? $fmt : $format, $timestamp ? (int)$timestamp + $offset : FALSE );
@@ -299,7 +299,7 @@ class IP_Geo_Block_Util {
 	 * Retrieve user info by a given field
 	 * @source wp-includes/pluggable.php @since 2.8.0
 	 */
-	private static function get_user_by( $field, $value ) {
+	public static function get_user_by( $field, $value ) {
 		if ( function_exists( 'get_user_by' ) )
 			return get_user_by( $field, $value );
 
@@ -644,6 +644,23 @@ class IP_Geo_Block_Util {
 	}
 
 	/**
+	 * Check if the current user has the capabilities.
+	 *
+	 */
+	public static function current_user_has_caps( $caps ) {
+		$user = self::get_user_by( 'id', self::get_current_user_id() );
+		if ( is_object( $user ) ) {
+			foreach ( $caps as $cap ) {
+				if ( $user->has_cap( $cap ) ) {
+					return TRUE;
+				}
+			}
+		}
+
+		return FALSE;
+	}
+
+	/**
 	 * WP alternative function get_allowed_mime_types() for mu-plugins
 	 *
 	 * Retrieve the file type from the file name.
@@ -800,9 +817,10 @@ class IP_Geo_Block_Util {
 	/**
 	 * Check proxy variable
 	 *
+	 * @see https://developer.wordpress.org/reference/classes/wp_community_events/get_unsafe_client_ip/
 	 */
 	public static function get_proxy_var() {
-		foreach ( array( 'HTTP_X_FORWARDED_FOR', 'HTTP_CF_CONNECTING_IP', 'HTTP_X_REAL_IP', 'HTTP_CLIENT_IP', 'HTTP_X_FORWARDED' ) as $var ) {
+		foreach ( array( 'HTTP_X_FORWARDED_FOR', 'HTTP_CF_CONNECTING_IP', 'HTTP_X_REAL_IP', 'HTTP_CLIENT_IP', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED' ) as $var ) {
 			if ( isset( $_SERVER[ $var ] ) ) {
 				return $var;
 			}
@@ -942,10 +960,12 @@ class IP_Geo_Block_Util {
 	 * This function should be called after 'init' hook is fired.
 	 */
 	public static function get_sites_of_user() {
-		$sites = array();
+		$sites = array( preg_replace( '/^https?:/', '', home_url() ) );
 
-		foreach ( get_blogs_of_user( get_current_user_id(), current_user_can( 'manage_network_options' ) ) as $site ) { // @since 3.0.0
-			$sites[] = preg_replace( '/^https?:/', '', $site->siteurl );
+		foreach ( get_blogs_of_user( self::get_current_user_id(), current_user_can( 'manage_network_options' ) ) as $site ) { // @since 3.0.0
+			if ( ! in_array( $url = preg_replace( '/^https?:/', '', $site->siteurl ), $sites, TRUE ) ) {
+				$sites[] = $url;
+			}
 		}
 
 		return $sites;
@@ -1058,3 +1078,18 @@ class IP_Geo_Block_Util {
 	}
 
 }
+
+// Some plugins need this when this plugin is installed as mu-plugins
+if ( ! function_exists( 'get_userdata' ) ) :
+/**
+ * Retrieve user info by user ID.
+ *
+ * @since 0.71
+ *
+ * @param int $user_id User ID
+ * @return WP_User|false WP_User object on success, false on failure.
+ */
+function get_userdata( $user_id ) {
+	return IP_Geo_Block_Util::get_user_by( 'id', $user_id );
+}
+endif;

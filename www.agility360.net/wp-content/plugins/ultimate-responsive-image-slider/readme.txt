@@ -3,8 +3,8 @@ Contributors: FARAZFRANK
 Donate link: https://www.wpfrank.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
-Tested up to: 5.0.1
-Stable tag: 3.2.13
+Tested up to: 5.0.2
+Stable tag: 3.2.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,7 +90,7 @@ Change image slide sequence through simple drag and drop feature.
 
 ### Buy Pro Plugin Now [Ultimate Responsive Image Slider Pro](http://wpfrank.com/account/signup/ultimate-responsive-image-slider-pro/)
 
-If you have any question contact us at here: [Plugin Support Forum ](http://wordpress.org/support/plugin/ultimate-responsive-image-slider) 
+If you have any question contact us at here: [Plugin Support Forum ](http://wordpress.org/support/plugin/ultimate-responsive-image-slider)
 
 == Installation ==
 1. Upload the entire **responsive-image-slider** folder to the **/wp-content/plugins/** directory.
@@ -103,13 +103,13 @@ If you have any question contact us at here: [Plugin Support Forum ](http://word
 3. Slider Preview Below Content With Bullets Navigation
 4. Slider Preview With Thumbnail Navigation
 5. Slider Preview Without Bullets & Thumbnail Navigation
-6. Slider Preview With Custom Height & Width 
+6. Slider Preview With Custom Height & Width
 7. Slider Preview With Custom Height & Width
 8. Slider Preview With Content & Without Bullets & Thumbnail Navigation
 9. Slider Preview With Thumbnail Navigation Two
 10. Add Slide Images Through Plugin Media uploader
 11. Slider Settings For Individual Slide Show
-12. Slider Shortcode Copy Widget Within Plugin Dashboard 
+12. Slider Shortcode Copy Widget Within Plugin Dashboard
 
 = Docs & Support =
 If any support required then post your query in WordPress [Plugin Support Forum ](http://wordpress.org/support/plugin/ultimate-responsive-image-slider)
@@ -126,6 +126,13 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 
 == Changelog ==
 For more information, see [WP Frank](https://wpfrank.com/)
+
+= V 3.2.15 =
+* SEO Improvement
+* Updated Pro Banner
+
+= V 3.2.14 =
+* Added Check Pro Banner
 
 = V 3.2.13 =
 * Added Our Premium Plugins
@@ -153,7 +160,7 @@ For more information, see [WP Frank](https://wpfrank.com/)
 = V 3.2.7 =
 - Update Review Button
 - Update close icon of slider in dashboard
-- Bug Fixed : Autoplay Slider Speed's span not visible 
+- Bug Fixed : Autoplay Slider Speed's span not visible
 
 = V 3.2.6 =
 - continuty update

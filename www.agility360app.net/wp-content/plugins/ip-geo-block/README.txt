@@ -3,8 +3,8 @@ Contributors: tokkonopapa
 Donate link:
 Tags: security, firewall, brute force, vulnerability, login, wp-admin, admin, ajax, xmlrpc, comment, pingback, trackback, spam, IP address, geo, geolocation, buddypress, bbPress
 Requires at least: 3.7
-Tested up to: 4.9.8
-Stable tag: 3.0.17
+Tested up to: 5.0.2
+Stable tag: 3.0.17.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -146,7 +146,9 @@ See more details at "[How to test prevention of attacks](https://www.ipgeoblock.
 
 = I'm locked out! What shall I do? =
 
-You can find the "**Emergent Functionality**" code section near the bottom of `ip-geo-block.php`. This code block can be activated by replacing `/*` (opening multi-line comment) at the top of the line to `//` (single line comment), or `*` at the end of the line to `*/` (closing multi-line comment).
+Please find the solution in [Quick recovery from blocking on your login page](https://www.ipgeoblock.com/codex/quick-recovery-from-blockig-on-login-page.html "Quick recovery from blocking on your login page | IP Geo Block") at first.
+
+You can also find another solution by editing "**Emergent Functionality**" code section near the bottom of `ip-geo-block.php`. This code block can be activated by replacing `/*` (opening multi-line comment) at the top of the line to `//` (single line comment), or `*` at the end of the line to `*/` (closing multi-line comment).
 
 `/**
  * Invalidate blocking behavior in case yourself is locked out.
@@ -231,6 +233,22 @@ Please refer to "[How can I fix permission troubles?](https://www.ipgeoblock.com
 11. **IP Geo Plugin** - Attribution tab
 
 == Changelog ==
+
+= 3.0.17.3 =
+Sorry for the frequent update.
+* **Fix issue:** Remove `wp_user_roles` from "Metadata Exploit Protection" which was equipped in 3.0.17 because some plugins/themes would add their own role and capability without admin authority.
+
+= 3.0.17.2 =
+* **Fix issue:** Fixed the fatal error under certain condition.
+
+= 3.0.17.1 =
+* **Fix issue:** Inadequate verification of IPv4 with some CIDR notation.
+* **Fix issue:** Insufficient path parsing for document root and content directory when real path and symbolic link were mixtured on virtual host.
+* **Fix issue:** Unexpected blocking on admin dashboard when home url is different from site url.
+* **Fix issue:** `wp-signup.php` was not blocked when only "Register" was enabled as "Target actions" at "Login form" in "Back-end target settings" section.
+* **Improvement:** Improve compatibility with Advanced Access Manager.
+* **Improvement:** Use comment syntax `@codingStandardsIgnoreLine` for deprecated function on PHP7+ to avoid false positive by some scanning tool like PHP Compatibility Checker.
+Hava a happy new year!
 
 = 3.0.17 =
 * **Fix issue:** Avoid the error of "Can not load Geolocation API libraries" caused by the race condition on upgrading this plugin.

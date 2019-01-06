@@ -3123,7 +3123,7 @@ class Amazon_S3_And_CloudFront extends AS3CF_Plugin_Base {
 	 *
 	 * @return array
 	 */
-	private function handle_save_settings() {
+	protected function handle_save_settings() {
 		$changed_keys = array();
 
 		do_action( 'as3cf_pre_save_settings' );

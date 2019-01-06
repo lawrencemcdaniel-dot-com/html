@@ -217,6 +217,12 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 7.10.55 :- 2018-12-27 :- Medium priority =
+* Changed GoogleMap fitBounds to accept a WPGMZA.LatLngBounds
+* Changed OLMap fitBounds to accept a WPGMZA.LatLngBounds
+* Fixed WPGMZA.LatLngBounds setting individual coordinates to LatLngs
+* Fixed WPGMZA.GoogleMap.fitBounds not working with native LatLngBounds
+
 = 7.10.54 :- 2018-12-20 :- Medium priority
 * Fixed default OpenLayers tiles being fetched over relative URL
 

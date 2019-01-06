@@ -1,3 +1,12 @@
+<?php
+	$os_options = (array) get_option(OPINIONSTAGE_OPTIONS_KEY);
+	$os_client_logged_in = opinionstage_user_logged_in();		
+	if(!$os_client_logged_in){
+		$connectionOpinionStagePlugin = 'Not Connected';
+	}else{
+		$connectionOpinionStagePlugin = 'Connected';
+	}
+ ?>
 <style type="text/css">
 	.os-feedback-modal-wrapper {
 		position: fixed;
@@ -101,9 +110,9 @@ mixpanel.init("73bec82504e0f14a7dba16aebd26b97d",{
 				}else if(reason == 'Other:'){
 					reason = 'Other: ' + $('.os-other-reason').val();
 				}
-
+				$opswConnected = '<?php echo $connectionOpinionStagePlugin; ?>';
 				mixpanel.track("WordPress Opinion Stage Disconnect",
-				    {"reason": reason, "details": reason ,"url": window.location.href },
+				    {"reason": reason, "details": reason ,"url": window.location.href,"opinionStagePluginConnect": $opswConnected, },
 				    function(){
 				    	window.location = elemOpen.find('a').attr('href');
 				    }

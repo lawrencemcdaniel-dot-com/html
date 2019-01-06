@@ -522,14 +522,14 @@ endif; // TEST_RESTORE_NETWORK
 			'[extra_ips][white_list]',
 			'[extra_ips][black_list]',
 			'[anonymize]',
-			'[restrict_api]',            // 3.0.13
-			'[simulate]',                // 3.0.14
+			'[restrict_api]',  // 3.0.13
+			'[simulate]',      // 3.0.14
 			'[signature]',
 			'[login_fails]',
 			'[response_code]',
-			'[response_msg]',            // 3.0.0
-			'[redirect_uri]',            // 3.0.0
-			'[validation][timing]',      // 2.2.9
+			'[response_msg]',       // 3.0.0
+			'[redirect_uri]',       // 3.0.0
+			'[validation][timing]', // 2.2.9
 			'[validation][proxy]',
 			'[validation][comment]',
 			'[validation][xmlrpc]',
@@ -600,7 +600,8 @@ endif; // TEST_RESTORE_NETWORK
 			'[mimetype][capability][$]', // 3.0.4
 			'[Maxmind][use_asn]',        // 3.0.4
 			'[live_update][in_memory]',  // 3.0.5
-			'[monitor][metadata]',       // 3.0.17
+			'[monitor][updated_option]',             // 3.0.18
+			'[monitor][update_site_option]',         // 3.0.18
 			'[metadata][pre_update_option][$]',      // 3.0.17
 			'[metadata][pre_update_site_option][$]', // 3.0.17
 		);
@@ -747,8 +748,7 @@ endif; // TEST_RESTORE_NETWORK
 		switch ( $which ) {
 		  case 'page':
 		  case 'action':
-			$dir = admin_url();
-			$dir = preg_replace( '!https?://.+?/!', '/', IP_Geo_Block_Util::slashit( $dir ) );
+			$dir = IP_Geo_Block_Util::slashit( str_replace( site_url(), '', admin_url() ) ); /* `/wp-admin/` */
 
 			foreach ( IP_Geo_Block_Logs::search_blocked_logs( 'method', $dir ) as $log ) {
 				foreach ( array( 'method', 'data' ) as $key ) {
@@ -773,8 +773,8 @@ endif; // TEST_RESTORE_NETWORK
 			}
 
 			$dir = 'plugins' === $which ? plugins_url() : get_theme_root_uri();
-			$dir = preg_replace( '!https?://.+?/!', '/', IP_Geo_Block_Util::slashit( $dir ) );
-			$pat = preg_quote( $dir, '!' ); // `/wp-content/[plugins|themes]/`
+			$dir = IP_Geo_Block_Util::slashit( str_replace( site_url(), '', $dir ) );
+			$pat = preg_quote( $dir, '!' ); /* `/wp-content/(plugins|themes)/` */
 
 			foreach ( IP_Geo_Block_Logs::search_blocked_logs( 'method', $dir ) as $log ) {
 				if ( preg_match( '!' . $pat . '(.+?)/!', $log['method'], $matches ) && in_array( $matches[1], $key, TRUE ) ) {

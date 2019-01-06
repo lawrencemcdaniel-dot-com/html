@@ -1,0 +1,439 @@
+0000.001 (0) Opened log file at time: Wed, 26 Dec 2018 19:38:30 +0000 on https://isbu.co
+0000.008 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.77-70.82.amzn1.x86_64 #1 SMP Mon Dec 3 20:01:27 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 67.1M | 28M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.014 (0) Free space on disk containing Updraft's temporary directory: 85491.4 MB
+0000.021 (0) Tasks: Backup files: 1 (schedule: weekly) Backup DB:  (schedule: weekly)
+0000.026 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.041 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1545244669, seconds_ago=608441)
+0000.063 (0) Set semaphore last lock (fd) time to 2018-12-26 19:38:30
+0000.068 (0) Semaphore lock (fd) complete
+0000.088 (0) Backup run: resumption=0, nonce=c3f66f70be1a, file_nonce=c3f66f70be1a begun at=1545853110 (0s ago), job type=backup
+0000.099 (0) Scheduling a resumption (1) after 300 seconds (1545853411) in case this run gets aborted
+0000.116 (0) Checking if we have a zip executable available
+0000.121 (0) Testing: /usr/bin/zip
+0000.131 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.137 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.142 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.148 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.153 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.162 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.168 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.177 (0) Working binary zip found: /usr/bin/zip
+0000.188 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.194 (0) Creation of backups of directories: beginning
+0000.211 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.913 (0) Total entities for the zip file: 1433 directories, 7942 files (0 skipped as non-modified), 102.1 MB
+0000.920 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.927 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.934 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.940 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.947 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.952 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.6 MB, 7942 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.746 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: size is now: 4.30 MB
+0001.759 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 600 files added (on-disk size: 4409.4 KB)
+0001.766 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 700 files added (on-disk size: 4409.4 KB)
+0001.773 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 800 files added (on-disk size: 4409.4 KB)
+0001.779 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 900 files added (on-disk size: 4409.4 KB)
+0001.786 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1000 files added (on-disk size: 4409.4 KB)
+0001.791 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 7942 files batched, 501 (1002) added so far); re-opening (prior size: 4409.4 KB)
+0002.290 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: size is now: 5.70 MB
+0002.304 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1100 files added (on-disk size: 5791.8 KB)
+0002.310 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1200 files added (on-disk size: 5791.8 KB)
+0002.318 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1300 files added (on-disk size: 5791.8 KB)
+0002.325 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1400 files added (on-disk size: 5791.8 KB)
+0002.331 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1500 files added (on-disk size: 5791.8 KB)
+0002.337 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 7942 files batched, 501 (1503) added so far); re-opening (prior size: 5791.8 KB)
+0002.539 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: size is now: 7.00 MB
+0002.555 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1600 files added (on-disk size: 7174 KB)
+0002.562 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1700 files added (on-disk size: 7174 KB)
+0002.569 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1800 files added (on-disk size: 7174 KB)
+0002.576 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 1900 files added (on-disk size: 7174 KB)
+0002.584 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2000 files added (on-disk size: 7174 KB)
+0002.590 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.4 MB, 7942 files batched, 501 (2004) added so far); re-opening (prior size: 7174 KB)
+0002.926 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: size is now: 9.20 MB
+0002.940 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2100 files added (on-disk size: 9459.2 KB)
+0002.946 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2200 files added (on-disk size: 9459.2 KB)
+0002.953 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2300 files added (on-disk size: 9459.2 KB)
+0002.959 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2400 files added (on-disk size: 9459.2 KB)
+0002.966 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2500 files added (on-disk size: 9459.2 KB)
+0002.972 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.7 MB, 7942 files batched, 501 (2505) added so far); re-opening (prior size: 9459.2 KB)
+0003.043 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2600 files added (on-disk size: 9834.8 KB)
+0003.050 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2700 files added (on-disk size: 9834.8 KB)
+0003.057 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2800 files added (on-disk size: 9834.8 KB)
+0003.063 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 2900 files added (on-disk size: 9834.8 KB)
+0003.070 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3000 files added (on-disk size: 9834.8 KB)
+0003.076 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.3 MB, 7942 files batched, 501 (3006) added so far); re-opening (prior size: 9834.8 KB)
+0003.132 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: size is now: 13.00 MB
+0003.145 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3100 files added (on-disk size: 13345 KB)
+0003.152 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3200 files added (on-disk size: 13345 KB)
+0003.158 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3300 files added (on-disk size: 13345 KB)
+0003.165 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3400 files added (on-disk size: 13345 KB)
+0003.171 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3500 files added (on-disk size: 13345 KB)
+0003.177 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.6 MB, 7942 files batched, 501 (3507) added so far); re-opening (prior size: 13345 KB)
+0003.499 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3600 files added (on-disk size: 15676.3 KB)
+0003.506 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3700 files added (on-disk size: 15676.3 KB)
+0003.513 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3800 files added (on-disk size: 15676.3 KB)
+0003.519 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 3900 files added (on-disk size: 15676.3 KB)
+0003.526 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4000 files added (on-disk size: 15676.3 KB)
+0003.532 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.6 MB, 7942 files batched, 501 (4008) added so far); re-opening (prior size: 15676.3 KB)
+0004.085 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4100 files added (on-disk size: 18669.4 KB)
+0004.092 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4200 files added (on-disk size: 18669.4 KB)
+0004.101 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4300 files added (on-disk size: 18669.4 KB)
+0004.109 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4400 files added (on-disk size: 18669.4 KB)
+0004.115 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4500 files added (on-disk size: 18669.4 KB)
+0004.121 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.9 MB, 7942 files batched, 501 (4509) added so far); re-opening (prior size: 18669.4 KB)
+0004.330 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4600 files added (on-disk size: 20936.9 KB)
+0004.338 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4700 files added (on-disk size: 20936.9 KB)
+0004.346 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4800 files added (on-disk size: 20936.9 KB)
+0004.353 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 4900 files added (on-disk size: 20936.9 KB)
+0004.360 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5000 files added (on-disk size: 20936.9 KB)
+0004.367 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.1 MB, 7942 files batched, 501 (5010) added so far); re-opening (prior size: 20936.9 KB)
+0004.907 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5100 files added (on-disk size: 23828.7 KB)
+0004.918 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5200 files added (on-disk size: 23828.7 KB)
+0004.926 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5300 files added (on-disk size: 23828.7 KB)
+0004.934 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5400 files added (on-disk size: 23828.7 KB)
+0004.941 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5500 files added (on-disk size: 23828.7 KB)
+0004.947 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.1 MB, 7942 files batched, 501 (5511) added so far); re-opening (prior size: 23828.7 KB)
+0005.248 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5600 files added (on-disk size: 25424.6 KB)
+0005.254 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5700 files added (on-disk size: 25424.6 KB)
+0005.261 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5800 files added (on-disk size: 25424.6 KB)
+0005.267 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 5900 files added (on-disk size: 25424.6 KB)
+0005.274 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6000 files added (on-disk size: 25424.6 KB)
+0005.279 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (20 MB, 7942 files batched, 501 (6012) added so far); re-opening (prior size: 25424.6 KB)
+0006.013 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: size is now: 30.30 MB
+0006.027 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6100 files added (on-disk size: 31046.9 KB)
+0006.033 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6200 files added (on-disk size: 31046.9 KB)
+0006.040 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6300 files added (on-disk size: 31046.9 KB)
+0006.046 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6400 files added (on-disk size: 31046.9 KB)
+0006.053 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6500 files added (on-disk size: 31046.9 KB)
+0006.059 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.7 MB, 7942 files batched, 501 (6513) added so far); re-opening (prior size: 31046.9 KB)
+0006.240 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6600 files added (on-disk size: 32229.3 KB)
+0006.246 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6700 files added (on-disk size: 32229.3 KB)
+0006.253 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6800 files added (on-disk size: 32229.3 KB)
+0006.260 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 6900 files added (on-disk size: 32229.3 KB)
+0006.266 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7000 files added (on-disk size: 32229.3 KB)
+0006.272 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.5 MB, 7942 files batched, 501 (7014) added so far); re-opening (prior size: 32229.3 KB)
+0006.390 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7100 files added (on-disk size: 32830.2 KB)
+0006.397 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7200 files added (on-disk size: 32830.2 KB)
+0006.404 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7300 files added (on-disk size: 32830.2 KB)
+0006.410 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7400 files added (on-disk size: 32830.2 KB)
+0006.417 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7500 files added (on-disk size: 32830.2 KB)
+0006.423 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.3 MB, 7942 files batched, 501 (7515) added so far); re-opening (prior size: 32830.2 KB)
+0006.641 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7600 files added (on-disk size: 34127.6 KB)
+0006.647 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7700 files added (on-disk size: 34127.6 KB)
+0006.654 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7800 files added (on-disk size: 34127.6 KB)
+0006.661 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip.tmp: 7900 files added (on-disk size: 34127.6 KB)
+0007.150 (0) Created plugins zip (0) - 35077.8 KB in 6.9 s (5059.5 KB/s) (sha1: b220e6fd24633ee21833ad92e667a0d6ba0e8494, sha256: 3e281f5f462f34acad9c82435ddf47a6409cfdb0155581e52b3059ea7ace3560)
+0007.162 (0) Beginning creation of dump of themes (split every: 400 MB)
+0007.266 (0) Total entities for the zip file: 240 directories, 1538 files (0 skipped as non-modified), 18.2 MB
+0007.273 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0007.280 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.286 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0007.293 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0007.300 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0007.305 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.9 MB, 1538 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.548 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: size is now: 1.20 MB
+0007.562 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 600 files added (on-disk size: 1200.1 KB)
+0007.569 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 700 files added (on-disk size: 1200.1 KB)
+0007.576 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 800 files added (on-disk size: 1200.1 KB)
+0007.582 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 900 files added (on-disk size: 1200.1 KB)
+0007.590 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 1000 files added (on-disk size: 1200.1 KB)
+0007.596 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (11.4 MB, 1538 files batched, 501 (1002) added so far); re-opening (prior size: 1200.1 KB)
+0008.109 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: size is now: 5.00 MB
+0008.123 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 1100 files added (on-disk size: 5087.2 KB)
+0008.130 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 1200 files added (on-disk size: 5087.2 KB)
+0008.136 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 1300 files added (on-disk size: 5087.2 KB)
+0008.143 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 1400 files added (on-disk size: 5087.2 KB)
+0008.149 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: 1500 files added (on-disk size: 5087.2 KB)
+0008.155 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 1538 files batched, 501 (1503) added so far); re-opening (prior size: 5087.2 KB)
+0008.383 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip.tmp: size is now: 6.30 MB
+0008.489 (0) Created themes zip (0) - 6481.7 KB in 1.3 s (4910.2 KB/s) (sha1: e077ce72079451a207c3347c0d3eb69cbd27aa2a, sha256: 899fcd0bede48fded97de3d649dce49f8be0420c2b54332babe5720c24d24e17)
+0008.501 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0008.507 (0) Looking for candidates to backup in: /var/www/html/isbu.co/wp-content/uploads
+0008.513 (0) finding files: 2018: adding to list (1)
+0008.518 (0) finding files: backup: skipping: excluded by options (glob)
+0008.523 (0) finding files: fusion-styles: adding to list (2)
+0008.529 (0) finding files: fusion-scripts: adding to list (3)
+0008.535 (0) finding files: revslider: adding to list (4)
+0008.540 (0) finding files: 2017: adding to list (5)
+0008.546 (0) finding files: fusionredux: adding to list (6)
+0008.552 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0008.650 (0) Total entities for the zip file: 184 directories, 467 files (0 skipped as non-modified), 11.8 MB
+0008.657 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0008.663 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0008.670 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0008.677 (0) Zip: backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0008.858 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip.tmp: size is now: 8.50 MB
+0008.965 (0) Created uploads zip (0) - 8747.2 KB in 0.4 s (21452.9 KB/s) (sha1: ce203a3ba37d08134921527f2db21d459e415254, sha256: 549692b6e893d44a96421ca889f70d5211aae7a192f3cc0493384ea95c79f341)
+0008.977 (0) Beginning backup of other directories found in the content directory (index: 0)
+0008.983 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0008.989 (0) Looking for candidates to backup in: /var/www/html/isbu.co/wp-content
+0008.994 (0) finding files: wflogs: adding to list (1)
+0009.000 (0) finding files: index.php: adding to list (2)
+0009.005 (0) finding files: upgrade: skipping: excluded by options
+0009.011 (0) finding files: updraft: skipping: this is the updraft directory
+0009.016 (0) finding files: themes: skipping: this is the themes directory
+0009.022 (0) finding files: advanced-cache.php: adding to list (3)
+0009.027 (0) finding files: uploads: skipping: this is the uploads directory
+0009.033 (0) finding files: cache: skipping: excluded by options
+0009.038 (0) finding files: wp-rocket-config: adding to list (4)
+0009.044 (0) finding files: plugins: skipping: this is the plugins directory
+0009.056 (0) Total entities for the zip file: 2 directories, 14 files (0 skipped as non-modified), 5.2 MB
+0009.395 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-others.zip.tmp: size is now: 2.30 MB
+0009.439 (0) Created others zip (0) - 2326.3 KB in 0.4 s (5982.4 KB/s) (sha1: f9f7ab02306a6120b51a45191fe50efc00a74ad1, sha256: 6a704d6d698db43826da446ab0c7233306c5230644dff7a755cdaec5ccc4aab2)
+0009.463 (0) Saving backup status to database (elements: 8)
+0009.480 (0) Beginning creation of database dump (WordPress DB)
+0009.492 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0009.551 (0) Binary mysqldump: error (code: 2)
+0009.597 (0) Table wp_options: Total expected rows (approximate): 326
+0009.642 (0) Table wp_options: Total rows added: 330 in 0.04 seconds
+0009.648 (0) Table wp_options: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_options.table.gz - 135.9 KB)
+0009.668 (0) Table wp_users: Total expected rows (approximate): 0
+0009.678 (0) Table wp_users: Total rows added: 1 in 0.00 seconds
+0009.685 (0) Table wp_users: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_users.table.gz - 0.5 KB)
+0009.705 (0) Table wp_usermeta: Total expected rows (approximate): 33
+0009.715 (0) Table wp_usermeta: Total rows added: 33 in 0.00 seconds
+0009.721 (0) Table wp_usermeta: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_usermeta.table.gz - 2.4 KB)
+0009.741 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0009.750 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0009.756 (0) Table wp_commentmeta: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0009.778 (0) Table wp_comments: Total expected rows (approximate): 0
+0009.787 (0) Table wp_comments: Total rows added: 1 in 0.00 seconds
+0009.793 (0) Table wp_comments: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_comments.table.gz - 0.7 KB)
+0009.814 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0009.823 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0009.829 (0) Table wp_imagify_files: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0009.849 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0009.865 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0009.873 (0) Table wp_imagify_folders: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0009.910 (0) Table wp_links: Total expected rows (approximate): 0
+0009.923 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0009.930 (0) Table wp_links: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_links.table.gz - 0.4 KB)
+0009.950 (0) Table wp_postmeta: Total expected rows (approximate): 2397
+0009.977 (0) Table wp_postmeta: Total rows added: 2454 in 0.02 seconds
+0009.984 (0) Table wp_postmeta: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_postmeta.table.gz - 22.4 KB)
+0010.004 (0) Table wp_posts: Total expected rows (approximate): 108
+0010.031 (0) Table wp_posts: Total rows added: 126 in 0.02 seconds
+0010.038 (0) Table wp_posts: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_posts.table.gz - 58.7 KB)
+0010.058 (0) Table wp_term_relationships: Total expected rows (approximate): 94
+0010.068 (0) Table wp_term_relationships: Total rows added: 94 in 0.00 seconds
+0010.074 (0) Table wp_term_relationships: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_term_relationships.table.gz - 0.6 KB)
+0010.094 (0) Table wp_term_taxonomy: Total expected rows (approximate): 33
+0010.103 (0) Table wp_term_taxonomy: Total rows added: 33 in 0.00 seconds
+0010.110 (0) Table wp_term_taxonomy: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_term_taxonomy.table.gz - 0.7 KB)
+0010.129 (0) Table wp_termmeta: Total expected rows (approximate): 3
+0010.139 (0) Table wp_termmeta: Total rows added: 3 in 0.00 seconds
+0010.145 (0) Table wp_termmeta: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_termmeta.table.gz - 0.6 KB)
+0010.165 (0) Table wp_terms: Total expected rows (approximate): 33
+0010.174 (0) Table wp_terms: Total rows added: 33 in 0.00 seconds
+0010.181 (0) Table wp_terms: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_terms.table.gz - 0.8 KB)
+0010.200 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 302
+0010.211 (0) Table wp_yoast_seo_links: Total rows added: 302 in 0.01 seconds
+0010.218 (0) Table wp_yoast_seo_links: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_yoast_seo_links.table.gz - 2.6 KB)
+0010.237 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 22
+0010.247 (0) Table wp_yoast_seo_meta: Total rows added: 24 in 0.00 seconds
+0010.253 (0) Table wp_yoast_seo_meta: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0010.274 (0) Table wp_eum_logs: Total expected rows (approximate): 9
+0010.283 (0) Table wp_eum_logs: Total rows added: 11 in 0.00 seconds
+0010.289 (0) Table wp_eum_logs: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_eum_logs.table.gz - 0.7 KB)
+0010.309 (0) Table wp_revslider_css: Total expected rows (approximate): 121
+0010.321 (0) Table wp_revslider_css: Total rows added: 121 in 0.01 seconds
+0010.327 (0) Table wp_revslider_css: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_css.table.gz - 5.2 KB)
+0010.347 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0010.356 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0010.362 (0) Table wp_revslider_layer_animations: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0010.382 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0010.390 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0010.397 (0) Table wp_revslider_navigations: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0010.417 (0) Table wp_revslider_sliders: Total expected rows (approximate): 0
+0010.426 (0) Table wp_revslider_sliders: Total rows added: 1 in 0.00 seconds
+0010.433 (0) Table wp_revslider_sliders: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_sliders.table.gz - 3 KB)
+0010.453 (0) Table wp_revslider_slides: Total expected rows (approximate): 2
+0010.464 (0) Table wp_revslider_slides: Total rows added: 2 in 0.01 seconds
+0010.471 (0) Table wp_revslider_slides: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_slides.table.gz - 9.3 KB)
+0010.491 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0010.501 (0) Table wp_revslider_static_slides: Total rows added: 1 in 0.00 seconds
+0010.507 (0) Table wp_revslider_static_slides: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_static_slides.table.gz - 0.4 KB)
+0010.527 (0) Table wp_wfblockediplog: Total expected rows (approximate): 0
+0010.535 (0) Table wp_wfblockediplog: Total rows added: 0 in 0.00 seconds
+0010.541 (0) Table wp_wfblockediplog: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfblockediplog.table.gz - 0.3 KB)
+0010.561 (0) Table wp_wfblocks7: Total expected rows (approximate): 0
+0010.570 (0) Table wp_wfblocks7: Total rows added: 0 in 0.00 seconds
+0010.577 (0) Table wp_wfblocks7: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfblocks7.table.gz - 0.4 KB)
+0010.596 (0) Table wp_wfconfig: Total expected rows (approximate): 240
+0010.622 (0) Table wp_wfconfig: Total rows added: 246 in 0.02 seconds
+0010.628 (0) Table wp_wfconfig: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfconfig.table.gz - 360.6 KB)
+0010.648 (0) Table wp_wfcrawlers: Total expected rows (approximate): 0
+0010.657 (0) Table wp_wfcrawlers: Total rows added: 2 in 0.00 seconds
+0010.663 (0) Table wp_wfcrawlers: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfcrawlers.table.gz - 0.5 KB)
+0010.684 (0) Table wp_wffilechanges: Total expected rows (approximate): 0
+0010.692 (0) Table wp_wffilechanges: Total rows added: 0 in 0.00 seconds
+0010.699 (0) Table wp_wffilechanges: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wffilechanges.table.gz - 0.3 KB)
+0010.719 (0) Table wp_wffilemods: Total expected rows (approximate): 8054
+0010.902 (0) Table wp_wffilemods: Total rows added: 9086 in 0.18 seconds
+0010.919 (0) Table wp_wffilemods: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wffilemods.table.gz - 797.4 KB)
+0010.949 (0) Table wp_wfhits: Total expected rows (approximate): 11
+0010.960 (0) Table wp_wfhits: Total rows added: 17 in 0.00 seconds
+0010.966 (0) Table wp_wfhits: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfhits.table.gz - 1.2 KB)
+0010.986 (0) Table wp_wfhoover: Total expected rows (approximate): 0
+0010.995 (0) Table wp_wfhoover: Total rows added: 0 in 0.00 seconds
+0011.002 (0) Table wp_wfhoover: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfhoover.table.gz - 0.3 KB)
+0011.022 (0) Table wp_wfissues: Total expected rows (approximate): 1
+0011.031 (0) Table wp_wfissues: Total rows added: 1 in 0.00 seconds
+0011.037 (0) Table wp_wfissues: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfissues.table.gz - 1 KB)
+0011.057 (0) Table wp_wfknownfilelist: Total expected rows (approximate): 8934
+0011.149 (0) Table wp_wfknownfilelist: Total rows added: 9086 in 0.09 seconds
+0011.156 (0) Table wp_wfknownfilelist: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfknownfilelist.table.gz - 92.9 KB)
+0011.176 (0) Table wp_wflivetraffichuman: Total expected rows (approximate): 0
+0011.184 (0) Table wp_wflivetraffichuman: Total rows added: 0 in 0.00 seconds
+0011.190 (0) Table wp_wflivetraffichuman: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wflivetraffichuman.table.gz - 0.3 KB)
+0011.211 (0) Table wp_wflocs: Total expected rows (approximate): 0
+0011.220 (0) Table wp_wflocs: Total rows added: 0 in 0.00 seconds
+0011.226 (0) Table wp_wflocs: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wflocs.table.gz - 0.4 KB)
+0011.246 (0) Table wp_wflogins: Total expected rows (approximate): 11
+0011.256 (0) Table wp_wflogins: Total rows added: 15 in 0.00 seconds
+0011.262 (0) Table wp_wflogins: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wflogins.table.gz - 0.8 KB)
+0011.282 (0) Table wp_wfnotifications: Total expected rows (approximate): 0
+0011.291 (0) Table wp_wfnotifications: Total rows added: 7 in 0.00 seconds
+0011.297 (0) Table wp_wfnotifications: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfnotifications.table.gz - 0.6 KB)
+0011.318 (0) Table wp_wfpendingissues: Total expected rows (approximate): 0
+0011.326 (0) Table wp_wfpendingissues: Total rows added: 0 in 0.00 seconds
+0011.332 (0) Table wp_wfpendingissues: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfpendingissues.table.gz - 0.4 KB)
+0011.352 (0) Table wp_wfreversecache: Total expected rows (approximate): 0
+0011.361 (0) Table wp_wfreversecache: Total rows added: 0 in 0.00 seconds
+0011.368 (0) Table wp_wfreversecache: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfreversecache.table.gz - 0.3 KB)
+0011.387 (0) Table wp_wfsnipcache: Total expected rows (approximate): 0
+0011.396 (0) Table wp_wfsnipcache: Total rows added: 0 in 0.00 seconds
+0011.402 (0) Table wp_wfsnipcache: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfsnipcache.table.gz - 0.4 KB)
+0011.422 (0) Table wp_wfstatus: Total expected rows (approximate): 949
+0011.440 (0) Table wp_wfstatus: Total rows added: 949 in 0.01 seconds
+0011.447 (0) Table wp_wfstatus: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfstatus.table.gz - 17.2 KB)
+0011.467 (0) Table wp_wftrafficrates: Total expected rows (approximate): 0
+0011.476 (0) Table wp_wftrafficrates: Total rows added: 0 in 0.00 seconds
+0011.482 (0) Table wp_wftrafficrates: finishing file (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wftrafficrates.table.gz - 0.3 KB)
+0011.502 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_options.table.gz (1/42): adding to final database dump
+0011.530 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_users.table.gz (2/42): adding to final database dump
+0011.535 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_usermeta.table.gz (3/42): adding to final database dump
+0011.541 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_commentmeta.table.gz (4/42): adding to final database dump
+0011.547 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_comments.table.gz (5/42): adding to final database dump
+0011.552 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_imagify_files.table.gz (6/42): adding to final database dump
+0011.558 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_imagify_folders.table.gz (7/42): adding to final database dump
+0011.564 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_links.table.gz (8/42): adding to final database dump
+0011.569 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_postmeta.table.gz (9/42): adding to final database dump
+0011.580 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_posts.table.gz (10/42): adding to final database dump
+0011.597 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_term_relationships.table.gz (11/42): adding to final database dump
+0011.603 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_term_taxonomy.table.gz (12/42): adding to final database dump
+0011.608 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_termmeta.table.gz (13/42): adding to final database dump
+0011.614 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_terms.table.gz (14/42): adding to final database dump
+0011.620 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_yoast_seo_links.table.gz (15/42): adding to final database dump
+0011.626 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_yoast_seo_meta.table.gz (16/42): adding to final database dump
+0011.632 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_eum_logs.table.gz (17/42): adding to final database dump
+0011.637 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_css.table.gz (18/42): adding to final database dump
+0011.644 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_layer_animations.table.gz (19/42): adding to final database dump
+0011.650 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_navigations.table.gz (20/42): adding to final database dump
+0011.655 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_sliders.table.gz (21/42): adding to final database dump
+0011.661 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_slides.table.gz (22/42): adding to final database dump
+0011.669 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_revslider_static_slides.table.gz (23/42): adding to final database dump
+0011.674 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfblockediplog.table.gz (24/42): adding to final database dump
+0011.680 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfblocks7.table.gz (25/42): adding to final database dump
+0011.686 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfconfig.table.gz (26/42): adding to final database dump
+0011.706 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfcrawlers.table.gz (27/42): adding to final database dump
+0011.711 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wffilechanges.table.gz (28/42): adding to final database dump
+0011.717 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wffilemods.table.gz (29/42): adding to final database dump
+0011.781 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfhits.table.gz (30/42): adding to final database dump
+0011.788 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfhoover.table.gz (31/42): adding to final database dump
+0011.793 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfissues.table.gz (32/42): adding to final database dump
+0011.799 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfknownfilelist.table.gz (33/42): adding to final database dump
+0011.821 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wflivetraffichuman.table.gz (34/42): adding to final database dump
+0011.827 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wflocs.table.gz (35/42): adding to final database dump
+0011.833 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wflogins.table.gz (36/42): adding to final database dump
+0011.839 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfnotifications.table.gz (37/42): adding to final database dump
+0011.844 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfpendingissues.table.gz (38/42): adding to final database dump
+0011.850 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfreversecache.table.gz (39/42): adding to final database dump
+0011.856 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfsnipcache.table.gz (40/42): adding to final database dump
+0011.861 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wfstatus.table.gz (41/42): adding to final database dump
+0011.869 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db-table-wp_wftrafficrates.table.gz (42/42): adding to final database dump
+0011.875 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db.gz: finished writing out complete database file (1504 KB)
+0011.914 (0) Total database tables backed up: 42 (backup_2018-12-26-1938_ISBU_c3f66f70be1a-db.gz, size: 1551507, sha256)
+0011.945 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0011.951 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0011.956 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0011.962 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-others.zip: others: This file has not yet been successfully uploaded: will queue
+0011.967 (0) backup_2018-12-26-1938_ISBU_c3f66f70be1a-db.gz: db: This file has not yet been successfully uploaded: will queue
+0011.973 (0) Saving backup history. Total backup size: 52.9 MB
+0011.989 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0012.007 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0012.013 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-73544ec9fc56e3f949781bb388f9e250)
+0012.380 (0) Set region: us-west-2
+0012.386 (0) S3 upload (us-west-2): backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip (chunks: 7) -> s3://isbu.co/backups/backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip
+0012.421 (0) S3 chunked upload: got multipart ID: HCok8llmhFJQNQDcN7bpLoasc7CY7Lq_3ESREr.B4euwKzhF0vL.gJkFkDQkQdmYb4BRUfXNkdlp1_PdPwTkUGfQtrzO2HPG_V_xYPU5m9MV9.yKpZxuWZmTvNzIIttQ
+0012.637 (0) S3 chunked upload: 14.3 % uploaded (1, "f1f82f55e1261c15c13d6fb493900751")
+0012.848 (0) S3 chunked upload: 28.6 % uploaded (2, "0c5b5e641baf2c9288f151ffcb9ebc82")
+0013.063 (0) S3 chunked upload: 42.9 % uploaded (3, "eea8b30c1c342576c66b12afd6801967")
+0013.304 (0) S3 chunked upload: 57.1 % uploaded (4, "f8b95093a682711f7582d3a6791b0448")
+0013.511 (0) S3 chunked upload: 71.4 % uploaded (5, "b16882daea665838d7cf069a982ebd1c")
+0013.790 (0) S3 chunked upload: 85.7 % uploaded (6, "4adbf606d17cdd29293d13272fb43b69")
+0013.962 (0) S3 chunked upload: 100 % uploaded (7, "2def16a20c188b50cd8007d580b08a63")
+0013.982 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0014.118 (0) S3 upload (plugins0): re-assembly succeeded
+0014.134 (0) Recording as successfully uploaded: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip
+0014.156 (0) Deleting local file: backup_2018-12-26-1938_ISBU_c3f66f70be1a-plugins.zip: OK
+0014.162 (0) S3 upload (us-west-2): backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip (chunks: 2) -> s3://isbu.co/backups/backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip
+0014.176 (0) S3 chunked upload: got multipart ID: 3h2MR5otERrj7mmCjUvUf6Otb1_scRMgvtB_EtL6DSuRVVrnxBSRsxsB7M9UNrnB_4haMsAOEPDCmxDEHaaCArmrEyGQiDWXS3G80d2VGBHbnXpewfoGY94G5yzWzTyI
+0014.372 (0) S3 chunked upload: 50 % uploaded (1, "ef65129058af54d877dda8d0e81b9d41")
+0014.484 (0) S3 chunked upload: 100 % uploaded (2, "628bdcd7511cb6031bf68bb325041970")
+0014.504 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0014.626 (0) S3 upload (themes0): re-assembly succeeded
+0014.632 (0) Recording as successfully uploaded: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip
+0014.646 (0) Deleting local file: backup_2018-12-26-1938_ISBU_c3f66f70be1a-themes.zip: OK
+0014.652 (0) S3 upload (us-west-2): backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip (chunks: 2) -> s3://isbu.co/backups/backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip
+0014.665 (0) S3 chunked upload: got multipart ID: YAF1VFeP6QxYdubKCz9NHaBpSgDiy_7SYhfuYRef1meJKK7HftPCoPnkHToZwGK1.IL5INRysi9_wTOdyjcfv7HEF2lwvv0Ktl2NiK9sygstyMGQrpVTzOliBNcCvL7a
+0014.850 (0) S3 chunked upload: 50 % uploaded (1, "d2baa54d668b5f08414ce5f89d91d84d")
+0015.030 (0) S3 chunked upload: 100 % uploaded (2, "cbdbfa7381438eb2211ccc4c4248c3e8")
+0015.049 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0015.173 (0) S3 upload (uploads0): re-assembly succeeded
+0015.180 (0) Recording as successfully uploaded: backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip
+0015.194 (0) Deleting local file: backup_2018-12-26-1938_ISBU_c3f66f70be1a-uploads.zip: OK
+0015.200 (0) S3 upload (us-west-2): backup_2018-12-26-1938_ISBU_c3f66f70be1a-others.zip (chunks: 1) -> s3://isbu.co/backups/backup_2018-12-26-1938_ISBU_c3f66f70be1a-others.zip
+0015.300 (0) S3 regular upload: success
+0015.307 (0) Recording as successfully uploaded: backup_2018-12-26-1938_ISBU_c3f66f70be1a-others.zip
+0015.319 (0) Deleting local file: backup_2018-12-26-1938_ISBU_c3f66f70be1a-others.zip: OK
+0015.325 (0) S3 upload (us-west-2): backup_2018-12-26-1938_ISBU_c3f66f70be1a-db.gz (chunks: 1) -> s3://isbu.co/backups/backup_2018-12-26-1938_ISBU_c3f66f70be1a-db.gz
+0015.460 (0) S3 regular upload: success
+0015.466 (0) Recording as successfully uploaded: backup_2018-12-26-1938_ISBU_c3f66f70be1a-db.gz
+0015.479 (0) Deleting local file: backup_2018-12-26-1938_ISBU_c3f66f70be1a-db.gz: OK
+0015.492 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=10, retain_db=10
+0015.499 (0) Number of backup sets in history: 5; groups (db): 1
+0015.504 (0) Examining (for databases) backup set with group_id=0, nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0015.510 (0) This backup set is the backup set just made, so will not be deleted.
+0015.510 (0) Examining (for databases) backup set with group_id=0, nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0015.510 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.516 (0) Examining (for databases) backup set with group_id=0, nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0015.516 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.516 (0) Examining (for databases) backup set with group_id=0, nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0015.516 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.516 (0) Examining (for databases) backup set with group_id=0, nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0015.516 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.516 (0) Number of backup sets in history: 5; groups (files): 1
+0015.521 (0) Examining (for files) backup set with nonce=c3f66f70be1a, datestamp=1545853110 (Dec 26 2018 19:38:30)
+0015.521 (0) This backup set is the backup set just made, so will not be deleted.
+0015.527 (0) This backup set is the backup set just made, so will not be deleted.
+0015.528 (0) This backup set is the backup set just made, so will not be deleted.
+0015.528 (0) This backup set is the backup set just made, so will not be deleted.
+0015.528 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.533 (0) Examining (for files) backup set with nonce=e84656de599f, datestamp=1545244669 (Dec 19 2018 18:37:49)
+0015.533 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.533 (0) Examining (for files) backup set with nonce=6e83d2129f04, datestamp=1544658084 (Dec 12 2018 23:41:24)
+0015.533 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.533 (0) Examining (for files) backup set with nonce=7f0ef1fd9efd, datestamp=1544038718 (Dec 05 2018 19:38:38)
+0015.533 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.533 (0) Examining (for files) backup set with nonce=2e54ff2f5879, datestamp=1544033977 (Dec 05 2018 18:19:37)
+0015.533 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0015.533 (0) Retain: saving new backup history (sets now: 5) and finishing retain operation
+0015.548 (0) Resume backup (c3f66f70be1a, 0): finish run
+0015.564 (0) Decremented the semaphore (fd) by 1
+0015.575 (0) Semaphore (fd) unlocked
+0015.581 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0015.600 (0) Fetching RSS news feed
+0015.775 (0) Fetched RSS news feed; result is a: SimplePie
+0015.791 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: syste...
+0016.431 (0) The backup apparently succeeded and is now complete

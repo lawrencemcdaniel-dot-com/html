@@ -1,180 +1,183 @@
-li{
-    color:#000;
+a.linkbtn {
+     background-color: #286888;
+     padding: 7px;
+     color: #fff;
+     font-weight: 600;
+     border-radius: 5px;
+     text-decoration: none;
 }
-	.wb-col-md-12{
-	width:100%;
+ .btn-right {
+     text-align: right;
+     margin-top: 20px;
 }
-.wb_plugin_feature{
-	color:000;
+ .mt-3.imsdiv {
+     background-color: #f1f1f1;
+     padding-bottom: 20px;
 }
-.wb-text-center{
-	text-align:center;
+ .imsdiv img {
+     width: 100%;
 }
-
-.wp-img-responsive{
-	max-width:100%;
-}
-
-.wb_plugin_feature_banner.default_pattern {
-   box-shadow: 0px 2px 20px #818181;
-    margin: 40px 0px;
-    background-color: #e8e8e8;
-    float: left;
-    display: block;
-    clear: right;
-    width: 98%;
-    position: relative;
-}
-.wb_banner_featurs-list ul {
-    list-style-type: square;
-	color:#fff;
-    display: inline-block;
-}
-.wb_banner_featurs-list .gp_banner_head h2 {
-    text-align: center;
-}
-.wb_button-primary {
-    padding: 12px 20px;
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    margin: 5px;
-    border-radius: 4px;
-    box-shadow: 2px 2px 5px #1111113d;
-    background-color: #3f3d3b;
-}
-.wp_btn-grup .wb_button-primary {
-    width: 100%;
-}
-.plugin_vrsion {
-    position: absolute;
-    background: #55505a;
-    border-radius: 0px 0px 0px 52px;
-    padding: 15px 30px;
-    right: 0px;
-    font-size: 18px;
-    top: 0;
-    box-shadow: -6px 5px 7px hsla(187, 1%, 15%, 0.3);
-}
-.wb_banner_featurs-list ul li {
-   margin: 25px 20px;
-    font-size: 16px;
-
-}
-.wb_banner_featurs-list h2 {
-      border-bottom: 4px solid orange;
-    padding-bottom: 10px;
-}
-.wp_btn-grup {
-    display: flex;
-	text-align:center;
-}
-/*--media-responsive csss--*/
-@media (min-width: 901px){
-.wb_banner_featurs-list ul li {
-    float: left;
-    width: 24%
-}
-
-.wb-col-md-6{
-	float:left;
-	width:50%;
-}
-.wp_btn-grup {
-    margin: 0 auto;
-    width: 60%;
-}
-}
-
-@media (max-width: 900px){
-.wb-col-sm-12{
-	width:100%;
-}
-
-.wb_plugin_feature_banner{
-	float:none;
-}
-.wb-col-sm-6{
-	float:left;
-	width:50%;
-}
-}
-
-.wb_plugin_feature_banner.pattern_2 {
-    background: linear-gradient(17deg, #663399 -16%, #ee3e3f 70%, #440e0e 93%), url(./img/bg.jpg);
-}
-
-.wb_plugin_feature_banner.pattern_3 {
-    background: linear-gradient(17deg, #6f3f9e -16%, #d63131de 93%), url(./img/bg-3.jpg);
-    background-repeat: repeat-x;
-}
-a.wb_button-primary:hover,
-	a.wb_button-primary:focus {
-    color: #f1f1f1;
-    text-decoration: none;
-}
-
-span.gp_banner_head {
-    font-size: 18px;
+ @media(min-width:1200px) {
+     .imsdiv img {
+         height: 600px;
     }
-
-
-.ribbon {
-  position: absolute;
-  left: -5px; top: -5px;
-  z-index: 1;
-  overflow: hidden;
-  width: 75px; height: 75px;
-  text-align: right;
 }
-.ribbon span {
-  font-size: 12px;
-  font-weight: bold;
-  color: #FFF;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 20px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  width: 100px;
-  display: block;
-  background: #79A70A;
-  background: linear-gradient(orange 0%, orange 100%);
-  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 19px; left: -21px;
+ .row.col-md-12.banner {
+     margin-top: 10px;
+     margin-bottom: 50px;
 }
-.ribbon span::before {
-  content: "";
-  position: absolute; left: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid #8F0808;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #8F0808;
+ .row.col-md-12.wpfrank_banner {
+     padding: 20px;
+     margin: 40px 0px;
+     border: 0;
+     -webkit-box-shadow: 0px 2px 20px #818181;
+     box-shadow: 0px 2px 20px #818181;
 }
-.ribbon span::after {
-  content: "";
-  position: absolute; right: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid transparent;
-  border-right: 3px solid #8F0808;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #8F0808;
+ .wpfrank_banner_img img {
+     max-width: 100%;
+     height: auto;
 }
-.wp-core-ui .notice.is-dismissible{
-  padding-right: 0px;
+ .wpfrank_banner .button-primary {
+     background: #d06b2e;
+     border-color: #0073aa #006799 #006799;
+     -webkit-box-shadow: 0 4px 6px #0000002e;
+     box-shadow: 0 4px 6px #0000002e;
+     color: #fff;
+     border-radius: 4px;
+     text-decoration: none;
+     border: 0;
+     text-shadow: none;
+     width: 42%;
+     text-align: center;
+     font-size: 1.55rem;
+     height: 47px;
+     padding: 10px;
+     margin-right: 15px;
+     margin-top: 10px;
+     -webkit-transition: 0.4s;
+     -o-transition: 0.4s;
+     transition: 0.4s;
 }
-.wp-img-responsive {
-    max-width: 100%;
-    padding-left: 70px;
-    padding-top: 20px;
-    padding-right: 70px;
+ .wpfrank_banner .button-primary:focus, .wpfrank_banner .button-primary:hover {
+     background-color: #4caf50!important;
+     border:0!important;
+     -webkit-box-shadow:none;
+     box-shadow:none;
+     -webkit-transition: 0.4s;
+     -o-transition: 0.4s;
+     transition: 0.4s;
 }
-.wp-photo-img-responsive {
-    max-width: 90%;
-    padding-left: 35px;
-    padding-top: 35px;
-    padding-right: 70px;
-    padding-bottom: 20px;
+ .wpfrank_banner {
+     padding: 20px;
+     margin: 40px 0px;
+     background: -webkit-linear-gradient(157deg, #144984 57%, rgba(4, 4, 4, 0.74) 39%), url(../img/ultimate.png);
+     background: -o-linear-gradient(157deg, #144984 57%, rgba(4, 4, 4, 0.74) 39%), url(../img/ultimate.png);
+     background: linear-gradient(-67deg, #144984 57%, rgba(4, 4, 4, 0.74) 39%), url(../img/ultimate.png);
+     border: 1px solid #ccc;
 }
+ .wpfrank_banner_features {
+     color: #fff;
+}
+ .wpfrank_banner_features h3 {
+     margin-bottom: 2.2rem;
+     margin-left: 1rem;
+}
+ .wpfrank_banner_actions {
+     margin-top: 2rem;
+}
+ .wpfrank_banner_features ul li {
+     font-size: 1.5rem;
+     font-weight: 600;
+}
+ .plugin_version span {
+     -ms-transform: rotate(20deg);
+     -webkit-transform: rotate(20deg);
+     transform: rotate(50deg);
+     display: block;
+}
+ .wpfrank_banner_img h2 {
+     color: #fff;
+     text-align: center;
+     padding: 18px;
+}
+ .wpfrank_banner_features h2{
+     padding: 20px;
+}
+ .wpfrank_banner_features ul {
+     list-style: unset;
+}
+ .plugin_version {
+     position: absolute;
+     right: -20px;
+     background: -webkit-linear-gradient(226deg, #d06c2e 50%, rgba(27, 26, 26, 0) 50%);
+     background: -o-linear-gradient(226deg, #d06c2e 50%, rgba(27, 26, 26, 0) 50%);
+     background: linear-gradient(-136deg, #d06c2e 50%, rgba(27, 26, 26, 0) 50%);
+     padding: 6px 7px 60px 60px;
+     top: -20px;
+     text-align: center;
+}
+ .plugin_version span b {
+     display: block;
+}
+ @media(min-width:901px) {
+     .wpfrank_banner .wpfrank_banner_features ul li {
+         float: left;
+         margin: 5px 20px;
+         width: 80%;
+         font-size: 1.5rem;
+    }
+}
+ @media(max-width:900px) {
+     .wpfrank_banner_features h3 {
+         margin-left: -1.2rem;
+         font-size: 1.6rem;
+         width: 90%;
+         line-height: 1.4;
+    }
+     .wpfrank_banner_features ul li {
+         font-size: 1.3rem;
+    }
+     .wpfrank_banner {
+         background: transparent;
+    }
+     .wpfrank_banner_img.col-sm-12 {
+         padding: 0 !important;
+         background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7)) ), url(../img/ultimate.png);
+         background: -webkit-linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(../img/ultimate.png);
+         background: -o-linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(../img/ultimate.png);
+         background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(../img/ultimate.png);
+         text-align: center;
+    }
+     .container-fluid.wl_im_container {
+         padding: 0;
+    }
+     .plugin_version {
+         top: 0;
+         right: 0px;
+    }
+     .row.col-md-12.wpfrank_banner {
+         margin: 0px;
+         padding:40px 0px;
+    }
+     .auto-fold #wpcontent {
+         margin-left: 0!important;
+         padding-left:0px;
+    }
+     .wpfrank_banner .button-primary {
+         margin: 4px;
+         font-size: 1.5rem;
+         width: 100%;
+    }
+     .col-md-6.wpfrank_banner_features {
+         background: #144984;
+         padding: 5px 40px;
+         width: 100%;
+    }
+}
+ @media(max-width:768px) {
+     .wpfrank_banner .button-primary {
+         margin: 4px;
+         font-size: 1.25rem;
+         width: 44%;
+    }
+ }
