@@ -20,7 +20,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		/**
 		 * The current version of Eventbrite Tickets
 		 */
-		const VERSION = '4.5.6';
+		const VERSION = '4.5.7';
 
 		/**
 		 * Deprecated property in 4.3. Use VERSION const instead.
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 		 *
 		 * @var string
 		 */
-		public static $pluginVersion = '4.5.6';
+		public static $pluginVersion = '4.5.7';
 
 		/**************************************************************
 		 * EventBrite Configuration
@@ -730,39 +730,49 @@ if ( ! class_exists( 'Tribe__Events__Tickets__Eventbrite__Main' ) ) {
 			}
 		}
 
-		/**
-		 * Normalize the way we return the value for the meta key `_EventBriteId`
-		 *
-		 * @since 4.5.5
-		 *
-		 * @param string $meta_type Type of object metadata is for (e.g., comment, post, or user)
-		 * @param int    $object_id ID of the object metadata is for
-		 * @param string $meta_key  Metadata key.
-		 * @return bool True of the key is set, false if not.
-		 *
-		 * @return int|void
-		 */
-		public function normalize_get_eventbrite_id( $null, $object_id, $meta_key, $single ) {
+        /**
+         * Normalize the way we return the value for the meta key `_EventBriteId`
+         *
+         * @since 4.5.5
+         *
+         * @param string $meta_value Usually null. If set, shortcuts further lookup of metadata.
+         * @param int    $object_id ID of the object metadata is for
+         * @param string $meta_key  Metadata key.
+         * @return bool True of the key is set, false if not.
+         *
+         * @return string
+         */
+        public function normalize_get_eventbrite_id( $meta_value, $object_id, $meta_key, $single ) {
 
-			// Bail if the key is not `_EventBriteId`
-			if ( '_EventBriteId' !== $meta_key ) {
-				return;
-			}
+            // We're only trying to "normalize" interactions with this specific meta key.
+            if ( '_EventBriteId' !== $meta_key ) {
+                return $meta_value;
+            }
 
-			// Bail if the post type is not `tribe_events`
-			if ( 'tribe_events' !== get_post_type( $object_id ) ) {
-				return;
-			}
+            if ( 'tribe_events' !== get_post_type( $object_id ) ) {
+                return $meta_value;
+            }
 
-			// Get the old and new values
-			global $wpdb;
-			$old = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE post_id = $object_id AND meta_key = '" . $meta_key . "'" );
-			$new = get_post_meta( $object_id, '_EventBriteID', $single );
+            // See if we have a correct _EventBriteId value and return it if so.
+            global $wpdb;
 
-			// Return old value if it's there, if not, what we have in `_EventBriteID`
-			return '' !== $old ? $old : $new;
+            $object_id             = intval( $object_id );
+            $correct_eventbrite_id = $wpdb->get_var( "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = $object_id AND meta_key = '_EventBriteId'" );
 
-		}
+            if ( $correct_eventbrite_id ) {
+                return $correct_eventbrite_id;
+            }
+
+            // Check if we have a badly-capitalized version instead.
+            $badly_capitalized_eventbrite_id = get_post_meta( $object_id, '_EventBriteID', $single );
+
+            if ( $badly_capitalized_eventbrite_id ) {
+                return $badly_capitalized_eventbrite_id;
+            }
+
+            // If nothing above was productive, be good citizens and return the $meta_value.
+            return $meta_value;
+        }
 
 		/**************************************************************
 		 * Deprecated methods for move of API to Event Aggregator

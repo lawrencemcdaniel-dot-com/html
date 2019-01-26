@@ -138,7 +138,12 @@
 }
 @media (max-width: 1024px) {
     /*opt-in form css*/
-    
+    .edn-subscribe-form .edn-front-title{
+      padding-left: 0px !important;
+    }
+    .edn-subscribe-form .edn-front-title h3, .edn-mailchimp-wrap .edn-front-title h3 {
+        width: 85% !important;
+    }
     .edn-constant-error,
     .edn-constant-success {
         bottom: -5px;

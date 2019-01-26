@@ -23,10 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function avada_options_section_layout( $sections ) {
 
-	$settings = get_option( Avada::get_option_name(), array() );
-	$language = Fusion_Multilingual::get_active_language();
+	$settings                              = get_option( Avada::get_option_name(), array() );
+	$language                              = Fusion_Multilingual::get_active_language();
 	$avada_510_site_width_calc_option_name = 'avada_510_site_width_calc';
-	$display_site_width_warning = false;
+	$display_site_width_warning            = false;
 	if ( '' !== $language && 'en' !== $language ) {
 		$avada_510_site_width_calc_option_name .= $language;
 	}
@@ -42,18 +42,18 @@ function avada_options_section_layout( $sections ) {
 		'priority' => 1,
 		'icon'     => 'el-icon-website',
 		'fields'   => array(
-			'layout' => array(
+			'layout'                      => array(
 				'label'       => esc_html__( 'Layout', 'Avada' ),
 				'description' => esc_html__( 'Controls the site layout.', 'Avada' ),
 				'id'          => 'layout',
 				'default'     => 'Wide',
 				'type'        => 'radio-buttonset',
 				'choices'     => array(
-					'Boxed'   => esc_html__( 'Boxed', 'Avada' ),
-					'Wide'    => esc_html__( 'Wide', 'Avada' ),
+					'Boxed' => esc_html__( 'Boxed', 'Avada' ),
+					'Wide'  => esc_html__( 'Wide', 'Avada' ),
 				),
 			),
-			'site_width' => array(
+			'site_width'                  => array(
 				'label'       => esc_html__( 'Site Width', 'Avada' ),
 				'description' => esc_html__( 'Controls the overall site width.', 'Avada' ),
 				'id'          => 'site_width',
@@ -63,18 +63,18 @@ function avada_options_section_layout( $sections ) {
 				'transport'   => 'postMessage',
 				'desc'        => ( $display_site_width_warning ) ? esc_attr__( 'The value was changed in Avada 5.1 to include both the site-width & side-header width, ex: calc(90% + 300px). Leave this as is, or update it with a single percentage, ex: 95%', 'Avada' ) : '',
 			),
-			'margin_offset' => array(
+			'margin_offset'               => array(
 				'label'       => esc_html__( 'Boxed Mode Top/Bottom Offset', 'Avada' ),
 				'description' => esc_html__( 'Controls the top/bottom offset of the boxed background.', 'Avada' ),
 				'id'          => 'margin_offset',
 				'choices'     => array(
-					'top'     => true,
-					'bottom'  => true,
-					'units'   => array( 'px', '%' ),
+					'top'    => true,
+					'bottom' => true,
+					'units'  => array( 'px', '%' ),
 				),
 				'default'     => array(
-					'top'     => '0px',
-					'bottom'  => '0px',
+					'top'    => '0px',
+					'bottom' => '0px',
 				),
 				'type'        => 'spacing',
 				'required'    => array(
@@ -85,14 +85,14 @@ function avada_options_section_layout( $sections ) {
 					),
 				),
 			),
-			'scroll_offset' => array(
+			'scroll_offset'               => array(
 				'label'       => esc_html__( 'Boxed Mode Offset Scroll Mode', 'Avada' ),
 				'description' => esc_html__( 'Choose how the page will scroll. Framed scrolling will keep the offset in place, while Full scrolling removes the offset when scrolling the page.', 'Avada' ),
 				'id'          => 'scroll_offset',
 				'type'        => 'radio-buttonset',
 				'choices'     => array(
-					'framed'  => esc_html__( 'Framed Scrolling', 'Avada' ),
-					'full'    => esc_html__( 'Full Scrolling', 'Avada' ),
+					'framed' => esc_html__( 'Framed Scrolling', 'Avada' ),
+					'full'   => esc_html__( 'Full Scrolling', 'Avada' ),
 				),
 				'default'     => 'full',
 				'required'    => array(
@@ -103,17 +103,17 @@ function avada_options_section_layout( $sections ) {
 					),
 				),
 			),
-			'boxed_modal_shadow' => array(
+			'boxed_modal_shadow'          => array(
 				'label'       => esc_html__( 'Boxed Mode Shadow Type', 'Avada' ),
 				'description' => esc_html__( 'Controls the type of shadow your boxed mode displays.', 'Avada' ),
 				'id'          => 'boxed_modal_shadow',
 				'default'     => 'None',
 				'type'        => 'select',
 				'choices'     => array(
-					'None'    => esc_html__( 'No Shadow', 'Avada' ),
-					'Light'   => esc_html__( 'Light Shadow', 'Avada' ),
-					'Medium'  => esc_html__( 'Medium Shadow', 'Avada' ),
-					'Hard'    => esc_html__( 'Hard Shadow', 'Avada' ),
+					'None'   => esc_html__( 'No Shadow', 'Avada' ),
+					'Light'  => esc_html__( 'Light Shadow', 'Avada' ),
+					'Medium' => esc_html__( 'Medium Shadow', 'Avada' ),
+					'Hard'   => esc_html__( 'Hard Shadow', 'Avada' ),
 				),
 				'required'    => array(
 					array(
@@ -123,22 +123,22 @@ function avada_options_section_layout( $sections ) {
 					),
 				),
 			),
-			'main_padding' => array(
+			'main_padding'                => array(
 				'label'       => esc_html__( 'Page Content Padding', 'Avada' ),
 				'description' => esc_html__( 'Controls the top/bottom padding for page content.', 'Avada' ),
 				'id'          => 'main_padding',
 				'choices'     => array(
-					'top'     => true,
-					'bottom'  => true,
-					'units'   => array( 'px', '%' ),
+					'top'    => true,
+					'bottom' => true,
+					'units'  => array( 'px', '%' ),
 				),
 				'default'     => array(
-					'top'     => '55px',
-					'bottom'  => '40px',
+					'top'    => '55px',
+					'bottom' => '40px',
 				),
 				'type'        => 'spacing',
 			),
-			'hundredp_padding' => array(
+			'hundredp_padding'            => array(
 				'label'       => esc_html__( '100% Width Padding', 'Avada' ),
 				'description' => esc_html__( 'Controls the left and right padding for page content when using 100% site width, 100% width page template or 100% width post option. This does not affect Fusion Builder containers.', 'Avada' ),
 				'id'          => 'hundredp_padding',
@@ -147,12 +147,12 @@ function avada_options_section_layout( $sections ) {
 				'choices'     => array( 'px', '%' ),
 			),
 			'single_sidebar_layouts_info' => array(
-				'label'           => esc_html__( 'Single Sidebar Layouts', 'Avada' ),
-				'description'     => '',
-				'id'              => 'single_sidebar_layouts_info',
-				'type'            => 'info',
+				'label'       => esc_html__( 'Single Sidebar Layouts', 'Avada' ),
+				'description' => '',
+				'id'          => 'single_sidebar_layouts_info',
+				'type'        => 'info',
 			),
-			'sidebar_width' => array(
+			'sidebar_width'               => array(
 				'label'       => esc_html__( 'Single Sidebar Width', 'Avada' ),
 				'description' => esc_html__( 'Controls the width of the sidebar when only one sidebar is present.', 'Avada' ),
 				'id'          => 'sidebar_width',
@@ -160,20 +160,20 @@ function avada_options_section_layout( $sections ) {
 				'type'        => 'dimension',
 				'choices'     => array( 'px', '%' ),
 			),
-			'sidebar_gutter' => array(
+			'sidebar_gutter'              => array(
 				'label'       => esc_html__( 'Single Sidebar Gutter', 'Avada' ),
 				'description' => esc_html__( 'Controls the space between the main content and a single sidebar.', 'Avada' ),
 				'id'          => 'sidebar_gutter',
 				'default'     => ( isset( $settings['site_width'] ) && false !== strpos( $settings['site_width'], 'px' ) ) ? '80px' : '6%',
 				'type'        => 'dimension',
 			),
-			'dual_sidebar_layouts_info' => array(
-				'label'           => esc_html__( 'Dual Sidebar Layouts', 'Avada' ),
-				'description'     => '',
-				'id'              => 'dual_sidebar_layouts_info',
-				'type'            => 'info',
+			'dual_sidebar_layouts_info'   => array(
+				'label'       => esc_html__( 'Dual Sidebar Layouts', 'Avada' ),
+				'description' => '',
+				'id'          => 'dual_sidebar_layouts_info',
+				'type'        => 'info',
 			),
-			'sidebar_2_1_width' => array(
+			'sidebar_2_1_width'           => array(
 				'label'       => esc_html__( 'Dual Sidebar Width 1', 'Avada' ),
 				'description' => esc_html__( 'Controls the width of sidebar 1 when dual sidebars are present.', 'Avada' ),
 				'id'          => 'sidebar_2_1_width',
@@ -181,7 +181,7 @@ function avada_options_section_layout( $sections ) {
 				'type'        => 'dimension',
 				'choices'     => array( 'px', '%' ),
 			),
-			'sidebar_2_2_width' => array(
+			'sidebar_2_2_width'           => array(
 				'label'       => esc_html__( 'Dual Sidebar Width 2', 'Avada' ),
 				'description' => esc_html__( 'Controls the width of sidebar 2 when dual sidebars are present.', 'Avada' ),
 				'id'          => 'sidebar_2_2_width',
@@ -189,7 +189,7 @@ function avada_options_section_layout( $sections ) {
 				'type'        => 'dimension',
 				'choices'     => array( 'px', '%' ),
 			),
-			'dual_sidebar_gutter' => array(
+			'dual_sidebar_gutter'         => array(
 				'label'       => esc_html__( 'Dual Sidebar Gutter', 'Avada' ),
 				'description' => esc_html__( 'Controls the space between the main content and the sidebar when dual sidebars are present.', 'Avada' ),
 				'id'          => 'dual_sidebar_gutter',

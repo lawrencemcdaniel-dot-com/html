@@ -49,11 +49,8 @@ function cpt_slider_plugin_activation() {
 			$content .= "<p>Lorem ipsum dolor sit amet, cu usu cibo vituperata, id ius probo maiestatis inciderint, sit eu vide volutpat.</p>\n";
 			$content .= "</div>\n";
 			update_post_meta($cpt_id, "sa_slide".$i."_content", $content);
-			update_post_meta($cpt_id, "sa_slide".$i."_image_id", "");
-			update_post_meta($cpt_id, "sa_slide".$i."_image_pos", "left top");
-			update_post_meta($cpt_id, "sa_slide".$i."_image_size", "contain");
-			update_post_meta($cpt_id, "sa_slide".$i."_image_repeat", "no-repeat");
-			update_post_meta($cpt_id, "sa_slide".$i."_image_color", $color);
+			$image_data = "~left top~contain~no-repeat~".$color;
+			update_post_meta($cpt_id, "sa_slide".$i."_image_data", $image_data);
 			update_post_meta($cpt_id, "sa_slide".$i."_link_url", "");
 			update_post_meta($cpt_id, "sa_slide".$i."_link_target", "_self");
 			update_post_meta($cpt_id, "sa_slide".$i."_popup_type", "NONE");
@@ -90,6 +87,7 @@ function cpt_slider_plugin_activation() {
 		update_post_meta($cpt_id, 'sa_items_width5', 4);
 		update_post_meta($cpt_id, 'sa_items_width6', 4);
 		update_post_meta($cpt_id, 'sa_transition', 'fade');
+		update_post_meta($cpt_id, 'sa_hero_slider', '0');
 		update_post_meta($cpt_id, 'sa_css_id', 'sample_slider');
 		update_post_meta($cpt_id, 'sa_background_color', '#fafafa');
 		update_post_meta($cpt_id, 'sa_border_width', 1);
@@ -107,6 +105,17 @@ function cpt_slider_plugin_activation() {
 		update_post_meta($cpt_id, 'sa_slide_icons_location', 'Center Center');
 		update_post_meta($cpt_id, 'sa_slide_icons_visible', '0');
 		update_post_meta($cpt_id, 'sa_slide_icons_color', 'white');
+		update_post_meta($cpt_id, 'sa_thumbs_active', '0');
+		update_post_meta($cpt_id, 'sa_thumbs_location', 'Inside Bottom');
+		update_post_meta($cpt_id, 'sa_thumbs_image_size', 'thumbnail');
+		update_post_meta($cpt_id, 'sa_thumbs_padding', 3);
+		update_post_meta($cpt_id, 'sa_thumbs_width', 150);
+		update_post_meta($cpt_id, 'sa_thumbs_height', 85);
+		update_post_meta($cpt_id, 'sa_thumbs_opacity', 50);
+		update_post_meta($cpt_id, 'sa_thumbs_border_width', 0);
+		update_post_meta($cpt_id, 'sa_thumbs_border_color', '#ffffff');
+		update_post_meta($cpt_id, 'sa_thumbs_resp_tablet', 75);
+		update_post_meta($cpt_id, 'sa_thumbs_resp_mobile', 50);
 	}
 }
 
@@ -121,14 +130,23 @@ function version_20_upgrade_notice() {
 		echo "<div style='float:left; width:170px; margin-right:15px;'><a href='https://edgewebpages.com/' target='_blank'>";
 		echo "<img style='width:100%;' src='https://edgewebpages.com/wp-content/uploads/2017/06/slide_anything_pro_product_image.png' /></a></div>";
 		echo "<h3 style='margin:0px !important; padding:10px 0px !important;'>SLIDE ANYTHING PRO</h3>";
-		echo "<p style='margin:0px 0px 10px !important;'><a href='https://edgewebpages.com/' target='_blank'>SLIDE ANYTHING PRO</a> ";
-		echo "adds POPUPS into the mix!!</p>";
+		echo "<p style='margin:0px 0px 10px !important;'><strong>SLIDE ANYTHING PRO</strong> adds POPUPS into the mix!!";
+		echo "<br/><strong>SLIDE ANYTHING PRO</strong> also adds Hero Sliders & Thumbnail Pagination!!</p>";
+
 		echo "<p style='margin:0px 0px 10px !important;'>With <a href='https://edgewebpages.com/' target='_blank'>SLIDE ANYTHING PRO</a> ";
-		echo "each slide can now open a MODAL POPUP, which can be an IMAGE popup, a VIDEO EMBED popup (YouTube/Vimeo), a popup containing ";
-		echo "HTML CODE or a popup displaying a WordPress SHORTCODE. This can be a very useful addition to Slide Anything, if you are ";
-		echo "wanting to create Image or Video galleries for your websites.</p>";
-		echo "<p style='margin:0px 0px 10px !important;'>For more information about Slide Anything PRO, ";
-		echo "<a href='https://edgewebpages.com/' target='_blank'>CLICK HERE.</a></p>";
+		echo "each slide can now open a MODAL POPUP, which can be an IMAGE popup, a VIDEO EMBED popup (YouTube/Vimeo), a popup ";
+		echo "containing HTML CODE or a popup displaying a WordPress SHORTCODE. This can be a very useful addition to ";
+		echo "Slide Anything, if you are wanting to create Image or Video galleries for your websites.</p>";
+		echo "<p style='margin:0px 0px 10px !important;'>With <a href='https://edgewebpages.com/' target='_blank'>SLIDE ANYTHING PRO</a> ";
+		echo "you can now create a HERO SLIDER, which is a slider that always is 100% of the width/height of the device it's ";
+		echo "being viewed on. You can now also add THUMBNAIL PAGINATION to your sliders. Thumbnail Pagination are small ";
+		echo "clickable thumbnail images, with each thumbnail representing a single slide which can be clicked in order to ";
+		echo "navigate to.</p>";
+
+		echo "<p style='margin:0px !important;'>For more information, click on the DEMO links below:</p>";
+		echo "<p style='margin:0px !important;'>";
+		echo "<a href='https://edgewebpages.com/' target='_blank'>MODAL POPUPS DEMO</a>&nbsp;&nbsp;|&nbsp;&nbsp;";
+		echo "<a href='https://edgewebpages.com/hero-slider-with-thumbnails/' target='_blank'>HERO SLIDER WITH THUMBNAILS</a></p>";
 
 		echo "<div style='clear:both; float:none; width:100%; height:10px;'></div>";
 		echo "<a style='display:inline-block; float:right; padding:7px 10px; background:crimson; color:white; text-decoration:none; ";
@@ -371,6 +389,7 @@ function cpt_slider_add_meta_boxes() {
 	add_meta_box('cpt_slider_shortcode', __('Shortcode / Preview'), 'cpt_slider_shortcode_content', 'sa_slider', 'side', 'high');
 	add_meta_box('cpt_slider_items', __('Items Displayed'), 'cpt_slider_items_content', 'sa_slider', 'side', 'default');
 	add_meta_box('cpt_slider_style', __('Slider Style'), 'cpt_slider_style_content', 'sa_slider', 'side', 'default');
+	add_meta_box('cpt_slider_thumbs', __('Thumbnail Pagination'), 'cpt_slider_thumbs_content', 'sa_slider', 'side', 'default');
 	remove_meta_box( 'mymetabox_revslider_0', 'sa_slider', 'normal' ); // remove revolution slider meta box
 }
 
@@ -716,13 +735,14 @@ function cpt_slider_slides_content($post) {
 			$slide_data[$count]['content'] = get_post_meta($post->ID, $slide_edit_id, true);
 			$slide_data[$count]['char_count'] = get_post_meta($post->ID, $slide_char_count, true);
 			$slide_data[$count]['del_id'] = "sa_slide".$i."_delete";
-			$slide_data[$count]['image_id'] = "sa_slide".$i."_image_id";
 			$slide_data[$count]['thumb'] = "slide".$i."_thumb";
 			$slide_data[$count]['image_del'] = "slide".$i."_image_del";
+			$slide_data[$count]['image_id'] = "sa_slide".$i."_image_id";
 			$slide_data[$count]['image_pos'] = "sa_slide".$i."_image_pos";
 			$slide_data[$count]['image_size'] = "sa_slide".$i."_image_size";
 			$slide_data[$count]['image_repeat'] = "sa_slide".$i."_image_repeat";
 			$slide_data[$count]['image_color'] = "sa_slide".$i."_image_color";
+			$slide_data[$count]['image_data'] = "sa_slide".$i."_image_data";
 			$slide_data[$count]['link_url'] = "sa_slide".$i."_link_url";
 			$slide_data[$count]['link_target'] = "sa_slide".$i."_link_target";
 			if ($sa_pro_version) {
@@ -795,20 +815,30 @@ function cpt_slider_slides_content($post) {
 		echo "<div id='slide".$tabs_num."_background_tab' class='sa_slide_tab'>\n";
 
 		// GET BACKGROUND IMAGE DATA FOR THIS SLIDE (image id, position, size, repeat and color) FROM DATABASE
-		$slide_image_id = get_post_meta($post->ID, $slide_data[$i]['image_id'], true);
-		$slide_image_pos = get_post_meta($post->ID, $slide_data[$i]['image_pos'], true);
+		$slide_image_data = get_post_meta($post->ID, $slide_data[$i]['image_data'], true);
+		if (isset($slide_image_data) && ($slide_image_data != '')) {
+			$data_arr = explode("~", $slide_image_data);
+			$slide_image_id = $data_arr[0];
+			$slide_image_pos = $data_arr[1];
+			$slide_image_size = $data_arr[2];
+			$slide_image_repeat = $data_arr[3];
+			$slide_image_color = $data_arr[4];
+		} else {
+			$slide_image_id = get_post_meta($post->ID, $slide_data[$i]['image_id'], true);
+			$slide_image_pos = get_post_meta($post->ID, $slide_data[$i]['image_pos'], true);
+			$slide_image_size = get_post_meta($post->ID, $slide_data[$i]['image_size'], true);
+			$slide_image_repeat = get_post_meta($post->ID, $slide_data[$i]['image_repeat'], true);
+			$slide_image_color = get_post_meta($post->ID, $slide_data[$i]['image_color'], true);
+		}
 		if ($slide_image_pos == '') {
 			$slide_image_pos = 'left top';
 		}
-		$slide_image_size = get_post_meta($post->ID, $slide_data[$i]['image_size'], true);
 		if ($slide_image_size == '') {
 			$slide_image_size = 'contain';
 		}
-		$slide_image_repeat = get_post_meta($post->ID, $slide_data[$i]['image_repeat'], true);
 		if ($slide_image_repeat == '') {
 			$slide_image_repeat = 'no-repeat';
 		}
-		$slide_image_color = get_post_meta($post->ID, $slide_data[$i]['image_color'], true);
 		if ($slide_image_color == '') {
 			$slide_image_color = "rgba(0,0,0,0)";
 		}
@@ -1326,6 +1356,7 @@ function cpt_slider_shortcode_content($post) {
 
 // ##### META BOX CONTENT - 'Items Displayed' BOX #####
 function cpt_slider_items_content($post) {
+	$sa_pro_version = validate_slide_anything_pro_registration();
 	$items_width1 = intval(get_post_meta($post->ID, 'sa_items_width1', true));
 	$items_width2 = intval(get_post_meta($post->ID, 'sa_items_width2', true));
 	$items_width3 = intval(get_post_meta($post->ID, 'sa_items_width3', true));
@@ -1418,7 +1449,12 @@ function cpt_slider_items_content($post) {
 	$option_arr[8] = 'Bounce Out';
 	$option_arr[9] = 'Roll Out';
 	$option_arr[10] = 'Slide Down';
-	echo "<div><em class='sa_tooltip' href='' title='NOTE: Slide transitions only work when the above items displayed are ALL SET TO 1'></em>";
+	if (($items_width1 == 1) && ($items_width2 == 1) && ($items_width3 == 1) && ($items_width4 == 1) && ($items_width5 == 1) && ($items_width6 == 1)) {
+		echo "<div class='sa_items_all_one' style='display:block;'>";
+	} else {
+		echo "<div class='sa_items_all_one' style='display:none;'>";
+	}
+	echo "<em class='sa_tooltip' href='' title='NOTE: Slide transitions only work when the above items displayed are ALL SET TO 1'></em>";
 	echo "<span style='color:firebrick !important;'>Slide Transition</span><select style='max-width:100px !important;' name='sa_transition'>";
 	for ($i = 0; $i < count($option_arr); $i++) {
 		if ($transition == $option_arr[$i]) {
@@ -1428,6 +1464,45 @@ function cpt_slider_items_content($post) {
 		}
 	}
 	echo "</select></div>\n";
+	// hero slider checkbox
+	$hero_slider = get_post_meta($post->ID, 'sa_hero_slider', true);
+	if ($hero_slider != '1') {
+		$hero_slider = '0';
+	}
+	if (($items_width1 == 1) && ($items_width2 == 1) && ($items_width3 == 1) && ($items_width4 == 1) && ($items_width5 == 1) && ($items_width6 == 1)) {
+		echo "<div id='sa_hero_slider_wrapper' class='sa_items_all_one' style='display:block;'>";
+	} else {
+		echo "<div id='sa_hero_slider_wrapper' class='sa_items_all_one' style='display:none;'>";
+	}
+	echo "<span>Hero Slider</span>";
+	if ($sa_pro_version) {
+		if ($hero_slider == '1') {
+			echo "<input type='checkbox' id='sa_hero_slider' name='sa_hero_slider' value='1' checked/>";
+		} else {
+			echo "<input type='checkbox' id='sa_hero_slider' name='sa_hero_slider' value='1'/>";
+		}
+		$hs_note1 = "Most WP Theme &apos;Page Builders&apos; (Visual Composer, Divi, Elementor, SiteOrigin...) allow you create full-width sections in your content. If you are not using a page builder then you will have to manually create a PHP template file to include a full-width container.";
+		$hs_note2 = "The slider height is set to 100% screen/device height using CSS &apos;vh&apos; (viewport height). Just about all browsers now support CSS viewport units, except Opera Mini which was installed on the old &apos;button&apos; phones.";
+		if ($hero_slider == '1') {
+			echo "<div id='sa_hero_slider_note' style='display:block;'>";
+		} else {
+			echo "<div id='sa_hero_slider_note' style='display:none;'>";
+		}
+		echo "<strong>Please Note:</strong>";
+		echo "<ol><li>Shortcode should be inserted into a full-width section<em class='sa_tooltip' title='".$hs_note1."'></em></li>";
+		echo "<li>Only works on  browsers that support Viewport units - see <a href='https://caniuse.com/#feat=viewport-units' target='_blank'>here</a>";
+		echo "<em class='sa_tooltip' title='".$hs_note2."'></em></li></ol></div>";
+	} else {
+		// display slide anything pro promotional text
+		echo "<div id='sa_hero_slider_promo'>";
+		echo "<h4>Available in the PRO VERSION only!</h4>\n";
+		echo "<p>With <strong>Slide Anything PRO </strong> you can create full width/height <strong>Hero Sliders</strong> ";
+		echo "which auto-resize depending on device/screen.</p>";
+		echo "<p>To view a Hero Slider DEMO click:</p>";
+		echo "<p style='padding-top:2px !important;'><a href='https://edgewebpages.com/hero-slider-with-thumbnails' target='_blank'>HERO SLIDER DEMO</a></p>";
+		echo "</div>";
+	}
+	echo "</div>\n";
 
 	echo "</div>\n";
 }
@@ -1713,6 +1788,179 @@ function cpt_slider_style_content($post) {
 
 
 
+// ##### META BOX CONTENT - 'Thumbnails (Pagination)' BOX #####
+function cpt_slider_thumbs_content($post) {
+	$sa_pro_version = validate_slide_anything_pro_registration();
+
+	if ($sa_pro_version) {
+		// get wordpress image size data and save into and array
+		global $_wp_additional_image_sizes;
+		$image_size_arr = array();
+		$count = 0;
+		foreach (get_intermediate_image_sizes() as $image_size) {
+			if (in_array($image_size, array('thumbnail', 'medium', 'medium_large', 'large'))) {
+				$width = get_option("{$image_size}_size_w");
+				$height = get_option("{$image_size}_size_h");
+			} elseif (isset($_wp_additional_image_sizes[$image_size])) {
+				$width = $_wp_additional_image_sizes[$image_size]['width'];
+				$height = $_wp_additional_image_sizes[$image_size]['height'];
+			}
+			if (($width != 0) && ($height != 0)) {
+				$image_size_arr[$count]['value'] = $image_size;
+				$image_size_arr[$count]['desc'] = $image_size." (".$width."&times;".$height.")";
+				$count++;
+			}
+		}
+
+		// Use thumbnail pagination (checkbox)
+		$thumbs_active = get_post_meta($post->ID, 'sa_thumbs_active', true);
+		if ($thumbs_active == '') {
+			$thumbs_active = '0';
+		}
+		echo "<div class='sa_thumbs_line'><span>Use Thumbnail Pagination:</span>";
+		if ($thumbs_active == '1') {
+			echo "<input type='checkbox' id='sa_thumbs_active' name='sa_thumbs_active' value='1' checked/>";
+		} else {
+			echo "<input type='checkbox' id='sa_thumbs_active' name='sa_thumbs_active' value='1'/>";
+		}
+		echo "</div>\n";
+
+		if ($thumbs_active == '1') {
+			echo "<div id='sa_thumbs_settings' style='display:block;'>\n";
+		} else {
+			echo "<div id='sa_thumbs_settings' style='display:none;'>\n";
+		}
+
+		// Thumbs Location (dropdown)
+		$thumbs_location = get_post_meta($post->ID, 'sa_thumbs_location', true);
+		if ($thumbs_location == '') {
+			$thumbs_location = 'inside_bottom';
+		}
+		echo "<div class='sa_thumbs_line'><span>Thumbs Location:</span>";
+		echo "<select id='sa_thumbs_location' name='sa_thumbs_location'>";
+		$option_arr = array();
+		$option_arr[0] = 'Inside Bottom';
+		$option_arr[1] = 'Inside Top';
+		$option_arr[2] = 'Inside Left';
+		$option_arr[3] = 'Inside Right';
+		$option_arr[4] = 'Outside Bottom';
+		for ($i = 0; $i < count($option_arr); $i++) {
+			$value = strtolower(str_replace(' ', '_',  $option_arr[$i]));
+			if ($value == $thumbs_location) {
+				echo "<option value='".$value."' selected>".$option_arr[$i]."</option>";
+			} else {
+				echo "<option value='".$value."'>".$option_arr[$i]."</option>";
+			}
+		}
+		echo "</select></div>\n";
+
+		// Thumbnail Image Size (dropdown)
+		$thumbs_image_size = get_post_meta($post->ID, 'sa_thumbs_image_size', true);
+		if ($thumbs_image_size == '') {
+			$thumbs_image_size = 'thumbnail';
+		}
+		echo "<div class='sa_thumbs_line'><span>Thumbnail Image Size:</span>";
+		echo "<select id='sa_thumbs_image_size' name='sa_thumbs_image_size'>";
+		for ($i = 0; $i < count($image_size_arr); $i++) {
+			if ($image_size_arr[$i]['value'] == $thumbs_image_size) {
+				echo "<option value='".$image_size_arr[$i]['value']."' selected>".$image_size_arr[$i]['desc']."</option>";
+			} else {
+				echo "<option value='".$image_size_arr[$i]['value']."'>".$image_size_arr[$i]['desc']."</option>";
+			}
+		}
+		echo "</select></div>\n";
+
+		// Container Padding
+		$thumbs_padding = get_post_meta($post->ID, 'sa_thumbs_padding', true);
+		if ($thumbs_padding == '') {
+			$thumbs_padding = '3';
+		}
+		echo "<div class='sa_thumbs_line'><span>Container Padding:</span>";
+		echo "<input type='text' id='sa_thumbs_padding' name='sa_thumbs_padding' value='".esc_attr($thumbs_padding)."'><em>%</em>";
+		echo "</div>\n";
+
+		// Thumbs Width
+		$thumbs_width = get_post_meta($post->ID, 'sa_thumbs_width', true);
+		if ($thumbs_width == '') {
+			$thumbs_width = '150';
+		}
+		echo "<div class='sa_thumbs_line'><span>Thumbs Width:</span>";
+		echo "<input type='text' id='sa_thumbs_width' name='sa_thumbs_width' value='".esc_attr($thumbs_width)."'><em>px</em>";
+		echo "</div>\n";
+
+		// Thumbs Height
+		$thumbs_height = get_post_meta($post->ID, 'sa_thumbs_height', true);
+		if ($thumbs_height == '') {
+			$thumbs_height = '85';
+		}
+		echo "<div class='sa_thumbs_line'><span>Thumbs Height:</span>";
+		echo "<input type='text' id='sa_thumbs_height' name='sa_thumbs_height' value='".esc_attr($thumbs_height)."'><em>px</em>";
+		echo "</div>\n";
+
+		// Thumbs Opacity
+		$thumbs_opacity = get_post_meta($post->ID, 'sa_thumbs_opacity', true);
+		if ($thumbs_opacity == '') {
+			$thumbs_opacity = '50';
+		}
+		echo "<div class='sa_thumbs_line'><span>Thumbs Opacity:</span>";
+		echo "<input type='text' id='sa_thumbs_opacity' name='sa_thumbs_opacity' value='".esc_attr($thumbs_opacity)."'><em>%</em>";
+		echo "</div>\n";
+
+		echo "<h4>Active Thumb Border Style</h4>";
+
+		// Border Width
+		$thumbs_border_width = get_post_meta($post->ID, 'sa_thumbs_border_width', true);
+		if ($thumbs_border_width == '') {
+			$thumbs_border_width = '0';
+		}
+		echo "<div class='sa_thumbs_line'><span>Border Width:</span>";
+		echo "<input type='text' id='sa_thumbs_border_width' name='sa_thumbs_border_width' value='".esc_attr($thumbs_border_width)."'><em>px</em>";
+		echo "</div>\n";
+
+		// Border Color
+		$thumbs_border_color = get_post_meta($post->ID, 'sa_thumbs_border_color', true);
+		if ($thumbs_border_color == '') {
+			$thumbs_border_color = '#ffffff';
+		}
+		echo "<div class='sa_thumbs_line'><span>Border Color:</span>";
+		echo "<input type='text' id='sa_thumbs_border_color' name='sa_thumbs_border_color' value='".esc_attr($thumbs_border_color)."'></div>\n";
+
+		echo "<h4>Responsive Thumb Sizes</h4>";
+
+		// Tablet Thumb Size
+		$thumbs_resp_tablet = get_post_meta($post->ID, 'sa_thumbs_resp_tablet', true);
+		if ($thumbs_resp_tablet == '') {
+			$thumbs_resp_tablet = '75';
+		}
+		echo "<div class='sa_thumbs_line'><span>Tablet Thumb Size:</span>";
+		echo "<input type='text' id='sa_thumbs_resp_tablet' name='sa_thumbs_resp_tablet' value='".esc_attr($thumbs_resp_tablet)."'><em>%</em>";
+		echo "</div>\n";
+
+		// Mobile Thumb Size
+		$thumbs_resp_mobile = get_post_meta($post->ID, 'sa_thumbs_resp_mobile', true);
+		if ($thumbs_resp_mobile == '') {
+			$thumbs_resp_mobile = '50';
+		}
+		echo "<div class='sa_thumbs_line'><span>Mobile Thumb Size:</span>";
+		echo "<input type='text' id='sa_thumbs_resp_mobile' name='sa_thumbs_resp_mobile' value='".esc_attr($thumbs_resp_mobile)."'><em>%</em>";
+		echo "</div>\n";
+
+		echo "</div>\n"; // #sa_thumbs_settings
+
+	} else {
+
+		// display slide anything pro promotional text
+		echo "<div id='sa_thumbs_promo'>";
+		echo "<h4>Available in the PRO VERSION only!</h4>\n";
+		echo "<p>With <strong>Slide Anything PRO </strong> you can now add <strong>Thumbnail Pagination</strong>.";
+		echo "<p>Wiew a Thumbnail Pagination DEMO here:</p>";
+		echo "<p style='padding-top:2px !important;'><a href='https://edgewebpages.com/hero-slider-with-thumbnails' target='_blank'>THUMBNAIL PAGINATION DEMO</a></p>";
+		echo "</div>";
+	}
+}
+
+
+
 // ##### ACTION HOOK - SAVE CUSTOM POST TYPE ('Slide Anything') DATA #####
 function cpt_slider_save_postdata() {
 	global $post;
@@ -1792,11 +2040,7 @@ function cpt_slider_save_postdata() {
 				// save slide content only if slide has not been marked for deletion
 				$slides_saved++;
 				$slide_edit_id_save = "sa_slide".$slides_saved."_content";
-				$slide_image_id_saved = "sa_slide".$slides_saved."_image_id";
-				$slide_image_pos_saved = "sa_slide".$slides_saved."_image_pos";
-				$slide_image_size_saved = "sa_slide".$slides_saved."_image_size";
-				$slide_image_repeat_saved = "sa_slide".$slides_saved."_image_repeat";
-				$slide_image_color_saved = "sa_slide".$slides_saved."_image_color";
+				$slide_image_data_saved = "sa_slide".$slides_saved."_image_data";
 				$slide_link_url_saved = "sa_slide".$slides_saved."_link_url";
 				$slide_link_target_saved = "sa_slide".$slides_saved."_link_target";
 				if ($sa_pro_version) {
@@ -1812,11 +2056,8 @@ function cpt_slider_save_postdata() {
 					$slide_popup_width_saved = "sa_slide".$slides_saved."_popup_width";
 				}
 				update_post_meta($post->ID, $slide_edit_id_save, $slide_content);
-				update_post_meta($post->ID, $slide_image_id_saved, $slide_image_id_val);
-				update_post_meta($post->ID, $slide_image_pos_saved, $slide_image_pos_val);
-				update_post_meta($post->ID, $slide_image_size_saved, $slide_image_size_val);
-				update_post_meta($post->ID, $slide_image_repeat_saved, $slide_image_repeat_val);
-				update_post_meta($post->ID, $slide_image_color_saved, $slide_image_color_val);
+				$slide_image_data_val = $slide_image_id_val."~".$slide_image_pos_val."~".$slide_image_size_val."~".$slide_image_repeat_val."~".$slide_image_color_val;
+				update_post_meta($post->ID, $slide_image_data_saved, $slide_image_data_val);
 				update_post_meta($post->ID, $slide_link_url_saved, $slide_link_url_val);
 				update_post_meta($post->ID, $slide_link_target_saved, $slide_link_target_val);
 				if ($sa_pro_version) {
@@ -1836,11 +2077,7 @@ function cpt_slider_save_postdata() {
 					// (REPEAT THE CODE ABOVE HERE!!!)
 					$slides_saved++;
 					$slide_edit_id_save = "sa_slide".$slides_saved."_content";
-					$slide_image_id_saved = "sa_slide".$slides_saved."_image_id";
-					$slide_image_pos_saved = "sa_slide".$slides_saved."_image_pos";
-					$slide_image_size_saved = "sa_slide".$slides_saved."_image_size";
-					$slide_image_repeat_saved = "sa_slide".$slides_saved."_image_repeat";
-					$slide_image_color_saved = "sa_slide".$slides_saved."_image_color";
+					$slide_image_data_saved = "sa_slide".$slides_saved."_image_data";
 					$slide_link_url_saved = "sa_slide".$slides_saved."_link_url";
 					$slide_link_target_saved = "sa_slide".$slides_saved."_link_target";
 					if ($sa_pro_version) {
@@ -1856,11 +2093,8 @@ function cpt_slider_save_postdata() {
 						$slide_popup_width_saved = "sa_slide".$slides_saved."_popup_width";
 					}
 					update_post_meta($post->ID, $slide_edit_id_save, $slide_content);
-					update_post_meta($post->ID, $slide_image_id_saved, $slide_image_id_val);
-					update_post_meta($post->ID, $slide_image_pos_saved, $slide_image_pos_val);
-					update_post_meta($post->ID, $slide_image_size_saved, $slide_image_size_val);
-					update_post_meta($post->ID, $slide_image_repeat_saved, $slide_image_repeat_val);
-					update_post_meta($post->ID, $slide_image_color_saved, $slide_image_color_val);
+					$slide_image_data_val = $slide_image_id_val."~".$slide_image_pos_val."~".$slide_image_size_val."~".$slide_image_repeat_val."~".$slide_image_color_val;
+					update_post_meta($post->ID, $slide_image_data_saved, $slide_image_data_val);
 					update_post_meta($post->ID, $slide_link_url_saved, $slide_link_url_val);
 					update_post_meta($post->ID, $slide_link_target_saved, $slide_link_target_val);
 					if ($sa_pro_version) {
@@ -1926,11 +2160,8 @@ function cpt_slider_save_postdata() {
 				$slide2_popup_width = abs(intval($_POST["sa_slide".$slide2."_popup_width"]));							// SANATIZE
 			}
 			update_post_meta($post->ID, "sa_slide".$slide2."_content", $slide1_content);
-			update_post_meta($post->ID, "sa_slide".$slide2."_image_id", $slide1_image_id);
-			update_post_meta($post->ID, "sa_slide".$slide2."_image_pos", $slide1_image_pos);
-			update_post_meta($post->ID, "sa_slide".$slide2."_image_size", $slide1_image_size);
-			update_post_meta($post->ID, "sa_slide".$slide2."_image_repeat", $slide1_image_repeat);
-			update_post_meta($post->ID, "sa_slide".$slide2."_image_color", $slide1_image_color);
+			$slide1_image_data = $slide1_image_id."~".$slide1_image_pos."~".$slide1_image_size."~".$slide1_image_repeat."~".$slide1_image_color;
+			update_post_meta($post->ID, "sa_slide".$slide2."_image_data", $slide1_image_data);
 			update_post_meta($post->ID, "sa_slide".$slide2."_link_url", $slide1_link_url);
 			update_post_meta($post->ID, "sa_slide".$slide2."_link_target", $slide1_link_target);
 			if ($sa_pro_version) {
@@ -1946,11 +2177,8 @@ function cpt_slider_save_postdata() {
 				update_post_meta($post->ID, "sa_slide".$slide2."_popup_width", $slide1_popup_width);
 			}
 			update_post_meta($post->ID, "sa_slide".$slide1."_content", $slide2_content);
-			update_post_meta($post->ID, "sa_slide".$slide1."_image_id", $slide2_image_id);
-			update_post_meta($post->ID, "sa_slide".$slide1."_image_pos", $slide2_image_pos);
-			update_post_meta($post->ID, "sa_slide".$slide1."_image_size", $slide2_image_size);
-			update_post_meta($post->ID, "sa_slide".$slide1."_image_repeat", $slide2_image_repeat);
-			update_post_meta($post->ID, "sa_slide".$slide1."_image_color", $slide2_image_color);
+			$slide2_image_data = $slide2_image_id."~".$slide2_image_pos."~".$slide2_image_size."~".$slide2_image_repeat."~".$slide2_image_color;
+			update_post_meta($post->ID, "sa_slide".$slide1."_image_data", $slide2_image_data);
 			update_post_meta($post->ID, "sa_slide".$slide1."_link_url", $slide2_link_url);
 			update_post_meta($post->ID, "sa_slide".$slide1."_link_target", $slide2_link_target);
 			if ($sa_pro_version) {
@@ -2050,6 +2278,11 @@ function cpt_slider_save_postdata() {
 		update_post_meta($post->ID, 'sa_items_width5', abs(intval($_POST['sa_items_width5'])));		// SANATIZE
 		update_post_meta($post->ID, 'sa_items_width6', abs(intval($_POST['sa_items_width6'])));		// SANATIZE
 		update_post_meta($post->ID, 'sa_transition', sanitize_text_field($_POST['sa_transition']));	// SANATIZE
+		if (isset($_POST['sa_hero_slider']) && ($_POST['sa_hero_slider'] == '1')) {
+			update_post_meta($post->ID, 'sa_hero_slider', '1');
+		} else {
+			update_post_meta($post->ID, 'sa_hero_slider', '0');
+		}
 
 		// UPDATE SLIDER STYLE
 		$post_css_id = str_replace("-", "_", $_POST['sa_css_id']);
@@ -2098,6 +2331,25 @@ function cpt_slider_save_postdata() {
 			update_post_meta($post->ID, 'sa_lazy_load_images', '1');
 		} else {
 			update_post_meta($post->ID, 'sa_lazy_load_images', '0');
+		}
+
+		if ($sa_pro_version) {
+			// THUMBNAIL PAGINATION
+			if (isset($_POST['sa_thumbs_active']) && ($_POST['sa_thumbs_active'] == '1')) {
+				update_post_meta($post->ID, 'sa_thumbs_active', '1');
+			} else {
+				update_post_meta($post->ID, 'sa_thumbs_active', '0');
+			}
+			update_post_meta($post->ID, 'sa_thumbs_location', sanitize_text_field($_POST['sa_thumbs_location']));				// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_image_size', sanitize_text_field($_POST['sa_thumbs_image_size']));		// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_padding', abs(floatval($_POST['sa_thumbs_padding'])));						// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_width', abs(intval($_POST['sa_thumbs_width'])));								// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_height', abs(intval($_POST['sa_thumbs_height'])));								// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_opacity', abs(intval($_POST['sa_thumbs_opacity'])));							// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_border_width', abs(intval($_POST['sa_thumbs_border_width'])));				// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_border_color', sanitize_text_field($_POST['sa_thumbs_border_color']));	// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_resp_tablet', abs(intval($_POST['sa_thumbs_resp_tablet'])));				// SANATIZE
+			update_post_meta($post->ID, 'sa_thumbs_resp_mobile', abs(intval($_POST['sa_thumbs_resp_mobile'])));				// SANATIZE
 		}
 	}
 }

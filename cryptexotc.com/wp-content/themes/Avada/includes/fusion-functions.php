@@ -165,7 +165,7 @@ if ( ! function_exists( 'fusion_strip_unit' ) ) {
 	 */
 	function fusion_strip_unit( $value, $unit_to_strip = 'px' ) {
 		$value_length = strlen( $value );
-		$unit_length = strlen( $unit_to_strip );
+		$unit_length  = strlen( $unit_to_strip );
 
 		if ( $value_length > $unit_length &&
 			 substr_compare( $value, $unit_to_strip, $unit_length * ( -1 ), $unit_length ) === 0
@@ -190,15 +190,15 @@ if ( ! function_exists( 'fusion_feed_link' ) ) {
 		if ( Avada()->settings->get( 'rss_link' ) ) {
 			$feed_url = Avada()->settings->get( 'rss_link' );
 
-			$feed_array = array(
-				'rss' => $feed_url,
-				'rss2' => $feed_url,
-				'atom' => $feed_url,
-				'rdf' => $feed_url,
+			$feed_array          = array(
+				'rss'           => $feed_url,
+				'rss2'          => $feed_url,
+				'atom'          => $feed_url,
+				'rdf'           => $feed_url,
 				'comments_rss2' => '',
 			);
 			$feed_array[ $feed ] = $feed_url;
-			$output = $feed_array[ $feed ];
+			$output              = $feed_array[ $feed ];
 		}
 
 		return $output;
@@ -307,7 +307,7 @@ if ( ! function_exists( 'fusion_color_luminance' ) ) {
 	 */
 	function fusion_color_luminance( $hex, $percent ) {
 		// Validate hex string.
-		$hex = preg_replace( '/[^0-9a-f]/i', '', $hex );
+		$hex     = preg_replace( '/[^0-9a-f]/i', '', $hex );
 		$new_hex = '#';
 
 		if ( strlen( $hex ) < 6 ) {
@@ -316,8 +316,8 @@ if ( ! function_exists( 'fusion_color_luminance' ) ) {
 
 		// Convert to decimal and change luminosity.
 		for ( $i = 0; $i < 3; $i++ ) {
-			$dec = hexdec( substr( $hex, $i * 2, 2 ) );
-			$dec = min( max( 0, $dec + $dec * $percent ), 255 );
+			$dec      = hexdec( substr( $hex, $i * 2, 2 ) );
+			$dec      = min( max( 0, $dec + $dec * $percent ), 255 );
 			$new_hex .= str_pad( dechex( $dec ), 2, 0, STR_PAD_LEFT );
 		}
 
@@ -362,30 +362,30 @@ if ( ! function_exists( 'fusion_rgb2hsl' ) ) {
 	 */
 	function fusion_rgb2hsl( $hex_color ) {
 
-		$hex_color  = str_replace( '#', '', $hex_color );
+		$hex_color = str_replace( '#', '', $hex_color );
 
 		if ( strlen( $hex_color ) < 3 ) {
 			str_pad( $hex_color, 3 - strlen( $hex_color ), '0' );
 		}
 
-		$add      = strlen( $hex_color ) == 6 ? 2 : 1;
-		$aa       = 0;
-		$add_on   = 1 == $add ? ( $aa = 16 - 1 ) + 1 : 1;
+		$add    = strlen( $hex_color ) == 6 ? 2 : 1;
+		$aa     = 0;
+		$add_on = 1 == $add ? ( $aa = 16 - 1 ) + 1 : 1;
 
-		$red         = round( ( hexdec( substr( $hex_color, 0, $add ) ) * $add_on + $aa ) / 255, 6 );
-		$green     = round( ( hexdec( substr( $hex_color, $add, $add ) ) * $add_on + $aa ) / 255, 6 );
-		$blue       = round( ( hexdec( substr( $hex_color, ( $add + $add ), $add ) ) * $add_on + $aa ) / 255, 6 );
+		$red   = round( ( hexdec( substr( $hex_color, 0, $add ) ) * $add_on + $aa ) / 255, 6 );
+		$green = round( ( hexdec( substr( $hex_color, $add, $add ) ) * $add_on + $aa ) / 255, 6 );
+		$blue  = round( ( hexdec( substr( $hex_color, ( $add + $add ), $add ) ) * $add_on + $aa ) / 255, 6 );
 
-		$hsl_color  = array(
+		$hsl_color = array(
 			'hue' => 0,
 			'sat' => 0,
 			'lum' => 0,
 		);
 
-		$minimum     = min( $red, $green, $blue );
-		$maximum     = max( $red, $green, $blue );
+		$minimum = min( $red, $green, $blue );
+		$maximum = max( $red, $green, $blue );
 
-		$chroma   = $maximum - $minimum;
+		$chroma = $maximum - $minimum;
 
 		$hsl_color['lum'] = ( $minimum + $maximum ) / 2;
 
@@ -415,7 +415,7 @@ if ( ! function_exists( 'fusion_rgb2hsl' ) ) {
 		}
 
 		$hsl_color['sat'] = round( $hsl_color['sat'] * 100, 0 );
-		$hsl_color['lum']  = round( $hsl_color['lum'] * 100, 0 );
+		$hsl_color['lum'] = round( $hsl_color['lum'] * 100, 0 );
 
 		return $hsl_color;
 	}
@@ -448,7 +448,7 @@ if ( ! function_exists( 'fusion_count_widgets' ) ) {
 		global $_wp_sidebars_widgets;
 
 		if ( empty( $_wp_sidebars_widgets ) ) {
-			$_wp_sidebars_widgets = get_option( 'sidebars_widgets', array() );
+			$_wp_sidebars_widgets = get_option( 'sidebars_widgets', array() ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 		}
 
 		$sidebars_widgets_count = $_wp_sidebars_widgets;
@@ -507,11 +507,11 @@ if ( ! function_exists( 'fusion_import_to_media_library' ) ) {
 		if ( ! is_wp_error( $temp_file ) ) {
 			// Array based on $_FILE as seen in PHP file uploads.
 			$file = array(
-				'name' => basename( $url ),
-				'type' => 'image/png',
+				'name'     => basename( $url ),
+				'type'     => 'image/png',
 				'tmp_name' => $temp_file,
-				'error' => 0,
-				'size' => filesize( $temp_file ),
+				'error'    => 0,
+				'size'     => filesize( $temp_file ),
 			);
 
 			$overrides = array(
@@ -519,10 +519,10 @@ if ( ! function_exists( 'fusion_import_to_media_library' ) ) {
 				// fields that would normally be present, default is true,
 				// we downloaded the file from a remote server, so there
 				// will be no form fields.
-				'test_form' => false,
+				'test_form'   => false,
 
 				// Setting this to false lets WordPress allow empty files, not recommended.
-				'test_size' => true,
+				'test_size'   => true,
 
 				// A properly uploaded file will pass this test.
 				// There should be no reason to override this one.

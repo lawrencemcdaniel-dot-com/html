@@ -38,16 +38,10 @@ $avada_contact = new Avada_Contact();
 				<?php endif; ?>
 
 				<?php if ( $avada_contact->has_error ) : // If errors are found. ?>
-					<?php
-					$error_message = __( 'Please check if you\'ve filled all the fields with valid information. Thank you.', 'Avada' );
-					if ( Avada()->settings->get( 'contact_form_privacy_checkbox' ) ) {
-						$error_message = __( 'Please check if you\'ve filled all the fields with valid information and that the data privacy terms confirmation box is checked. Thank you.', 'Avada' );
-					}
-					?>
 					<?php if ( shortcode_exists( 'fusion_alert' ) ) : ?>
-						<?php echo do_shortcode( '[fusion_alert type="error"]' . esc_html( $error_message ) . '[/fusion_alert]' ); ?>
+						<?php echo do_shortcode( '[fusion_alert type="error"]' . esc_html( $avada_contact->error_message ) . '[/fusion_alert]' ); ?>
 					<?php else : ?>
-						<h3 style="color:#b94a48;"><?php echo esc_html( $error_message ); ?></h3>
+						<h3 style="color:#b94a48;"><?php echo esc_html( $avada_contact->error_message ); ?></h3>
 					<?php endif; ?>
 					<br />
 				<?php endif; ?>
@@ -92,7 +86,12 @@ $avada_contact = new Avada_Contact();
 
 				<?php if ( Avada()->settings->get( 'recaptcha_public' ) && Avada()->settings->get( 'recaptcha_private' ) ) : ?>
 					<div id="comment-recaptcha">
-						<div class="g-recaptcha" data-type="audio" data-theme="<?php echo esc_attr( Avada()->settings->get( 'recaptcha_color_scheme' ) ); ?>" data-sitekey="<?php echo esc_attr( Avada()->settings->get( 'recaptcha_public' ) ); ?>"></div>
+						<?php if ( 'v2' === Avada()->settings->get( 'recaptcha_version' ) ) : ?>
+							<div class="g-recaptcha" data-type="audio" data-theme="<?php echo esc_attr( Avada()->settings->get( 'recaptcha_color_scheme' ) ); ?>" data-sitekey="<?php echo esc_attr( Avada()->settings->get( 'recaptcha_public' ) ); ?>"></div>
+						<?php else : ?>
+							<?php $hide_badge_class   = 'hide' === Avada()->settings->get( 'recaptcha_badge_position' ) ? ' fusion-hide-recaptcha-badge' : ''; ?>
+							<div id="recaptcha-container" class="recaptcha-container<?php echo esc_attr( $hide_badge_class ); ?>"></div>
+						<?php endif; ?>
 					</div>
 				<?php endif; ?>
 
@@ -107,6 +106,10 @@ $avada_contact = new Avada_Contact();
 					$button_size  = $fusion_settings->get( 'button_size' );
 					$button_type  = $fusion_settings->get( 'button_type' );
 					?>
+					<?php if ( 'v3' === Avada()->settings->get( 'recaptcha_version' ) ) : ?>
+						<input type="hidden" name="fusion-recaptcha-response" id="fusion-recaptcha-response" value="">
+					<?php endif; ?>
+
 					<input name="submit" type="submit" id="submit" value="<?php esc_html_e( 'Submit Form', 'Avada' ); ?>" class="comment-submit fusion-button fusion-button-default fusion-button-default-size fusion-button-<?php echo esc_attr( strtolower( $button_size ) ); ?> fusion-button-<?php echo esc_attr( strtolower( $button_shape ) ); ?> fusion-button-<?php echo esc_attr( strtolower( $button_type ) ); ?>">
 				</div>
 			</form>

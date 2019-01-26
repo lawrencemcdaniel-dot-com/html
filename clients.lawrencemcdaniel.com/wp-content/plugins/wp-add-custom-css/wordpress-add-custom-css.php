@@ -3,7 +3,7 @@
 Plugin Name: WP Add Custom CSS
 Plugin URI: http://www.danieledesantis.net
 Description: Add custom css to the whole website and to specific posts, pages and custom post types.
-Version: 1.1.2
+Version: 1.1.4
 Author: Daniele De Santis
 Author URI: http://www.danieledesantis.net
 Text Domain: wp-add-custom-css
@@ -12,7 +12,7 @@ License: GPL2
 */
 
 /*
-Copyright 2014-2018  Daniele De Santis  (email : hello@danieledesantis.net)
+Copyright 2014-2019  Daniele De Santis  (email : hello@danieledesantis.net)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -37,53 +37,58 @@ if(!class_exists('Wpacc'))
 		private $options;
 
 		public function __construct() {
-      add_action('admin_menu', array($this, 'add_menu'));
-    	add_action( 'admin_init', array( $this, 'init_settings' ) );
-      add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
+      		add_action('admin_menu', array($this, 'add_menu'));
+    		add_action( 'admin_init', array( $this, 'init_settings' ) );
+      		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
 			add_action( 'add_meta_boxes', array($this, 'add_meta_box' ) );
 			add_action( 'save_post', array( $this, 'single_save' ) );
 			add_action('init', array($this, 'init'));
 			add_filter('query_vars', array($this, 'add_wp_var'));
-			add_action( 'wp_enqueue_scripts', array($this, 'add_custom_css'), 999 );
-			add_action('wp_head', array($this, 'single_custom_css'));
+			add_action( 'wp_enqueue_scripts', array($this, 'add_custom_css'), 9999 );
+			add_action('wp_head', array($this, 'single_custom_css'), 99 );
 		}
 
 		public function init() {
 			load_plugin_textdomain( 'wp-add-custom-css', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		}
 
-		public static function uninstall() {
-			self::delete_options();
-			self::delete_custom_meta();
-    }
+	    private function is_enabled_post_type( $post_type = false ) {
+	      if ( ! $post_type ) {
+	        global $post;
+	        $post_type = $post->post_type;
+	      }
+	      $enabled_post_types = array('post', 'page');
+	      $this->options = get_option( 'wpacc_settings' );
+	      if ( isset($this->options['selected_post_types']) ) {
+	        $enabled_post_types = array_merge( $enabled_post_types, $this->options['selected_post_types'] );
+	      }
+	      return in_array( $post_type, $enabled_post_types );
+	    }
 
-    private function is_enabled_post_type( $post_type = false ) {
-      if ( ! $post_type ) {
-        global $post;
-        $post_type = $post->post_type;
-      }
-      $enabled_post_types = array('post', 'page');
-      $this->options = get_option( 'wpacc_settings' );
-      if ( isset($this->options['selected_post_types']) ) {
-        $enabled_post_types = array_merge( $enabled_post_types, $this->options['selected_post_types'] );
-      }
-      return in_array( $post_type, $enabled_post_types );
-    }
-
-    public function load_admin_scripts( $hook ) {
-      if ( ( in_array( $hook, array('post.php', 'post-new.php') ) && $this->is_enabled_post_type() ) || $hook === 'toplevel_page_wp-add-custom-css_settings' ) {
-        $this->options = get_option( 'wpacc_settings' );
-        if ( isset($this->options['enable_advanced_editor']) ) {
-  				wp_enqueue_style( 'wpacc_codemirror', plugin_dir_url( __FILE__ ) . 'lib/codemirror/codemirror.css' );
-          if ( isset($this->options['advanced_editor_theme']) && $this->options['advanced_editor_theme'] === 'dark' ) {
-            wp_enqueue_style( 'wpacc_codemirror_dark', plugin_dir_url( __FILE__ ) . 'lib/codemirror/theme/tomorrow-night-bright.css', array('wpacc_codemirror') );
-          }
-    			wp_enqueue_script( 'wpacc_codemirror', plugin_dir_url( __FILE__ ) . 'lib/codemirror/codemirror.js' );
-          wp_enqueue_script( 'wpacc_codemirror_css', plugin_dir_url( __FILE__ ) . 'lib/codemirror/mode/css/css.js', array('wpacc_codemirror') );
-          wp_enqueue_script( 'wpacc_scripts', plugin_dir_url( __FILE__ ) . 'js/scripts.js', array('jquery', 'wpacc_codemirror_css') );
-  			}
-      }
-    }
+	    public function load_admin_scripts( $hook ) {
+	      if ( ( in_array( $hook, array('post.php', 'post-new.php') ) && $this->is_enabled_post_type() ) || $hook === 'toplevel_page_wp-add-custom-css_settings' ) {
+	        $this->options = get_option( 'wpacc_settings' );
+	        if ( isset($this->options['enable_advanced_editor']) ) {
+	        	global $current_screen;
+	    		if (!isset($current_screen)) {$current_screen = get_current_screen();}
+	    		if ( ( method_exists($current_screen, 'is_block_editor') && $current_screen->is_block_editor() )
+	    		|| ( function_exists('is_gutenberg_page') && is_gutenberg_page() )
+	    		|| ( $hook === 'toplevel_page_wp-add-custom-css_settings' && function_exists('is_gutenberg_page') ) ) {
+	      			wp_enqueue_style( 'wpacc_ace', plugin_dir_url( __FILE__ ) . 'lib/ace/ace-custom.css' );
+	      			wp_enqueue_script( 'wpacc_ace', plugin_dir_url( __FILE__ ) . 'lib/ace/ace.js');
+	      			wp_enqueue_script( 'wpacc_scripts_ace', plugin_dir_url( __FILE__ ) . 'js/scripts-ace.js', array('jquery', 'wpacc_ace') );
+	        	} else {
+	  				wp_enqueue_style( 'wpacc_codemirror', plugin_dir_url( __FILE__ ) . 'lib/codemirror/codemirror.css' );
+			        if ( isset($this->options['advanced_editor_theme']) && $this->options['advanced_editor_theme'] === 'dark' ) {
+			        	wp_enqueue_style( 'wpacc_codemirror_dark', plugin_dir_url( __FILE__ ) . 'lib/codemirror/theme/tomorrow-night-bright.css', array('wpacc_codemirror') );
+			        }
+	    			wp_enqueue_script( 'wpacc_codemirror', plugin_dir_url( __FILE__ ) . 'lib/codemirror/codemirror.js' );
+	          		wp_enqueue_script( 'wpacc_codemirror_css', plugin_dir_url( __FILE__ ) . 'lib/codemirror/mode/css/css.js', array('wpacc_codemirror') );
+	          		wp_enqueue_script( 'wpacc_scripts', plugin_dir_url( __FILE__ ) . 'js/scripts.js', array('jquery', 'wpacc_codemirror_css') );
+	  			}
+	  		}
+	      }
+	    }
 
 		public function add_meta_box( $post_type ) {
     	if ( $this->is_enabled_post_type($post_type) ) {
@@ -112,10 +117,13 @@ if(!class_exists('Wpacc'))
 
 		public function render_meta_box_content( $post ) {
 			wp_nonce_field( 'single_add_custom_css_box', 'wp_add_custom_css_box_nonce' );
-	  	$single_custom_css = get_post_meta( $post->ID, '_single_add_custom_css', true );
-      $class = ( isset($this->options['advanced_editor_theme']) && $this->options['advanced_editor_theme'] === 'dark' ) ? ' class="wpacc_editor_dark"' : '';
+	  		$single_custom_css = get_post_meta( $post->ID, '_single_add_custom_css', true );
+      		$class = ( isset($this->options['advanced_editor_theme']) && $this->options['advanced_editor_theme'] === 'dark' ) ? ' class="wpacc_editor_dark"' : '';
 			echo '<p>'.  sprintf( __( 'Add custom CSS rules for this %s', 'wp-add-custom-css' ), $post->post_type ). '</p> ';
+			echo '<div class="wpacc_editor_container">';
 			echo '<textarea id="single_custom_css" name="single_custom_css" style="width:100%; min-height:200px;"' . $class . '>' . esc_attr( $single_custom_css ) . '</textarea>';
+			echo '<div id="single_custom_css_ace" class="custom_css_ace"></div>';
+			echo '</div>';
 		}
 
 		public function add_menu() {
@@ -144,17 +152,20 @@ if(!class_exists('Wpacc'))
 
 		public function print_section_info() {
 			echo __('Write here the CSS rules you want to apply to the whole website.', 'wp-add-custom-css');
-    }
+    	}
 
 		public function main_css_input() {
     	$custom_rules = isset( $this->options['main_custom_style'] ) ? esc_attr( $this->options['main_custom_style'] ) : '';
-      $class = ( isset($this->options['advanced_editor_theme']) && $this->options['advanced_editor_theme'] === 'dark' ) ? ' class="wpacc_editor_dark"' : '';
+    	$class = ( isset($this->options['advanced_editor_theme']) && $this->options['advanced_editor_theme'] === 'dark' ) ? ' class="wpacc_editor_dark"' : '';
+      		echo '<div class="wpacc_editor_container">';
 			echo '<textarea id="main_custom_css" name="wpacc_settings[main_custom_style]" style="width:100%; min-height:300px;"' . $class . '>' . $custom_rules . '</textarea>';
-    }
+			echo '<div id="main_custom_css_ace" class="custom_css_ace"></div>';
+			echo '</div>';
+    	}
 
 		public function print_section_2_info() {
 			echo __('Enable page specific CSS for the post types below.', 'wp-add-custom-css');
-    }
+    	}
 
 		public function post_types_checkboxes() {
 			$available_post_types = get_post_types( array('public' => true, '_builtin' => false), 'objects' );
@@ -166,34 +177,34 @@ if(!class_exists('Wpacc'))
 				}
 				echo '<div style="margin-bottom:10px"><input type="checkbox" name="wpacc_settings[selected_post_types][]" value="' . $post_type->name . '"' . $checked . '>' . $post_type->label . '</div>'; // output checkbox
 			}
-    }
+    	}
 
-    public function print_section_3_info() {
-			echo __('Enable advanced css editor, including line numbers and code coloring.', 'wp-add-custom-css');
-    }
+	    public function print_section_3_info() {
+				echo __('Enable advanced css editor, including line numbers and code coloring.', 'wp-add-custom-css');
+	    }
 
-    public function advanced_editor_checkbox() {
-			if ( isset( $this->options['enable_advanced_editor'] ) ) {
-				$checked = ' checked';
-			} else {
-				$checked = '';
-			}
-			echo '<div style="margin-bottom:10px"><input type="checkbox" name="wpacc_settings[enable_advanced_editor]" value="true"' . $checked . '></div>'; // output checkbox
-    }
+	    public function advanced_editor_checkbox() {
+				if ( isset( $this->options['enable_advanced_editor'] ) ) {
+					$checked = ' checked';
+				} else {
+					$checked = '';
+				}
+				echo '<div style="margin-bottom:10px"><input type="checkbox" name="wpacc_settings[enable_advanced_editor]" value="true"' . $checked . '></div>'; // output checkbox
+	    }
 
-    public function advanced_editor_select() {
-      echo '<div style="margin-bottom:10px"><select name="wpacc_settings[advanced_editor_theme]">';
-      $available_themes = array( 'dark' => __('Dark', 'wp-add-custom-css'), 'light' => __('Light', 'wp-add-custom-css') );
-      foreach ( $available_themes as $theme_value => $theme_name ) {
-  			if ( isset( $this->options['advanced_editor_theme'] ) ) {
-          $selected = ( $theme_value === $this->options['advanced_editor_theme'] ) ? ' selected' : '';
-  			} else {
-  				$selected = '';
-  			}
-        echo '<option value="' . $theme_value . '"' . $selected . '>' . $theme_name . '</option>';
-      }
-			echo '</select></div>';
-    }
+	    public function advanced_editor_select() {
+	      echo '<div style="margin-bottom:10px"><select name="wpacc_settings[advanced_editor_theme]">';
+	      $available_themes = array( 'dark' => __('Dark', 'wp-add-custom-css'), 'light' => __('Light', 'wp-add-custom-css') );
+	      foreach ( $available_themes as $theme_value => $theme_name ) {
+	  			if ( isset( $this->options['advanced_editor_theme'] ) ) {
+	          $selected = ( $theme_value === $this->options['advanced_editor_theme'] ) ? ' selected' : '';
+	  			} else {
+	  				$selected = '';
+	  			}
+	        echo '<option value="' . $theme_value . '"' . $selected . '>' . $theme_name . '</option>';
+	      }
+				echo '</select></div>';
+	    }
 
 		public function init_settings() {
 			register_setting(
@@ -226,7 +237,7 @@ if(!class_exists('Wpacc'))
 					'wp-add-custom-css_settings',
 					'wpacc_post_types'
 			);
-      add_settings_section(
+      		add_settings_section(
 					'wpacc_advanced_editor',
 					__('Advanced editor', 'wp-add-custom-css'),
 					array( $this, 'print_section_3_info' ),
@@ -239,7 +250,7 @@ if(!class_exists('Wpacc'))
 					'wp-add-custom-css_settings',
 					'wpacc_advanced_editor'
 			);
-      add_settings_field(
+      		add_settings_field(
 					'advanced_editor_theme',
 					__('Advanced editor layout', 'wp-add-custom-css'),
 					array( $this, 'advanced_editor_select' ),
@@ -248,29 +259,17 @@ if(!class_exists('Wpacc'))
 			);
 		}
 
-		public static function delete_options() {
-			unregister_setting(
-				'wpacc_group',
-				'wpacc_settings'
-			);
-			delete_option('wpacc_settings');
-		}
-
-		public static function delete_custom_meta() {
-			delete_post_meta_by_key('_single_add_custom_css');
-		}
-
 		public static function add_wp_var($public_query_vars) {
-    	$public_query_vars[] = 'display_custom_css';
-    	return $public_query_vars;
+    		$public_query_vars[] = 'display_custom_css';
+    		return $public_query_vars;
 		}
 
 		public static function display_custom_css(){
-    	$display_css = get_query_var('display_custom_css');
-    	if ($display_css == 'css'){
-				include_once (plugin_dir_path( __FILE__ ) . '/css/custom-css.php');
-      	exit;
-    	}
+	    	$display_css = get_query_var('display_custom_css');
+	    	if ($display_css == 'css'){
+					include_once (plugin_dir_path( __FILE__ ) . '/css/custom-css.php');
+	      	exit;
+	    	}
 		}
 
 		public function add_custom_css() {
@@ -294,10 +293,10 @@ if(!class_exists('Wpacc'))
 
 		public function single_custom_css() {
 			if ( is_single() || is_page() ) {
-        if ( ! $this->is_enabled_post_type() ) {
+	        	if ( ! $this->is_enabled_post_type() ) {
 					return;
 				}
-        global $post;
+        		global $post;
 				$single_custom_css = get_post_meta( $post->ID, '_single_add_custom_css', true );
 				if ( $single_custom_css !== '' ) {
 					$single_custom_css = str_replace ( '&gt;' , '>' , $single_custom_css );
@@ -313,7 +312,6 @@ if(!class_exists('Wpacc'))
 
 if(class_exists('Wpacc')) {
 	add_action('template_redirect', array('Wpacc', 'display_custom_css'));
-	register_uninstall_hook(__FILE__, array('Wpacc', 'uninstall'));
 	$wpacc = new Wpacc();
 }
 

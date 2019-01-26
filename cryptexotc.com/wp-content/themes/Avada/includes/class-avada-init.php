@@ -263,7 +263,7 @@ class Avada_Init {
 		update_option(
 			'shop_catalog_image_size',
 			array(
-				'width' => 500,
+				'width'  => 500,
 				'height' => '',
 				0,
 			)
@@ -271,7 +271,7 @@ class Avada_Init {
 		update_option(
 			'shop_single_image_size',
 			array(
-				'width' => 700,
+				'width'  => 700,
 				'height' => '',
 				0,
 			)
@@ -279,7 +279,7 @@ class Avada_Init {
 		update_option(
 			'shop_thumbnail_image_size',
 			array(
-				'width' => 120,
+				'width'  => 120,
 				'height' => '',
 				0,
 			)
@@ -337,7 +337,7 @@ class Avada_Init {
 			'default' !== get_post_meta( $c_page_id, 'pyre_displayed_menu', true ) &&
 			( 'main_navigation' === $args['theme_location'] || 'sticky_navigation' === $args['theme_location'] )
 		) {
-			$menu = get_post_meta( $c_page_id, 'pyre_displayed_menu', true );
+			$menu         = get_post_meta( $c_page_id, 'pyre_displayed_menu', true );
 			$args['menu'] = $menu;
 		}
 
@@ -405,7 +405,7 @@ class Avada_Init {
 	 */
 	public function modify_contact_methods( $profile_fields ) {
 		// Add new fields.
-		$profile_fields['author_email'] = 'Email (Author Page)';
+		$profile_fields['author_email']    = 'Email (Author Page)';
 		$profile_fields['author_facebook'] = 'Facebook (Author Page)';
 		$profile_fields['author_twitter']  = 'Twitter (Author Page)';
 		$profile_fields['author_linkedin'] = 'LinkedIn (Author Page)';

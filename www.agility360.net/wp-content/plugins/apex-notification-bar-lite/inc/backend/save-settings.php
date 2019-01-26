@@ -190,6 +190,9 @@ $apexnb_lite_settings['cf_font_color']         = sanitize_text_field($cf_font_co
 $apexnb_lite_settings['cf_hover_bg_color']     = sanitize_text_field($cf_hover_bg_color);
 $apexnb_lite_settings['cf_hover_font_color']   = sanitize_text_field($cf_hover_font_color);
 
+$apexnb_lite_settings['button_fsize']   = (isset($button_fsize) && $button_fsize !='')?intval($button_fsize):'';
+$apexnb_lite_settings['button_fweight']   = (isset($button_fweight) && $button_fweight !='')?$button_fweight:'normal';
+
 // a hyperlink settigs
 $apexnb_lite_settings['atag_bg_color']                = sanitize_text_field($atag_bg_color);
 $apexnb_lite_settings['atag_font_color']              = sanitize_text_field($atag_font_color);

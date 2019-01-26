@@ -130,7 +130,7 @@ class Tribe__Events__Tickets__Eventbrite__Migrate {
 		$queue->save();
 
 		// Transient with the Migration key, transients for better QA interactions
-		set_transient( $this->key_is_migrating, $queue->get_id(), 0 );
+		set_transient( $this->key_is_migrating, $queue->get_id(), 6 * HOUR_IN_SECONDS );
 
 		$queue->dispatch();
 

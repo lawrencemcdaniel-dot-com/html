@@ -101,7 +101,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				$style_tag = '';
 				$styles    = '';
 
-				if ( '1' == self::$args['boxed_mode'] || 'yes' === self::$args['boxed_mode'] ) {
+				if ( '1' == self::$args['boxed_mode'] || 'yes' === self::$args['boxed_mode'] ) { // phpcs:ignore WordPress.PHP.StrictComparisons
 
 					if ( ! empty( self::$args['hover_color'] ) ) {
 						$styles .= '#accordian-' . $this->faq_counter . ' .fusion-panel:hover{ background-color: ' . self::$args['hover_color'] . ' }';
@@ -142,12 +142,12 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				if ( ( '1' === self::$args['icon_boxed_mode'] || 'yes' === self::$args['icon_boxed_mode'] ) && ! empty( self::$args['icon_box_color'] ) ) {
 					$icon_box_color = $fusion_library->sanitize->color( $this->parent_args['icon_box_color'] );
-					$styles .= '.fusion-accordian #accordian-' . $this->faq_counter . ' .fa-fusion-box { background-color: ' . $icon_box_color . ';border-color: ' . $icon_box_color . ';}';
+					$styles        .= '.fusion-accordian #accordian-' . $this->faq_counter . ' .fa-fusion-box { background-color: ' . $icon_box_color . ';border-color: ' . $icon_box_color . ';}';
 				}
 
 				if ( ! empty( self::$args['toggle_hover_accent_color'] ) ) {
 					$toggle_hover_accent_color = $fusion_library->sanitize->color( self::$args['toggle_hover_accent_color'] );
-					$styles .= '.fusion-accordian #accordian-' . $this->faq_counter . ' .panel-title a:hover { color: ' . $toggle_hover_accent_color . ';}';
+					$styles                   .= '.fusion-accordian #accordian-' . $this->faq_counter . ' .panel-title a:hover { color: ' . $toggle_hover_accent_color . ';}';
 
 					if ( '1' === self::$args['icon_boxed_mode'] || 'yes' === self::$args['icon_boxed_mode'] ) {
 						$styles .= '.fusion-accordian #accordian-' . $this->faq_counter . ' .panel-title .active .fa-fusion-box,';
@@ -192,7 +192,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				if ( ! empty( $cats_to_exclude ) ) {
 
 					// Exclude the correct cats from tax_query.
-					$args['tax_query'] = array(
+					$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery
 						array(
 							'taxonomy' => 'faq_category',
 							'field'    => 'slug',
@@ -214,7 +214,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				} else {
 					// Include the cats from $cat_slugs in tax_query.
 					if ( ! empty( $cat_slugs ) ) {
-						$args['tax_query'] = array(
+						$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery
 							array(
 								'taxonomy' => 'faq_category',
 								'field'    => 'slug',
@@ -241,9 +241,9 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					// Check if the "All" filter should be displayed.
 					$first_filter = true;
 					if ( 'yes' === $filters ) {
-						$html .= '<li class="fusion-filter fusion-filter-all fusion-active">';
-						$html .= '<a data-filter="*" href="#">' . apply_filters( 'fusion_faq_all_filter_name', esc_html__( 'All', 'fusion-core' ) ) . '</a>';
-						$html .= '</li>';
+						$html        .= '<li class="fusion-filter fusion-filter-all fusion-active">';
+						$html        .= '<a data-filter="*" href="#">' . apply_filters( 'fusion_faq_all_filter_name', esc_html__( 'All', 'fusion-core' ) ) . '</a>';
+						$html        .= '</li>';
 						$first_filter = false;
 					}
 
@@ -255,9 +255,9 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 							if ( ( ! empty( $cat_slugs ) && in_array( $faq_term->slug, $cat_slugs, true ) ) || empty( $cat_slugs ) ) {
 								// If the "All" filter is disabled, set the first real filter as active.
 								if ( $first_filter ) {
-									$html .= '<li class="fusion-filter fusion-active">';
-									$html .= '<a data-filter=".' . urldecode( $faq_term->slug ) . '" href="#">' . $faq_term->name . '</a>';
-									$html .= '</li>';
+									$html        .= '<li class="fusion-filter fusion-active">';
+									$html        .= '<a data-filter=".' . urldecode( $faq_term->slug ) . '" href="#">' . $faq_term->name . '</a>';
+									$html        .= '</li>';
 									$first_filter = false;
 								} else {
 									$html .= '<li class="fusion-filter fusion-hidden">';
@@ -269,7 +269,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					}
 
 					$html .= '</ul>';
-				} // End if().
+				}
 
 				// Setup the posts.
 				$faq_items = FusionCore_Plugin::fusion_core_cached_query( $args );
@@ -280,11 +280,11 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				$wrapper_classes = '';
 
-				if ( 'right' == self::$args['icon_alignment'] ) {
+				if ( 'right' === self::$args['icon_alignment'] ) {
 					$wrapper_classes .= ' fusion-toggle-icon-right';
 				}
 
-				if ( '0' == self::$args['icon_boxed_mode'] || 'no' === self::$args['icon_boxed_mode'] ) {
+				if ( '0' == self::$args['icon_boxed_mode'] || 'no' === self::$args['icon_boxed_mode'] ) { // phpcs:ignore WordPress.PHP.StrictComparisons
 					$wrapper_classes .= ' fusion-toggle-icon-unboxed';
 				}
 
@@ -305,17 +305,17 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					// Get all terms of the post and it as classes; needed for filtering.
 					$post_classes = '';
 					$item_classes = '';
-					$post_id = get_the_ID();
-					$post_terms = get_the_terms( $post_id, 'faq_category' );
+					$post_id      = get_the_ID();
+					$post_terms   = get_the_terms( $post_id, 'faq_category' );
 					if ( $post_terms ) {
 						foreach ( $post_terms as $post_term ) {
 							$post_classes .= urldecode( $post_term->slug ) . ' ';
 						}
 					}
 
-					if ( '1' == self::$args['boxed_mode'] || 'yes' === self::$args['boxed_mode'] ) {
+					if ( '1' == self::$args['boxed_mode'] || 'yes' === self::$args['boxed_mode'] ) { // phpcs:ignore WordPress.PHP.StrictComparisons
 						$item_classes .= ' fusion-toggle-no-divider fusion-toggle-boxed-mode';
-					} elseif ( '0' == self::$args['divider_line'] || 'no' === self::$args['divider_line'] ) {
+					} elseif ( '0' == self::$args['divider_line'] || 'no' === self::$args['divider_line'] ) { // phpcs:ignore WordPress.PHP.StrictComparisons
 						$item_classes .= ' fusion-toggle-no-divider';
 					}
 
@@ -364,7 +364,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					$content = str_replace( '[fusion_builder_container', '[fusion_builder_container is_nested="1"', $content );
 					$content = apply_filters( 'the_content', $content );
 					$content = str_replace( ']]>', ']]&gt;', $content );
-					$html .= $content;
+					$html   .= $content;
 
 					$html .= '</div>';
 					$html .= '</div>';
@@ -409,7 +409,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 						'id'          => 'faq_shortcode_section',
 						'type'        => 'sub-section',
 						'fields'      => array(
-							'faq_featured_image' => array(
+							'faq_featured_image'           => array(
 								'label'       => esc_html__( 'FAQ Featured Images', 'fusion-core' ),
 								'description' => esc_html__( 'Turn on to display featured images.', 'fusion-core' ),
 								'id'          => 'faq_featured_image',
@@ -417,7 +417,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 								'type'        => 'switch',
 								'option_name' => $option_name,
 							),
-							'faq_filters' => array(
+							'faq_filters'                  => array(
 								'label'       => esc_html__( 'FAQ Filters', 'fusion-core' ),
 								'description' => esc_html__( 'Controls how the filters display for FAQs.', 'fusion-core' ),
 								'id'          => 'faq_filters',
@@ -430,7 +430,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 								),
 								'option_name' => $option_name,
 							),
-							'faq_accordion_type' => array(
+							'faq_accordion_type'           => array(
 								'label'       => esc_html__( 'FAQs in Toggles or Accordions', 'fusion-core' ),
 								'description' => esc_html__( 'Toggles allow several items to be open at a time. Accordions only allow one item to be open at a time.', 'fusion-core' ),
 								'id'          => 'faq_accordion_type',
@@ -441,14 +441,14 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'accordions' => esc_html__( 'Accordions', 'fusion-core' ),
 								),
 							),
-							'faq_accordion_boxed_mode' => array(
+							'faq_accordion_boxed_mode'     => array(
 								'label'       => esc_html__( 'FAQ Items in Boxed Mode', 'fusion-core' ),
 								'description' => esc_html__( 'Turn on to display items in boxed mode. FAQ Item divider line must be disabled for this option to work.', 'fusion-core' ),
 								'id'          => 'faq_accordion_boxed_mode',
 								'default'     => '0',
 								'type'        => 'switch',
 							),
-							'faq_accordion_border_size' => array(
+							'faq_accordion_border_size'    => array(
 								'label'       => esc_html__( 'FAQ Item Boxed Mode Border Width', 'fusion-core' ),
 								'description' => esc_html__( 'Controls the border size of the FAQ item.', 'fusion-core' ),
 								'id'          => 'faq_accordion_border_size',
@@ -467,7 +467,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'step' => '1',
 								),
 							),
-							'faq_accordian_border_color' => array(
+							'faq_accordian_border_color'   => array(
 								'label'       => esc_html__( 'FAQ Item Boxed Mode Border Color', 'fusion-core' ),
 								'description' => esc_html__( 'Controls the border color of the FAQ item.', 'fusion-core' ),
 								'id'          => 'faq_accordian_border_color',
@@ -495,7 +495,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									),
 								),
 							),
-							'faq_accordian_hover_color' => array(
+							'faq_accordian_hover_color'    => array(
 								'label'       => esc_html__( 'FAQ Item Boxed Mode Background Hover Color', 'fusion-core' ),
 								'description' => esc_html__( 'Controls the background hover color of the FAQ item.', 'fusion-core' ),
 								'id'          => 'faq_accordian_hover_color',
@@ -509,7 +509,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									),
 								),
 							),
-							'faq_accordion_divider_line' => array(
+							'faq_accordion_divider_line'   => array(
 								'label'       => esc_html__( 'FAQ Item Divider Line', 'fusion-core' ),
 								'description' => esc_html__( 'Turn on to display a divider line between each item.', 'fusion-core' ),
 								'id'          => 'faq_accordion_divider_line',
@@ -530,7 +530,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 								'default'     => $fusion_settings->get( 'h4_typography', 'font-size' ),
 								'type'        => 'dimension',
 							),
-							'faq_accordion_icon_size' => array(
+							'faq_accordion_icon_size'      => array(
 								'label'       => esc_html__( 'FAQ Item Icon Size', 'fusion-core' ),
 								'description' => esc_html__( 'Set the size of the icon.', 'fusion-core' ),
 								'id'          => 'faq_accordion_icon_size',
@@ -540,14 +540,14 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 								'step'        => '1',
 								'type'        => 'slider',
 							),
-							'faq_accordian_icon_color' => array(
+							'faq_accordian_icon_color'     => array(
 								'label'       => esc_html__( 'FAQ Item Icon Color', 'fusion-core' ),
 								'description' => esc_html__( 'Controls the color of icon in FAQ box.', 'fusion-core' ),
 								'id'          => 'faq_accordian_icon_color',
 								'default'     => '#ffffff',
 								'type'        => 'color-alpha',
 							),
-							'faq_accordion_icon_boxed' => array(
+							'faq_accordion_icon_boxed'     => array(
 								'label'       => esc_html__( 'FAQ Item Icon Boxed Mode', 'fusion-core' ),
 								'description' => esc_html__( 'Turn on to display icon in boxed mode.', 'fusion-core' ),
 								'id'          => 'faq_accordion_icon_boxed',
@@ -568,18 +568,18 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									),
 								),
 							),
-							'faq_accordion_icon_align' => array(
+							'faq_accordion_icon_align'     => array(
 								'label'       => esc_html__( 'FAQ Item Icon Alignment', 'fusion-core' ),
 								'description' => esc_html__( 'Controls the alignment of the icon.', 'fusion-core' ),
 								'id'          => 'faq_accordion_icon_align',
 								'default'     => 'left',
 								'type'        => 'radio-buttonset',
 								'choices'     => array(
-									'left'    => esc_html__( 'Left', 'fusion-core' ),
-									'right'   => esc_html__( 'Right', 'fusion-core' ),
+									'left'  => esc_html__( 'Left', 'fusion-core' ),
+									'right' => esc_html__( 'Right', 'fusion-core' ),
 								),
 							),
-							'faq_accordian_active_color' => array(
+							'faq_accordian_active_color'   => array(
 								'label'       => esc_html__( 'FAQ Item Icon Toggle Hover Accent Color', 'fusion-core' ),
 								'description' => esc_html__( 'Controls the accent color on hover for icon box and title.', 'fusion-core' ),
 								'id'          => 'faq_accordian_active_color',
@@ -602,9 +602,9 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				global $content_media_query, $fusion_settings, $fusion_library, $dynamic_css_helpers;
 
 				$faq_accordian_active_color = $fusion_library->sanitize->color( $fusion_settings->get( 'faq_accordian_active_color' ) );
-				$primary_color = $fusion_library->sanitize->color( $fusion_settings->get( 'primary_color' ) );
+				$primary_color              = $fusion_library->sanitize->color( $fusion_settings->get( 'primary_color' ) );
 
-				$css['global']['.fusion-faq-shortcode .fusion-accordian .panel-title a .fa-fusion-box']['background-color'] = $fusion_library->sanitize->color( $fusion_settings->get( 'faq_accordian_inactive_color' ) );
+				$css['global']['.fusion-faq-shortcode .fusion-accordian .panel-title a .fa-fusion-box']['background-color']       = $fusion_library->sanitize->color( $fusion_settings->get( 'faq_accordian_inactive_color' ) );
 				$css['global']['.fusion-faq-shortcode .fusion-accordian .panel-title .active .fa-fusion-box']['background-color'] = $faq_accordian_active_color;
 				$css['global']['.fusion-faq-shortcode .fusion-accordian .panel-title a:hover .fa-fusion-box']['background-color'] = $faq_accordian_active_color . ' !important';
 
@@ -619,7 +619,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['color'] = $faq_accordian_active_color;
 
-				$css['global']['.fusion-filters .fusion-filter.fusion-active a']['color'] = $primary_color;
+				$css['global']['.fusion-filters .fusion-filter.fusion-active a']['color']        = $primary_color;
 				$css['global']['.fusion-filters .fusion-filter.fusion-active a']['border-color'] = $primary_color;
 
 				$css[ $content_media_query ]['.fusion-filters']['border-bottom'] = '0';
@@ -648,10 +648,10 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				);
 			}
 		}
-	} // End if().
+	}
 
 	new FusionSC_Faq();
-} // End if().
+}
 
 /**
  * Map shortcode to Fusion Builder.
@@ -754,7 +754,7 @@ function fusion_element_faq() {
 						'toggles'    => esc_attr__( 'Toggles', 'fusion-core' ),
 						'accordions' => esc_attr__( 'Accordions', 'fusion-core' ),
 					),
-					'default' => '',
+					'default'     => '',
 				),
 				array(
 					'type'        => 'radio_button_set',
@@ -766,7 +766,7 @@ function fusion_element_faq() {
 						'yes' => esc_attr__( 'Yes', 'fusion-core' ),
 						'no'  => esc_attr__( 'No', 'fusion-core' ),
 					),
-					'default' => '',
+					'default'     => '',
 				),
 				array(
 					'type'        => 'range',
@@ -846,7 +846,7 @@ function fusion_element_faq() {
 						'yes' => esc_attr__( 'Yes', 'fusion-core' ),
 						'no'  => esc_attr__( 'No', 'fusion-core' ),
 					),
-					'default' => '',
+					'default'     => '',
 					'dependency'  => array(
 						array(
 							'element'  => 'boxed_mode',
@@ -890,7 +890,7 @@ function fusion_element_faq() {
 						'yes' => esc_attr__( 'Yes', 'fusion-core' ),
 						'no'  => esc_attr__( 'No', 'fusion-core' ),
 					),
-					'default' => '',
+					'default'     => '',
 				),
 				array(
 					'type'        => 'colorpickeralpha',
@@ -913,11 +913,11 @@ function fusion_element_faq() {
 					'description' => esc_attr__( 'Controls the alignment of FAQ icon.', 'fusion-core' ),
 					'param_name'  => 'icon_alignment',
 					'value'       => array(
-						''       => esc_attr__( 'Default', 'fusion-core' ),
-						'left'   => esc_attr__( 'Left', 'fusion-core' ),
-						'right'  => esc_attr__( 'Right', 'fusion-core' ),
+						''      => esc_attr__( 'Default', 'fusion-core' ),
+						'left'  => esc_attr__( 'Left', 'fusion-core' ),
+						'right' => esc_attr__( 'Right', 'fusion-core' ),
 					),
-					'default' => '',
+					'default'     => '',
 				),
 				array(
 					'type'        => 'colorpickeralpha',

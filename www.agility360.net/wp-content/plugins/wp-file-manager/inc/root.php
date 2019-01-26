@@ -20,7 +20,7 @@ if (isset($_POST['submit']) && wp_verify_nonce($_POST['wp_filemanager_root_nonce
 }
 $settings = get_option('wp_file_manager_settings'); ?>
 <div class="wrap fm_rootWrap">
-<h3 class="fm_headingTitle"><?php _e('Settings - Root Directory', 'wp-file-manager'); ?></h3>
+<h3 class="fm_headingTitle"><?php _e('Preferences', 'wp-file-manager'); ?></h3>
 <?php $path = str_replace('\\', '/', ABSPATH); ?>
 <div class="fm_whiteBg">
 <form action="" method="post">

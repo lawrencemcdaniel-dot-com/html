@@ -108,9 +108,7 @@ class ScriptLoader
 		$libraryDependencies = array(
 			'datatables'		=> $plugin_dir_url . 'js/jquery.dataTables.min.js',
 			'javascript-cookie'		=> $plugin_dir_url . 'lib/jquery-cookie.js',
-			// 'modernizr-custom'	=> $plugin_dir_url . 'lib/modernizr-custom.js',
 			'remodal'			=> $plugin_dir_url . 'lib/' . ($wpgmza->isUsingMinifiedScripts() ? 'remodal.min.js' : 'remodal.js'),
-			// 'resize-sensor'		=> $plugin_dir_url . 'lib/ResizeSensor.js',
 			'spectrum'			=> $plugin_dir_url . 'lib/spectrum.js'
 		);
 		
@@ -556,5 +554,13 @@ class ScriptLoader
 		$data = $wpgmza->getLocalizedData();
 		
 		wp_localize_script('wpgmza', 'WPGMZA_localized_data', (array)$data);
+	}
+	
+	public function onScriptLoaderTag($tag, $handle, $src)
+	{
+		if(preg_match('/^wpgmza|wpgmaps/i', $handle))
+			return preg_replace('/defer=([\'"]defer[\'"])?/', '', $tag);
+		
+		return $tag;
 	}
 }

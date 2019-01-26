@@ -30,18 +30,18 @@ function avada_options_section_typography( $sections ) {
 		'priority' => 12,
 		'icon'     => 'el-icon-fontsize',
 		'fields'   => array(
-			'body_typography' => array(
-				'label'       => esc_html__( 'Body Typography', 'Avada' ),
-				'id'          => 'body_typography',
-				'type'        => 'sub-section',
-				'fields'      => array(
+			'body_typography'                   => array(
+				'label'  => esc_html__( 'Body Typography', 'Avada' ),
+				'id'     => 'body_typography',
+				'type'   => 'sub-section',
+				'fields' => array(
 					'body_typography_important_note_info' => array(
 						'label'       => '',
 						'description' => '<div class="fusion-redux-important-notice">' . __( '<strong>IMPORTANT NOTE:</strong> This tab contains general typography options. Additional typography options for specific areas can be found within other tabs. Example: For menu typography options go to the menu tab.', 'Avada' ) . '</div>',
 						'id'          => 'body_typography_important_note_info',
 						'type'        => 'custom',
 					),
-					'body_typography' => array(
+					'body_typography'                     => array(
 						'id'          => 'body_typography',
 						'label'       => esc_html__( 'Body Typography', 'Avada' ),
 						'description' => esc_html__( 'These settings control the typography for all body text.', 'Avada' ),
@@ -63,7 +63,7 @@ function avada_options_section_typography( $sections ) {
 							'color'          => '#747474',
 						),
 					),
-					'link_color' => array(
+					'link_color'                          => array(
 						'label'       => esc_html__( 'Link Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the color of all text links.', 'Avada' ),
 						'id'          => 'link_color',
@@ -72,18 +72,18 @@ function avada_options_section_typography( $sections ) {
 					),
 				),
 			),
-			'headers_typography_section' => array(
-				'label'       => esc_html__( 'Headers Typography', 'Avada' ),
-				'id'          => 'headers_typography_section',
-				'type'        => 'sub-section',
-				'fields'      => array(
+			'headers_typography_section'        => array(
+				'label'  => esc_html__( 'Headers Typography', 'Avada' ),
+				'id'     => 'headers_typography_section',
+				'type'   => 'sub-section',
+				'fields' => array(
 					'headers_typography_important_note_info' => array(
 						'label'       => '',
 						'description' => '<div class="fusion-redux-important-notice">' . __( '<strong>IMPORTANT NOTE:</strong> This tab contains general typography options. Additional typography options for specific areas can be found within other tabs. Example: For menu typography options go to the menu tab.', 'Avada' ) . '</div>',
 						'id'          => 'headers_typography_important_note_info',
 						'type'        => 'custom',
 					),
-					'h1_typography' => array(
+					'h1_typography'                 => array(
 						'id'          => 'h1_typography',
 						'label'       => esc_html__( 'H1 Headers Typography', 'Avada' ),
 						'description' => esc_html__( 'These settings control the typography for all H1 Headers.', 'Avada' ),
@@ -109,7 +109,7 @@ function avada_options_section_typography( $sections ) {
 							'margin-bottom'  => '0.67em',
 						),
 					),
-					'h2_typography' => array(
+					'h2_typography'                 => array(
 						'id'          => 'h2_typography',
 						'label'       => esc_html__( 'H2 Headers Typography', 'Avada' ),
 						'description' => esc_html__( 'These settings control the typography for all H2 Headers.', 'Avada' ),
@@ -135,7 +135,7 @@ function avada_options_section_typography( $sections ) {
 							'margin-bottom'  => '1.1em',
 						),
 					),
-					'h3_typography' => array(
+					'h3_typography'                 => array(
 						'id'          => 'h3_typography',
 						'label'       => esc_html__( 'H3 Headers Typography', 'Avada' ),
 						'description' => esc_html__( 'These settings control the typography for all H3 Headers.', 'Avada' ),
@@ -161,7 +161,7 @@ function avada_options_section_typography( $sections ) {
 							'margin-bottom'  => '1em',
 						),
 					),
-					'h4_typography' => array(
+					'h4_typography'                 => array(
 						'id'          => 'h4_typography',
 						'label'       => esc_html__( 'H4 Headers Typography', 'Avada' ),
 						'description' => esc_html__( 'These settings control the typography for all H4 Headers.', 'Avada' ),
@@ -187,7 +187,7 @@ function avada_options_section_typography( $sections ) {
 							'margin-bottom'  => '1.33em',
 						),
 					),
-					'h5_typography' => array(
+					'h5_typography'                 => array(
 						'id'          => 'h5_typography',
 						'label'       => esc_html__( 'H5 Headers Typography', 'Avada' ),
 						'description' => esc_html__( 'These settings control the typography for all H5 Headers.', 'Avada' ),
@@ -213,7 +213,7 @@ function avada_options_section_typography( $sections ) {
 							'margin-bottom'  => '1.67em',
 						),
 					),
-					'h6_typography' => array(
+					'h6_typography'                 => array(
 						'id'          => 'h6_typography',
 						'label'       => esc_html__( 'H6 Headers Typography', 'Avada' ),
 						'description' => esc_html__( 'These settings control the typography for all H6 Headers.', 'Avada' ),
@@ -239,7 +239,7 @@ function avada_options_section_typography( $sections ) {
 							'margin-bottom'  => '2.33em',
 						),
 					),
-					'post_title_typography' => array(
+					'post_title_typography'         => array(
 						'id'          => 'post_title_typography',
 						'label'       => esc_html__( 'Post Title Typography', 'Avada' ),
 						'description' => __( 'These settings control the typography of all post titles including archive and single posts.<br /><strong>IMPORTANT:</strong> On archive pages and in blog elements the linked post titles will use link color.', 'Avada' ),
@@ -256,7 +256,7 @@ function avada_options_section_typography( $sections ) {
 							'font-family'    => 'Antic Slab',
 							'font-size'      => '18px',
 							'font-weight'    => '400',
-							'line-height'    => '27px',
+							'line-height'    => '1.5',
 							'letter-spacing' => '0',
 							'color'          => '#333333',
 						),
@@ -286,17 +286,17 @@ function avada_options_section_typography( $sections ) {
 				),
 			),
 			'custom_webfont_typography_section' => array(
-				'label'       => esc_html__( 'Custom Fonts', 'Avada' ),
-				'id'          => 'custom_webfont_typography_section',
-				'type'        => 'sub-section',
-				'fields'      => array(
+				'label'  => esc_html__( 'Custom Fonts', 'Avada' ),
+				'id'     => 'custom_webfont_typography_section',
+				'type'   => 'sub-section',
+				'fields' => array(
 					'custom_fonts_info' => array(
 						'label'       => '',
 						'description' => '<div class="fusion-redux-important-notice">' . __( '<strong>IMPORTANT NOTE:</strong> Please upload your custom fonts below. Once you upload a custom font, <strong>you will have to save your options and reload this page on your browser</strong>. After you reload the page you will be able to select your new fonts - they will be available at the top of the fonts-list in the typography controls.', 'Avada' ) . '</div>',
 						'id'          => 'custom_fonts_info',
 						'type'        => 'custom',
 					),
-					'custom_fonts' => array(
+					'custom_fonts'      => array(
 						'label'       => esc_html__( 'Custom Fonts', 'Avada' ),
 						'description' => esc_html__( 'Upload a custom font to use throughout the site. All files are not necessary but are recommended for full browser support. You can upload as many custom fonts as you need. Click the "Add" button for additional upload boxes.', 'Avada' ),
 						'id'          => 'custom_fonts',
@@ -305,7 +305,7 @@ function avada_options_section_typography( $sections ) {
 						'bind_title'  => 'name',
 						'limit'       => 50,
 						'fields'      => array(
-							'name' => array(
+							'name'  => array(
 								'label'       => esc_html__( 'Font Name (this will be used in the font-family dropdown)', 'Avada' ),
 								'description' => '',
 								'id'          => 'name',
@@ -313,7 +313,7 @@ function avada_options_section_typography( $sections ) {
 								'type'        => 'text',
 								'class'       => 'avada-custom-font-name',
 							),
-							'woff' => array(
+							'woff'  => array(
 								'label'       => 'WOFF',
 								'description' => esc_html__( 'Upload the .woff font file.', 'Avada' ),
 								'id'          => 'woff',
@@ -329,7 +329,7 @@ function avada_options_section_typography( $sections ) {
 								'type'        => 'upload',
 								'mode'        => false,
 							),
-							'ttf' => array(
+							'ttf'   => array(
 								'label'       => 'TTF',
 								'description' => esc_html__( 'Upload the .ttf font file.', 'Avada' ),
 								'id'          => 'ttf',
@@ -337,7 +337,7 @@ function avada_options_section_typography( $sections ) {
 								'type'        => 'upload',
 								'mode'        => false,
 							),
-							'svg' => array(
+							'svg'   => array(
 								'label'       => 'SVG',
 								'description' => esc_html__( 'Upload the .svg font file.', 'Avada' ),
 								'id'          => 'svg',
@@ -345,7 +345,7 @@ function avada_options_section_typography( $sections ) {
 								'type'        => 'upload',
 								'mode'        => false,
 							),
-							'eot' => array(
+							'eot'   => array(
 								'label'       => 'EOT',
 								'description' => esc_html__( 'Upload the .eot font file.', 'Avada' ),
 								'id'          => 'eot',

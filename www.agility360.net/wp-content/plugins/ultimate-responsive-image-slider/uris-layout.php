@@ -25,7 +25,7 @@ $i = 1;
 $j = 1;
 ?>
 <script type="text/javascript">
-jQuery( document ).ready(function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
 	jQuery( '#example3_<?php echo $post_id; ?>' ).sliderPro({
 		//width
 		<?php if($WRIS_L3_Width == "100%") { ?>

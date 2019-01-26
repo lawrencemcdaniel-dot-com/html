@@ -153,11 +153,11 @@ if ( ! function_exists( 'avada_get_page_title_bar_contents' ) ) {
 			$secondary_content = '';
 		}
 
-		$title    = '';
-		$subtitle = '';
-		$page_title_custom_text = get_post_meta( $post_id, 'pyre_page_title_custom_text', true );
+		$title                       = '';
+		$subtitle                    = '';
+		$page_title_custom_text      = get_post_meta( $post_id, 'pyre_page_title_custom_text', true );
 		$page_title_custom_subheader = get_post_meta( $post_id, 'pyre_page_title_custom_subheader', true );
-		$page_title_text = get_post_meta( $post_id, 'pyre_page_title_text', true );
+		$page_title_text             = get_post_meta( $post_id, 'pyre_page_title_text', true );
 
 		if ( '' != $page_title_custom_text ) {
 			$title = $page_title_custom_text;
@@ -179,7 +179,7 @@ if ( ! function_exists( 'avada_get_page_title_bar_contents' ) ) {
 
 		if ( is_search() ) {
 			/* translators: The search query. */
-			$title = sprintf( esc_html__( 'Search results for: %s', 'Avada' ), get_search_query() );
+			$title    = sprintf( esc_html__( 'Search results for: %s', 'Avada' ), get_search_query() );
 			$subtitle = '';
 		}
 
@@ -271,7 +271,7 @@ if ( ! function_exists( 'avada_current_page_title_bar' ) ) {
 	 */
 	function avada_current_page_title_bar( $post_id ) {
 		$page_title_bar_contents = avada_get_page_title_bar_contents( $post_id );
-		$page_title = get_post_meta( $post_id, 'pyre_page_title', true );
+		$page_title              = get_post_meta( $post_id, 'pyre_page_title', true );
 
 		// Which TO to check for.
 		$page_title_option = Avada()->settings->get( 'page_title_bar' );
@@ -295,7 +295,7 @@ if ( ! function_exists( 'avada_current_page_title_bar' ) ) {
 			}
 
 			// No page option to check for so just check that TO is not set to hide.
-		} else if ( 'hide' !== $page_title_option ) {
+		} elseif ( 'hide' !== $page_title_option ) {
 			avada_page_title_bar( $page_title_bar_contents[0], $page_title_bar_contents[1], $page_title_bar_contents[2] );
 		}
 	}
@@ -309,9 +309,9 @@ if ( ! function_exists( 'avada_is_page_title_bar_enabled' ) ) {
 	 * @return bool
 	 */
 	function avada_is_page_title_bar_enabled( $post_id ) {
-		$page_title              = get_post_meta( $post_id, 'pyre_page_title', true );
-		$page_title_text         = get_post_meta( $post_id, 'pyre_page_title_text', true );
-		$is_title_bar_enabled    = false;
+		$page_title           = get_post_meta( $post_id, 'pyre_page_title', true );
+		$page_title_text      = get_post_meta( $post_id, 'pyre_page_title_text', true );
+		$is_title_bar_enabled = false;
 
 		// Which TO to check for.
 		$page_title_option      = Avada()->settings->get( 'page_title_bar' );
@@ -337,7 +337,7 @@ if ( ! function_exists( 'avada_is_page_title_bar_enabled' ) ) {
 			}
 
 			// No page option to check for so just check that TO is not set to hide.
-		} else if ( 'hide' !== $page_title_option && '0' !== $page_title_text_option ) {
+		} elseif ( 'hide' !== $page_title_option && '0' !== $page_title_text_option ) {
 			$is_title_bar_enabled = true;
 		}
 
@@ -365,22 +365,23 @@ if ( ! function_exists( 'avada_featured_images_for_pages' ) ) {
 
 		$video           = '';
 		$featured_images = '';
+		$post_id         = get_the_ID();
 
-		if ( ! post_password_required( get_the_ID() ) ) {
-
-			if ( Avada()->settings->get( 'featured_images_pages' ) ) {
-				$pyre_video = apply_filters( 'privacy_iframe_embed', get_post_meta( get_the_ID(), 'pyre_video', true ) );
+		if ( ! post_password_required( $post_id ) ) {
+			if ( Avada()->settings->get( 'featured_images_pages' ) && ! is_archive() ) {
+				$pyre_video = apply_filters( 'privacy_iframe_embed', get_post_meta( $post_id, 'pyre_video', true ) );
 				if ( 0 < avada_number_of_featured_images() || $pyre_video ) {
 					if ( $pyre_video ) {
 						$video = '<li><div class="full-video">' . $pyre_video . '</div></li>';
 					}
 
-					if ( has_post_thumbnail() && 'yes' != get_post_meta( get_the_ID(), 'pyre_show_first_featured_image', true ) ) {
-						$attachment_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-						$full_image       = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-						$attachment_data  = wp_get_attachment_metadata( get_post_thumbnail_id() );
-
-						$featured_images .= '<li><a href="' . $full_image[0] . '" rel="prettyPhoto[gallery' . get_the_ID() . ']" data-title="' . get_post_field( 'post_title', get_post_thumbnail_id() ) . '" data-caption="' . get_post_field( 'post_excerpt', get_post_thumbnail_id() ) . '"><img src="' . $attachment_image[0] . '" alt="' . get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) . '" role="presentation" /></a></li>';
+					if ( has_post_thumbnail() && 'yes' !== get_post_meta( $post_id, 'pyre_show_first_featured_image', true ) ) {
+						$attachment_data = Avada()->images->get_attachment_data( get_post_thumbnail_id() );
+						if ( is_array( $attachment_data ) ) {
+							$featured_images .= '<li><a href="' . esc_url( $attachment_data['url'] ) . '" data-rel="iLightbox[gallery' . $post_id . ']" title="' . esc_attr( $attachment_data['caption_attribute'] ) . '" data-title="' . esc_attr( $attachment_data['title_attribute'] ) . '" data-caption="' . esc_attr( $attachment_data['caption_attribute'] ) . '">';
+							$featured_images .= '<img src="' . esc_url( $attachment_data['url'] ) . '" alt="' . esc_attr( $attachment_data['alt'] ) . '" />';
+							$featured_images .= '</a></li>';
+						}
 					}
 
 					$i = 2;
@@ -389,12 +390,11 @@ if ( ! function_exists( 'avada_featured_images_for_pages' ) ) {
 						$attachment_new_id = fusion_get_featured_image_id( 'featured-image-' . $i, 'page' );
 
 						if ( $attachment_new_id ) {
+							$attachment_data = Avada()->images->get_attachment_data( $attachment_new_id );
 
-							$attachment_image = wp_get_attachment_image_src( $attachment_new_id, 'full' );
-							$full_image       = wp_get_attachment_image_src( $attachment_new_id, 'full' );
-							$attachment_data  = wp_get_attachment_metadata( $attachment_new_id );
-
-							$featured_images .= '<li><a href="' . $full_image[0] . '" rel="iLightbox[gallery' . get_the_ID() . ']" data-title="' . get_post_field( 'post_title', $attachment_new_id ) . '" data-caption="' . get_post_field( 'post_excerpt', $attachment_new_id ) . '"><img src="' . $attachment_image[0] . '" alt="' . get_post_meta( $attachment_new_id, '_wp_attachment_image_alt', true ) . '" role="presentation" /></a></li>';
+							$featured_images .= '<li><a href="' . esc_url( $attachment_data['url'] ) . '" data-rel="iLightbox[gallery' . $post_id . ']" title="' . esc_attr( $attachment_data['caption_attribute'] ) . '" data-title="' . esc_attr( $attachment_data['title_attribute'] ) . '" data-caption="' . esc_attr( $attachment_data['caption_attribute'] ) . '">';
+							$featured_images .= '<img src="' . esc_url( $attachment_data['url'] ) . '" alt="' . esc_attr( $attachment_data['alt'] ) . '" />';
+							$featured_images .= '</a></li>';
 						}
 						$i++;
 					endwhile;
@@ -469,6 +469,7 @@ if ( ! function_exists( 'avada_number_of_featured_images' ) ) {
 				$number_of_images++;
 			}
 		}
+
 		return $number_of_images;
 	}
 }

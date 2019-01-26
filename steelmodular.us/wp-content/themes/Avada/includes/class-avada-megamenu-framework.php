@@ -111,7 +111,7 @@ if ( ! class_exists( 'Avada_Megamenu_Framework' ) ) {
 		 * @return void.
 		 */
 		public function add_menu_button_fields( $item_id, $item, $depth, $args ) {
-			$name  = 'menu-item-fusion-megamenu-style';
+			$name = 'menu-item-fusion-megamenu-style';
 			?>
 			<div class="fusion-menu-options-container">
 				<a class="button button-primary button-large fusion-menu-option-trigger" href="#"><?php esc_attr_e( 'Avada Menu Options', 'Avada' ); ?></a>
@@ -269,7 +269,7 @@ if ( ! class_exists( 'Avada_Megamenu_Framework' ) ) {
 			<div class="fusion-builder-option field-megamenu-thumbnail">
 				<div class="option-details">
 					<h3><?php esc_html_e( 'Mega Menu Thumbnail', 'Avada' ); ?></h3>
-					<p class="description"><?php esc_html_e( 'Select an image to use as a thumbnail for the menu item. The size of the thumbnail can be controlled in Theme Options > Menu > Main Menu Icons.', 'Avada' ); ?></p>
+					<p class="description"><?php esc_html_e( 'Select an image to use as a thumbnail for the menu item. For top-level items, the size of the thumbnail can be controlled in Theme Options > Menu > Main Menu Icons.', 'Avada' ); ?></p>
 				</div>
 				<div class="option-field fusion-builder-option-container">
 					<div class="fusion-upload-image<?php echo ( isset( $item->fusion_megamenu_thumbnail ) && '' !== $item->fusion_megamenu_thumbnail ) ? ' fusion-image-set' : ''; ?>">
@@ -374,8 +374,8 @@ if ( ! class_exists( 'Avada_Megamenu_Framework' ) ) {
 		 */
 		public function add_menu_arrow_highlight( $title, $has_children = false ) {
 			$menu_highlight_style = Avada()->settings->get( 'menu_highlight_style' );
-			$header_layout    = Avada()->settings->get( 'header_layout' );
-			$svg              = '';
+			$header_layout        = Avada()->settings->get( 'header_layout' );
+			$svg                  = '';
 
 			if ( 'arrow' === $menu_highlight_style && 'v6' !== $header_layout ) {
 				$header_position  = Avada()->settings->get( 'header_position' );

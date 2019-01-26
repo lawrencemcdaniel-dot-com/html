@@ -11,7 +11,7 @@
  */
 
 $separator_styles_array = explode( ' ', Avada()->settings->get( 'title_style_type' ) );
-$separator_styles = '';
+$separator_styles       = '';
 
 foreach ( $separator_styles_array as $separator_style ) {
 	$separator_styles .= ' sep-' . $separator_style;

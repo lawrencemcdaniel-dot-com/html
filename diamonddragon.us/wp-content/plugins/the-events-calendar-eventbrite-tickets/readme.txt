@@ -3,9 +3,9 @@
 Contributors: ModernTribe, barry.hughes, bordoni, borkweb, brianjessee, brook-tribe, faction23, geoffgraham, ggwicz, jazbek, jbrinley, joshlimecuda, leahkoerper, lucatume, mastromktg, mat-lipe, mdbitz, neillmcshea, nicosantos, peterchester, reid.peifer, roblagatta, ryancurban, shane.pearlman, thatdudebutch,  zbtirrell
 Tags: widget, events, simple, tooltips, grid, month, list, calendar, event, venue, eventbrite, registration, tickets, ticketing, eventbright, api, dates, date, plugin, posts, sidebar, template, theme, time, google maps, google, maps, conference, workshop, concert, meeting, seminar, summit, forum, shortcode, The Events Calendar, The Events Calendar PRO
 Donate link: http://m.tri.be/29
-Requires at least: 4.5
-Tested up to: 4.9.8
-Stable tag: 4.5.6
+Requires at least: 4.7
+Tested up to: 5.0.2
+Stable tag: 4.5.7
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -189,6 +189,13 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
 
 == Changelog ==
+
+= [4.5.7] 2019-01-21 =
+
+* Fix - Eventbrite tickets not appearing on the event frontend [119548]
+* Fix - Ensure that looking up an event's Eventbrite.com ID via get_post_meta() does not interfere with other plugins' and themes' post meta lookups (huge thanks to @samsmith89 and @DevinWalker on GitHub for reporting this issue!) [117288]
+* Tweak - Ensure the "is migrating" transient and admin notice don't persist indefinitely [118624]
+* Language - 0 new strings added, 46 updated, 0 fuzzied, and 0 obsoleted
 
 = [4.5.6] 2018-11-13 =
 

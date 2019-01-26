@@ -3,7 +3,7 @@
  * Plugin Name: Fusion Core
  * Plugin URI: http://theme-fusion.com
  * Description: ThemeFusion Core Plugin for ThemeFusion Themes
- * Version: 3.7.2
+ * Version: 3.8
  * Author: ThemeFusion
  * Author URI: http://theme-fusion.com
  *
@@ -13,7 +13,7 @@
 
 // Plugin version.
 if ( ! defined( 'FUSION_CORE_VERSION' ) ) {
-	define( 'FUSION_CORE_VERSION', '3.7.2' );
+	define( 'FUSION_CORE_VERSION', '3.8' );
 }
 
 // Plugin Folder Path.
@@ -79,7 +79,7 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 		 * @since 1.0.0
 		 */
 		private function __construct() {
-			self::$js_folder_url = FUSION_CORE_URL . 'js/min';
+			self::$js_folder_url  = FUSION_CORE_URL . 'js/min';
 			self::$js_folder_path = FUSION_CORE_PATH . '/js/min';
 
 			add_action( 'after_setup_theme', array( $this, 'load_fusion_core_text_domain' ) );
@@ -200,14 +200,14 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 		 * @return array
 		 */
 		public static function get_fusion_sliders( $add_select_slider_label = '' ) {
-			$slides_array    = array();
+			$slides_array = array();
 
 			if ( $add_select_slider_label ) {
 				$slides_array[''] = esc_html( $add_select_slider_label );
 			}
 
-			$slides          = array();
-			$slides          = get_terms( 'slide-page' );
+			$slides = array();
+			$slides = get_terms( 'slide-page' );
 			if ( $slides && ! isset( $slides->errors ) ) {
 				$slides = maybe_unserialize( $slides );
 				foreach ( $slides as $key => $val ) {
@@ -240,7 +240,7 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 			// It will be added directly to the compiled CSS (@see scripts_dynamic_css method).
 			if ( class_exists( 'Fusion_Dynamic_CSS' ) ) {
 				$dynamic_css_obj = Fusion_Dynamic_CSS::get_instance();
-				$mode = ( method_exists( $dynamic_css_obj, 'get_mode' ) ) ? $dynamic_css_obj->get_mode() : $dynamic_css_obj->mode;
+				$mode            = ( method_exists( $dynamic_css_obj, 'get_mode' ) ) ? $dynamic_css_obj->get_mode() : $dynamic_css_obj->mode;
 				if ( 'file' === $mode ) {
 					return;
 				}
@@ -259,8 +259,8 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 		 */
 		public function scripts_dynamic_css( $original_styles ) {
 			$dynamic_css_obj = Fusion_Dynamic_CSS::get_instance();
-			$mode = ( method_exists( $dynamic_css_obj, 'get_mode' ) ) ? $dynamic_css_obj->get_mode() : $dynamic_css_obj->mode;
-			$styles = '';
+			$mode            = ( method_exists( $dynamic_css_obj, 'get_mode' ) ) ? $dynamic_css_obj->get_mode() : $dynamic_css_obj->mode;
+			$styles          = '';
 
 			if ( 'file' === $mode ) {
 				$wp_filesystem = Fusion_Helper::init_filesystem();
@@ -307,11 +307,15 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 				'avada_portfolio',
 				array(
 					'labels'      => array(
-						'name'          => _x( 'Portfolio', 'Post Type General Name', 'fusion-core' ),
-						'singular_name' => _x( 'Portfolio', 'Post Type Singular Name', 'fusion-core' ),
-						'add_new_item'  => _x( 'Add New Portfolio Post', 'fusion-core' ),
-						'edit_item'  => _x( 'Edit Portfolio Post', 'fusion-core' ),
-
+						'name'                     => _x( 'Portfolio', 'Post Type General Name', 'fusion-core' ),
+						'singular_name'            => _x( 'Portfolio', 'Post Type Singular Name', 'fusion-core' ),
+						'add_new_item'             => _x( 'Add New Portfolio Post', 'fusion-core' ),
+						'edit_item'                => _x( 'Edit Portfolio Post', 'fusion-core' ),
+						'item_published'           => __( 'Portfolio published.', 'fusion-core' ),
+						'item_published_privately' => __( 'Portfolio published privately.', 'fusion-core' ),
+						'item_reverted_to_draft'   => __( 'Portfolio reverted to draft.', 'fusion-core' ),
+						'item_scheduled'           => __( 'Portfolio scheduled.', 'fusion-core' ),
+						'item_updated'             => __( 'Portfolio updated.', 'fusion-core' ),
 					),
 					'public'      => true,
 					'has_archive' => true,
@@ -372,19 +376,24 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 			register_post_type(
 				'avada_faq',
 				array(
-					'labels' => array(
-						'name'          => _x( 'FAQs', 'Post Type General Name', 'fusion-core' ),
-						'singular_name' => _x( 'FAQ', 'Post Type Singular Name', 'fusion-core' ),
-						'add_new_item'  => _x( 'Add New FAQ Post', 'fusion-core' ),
-						'edit_item'  => _x( 'Edit FAQ Post', 'fusion-core' ),
+					'labels'      => array(
+						'name'                     => _x( 'FAQs', 'Post Type General Name', 'fusion-core' ),
+						'singular_name'            => _x( 'FAQ', 'Post Type Singular Name', 'fusion-core' ),
+						'add_new_item'             => _x( 'Add New FAQ Post', 'fusion-core' ),
+						'edit_item'                => _x( 'Edit FAQ Post', 'fusion-core' ),
+						'item_published'           => __( 'FAQ published.', 'fusion-core' ),
+						'item_published_privately' => __( 'FAQ published privately.', 'fusion-core' ),
+						'item_reverted_to_draft'   => __( 'FAQ reverted to draft.', 'fusion-core' ),
+						'item_scheduled'           => __( 'FAQ scheduled.', 'fusion-core' ),
+						'item_updated'             => __( 'FAQ updated.', 'fusion-core' ),
 					),
-					'public' => true,
+					'public'      => true,
 					'has_archive' => true,
-					'rewrite' => array(
+					'rewrite'     => array(
 						'slug' => 'faq-items',
 					),
-					'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', 'post-formats' ),
-					'can_export' => true,
+					'supports'    => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', 'post-formats' ),
+					'can_export'  => true,
 				)
 			);
 
@@ -393,7 +402,7 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 				'avada_faq',
 				array(
 					'hierarchical' => true,
-					'label'        => 'FAQ Categories',
+					'label'        => __( 'FAQ Categories', 'fusion-core' ),
 					'query_var'    => true,
 					'rewrite'      => true,
 				)
@@ -404,30 +413,35 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 				register_post_type(
 					'themefusion_elastic',
 					array(
-						'public' => true,
-						'has_archive' => false,
-						'rewrite' => array(
+						'public'              => true,
+						'has_archive'         => false,
+						'rewrite'             => array(
 							'slug' => 'elastic-slide',
 						),
-						'supports' => array( 'title', 'thumbnail' ),
-						'can_export' => true,
-						'menu_position' => 100,
+						'supports'            => array( 'title', 'thumbnail' ),
+						'can_export'          => true,
+						'menu_position'       => 100,
 						'publicly_queryable'  => false,
 						'exclude_from_search' => true,
-						'labels' => array(
-							'name'               => _x( 'Elastic Sliders', 'Post Type General Name', 'fusion-core' ),
-							'singular_name'      => _x( 'Elastic Slider', 'Post Type Singular Name', 'fusion-core' ),
-							'menu_name'          => esc_attr__( 'Elastic Slider', 'fusion-core' ),
-							'parent_item_colon'  => esc_attr__( 'Parent Slide:', 'fusion-core' ),
-							'all_items'          => esc_attr__( 'Add or Edit Slides', 'fusion-core' ),
-							'view_item'          => esc_attr__( 'View Slides', 'fusion-core' ),
-							'add_new_item'       => esc_attr__( 'Add New Slide', 'fusion-core' ),
-							'add_new'            => esc_attr__( 'Add New Slide', 'fusion-core' ),
-							'edit_item'          => esc_attr__( 'Edit Slide', 'fusion-core' ),
-							'update_item'        => esc_attr__( 'Update Slide', 'fusion-core' ),
-							'search_items'       => esc_attr__( 'Search Slide', 'fusion-core' ),
-							'not_found'          => esc_attr__( 'Not found', 'fusion-core' ),
-							'not_found_in_trash' => esc_attr__( 'Not found in Trash', 'fusion-core' ),
+						'labels'              => array(
+							'name'                     => _x( 'Elastic Sliders', 'Post Type General Name', 'fusion-core' ),
+							'singular_name'            => _x( 'Elastic Slider', 'Post Type Singular Name', 'fusion-core' ),
+							'menu_name'                => esc_attr__( 'Elastic Slider', 'fusion-core' ),
+							'parent_item_colon'        => esc_attr__( 'Parent Slide:', 'fusion-core' ),
+							'all_items'                => esc_attr__( 'Add or Edit Slides', 'fusion-core' ),
+							'view_item'                => esc_attr__( 'View Slides', 'fusion-core' ),
+							'add_new_item'             => esc_attr__( 'Add New Slide', 'fusion-core' ),
+							'add_new'                  => esc_attr__( 'Add New Slide', 'fusion-core' ),
+							'edit_item'                => esc_attr__( 'Edit Slide', 'fusion-core' ),
+							'update_item'              => esc_attr__( 'Update Slide', 'fusion-core' ),
+							'search_items'             => esc_attr__( 'Search Slide', 'fusion-core' ),
+							'not_found'                => esc_attr__( 'Not found', 'fusion-core' ),
+							'not_found_in_trash'       => esc_attr__( 'Not found in Trash', 'fusion-core' ),
+							'item_published'           => __( 'Slide published.', 'fusion-core' ),
+							'item_published_privately' => __( 'Slide published privately.', 'fusion-core' ),
+							'item_reverted_to_draft'   => __( 'Slide reverted to draft.', 'fusion-core' ),
+							'item_scheduled'           => __( 'Slide scheduled.', 'fusion-core' ),
+							'item_updated'             => __( 'Slide updated.', 'fusion-core' ),
 						),
 					)
 				);
@@ -437,9 +451,9 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 					'themefusion_elastic',
 					array(
 						'hierarchical' => false,
-						'query_var' => true,
-						'rewrite' => true,
-						'labels' => array(
+						'query_var'    => true,
+						'rewrite'      => true,
+						'labels'       => array(
 							'name'                       => _x( 'Groups', 'Taxonomy General Name', 'fusion-core' ),
 							'singular_name'              => _x( 'Group', 'Taxonomy Singular Name', 'fusion-core' ),
 							'menu_name'                  => esc_attr__( 'Add or Edit Groups', 'fusion-core' ),
@@ -457,7 +471,7 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 						),
 					)
 				);
-			} // End if().
+			}
 
 			// qTranslate and mqTranslate custom post type support.
 			if ( function_exists( 'qtrans_getLanguage' ) ) {
@@ -583,8 +597,8 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 			$shortcode_option_map = array();
 
 			// Portfolio.
-			$portfolio_is_single_column = array(
-				'check' => array(
+			$portfolio_is_single_column                                   = array(
+				'check'  => array(
 					'element-global' => 'portfolio_columns',
 					'value'          => '1',
 					'operator'       => '==',
@@ -598,174 +612,174 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 			$shortcode_option_map['column_spacing']['fusion_portfolio'][] = $portfolio_is_single_column;
 			$shortcode_option_map['equal_heights']['fusion_portfolio'][]  = $portfolio_is_single_column;
 
-			$shortcode_option_map['grid_element_color']['fusion_portfolio'][] = array(
-				'check' => array(
+			$shortcode_option_map['grid_element_color']['fusion_portfolio'][]        = array(
+				'check'  => array(
 					'element-global' => 'portfolio_text_layout',
-					'value' => 'boxed',
-					'operator' => '!=',
+					'value'          => 'boxed',
+					'operator'       => '!=',
 				),
 				'output' => array(
-					'element' => 'text_layout',
-					'value' => 'default',
+					'element'  => 'text_layout',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['grid_box_color']['fusion_portfolio'][] = array(
-				'check' => array(
+			$shortcode_option_map['grid_box_color']['fusion_portfolio'][]            = array(
+				'check'  => array(
 					'element-global' => 'portfolio_text_layout',
-					'value' => 'no_text',
-					'operator' => '==',
+					'value'          => 'no_text',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'text_layout',
-					'value' => 'default',
+					'element'  => 'text_layout',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
 			$shortcode_option_map['grid_separator_style_type']['fusion_portfolio'][] = array(
-				'check' => array(
+				'check'  => array(
 					'element-global' => 'portfolio_text_layout',
-					'value' => 'boxed',
-					'operator' => '!=',
+					'value'          => 'boxed',
+					'operator'       => '!=',
 				),
 				'output' => array(
-					'element' => 'text_layout',
-					'value' => 'default',
+					'element'  => 'text_layout',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['grid_separator_color']['fusion_portfolio'][] = array(
-				'check' => array(
+			$shortcode_option_map['grid_separator_color']['fusion_portfolio'][]      = array(
+				'check'  => array(
 					'element-global' => 'portfolio_text_layout',
-					'value' => 'boxed',
-					'operator' => '!=',
+					'value'          => 'boxed',
+					'operator'       => '!=',
 				),
 				'output' => array(
-					'element' => 'text_layout',
-					'value' => 'default',
+					'element'  => 'text_layout',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['portfolio_layout_padding']['fusion_portfolio'][] = array(
-				'check' => array(
+			$shortcode_option_map['portfolio_layout_padding']['fusion_portfolio'][]  = array(
+				'check'  => array(
 					'element-global' => 'portfolio_text_layout',
-					'value' => 'unboxed',
-					'operator' => '==',
+					'value'          => 'unboxed',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'text_layout',
-					'value' => 'default',
+					'element'  => 'text_layout',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['excerpt_length']['fusion_portfolio'][] = array(
-				'check' => array(
+			$shortcode_option_map['excerpt_length']['fusion_portfolio'][]            = array(
+				'check'  => array(
 					'element-global' => 'portfolio_content_length',
-					'value' => 'full_content',
-					'operator' => '==',
+					'value'          => 'full_content',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'content_length',
-					'value' => 'default',
+					'element'  => 'content_length',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['excerpt_length']['fusion_portfolio'][] = array(
-				'check' => array(
+			$shortcode_option_map['excerpt_length']['fusion_portfolio'][]            = array(
+				'check'  => array(
 					'element-global' => 'portfolio_content_length',
-					'value' => 'excerpt',
-					'operator' => '!=',
+					'value'          => 'excerpt',
+					'operator'       => '!=',
 				),
 				'output' => array(
-					'element' => 'content_length',
-					'value' => 'default',
+					'element'  => 'content_length',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
 
 			$shortcode_option_map['strip_html']['fusion_portfolio'][] = array(
-				'check' => array(
+				'check'  => array(
 					'element-global' => 'portfolio_content_length',
-					'value' => 'full_content',
-					'operator' => '==',
+					'value'          => 'full_content',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'content_length',
-					'value' => 'default',
+					'element'  => 'content_length',
+					'value'    => 'default',
 					'operator' => '!=',
 				),
 			);
 
 			// FAQs.
-			$shortcode_option_map['divider_line']['fusion_faq'][] = array(
-				'check' => array(
+			$shortcode_option_map['divider_line']['fusion_faq'][]     = array(
+				'check'  => array(
 					'element-global' => 'faq_accordion_boxed_mode',
-					'value' => '1',
-					'operator' => '==',
+					'value'          => '1',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'boxed_mode',
-					'value' => '',
+					'element'  => 'boxed_mode',
+					'value'    => '',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['border_size']['fusion_faq'][] = array(
-				'check' => array(
+			$shortcode_option_map['border_size']['fusion_faq'][]      = array(
+				'check'  => array(
 					'element-global' => 'faq_accordion_boxed_mode',
-					'value' => '0',
-					'operator' => '==',
+					'value'          => '0',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'boxed_mode',
-					'value' => '',
+					'element'  => 'boxed_mode',
+					'value'    => '',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['border_color']['fusion_faq'][] = array(
-				'check' => array(
+			$shortcode_option_map['border_color']['fusion_faq'][]     = array(
+				'check'  => array(
 					'element-global' => 'faq_accordion_boxed_mode',
-					'value' => '0',
-					'operator' => '==',
+					'value'          => '0',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'boxed_mode',
-					'value' => '',
+					'element'  => 'boxed_mode',
+					'value'    => '',
 					'operator' => '!=',
 				),
 			);
 			$shortcode_option_map['background_color']['fusion_faq'][] = array(
-				'check' => array(
+				'check'  => array(
 					'element-global' => 'faq_accordion_boxed_mode',
-					'value' => '0',
-					'operator' => '==',
+					'value'          => '0',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'boxed_mode',
-					'value' => '',
+					'element'  => 'boxed_mode',
+					'value'    => '',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['hover_color']['fusion_faq'][] = array(
-				'check' => array(
+			$shortcode_option_map['hover_color']['fusion_faq'][]      = array(
+				'check'  => array(
 					'element-global' => 'faq_accordion_boxed_mode',
-					'value' => '0',
-					'operator' => '==',
+					'value'          => '0',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'boxed_mode',
-					'value' => '',
+					'element'  => 'boxed_mode',
+					'value'    => '',
 					'operator' => '!=',
 				),
 			);
-			$shortcode_option_map['icon_box_color']['fusion_faq'][] = array(
-				'check' => array(
+			$shortcode_option_map['icon_box_color']['fusion_faq'][]   = array(
+				'check'  => array(
 					'element-global' => 'faq_accordion_icon_boxed',
-					'value' => '0',
-					'operator' => '==',
+					'value'          => '0',
+					'operator'       => '==',
 				),
 				'output' => array(
-					'element' => 'icon_boxed_mode',
-					'value' => '',
+					'element'  => 'icon_boxed_mode',
+					'value'    => '',
 					'operator' => '!=',
 				),
 			);
@@ -774,14 +788,14 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 			if ( isset( $shortcode_option_map[ $option ][ $shortcode ] ) && is_array( $shortcode_option_map[ $option ][ $shortcode ] ) ) {
 				foreach ( $shortcode_option_map[ $option ][ $shortcode ] as $option_check ) {
 					$option_value = $fusion_settings->get( $option_check['check']['element-global'] );
-					$pass = false;
+					$pass         = false;
 
 					// Check the result of check.
-					if ( '==' == $option_check['check']['operator'] ) {
-						$pass = ( $option_value == $option_check['check']['value'] ) ? true : false;
+					if ( '==' === $option_check['check']['operator'] ) {
+						$pass = ( $option_value == $option_check['check']['value'] ); // phpcs:ignore WordPress.PHP.StrictComparisons
 					}
-					if ( '!=' == $option_check['check']['operator'] ) {
-						$pass = ( $option_value != $option_check['check']['value'] ) ? true : false;
+					if ( '!=' === $option_check['check']['operator'] ) {
+						$pass = ( $option_value != $option_check['check']['value'] ); // phpcs:ignore WordPress.PHP.StrictComparisons
 					}
 
 					// If check passes then add dependency for checking.
@@ -802,148 +816,148 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 		public function map_builder_descriptions( $shortcode_option_map ) {
 
 			// Portfolio.
-			$shortcode_option_map['portfolio_layout_padding']['fusion_portfolio'] = array(
+			$shortcode_option_map['portfolio_layout_padding']['fusion_portfolio']       = array(
 				'theme-option' => 'portfolio_layout_padding',
 				'subset'       => array( 'top', 'right', 'bottom', 'left' ),
 			);
-			$shortcode_option_map['picture_size']['fusion_portfolio'] = array(
+			$shortcode_option_map['picture_size']['fusion_portfolio']                   = array(
 				'theme-option' => 'portfolio_featured_image_size',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['text_layout']['fusion_portfolio'] = array(
+			$shortcode_option_map['text_layout']['fusion_portfolio']                    = array(
 				'theme-option' => 'portfolio_text_layout',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['portfolio_text_alignment']['fusion_portfolio'] = array(
+			$shortcode_option_map['portfolio_text_alignment']['fusion_portfolio']       = array(
 				'theme-option' => 'portfolio_text_alignment',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['columns']['fusion_portfolio'] = array(
+			$shortcode_option_map['columns']['fusion_portfolio']                        = array(
 				'theme-option' => 'portfolio_columns',
 				'type'         => 'range',
 			);
-			$shortcode_option_map['column_spacing']['fusion_portfolio'] = array(
+			$shortcode_option_map['column_spacing']['fusion_portfolio']                 = array(
 				'theme-option' => 'portfolio_column_spacing',
 				'type'         => 'range',
 			);
-			$shortcode_option_map['number_posts']['fusion_portfolio'] = array(
+			$shortcode_option_map['number_posts']['fusion_portfolio']                   = array(
 				'theme-option' => 'portfolio_items',
 				'type'         => 'range',
 			);
-			$shortcode_option_map['pagination_type']['fusion_portfolio'] = array(
+			$shortcode_option_map['pagination_type']['fusion_portfolio']                = array(
 				'theme-option' => 'portfolio_pagination_type',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['content_length']['fusion_portfolio'] = array(
+			$shortcode_option_map['content_length']['fusion_portfolio']                 = array(
 				'theme-option' => 'portfolio_content_length',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['excerpt_length']['fusion_portfolio'] = array(
+			$shortcode_option_map['excerpt_length']['fusion_portfolio']                 = array(
 				'theme-option' => 'portfolio_excerpt_length',
 				'type'         => 'range',
 			);
-			$shortcode_option_map['portfolio_title_display']['fusion_portfolio'] = array(
+			$shortcode_option_map['portfolio_title_display']['fusion_portfolio']        = array(
 				'theme-option' => 'portfolio_title_display',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['strip_html']['fusion_portfolio'] = array(
+			$shortcode_option_map['strip_html']['fusion_portfolio']                     = array(
 				'theme-option' => 'portfolio_strip_html_excerpt',
 				'type'         => 'yesno',
 			);
-			$shortcode_option_map['grid_box_color']['fusion_portfolio'] = array(
+			$shortcode_option_map['grid_box_color']['fusion_portfolio']                 = array(
 				'theme-option' => 'timeline_bg_color',
 				'reset'        => true,
 			);
-			$shortcode_option_map['grid_element_color']['fusion_portfolio'] = array(
+			$shortcode_option_map['grid_element_color']['fusion_portfolio']             = array(
 				'theme-option' => 'timeline_color',
 				'reset'        => true,
 			);
-			$shortcode_option_map['grid_separator_style_type']['fusion_portfolio'] = array(
+			$shortcode_option_map['grid_separator_style_type']['fusion_portfolio']      = array(
 				'theme-option' => 'grid_separator_style_type',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['grid_separator_color']['fusion_portfolio'] = array(
+			$shortcode_option_map['grid_separator_color']['fusion_portfolio']           = array(
 				'theme-option' => 'grid_separator_color',
 				'reset'        => true,
 			);
-			$shortcode_option_map['portfolio_masonry_grid_ratio']['fusion_portfolio'] = array(
+			$shortcode_option_map['portfolio_masonry_grid_ratio']['fusion_portfolio']   = array(
 				'theme-option' => 'masonry_grid_ratio',
-				'type' => 'range',
+				'type'         => 'range',
 			);
 			$shortcode_option_map['portfolio_masonry_width_double']['fusion_portfolio'] = array(
 				'theme-option' => 'masonry_width_double',
-				'type' => 'range',
+				'type'         => 'range',
 			);
 
 			// FAQs.
-			$shortcode_option_map['featured_image']['fusion_faq'] = array(
+			$shortcode_option_map['featured_image']['fusion_faq']            = array(
 				'theme-option' => 'faq_featured_image',
 				'type'         => 'yesno',
 			);
-			$shortcode_option_map['filters']['fusion_faq'] = array(
+			$shortcode_option_map['filters']['fusion_faq']                   = array(
 				'theme-option' => 'faq_filters',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['type']['fusion_faq'] = array(
+			$shortcode_option_map['type']['fusion_faq']                      = array(
 				'theme-option' => 'faq_accordion_type',
 				'type'         => 'select',
 			);
-			$shortcode_option_map['divider_line']['fusion_faq'] = array(
+			$shortcode_option_map['divider_line']['fusion_faq']              = array(
 				'theme-option' => 'faq_accordion_divider_line',
 				'type'         => 'yesno',
 			);
-			$shortcode_option_map['boxed_mode']['fusion_faq'] = array(
+			$shortcode_option_map['boxed_mode']['fusion_faq']                = array(
 				'theme-option' => 'faq_accordion_boxed_mode',
 				'type'         => 'yesno',
 			);
-			$shortcode_option_map['border_size']['fusion_faq'] = array(
+			$shortcode_option_map['border_size']['fusion_faq']               = array(
 				'theme-option' => 'faq_accordion_border_size',
 				'type'         => 'range',
 			);
-			$shortcode_option_map['border_color']['fusion_faq'] = array(
+			$shortcode_option_map['border_color']['fusion_faq']              = array(
 				'theme-option' => 'faq_accordian_border_color',
 				'reset'        => true,
 			);
-			$shortcode_option_map['background_color']['fusion_faq'] = array(
+			$shortcode_option_map['background_color']['fusion_faq']          = array(
 				'theme-option' => 'faq_accordian_background_color',
 				'reset'        => true,
 			);
-			$shortcode_option_map['hover_color']['fusion_faq'] = array(
+			$shortcode_option_map['hover_color']['fusion_faq']               = array(
 				'theme-option' => 'faq_accordian_hover_color',
 				'reset'        => true,
 			);
-			$shortcode_option_map['title_font_size']['fusion_faq'] = array(
+			$shortcode_option_map['title_font_size']['fusion_faq']           = array(
 				'theme-option' => 'faq_accordion_title_font_size',
 			);
-			$shortcode_option_map['icon_size']['fusion_faq'] = array(
+			$shortcode_option_map['icon_size']['fusion_faq']                 = array(
 				'theme-option' => 'faq_accordion_icon_size',
 				'type'         => 'range',
 			);
-			$shortcode_option_map['icon_color']['fusion_faq'] = array(
+			$shortcode_option_map['icon_color']['fusion_faq']                = array(
 				'theme-option' => 'faq_accordian_icon_color',
 				'reset'        => true,
 			);
-			$shortcode_option_map['icon_boxed_mode']['fusion_faq'] = array(
+			$shortcode_option_map['icon_boxed_mode']['fusion_faq']           = array(
 				'theme-option' => 'faq_accordion_icon_boxed',
 				'type'         => 'yesno',
 			);
-			$shortcode_option_map['icon_box_color']['fusion_faq'] = array(
+			$shortcode_option_map['icon_box_color']['fusion_faq']            = array(
 				'theme-option' => 'faq_accordian_inactive_color',
-				'reset' => true,
+				'reset'        => true,
 			);
-			$shortcode_option_map['icon_alignment']['fusion_faq'] = array(
+			$shortcode_option_map['icon_alignment']['fusion_faq']            = array(
 				'theme-option' => 'faq_accordion_icon_align',
 				'type'         => 'select',
 			);
 			$shortcode_option_map['toggle_hover_accent_color']['fusion_faq'] = array(
 				'theme-option' => 'faq_accordian_active_color',
-				'reset' => true,
+				'reset'        => true,
 			);
 
 			return $shortcode_option_map;
 		}
 	}
-} // End if().
+}
 
 // Load the instance of the plugin.
 add_action( 'plugins_loaded', array( 'FusionCore_Plugin', 'get_instance' ) );
@@ -1139,7 +1153,7 @@ function fusion_add_thumbnail_in_column( $column, $post_id ) {
 
 	switch ( $column ) {
 		case 'tf_thumbnail':
-			echo '<a href="' . get_edit_post_link( $post_id ) . '">'; // WPCS: XSS ok.
+			echo '<a href="' . esc_url_raw( get_edit_post_link( $post_id ) ) . '">';
 			if ( has_post_thumbnail( $post_id ) ) {
 				echo get_the_post_thumbnail( $post_id, 'thumbnail' );
 			} else {
@@ -1176,12 +1190,12 @@ function fusion_remove_orphan_shortcodes( $content ) {
 	$active_shortcodes = ( is_array( $shortcode_tags ) && ! empty( $shortcode_tags ) ) ? array_keys( $shortcode_tags ) : array();
 
 	// Avoid "/" chars in content breaks preg_replace.
-	$unique_string_one   = md5( microtime() );
-	$content             = str_replace( '[/fusion_', $unique_string_one, $content );
+	$unique_string_one = md5( microtime() );
+	$content           = str_replace( '[/fusion_', $unique_string_one, $content );
 
-	$unique_string_two   = md5( microtime() + 1 );
-	$content             = str_replace( '/fusion_', $unique_string_two, $content );
-	$content             = str_replace( $unique_string_one, '[/fusion_', $content );
+	$unique_string_two = md5( microtime() + 1 );
+	$content           = str_replace( '/fusion_', $unique_string_two, $content );
+	$content           = str_replace( $unique_string_one, '[/fusion_', $content );
 
 	if ( ! empty( $active_shortcodes ) ) {
 		// Be sure to keep active shortcodes.
@@ -1209,7 +1223,7 @@ function fusion_remove_orphan_shortcodes( $content ) {
 function fusion_core_wp_link_query_args( $query ) {
 
 	// Get array key for the post type 'slide'.
-	$slide_post_type_key = array_search( 'slide', $query['post_type'] );
+	$slide_post_type_key = array_search( 'slide', $query['post_type'], true );
 
 	// Remove the post type from query.
 	if ( $slide_post_type_key ) {
@@ -1217,7 +1231,7 @@ function fusion_core_wp_link_query_args( $query ) {
 	}
 
 	// Get array key for the post type 'themefusion_elastic'.
-	$elastic_slider_post_type_key = array_search( 'themefusion_elastic', $query['post_type'] );
+	$elastic_slider_post_type_key = array_search( 'themefusion_elastic', $query['post_type'], true );
 
 	// Remove the post type from query.
 	if ( $elastic_slider_post_type_key ) {

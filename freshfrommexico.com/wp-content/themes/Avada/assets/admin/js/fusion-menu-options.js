@@ -9,7 +9,7 @@ var FusionDelay = ( function() {
 }() );
 
 function fusionIconPicker( value, id, container, search ) {
-	var icons       = fusionMenuConfig.fontawesomeicons,
+	var icons     = fusionMenuConfig.fontawesomeicons,
 		output      = jQuery( '.fusion-icons-rendered' ).html(),
 		oldIconName = '';
 
@@ -114,6 +114,8 @@ function fusionIconPicker( value, id, container, search ) {
 			subset = 'fab';
 		} else if ( $i.hasClass( 'far' ) ) {
 			subset = 'far';
+		} else if ( $i.hasClass( 'fal' ) ) {
+			subset = 'fal';
 		}
 
 		if ( jQuery( this ).hasClass( 'selected-element' ) ) {
@@ -396,14 +398,25 @@ jQuery( document ).ready( function() {
 
 	( function initIconPicker() {
 			var icons  = fusionMenuConfig.fontawesomeicons,
-				output  = '<div class="fusion-icons-rendered" style="height:0px; overflow:hidden;">';
+				output  = '<div class="fusion-icons-rendered" style="height:0px; overflow:hidden;">',
+				iconSubsets = {
+					fab: 'Brands',
+					far: 'Regular',
+					fas: 'Solid',
+					fal: 'Light'
+				};
 
 			_.each( icons, function( icon, key ) {
-				output += '<span class="icon_preview icon-' + icon[0] + '"><i class="' + icon[0] + ' ' + icon[1] + '" data-name="' + icon[0].substr( 3 ) + '"></i></span>';
+
+				_.each( icon[1], function( iconSubset ) {
+					if ( -1 !== fusionMenuConfig.fontawesomesubsets.indexOf( iconSubset ) ) {
+						output += '<span class="icon_preview icon-' + icon[0] + '" title="' + key + ' - ' + iconSubsets[ iconSubset ] + '"><i class="' + icon[0] + ' ' + iconSubset + '" data-name="' + icon[0].substr( 3 ) + '"></i></span>';
+					}
+				} );
+
 			} );
 			output += '</div>';
 			jQuery( 'body' ).append( output );
-
 		} () );
 
 } );

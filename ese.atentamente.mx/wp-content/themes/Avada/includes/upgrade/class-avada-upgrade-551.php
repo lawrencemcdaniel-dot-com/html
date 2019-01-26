@@ -47,7 +47,7 @@ class Avada_Upgrade_551 extends Avada_Upgrade_Abstract {
 	 * @return void
 	 */
 	protected function migration_process() {
-		$available_languages = Fusion_Multilingual::get_available_languages();
+		$available_languages       = Fusion_Multilingual::get_available_languages();
 		self::$available_languages = ( ! empty( $available_languages ) ) ? $available_languages : array( '' );
 
 		$this->migrate_options();

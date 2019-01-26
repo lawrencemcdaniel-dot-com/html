@@ -5,7 +5,7 @@ Tags: events, calendar, event, venue, organizer, dates, date, google maps, confe
 Donate link: http://m.tri.be/29
 Requires at least: 4.7
 Tested up to: 5.0.2
-Stable tag: 4.5.2
+Stable tag: 4.5.3
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -205,8 +205,21 @@ Our Premium Plugins:
 
 == Changelog ==
 
+= [4.5.3] 2019-01-21 =
+
+* Fix - Recurrence meta box will show again on Classic Editor [120137]
+* Fix - Update textdomain for strings coming from the Gutenberg extension merge [118656]
+* Fix - Fixed a number of small layout bugs with the new Twenty Nineteen core theme [119689]
+* Language - 2 new strings added, 58 updated, 0 fuzzied, and 1 obsoleted
+
+= [4.5.2.1] 2019-01-14 =
+
+* Fix - Display recurrence section in classic editor for all users that don't have blocks [119912]
+
 = [4.5.2] 2018-12-19 =
 
+* Fix - Fixed a number of small layout bugs with the new Twenty Nineteen core theme [119689]
+* Tweak - Ensure that block editor admin notices report the accurate number of recurring events created [118608]
 * Tweak - Ensure that recurrence rule types use their plural form when appropriate in the Events block [117441]
 
 = [4.5.1] 2018-12-13 =

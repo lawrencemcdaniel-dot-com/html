@@ -46,31 +46,33 @@ $totals = $order->get_order_item_totals();
 						<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
 							<td class="product-name">
 								<?php // ThemeFusion edit for Avada theme: add thumbnail to product name column. ?>
-								<?php if ( $is_visible ) : ?>
-									<span class="product-thumbnail">
+								<div class="fusion-product-name-wrapper">
+									<?php if ( $is_visible ) : ?>
+										<span class="product-thumbnail">
+											<?php
+												$thumbnail = $product->get_image();
+
+												if ( ! $product_permalink ) {
+													echo $thumbnail;
+												} else {
+													printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+												}
+											?>
+										</span>
+									<?php endif; ?>
+
+									<div class="product-info">
 										<?php
-											$thumbnail = $product->get_image();
+										echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), esc_html( $item->get_name() ) ) : esc_html( $item->get_name() ), $item, $is_visible );
+										echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item );
 
-											if ( ! $product_permalink ) {
-												echo $thumbnail;
-											} else {
-												printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
-											}
+										do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
+
+										wc_display_item_meta( $item );
+
+										do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
 										?>
-									</span>
-								<?php endif; ?>
-
-								<div class="product-info">
-									<?php
-									echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), esc_html( $item->get_name() ) ) : esc_html( $item->get_name() ), $item, $is_visible );
-									echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item );
-
-									do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
-
-									wc_display_item_meta( $item );
-
-									do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
-									?>
+									</div>
 								</div>
 							</td>
 							<td class="product-total"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td>

@@ -26,9 +26,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="avada-registration-steps">
 		<div class="feature-section col three-col">
 			<div class="col">
-				<h3><span class="dashicons dashicons-sos"></span><?php esc_attr_e( 'Submit A Ticket', 'Avada' ); ?></h3>
-				<p><?php esc_attr_e( 'We offer excellent support through our advanced ticket system. Make sure to register your purchase first to access our support services and other resources.', 'Avada' ); ?></p>
-				<a href="<?php echo esc_url_raw( trailingslashit( $this->theme_fusion_url ) ) . 'support/submit-a-ticket/'; ?>" class="button button-large button-primary avada-large-button" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Submit a ticket', 'Avada' ); ?></a>
+				<h3><span class="dashicons dashicons-lightbulb"></span><?php esc_attr_e( 'Starter Guide', 'Avada' ); ?></h3>
+				<p><?php esc_attr_e( 'We understand that it can be a daunting process getting started with WordPress. In light of this, we have prepared a starter pack for you, which includes all you need to know.', 'Avada' ); ?></p>
+				<a href="<?php echo esc_url_raw( trailingslashit( $this->theme_fusion_url ) ) . 'support/starter-guide/'; ?>" class="button button-large button-primary avada-large-button" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Starter Guide', 'Avada' ); ?></a>
 			</div>
 			<div class="col">
 				<h3><span class="dashicons dashicons-book"></span><?php esc_attr_e( 'Documentation', 'Avada' ); ?></h3>
@@ -36,13 +36,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<a href="<?php echo esc_url_raw( trailingslashit( $this->theme_fusion_url ) ) . 'support/'; ?>" class="button button-large button-primary avada-large-button" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Documentation', 'Avada' ); ?></a>
 			</div>
 			<div class="col last-feature">
-				<h3><span class="dashicons dashicons-portfolio"></span><?php esc_attr_e( 'Knowledgebase', 'Avada' ); ?></h3>
-				<p><?php esc_attr_e( 'Our knowledgebase contains additional content that is not inside of our documentation. This information is more specific and unique to various versions or aspects of Avada.', 'Avada' ); ?></p>
-				<a href="<?php echo esc_url_raw( trailingslashit( $this->theme_fusion_url ) ) . 'documentation/avada/knowledgebase/'; ?>" class="button button-large button-primary avada-large-button" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Knowledgebase', 'Avada' ); ?></a>
+				<h3><span class="dashicons dashicons-sos"></span><?php esc_attr_e( 'Submit A Ticket', 'Avada' ); ?></h3>
+				<p><?php esc_attr_e( 'We offer excellent support through our advanced ticket system. Make sure to register your purchase first to access our support services and other resources.', 'Avada' ); ?></p>
+				<a href="<?php echo esc_url_raw( trailingslashit( $this->theme_fusion_url ) ) . 'support/submit-a-ticket/'; ?>" class="button button-large button-primary avada-large-button" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Submit a ticket', 'Avada' ); ?></a>
 			</div>
 			<div class="col">
 				<h3><span class="dashicons dashicons-format-video"></span><?php esc_attr_e( 'Video Tutorials', 'Avada' ); ?></h3>
-				<p><?php esc_attr_e( 'Nothing is better than watching a video to learn. We have a growing library of high-definititon, narrated video tutorials to help teach you the different aspects of using Avada.', 'Avada' ); ?></p>
+				<p><?php esc_attr_e( 'Nothing is better than watching a video to learn. We have a growing library of narrated HD video tutorials to help teach you the different aspects of using Avada.', 'Avada' ); ?></p>
 				<a href="<?php echo esc_url_raw( trailingslashit( $this->theme_fusion_url ) ) . 'documentation/avada/videos/'; ?>" class="button button-large button-primary avada-large-button" target="_blank"><?php esc_html_e( 'Watch Videos', 'Avada' ); ?></a>
 			</div>
 			<div class="col">
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<div class="col last-feature">
 				<h3><span class="dashicons dashicons-facebook"></span><?php esc_attr_e( 'Facebook Group', 'Avada' ); ?></h3>
-				<p><?php esc_attr_e( 'We have an amazing Facebook Group! Come and share with other Avada users and help grow our community. Please note, ThemeFusion does not provide support here.', 'Avada' ); ?></p>
+				<p><?php esc_attr_e( 'We have an amazing Facebook Group! Share with other Avada users and help grow our community. Please note, ThemeFusion does not provide support here.', 'Avada' ); ?></p>
 				<a href="https://www.facebook.com/groups/AvadaUsers/" class="button button-large button-primary avada-large-button" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Facebook Group', 'Avada' ); ?></a>
 			</div>
 		</div>

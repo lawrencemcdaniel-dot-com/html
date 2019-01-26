@@ -93,29 +93,29 @@ $video = apply_filters( 'privacy_iframe_embed', get_post_meta( get_the_ID(), 'py
 					$element_orientation_class = Avada()->images->get_element_orientation_class( $thumbnail_id );
 
 					// Check if we have a landscape image, then it has to stretch over 2 cols.
-					if ( 'fusion-element-landscape' === $element_orientation_class ) {
+					if ( 1 !== $responsive_images_column && '1' !== $responsive_images_column && 'fusion-element-landscape' === $element_orientation_class ) {
 						$responsive_images_columns /= 2;
 					}
 				}
 
 				Avada()->images->set_grid_image_meta(
 					array(
-						'layout' => strtolower( $layout ),
-						'columns' => $responsive_images_columns,
+						'layout'       => strtolower( $layout ),
+						'columns'      => $responsive_images_columns,
 						'gutter_width' => Avada()->settings->get( 'blog_archive_grid_column_spacing' ),
 					)
 				);
 			} elseif ( 'Timeline' === $layout ) {
 				Avada()->images->set_grid_image_meta(
 					array(
-						'layout' => strtolower( $layout ),
+						'layout'  => strtolower( $layout ),
 						'columns' => '2',
 					)
 				);
 			} elseif ( false !== strpos( $layout, 'large' ) && 'full' === $size ) {
 				Avada()->images->set_grid_image_meta(
 					array(
-						'layout' => strtolower( $layout ),
+						'layout'  => strtolower( $layout ),
 						'columns' => '1',
 					)
 				);

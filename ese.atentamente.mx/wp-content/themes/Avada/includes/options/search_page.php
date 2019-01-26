@@ -29,7 +29,7 @@ function avada_options_section_search_page( $sections ) {
 		'priority' => 23,
 		'icon'     => 'el-icon-search',
 		'fields'   => array(
-			'search_layout' => array(
+			'search_layout'              => array(
 				'label'       => esc_html__( 'Search Results Layout', 'Avada' ),
 				'description' => esc_html__( 'Controls the layout for the search results page.', 'Avada' ),
 				'id'          => 'search_layout',
@@ -44,7 +44,7 @@ function avada_options_section_search_page( $sections ) {
 					'Timeline'         => esc_html__( 'Timeline', 'Avada' ),
 				),
 			),
-			'search_content' => array(
+			'search_content'             => array(
 				'label'       => esc_html__( 'Search Results Content', 'Avada' ),
 				'description' => esc_html__( 'Controls the type of content that displays in search results.', 'Avada' ),
 				'id'          => 'search_content',
@@ -60,14 +60,14 @@ function avada_options_section_search_page( $sections ) {
 					'tribe_events'            => esc_html__( 'Events Calendar Posts', 'Avada' ),
 				),
 			),
-			'search_excerpt' => array(
+			'search_excerpt'             => array(
 				'label'       => esc_html__( 'Search Results Excerpt', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display the excerpt for search results.', 'Avada' ),
 				'id'          => 'search_excerpt',
 				'default'     => '1',
 				'type'        => 'switch',
 			),
-			'search_results_per_page' => array(
+			'search_results_per_page'    => array(
 				'label'       => esc_html__( 'Number of Search Results Per Page', 'Avada' ),
 				'description' => esc_html__( 'Controls the number of search results per page.', 'Avada' ),
 				'id'          => 'search_results_per_page',
@@ -79,7 +79,7 @@ function avada_options_section_search_page( $sections ) {
 					'step' => '1',
 				),
 			),
-			'search_featured_images' => array(
+			'search_featured_images'     => array(
 				'label'       => esc_html__( 'Featured Images for Search Results', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display featured images for search results.', 'Avada' ),
 				'id'          => 'search_featured_images',

@@ -3,7 +3,7 @@ Contributors: WPGMaps, NickDuncan, CodeCabin_, DylanAuty, PerryRylance
 Donate link: https://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google map, google maps plugin, wp google maps, wp google map, map plugin, directions, google map plugin, map widget
 Requires at least: 3.5
-Tested up to: 5.0
+Tested up to: 5.0.3
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -216,6 +216,22 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 7.10.58 :- 2019-01-18 :- Low priority =
+* Added code to catch Geocoding Service errors in GoogleAPIErrorHandler
+* Fixed wrong database prefix in wpgmaps_return_markers when running on a multisite installation
+ 
+= 7.10.57 :- 2019-01-15 :- Low priority =
+* Engine selection dialog will no longer be displayed if a Google API key has been entered
+* Google Maps API warning will only be shown after Google Maps API has been explicitly selected
+* Percentage height warning is now more prominant
+* Fixed "Get the rest of these advanced features" using printf where it should be sprintf
+* Bumped "Tested up to" to 5.0.3
+* Corrected year in 7.10.56 changelog
+
+= 7.10.56 :- 2019-01-09 :- Medium Priority =
+* Added function WPGMZA.Distance.between
+* Removed code to disable TLS verification in WPGMZA\GoogleGeocoder
 
 = 7.10.55 :- 2018-12-27 :- Medium priority =
 * Changed GoogleMap fitBounds to accept a WPGMZA.LatLngBounds

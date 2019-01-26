@@ -5,7 +5,7 @@ Plugin URI: http://ultimatelysocial.com
 Description: Easy to use and 100% FREE social media plugin which adds social media icons to your website with tons of customization features!. 
 Author: UltimatelySocial
 Author URI: http://ultimatelysocial.com
-Version: 2.1.0
+Version: 2.1.2
 License: GPLv2 or later
 */
 
@@ -65,7 +65,7 @@ register_activation_hook(__FILE__, 'sfsi_activate_plugin' );
 register_deactivation_hook(__FILE__, 'sfsi_deactivate_plugin');
 register_uninstall_hook(__FILE__, 'sfsi_Unistall_plugin');
 
-if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.10)
+if(!get_option('sfsi_pluginVersion') || get_option('sfsi_pluginVersion') < 2.12)
 {
 	add_action("init", "sfsi_update_plugin");
 }
@@ -255,21 +255,25 @@ if(is_admin())
 function sfsi_getverification_code()
 {
 	$feed_id = sanitize_text_field(get_option('sfsi_feed_id'));
-	$curl = curl_init();  
-    curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://www.specificfeeds.com/wordpress/getVerifiedCode_plugin',
-        CURLOPT_USERAGENT => 'sf get verification',
-        CURLOPT_POST => 1,
-        CURLOPT_POSTFIELDS => array(
-            'feed_id' => $feed_id
-        )
-    ));
-     // Send the request & save response to $resp
-	$resp = curl_exec($curl);
-	$resp = json_decode($resp);
-	update_option('sfsi_verificatiom_code', $resp->code);
-	curl_close($curl);
+	$url = $http_url = 'https://www.specificfeeds.com/wordpress/getVerifiedCode_plugin';
+	
+	$args = array(
+		'timeout' => 15,
+		'useragent'=>"sf get verification",
+		'body'    => array(
+			'feed_id'  =>  $feed_id
+		)
+	);
+
+	$request = wp_remote_post( $url, $args );
+
+	if ( is_wp_error( $request ) ) {
+		update_option("sfsi_plus_curlErrorNotices", "yes");
+		update_option("sfsi_plus_curlErrorMessage", $request->get_error_message());
+	}else{
+		$resp = json_decode($request['body']);
+		update_option('sfsi_plus_verificatiom_code', $resp->code);
+	}
 }
 
 //checking for the youtube username and channel id option
@@ -549,7 +553,7 @@ function sfsi_admin_notice()
 		</style>
 	    <div class="updated sfsi_show_premium_notification" style="<?php //echo $style; ?>">
 			<div class="alignleft" style="margin: 9px 0;">
-				BIG NEWS : There is now a <b><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features : <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Check it out</a>
+				BIG NEWS: There is now a <b><a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Premium Ultimate Social Media Plugin</a></b> available with many more cool features: <a href="https://www.ultimatelysocial.com/usm-premium/?utm_source=usmi_settings_page&utm_campaign=notification_banner&utm_medium=banner" target="_blank">Check it out</a>
 			</div>
 			<div class="alignright">
 				<form method="post" class="sfsi_premiumNoticeDismiss">

@@ -73,8 +73,8 @@ class Avada_Social_Icon {
 		}
 		$icon_options['last'] = ( isset( $args['last'] ) ) ? $args['last'] : false;
 
-		$icon_padding = Fusion_Sanitize::size( Avada()->settings->get( 'header_social_links_boxed_padding' ) );
-		$custom = '';
+		$icon_padding   = Fusion_Sanitize::size( Avada()->settings->get( 'header_social_links_boxed_padding' ) );
+		$custom         = '';
 		$is_custom_icon = ( isset( $args['custom_source'] ) && isset( $args['custom_title'] ) ) ? true : false;
 		// This is a custom icon.
 		if ( $is_custom_icon ) {
@@ -95,7 +95,7 @@ class Avada_Social_Icon {
 
 		if ( 'custom' === substr( $icon_options['social_network'], 0, 7 ) ) {
 			$icon_options['class'] .= 'custom ';
-			$tooltip = 'Custom';
+			$tooltip                = 'Custom';
 
 			if ( isset( $args['custom_title'] ) ) {
 				$tooltip = str_replace( 'custom', '', $args['custom_title'] );
@@ -131,7 +131,7 @@ class Avada_Social_Icon {
 				if ( false !== strpos( $icon_options['social_link'], 'body=' ) ) {
 					$icon_options['href'] = 'mailto:' . str_replace( 'mailto:', '', $icon_options['social_link'] );
 				} else {
-					$icon_options['href']   = 'mailto:' . antispambot( str_replace( 'mailto:', '', $icon_options['social_link'] ) );
+					$icon_options['href'] = 'mailto:' . antispambot( str_replace( 'mailto:', '', $icon_options['social_link'] ) );
 				}
 			}
 
@@ -148,7 +148,7 @@ class Avada_Social_Icon {
 
 		if ( $is_custom_icon ) {
 			// We need a top offset for boxed mode, based on the padding.
-			$top_offset = ( self::$args['icon_boxed'] ) ? 'top:-' . $icon_padding . ';' : '';
+			$top_offset             = ( self::$args['icon_boxed'] ) ? 'top:-' . $icon_padding . ';' : '';
 			$icon_options['style'] .= 'position:relative;' . $top_offset;
 		}
 
@@ -158,7 +158,7 @@ class Avada_Social_Icon {
 
 		if ( ! $is_custom_icon && self::$args['icon_boxed'] && ( self::$args['icon_boxed_radius'] || '0' === self::$args['icon_boxed_radius'] ) ) {
 			self::$args['icon_boxed_radius'] = ( 'round' == self::$args['icon_boxed_radius'] ) ? '50%' : self::$args['icon_boxed_radius'];
-			$icon_options['style'] .= 'border-radius:' . self::$args['icon_boxed_radius'] . ';';
+			$icon_options['style']          .= 'border-radius:' . self::$args['icon_boxed_radius'] . ';';
 		}
 
 		if ( 'none' !== strtolower( self::$args['tooltip_placement'] ) ) {
@@ -179,7 +179,7 @@ class Avada_Social_Icon {
 
 		$icon_options = apply_filters( 'fusion_attr_social-icons-class-icon', $icon_options );
 
-		$properties = '';
+		$properties             = '';
 		$not_allowed_attributes = array( 'last', 'box_color', 'icon_color', 'social_link', 'social_network' );
 		foreach ( $icon_options as $name => $value ) {
 			if ( ! in_array( $name, $not_allowed_attributes ) ) {

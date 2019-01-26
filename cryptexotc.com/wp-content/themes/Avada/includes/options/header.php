@@ -36,7 +36,7 @@ function avada_options_section_header( $sections ) {
 		'priority' => 3,
 		'icon'     => 'el-icon-arrow-up',
 		'fields'   => array(
-			'header_info_1' => array(
+			'header_info_1'  => array(
 				'label'       => esc_html__( 'Header Content', 'Avada' ),
 				'description' => '',
 				'id'          => 'header_info_1',
@@ -44,7 +44,7 @@ function avada_options_section_header( $sections ) {
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'header_position' => array(
+					'header_position'      => array(
 						'label'       => esc_html__( 'Header Position', 'Avada' ),
 						'description' => esc_html__( 'Controls the position of the header to be in the top, left or right of the site. The main menu height, header padding and logo margin options will auto adjust based off your selection for ideal aesthetics.', 'Avada' ),
 						'id'          => 'header_position',
@@ -56,13 +56,13 @@ function avada_options_section_header( $sections ) {
 							'Right' => esc_html__( 'Right', 'Avada' ),
 						),
 					),
-					'header_layout' => array(
+					'header_layout'        => array(
 						'label'       => esc_html__( 'Select a Header Layout', 'Avada' ),
 						'description' => esc_html__( 'Controls the general layout of the header. Headers 2-5 allow additional content areas via the header content options 1-3. Header 6 only allows parent level menu items, no child levels will display. The main menu height, header padding and logo margin options will auto adjust based off your selection for ideal aesthetics.', 'Avada' ),
 						'id'          => 'header_layout',
 						'default'     => 'v1',
 						'type'        => 'radio-image',
-						'choices' => array(
+						'choices'     => array(
 							'v1' => Avada::$template_dir_url . '/assets/images/patterns/header1.png',
 							'v2' => Avada::$template_dir_url . '/assets/images/patterns/header2.png',
 							'v3' => Avada::$template_dir_url . '/assets/images/patterns/header3.png',
@@ -79,15 +79,15 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'slider_position' => array(
+					'slider_position'      => array(
 						'label'       => esc_html__( 'Slider Position', 'Avada' ),
 						'description' => esc_html__( 'Controls if the slider displays below or above the header.', 'Avada' ),
 						'id'          => 'slider_position',
 						'default'     => 'Below',
 						'type'        => 'radio-buttonset',
 						'choices'     => array(
-							'Below'   => esc_html__( 'Below', 'Avada' ),
-							'Above'   => esc_html__( 'Above', 'Avada' ),
+							'Below' => esc_html__( 'Below', 'Avada' ),
+							'Above' => esc_html__( 'Above', 'Avada' ),
 						),
 						'required'    => array(
 							array(
@@ -97,7 +97,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_left_content' => array(
+					'header_left_content'  => array(
 						'label'       => esc_html__( 'Header Content 1', 'Avada' ),
 						'description' => esc_html__( 'Controls the content that displays in the top left section.', 'Avada' ),
 						'id'          => 'header_left_content',
@@ -179,7 +179,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_v4_content' => array(
+					'header_v4_content'    => array(
 						'label'       => esc_html__( 'Header Content 3', 'Avada' ),
 						'description' => esc_html__( 'Controls the content that displays in the middle right section.', 'Avada' ),
 						'id'          => 'header_v4_content',
@@ -206,7 +206,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_number' => array(
+					'header_number'        => array(
 						'label'       => esc_html__( 'Phone Number For Contact Info', 'Avada' ),
 						'description' => esc_html__( 'This content will display if you have "Contact Info" selected for the Header Content 1 or 2 option above.', 'Avada' ),
 						'id'          => 'header_number',
@@ -241,7 +241,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_email' => array(
+					'header_email'         => array(
 						'label'       => esc_html__( 'Email Address For Contact Info', 'Avada' ),
 						'description' => esc_html__( 'This content will display if you have "Contact Info" selected for the Header Content 1 or 2 option above.', 'Avada' ),
 						'id'          => 'header_email',
@@ -276,7 +276,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_tagline' => array(
+					'header_tagline'       => array(
 						'label'       => esc_html__( 'Tagline For Content 3', 'Avada' ),
 						'description' => esc_html__( 'This content will display if you have "Tagline" selected for the Header Content 3 option above.', 'Avada' ),
 						'id'          => 'header_tagline',
@@ -306,7 +306,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_banner_code' => array(
+					'header_banner_code'   => array(
 						'label'       => esc_html__( 'Banner Code For Content 3', 'Avada' ),
 						'description' => esc_html__( 'This content will display if you have "Banner" selected for the Header Content 3 option above. Add HTML banner code for Header Content 3. Elements, like buttons, can be used here also.', 'Avada' ),
 						'id'          => 'header_banner_code',
@@ -342,7 +342,7 @@ function avada_options_section_header( $sections ) {
 					),
 				),
 			),
-			'header_info_2' => array(
+			'header_info_2'  => array(
 				'label'       => esc_html__( 'Header Background Image', 'Avada' ),
 				'description' => '',
 				'id'          => 'header_info_2',
@@ -350,7 +350,7 @@ function avada_options_section_header( $sections ) {
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'header_bg_image' => array(
+					'header_bg_image'    => array(
 						'label'       => esc_html__( 'Background Image For Header Area', 'Avada' ),
 						'description' => esc_html__( 'Select an image for the header background. If left empty, the header background color will be used. For top headers the image displays on top of the header background color and will only display if header opacity is set to 1. For side headers the image displays behind the header background color so the header opacity must be set below 1 to see the image.', 'Avada' ),
 						'id'          => 'header_bg_image',
@@ -358,7 +358,7 @@ function avada_options_section_header( $sections ) {
 						'mod'         => '',
 						'type'        => 'media',
 					),
-					'header_bg_full' => array(
+					'header_bg_full'     => array(
 						'label'       => esc_html__( '100% Background Image', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the header background image display at 100% in width and height according to the window size.', 'Avada' ),
 						'id'          => 'header_bg_full',
@@ -374,7 +374,7 @@ function avada_options_section_header( $sections ) {
 								'setting'  => 'header_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -411,7 +411,7 @@ function avada_options_section_header( $sections ) {
 								'setting'  => 'header_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -427,7 +427,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_bg_repeat' => array(
+					'header_bg_repeat'   => array(
 						'label'       => esc_html__( 'Background Repeat', 'Avada' ),
 						'description' => esc_html__( 'Controls how the background image repeats.', 'Avada' ),
 						'id'          => 'header_bg_repeat',
@@ -449,7 +449,7 @@ function avada_options_section_header( $sections ) {
 								'setting'  => 'header_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -475,7 +475,7 @@ function avada_options_section_header( $sections ) {
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'side_header_width' => array(
+					'side_header_width'       => array(
 						'label'       => esc_html__( 'Header Width For Left/Right Position', 'Avada' ),
 						'description' => esc_html__( 'Controls the width of the left or right side header.', 'Avada' ),
 						'id'          => 'side_header_width',
@@ -494,32 +494,32 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_padding' => array(
+					'header_padding'          => array(
 						'label'       => esc_html__( 'Header Padding', 'Avada' ),
 						'description' => esc_html__( 'Controls the top/right/bottom/left padding for the header.', 'Avada' ),
 						'id'          => 'header_padding',
 						'choices'     => array(
-							'top'     => true,
-							'bottom'  => true,
-							'left'    => true,
-							'right'   => true,
+							'top'    => true,
+							'bottom' => true,
+							'left'   => true,
+							'right'  => true,
 						),
 						'default'     => array(
-							'top'     => '0px',
-							'bottom'  => '0px',
-							'left'    => '0px',
-							'right'   => '0px',
+							'top'    => '0px',
+							'bottom' => '0px',
+							'left'   => '0px',
+							'right'  => '0px',
 						),
 						'type'        => 'spacing',
 					),
-					'header_shadow' => array(
+					'header_shadow'           => array(
 						'label'       => esc_html__( 'Header Shadow', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display a header drop shadow. This option is incompatible with Internet Explorer versions older than IE11.', 'Avada' ),
 						'id'          => 'header_shadow',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'header_100_width' => array(
+					'header_100_width'        => array(
 						'label'       => esc_html__( '100% Header Width', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the header area display at 100% width according to the window size. Turn off to follow site width.', 'Avada' ),
 						'id'          => 'header_100_width',
@@ -538,7 +538,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_bg_color' => array(
+					'header_bg_color'         => array(
 						'label'       => esc_html__( 'Header Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color and opacity for the header. For top headers, opacity set below 1 will remove the header height completely. For side headers, opacity set below 1 will display a color overlay. Transparent headers are disabled on all archive pages due to technical limitations.', 'Avada' ),
 						'id'          => 'header_bg_color',
@@ -552,7 +552,7 @@ function avada_options_section_header( $sections ) {
 						'type'        => 'color-alpha',
 						'default'     => '#ffffff',
 					),
-					'header_border_color' => array(
+					'header_border_color'     => array(
 						'label'       => esc_html__( 'Header Border Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the border colors for the header. If using left or right header position it controls the menu divider lines.', 'Avada' ),
 						'id'          => 'header_border_color',
@@ -587,7 +587,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_top_bg_color' => array(
+					'header_top_bg_color'     => array(
 						'label'       => esc_html__( 'Header Top Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color of the top header section used in Headers 2-5.', 'Avada' ),
 						'id'          => 'header_top_bg_color',
@@ -611,7 +611,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'tagline_font_size' => array(
+					'tagline_font_size'       => array(
 						'label'       => esc_html__( 'Header Tagline Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the font size for the tagline text when using header 4.', 'Avada' ),
 						'id'          => 'tagline_font_size',
@@ -634,7 +634,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'tagline_font_color' => array(
+					'tagline_font_color'      => array(
 						'label'       => esc_html__( 'Header Tagline Font Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the font color for the tagline text when using header 4.', 'Avada' ),
 						'id'          => 'tagline_font_color',
@@ -656,22 +656,22 @@ function avada_options_section_header( $sections ) {
 					),
 				),
 			),
-			'sticky_header' => array(
+			'sticky_header'  => array(
 				'label'       => esc_html__( 'Sticky Header', 'Avada' ),
 				'description' => '',
 				'id'          => 'sticky_header',
 				'default'     => '',
 				'icon'        => true,
 				'type'        => 'sub-section',
-				'fields'   => array(
-					'header_sticky' => array(
+				'fields'      => array(
+					'header_sticky'               => array(
 						'label'       => esc_html__( 'Sticky Header', 'Avada' ),
 						'description' => esc_html__( 'Turn on to enable a sticky header.', 'Avada' ),
 						'id'          => 'header_sticky',
 						'default'     => 1,
 						'type'        => 'switch',
 					),
-					'header_sticky_tablet' => array(
+					'header_sticky_tablet'        => array(
 						'label'       => esc_html__( 'Sticky Header on Tablets', 'Avada' ),
 						'description' => esc_html__( 'Turn on to enable a sticky header when scrolling on tablets.', 'Avada' ),
 						'id'          => 'header_sticky_tablet',
@@ -690,7 +690,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_sticky_mobile' => array(
+					'header_sticky_mobile'        => array(
 						'label'       => esc_html__( 'Sticky Header on Mobiles', 'Avada' ),
 						'description' => esc_html__( 'Turn on to enable a sticky header when scrolling on mobiles.', 'Avada' ),
 						'id'          => 'header_sticky_mobile',
@@ -709,7 +709,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_sticky_shrinkage' => array(
+					'header_sticky_shrinkage'     => array(
 						'label'       => esc_html__( 'Sticky Header Animation', 'Avada' ),
 						'description' => esc_html__( 'Turn on to allow the sticky header to animate to a smaller height when activated. Only works with header v1 - v3, v6 and v7.', 'Avada' ),
 						'id'          => 'header_sticky_shrinkage',
@@ -733,7 +733,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_sticky_type2_layout' => array(
+					'header_sticky_type2_layout'  => array(
 						'label'       => esc_html__( 'Sticky Header Display For Headers 4 - 5 ', 'Avada' ),
 						'description' => esc_html__( 'Controls what displays in the sticky header when using header v4 - v5.', 'Avada' ),
 						'id'          => 'header_sticky_type2_layout',
@@ -781,7 +781,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_sticky_bg_color' => array(
+					'header_sticky_bg_color'      => array(
 						'label'       => esc_html__( 'Sticky Header Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color for the sticky header.', 'Avada' ),
 						'id'          => 'header_sticky_bg_color',
@@ -795,7 +795,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_sticky_menu_color' => array(
+					'header_sticky_menu_color'    => array(
 						'label'       => esc_html__( 'Sticky Header Menu Font Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the color for main menu text in the sticky header.', 'Avada' ),
 						'id'          => 'header_sticky_menu_color',
@@ -809,7 +809,7 @@ function avada_options_section_header( $sections ) {
 							),
 						),
 					),
-					'header_sticky_nav_padding' => array(
+					'header_sticky_nav_padding'   => array(
 						'label'       => esc_html__( 'Sticky Header Menu Item Padding', 'Avada' ),
 						'description' => esc_html__( 'Controls the space between each menu item in the sticky header.', 'Avada' ),
 						'id'          => 'header_sticky_nav_padding',

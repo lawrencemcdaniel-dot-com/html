@@ -29,14 +29,14 @@ function avada_options_section_extra( $sections ) {
 		'priority' => 24,
 		'icon'     => 'el-icon-cogs',
 		'fields'   => array(
-			'misc_options_section' => array(
+			'misc_options_section'   => array(
 				'label'       => esc_html__( 'Miscellaneous', 'Avada' ),
 				'description' => '',
 				'id'          => 'misc_options_section',
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'sidenav_behavior' => array(
+					'sidenav_behavior'           => array(
 						'label'       => esc_html__( 'Side Navigation Behavior', 'Avada' ),
 						'description' => esc_html__( 'Controls if the child pages show on click or hover for the side navigation page template.', 'Avada' ),
 						'id'          => 'sidenav_behavior',
@@ -54,7 +54,7 @@ function avada_options_section_extra( $sections ) {
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'excerpt_base' => array(
+					'excerpt_base'               => array(
 						'label'       => esc_html__( 'Basis for Excerpt Length', 'Avada' ),
 						'description' => esc_html__( 'Controls if the excerpt length is based on words or characters.', 'Avada' ),
 						'id'          => 'excerpt_base',
@@ -65,14 +65,14 @@ function avada_options_section_extra( $sections ) {
 							'Characters' => esc_html__( 'Characters', 'Avada' ),
 						),
 					),
-					'disable_excerpts' => array(
+					'disable_excerpts'           => array(
 						'label'       => esc_html__( 'Excerpt [...] Display', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the read more sign [...] on excerpts throughout the site.', 'Avada' ),
 						'id'          => 'disable_excerpts',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'link_read_more' => array(
+					'link_read_more'             => array(
 						'label'       => esc_html__( 'Make [...] Link to Single Post Page', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the read more sign [...] on excerpts link to the single post page.', 'Avada' ),
 						'id'          => 'link_read_more',
@@ -86,7 +86,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'avatar_shape' => array(
+					'avatar_shape'               => array(
 						'label'       => esc_html__( 'Avatar Shape', 'Avada' ),
 						'description' => esc_html__( 'Set the shape for Avatars used in comments, author info and other areas.', 'Avada' ),
 						'id'          => 'avatar_shape',
@@ -97,28 +97,28 @@ function avada_options_section_extra( $sections ) {
 							'circle' => esc_html__( 'Circle', 'Avada' ),
 						),
 					),
-					'comments_pages' => array(
+					'comments_pages'             => array(
 						'label'       => esc_html__( 'Comments on Pages', 'Avada' ),
 						'description' => esc_html__( 'Turn on to allow comments on regular pages.', 'Avada' ),
 						'id'          => 'comments_pages',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'featured_images_pages' => array(
+					'featured_images_pages'      => array(
 						'label'       => esc_html__( 'Featured Images on Pages', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display featured images on regular pages.', 'Avada' ),
 						'id'          => 'featured_images_pages',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'nofollow_social_links' => array(
+					'nofollow_social_links'      => array(
 						'label'       => esc_html__( 'Add "nofollow" to social links', 'Avada' ),
 						'description' => esc_html__( 'Turn on to add "nofollow" attribute to all social links.', 'Avada' ),
 						'id'          => 'nofollow_social_links',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'social_icons_new' => array(
+					'social_icons_new'           => array(
 						'label'       => esc_html__( 'Open Social Icons in a New Window', 'Avada' ),
 						'description' => esc_html__( 'Turn on to allow social icons to open in a new window.', 'Avada' ),
 						'id'          => 'social_icons_new',
@@ -127,13 +127,13 @@ function avada_options_section_extra( $sections ) {
 					),
 				),
 			),
-			'related_posts_section' => array(
+			'related_posts_section'  => array(
 				'label'       => esc_html__( 'Related Posts / Projects', 'Avada' ),
 				'description' => '',
 				'id'          => 'related_posts_section',
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'related_posts_layout' => array(
+					'related_posts_layout'         => array(
 						'label'       => esc_html__( 'Related Posts / Projects Layout', 'Avada' ),
 						'description' => esc_html__( 'Controls the layout style for related posts and related projects.', 'Avada' ),
 						'id'          => 'related_posts_layout',
@@ -144,7 +144,7 @@ function avada_options_section_extra( $sections ) {
 							'title_below_image' => esc_html__( 'Title below image', 'Avada' ),
 						),
 					),
-					'number_related_posts' => array(
+					'number_related_posts'         => array(
 						'label'       => esc_html__( 'Number of Related Posts / Projects', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of related posts and projects that display on a single post.', 'Avada' ),
 						'id'          => 'number_related_posts',
@@ -156,7 +156,7 @@ function avada_options_section_extra( $sections ) {
 							'step' => '1',
 						),
 					),
-					'related_posts_columns' => array(
+					'related_posts_columns'        => array(
 						'label'       => esc_html__( 'Related Posts / Projects Maximum Columns', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of columns for the related posts and projects layout.', 'Avada' ),
 						'id'          => 'related_posts_columns',
@@ -181,7 +181,7 @@ function avada_options_section_extra( $sections ) {
 							'edit' => 'yes',
 						),
 					),
-					'related_posts_image_size' => array(
+					'related_posts_image_size'     => array(
 						'label'       => esc_html__( 'Related Posts / Projects Image Size', 'Avada' ),
 						'description' => esc_html__( 'Controls if the featured image size is fixed (cropped) or auto (full image ratio) for related posts and projects. IMPORTANT: Fixed works best with a standard 940px site width. Auto works best with larger site widths.', 'Avada' ),
 						'id'          => 'related_posts_image_size',
@@ -192,14 +192,14 @@ function avada_options_section_extra( $sections ) {
 							'full'    => esc_html__( 'Auto', 'Avada' ),
 						),
 					),
-					'related_posts_autoplay' => array(
+					'related_posts_autoplay'       => array(
 						'label'       => esc_html__( 'Related Posts / Projects Autoplay', 'Avada' ),
 						'description' => esc_html__( 'Turn on to autoplay the related posts and project carousel.', 'Avada' ),
 						'id'          => 'related_posts_autoplay',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'related_posts_speed' => array(
+					'related_posts_speed'          => array(
 						'label'       => esc_html__( 'Related Posts / Projects Speed', 'Avada' ),
 						'description' => esc_html__( 'Controls the speed of related posts and project carousel. ex: 1000 = 1 second.', 'Avada' ),
 						'id'          => 'related_posts_speed',
@@ -211,21 +211,21 @@ function avada_options_section_extra( $sections ) {
 							'step' => '250',
 						),
 					),
-					'related_posts_navigation' => array(
+					'related_posts_navigation'     => array(
 						'label'       => esc_html__( 'Related Posts / Projects Show Navigation', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display navigation arrows on the carousel.', 'Avada' ),
 						'id'          => 'related_posts_navigation',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'related_posts_swipe' => array(
+					'related_posts_swipe'          => array(
 						'label'       => esc_html__( 'Related Posts / Projects Mouse Scroll', 'Avada' ),
 						'description' => esc_html__( 'Turn on to enable mouse drag control on the carousel.', 'Avada' ),
 						'id'          => 'related_posts_swipe',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'related_posts_swipe_items' => array(
+					'related_posts_swipe_items'    => array(
 						'label'       => esc_html__( 'Related Posts / Projects Scroll Items', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of items that scroll at one time. Set to 0 to scroll the number of visible items.', 'Avada' ),
 						'id'          => 'related_posts_swipe_items',
@@ -239,20 +239,20 @@ function avada_options_section_extra( $sections ) {
 					),
 				),
 			),
-			'rollover_sub_section' => array(
+			'rollover_sub_section'   => array(
 				'label'       => esc_html__( 'Featured Image Rollover', 'Avada' ),
 				'description' => '',
 				'id'          => 'rollover_sub_section',
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'image_rollover' => array(
+					'image_rollover'              => array(
 						'label'       => esc_html__( 'Image Rollover', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the rollover graphic on blog and portfolio featured images.', 'Avada' ),
 						'id'          => 'image_rollover',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'image_rollover_direction' => array(
+					'image_rollover_direction'    => array(
 						'label'       => esc_html__( 'Image Rollover Direction', 'Avada' ),
 						'description' => esc_html__( 'Controls the direction the rollover starts from.', 'Avada' ),
 						'id'          => 'image_rollover_direction',
@@ -275,7 +275,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'image_rollover_icon_size' => array(
+					'image_rollover_icon_size'    => array(
 						'label'       => esc_html__( 'Image Rollover Icon Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the size of the rollover icons.', 'Avada' ),
 						'id'          => 'image_rollover_icon_size',
@@ -289,7 +289,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'link_image_rollover' => array(
+					'link_image_rollover'         => array(
 						'label'       => esc_html__( 'Image Rollover Link Icon', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the link icon in the image rollover.', 'Avada' ),
 						'id'          => 'link_image_rollover',
@@ -303,7 +303,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'zoom_image_rollover' => array(
+					'zoom_image_rollover'         => array(
 						'label'       => esc_html__( 'Image Rollover Zoom Icon', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the zoom icon in the image rollover.', 'Avada' ),
 						'id'          => 'zoom_image_rollover',
@@ -317,7 +317,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'title_image_rollover' => array(
+					'title_image_rollover'        => array(
 						'label'       => esc_html__( 'Image Rollover Title', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the post title in the image rollover.', 'Avada' ),
 						'id'          => 'title_image_rollover',
@@ -331,7 +331,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'cats_image_rollover' => array(
+					'cats_image_rollover'         => array(
 						'label'       => esc_html__( 'Image Rollover Categories', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the post categories in the image rollover.', 'Avada' ),
 						'id'          => 'cats_image_rollover',
@@ -345,7 +345,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'icon_circle_image_rollover' => array(
+					'icon_circle_image_rollover'  => array(
 						'label'       => esc_html__( 'Image Rollover Icon Circle', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the icon background circle in the image rollover.', 'Avada' ),
 						'id'          => 'icon_circle_image_rollover',
@@ -359,7 +359,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'image_gradient_top_color' => array(
+					'image_gradient_top_color'    => array(
 						'label'       => esc_html__( 'Image Rollover Gradient Top Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the top color of the image rollover background.', 'Avada' ),
 						'id'          => 'image_gradient_top_color',
@@ -387,7 +387,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'image_rollover_text_color' => array(
+					'image_rollover_text_color'   => array(
 						'label'       => esc_html__( 'Image Rollover Element Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the color of image rollover text and icon circular backgrounds.', 'Avada' ),
 						'id'          => 'image_rollover_text_color',
@@ -401,7 +401,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'image_rollover_icon_color' => array(
+					'image_rollover_icon_color'   => array(
 						'label'       => esc_html__( 'Image Rollover Icon Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the color of the icons in the image rollover.', 'Avada' ),
 						'id'          => 'image_rollover_icon_color',
@@ -429,32 +429,32 @@ function avada_options_section_extra( $sections ) {
 						'id'          => 'pagination_important_note_info',
 						'type'        => 'custom',
 					),
-					'pagination_box_padding' => array(
+					'pagination_box_padding'         => array(
 						'label'       => esc_html__( 'Pagination Box Padding', 'Avada' ),
 						'description' => esc_html__( 'Controls the padding inside the pagination box.', 'Avada' ),
 						'id'          => 'pagination_box_padding',
 						'units'       => false,
 						'default'     => array(
-							'width'   => '6px',
-							'height'  => '2px',
+							'width'  => '6px',
+							'height' => '2px',
 						),
 						'type'        => 'dimensions',
 					),
-					'pagination_text_display' => array(
+					'pagination_text_display'        => array(
 						'label'       => esc_html__( 'Pagination Text Display', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the "Previous/Next" text.', 'Avada' ),
 						'id'          => 'pagination_text_display',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'pagination_font_size' => array(
+					'pagination_font_size'           => array(
 						'label'       => esc_html__( 'Pagination Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the size of the pagination text.', 'Avada' ),
 						'id'          => 'pagination_font_size',
 						'default'     => '12px',
 						'type'        => 'dimension',
 					),
-					'pagination_range' => array(
+					'pagination_range'               => array(
 						'label'       => esc_html__( 'Pagination Range', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of page links displayed left and right of current page.', 'Avada' ),
 						'id'          => 'pagination_range',
@@ -466,7 +466,7 @@ function avada_options_section_extra( $sections ) {
 							'step' => '1',
 						),
 					),
-					'pagination_start_end_range' => array(
+					'pagination_start_end_range'     => array(
 						'label'       => esc_html__( 'Pagination Start / End Range', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of page links displayed at the start and at the end of pagination.', 'Avada' ),
 						'id'          => 'pagination_start_end_range',
@@ -480,7 +480,7 @@ function avada_options_section_extra( $sections ) {
 					),
 				),
 			),
-			'forms_styling_section' => array(
+			'forms_styling_section'  => array(
 				'label'       => esc_html__( 'Forms Styling', 'Avada' ),
 				'description' => '',
 				'id'          => 'forms_styling_section',
@@ -492,7 +492,7 @@ function avada_options_section_extra( $sections ) {
 						'id'          => 'forms_styling_important_note_info',
 						'type'        => 'custom',
 					),
-					'form_input_height' => array(
+					'form_input_height'                 => array(
 						'label'       => esc_html__( 'Form Input and Select Height', 'Avada' ),
 						'description' => esc_html__( 'Controls the height of all search, form input and select fields.', 'Avada' ),
 						'id'          => 'form_input_height',
@@ -500,28 +500,28 @@ function avada_options_section_extra( $sections ) {
 						'type'        => 'dimension',
 						'choices'     => array( 'px' ),
 					),
-					'form_bg_color' => array(
+					'form_bg_color'                     => array(
 						'label'       => esc_html__( 'Form Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color of form fields.', 'Avada' ),
 						'id'          => 'form_bg_color',
 						'default'     => '#ffffff',
 						'type'        => 'color-alpha',
 					),
-					'form_text_size' => array(
+					'form_text_size'                    => array(
 						'label'       => esc_html__( 'Form Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the size of the form text.', 'Avada' ),
 						'id'          => 'form_text_size',
 						'default'     => '13px',
 						'type'        => 'dimension',
 					),
-					'form_text_color' => array(
+					'form_text_color'                   => array(
 						'label'       => esc_html__( 'Form Text Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the color of the form text.', 'Avada' ),
 						'id'          => 'form_text_color',
 						'default'     => '#aaa9a9',
 						'type'        => 'color-alpha',
 					),
-					'form_border_width' => array(
+					'form_border_width'                 => array(
 						'label'       => esc_html__( 'Form Border Size', 'fusion-builder' ),
 						'description' => esc_html__( 'Controls the border size of the form fields.', 'fusion-builder' ),
 						'id'          => 'form_border_width',
@@ -533,7 +533,7 @@ function avada_options_section_extra( $sections ) {
 							'step' => '1',
 						),
 					),
-					'form_border_color' => array(
+					'form_border_color'                 => array(
 						'label'       => esc_html__( 'Form Border Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the border color of the form fields.', 'Avada' ),
 						'id'          => 'form_border_color',
@@ -547,7 +547,7 @@ function avada_options_section_extra( $sections ) {
 							),
 						),
 					),
-					'form_border_radius' => array(
+					'form_border_radius'                => array(
 						'label'       => esc_html__( 'Form Border Radius', 'fusion-builder' ),
 						'description' => esc_html__( 'Controls the border radius of the form fields. Also works, if border size is set to 0.', 'fusion-builder' ),
 						'id'          => 'form_border_radius',
@@ -559,26 +559,26 @@ function avada_options_section_extra( $sections ) {
 							'step' => '1',
 						),
 					),
-					'search_form_info' => array(
-						'label'           => esc_html__( 'Search Form', 'Avada' ),
-						'description'     => '',
-						'id'              => 'search_form_info',
-						'type'            => 'info',
+					'search_form_info'                  => array(
+						'label'       => esc_html__( 'Search Form', 'Avada' ),
+						'description' => '',
+						'id'          => 'search_form_info',
+						'type'        => 'info',
 					),
-					'search_form_design' => array(
-						'label'           => esc_html__( 'Search Form Design', 'Avada' ),
-						'description'     => esc_html__( 'Controls the design of the search forms.', 'Avada' ),
-						'id'              => 'search_form_design',
-						'default'         => 'classic',
-						'type'            => 'radio-buttonset',
-						'choices'         => array(
+					'search_form_design'                => array(
+						'label'       => esc_html__( 'Search Form Design', 'Avada' ),
+						'description' => esc_html__( 'Controls the design of the search forms.', 'Avada' ),
+						'id'          => 'search_form_design',
+						'default'     => 'classic',
+						'type'        => 'radio-buttonset',
+						'choices'     => array(
 							'classic' => esc_html__( 'Classic', 'Avada' ),
 							'clean'   => esc_html__( 'Clean', 'Avada' ),
 						),
 					),
 				),
 			),
-			'gridbox_section' => array(
+			'gridbox_section'        => array(
 				'label'       => esc_html__( 'Grid / Masonry', 'Avada' ),
 				'description' => '',
 				'id'          => 'gridbox_section',
@@ -590,27 +590,27 @@ function avada_options_section_extra( $sections ) {
 						'id'          => 'gridbox_styling_important_note_info',
 						'type'        => 'custom',
 					),
-					'timeline_bg_color' => array(
+					'timeline_bg_color'                   => array(
 						'label'       => esc_html__( 'Grid Box Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color for the grid boxes.', 'Avada' ),
 						'id'          => 'timeline_bg_color',
 						'default'     => 'rgba(255,255,255,0)',
 						'type'        => 'color-alpha',
 					),
-					'timeline_color' => array(
+					'timeline_color'                      => array(
 						'label'       => esc_html__( 'Grid Element Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the color of borders/date box/timeline dots and arrows for the grid boxes.', 'Avada' ),
 						'id'          => 'timeline_color',
 						'default'     => '#ebeaea',
 						'type'        => 'color-alpha',
 					),
-					'grid_separator_style_type' => array(
+					'grid_separator_style_type'           => array(
 						'label'       => esc_html__( 'Grid Separator Style', 'Avada' ),
 						'description' => __( 'Controls the line style of grid separators. <strong>Note:</strong> For blog and portfolio grids at least one meta data field must be enabled and excerpt or full content must be shown in order that the separator will be displayed.', 'Avada' ),
 						'id'          => 'grid_separator_style_type',
 						'default'     => 'double|solid',
 						'type'        => 'select',
-						'choices'       => array(
+						'choices'     => array(
 							'none'          => esc_attr__( 'No Style', 'Avada' ),
 							'single|solid'  => esc_attr__( 'Single Border Solid', 'Avada' ),
 							'double|solid'  => esc_attr__( 'Double Border Solid', 'Avada' ),
@@ -621,18 +621,18 @@ function avada_options_section_extra( $sections ) {
 							'shadow'        => esc_attr__( 'Shadow', 'Avada' ),
 						),
 					),
-					'grid_separator_color' => array(
+					'grid_separator_color'                => array(
 						'label'       => esc_html__( 'Grid Separator Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the line style color of grid separators.', 'Avada' ),
 						'id'          => 'grid_separator_color',
 						'default'     => '#ebeaea',
 						'type'        => 'color-alpha',
 					),
-					'grid_masonry_heading' => array(
-						'label'           => esc_html__( 'Masonry Options', 'Avada' ),
-						'description'     => '',
-						'id'              => 'grid_masonry_heading',
-						'type'            => 'info',
+					'grid_masonry_heading'                => array(
+						'label'       => esc_html__( 'Masonry Options', 'Avada' ),
+						'description' => '',
+						'id'          => 'grid_masonry_heading',
+						'type'        => 'info',
 					),
 					'gridbox_masonry_important_note_info' => array(
 						'label'       => '',
@@ -640,7 +640,7 @@ function avada_options_section_extra( $sections ) {
 						'id'          => 'gridbox_masonry_important_note_info',
 						'type'        => 'custom',
 					),
-					'masonry_grid_ratio' => array(
+					'masonry_grid_ratio'                  => array(
 						'label'       => esc_html__( 'Masonry Image Aspect Ratio', 'Avada' ),
 						'description' => __( 'Set the ratio to decide when an image should become landscape (ratio being width : height) and portrait (ratio being height : width). <strong>IMPORTANT:</strong> The value of "1.0" represents a special case, which will use the auto calculated ratios like in versions prior to Avada 5.5.', 'Avada' ),
 						'id'          => 'masonry_grid_ratio',
@@ -652,7 +652,7 @@ function avada_options_section_extra( $sections ) {
 							'step' => 0.1,
 						),
 					),
-					'masonry_width_double' => array(
+					'masonry_width_double'                => array(
 						'label'       => esc_html__( 'Masonry 2x2 Width', 'Avada' ),
 						'description' => __( 'This option decides when a square 1x1 image should become 2x2. This will not apply to images that highly favor landscape or portrait layouts. <strong>IMPORTANT:</strong> There is a “Masonry Image Layout” setting for every image in the WP media library that allows you to manually set how an image will appear (1x1, landscape, portrait or 2x2), regardless of the original ratio.', 'Avada' ),
 						'id'          => 'masonry_width_double',

@@ -3,7 +3,7 @@ Contributors: simonpedge
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RP7JLGK6VT252
 Tags: slider, carousel, content slider, responsive slider, html slider, owl carousel
 Requires at least: 4.0
-Tested up to: 5.0
+Tested up to: 5.0.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,31 +14,35 @@ Create responsive carousels or sliders where the content for each slide can be a
 
 Slide Anything allows you to create a carousel/slider where the content for each slide can be anything you want - images, text, HTML, and even shortcodes. This plugin uses the Owl Carousel 2 jQuery plugin, and lets you create beautiful, touch enabled, responsive carousels and sliders.
 
-= Slide Anything Version 2 =
+Slide Anything provides many Owl Carousel 2 features, which include:
 
-Slide Anything has now been rebuilt using Owl Carousel 2, and this now provides many improvements and new features:
-
+* Touch and Drag Support - Designed specially to boost mobile browsing experience. Mouse drag works great on desktop too!
+* Fully Responsive - You can define the number of slides to display for various breakpoint settings, e.g. 4 slides on desktop, 3 slides on tablet and 2 slides on mobile.
+* Modern Browsers - Owl uses hardware acceleration with CSS3 Translate3d transitions. Its fast and works like a charm! It also supports CSS2 fallbacks to cater for older browsers.
 * New Lazy Load Images - with this feature enabled, slide images (<img> tags) are only loaded when the relevant slides are displayed (all of the slider's images are NOT loaded up-front).
-* Infinite Looping - a much requested Owl Carousel 2 feature, which means that the first slide is now seamlessly displayed after the last slide without any carousel rewind.
+* Infinite Looping - introduced with Owl Carousel 2, this feature means that the first slide is now seamlessly displayed after the last slide without any carousel rewind.
 * New Transition Effects - New Owl Carousel transitions include Slide, Fade, Zoom In, Zoom Out, Flip Out X/Y, Rotate Left/Right, Bounce Out, Roll Out and Slide Down.
-* Slide Link Feature - A new feature which allows you to create a hover-over link button for any slide within your carousels.
-*  Modern Browsers - Owl Carousel 2 Uses hardware acceleration with CSS3 Translate3D transitions. Its fast and works like a charm! Slide Anything has CSS2 fallback built-in to support older browsers.
+* Slide Link Feature - A feature which allows you to create a hover-over link button for any slide within your carousels.
+
+[Usage Examples](https://edgewebpages.com/slide-anything-usage-examples)
 
 = Slide Anything PRO =
 
-[SLIDE ANYTHING PRO](https://edgewebpages.com/) adds POPUPS into the mix!!
+[SLIDE ANYTHING PRO](https://edgewebpages.com/) adds the following extra features:
 
-With [SLIDE ANYTHING PRO](https://edgewebpages.com/) each slide can now open a MODAL POPUP, which can be an IMAGE popup, a VIDEO EMBED popup (YouTube/Vimeo), a popup containing HTML CODE or a popup displaying a WordPress SHORTCODE. This can be a very useful addition to Slide Anything, if you are wanting to create Image or Video galleries for your websites.
+* MODAL POPUPS - Each slide can now open a MODAL POPUP, which can be an IMAGE popup, a VIDEO EMBED popup (YouTube/Vimeo), a HTML CODE popup or a popup displaying a WordPress SHORTCODE.
+* HERO SLIDER - A Hero Slider is a slider that always is 100% of the width/height of the device it's being viewed on (or 100% of the window width/height if on a desktop device). 
+* THUMBNAIL PAGINATION - Allows you to add an area of small clickable thumb images, with each image representing a single slide that can be clicked to navigate to that slide.
 
-For more information about Slide Anything PRO, [CLICK HERE](https://edgewebpages.com/).
+[MODAL POPUPS DEMO](https://edgewebpages.com/)
+
+[HERO SLIDER WITH THUMBNAILS DEMO](https://edgewebpages.com/hero-slider-with-thumbnails/)
 
 = Owl Carousel =
 
 [Owl Carousel](https://owlcarousel2.github.io/OwlCarousel2/) is an extremely powerful and flexible carousel/slider JQuery plugin, and it is also free to use! Unfortunately, it's not easy to integrate Owl Carousel into a WordPress site if you are a non-developer, and requires JQuery and PHP coding skills. That is why I developed this plugin.
 
 I use Owl Carousel a in various WordPress sites I develop, specifically where I need the additional flexibility to develop a carousel with a more complex layout, or use a layout not catered for by any existing carousel plugin product.
-
-Owl Carousel has been tested in following browsers/devices: Chrome, Firefox, Opera, IE7/8/10/11, Microsoft Edge, iPhone/iPad/Mac Safari and Android Chrome.
 
 Please view the [FAQ Page](https://wordpress.org/plugins/slide-anything/faq/) for information on how to use `Slide Anything`.
 
@@ -255,6 +259,18 @@ Adding a SLIDE ANYTHING slider using the WordPress 5.0 'Block Editor' is pretty 
 = 2.1.21 =
 * Replace the 'Load JavaScript during window.onload event' option with a 'Load JavaScript during DOMContentLoaded event' option, which is a much better solution.
 
+= 2.2 =
+* Added Hero Slider and Thumbnail Pagination support, which are Slide Anything PRO features.
+
+= 2.2.1 =
+* Bug Fix - Issue with "Lazy Load Images" feature, and when enabled UTF-8 encoding was broken. Resolved.
+
+= 2.2.2 =
+* Bug Fix - Issue with "Thumbnail Pagination" data being saved on 'Non-PRO' installations - causing a fatal error.
+
+= 2.2.3 =
+* Bug Fix - Resolved small non-fatal issue to remove "Notice: Undefined index: ../php/slide-anything-frontend.php on line 66" message
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -420,3 +436,15 @@ Adding a SLIDE ANYTHING slider using the WordPress 5.0 'Block Editor' is pretty 
 
 = 2.1.21 =
 * Replace the 'Load JavaScript during window.onload event' option with a 'Load JavaScript during DOMContentLoaded event' option, which is a much better solution.
+
+= 2.2 =
+* Added Hero Slider and Thumbnail Pagination support, which are Slide Anything PRO features.
+
+= 2.2.1 =
+* Bug Fix - Issue with "Lazy Load Images" feature, and when enabled UTF-8 encoding was broken. Resolved.
+
+= 2.2.2 =
+* Bug Fix - Issue with "Thumbnail Pagination" data being saved on 'Non-PRO' installations - causing a fatal error.
+
+= 2.2.3 =
+* Bug Fix - Resolved small non-fatal issue to remove "Notice: Undefined index: ../php/slide-anything-frontend.php on line 66" message

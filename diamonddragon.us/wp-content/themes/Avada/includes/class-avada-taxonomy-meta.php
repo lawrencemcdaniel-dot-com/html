@@ -210,7 +210,7 @@ class Avada_Taxonomy_Meta {
 		if ( 'edit' === $this->form_type ) {
 			?>
 			<table class="avada-tax-meta-table">
-			<tr class="avada-tax-meta-spacer"><td colspan="2"><?php wp_nonce_field( basename( __FILE__ ), 'fusion_taxnonomy_meta_nonce' );?></td></tr>
+			<tr class="avada-tax-meta-spacer"><td colspan="2"><?php wp_nonce_field( basename( __FILE__ ), 'fusion_taxnonomy_meta_nonce' ); ?></td></tr>
 			<?php
 		} else {
 			wp_nonce_field( basename( __FILE__ ), 'fusion_taxnonomy_meta_nonce' );
@@ -516,7 +516,7 @@ class Avada_Taxonomy_Meta {
 		<?php
 		foreach ( $field['options'] as $key => $value ) :
 			?>
-			<option value="<?php echo esc_attr( $key );?>" <?php echo selected( in_array( $key, $meta ), true, false ); ?>><?php echo esc_attr( $value ); ?></option>
+			<option value="<?php echo esc_attr( $key ); ?>" <?php echo selected( in_array( $key, $meta ), true, false ); ?>><?php echo esc_attr( $value ); ?></option>
 		<?php endforeach; ?>
 		</select>
 		<?php
@@ -566,7 +566,7 @@ class Avada_Taxonomy_Meta {
 
 		$this->render_field_start( $field, $meta );
 		?>
-		<input class="avada-tax-color color-picker" data-alpha="true" type="text" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo esc_attr( $meta );?>" data-default="<?php echo esc_attr( $field['default'] ); ?>" />
+		<input class="avada-tax-color color-picker" data-alpha="true" type="text" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo esc_attr( $meta ); ?>" data-default="<?php echo esc_attr( $field['default'] ); ?>" />
 		<?php
 		$this->render_field_end( $field, $meta );
 	}
@@ -586,8 +586,8 @@ class Avada_Taxonomy_Meta {
 		$has_image     = empty( $meta ) ? false : true;
 		$preview_style = 'max-width:100%';
 		?>
-		<span class="avada-tax-img-field <?php echo esc_attr( $name );?>">
-			<input type="text" name="<?php echo esc_attr( $name );?>" value="<?php echo esc_attr( $meta ); ?>" id="<?php echo esc_attr( $name );?>" class="avada-tax-image-url" />
+		<span class="avada-tax-img-field <?php echo esc_attr( $name ); ?>">
+			<input type="text" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $meta ); ?>" id="<?php echo esc_attr( $name ); ?>" class="avada-tax-image-url" />
 			<?php if ( $has_image ) : ?>
 				<input class="button  avada-tax-image-upload-clear" value="<?php esc_attr_e( 'Remove Image', 'Avada' ); ?>"  type="button" />
 				<input class="button avada-tax-image-upload hidden" value="<?php esc_attr_e( 'Upload Image', 'Avada' ); ?>" type="button" />
@@ -613,13 +613,13 @@ class Avada_Taxonomy_Meta {
 		<?php if ( 'edit' === $this->form_type ) : ?>
 			<td colspan="2">
 				<div class="avada-tax-meta-header">
-					<h3 style="<?php echo esc_attr( $field['style'] ); ?>"> <?php echo esc_attr( $field['value'] );?></h3>
+					<h3 style="<?php echo esc_attr( $field['style'] ); ?>"> <?php echo esc_attr( $field['value'] ); ?></h3>
 					<span class="avada-tax-meta-handle toggle-indicator"></span>
 				</div>
 			</td>
 		<?php elseif ( 'new' === $this->form_type ) : ?>
 			<div class="form-field avada-tax-meta-field avada-tax-header">
-				<h3 style="<?php echo esc_attr( $field['style'] ); ?>"> <?php echo esc_attr( $field['value'] );?></h3>
+				<h3 style="<?php echo esc_attr( $field['style'] ); ?>"> <?php echo esc_attr( $field['value'] ); ?></h3>
 				<span class="avada-tax-meta-handle toggle-indicator"></span>
 			</div>
 		<?php endif; ?>
@@ -639,7 +639,7 @@ class Avada_Taxonomy_Meta {
 		<?php if ( 'edit' === $this->form_type ) : ?>
 			<th scope="row">
 		<?php else : ?>
-			<div class="form-field avada-tax-meta-field <?php echo esc_attr( $field['class'] );?>" >
+			<div class="form-field avada-tax-meta-field <?php echo esc_attr( $field['class'] ); ?>" >
 		<?php endif; ?>
 
 		<?php if ( '' !== $field['name'] || false !== $field['name'] ) : ?>
@@ -648,21 +648,21 @@ class Avada_Taxonomy_Meta {
 
 		<?php if ( isset( $field['desc'] ) && '' !== $field['desc'] ) : ?>
 			<?php if ( 'new' === $this->form_type ) : ?>
-				<p class='description'><?php echo $field['desc']; // WPCS: XSS ok.?>
+				<p class='description'><?php echo $field['desc']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php elseif ( 'edit' === $this->form_type ) : ?>
-				<p class='description'><?php echo $field['desc']; // WPCS: XSS ok.?>
+				<p class='description'><?php echo $field['desc']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php endif; ?>
 		<?php endif; ?>
 
 		<?php
 		if ( isset( $field['dependency'] ) && is_array( $field['dependency'] ) ) {
-			echo $this->render_dependency( $field['dependency'] ); // WPCS: XSS ok.
+			echo $this->render_dependency( $field['dependency'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		?>
 
 		<?php if ( 'color' === $field['type'] ) : ?>
 			<span class="tax-meta-default-reset">
-				<a href="#" id="default-<?php echo esc_attr( $field['id'] );?>" class="avada-range-default avada-hide-from-atts" type="radio" name="<?php echo esc_attr( $field['id'] );?>" value="" data-default="<?php echo esc_attr( $field['default'] );?>">
+				<a href="#" id="default-<?php echo esc_attr( $field['id'] ); ?>" class="avada-range-default avada-hide-from-atts" type="radio" name="<?php echo esc_attr( $field['id'] ); ?>" value="" data-default="<?php echo esc_attr( $field['default'] ); ?>">
 					<?php echo esc_attr( 'Reset to default.', 'Avada' ); ?>
 				</a>
 				<span><?php echo esc_attr( 'Using default value.', 'Avada' ); ?></span>

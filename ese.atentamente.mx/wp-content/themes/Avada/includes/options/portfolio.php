@@ -37,13 +37,13 @@ function avada_options_section_portfolio( $sections ) {
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'portfolio_archive_layout' => array(
+					'portfolio_archive_layout'             => array(
 						'label'       => esc_html__( 'Portfolio Archive Layout', 'Avada' ),
 						'description' => esc_html__( 'Controls the layout for the portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_layout',
 						'default'     => 'grid',
 						'type'        => 'radio-buttonset',
-						'choices' => array(
+						'choices'     => array(
 							'grid'    => esc_html__( 'Grid', 'Avada' ),
 							'masonry' => esc_html__( 'Masonry', 'Avada' ),
 						),
@@ -66,7 +66,7 @@ function avada_options_section_portfolio( $sections ) {
 							),
 						),
 					),
-					'portfolio_archive_columns' => array(
+					'portfolio_archive_columns'            => array(
 						'label'       => esc_html__( 'Portfolio Archive Number of Columns', 'Avada' ),
 						'description' => __( 'Set the number of columns per row for portfolio archive pages. With Carousel layout this specifies the maximum amount of columns. <strong>IMPORTANT:</strong> Masonry layout does not work with 1 column.', 'Avada' ),
 						'id'          => 'portfolio_archive_columns',
@@ -78,7 +78,7 @@ function avada_options_section_portfolio( $sections ) {
 							'step' => 1,
 						),
 					),
-					'portfolio_archive_column_spacing' => array(
+					'portfolio_archive_column_spacing'     => array(
 						'label'       => esc_html__( 'Portfolio Archive Column Spacing', 'Avada' ),
 						'description' => esc_html__( 'Controls the column spacing for portfolio items for archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_column_spacing',
@@ -90,7 +90,7 @@ function avada_options_section_portfolio( $sections ) {
 							'step' => '1',
 						),
 					),
-					'portfolio_equal_heights' => array(
+					'portfolio_equal_heights'              => array(
 						'label'       => esc_html__( 'Equal Heights', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display grid boxes with equal heights per row.', 'Avada' ),
 						'id'          => 'portfolio_equal_heights',
@@ -128,7 +128,7 @@ function avada_options_section_portfolio( $sections ) {
 							),
 						),
 					),
-					'portfolio_archive_items' => array(
+					'portfolio_archive_items'              => array(
 						'label'       => esc_html__( 'Number of Portfolio Items Per Archive Page', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of posts that display per page for portfolio archive pages. Set to -1 to display all. Set to 0 to use the number of posts from Settings > Reading.', 'Avada' ),
 						'id'          => 'portfolio_archive_items',
@@ -140,7 +140,7 @@ function avada_options_section_portfolio( $sections ) {
 							'step' => '1',
 						),
 					),
-					'portfolio_archive_text_layout' => array(
+					'portfolio_archive_text_layout'        => array(
 						'label'       => esc_html__( 'Portfolio Archive Text Layout', 'Avada' ),
 						'description' => esc_html__( 'Controls if the portfolio text content is displayed boxed or unboxed or is completely disabled for portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_text_layout',
@@ -152,7 +152,7 @@ function avada_options_section_portfolio( $sections ) {
 							'unboxed' => esc_html__( 'Unboxed', 'Avada' ),
 						),
 					),
-					'portfolio_archive_content_length' => array(
+					'portfolio_archive_content_length'     => array(
 						'label'       => esc_html__( 'Portfolio Archive Text Display', 'Avada' ),
 						'description' => esc_html__( 'Choose how to display the post excerpt for portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_content_length',
@@ -171,7 +171,7 @@ function avada_options_section_portfolio( $sections ) {
 							),
 						),
 					),
-					'portfolio_archive_excerpt_length' => array(
+					'portfolio_archive_excerpt_length'     => array(
 						'label'       => esc_html__( 'Portfolio Archive Excerpt Length', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of words in the excerpts for portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_excerpt_length',
@@ -197,47 +197,47 @@ function avada_options_section_portfolio( $sections ) {
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'portfolio_archive_title_display' => array(
+					'portfolio_archive_title_display'      => array(
 						'label'       => esc_html__( 'Portfolio Archive Title Display', 'Avada' ),
 						'description' => esc_html__( 'Controls what displays with the portfolio post title for portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_title_display',
 						'default'     => 'all',
 						'type'        => 'select',
 						'choices'     => array(
-							'all'     => esc_html__( 'Title and Categories', 'Avada' ),
-							'title'   => esc_html__( 'Only Title', 'Avada' ),
-							'cats'    => esc_html__( 'Only Categories', 'Avada' ),
-							'none'    => esc_html__( 'None', 'Avada' ),
+							'all'   => esc_html__( 'Title and Categories', 'Avada' ),
+							'title' => esc_html__( 'Only Title', 'Avada' ),
+							'cats'  => esc_html__( 'Only Categories', 'Avada' ),
+							'none'  => esc_html__( 'None', 'Avada' ),
 						),
 					),
-					'portfolio_archive_text_alignment' => array(
+					'portfolio_archive_text_alignment'     => array(
 						'label'       => esc_html__( 'Portfolio Archive Text Alignment', 'Avada' ),
 						'description' => esc_html__( 'Controls the alignment of the portfolio title, categories and excerpt text when using the Portfolio Text layouts in portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_text_alignment',
 						'default'     => 'left',
 						'type'        => 'radio-buttonset',
 						'choices'     => array(
-							'left'     => esc_html__( 'Left', 'Avada' ),
-							'center'   => esc_html__( 'Center', 'Avada' ),
-							'right'    => esc_html__( 'Right', 'Avada' ),
+							'left'   => esc_html__( 'Left', 'Avada' ),
+							'center' => esc_html__( 'Center', 'Avada' ),
+							'right'  => esc_html__( 'Right', 'Avada' ),
 						),
 					),
-					'portfolio_archive_layout_padding' => array(
+					'portfolio_archive_layout_padding'     => array(
 						'label'       => esc_html__( 'Portfolio Archive Text Layout Padding', 'Avada' ),
 						'description' => esc_html__( 'Controls the padding for the portfolio text layout when using boxed mode in portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_layout_padding',
 						'choices'     => array(
-							'top'     => true,
-							'bottom'  => true,
-							'left'    => true,
-							'right'   => true,
-							'units'   => array( 'px', '%' ),
+							'top'    => true,
+							'bottom' => true,
+							'left'   => true,
+							'right'  => true,
+							'units'  => array( 'px', '%' ),
 						),
 						'default'     => array(
-							'top'     => '25px',
-							'bottom'  => '25px',
-							'left'    => '25px',
-							'right'   => '25px',
+							'top'    => '25px',
+							'bottom' => '25px',
+							'left'   => '25px',
+							'right'  => '25px',
 						),
 						'type'        => 'spacing',
 						'required'    => array(
@@ -248,7 +248,7 @@ function avada_options_section_portfolio( $sections ) {
 							),
 						),
 					),
-					'portfolio_archive_pagination_type' => array(
+					'portfolio_archive_pagination_type'    => array(
 						'label'       => esc_html__( 'Portfolio Archive Pagination Type', 'Avada' ),
 						'description' => esc_html__( 'Controls the pagination type for portfolio archive pages.', 'Avada' ),
 						'id'          => 'portfolio_archive_pagination_type',
@@ -267,14 +267,14 @@ function avada_options_section_portfolio( $sections ) {
 						'default'     => '#ebeaea',
 						'type'        => 'color-alpha',
 					),
-					'portfolio_slug' => array(
+					'portfolio_slug'                       => array(
 						'label'       => esc_html__( 'Portfolio Slug', 'Avada' ),
 						'description' => esc_html__( 'The slug name cannot be the same name as a page name or the layout will break. This option changes the permalink when you use the permalink type as %postname%. Make sure to regenerate permalinks.', 'Avada' ),
 						'id'          => 'portfolio_slug',
 						'default'     => 'portfolio-items',
 						'type'        => 'text',
 					),
-					'portfolio_meta_font_size' => array(
+					'portfolio_meta_font_size'             => array(
 						'label'       => esc_html__( 'Meta Data Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the font size for meta data text.', 'Avada' ),
 						'id'          => 'portfolio_meta_font_size',
@@ -290,14 +290,14 @@ function avada_options_section_portfolio( $sections ) {
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'portfolio_pn_nav' => array(
+					'portfolio_pn_nav'               => array(
 						'label'       => esc_html__( 'Previous/Next Pagination', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the previous/next post pagination for single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_pn_nav',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'portfolio_featured_images' => array(
+					'portfolio_featured_images'      => array(
 						'label'       => esc_html__( 'Featured Image / Video on Single Post Page', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display featured images and videos on single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_featured_images',
@@ -336,56 +336,56 @@ function avada_options_section_portfolio( $sections ) {
 							),
 						),
 					),
-					'portfolio_width_100' => array(
+					'portfolio_width_100'            => array(
 						'label'       => esc_html__( '100% Width Page', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display portfolio posts at 100% browser width according to the window size. Turn off to follow site width.', 'Avada' ),
 						'id'          => 'portfolio_width_100',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'portfolio_project_desc_title' => array(
+					'portfolio_project_desc_title'   => array(
 						'label'       => esc_html__( 'Project Description Title', 'Avada' ),
 						'description' => esc_html__( 'Turn on to show the project description title on single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_project_desc_title',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'portfolio_project_details' => array(
+					'portfolio_project_details'      => array(
 						'label'       => esc_html__( 'Project Details', 'Avada' ),
 						'description' => esc_html__( 'Turn on to show the project details title and content on single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_project_details',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'portfolio_link_icon_target' => array(
+					'portfolio_link_icon_target'     => array(
 						'label'       => esc_html__( 'Open Portfolio Links In New Window', 'Avada' ),
 						'description' => esc_html__( 'Turn on to open the single post page, project url and copyright url links in a new window.', 'Avada' ),
 						'id'          => 'portfolio_link_icon_target',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'portfolio_comments' => array(
+					'portfolio_comments'             => array(
 						'label'       => esc_html__( 'Comments', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display comments on single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_comments',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'portfolio_author' => array(
+					'portfolio_author'               => array(
 						'label'       => esc_html__( 'Author', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the author name on single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_author',
 						'default'     => '0',
 						'type'        => 'switch',
 					),
-					'portfolio_social_sharing_box' => array(
+					'portfolio_social_sharing_box'   => array(
 						'label'       => esc_html__( 'Social Sharing Box', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the social sharing box on single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_social_sharing_box',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'portfolio_related_posts' => array(
+					'portfolio_related_posts'        => array(
 						'label'       => esc_html__( 'Related Projects', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display related projects on single portfolio posts.', 'Avada' ),
 						'id'          => 'portfolio_related_posts',

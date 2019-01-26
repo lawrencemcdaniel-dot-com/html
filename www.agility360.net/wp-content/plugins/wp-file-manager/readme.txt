@@ -1,10 +1,10 @@
-﻿=== File Manager ===
+=== File Manager ===
 Contributors: mndpsingh287
-Tags: wp-file-manager, elfinder,file manager, ftp, wordpress file manager,file manager, Upload Files, WP File Manager, File Manage, Edit Files, Delete Files, FTP, filemanager, wpfilemanager, ftp, file transfer, update, create, delete, view, rename, editor, Cpanel, Control Panel, Admin, Shortcode, explorer, file explorer
+Tags: wp-file-manager, elfinder,file manager, ftp, wp-filemanager,file manager, wp-filemanager, Upload Files, WP File Manager, File Manage, Edit Files, Delete Files, FTP, filemanager, wpfilemanager, ftp, file transfer, update, create, delete, view, rename, editor, Cpanel, Control Panel, Admin, Shortcode, explorer, file explorer, filemanager
 Requires at least: 4.0
-Tested up to: 5.0.2
+Tested up to: 5.0.3
 Requires PHP: 5.2.4
-Stable tag: 3.8
+Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,18 @@ Yes, You can archieve any files and folders as zip then simple download it. Plea
 
 
 == Changelog ==
+
+= 4.1 (21st JAN, 2019) =
+
+* Syntax Error Feature Added
+
+= 4.0 (10th JAN, 2019) =
+
+* Http API fixes
+
+= 3.9 (10th JAN, 2019) =
+
+* CURL issue fixes
 
 = 3.8 (20th DEC, 2018) =
 

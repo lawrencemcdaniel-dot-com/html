@@ -72,11 +72,7 @@ class Tribe__Events__Tickets__Eventbrite__Migrate__Queue extends Tribe__Process_
 		);
 
 		// Fetch the EB ID
-		$eventbrite_id = get_post_meta( $event->ID, '_EventBriteId', true );
-
-		if ( ! $eventbrite_id ) {
-			$eventbrite_id = get_post_meta( $event->ID, '_EventBriteID', true );
-		}
+		$eventbrite_id = tribe_eb_get_id( $event->ID );
 
 		if ( ! $eventbrite_id ) {
 			return false;

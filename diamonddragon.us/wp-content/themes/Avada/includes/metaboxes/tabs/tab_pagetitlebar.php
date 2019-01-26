@@ -93,7 +93,7 @@ $this->radio_buttonset(
 	$page_title_dependency
 );
 
-$page_title_text_dependency = $page_title_dependency;
+$page_title_text_dependency   = $page_title_dependency;
 $page_title_text_dependency[] = array(
 	'field'      => 'page_title_text',
 	'value'      => 'no',
@@ -213,7 +213,7 @@ $this->text(
 );
 
 // Dependency check that background is used.
-$page_title_bg_dependency = $page_title_dependency;
+$page_title_bg_dependency   = $page_title_dependency;
 $page_title_bg_dependency[] = array(
 	'field'      => 'page_title',
 	'value'      => 'yes_without_bar',
@@ -229,7 +229,7 @@ if ( 'content_only' == $page_title_option ) {
 
 $ptb_bg_color = Fusion_Color::new_color(
 	array(
-		'color' => Avada()->settings->get( 'page_title_bg_color' ),
+		'color'    => Avada()->settings->get( 'page_title_bg_color' ),
 		'fallback' => '#F6F6F6',
 	)
 );
@@ -245,7 +245,7 @@ $this->color(
 
 $ptb_border_color = Fusion_Color::new_color(
 	array(
-		'color' => Avada()->settings->get( 'page_title_border_color' ),
+		'color'    => Avada()->settings->get( 'page_title_border_color' ),
 		'fallback' => '#d2d3d4',
 	)
 );
@@ -268,7 +268,7 @@ $this->upload(
 );
 
 // Add check that regular background image has been added.
-$retina_dependency = $page_title_bg_dependency;
+$retina_dependency   = $page_title_bg_dependency;
 $retina_dependency[] = array(
 	'field'      => 'page_title_bar_bg',
 	'value'      => '',

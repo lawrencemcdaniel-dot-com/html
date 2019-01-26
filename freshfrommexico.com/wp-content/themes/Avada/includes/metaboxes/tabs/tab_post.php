@@ -45,9 +45,9 @@ $this->radio_buttonset(
 	'portfolio_width_100',
 	esc_html__( 'Use 100% Width Page', 'Avada' ),
 	array(
-		'default'   => esc_attr__( 'Default', 'Avada' ),
-		'yes'       => esc_attr__( 'Yes', 'Avada' ),
-		'no'        => esc_attr__( 'No', 'Avada' ),
+		'default' => esc_attr__( 'Default', 'Avada' ),
+		'yes'     => esc_attr__( 'Yes', 'Avada' ),
+		'no'      => esc_attr__( 'No', 'Avada' ),
 	),
 	/* translators: Additional description (defaults). */
 	sprintf( esc_html__( 'Choose to set this post to 100&#37; browser width. %s', 'Avada' ), Avada()->settings->get_default_description( 'blog_width_100', '', 'yesno' ) )

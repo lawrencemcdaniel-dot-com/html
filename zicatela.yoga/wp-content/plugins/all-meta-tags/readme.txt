@@ -3,8 +3,8 @@ Contributors: Arthur Gareginyan
 Tags: meta, tag, tags, custom, simple, plugin, twitter, facebook, google, google plus, meta, search engine optimization, seo, social, alexa, alexa rank, pinterest, norton safe web, webmaster, webmaster tool, webmaster tools, web master tools, web master tools, bing, yandex, bing webmaster, yandex webmaster, google webmaster, web tools, open graph, publisher profile, publisher, author, authors, description, keyword, keywords, copyright, designer, admin, meta tag, pinterest, pinterest meta tag, pinterest website verification, pinterest verification, pinterest verify, plugin, verification, verify, webmaster plugin, wot, web of trust, specificfeeds, specific feeds, feed, rss feed, google shopping, google merchant center, structured data, woocommerce, schemas
 Donate link: https://www.spacexchimp.com/donate.html
 Requires at least: 3.9
-Tested up to: 4.9
-Stable tag: 4.26
+Tested up to: 5.0
+Stable tag: 4.27
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -148,9 +148,9 @@ A. As far as we know, the "All Meta Tags" plugin is compatible with the "All in 
 
 `<head>
      ...
-     <meta name="copyright" content="Copyright (c) 2013-2018 Space X-Chimp. All Rights Reserved.">
+     <meta name="copyright" content="Copyright (c) 2013-2019 Space X-Chimp. All Rights Reserved.">
      ...
-     <meta name="copyright" content="Copyright 2018 Space X-Chimp. All Rights Reserved.">
+     <meta name="copyright" content="Copyright 2019 Space X-Chimp. All Rights Reserved.">
      ...
 </head>`
 
@@ -216,6 +216,13 @@ Commercial licensing (e.g. for projects that can’t use an open-source license)
 
 
 == Changelog ==
+
+= 4.27 =
+* Content of the "Usage" section updated.
+* Code formatting in the "admin.js" file improved.
+* Code commenting improved.
+* The copyright date updated.
+* Translation files are updated.
 
 = 4.26 =
 * Improvement: Design of the plugin settings page is improved.

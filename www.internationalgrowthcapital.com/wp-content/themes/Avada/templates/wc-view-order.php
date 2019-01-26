@@ -36,9 +36,9 @@ $show_downloads        = $order->has_downloadable_item() && $order->is_download_
 			do_action( 'woocommerce_order_details_before_order_table_items', $order );
 
 			foreach ( $order_items as $item_id => $item ) :
-				$product           = apply_filters( 'woocommerce_order_item_product', $item->get_product(), $item );
-				$purchase_note     = ( $product ) ? $product->get_purchase_note() : '';
-				$is_visible        = $product && $product->is_visible();
+				$product       = apply_filters( 'woocommerce_order_item_product', $item->get_product(), $item );
+				$purchase_note = ( $product ) ? $product->get_purchase_note() : '';
+				$is_visible    = $product && $product->is_visible();
 
 				$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
 
@@ -48,31 +48,32 @@ $show_downloads        = $order->has_downloadable_item() && $order->is_download_
 				?>
 				<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'woocommerce-table__line-item order_item', $item, $order ) ); ?>">
 					<td class="woocommerce-table__product-name product-name">
+						<div class="fusion-product-name-wrapper">
+							<?php if ( $is_visible ) : ?>
+								<span class="product-thumbnail">
+									<?php $thumbnail = $product->get_image(); ?>
+									<?php if ( ! $product_permalink ) : ?>
+										<?php echo $thumbnail; // WPCS: XSS ok. ?>
+									<?php else : ?>
+										<a href="<?php echo esc_url( $product_permalink ); ?>"><?php echo $thumbnail; // WPCS: XSS ok. ?></a>
+									<?php endif; ?>
+								</span>
+							<?php endif; ?>
 
-						<?php if ( $is_visible ) : ?>
-							<span class="product-thumbnail">
-								<?php $thumbnail = $product->get_image(); ?>
-								<?php if ( ! $product_permalink ) : ?>
-									<?php echo $thumbnail; // WPCS: XSS ok. ?>
-								<?php else : ?>
-									<a href="<?php echo esc_url( $product_permalink ); ?>"><?php echo $thumbnail; // WPCS: XSS ok. ?></a>
-								<?php endif; ?>
-							</span>
-						<?php endif; ?>
+							<div class="product-info">
+								<?php
+								echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), esc_html( $item->get_name() ) ) : esc_html( $item->get_name() ), $item, $is_visible ); // WPCS: XSS ok.
+								echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); // WPCS: XSS ok.
 
-						<div class="product-info">
-							<?php
-							echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), esc_html( $item->get_name() ) ) : esc_html( $item->get_name() ), $item, $is_visible ); // WPCS: XSS ok.
-							echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); // WPCS: XSS ok.
+								// Meta data.
+								do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
 
-							// Meta data.
-							do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
+								wc_display_item_meta( $item );
+								wc_display_item_downloads( $item );
 
-							wc_display_item_meta( $item );
-							wc_display_item_downloads( $item );
-
-							do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
-							?>
+								do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
+								?>
+							</div>
 						</div>
 					</td>
 

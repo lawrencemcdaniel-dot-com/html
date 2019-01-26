@@ -848,13 +848,7 @@ class Avada_Woocommerce {
 			return;
 		}
 
-		if ( $query->get( 'page_id' ) ) {
-			$page_id = absint( $query->get( 'page_id' ) );
-		} else {
-			$page_id = absint( Avada()->fusion_library->get_page_id() );
-		}
-
-		if ( wc_get_page_id( 'shop' ) === $page_id || $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) ) {
+		if ( fusion_is_shop( $query->get( 'page_id' ) ) || $query->is_post_type_archive( 'product' ) || $query->is_tax( get_object_taxonomies( 'product' ) ) ) {
 
 			if ( Avada()->settings->get( 'woocommerce_avada_ordering' ) || Avada()->settings->get( 'woocommerce_toggle_grid_list' ) ) {
 				remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );

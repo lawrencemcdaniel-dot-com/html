@@ -107,7 +107,7 @@ class Avada_Breadcrumbs {
 	private function __construct() {
 
 		// Initialize object variables.
-		$this->post    = get_post( get_queried_object_id() );
+		$this->post = get_post( get_queried_object_id() );
 
 		// Setup default array for changeable variables.
 		$defaults = array(
@@ -153,7 +153,7 @@ class Avada_Breadcrumbs {
 	 * @return void
 	 */
 	public function get_breadcrumbs() {
-		// Get the Wordpres SEO options if activated; else will return FALSE.
+		// Get the WordPress SEO options if activated; else will return FALSE.
 		$options = get_option( 'wpseo_internallinks' );
 
 		// Support for Yoast Breadcrumbs.
@@ -218,7 +218,7 @@ class Avada_Breadcrumbs {
 				$posts_page         = get_option( 'page_for_posts' );
 				$posts_page_title   = get_the_title( $posts_page );
 				$this->html_markup .= $this->get_single_breadcrumb_markup( $posts_page_title, '', true, true, true );
-			} else if ( ( is_tax() || is_tag() || is_category() || is_date() || is_author() ) && $this->show_post_type_archive && ! Avada_Helper::is_woocommerce() && ! Avada_Helper::is_bbpress() ) {
+			} elseif ( ( is_tax() || is_tag() || is_category() || is_date() || is_author() ) && $this->show_post_type_archive && ! Avada_Helper::is_woocommerce() && ! Avada_Helper::is_bbpress() ) {
 				$this->html_markup .= $this->get_post_type_archive();
 			}
 
@@ -231,7 +231,7 @@ class Avada_Breadcrumbs {
 				} else {
 					$this->html_markup .= $this->get_post_type_archive( false );
 				}
-			} else if ( is_tax() || is_tag() || is_category() ) {
+			} elseif ( is_tax() || is_tag() || is_category() ) {
 
 				// Taxonomy Archives.
 				if ( is_tag() ) { // If we have a tag archive, add the tag prefix.
@@ -239,7 +239,7 @@ class Avada_Breadcrumbs {
 				}
 				$this->html_markup .= $this->get_taxonomies();
 				$this->html_markup .= $this->get_breadcrumb_leaf_markup( 'term' );
-			} else if ( is_date() ) {
+			} elseif ( is_date() ) {
 				// Date Archives.
 				global $wp_locale;
 				$year = esc_html( get_query_var( 'year' ) );
@@ -250,11 +250,11 @@ class Avada_Breadcrumbs {
 				// Year Archive, only is a leaf.
 				if ( is_year() ) {
 					$this->html_markup .= $this->get_breadcrumb_leaf_markup( 'year' );
-				} else if ( is_month() ) {
+				} elseif ( is_month() ) {
 					// Month Archive, needs year link and month leaf.
 					$this->html_markup .= $this->get_single_breadcrumb_markup( $year, get_year_link( $year ) );
 					$this->html_markup .= $this->get_breadcrumb_leaf_markup( 'month' );
-				} else if ( is_day() ) {
+				} elseif ( is_day() ) {
 					// Day Archive, needs year and month link and day leaf.
 					global $wp_locale;
 
@@ -263,18 +263,18 @@ class Avada_Breadcrumbs {
 						$month = substr( esc_html( get_query_var( 'm' ) ), 4, 2 );
 					}
 
-					$month_name = $wp_locale->get_month( $month );
+					$month_name         = $wp_locale->get_month( $month );
 					$this->html_markup .= $this->get_single_breadcrumb_markup( $year, get_year_link( $year ) );
 					$this->html_markup .= $this->get_single_breadcrumb_markup( $month_name, get_month_link( $year, $month ) );
 					$this->html_markup .= $this->get_breadcrumb_leaf_markup( 'day' );
 				}
-			} else if ( is_author() ) {
+			} elseif ( is_author() ) {
 				// Author Archives.
 				$this->html_markup .= $this->get_breadcrumb_leaf_markup( 'author' );
-			} else if ( is_search() ) {
+			} elseif ( is_search() ) {
 				// Search Page.
 				$this->html_markup .= $this->get_breadcrumb_leaf_markup( 'search' );
-			} else if ( is_404() ) {
+			} elseif ( is_404() ) {
 				// 404 Page.
 				// Special treatment for Events Calendar to avoid 404 messages on list view.
 				if ( Avada_Helper::tribe_is_event() || Avada_Helper::is_events_archive() ) {
@@ -282,7 +282,7 @@ class Avada_Breadcrumbs {
 				} else {
 					$this->html_markup .= $this->get_breadcrumb_leaf_markup( '404' );
 				}
-			} else if ( class_exists( 'bbPress' ) ) {
+			} elseif ( class_exists( 'bbPress' ) ) {
 				// bbPress.
 				// Search Page.
 				if ( Avada_Helper::bbp_is_search() ) {
@@ -436,8 +436,8 @@ class Avada_Breadcrumbs {
 
 			if ( 1 === count( array_unique( $term_parents ) ) && $term_parents[0] ) {
 				// Get space separated string of term tree in slugs.
-				$term_tree   = get_ancestors( $terms[0]->term_id, $taxonomy );
-				$term_tree   = array_reverse( $term_tree );
+				$term_tree = get_ancestors( $terms[0]->term_id, $taxonomy );
+				$term_tree = array_reverse( $term_tree );
 
 				// Loop through the term tree.
 				foreach ( $term_tree as $term_id ) {
@@ -456,7 +456,7 @@ class Avada_Breadcrumbs {
 
 			// Loop through the rest of the terms, and add them to string comma separated.
 			$max_index = count( $terms );
-			$i = 0;
+			$i         = 0;
 			foreach ( $terms as $term ) {
 
 				// For the last index also add the separator.
@@ -484,7 +484,7 @@ class Avada_Breadcrumbs {
 
 		// Loop through the ids to get the full tree.
 		foreach ( $post_ancestor_ids as $post_ancestor_id ) {
-			$post_ancestor     = get_post( $post_ancestor_id );
+			$post_ancestor = get_post( $post_ancestor_id );
 
 			if ( isset( $post_ancestor->post_title ) && isset( $post_ancestor->ID ) ) {
 				$ancestors_markup .= $this->get_single_breadcrumb_markup( apply_filters( 'the_title', $post_ancestor->post_title, $post_ancestor->ID ), get_permalink( $post_ancestor->ID ) );
@@ -501,7 +501,7 @@ class Avada_Breadcrumbs {
 	 */
 	private function get_taxonomies() {
 		global $wp_query;
-		$term = $wp_query->get_queried_object();
+		$term         = $wp_query->get_queried_object();
 		$terms_markup = '';
 
 		// Make sure we have hierarchical taxonomy and parents.
@@ -603,11 +603,11 @@ class Avada_Breadcrumbs {
 			}
 
 			$separator = ! is_shop();
-			$is_leaf = is_shop();
+			$is_leaf   = is_shop();
 
 			if ( is_search() ) {
 				$separator = true;
-				$is_leaf = false;
+				$is_leaf   = false;
 			}
 			$shop_page_markup = $this->get_single_breadcrumb_markup( $shop_page_name, $link, $separator, true, $is_leaf );
 		}
@@ -662,7 +662,7 @@ class Avada_Breadcrumbs {
 				$title = $day;
 				break;
 			case 'author':
-				$user  = $wp_query->get_queried_object();
+				$user = $wp_query->get_queried_object();
 				if ( ! $user ) {
 					$user = get_user_by( 'ID', $wp_query->query_vars['author'] );
 				}

@@ -22,7 +22,7 @@ do_action( 'avada_before_header_wrapper' );
 $sticky_header_logo = ( Avada()->settings->get( 'sticky_header_logo' ) ) ? true : false;
 $mobile_logo        = ( Avada()->settings->get( 'mobile_logo' ) ) ? true : false;
 
-$side_header_css    = 'clearfix fusion-mobile-menu-design-' . strtolower( Avada()->settings->get( 'mobile_menu_design' ) ) . ' fusion-sticky-logo-' . $sticky_header_logo . ' fusion-mobile-logo-' . $mobile_logo . ' fusion-sticky-menu-' . has_nav_menu( 'sticky_navigation' ) . ( Avada()->settings->get( 'header_shadow' ) ? ' header-shadow' : '' );
+$side_header_css = 'clearfix fusion-mobile-menu-design-' . strtolower( Avada()->settings->get( 'mobile_menu_design' ) ) . ' fusion-sticky-logo-' . $sticky_header_logo . ' fusion-mobile-logo-' . $mobile_logo . ' fusion-sticky-menu-' . has_nav_menu( 'sticky_navigation' ) . ( Avada()->settings->get( 'header_shadow' ) ? ' header-shadow' : '' );
 
 if ( 'flyout' === Avada()->settings->get( 'mobile_menu_design' ) ) {
 	$side_header_css .= ' fusion-header-has-flyout-menu';

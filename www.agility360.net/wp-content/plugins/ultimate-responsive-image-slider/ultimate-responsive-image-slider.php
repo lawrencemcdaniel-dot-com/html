@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Responsive Image Slider
 Plugin URI:  https://wordpress.org/plugins/ultimate-responsive-image-slider/
 Description: Add unlimited image slides using Ultimate Responsive Image Slider in any Page and Post content to give an attractive mode to represent contents.
-Version:     3.2.15
+Version:     3.2.16
 Author:      WP Frank
 Author URI:  https://wpfrank.com/
 Text Domain: ultimate-responsive-image-slider

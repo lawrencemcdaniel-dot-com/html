@@ -12,16 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Set some variables.
-$sliding_bar_position = Avada()->settings->get( 'slidingbar_position' );
-$sliding_bar_columns = Avada()->settings->get( 'slidingbar_widgets_columns' );
-$sliding_bar_column_alignment = Avada()->settings->get( 'slidingbar_column_alignment' );
+$sliding_bar_position          = Avada()->settings->get( 'slidingbar_position' );
+$sliding_bar_columns           = Avada()->settings->get( 'slidingbar_widgets_columns' );
+$sliding_bar_column_alignment  = Avada()->settings->get( 'slidingbar_column_alignment' );
 $sliding_bar_content_alignment = Avada()->settings->get( 'slidingbar_content_align' );
-$side_header_width = ( 'Top' === Avada()->settings->get( 'header_position' ) ) ? 0 : intval( Avada()->settings->get( 'side_header_width' ) );
-$mobile_breakpoint = $side_header_width + intval( Avada()->settings->get( 'content_break_point' ) );
-$toggle_style = Avada()->settings->get( 'slidingbar_toggle_style' );
+$side_header_width             = ( 'Top' === Avada()->settings->get( 'header_position' ) ) ? 0 : intval( Avada()->settings->get( 'side_header_width' ) );
+$mobile_breakpoint             = $side_header_width + intval( Avada()->settings->get( 'content_break_point' ) );
+$toggle_style                  = Avada()->settings->get( 'slidingbar_toggle_style' );
 
 // Setup the main wrapper classes.
-$sliding_bar_classes = 'slidingbar-area fusion-sliding-bar-area fusion-widget-area fusion-sliding-bar-position-' . $sliding_bar_position . ' fusion-sliding-bar-text-align-' . $sliding_bar_content_alignment . ' fusion-sliding-bar-toggle-' . $toggle_style;
+$sliding_bar_classes  = 'slidingbar-area fusion-sliding-bar-area fusion-widget-area fusion-sliding-bar-position-' . $sliding_bar_position . ' fusion-sliding-bar-text-align-' . $sliding_bar_content_alignment . ' fusion-sliding-bar-toggle-' . $toggle_style;
 $sliding_bar_classes .= ( Avada()->settings->get( 'slidingbar_sticky' ) ) ? ' fusion-sliding-bar-sticky' : '';
 $sliding_bar_classes .= ( 'right' === $sliding_bar_position || 'left' === $sliding_bar_position ) ? ' fusion-sliding-bar-columns-' . $sliding_bar_column_alignment : '';
 $sliding_bar_classes .= ( Avada()->settings->get( 'slidingbar_border' ) ) ? ' fusion-sliding-bar-border' : '';
@@ -32,11 +32,11 @@ $column_width = ( '5' === $sliding_bar_columns ) ? 2 : 12 / $sliding_bar_columns
 // Set the classes depending on the position.
 if ( 'top' === $sliding_bar_position || 'bottom' === $sliding_bar_position ) {
 	$sliding_bar_row_or_inner_wrapper_class = 'fusion-row';
-	$sliding_bar_columns_wrapper_class = 'fusion-columns row fusion-columns-' . $sliding_bar_columns . 'columns columns-' . $sliding_bar_columns;
+	$sliding_bar_columns_wrapper_class      = 'fusion-columns row fusion-columns-' . $sliding_bar_columns . 'columns columns-' . $sliding_bar_columns;
 
 } else {
 	$sliding_bar_row_or_inner_wrapper_class = 'fusion-sliding-bar-content-wrapper';
-	$sliding_bar_columns_wrapper_class = 'fusion-sliding-bar-content';
+	$sliding_bar_columns_wrapper_class      = 'fusion-sliding-bar-content';
 	if ( 'floated' === $sliding_bar_column_alignment ) {
 		$sliding_bar_columns_wrapper_class .= ' fusion-columns row fusion-columns-' . $sliding_bar_columns . 'columns columns-' . $sliding_bar_columns;
 	}
@@ -69,7 +69,7 @@ if ( 'top' === $sliding_bar_position || 'bottom' === $sliding_bar_position ) {
 						<?php
 						$sliding_bar_column_class = 'fusion-column';
 						if ( 'top' === $sliding_bar_position || 'bottom' === $sliding_bar_position || 'floated' === $sliding_bar_column_alignment ) {
-							$last_column = ( $sliding_bar_columns === $i ) ? ' fusion-column-last' : '';
+							$last_column               = ( $sliding_bar_columns === $i ) ? ' fusion-column-last' : '';
 							$sliding_bar_column_class .= $last_column . ' col-lg-' . $column_width . ' col-md-' . $column_width . ' col-sm-' . $column_width;
 						}
 						?>

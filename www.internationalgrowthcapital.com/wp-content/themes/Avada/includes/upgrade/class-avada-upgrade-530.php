@@ -146,10 +146,10 @@ class Avada_Upgrade_530 extends Avada_Upgrade_Abstract {
 
 			if ( get_post_meta( $shop_page_id, 'pyre_header_bg_color', true ) ) {
 				$color_obj = Fusion_Color::new_color( get_post_meta( $shop_page_id, 'pyre_header_bg_color', true ) );
-				$mode = 'hex';
+				$mode      = 'hex';
 				if ( get_post_meta( $shop_page_id, 'pyre_header_bg_opacity', true ) ) {
 					$color_obj = $color_obj->getNew( 'alpha', get_post_meta( $shop_page_id, 'pyre_header_bg_opacity', true ) );
-					$mode = 'rgba';
+					$mode      = 'rgba';
 				}
 				$header_bg_color = $color_obj->to_css( $mode );
 			}

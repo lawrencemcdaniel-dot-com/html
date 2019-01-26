@@ -6,7 +6,7 @@ if(isset($disable_mobile_bar) && $disable_mobile_bar == ''){?>
 <?php } ?>
 <div class="ednpro_main_wrapper ednpro_section">
 <?php 
-if($edn_bar_type == 1 && $fonts_final !="Default"){ 
+if($edn_bar_type == 1 && $fonts_final !="Default" && $fonts_final !="default"){ 
 ?>
 <link rel='stylesheet' id='edn-google-fonts-style-css' href='//fonts.googleapis.com/css?family=<?php echo $fonts_final;?>' type='text/css' media='all' /> 
 <?php

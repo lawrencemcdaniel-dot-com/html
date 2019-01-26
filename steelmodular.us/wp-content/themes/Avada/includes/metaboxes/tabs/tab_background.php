@@ -31,7 +31,7 @@ $boxed_dependency = array();
 
 $page_bg_color = Fusion_Color::new_color(
 	array(
-		'color' => Avada()->settings->get( 'bg_color' ),
+		'color'    => Avada()->settings->get( 'bg_color' ),
 		'fallback' => '#ffffff',
 	)
 );
@@ -94,7 +94,7 @@ $wide_dependency = array();
 
 $content_bg_color = Fusion_Color::new_color(
 	array(
-		'color' => Avada()->settings->get( 'content_bg_color' ),
+		'color'    => Avada()->settings->get( 'content_bg_color' ),
 		'fallback' => '#ffffff',
 	)
 );

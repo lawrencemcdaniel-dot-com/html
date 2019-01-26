@@ -962,3 +962,27 @@ if ( ! function_exists( 'fusion_get_referer' ) ) {
 		return $referer;
 	}
 }
+
+if ( ! function_exists( 'fusion_is_shop' ) ) {
+	/**
+	 * Returns true when viewing the product type archive (shop).
+	 *
+	 * @since 5.8
+	 * @param integer/string $current_page_id Post/Page ID.
+	 * @return bool Theme option or page option value.
+	 */
+	function fusion_is_shop( $current_page_id ) {
+		$current_page_id      = (int) $current_page_id;
+		$front_page_id        = (int) get_option( 'page_on_front' );
+		$shop_page_id         = (int) apply_filters( 'woocommerce_get_shop_page_id', get_option( 'woocommerce_shop_page_id' ) );
+		$is_static_front_page = 'page' === get_option( 'show_on_front' );
+
+		if ( ( $is_static_front_page && $front_page_id === $current_page_id ) || is_null( get_queried_object() ) || ( class_exists( 'BuddyPress' ) && bp_is_user() ) ) {
+			$is_shop_page = ( $current_page_id === $shop_page_id ) ? true : false;
+		} else {
+			$is_shop_page = is_shop();
+		}
+
+		return $is_shop_page;
+	}
+}

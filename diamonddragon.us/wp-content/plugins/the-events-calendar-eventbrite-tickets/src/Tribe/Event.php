@@ -83,7 +83,13 @@ class Tribe__Events__Tickets__Eventbrite__Event {
 			return false;
 		}
 
-		return get_post_meta( $post->ID, '_EventBriteId', true );
+		$eventbrite_id = get_post_meta( $post->ID, '_EventBriteId', true );
+
+		if ( ! $eventbrite_id ) {
+			$eventbrite_id = get_post_meta( $post->ID, '_EventBriteID', true );
+		}
+
+		return $eventbrite_id;
 	}
 
 	/**
@@ -145,9 +151,9 @@ class Tribe__Events__Tickets__Eventbrite__Event {
 			return false;
 		}
 
-		$now = Tribe__Events__Timezones::to_tz( strtotime( time() ), $event->end->timezone );
+		$now = Tribe__Events__Timezones::to_tz( 'now', $event->end->timezone );
 
-		if ( strtotime( $event->end->local ) < $now ) {
+		if ( strtotime( $event->end->local ) < strtotime( $now ) ) {
 			return false;
 		}
 

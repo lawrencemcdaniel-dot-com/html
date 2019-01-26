@@ -550,7 +550,7 @@ class Avada_Layout {
 	 */
 	public function sidebar_1_name_class( $classes ) {
 		$sidebar_position = 'right';
-		$sidebar_name = ' fusion-default-sidebar';
+		$sidebar_name     = ' fusion-default-sidebar';
 
 		if ( 'right' !== $this->sidebars['position'] || ( isset( $this->sidebars['sidebar_2'] ) && '' !== $this->sidebars['sidebar_2'] ) ) {
 			$sidebar_position = 'left';
@@ -590,15 +590,15 @@ class Avada_Layout {
 		// If sticky param is either not defined yet or set to none, there is nothing to do.
 		if ( ! isset( $this->sidebars['sticky'] ) || ! $this->sidebars['sticky'] || 'none' === $this->sidebars['sticky'] ) {
 			return $classes;
-		} else if ( 'both' === $this->sidebars['sticky'] ) {
+		} elseif ( 'both' === $this->sidebars['sticky'] ) {
 			$classes[] = 'fusion-sticky-sidebar';
-		} else if ( false !== strpos( $classes_string, 'fusion-sidebar-left' ) && 'left' === $this->sidebars['position'] && 'sidebar_one' === $this->sidebars['sticky'] ) {
+		} elseif ( false !== strpos( $classes_string, 'fusion-sidebar-left' ) && 'left' === $this->sidebars['position'] && 'sidebar_one' === $this->sidebars['sticky'] ) {
 			$classes[] = 'fusion-sticky-sidebar';
-		} else if ( false !== strpos( $classes_string, 'fusion-sidebar-right' ) && 'right' === $this->sidebars['position'] && 'sidebar_one' === $this->sidebars['sticky'] ) {
+		} elseif ( false !== strpos( $classes_string, 'fusion-sidebar-right' ) && 'right' === $this->sidebars['position'] && 'sidebar_one' === $this->sidebars['sticky'] ) {
 			$classes[] = 'fusion-sticky-sidebar';
-		} else if ( false !== strpos( $classes_string, 'fusion-sidebar-left' ) && 'right' === $this->sidebars['position'] && 'sidebar_two' === $this->sidebars['sticky'] ) {
+		} elseif ( false !== strpos( $classes_string, 'fusion-sidebar-left' ) && 'right' === $this->sidebars['position'] && 'sidebar_two' === $this->sidebars['sticky'] ) {
 			$classes[] = 'fusion-sticky-sidebar';
-		} else if ( false !== strpos( $classes_string, 'fusion-sidebar-right' ) && 'left' === $this->sidebars['position'] && 'sidebar_two' === $this->sidebars['sticky'] ) {
+		} elseif ( false !== strpos( $classes_string, 'fusion-sidebar-right' ) && 'left' === $this->sidebars['position'] && 'sidebar_two' === $this->sidebars['sticky'] ) {
 			$classes[] = 'fusion-sticky-sidebar';
 		}
 
@@ -643,7 +643,8 @@ class Avada_Layout {
 		/**
 		 * The content width.
 		 */
-		$options = get_option( Avada::get_option_name() );
+		$options      = get_option( Avada::get_option_name() );
+		$c_page_id    = Avada()->fusion_library->get_page_id();
 		$page_padding = 0;
 
 		if ( ! $site_width ) {
@@ -657,7 +658,6 @@ class Avada_Layout {
 				$page_padding = ( isset( $options['hundredp_padding'] ) ) ? $options['hundredp_padding'] : '0';
 
 				// Page Option 100% Width Left/Right Padding.
-				$c_page_id = Avada()->fusion_library->get_page_id();
 				$page_option_page_padding = Fusion_Sanitize::size( fusion_get_option( 'hundredp_padding', 'hundredp_padding', $c_page_id ) );
 				if ( '' !== $page_option_page_padding ) {
 					$page_padding = $page_option_page_padding;
@@ -713,13 +713,13 @@ class Avada_Layout {
 		$sidebar_1_width = 0;
 		$sidebar_2_width = 0;
 		if ( Avada()->template->has_sidebar() && ! Avada()->template->double_sidebars() ) {
-			if ( 'tribe_events' === get_post_type() ) {
+			if ( 'tribe_events' === get_post_type( $c_page_id ) ) {
 				$sidebar_1_width = Avada()->settings->get( 'ec_sidebar_width' );
 			} else {
 				$sidebar_1_width = Avada()->settings->get( 'sidebar_width' );
 			}
 		} elseif ( Avada()->template->double_sidebars() ) {
-			if ( 'tribe_events' === get_post_type() ) {
+			if ( 'tribe_events' === get_post_type( $c_page_id ) ) {
 				$sidebar_1_width = Avada()->settings->get( 'ec_sidebar_2_1_width' );
 				$sidebar_2_width = Avada()->settings->get( 'ec_sidebar_2_2_width' );
 			} else {
@@ -727,14 +727,14 @@ class Avada_Layout {
 				$sidebar_2_width = Avada()->settings->get( 'sidebar_2_2_width' );
 			}
 		} elseif ( ! Avada()->template->has_sidebar() && ( is_page_template( 'side-navigation.php' ) || is_singular( 'tribe_events' ) ) ) {
-			if ( 'tribe_events' === get_post_type() ) {
+			if ( 'tribe_events' === get_post_type( $c_page_id ) ) {
 				$sidebar_1_width = Avada()->settings->get( 'ec_sidebar_width' );
 			} else {
 				$sidebar_1_width = Avada()->settings->get( 'sidebar_width' );
 			}
 		}
 
-		$body_font_size = 16;
+		$body_font_size      = 16;
 		$real_body_font_size = Avada()->settings->get( 'body_typography', 'font-size' );
 		if ( 'px' === Fusion_Sanitize::get_unit( $real_body_font_size ) ) {
 			$body_font_size = (int) $real_body_font_size;
@@ -820,7 +820,7 @@ class Avada_Layout {
 	public function is_hundred_percent_template( $value = false, $page_id = false ) {
 		if ( ! $page_id ) {
 			$fusion_library = Fusion::get_instance();
-			$page_id = $fusion_library->get_page_id();
+			$page_id        = $fusion_library->get_page_id();
 		}
 
 		$page_template = '';

@@ -2,8 +2,8 @@
 Tags: page builder, responsive, widget, widgets, builder, page, admin, gallery, content, cms, pages, post, css, layout, grid
 Requires at least: 4.4
 Tested up to: 5.0
-Stable tag: 2.9.7
-Build time: 2018-12-14T11:15:17-08:00
+Stable tag: 2.10.0
+Build time: 2019-01-16T10:25:05-08:00
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Donate link: https://siteorigin.com/downloads/contribution/
@@ -95,6 +95,20 @@ Page Builder is actively developed and updated, so generally I'd recommend that 
 We've tried to ensure that Page Builder is compatible with most plugin widgets. It's best to just download Page Builder and test for yourself.
 
 == Changelog ==
+
+= 2.10.0 - 16 January 2018 =
+* Prevent syntax warning in PHP7.3
+* Add radio Style field type.
+* Layout block: Add button in block editor to add a SiteOrigin Layout Block.
+* Rerender row styles form on initializing a new dialog.
+* Change sidebar emulator 'id' key to avoid conflicts with widgets which already use 'id' as a key.
+* Validate post loop templates.
+* Layout block: Force raw widget processing for block editor previews.
+* Layout block: Ensure scripts load when Gutenberg plugin is active.
+* Support widgets registered using instances instead of class names.
+* Layout block: Add setting for whether to default to edit mode or preview mode.
+* Ensure style fields filter work as expected and hide styles sidebar when no fields are present.
+* Layout Block: Add 'page builder' as a keyword.
 
 = 2.9.7 - 14 December 2018 =
 * Add setting to use Classic Editor for new posts of types selected in Page Builder settings.

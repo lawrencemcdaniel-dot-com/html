@@ -2,8 +2,8 @@
 Contributors: danieledesantis
 Tags: css, custom css, style, styles, stylesheet, custom stylesheet, single post css, site css, single page css, custom post type css, product css
 Requires at least: 4.0
-Tested up to: 4.9.4
-Stable tag: 1.1.2
+Tested up to: 5.0.3
+Stable tag: 1.1.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,15 @@ Click on the "Screen option" link from your post/page editing area and be sure t
 
 == Changelog ==
 
+= 1.1.4 =
+* Fixed compatibility issue with The Events Calendar
+
+= 1.1.3 =
+* Fixed WordPress 5 compatibility issues
+* Fixed Gutenberg compatibility issues
+* Updated uninstall method
+* Minor improvements
+
 = 1.1.2 =
 * Fixed CodeMirror compatibility issues
 
@@ -104,6 +113,15 @@ Click on the "Screen option" link from your post/page editing area and be sure t
 * First release
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+* Fixed compatibility issue with The Events Calendar
+
+= 1.1.3 =
+* Fixed WordPress 5 compatibility issues
+* Fixed Gutenberg compatibility issues
+* Updated uninstall method
+* Minor improvements
 
 = 1.1.2 =
 * Fixed CodeMirror compatibility issues

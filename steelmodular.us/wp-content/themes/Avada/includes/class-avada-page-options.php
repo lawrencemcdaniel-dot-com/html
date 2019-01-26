@@ -189,7 +189,8 @@ class Avada_Page_Options {
 			return false;
 		}
 
-		$json_file_path = wp_normalize_path( $this->po_dir_path . wp_unslash( $_FILES['po_file_upload']['name'] ) ); // WPCS: sanitization ok.
+		// Do NOT use wp_usnlash() here as it breaks imports on windows machines.
+		$json_file_path = wp_normalize_path( $this->po_dir_path . $_FILES['po_file_upload']['name'] ); // WPCS: sanitization ok.
 
 		if ( ! file_exists( $this->po_dir_path ) ) {
 			wp_mkdir_p( $this->po_dir_path );
@@ -199,7 +200,8 @@ class Avada_Page_Options {
 			return false;
 		}
 		// We're already checking if defined above.
-		if ( ! $this->wp_filesystem->move( wp_normalize_path( wp_unslash( $_FILES['po_file_upload']['tmp_name'] ) ), $json_file_path, true ) ) { // WPCS: sanitization ok.
+		// Do NOT use wp_usnlash() here as it breaks imports on windows machines.
+		if ( ! $this->wp_filesystem->move( wp_normalize_path( $_FILES['po_file_upload']['tmp_name'] ), $json_file_path, true ) ) { // WPCS: sanitization ok.
 			return false;
 		}
 

@@ -4,14 +4,22 @@
 $edn_fonts = (isset($edn_bar_data['edn_fonts']) && $edn_bar_data['edn_fonts'] != '')?$edn_bar_data['edn_fonts']:'';
 $edn_font_size = (isset($edn_bar_data['edn_font_size']) && $edn_bar_data['edn_font_size'] != '')?$edn_bar_data['edn_font_size']:'';
 $edn_font_color = (isset($edn_bar_data['edn_font_color']) && $edn_bar_data['edn_font_color'] != '')?$edn_bar_data['edn_font_color']:'';
-$edn_bg_color = (isset($edn_bar_data['edn_bg_color']) && $edn_bar_data['edn_bg_color'] != '')?$edn_bar_data['edn_bg_color']:'';
-       
+$edn_bg_color = (isset($edn_bar_data['edn_bg_color']) && $edn_bar_data['edn_bg_color'] != '')?$edn_bar_data['edn_bg_color']:'';  
 $read_more_fcolor = (isset($edn_bar_data['read_more_fcolor']) && $edn_bar_data['read_more_fcolor'] != '')?$edn_bar_data['read_more_fcolor']:'';
 $read_more_bgcolor = (isset($edn_bar_data['read_more_bgcolor']) && $edn_bar_data['read_more_bgcolor'] != '')?$edn_bar_data['read_more_bgcolor']:'';
+$cf_hover_bg_color = (isset($edn_bar_data['cf_hover_bg_color']) && $edn_bar_data['cf_hover_bg_color'] != '') ? $edn_bar_data['cf_hover_bg_color'] : '';
+$cf_hover_font_color = (isset($edn_bar_data['cf_hover_font_color']) && $edn_bar_data['cf_hover_font_color'] != '') ? $edn_bar_data['cf_hover_font_color'] : '';
+$atag_bg_color = (isset($edn_bar_data['atag_bg_color']) && $edn_bar_data['atag_bg_color'] != '') ? $edn_bar_data['atag_bg_color'] : '';
+$atag_font_color = (isset($edn_bar_data['atag_font_color']) && $edn_bar_data['atag_font_color'] != '') ? $edn_bar_data['atag_font_color'] : '';
+$atag_hover_bg_color = (isset($edn_bar_data['atag_hover_bg_color']) && $edn_bar_data['atag_hover_bg_color'] != '') ? $edn_bar_data['atag_hover_bg_color'] : '';
+$atag_hover_font_color = (isset($edn_bar_data['atag_hover_font_color']) && $edn_bar_data['atag_hover_font_color'] != '') ? $edn_bar_data['atag_hover_font_color'] : '';
+ $cf_bg_color= (isset($edn_bar_data['cf_bg_color']) && $edn_bar_data['cf_bg_color'] != '') ? $edn_bar_data['cf_bg_color'] : '';
+$cf_font_color = (isset($edn_bar_data['cf_font_color']) && $edn_bar_data['cf_font_color'] != '')?$edn_bar_data['cf_font_color']:'';
+$button_fsize = (isset($edn_bar_data['button_fsize']) && $edn_bar_data['button_fsize'] != '')?$edn_bar_data['button_fsize']:'';
+$button_fweight = (isset($edn_bar_data['button_fweight']) && $edn_bar_data['button_fweight'] != '')?$edn_bar_data['button_fweight']:'normal';
+?>
 
-       ?>
-
-    .edn-notify-bar .edn-custom-design-wrapper .ticker-wrapper .ticker, .edn-notify-bar .ticker-wrapper .ticker{
+.edn-notify-bar .edn-custom-design-wrapper .ticker-wrapper .ticker, .edn-notify-bar .ticker-wrapper .ticker{
 <?php if($edn_fonts != ''){ ?>
         font-family: <?php echo esc_attr($edn_fonts); ?>;
         <?php } ?>
@@ -113,10 +121,6 @@ $read_more_bgcolor = (isset($edn_bar_data['read_more_bgcolor']) && $edn_bar_data
           background-color: <?php echo esc_attr($edn_bg_color); ?>;
         <?php } ?>
     }
-<?php 
- $cf_bg_color= (isset($edn_bar_data['cf_bg_color']) && $edn_bar_data['cf_bg_color'] != '') ? $edn_bar_data['cf_bg_color'] : '';
-$cf_font_color = (isset($edn_bar_data['cf_font_color']) && $edn_bar_data['cf_font_color'] != '')?$edn_bar_data['cf_font_color']:'';
-?>
     .edn-custom-template[data-barid=apexbar-<?php echo $nb_id; ?>] a.edn-controls-close{
        <?php if($cf_font_color != ''){ ?>
         color: <?php echo esc_attr($cf_font_color); ?>;
@@ -173,17 +177,8 @@ $cf_font_color = (isset($edn_bar_data['cf_font_color']) && $edn_bar_data['cf_fon
         font-family: <?php echo esc_attr($edn_fonts); ?>;
         <?php } ?>
     }
-
-
-
-    <?php
-    $cf_hover_bg_color = (isset($edn_bar_data['cf_hover_bg_color']) && $edn_bar_data['cf_hover_bg_color'] != '') ? $edn_bar_data['cf_hover_bg_color'] : '';
-    $cf_hover_font_color = (isset($edn_bar_data['cf_hover_font_color']) && $edn_bar_data['cf_hover_font_color'] != '') ? $edn_bar_data['cf_hover_font_color'] : '';
-
-    $atag_bg_color = (isset($edn_bar_data['atag_bg_color']) && $edn_bar_data['atag_bg_color'] != '') ? $edn_bar_data['atag_bg_color'] : '';
-    $atag_font_color = (isset($edn_bar_data['atag_font_color']) && $edn_bar_data['atag_font_color'] != '') ? $edn_bar_data['atag_font_color'] : '';
-    $atag_hover_bg_color = (isset($edn_bar_data['atag_hover_bg_color']) && $edn_bar_data['atag_hover_bg_color'] != '') ? $edn_bar_data['atag_hover_bg_color'] : '';
-    $atag_hover_font_color = (isset($edn_bar_data['atag_hover_font_color']) && $edn_bar_data['atag_hover_font_color'] != '') ? $edn_bar_data['atag_hover_font_color'] : '';
+   
+ <?php
   
     if ($cf_hover_font_color != '' || $cf_hover_bg_color != '') {
         ?>
@@ -222,26 +217,7 @@ $cf_font_color = (isset($edn_bar_data['cf_font_color']) && $edn_bar_data['cf_fon
             background: <?php echo esc_attr($atag_hover_bg_color); ?>;
         }
         <?php
-    }
-
-    if ($atag_font_color != '' || $atag_bg_color != '') {
-        ?>
-
-        .edn-custom-template[data-barid=apexbar-<?php echo $nb_id; ?>] .edn-mulitple-text-content a,
-        .edn-notify-bar .edn-custom-design-wrapper .edn-post-title-readmore{
-            color: <?php echo esc_attr($atag_font_color); ?>;
-            background: <?php echo esc_attr($atag_bg_color); ?>;
-            padding: 2px 8px;
-        }
-    <?php } if ($atag_hover_font_color != '' || $atag_hover_bg_color != '') { ?>
-        .edn-custom-template[data-barid=apexbar-<?php echo $nb_id; ?>] .edn-mulitple-text-content a:hover,
-        .edn-notify-bar .edn-custom-design-wrapper .edn-post-title-readmore:hover{
-            color: <?php echo esc_attr($atag_hover_font_color); ?>;
-            background: <?php echo esc_attr($atag_hover_bg_color); ?>;
-        }
-    <?php } ?>
-        
-   
+    } ?>
 
     /* close button custom css */
    <?php 
@@ -336,4 +312,18 @@ $close_font_color = (isset($edn_bar_data['close_font_color']) && $edn_bar_data['
     .edn-custom-template[data-barid=apexbar-<?php echo $nb_id; ?>] .visibility_show-time{
         display: none;
     }
+       <?php if ($cf_font_color != '' || $cf_bg_color != '' || $button_fsize != '' || $button_fweight != '') {?>
+        .edn-notify-bar .edn-custom-design-wrapper .edn-post-title-readmore{
+            color: <?php echo esc_attr($cf_font_color); ?> !important;
+            background: <?php echo esc_attr($cf_bg_color); ?> !important;
+            padding: 2px 8px;
+           <?php if($button_fsize != ''){ ?> font-size: <?php echo $button_fsize;?>px !important; <?php } ?>
+           <?php if($button_fweight != ''){ ?> font-weight: <?php echo $button_fweight;?> !important; <?php } ?>
+        }
+    <?php } if ($cf_hover_font_color != '' || $cf_hover_bg_color != '') { ?>
+        .edn-notify-bar .edn-custom-design-wrapper .edn-post-title-readmore:hover{
+            color: <?php echo esc_attr($cf_hover_font_color); ?> !important;
+            background: <?php echo esc_attr($cf_hover_bg_color); ?> !important;
+        }
+    <?php } ?>
 </style>

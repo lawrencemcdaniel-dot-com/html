@@ -105,26 +105,26 @@ class Fusion_Builder_Filters {
 
 		// Sharing box.
 		$shortcode_option_map['icons_boxed_radius']['fusion_sharing'][] = array(
-			'check' => array(
+			'check'  => array(
 				'theme-option' => 'social_links_boxed',
-				'value' => '0',
-				'operator' => '==',
+				'value'        => '0',
+				'operator'     => '==',
 			),
 			'output' => array(
-				'element' => 'icons_boxed',
-				'value' => '',
+				'element'  => 'icons_boxed',
+				'value'    => '',
 				'operator' => '!=',
 			),
 		);
-		$shortcode_option_map['box_colors']['fusion_sharing'][] = array(
-			'check' => array(
+		$shortcode_option_map['box_colors']['fusion_sharing'][]         = array(
+			'check'  => array(
 				'theme-option' => 'social_links_boxed',
-				'value' => '0',
-				'operator' => '==',
+				'value'        => '0',
+				'operator'     => '==',
 			),
 			'output' => array(
-				'element' => 'icons_boxed',
-				'value' => '',
+				'element'  => 'icons_boxed',
+				'value'    => '',
 				'operator' => '!=',
 			),
 		);
@@ -133,7 +133,7 @@ class Fusion_Builder_Filters {
 		if ( isset( $shortcode_option_map[ $option ][ $shortcode ] ) && is_array( $shortcode_option_map[ $option ][ $shortcode ] ) ) {
 			foreach ( $shortcode_option_map[ $option ][ $shortcode ] as $option_check ) {
 				$option_value = Avada()->settings->get( $option_check['check']['theme-option'] );
-				$pass = false;
+				$pass         = false;
 
 				// Check the result of check.
 				if ( '==' == $option_check['check']['operator'] ) {

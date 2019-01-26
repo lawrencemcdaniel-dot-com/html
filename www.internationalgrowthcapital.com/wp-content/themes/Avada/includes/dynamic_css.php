@@ -160,6 +160,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$link_color_elements[] = '#tribe-events-content .tribe-events-sub-nav li a';
 		$link_color_elements[] = '.tribe-event-featured .recurringinfo .event-is-recurring';
 		$link_color_elements[] = '.event-is-recurring';
+		$link_color_elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__registration__back__to__cart';
 
 	}
 	$link_color_elements = $dynamic_css_helpers->implode( $link_color_elements );
@@ -363,9 +364,11 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$elements[] = '.tribe-events-nav-previous a:hover:before, .tribe-events-nav-previous a:hover:after';
 		$elements[] = '.tribe-events-nav-next a:hover:before, .tribe-events-nav-next a:hover:after';
 		$elements[] = '#tribe-events-content .tribe-events-sub-nav li a:hover';
-		$elements[] = '.tribe-mini-calendar-event .list-date .list-dayname';
+		$elements[] = '.widget .tribe-mini-calendar-event .list-date .list-dayname';
 		$elements[] = '#tribe_events_filters_wrapper .tribe_events_slider_val';
 		$elements[] = '.tribe-events-tickets .tickets_price .amount';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__registration__back__to__cart:hover';
+		$elements[] = '.tribe-block__tickets__registration__back__to__cart:hover:before';
 	}
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['color'] = Fusion_Sanitize::color( Avada()->settings->get( 'primary_color' ) );
 
@@ -435,7 +438,6 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '.tribe-events-calendar thead th';
 		$elements[] = 'body #wrapper .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]';
-		$elements[] = 'body #wrapper .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]>a';
 		$elements[] = '#tribe-events-content table.tribe-events-calendar .type-tribe_events.tribe-event-featured';
 		$elements[] = 'body #wrapper #tribe-events-content .tribe-events-calendar td.tribe-events-present.mobile-active:hover';
 		$elements[] = 'body #wrapper #tribe-events-content .tribe-events-calendar .mobile-active:hover';
@@ -443,7 +445,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$elements[] = '#tribe-events-content .tribe-events-tooltip .entry-title';
 		$elements[] = '#tribe-events-content .tribe-events-tooltip .tribe-event-title';
 		$elements[] = '.tribe-events-list-separator-month';
-		$elements[] = '.tribe-mini-calendar-event .list-date';
+		$elements[] = '.fusion-body .tribe-mini-calendar-event .list-date';
 		$elements[] = '.tribe-grid-allday .tribe-event-featured.tribe-events-week-allday-single';
 		$elements[] = '.tribe-grid-allday .tribe-event-featured.tribe-events-week-hourly-single';
 		$elements[] = '.tribe-grid-body .tribe-event-featured.tribe-events-week-allday-single';
@@ -618,10 +620,11 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		if ( 'none' !== Avada()->settings->get( 'footer_divider_line_style' ) ) {
 			if ( is_rtl() ) {
 				$css['global']['.fusion-footer footer .fusion-columns .fusion-column.fusion-has-widgets']['border-left'] = Fusion_Sanitize::size( Avada()->settings->get( 'footer_divider_line_size' ), 'px' ) . ' ' . Avada()->settings->get( 'footer_divider_line_style' ) . ' ' . Fusion_Sanitize::color( Avada()->settings->get( 'footer_divider_color' ) );
+				$css['global']['.fusion-footer footer .fusion-row .fusion-columns .fusion-column.fusion-column-last']['border-left'] = 'none';
 			} else {
 				$css['global']['.fusion-footer footer .fusion-columns .fusion-column.fusion-has-widgets']['border-right'] = Fusion_Sanitize::size( Avada()->settings->get( 'footer_divider_line_size' ), 'px' ) . ' ' . Avada()->settings->get( 'footer_divider_line_style' ) . ' ' . Fusion_Sanitize::color( Avada()->settings->get( 'footer_divider_color' ) );
+				$css['global']['.fusion-footer footer .fusion-row .fusion-columns .fusion-column.fusion-column-last']['border-right'] = 'none';
 			}
-			$css['global']['.fusion-footer footer .fusion-row .fusion-columns .fusion-column.fusion-column-last']['border-right'] = 'none';
 		}
 	}
 
@@ -1338,7 +1341,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		'.search-page-search-form input',
 		'.chzn-container-single .chzn-single',
 		'.chzn-container .chzn-drop',
-		'.avada-select-parent select',
+		'.fusion-body .avada-select-parent select',
 		'.avada-select .select2-container .select2-choice',
 		'.avada-select .select2-container .select2-choice2',
 		'.select2-container--default .select2-selection--single',
@@ -1381,7 +1384,12 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '#tribe-bar-form input[type=text]';
 		$elements[] = '.tribe-bar-disabled #tribe-bar-form .tribe-bar-filters input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]:focus';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select:focus';
 	}
+
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'form_bg_color' ) );
 
 	$elements = array(
@@ -1413,7 +1421,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		'.search-page-search-form input',
 		'.chzn-container-single .chzn-single',
 		'.chzn-container .chzn-drop',
-		'.avada-select-parent select',
+		'.fusion-body .avada-select-parent select',
 		'.select2-container--default .select2-selection--single .select2-selection__rendered',
 		'.select2-results__option',
 		'#calc_shipping_state_field .select2-selection__placeholder',
@@ -1449,6 +1457,10 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '#tribe-bar-form input[type=text]';
 		$elements[] = '.tribe-bar-disabled #tribe-bar-form .tribe-bar-filters input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]:focus';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select:focus';
 	}
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['color']     = Fusion_Sanitize::color( Avada()->settings->get( 'form_text_color' ) );
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['font-size'] = Fusion_Sanitize::size( Avada()->settings->get( 'form_text_size' ) );
@@ -1502,6 +1514,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '#tribe-bar-form input[type=text]:-moz-placeholder';
 		$elements[] = '.tribe-bar-disabled #tribe-bar-form .tribe-bar-filters input[type=text]:-moz-placeholder';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]:-moz-placeholder';
 	}
 
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['color'] = Fusion_Sanitize::color( Avada()->settings->get( 'form_text_color' ) );
@@ -1519,6 +1532,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '#tribe-bar-form input[type=text]::-moz-placeholder';
 		$elements[] = '.tribe-bar-disabled #tribe-bar-form .tribe-bar-filters input[type=text]::-moz-placeholder';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]::-moz-placeholder';
 	}
 
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['color'] = Fusion_Sanitize::color( Avada()->settings->get( 'form_text_color' ) );
@@ -1558,8 +1572,8 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		'.search-page-search-form input',
 		'.chzn-container-single .chzn-single',
 		'.chzn-container .chzn-drop',
-		'.avada-select-parent select',
-		'.avada-select-parent .select-arrow',
+		'.fusion-body .avada-select-parent select',
+		'.fusion-body .avada-select-parent .select-arrow',
 		'select',
 		'.searchform .fusion-search-form-content .fusion-search-field input',
 		'.avada-select .select2-container .select2-choice',
@@ -1615,8 +1629,14 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '#tribe-bar-form input[type=text]';
 		$elements[] = '.tribe-bar-disabled #tribe-bar-form .tribe-bar-filters input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]:focus';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select:focus';
 	}
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'form_border_color' ) );
+
+	$css['global']['.avada-contact-form .grecaptcha-badge']['box-shadow'] = '0 0 3px ' . Fusion_Sanitize::color( Avada()->settings->get( 'form_border_color' ) ) . '!important';
 
 	$elements[] = '.fusion-search-form-classic .searchform .fusion-search-form-content';
 	$elements[] = 'input[type="tel"]';
@@ -1686,7 +1706,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		'.chzn-container .chzn-drop',
 		'select',
 		'.searchform .fusion-search-form-content .fusion-search-field input',
-		'.avada-select-parent select',
+		'.fusion-body .avada-select-parent select',
 		'.avada-select .select2-container .select2-choice',
 		'.select2-container--default .select2-selection--single',
 		'.select2-container--default .select2-selection--single .select2-selection__arrow',
@@ -1730,6 +1750,10 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '#tribe-bar-form input[type=text]';
 		$elements[] = '.tribe-bar-disabled #tribe-bar-form .tribe-bar-filters input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields input[type=text]:focus';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select';
+		$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields select:focus';
 	}
 
 	$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['height']         = Fusion_Sanitize::size( Avada()->settings->get( 'form_input_height' ) );
@@ -3246,7 +3270,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 	$css['global']['#wrapper .fusion-header-has-flyout-menu .fusion-flyout-search .searchform .s:-moz-placeholder']['color']           = Fusion_Sanitize::color( Avada()->settings->get( 'nav_typography', 'color' ) );
 	$css['global']['#wrapper .fusion-header-has-flyout-menu .fusion-flyout-search .searchform .s:-ms-input-placeholder']['color']      = Fusion_Sanitize::color( Avada()->settings->get( 'nav_typography', 'color' ) );
 
-	$css['global']['.fusion-header-has-flyout-menu .fusion-flyout-menu .fusion-menu li']['padding'] = Fusion_Sanitize::number( Avada()->settings->get( 'nav_typography', 'font-size' ) ) . Fusion_Sanitize::get_unit( Avada()->settings->get( 'nav_typography', 'font-size' ) ) . ' 0';
+	$css['global']['.fusion-header-has-flyout-menu .fusion-flyout-menu .fusion-menu li']['padding'] = ( Fusion_Sanitize::number( Avada()->settings->get( 'flyout_menu_item_padding' ) ) / 2 ) . 'px 0';
 
 	$css['global']['#wrapper .fusion-header-has-flyout-menu.fusion-mobile-menu-design-flyout .fusion-flyout-search .searchform .s']['color']        = Fusion_Sanitize::color( Avada()->settings->get( 'mobile_menu_typography', 'color' ) );
 	$css['global']['#wrapper .fusion-header-has-flyout-menu.fusion-mobile-menu-design-flyout .fusion-flyout-search .searchform .s']['border-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'mobile_menu_typography', 'color' ) );
@@ -3740,6 +3764,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'.fusion-tribe-events-headline',
 			'#tribe-events .tribe-events-day .tribe-events-day-time-slot .tribe-events-day-time-slot-heading',
 			'.tribe-mobile-day-date',
+			'.tribe-mobile-day .tribe-mobile-day-heading',
 			'.datepicker.dropdown-menu table thead tr:nth-child(2)',
 			'.datepicker.dropdown-menu table thead tr:nth-child(2) th:hover',
 			'.datepicker.dropdown-menu .datepicker-days table tr td.active',
@@ -3747,7 +3772,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'.tribe-grid-header',
 			'.datepicker.dropdown-menu table tr td span.month.active',
 			'.datepicker.dropdown-menu table tr td span.month:hover',
-			'.tribe-grid-body .tribe-events-week-hourly-single:hover',
+			'.fusion-body .tribe-grid-body div[id*="tribe-events-event-"]:hover',
 			'.tribe-events-venue-widget .tribe-venue-widget-venue-name',
 			'.tribe-mini-calendar .tribe-mini-calendar-nav td',
 			".tribe-mini-calendar div[id*='daynum-'] a:hover",
@@ -3764,7 +3789,8 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$elements = array(
 			'.tribe-grid-header',
 			'.tribe-events-grid .tribe-grid-header .tribe-grid-content-wrap .column',
-			'.tribe-grid-allday .tribe-events-week-allday-single, .tribe-grid-allday .tribe-events-week-allday-single:hover, .tribe-grid-body .tribe-events-week-hourly-single, .tribe-grid-body .tribe-events-week-hourly-single:hover',
+			'.fusion-body .tribe-grid-body div[id*="tribe-events-event-"]',
+			'.fusion-body .tribe-grid-body div[id*="tribe-events-event-"]:hover',
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'primary_color' ) );
 
@@ -3786,13 +3812,15 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'#tribe-events .fusion-tribe-events-headline h3 a',
 			'#tribe-events .tribe-events-day .tribe-events-day-time-slot .tribe-events-day-time-slot-heading',
 			'.tribe-mobile-day .tribe-mobile-day-date',
+			'.tribe-mobile-day .tribe-mobile-day-heading',
 			'.datepicker.dropdown-menu table thead tr:nth-child(2)',
 			'.datepicker.dropdown-menu table tr td.day',
 			'.fusion-events-single-title-content h2',
 			'.fusion-events-single-title-content h3',
 			'.fusion-events-single-title-content span',
 			'.tribe-grid-header',
-			'.tribe-grid-allday .tribe-events-week-allday-single, .tribe-grid-allday .tribe-events-week-allday-single:hover, .tribe-grid-body .tribe-events-week-hourly-single, .tribe-grid-body .tribe-events-week-hourly-single:hover',
+			'.fusion-body .tribe-grid-body div[id*="tribe-events-event-"] .entry-title a',
+			'.fusion-body .tribe-grid-body div[id*="tribe-events-event-"]:hover .entry-title a',
 			'.datepicker.dropdown-menu .datepicker-days table tr td.active:hover',
 			'.datepicker.dropdown-menu table tr td span.month',
 			'.datepicker.dropdown-menu table tr td span.month.active:hover',
@@ -3843,6 +3871,8 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'.tribe-bar-views-inner',
 			'#tribe-bar-views .tribe-bar-views-list',
 			'#tribe_events_filters_wrapper .tribe-events-filters-group-heading',
+			'.tribe-block__tickets__registration__event .tribe-block__tickets__registration__summary .tribe-block__tickets__registration__toggle__handler',
+			'.tribe-block__tickets__registration__event .tribe-block__tickets__item__attendee__fields',
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) );
 
@@ -3892,8 +3922,6 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = fusion_adjust_brightness( Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) ), -15 );
 
-
-
 		$css['global']['.tribe-events-filters-horizontal .tribe-events-filter-group']['border-color'] = fusion_adjust_brightness( Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) ), -25 );
 
 		$css['global']['.tribe-events-filter-group:after']['border-bottom-color'] = fusion_adjust_brightness( Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) ), 10 );
@@ -3903,6 +3931,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'.tribe-bar-disabled #tribe-bar-form label',
 			'#tribe-bar-form.tribe-bar-collapse #tribe-bar-collapse-toggle',
 			'#tribe-events-bar #tribe-bar-views .tribe-bar-views-toggle',
+			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a:hover',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option.tribe-bar-active a:hover',
@@ -3911,6 +3940,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'#tribe_events_filters_wrapper .tribe-events-filters-group-heading:after',
 			'#tribe_events_filters_wrapper .tribe-events-filters-content > label',
 			'#tribe_events_filters_wrapper label span',
+			'.tribe-block__tickets__registration__event .tribe-block__tickets__registration__summary .tribe-block__tickets__registration__toggle__handler',
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_text_color' ) );
 
@@ -3957,35 +3987,26 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_tooltip_bg_color' ) );
 
 		$elements = array(
-			'.tribe-events-tooltip:after',
-			'.tribe-events-right .tribe-events-tooltip:after',
-		);
-		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-top-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_tooltip_bg_color' ) );
-
-		$elements = array(
-			'.tribe-events-tooltip:before',
-			'.tribe-events-right .tribe-events-tooltip:before',
-		);
-		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-top-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_tooltip_bg_color' ) );
-
-		$elements = array(
-			'.tribe-events-tooltip.tribe-events-tooltip-flipdown:before',
-			'.tribe-events-right .tribe-events-tooltip.tribe-events-tooltip-flipdown:before',
-		);
-		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-bottom-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'primary_color' ) );
-		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-top-color']    = 'transparent';
-
-		$elements = array(
 			'.tribe-grid-body .tribe-events-tooltip:before',
-			'.tribe-grid-body .tribe-events-tooltip:after',
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-right-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_tooltip_bg_color' ) );
 
 		$elements = array(
-			'.tribe-grid-body .tribe-events-right .tribe-events-tooltip:before',
 			'.tribe-grid-body .tribe-events-right .tribe-events-tooltip:after',
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-left-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_tooltip_bg_color' ) );
+
+		$elements = array(
+			'.tribe-events-month .tribe-events-tooltip:after',
+		);
+		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-top-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_tooltip_bg_color' ) );
+
+		$elements = array(
+			'.tribe-events-month .tribe-events-tooltip.tribe-events-tooltip-flipdown:before',
+			'.tribe-events-month .tribe-events-right .tribe-events-tooltip.tribe-events-tooltip-flipdown:before',
+		);
+		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-bottom-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'primary_color' ) );
+		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-top-color']    = 'transparent';
 
 		$css['global']['#tribe-events-content .tribe-events-tooltip']['color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_tooltip_body_color' ) );
 
@@ -4197,6 +4218,13 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			}
 		}
 
+		if ( 1 > $header_bg_opacity ) {
+			$css[ $mobile_header_min_media_query ]['.fusion-header-wrapper .fusion-header']['background-image'] = 'none';
+		}
+		if ( 1 > $mobile_header_bg_opacity ) {
+			$css[ $mobile_menu_media_query ]['.fusion-header-wrapper .fusion-header']['background-image'] = 'none';
+		}
+
 		$elements = array(
 			'.fusion-header-wrapper .fusion-header',
 			'.fusion-header-wrapper .fusion-secondary-main-menu',
@@ -4249,10 +4277,10 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$sidebar_order = apply_filters( 'fusion_responsive_sidebar_order', $sidebar_order );
 
 		foreach ( $sidebar_order as $key => $element ) {
-			$css[ $sidebar_break_point ][ '#' . $element ]['order'] = $key + 1;
+			$css[ $sidebar_break_point ][ '.has-sidebar #' . $element ]['order'] = $key + 1;
 
 			if ( 0 < $key ) {
-				$css[ $sidebar_break_point ][ '#' . $element ]['margin-top'] = '50px';
+				$css[ $sidebar_break_point ][ '.has-sidebar #' . $element ]['margin-top'] = '50px';
 			}
 		}
 
@@ -4976,13 +5004,6 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-attachment'] = 'fixed';
 			$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-position']   = 'top center';
 		}
-	}
-
-	if ( 1 > $header_bg_opacity ) {
-		$css[ $mobile_header_min_media_query ]['.fusion-header-wrapper .fusion-header']['background-image'] = 'none';
-	}
-	if ( 1 > $mobile_header_bg_opacity ) {
-		$css[ $mobile_menu_media_query ]['.fusion-header-wrapper .fusion-header']['background-image'] = 'none';
 	}
 
 	// Adjust header padding if opacity is not 1 for smooth scroll.

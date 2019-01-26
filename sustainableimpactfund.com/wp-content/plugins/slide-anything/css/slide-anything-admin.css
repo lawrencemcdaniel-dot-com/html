@@ -173,6 +173,10 @@
 	border-color:#e0e0e0;
 	border-radius:3px;
 }
+#slider_accordion > div .wp-editor-container .mce-tinymce > .mce-container-body > .mce-edit-area > iframe,
+#slider_accordion > div .wp-editor-container > .mce-tinymce textarea.sa_slide_content {
+	min-height:240px !important;
+}
 
 /* ### METABOX 'Slides' - TABS FOR EACH SLIDE ### */
 .sa_slide_tabs {
@@ -730,6 +734,78 @@ input.sa_slide_popup_imagetitle:-ms-input-placeholder { color:#c0c0c0 !important
 	margin:1px 1px 3px !important;
 	max-width:50px !important;
 }
+/* hero slider */
+#items_displayed_metabox #sa_hero_slider_wrapper {
+	margin:10px 0px 0px !important;
+	padding:10px 0px 10px !important;
+	background-color:#f5f5f5 !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper > span {
+	padding-left:10px !important;
+	font-weight:700 !important;
+	font-size:14px !important;
+	line-height:16px !important;
+	height:16px !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_note {
+	clear:both !important;
+	float:none !important;
+	margin:0px !important;
+	padding:5px 0px 0px 10px !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_note ol {
+	margin:3px 0px 0px 15px !important;
+	padding:0px !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_note ol li {
+	margin:2px 0px !important;
+	padding:0px !important;
+	font-size:13px !important;
+	line-height:16px !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_note ol li em {
+	display:inline-block !important;
+	float:none !important;
+	margin-left:5px !important;
+	font-size:13px !important;
+	line-height:16px !important;
+	height:16px !important;
+	background-position:0px 0px !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_promo {
+	padding:0px 10px !important;
+	clear:both !important;
+	float:none !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_promo h4 {
+	margin:0px !important;
+	padding:10px 0px 0px !important;
+	font-size:14px !important;
+	line-height:18px !important;
+	color:#000000 !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_promo p {
+	margin:0px !important;
+	padding:10px 0px 0px !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_promo p strong {
+	color:#000000 !important;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_promo p a {
+	display:inline-block !important;
+	padding-left:10px !important;
+	font-weight:700 !important;
+	font-size:14px !important;
+	color:#007fff !important;
+	text-decoration:none !important;
+	transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+}
+#items_displayed_metabox #sa_hero_slider_wrapper #sa_hero_slider_promo p a:hover {
+	color:#000000 !important;
+}
 
 /* ### METABOX 'Slider Style' ### */
 #slider_style_metabox h4 {
@@ -916,6 +992,105 @@ input.sa_slide_popup_imagetitle:-ms-input-placeholder { color:#c0c0c0 !important
 #slider_style_metabox #sa_window_onload_line input[type=checkbox] {
 	margin-left:10px !important;
 	margin-right:0px !important;
+}
+
+/* ### METABOX 'Thumbnail Pagination' ### */
+#cpt_slider_thumbs .inside {
+	margin:0px !important;
+	padding:15px 12px 10px !important;
+	background-color:#f5f5f5 !important;
+}
+#cpt_slider_thumbs .sa_thumbs_line {
+	padding:0px 0px 10px !important;
+}
+#cpt_slider_thumbs .sa_thumbs_line span:first-child {
+	display:inline-block !important;
+	min-width:120px !important;
+	padding-right:10px !important;
+	font-family:'Open Sans', sans-serif !important;
+	font-size:13px !important;
+	line-height:18px !important;
+}
+#cpt_slider_thumbs #sa_thumbs_settings {
+	padding:10px 0px 0px !important;
+}
+#cpt_slider_thumbs #sa_thumbs_settings h4 {
+	color:#303030;
+	margin:10px 0px;
+	font-family:'Open Sans', sans-serif;
+	font-size:13px;
+	font-weight:600;
+	line-height:18px;
+}
+#sa_thumbs_settings .sa_thumbs_line input[type=text] {
+	width:50px !important;
+	margin:3px 5px !important;
+	outline-style:none !important;
+	border-style:none !important;
+	box-shadow:none !important;
+	-webkit-box-shadow:none !important;
+	color:#303030 !important;
+	font-size:13px !important;
+	line-height:20px !important;
+}
+#sa_thumbs_settings .sa_thumbs_line em {
+	display:inline-block !important;
+	padding-left:5px !important;
+	font-style:normal !important;
+	color:#a0a0a0 !important;
+}
+#sa_thumbs_settings .sa_thumbs_line #sa_thumbs_image_size {
+	margin-top:3px !important;
+}
+#sa_thumbs_settings .sa_thumbs_line .sp-replacer { /* spectrum color picker */
+	background-color:#f0f0f0 !important;
+	border:solid 1px #e0e0e0 !important;
+	padding:2px !important;
+	border-radius:3px !important;
+}
+#sa_thumbs_settings .sa_thumbs_line .sp-replacer .sp-preview { /* spectrum color picker */
+	width:40px !important;
+	height:20px !important;
+	border:solid 1px #c0c0c0 !important;
+	margin-right:3px !important;
+}
+#sa_thumbs_settings .sa_thumbs_line .sp-replacer .sp-dd { /* spectrum color picker */
+	height:16px !important;
+	padding:0px !important;
+	margin-right:2px !important;
+}
+#cpt_slider_thumbs #sa_thumbs_promo {
+	margin:-3px !important;
+	padding:0px 5px 8px !important;
+}
+#cpt_slider_thumbs #sa_thumbs_promo h4 {
+	margin:0px !important;
+	padding:0px !important;
+	font-size:14px !important;
+	line-height:18px !important;
+	color:#000000 !important;
+}
+#cpt_slider_thumbs #sa_thumbs_promo p {
+	margin:0px !important;
+	padding:10px 0px 0px !important;
+}
+#cpt_slider_thumbs #sa_thumbs_promo p strong {
+	color:#000000 !important;
+}
+#cpt_slider_thumbs #sa_thumbs_promo p a {
+	display:inline-block !important;
+	padding-left:10px !important;
+	font-weight:700 !important;
+	font-size:14px !important;
+	color:#007fff !important;
+	text-decoration:none !important;
+	transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+}
+#cpt_slider_thumbs #sa_thumbs_promo p a:hover {
+	color:#000000 !important;
 }
 
 /* ### METABOX 'Information' - 'SLIDE ADDED', 'SLIDE DELETED', 'SLIDE DUPLICATED' & 'SLIDE MOVED' INFO MESSAGES ### */

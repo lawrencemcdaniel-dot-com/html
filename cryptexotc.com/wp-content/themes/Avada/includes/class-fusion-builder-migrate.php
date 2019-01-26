@@ -269,7 +269,7 @@ class Fusion_Builder_Migrate {
 		}
 
 		self::$avada_database_version = $avada_version;
-		self::$avada_option_name = $avada_option_name;
+		self::$avada_option_name      = $avada_option_name;
 
 		if ( self::needs_migration() ) {
 
@@ -325,14 +325,14 @@ class Fusion_Builder_Migrate {
 			$this->save_post_ids();
 		} elseif ( 'convert' === $_GET['step'] ) {
 			// Set number of slides that need conversion.
-			$slides = wp_count_posts( 'slide' );
+			$slides                  = wp_count_posts( 'slide' );
 			self::$slides_to_convert = 0;
 			if ( $slides ) {
 				$published = ( isset( $slides->publish ) ) ? $slides->publish : 0;
-				$pending = ( isset( $slides->pending ) ) ? $slides->pending : 0;
-				$draft = ( isset( $slides->draft ) ) ? $slides->draft : 0;
-				$future = ( isset( $slides->future ) ) ? $slides->future : 0;
-				$private = ( isset( $slides->private ) ) ? $slides->private : 0;
+				$pending   = ( isset( $slides->pending ) ) ? $slides->pending : 0;
+				$draft     = ( isset( $slides->draft ) ) ? $slides->draft : 0;
+				$future    = ( isset( $slides->future ) ) ? $slides->future : 0;
+				$private   = ( isset( $slides->private ) ) ? $slides->private : 0;
 
 				self::$slides_to_convert = $published + $pending + $draft + $future + $private + 2;
 			}
@@ -414,7 +414,7 @@ class Fusion_Builder_Migrate {
 			return;
 		}
 
-		$url = false;
+		$url            = false;
 		$query_finished = false;
 		$posts_per_page = $this->get_posts_per_page();
 
@@ -428,7 +428,7 @@ class Fusion_Builder_Migrate {
 				$current_post_type_key = array_search( $post_type, $this->post_types );
 				if ( isset( $this->post_types[ $current_post_type_key + 1 ] ) ) {
 					$post_type = $this->post_types[ $current_post_type_key + 1 ];
-					$from = 0;
+					$from      = 0;
 				} else {
 					$query_finished = true;
 					update_option( self::$option_name . '_number', absint( count( self::$option ) ) );
@@ -557,7 +557,7 @@ class Fusion_Builder_Migrate {
 			if ( '0' === $max_execution_time ) {
 				$max_execution_time = 300;
 			}
-			$posts_per_page = round( $max_execution_time / 4 );
+			$posts_per_page       = round( $max_execution_time / 4 );
 			self::$posts_per_page = min( 75, max( 15, $posts_per_page ) );
 		} else {
 			self::$posts_per_page = 15;
@@ -581,7 +581,7 @@ class Fusion_Builder_Migrate {
 		foreach ( $this->post_types as $post_type ) {
 			$this->total_posts[ $post_type ] = false;
 			if ( post_type_exists( $post_type ) ) {
-				$posts_count = wp_count_posts( $post_type );
+				$posts_count                     = wp_count_posts( $post_type );
 				$this->total_posts[ $post_type ] = $posts_count;
 			}
 		}
@@ -709,7 +709,7 @@ class Fusion_Builder_Migrate {
 					$convert_post_ids[] = $post->ID;
 				}
 			} else {
-				$page_template = get_page_template_slug( $post->ID );
+				$page_template           = get_page_template_slug( $post->ID );
 				$shortcodes_to_check_for = array_merge( self::$columns_for_conversion, self::$shortcodes_for_conversion );
 				foreach ( $shortcodes_to_check_for as $sc ) {
 					if ( false !== strpos( $post->post_content, $sc ) || false !== strpos( $post->post_excerpt, $sc ) || 'faqs.php' === $page_template || false !== strpos( $page_template, 'portfolio' ) ) {
@@ -773,7 +773,7 @@ class Fusion_Builder_Migrate {
 
 		// Get a slice of the array.
 		$posts_per_page = $this->get_posts_per_page();
-		$slice = array_slice( self::$option, 0, $posts_per_page );
+		$slice          = array_slice( self::$option, 0, $posts_per_page );
 
 		foreach ( $slice as $post_id ) {
 
@@ -1221,8 +1221,8 @@ class Fusion_Builder_Migrate {
 				<?php /* translators: "Avada 4.0.3" link & string. */ ?>
 				<?php printf( esc_attr__( 'All needed posts have been reverted to the previous syntax. You can now roll-back to %s.', 'Avada' ), '<a href="https://theme-fusion.com/forums/topic/downloading-avada-4-0-3/" target="_blank">' . esc_attr__( 'Avada 4.0.3', 'Avada' ) . '</a>' ); ?>
 			<?php endif; ?>
+		<?php endif; ?>
 		<?php
-		endif;
 	}
 
 	/**
@@ -1238,7 +1238,7 @@ class Fusion_Builder_Migrate {
 			<progress class="fusion-builder-migration-progress-bar" max="<?php echo absint( $this->total_posts_count[ $this->current_post_type ] ); ?>" value="<?php echo absint( $this->to_offset ); ?>"></progress>
 		<?php elseif ( isset( $_GET['step'] ) && 'convert' === $_GET['step'] ) : ?>
 			<?php
-			$total = self::$posts_to_convert + self::$slides_to_convert + self::$widgets_to_convert;
+			$total          = self::$posts_to_convert + self::$slides_to_convert + self::$widgets_to_convert;
 			$posts_per_page = $this->get_posts_per_page();
 
 			if ( isset( $_GET['type'] ) && 'posts' === $_GET['type'] ) {
@@ -1250,8 +1250,8 @@ class Fusion_Builder_Migrate {
 			}
 			?>
 			<progress class="fusion-builder-migration-progress-bar" max="100" value="<?php echo absint( ( 1 - $still_to_convert / $total ) * 100 ); ?>"></progress>
+		<?php endif; ?>
 		<?php
-		endif;
 	}
 
 	/**
@@ -1316,8 +1316,8 @@ class Fusion_Builder_Migrate {
 					<li class="<?php echo esc_attr( $theme_options_li_class ); ?>"><span class="content"><?php esc_html_e( 'Reverting theme options.', 'Avada' ); ?></span></li>
 				<?php endif; ?>
 			</ul>
+		<?php endif; ?>
 		<?php
-		endif;
 	}
 
 	/**
@@ -1367,7 +1367,7 @@ class Fusion_Builder_Migrate {
 				</a>
 			<?php else : ?>
 				<?php
-				$bundled_plugins = Avada::get_bundled_plugins();
+				$bundled_plugins    = Avada::get_bundled_plugins();
 				$fusion_core_latest = false;
 				if ( class_exists( 'FusionCore_Plugin' ) ) {
 					$fusion_core_latest = version_compare( FusionCore_Plugin::VERSION, $bundled_plugins['fusion-core']['version'], '>=' );
@@ -1388,8 +1388,8 @@ class Fusion_Builder_Migrate {
 					</a>
 				<?php endif; ?>
 			<?php endif; ?>
+		<?php endif; ?>
 		<?php
-		endif;
 	}
 
 	/**
@@ -1551,22 +1551,22 @@ class Fusion_Builder_Migrate {
 
 		foreach ( self::$shortcodes_for_conversion as $shortcode ) {
 			if ( 'accordian' === $shortcode ) {
-				$from_to_shortcode_names[ '[' . $shortcode . ' ' ] = '[fusion_accordion ';
-				$from_to_shortcode_names[ '[' . $shortcode . ']' ] = '[fusion_accordion]';
+				$from_to_shortcode_names[ '[' . $shortcode . ' ' ]  = '[fusion_accordion ';
+				$from_to_shortcode_names[ '[' . $shortcode . ']' ]  = '[fusion_accordion]';
 				$from_to_shortcode_names[ '[/' . $shortcode . ']' ] = '[/fusion_accordion]';
 			} elseif ( 'recent_works' === $shortcode ) {
-				$from_to_shortcode_names[ '[' . $shortcode . ' ' ] = '[fusion_portfolio ';
-				$from_to_shortcode_names[ '[' . $shortcode . ']' ] = '[fusion_portfolio]';
+				$from_to_shortcode_names[ '[' . $shortcode . ' ' ]  = '[fusion_portfolio ';
+				$from_to_shortcode_names[ '[' . $shortcode . ']' ]  = '[fusion_portfolio]';
 				$from_to_shortcode_names[ '[/' . $shortcode . ']' ] = '[/fusion_portfolio]';
 			} elseif ( 'tabs' === $shortcode || 'tab' === $shortcode ) {
-				$from_to_shortcode_names[ '[' . $shortcode . ' ' ] = '[fusion_old_' . $shortcode . ' ';
+				$from_to_shortcode_names[ '[' . $shortcode . ' ' ]  = '[fusion_old_' . $shortcode . ' ';
 				$from_to_shortcode_names[ '[/' . $shortcode . ']' ] = '[/fusion_old_' . $shortcode . ']';
 			} elseif ( 'vimeo' === $shortcode || 'youtube' === $shortcode ) {
-				$from_to_shortcode_names[ '[' . $shortcode . ' ' ] = '[fusion_' . $shortcode . ' ';
+				$from_to_shortcode_names[ '[' . $shortcode . ' ' ]  = '[fusion_' . $shortcode . ' ';
 				$from_to_shortcode_names[ '[/' . $shortcode . ']' ] = '';
 			} else {
-				$from_to_shortcode_names[ '[' . $shortcode . ' ' ] = '[fusion_' . $shortcode . ' ';
-				$from_to_shortcode_names[ '[' . $shortcode . ']' ] = '[fusion_' . $shortcode . ']';
+				$from_to_shortcode_names[ '[' . $shortcode . ' ' ]  = '[fusion_' . $shortcode . ' ';
+				$from_to_shortcode_names[ '[' . $shortcode . ']' ]  = '[fusion_' . $shortcode . ']';
 				$from_to_shortcode_names[ '[/' . $shortcode . ']' ] = '[/fusion_' . $shortcode . ']';
 			}
 		}
@@ -1620,7 +1620,7 @@ class Fusion_Builder_Migrate {
 
 			// Update post content.
 			$updated_post = array(
-				'ID'           => $id,
+				'ID' => $id,
 			);
 
 			$string_from_to = array(
@@ -1689,12 +1689,12 @@ class Fusion_Builder_Migrate {
 						'[fusion_text][fusion_pricing_table'    => '[fusion_pricing_table',
 						'[/fusion_pricing_table][/fusion_text]' => '[/fusion_pricing_table]',
 					);
-					$content = strtr( $content, $second_string_from_to );
+					$content               = strtr( $content, $second_string_from_to );
 
-					$needle = '[fullwidth';
-					$last_pos = -1;
+					$needle          = '[fullwidth';
+					$last_pos        = -1;
 					$position_change = 0;
-					$positions = array();
+					$positions       = array();
 
 					// Get all positions of [fullwidth shortcode.
 					while ( ( $last_pos = strpos( $content, $needle, $last_pos + 1 ) ) !== false ) {
@@ -1784,7 +1784,7 @@ class Fusion_Builder_Migrate {
 		}
 
 		// Get the post object.
-		$post = get_post( $id );
+		$post          = get_post( $id );
 		$reverted_post = (array) $post;
 		// Revert content.
 		$reverted_post['post_content'] = $backed_up_content;
@@ -1804,9 +1804,9 @@ class Fusion_Builder_Migrate {
 	 * @return string The updated post content.
 	 */
 	private function add_shortcode_trailing_slash( $content ) {
-		$positions = array();
+		$positions       = array();
 		$position_change = 0;
-		$last_pos = -1;
+		$last_pos        = -1;
 
 		// Get all positions of self enclosing shortcode beginnings.
 		if ( '' !== $content ) {
@@ -1871,7 +1871,7 @@ class Fusion_Builder_Migrate {
 			'style_type="double"'    => 'style_type="double solid"',
 			'style_type="underline"' => 'style_type="underline solid"',
 		);
-		$content = strtr( $content, $string_from_to );
+		$content        = strtr( $content, $string_from_to );
 
 		return $content;
 	}
@@ -1884,10 +1884,10 @@ class Fusion_Builder_Migrate {
 	 * @return string The updated post content.
 	 */
 	private function convert_rows( $content ) {
-		$needle = '[fusion_builder_row]';
-		$last_pos = -1;
+		$needle          = '[fusion_builder_row]';
+		$last_pos        = -1;
 		$position_change = 0;
-		$positions = array();
+		$positions       = array();
 
 		// Get all positions of [fusion_builder_row shortcode.
 		while ( ( $last_pos = strpos( $content, $needle, $last_pos + 1 ) ) !== false ) {
@@ -1908,17 +1908,17 @@ class Fusion_Builder_Migrate {
 
 			$original_row_content = $row_content;
 
-			$element_needle = '[';
-			$row_last_pos = -1;
+			$element_needle      = '[';
+			$row_last_pos        = -1;
 			$row_position_change = 0;
-			$element_positions = array();
+			$element_positions   = array();
 
-			$main_column_opened = false;
-			$inner_column_opened = false;
-			$inner_columns_total_width = 0;
-			$outside_column_element = false;
+			$main_column_opened                    = false;
+			$inner_column_opened                   = false;
+			$inner_columns_total_width             = 0;
+			$outside_column_element                = false;
 			$outside_column_element_close_position = 0;
-			$element_position_change = 0;
+			$element_position_change               = 0;
 
 			// Get all positions for shortcode opening tag "[".
 			while ( ( $row_last_pos = strpos( $row_content, $element_needle, $row_last_pos + 1 ) ) !== false ) {
@@ -1942,27 +1942,27 @@ class Fusion_Builder_Migrate {
 					if ( $main_column_opened ) {
 						if ( $outside_column_element && $outside_column_element_close_position && $element_position + $element_position_change > $outside_column_element_close_position ) {
 							// Close column.
-							$row_content = substr_replace( $row_content, '[/fusion_builder_column]', $element_position + $element_position_change, 0 );
-							$outside_column_element = false;
-							$element_position_change = $element_position_change + 24;
+							$row_content                           = substr_replace( $row_content, '[/fusion_builder_column]', $element_position + $element_position_change, 0 );
+							$outside_column_element                = false;
+							$element_position_change               = $element_position_change + 24;
 							$outside_column_element_close_position = 0;
 						} else {
-							$inner_row_container = '';
+							$inner_row_container                 = '';
 							$inner_row_container_position_change = 0;
 							if ( ! $inner_column_opened ) {
 
 								if ( 0 == $inner_columns_total_width ) {
-									$inner_row_container = '[fusion_builder_row_inner]';
+									$inner_row_container                 = '[fusion_builder_row_inner]';
 									$inner_row_container_position_change = 26;
 								}
 
-								$column_width = explode( '_', substr( $row_content, $element_position + $element_position_change + strlen( $shortcode_name ) + 7, 3 ) );
-								$column_width = $column_width[0] / $column_width[1];
+								$column_width               = explode( '_', substr( $row_content, $element_position + $element_position_change + strlen( $shortcode_name ) + 7, 3 ) );
+								$column_width               = $column_width[0] / $column_width[1];
 								$inner_columns_total_width += $column_width;
 							}
 
-							$row_content = substr_replace( $row_content, $inner_row_container . '[fusion_builder_column_inner', $element_position + $element_position_change, strlen( $shortcode_name ) );
-							$element_position_change += $inner_row_container_position_change + 6;
+							$row_content                            = substr_replace( $row_content, $inner_row_container . '[fusion_builder_column_inner', $element_position + $element_position_change, strlen( $shortcode_name ) );
+							$element_position_change               += $inner_row_container_position_change + 6;
 							$outside_column_element_close_position += $inner_row_container_position_change + 6;
 
 							$inner_column_opened = true;
@@ -1975,11 +1975,11 @@ class Fusion_Builder_Migrate {
 				} elseif ( '[/fusion_builder_column' == $shortcode_name ) {
 					if ( $main_column_opened && $inner_column_opened ) {
 
-						$inner_row_container = '';
+						$inner_row_container                 = '';
 						$inner_row_container_position_change = 0;
 
 						if ( 1 <= $inner_columns_total_width ) {
-							$inner_row_container = '[/fusion_builder_row_inner]';
+							$inner_row_container                 = '[/fusion_builder_row_inner]';
 							$inner_row_container_position_change = 27;
 
 							$inner_columns_total_width = 0;
@@ -1987,9 +1987,9 @@ class Fusion_Builder_Migrate {
 
 						$row_content = substr_replace( $row_content, '[/fusion_builder_column_inner]' . $inner_row_container, $element_position + $element_position_change, strlen( $shortcode_name ) + 1 );
 
-						$element_position_change += $inner_row_container_position_change + 6;
+						$element_position_change               += $inner_row_container_position_change + 6;
 						$outside_column_element_close_position += $inner_row_container_position_change + 6;
-						$inner_column_opened = false;
+						$inner_column_opened                    = false;
 					} elseif ( $main_column_opened ) {
 						$main_column_opened = false;
 					}
@@ -1997,7 +1997,7 @@ class Fusion_Builder_Migrate {
 					if ( $main_column_opened ) {
 						$row_content = substr_replace( $row_content, '[/fusion_builder_column]', $element_position + $element_position_change, 0 );
 
-						$main_column_opened = false;
+						$main_column_opened      = false;
 						$element_position_change = $element_position_change + 24;
 					}
 				} elseif ( '1' != strpos( $shortcode_name, '/' ) ) { // If it's an element opening tag.
@@ -2042,7 +2042,7 @@ class Fusion_Builder_Migrate {
 
 					if ( $set_outside_column_element_close_position ) {
 
-						$main_column_opened = true;
+						$main_column_opened     = true;
 						$outside_column_element = true;
 
 						$shortcode_name = str_replace( '[', '', $shortcode_name );
@@ -2063,7 +2063,7 @@ class Fusion_Builder_Migrate {
 
 			// Get character difference between processed and unprocessed row content.
 			$content_difference = strlen( $row_content ) - strlen( $original_row_content );
-			$position_change = $position_change + $content_difference;
+			$position_change    = $position_change + $content_difference;
 
 		} // End foreach().
 
@@ -2080,13 +2080,13 @@ class Fusion_Builder_Migrate {
 	private function convert_outside_elements( $content ) {
 
 		// Check for elements outside of fullwidth section.
-		$element_needle = '[';
-		$last_pos = -1;
+		$element_needle          = '[';
+		$last_pos                = -1;
 		$element_position_change = 0;
-		$element_positions = array();
+		$element_positions       = array();
 
 		$section_opened = false;
-		$column_opened = false;
+		$column_opened  = false;
 
 		// Get all positions for shortcode opening tag "[".
 		while ( ( $last_pos = strpos( $content, $element_needle, $last_pos + 1 ) ) !== false ) {
@@ -2095,7 +2095,7 @@ class Fusion_Builder_Migrate {
 
 		foreach ( $element_positions as $key => $element_position ) {
 
-			$section_needle = '[fusion_builder_container';
+			$section_needle    = '[fusion_builder_container';
 			$check_for_section = substr( $content, $element_position + $element_position_change, strlen( $section_needle ) );
 
 			// If it's a section that is opened.
@@ -2107,7 +2107,7 @@ class Fusion_Builder_Migrate {
 
 					$content = substr_replace( $content, $close_section_tag, $element_position + $element_position_change, 0 );
 
-					$section_opened = false;
+					$section_opened          = false;
 					$element_position_change = $element_position_change + strlen( $close_section_tag );
 
 				}
@@ -2131,7 +2131,7 @@ class Fusion_Builder_Migrate {
 
 					// Convert section separator with negative margins.
 					if ( 'fusion_separator' == $shortcode_name ) {
-						$section_top_margin = '';
+						$section_top_margin    = '';
 						$section_bottom_margin = '';
 
 						if ( isset( $element_positions[ $key + 1 ] ) ) {
@@ -2140,7 +2140,7 @@ class Fusion_Builder_Migrate {
 							$end_position = strlen( $content );
 						}
 						$separator_tag_length = $end_position - $element_position;
-						$separator_tag = substr( $content, $element_position + $element_position_change, $separator_tag_length );
+						$separator_tag        = substr( $content, $element_position + $element_position_change, $separator_tag_length );
 
 						preg_match( '/(top=["\'](.*?)["\'])/', $separator_tag, $top );
 						preg_match( '/(bottom=["\'](.*?)["\'])/', $separator_tag, $bottom );
@@ -2176,11 +2176,11 @@ class Fusion_Builder_Migrate {
 							$separator_tag = str_replace( $bottom[0], '', $separator_tag );
 						}
 
-						$section_top_margin = ' margin_top="' . $section_top_margin . '"';
+						$section_top_margin    = ' margin_top="' . $section_top_margin . '"';
 						$section_bottom_margin = ' margin_bottom="' . $section_bottom_margin . '"';
 
 						// Open and close tags.
-						$wrapped_shortcode = '[fusion_builder_container hundred_percent="yes" overflow="visible"' . $section_top_margin . $section_bottom_margin . ' background_color="rgba(255,255,255,0)"][fusion_builder_row]';
+						$wrapped_shortcode  = '[fusion_builder_container hundred_percent="yes" overflow="visible"' . $section_top_margin . $section_bottom_margin . ' background_color="rgba(255,255,255,0)"][fusion_builder_row]';
 						$wrapped_shortcode .= $separator_tag;
 						$wrapped_shortcode .= '[/fusion_builder_row][/fusion_builder_container]';
 
@@ -2210,7 +2210,7 @@ class Fusion_Builder_Migrate {
 		// Close section if it was not closed.
 		if ( true == $section_opened ) {
 
-			$content .= '[/fusion_builder_row][/fusion_builder_container]';
+			$content       .= '[/fusion_builder_row][/fusion_builder_container]';
 			$section_opened = false;
 		}
 
@@ -2271,13 +2271,13 @@ class Fusion_Builder_Migrate {
 		}
 		// Columns.
 		$columns_mapping     = array(
-			'one' => '1',
-			'two' => '2',
+			'one'   => '1',
+			'two'   => '2',
 			'three' => '3',
-			'grid' => '3',
-			'four' => '4',
-			'five' => '5',
-			'six' => '6',
+			'grid'  => '3',
+			'four'  => '4',
+			'five'  => '5',
+			'six'   => '6',
 		);
 		$template_name_array = explode( '-', $template_name );
 		$columns             = $columns_mapping[ $template_name_array[1] ];
@@ -2298,7 +2298,7 @@ class Fusion_Builder_Migrate {
 				}
 
 				foreach ( $term_ids as $term_id ) {
-					$term = get_term( $term_id, 'portfolio_category' );
+					$term        = get_term( $term_id, 'portfolio_category' );
 					$cat_slugs[] = $term->slug;
 				}
 				$cat_slugs = implode( ',', $cat_slugs );
@@ -2349,12 +2349,12 @@ class Fusion_Builder_Migrate {
 			'one_column_text_position' => ( 'portfolio-one-column.php' === $template_name ) ? 'floated' : 'below',
 		);
 
-		$portfolio_tag  = '[fusion_portfolio ';
+		$portfolio_tag = '[fusion_portfolio ';
 		foreach ( $portfolio_vars as $attribute_name => $value ) {
-			$portfolio_tag  .= $attribute_name . '="' . $value . '" ';
+			$portfolio_tag .= $attribute_name . '="' . $value . '" ';
 		}
 
-		$portfolio_tag  .= '/]';
+		$portfolio_tag .= '/]';
 
 		$backup_options = get_option( 'avada_500_backup_page_templates_portfolio', array() );
 		if ( self::$revert ) {
@@ -2376,7 +2376,7 @@ class Fusion_Builder_Migrate {
 			if ( ! isset( $backup_options[ $id ] ) ) {
 				$backup_options[ $id ] = array();
 			}
-			$pyre_portfolio_width_100 = fusion_get_page_option( 'pyre_portfolio_width_100', $id );
+			$pyre_portfolio_width_100                = fusion_get_page_option( 'pyre_portfolio_width_100', $id );
 			$backup_options[ $id ][ $page_template ] = ( 'yes' === $pyre_portfolio_width_100 );
 			update_option( 'avada_500_backup_page_templates_portfolio', $backup_options );
 
@@ -2402,7 +2402,7 @@ class Fusion_Builder_Migrate {
 	 */
 	private function convert_shortcode_names_in_fusion_slider() {
 		$post_meta_to_convert = array( 'pyre_heading', 'pyre_caption', 'pyre_button_1', 'pyre_button_2' );
-		$backup_data = get_option( 'avada_500_backup_fusion_slider_data', array() );
+		$backup_data          = get_option( 'avada_500_backup_fusion_slider_data', array() );
 
 		$args = array(
 			'post_type'      => 'slide',
@@ -2595,7 +2595,7 @@ class Fusion_Builder_Migrate {
 							}
 						} else {
 							// Convert.
-							$key = $wp_registered_widgets[ $widget_id ]['params'][0]['number'];
+							$key         = $wp_registered_widgets[ $widget_id ]['params'][0]['number'];
 							$widget_data = get_option( $option_name );
 							if ( isset( $widget_data[ $key ]['text'] ) ) {
 								$widget_content = $widget_data[ $key ]['text'];
@@ -2658,10 +2658,10 @@ class Fusion_Builder_Migrate {
 							$widget_content = strtr( $widget_content, $string_from_to );
 
 							// Handle [fullwidth] shortcodes.
-							$needle = '[fullwidth';
-							$last_pos = -1;
+							$needle          = '[fullwidth';
+							$last_pos        = -1;
 							$position_change = 0;
-							$positions = array();
+							$positions       = array();
 
 							// Get all positions of [fullwidth shortcode.
 							while ( false !== ( $last_pos = strpos( $widget_content, $needle, $last_pos + 1 ) ) ) {
@@ -2689,11 +2689,11 @@ class Fusion_Builder_Migrate {
 							$widget_content = strtr( $widget_content, $string_from_to );
 
 							// Handle columns.
-							$needle = 'fusion_builder_column';
-							$last_pos = -1;
+							$needle          = 'fusion_builder_column';
+							$last_pos        = -1;
 							$position_change = 0;
-							$positions = array();
-							$row_open = false;
+							$positions       = array();
+							$row_open        = false;
 
 							// Get all positions of opening and closing column tag.
 							while ( ( $last_pos = strpos( $widget_content, $needle, $last_pos + 1 ) ) !== false ) {
@@ -2706,23 +2706,23 @@ class Fusion_Builder_Migrate {
 								$position = $position + $position_change;
 
 								// Check if opening or closing and if row is open yet.
-								$tag_type = ( '[/' === substr( $widget_content, $position - 2, 2 ) ) ? 'closing' : 'opening';
-								$column_next = strpos( substr( $widget_content, $position + 20, 30 ), '[fusion_builder_column' );
-								$existing_row = strpos( substr( $widget_content, $position - 30, 30 ), '[fusion_builder_row]' );
+								$tag_type            = ( '[/' === substr( $widget_content, $position - 2, 2 ) ) ? 'closing' : 'opening';
+								$column_next         = strpos( substr( $widget_content, $position + 20, 30 ), '[fusion_builder_column' );
+								$existing_row        = strpos( substr( $widget_content, $position - 30, 30 ), '[fusion_builder_row]' );
 								$existing_row_closed = strpos( substr( $widget_content, $position + 20, 30 ), '[/fusion_builder_row]' );
 
 								if ( $existing_row ) {
 									$row_open = true;
 								}
 								if ( 'opening' === $tag_type && ! $row_open ) {
-									$row_open = true;
+									$row_open        = true;
 									$position_change = $position_change + 20;
-									$widget_content = substr_replace( $widget_content, '[fusion_builder_row][fusion_builder_column', $position - 1, 22 );
+									$widget_content  = substr_replace( $widget_content, '[fusion_builder_row][fusion_builder_column', $position - 1, 22 );
 								}
 								if ( 'closing' === $tag_type && $row_open && ! $column_next && ! $existing_row_closed ) {
-									$row_open = false;
+									$row_open        = false;
 									$position_change = $position_change + 21;
-									$widget_content = substr_replace( $widget_content, '[/fusion_builder_column][/fusion_builder_row]', $position - 2, 24 );
+									$widget_content  = substr_replace( $widget_content, '[/fusion_builder_column][/fusion_builder_row]', $position - 2, 24 );
 								}
 							}
 
@@ -2885,7 +2885,7 @@ class Fusion_Builder_Migrate {
 
 			foreach ( array( 'left', 'right' ) as $direction ) {
 				if ( strpos( $attributes, 'padding' . $direction . '=' ) ) {
-					$content = substr_replace( $content, 'padding_' . $direction . '=', $position + $position_change + strpos( $attributes, 'padding' . $direction . '=' ), strlen( 'padding' . $direction . '=' ) );
+					$content         = substr_replace( $content, 'padding_' . $direction . '=', $position + $position_change + strpos( $attributes, 'padding' . $direction . '=' ), strlen( 'padding' . $direction . '=' ) );
 					$position_change = $position_change++;
 				}
 			}
@@ -2904,12 +2904,12 @@ class Fusion_Builder_Migrate {
 
 					// If no padding left present, then we need to add it.
 					if ( ! strpos( $attributes, 'padding_' . $direction . '="' ) ) {
-						$content = substr_replace( $content, ' padding_' . $direction . '="' . $padding_value . '" ', $section_close_position, 0 );
+						$content         = substr_replace( $content, ' padding_' . $direction . '="' . $padding_value . '" ', $section_close_position, 0 );
 						$position_change = $position_change + strlen( 'padding_' . $direction . '=" ' . $padding_value . '" ' );
 
 						// If there is a padding left, but its empty, we need to add value.
 					} elseif ( strpos( $attributes, 'padding_' . $direction . '=""' ) ) {
-						$content = substr_replace( $content, 'padding_' . $direction . '="' . $padding_value . '"', $position + $position_change + strpos( $attributes, 'padding_' . $direction . '=""' ), strlen( 'padding_' . $direction . '=""' ) );
+						$content         = substr_replace( $content, 'padding_' . $direction . '="' . $padding_value . '"', $position + $position_change + strpos( $attributes, 'padding_' . $direction . '=""' ), strlen( 'padding_' . $direction . '=""' ) );
 						$position_change = $position_change + strlen( $padding_value );
 					}
 				}

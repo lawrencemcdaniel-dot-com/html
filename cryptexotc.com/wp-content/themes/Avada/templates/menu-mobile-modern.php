@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Direct script access denied.' );
 }
-$c_page_id = Avada()->fusion_library->get_page_id();
+$c_page_id      = Avada()->fusion_library->get_page_id();
 $displayed_menu = get_post_meta( $c_page_id, 'pyre_displayed_menu', true );
 ?>
 <?php if ( 'modern' === Avada()->settings->get( 'mobile_menu_design' ) && ( has_nav_menu( 'main_navigation' ) || ( $displayed_menu && '' !== $displayed_menu && 'default' !== $displayed_menu ) ) ) : ?>

@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function avada_events_calendar_body_typography( $typography_elements ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
-		$typography_elements['size'][]   = '.tribe-events-loop .tribe-events-event-meta';
+		$typography_elements['size'][] = '.tribe-events-loop .tribe-events-event-meta';
 	}
 
 	return $typography_elements;

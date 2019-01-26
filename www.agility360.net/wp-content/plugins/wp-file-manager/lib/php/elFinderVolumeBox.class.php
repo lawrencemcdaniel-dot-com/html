@@ -169,8 +169,6 @@ class elFinderVolumeBox extends elFinderVolumeDriver
 
         $url = self::TOKEN_URL;
 
-        $curl = curl_init();
-
         $fields = http_build_query(
             array(
                 'client_id' => $client_id,
@@ -180,15 +178,20 @@ class elFinderVolumeBox extends elFinderVolumeDriver
             )
         );
 
-        curl_setopt_array($curl, array(
-            // General options.
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $fields,
-            CURLOPT_URL => $url,
-        ));
+        $args = array(
+            'method' => 'POST',
+            'body' => $fields,
+            'redirection' => '5',
+            'httpversion' => '1.0',
+            'blocking' => true,
+            'sslverify' => false,
+            'headers' => array(),
+            'cookies' => array(),
+        );
 
-        $decoded = $this->_bd_curlExec($curl, true, array('Content-Length: '.strlen($fields)));
+        $res = wp_remote_post($url, $args);
+
+        $decoded = json_decode($res);
 
         return (object) array(
                 'expires' => time() + $decoded->expires_in - 30,
@@ -222,25 +225,25 @@ class elFinderVolumeBox extends elFinderVolumeDriver
 
             $url = self::TOKEN_URL;
 
-            $curl = curl_init();
+            /// wp remote post
+            $fields = 'client_id='.urlencode($this->options['client_id'])
+            .'&client_secret='.urlencode($this->options['client_secret'])
+            .'&grant_type=refresh_token'
+            .'&refresh_token='.urlencode($token->data->refresh_token);
+            $args = array(
+                'method' => 'POST',
+                'body' => $fields,
+                'redirection' => '5',
+                'httpversion' => '1.0',
+                'blocking' => true,
+                'sslverify' => false,
+                'headers' => array(),
+                'cookies' => array(),
+            );
 
-            curl_setopt_array($curl, array(
-                    // General options.
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_POST => true, // i am sending post data
-                    CURLOPT_POSTFIELDS => 'client_id='.urlencode($this->options['client_id'])
-                        .'&client_secret='.urlencode($this->options['client_secret'])
-                        .'&grant_type=refresh_token'
-                        .'&refresh_token='.urlencode($token->data->refresh_token),
+            $res = wp_remote_post($url, $args);
 
-                    CURLOPT_URL => $url,
-                ));
-
-            $decoded = $this->_bd_curlExec($curl);
-
-            if (empty($decoded->access_token)) {
-                throw new \Exception(elFinder::ERROR_REAUTH_REQUIRE);
-            }
+            $decoded = json_decode($res);
 
             $token = (object) array(
                     'expires' => time() + $decoded->expires_in - 30,
@@ -499,9 +502,10 @@ class elFinderVolumeBox extends elFinderVolumeDriver
         list(, $itemId) = $this->_bd_splitPath($path);
 
         try {
-            $url = self::API_URL.'/files/'.$itemId.'/thumbnail.png?min_height=' . $this->tmbSize . '&min_width=' . $this->tmbSize;
+            $url = self::API_URL.'/files/'.$itemId.'/thumbnail.png?min_height='.$this->tmbSize.'&min_width='.$this->tmbSize;
 
             $contents = $this->_bd_fetch($url, true);
+
             return $contents;
         } catch (Exception $e) {
             return false;
@@ -590,7 +594,6 @@ class elFinderVolumeBox extends elFinderVolumeDriver
                             'node' => $options['id'],
                             'json' => '{"protocol": "box", "mode": "done", "reset": 1}',
                             'bind' => 'netmount',
-
                     );
 
                     return array('exit' => 'callback', 'out' => $out);
@@ -739,10 +742,10 @@ class elFinderVolumeBox extends elFinderVolumeDriver
     public function debug()
     {
         $res = parent::debug();
-        if (! empty($this->options['accessToken'])) {
+        if (!empty($this->options['accessToken'])) {
             $res['accessToken'] = $this->options['accessToken'];
         }
-    
+
         return $res;
     }
 
@@ -956,6 +959,7 @@ class elFinderVolumeBox extends elFinderVolumeDriver
     {
         if ($res = $this->_copy($src, $dst, $name)) {
             $this->added[] = $this->stat($res);
+
             return $res;
         } else {
             return $this->setError(elFinder::ERROR_COPY, $this->_path($src));
@@ -1008,7 +1012,7 @@ class elFinderVolumeBox extends elFinderVolumeDriver
      *
      * @param string $path file path
      * @param string $mime file mime type
-
+     *
      * @return string|false
      *
      * @author Dmitry (dio) Levashov
@@ -1047,7 +1051,6 @@ class elFinderVolumeBox extends elFinderVolumeDriver
             $result = $this->imgSquareFit($tmb, $tmbSize, $tmbSize, 'center', 'middle', $this->options['tmbBgColor'], 'png');
         } else {
             if ($this->options['tmbCrop']) {
-
                 /* Resize and crop if image bigger than thumbnail */
                 if (!(($s[0] > $tmbSize && $s[1] <= $tmbSize) || ($s[0] <= $tmbSize && $s[1] > $tmbSize)) || ($s[0] > $tmbSize && $s[1] > $tmbSize)) {
                     $result = $this->imgResize($tmb, $tmbSize, $tmbSize, true, false, 'png');
@@ -1302,6 +1305,7 @@ class elFinderVolumeBox extends elFinderVolumeDriver
     }
 
     /***************** file stat ********************/
+
     /**
      * Return stat for given path.
      * Stat contains following fields:
@@ -1383,7 +1387,7 @@ class elFinderVolumeBox extends elFinderVolumeDriver
                 $ret = array('dim' => $size[0].'x'.$size[1]);
                 $srcfp = fopen($work, 'rb');
                 if ($subImgLink = $this->getSubstituteImgLink(elFinder::$currentArgs['target'], $size, $srcfp)) {
-                	$ret['url'] = $subImgLink;
+                    $ret['url'] = $subImgLink;
                 }
             }
         }

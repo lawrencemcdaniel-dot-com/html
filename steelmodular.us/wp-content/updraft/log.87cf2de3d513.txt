@@ -1,0 +1,542 @@
+0000.000 (0) Opened log file at time: Sun, 06 Jan 2019 18:20:16 +0000 on https://www.allsteelstructure.com
+0000.007 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.0 WP: 5.0.2 PHP: 7.0.32 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.73.amzn1.x86_64 #1 SMP Fri Dec 14 20:12:13 UTC 2018 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.32 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 58.8M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.013 (0) Free space on disk containing Updraft's temporary directory: 85304.2 MB
+0000.020 (0) Deleting old log file: log.614d152f0772.txt
+0000.026 (0) Tasks: Backup files: 1 (schedule: weekly) Backup DB:  (schedule: weekly)
+0000.032 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.046 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1546194005, seconds_ago=604811)
+0000.067 (0) Set semaphore last lock (fd) time to 2019-01-06 18:20:16
+0000.073 (0) Semaphore lock (fd) complete
+0000.092 (0) Backup run: resumption=0, nonce=87cf2de3d513, file_nonce=87cf2de3d513 begun at=1546798816 (0s ago), job type=backup
+0000.103 (0) Scheduling a resumption (1) after 300 seconds (1546799116) in case this run gets aborted
+0000.120 (0) Checking if we have a zip executable available
+0000.125 (0) Testing: /usr/bin/zip
+0000.134 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.140 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.146 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.151 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.156 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.165 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.171 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.179 (0) Working binary zip found: /usr/bin/zip
+0000.190 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.196 (0) Creation of backups of directories: beginning
+0000.213 (0) Beginning creation of dump of plugins (split every: 25 MB)
+0000.324 (0) Total entities for the zip file: 1454 directories, 8017 files (0 skipped as non-modified), 102.6 MB
+0000.331 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.337 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.344 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.350 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.356 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.362 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.6 MB, 8017 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.893 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: size is now: 4.30 MB
+0000.906 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 600 files added (on-disk size: 4413.3 KB)
+0000.912 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 700 files added (on-disk size: 4413.3 KB)
+0000.919 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 800 files added (on-disk size: 4413.3 KB)
+0000.925 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 900 files added (on-disk size: 4413.3 KB)
+0000.931 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1000 files added (on-disk size: 4413.3 KB)
+0000.937 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.5 MB, 8017 files batched, 501 (1002) added so far); re-opening (prior size: 4413.3 KB)
+0001.048 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: size is now: 5.50 MB
+0001.062 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1100 files added (on-disk size: 5614.4 KB)
+0001.068 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1200 files added (on-disk size: 5614.4 KB)
+0001.074 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1300 files added (on-disk size: 5614.4 KB)
+0001.081 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1400 files added (on-disk size: 5614.4 KB)
+0001.088 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1500 files added (on-disk size: 5614.4 KB)
+0001.093 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.1 MB, 8017 files batched, 501 (1503) added so far); re-opening (prior size: 5614.4 KB)
+0001.332 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: size is now: 7.10 MB
+0001.345 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1600 files added (on-disk size: 7226.3 KB)
+0001.352 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1700 files added (on-disk size: 7226.3 KB)
+0001.358 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1800 files added (on-disk size: 7226.3 KB)
+0001.365 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 1900 files added (on-disk size: 7226.3 KB)
+0001.371 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2000 files added (on-disk size: 7226.3 KB)
+0001.377 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.4 MB, 8017 files batched, 501 (2004) added so far); re-opening (prior size: 7226.3 KB)
+0001.638 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: size is now: 9.30 MB
+0001.651 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2100 files added (on-disk size: 9479.1 KB)
+0001.658 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2200 files added (on-disk size: 9479.1 KB)
+0001.664 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2300 files added (on-disk size: 9479.1 KB)
+0001.671 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2400 files added (on-disk size: 9479.1 KB)
+0001.677 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2500 files added (on-disk size: 9479.1 KB)
+0001.683 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.8 MB, 8017 files batched, 501 (2505) added so far); re-opening (prior size: 9479.1 KB)
+0001.763 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2600 files added (on-disk size: 9942.9 KB)
+0001.770 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2700 files added (on-disk size: 9942.9 KB)
+0001.777 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2800 files added (on-disk size: 9942.9 KB)
+0001.783 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 2900 files added (on-disk size: 9942.9 KB)
+0001.790 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3000 files added (on-disk size: 9942.9 KB)
+0001.795 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.8 MB, 8017 files batched, 501 (3006) added so far); re-opening (prior size: 9942.9 KB)
+0002.033 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: size is now: 12.60 MB
+0002.046 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3100 files added (on-disk size: 12912.5 KB)
+0002.052 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3200 files added (on-disk size: 12912.5 KB)
+0002.059 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3300 files added (on-disk size: 12912.5 KB)
+0002.065 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3400 files added (on-disk size: 12912.5 KB)
+0002.071 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3500 files added (on-disk size: 12912.5 KB)
+0002.077 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9 MB, 8017 files batched, 501 (3507) added so far); re-opening (prior size: 12912.5 KB)
+0002.379 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: size is now: 15.40 MB
+0002.393 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3600 files added (on-disk size: 15741.9 KB)
+0002.399 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3700 files added (on-disk size: 15741.9 KB)
+0002.405 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3800 files added (on-disk size: 15741.9 KB)
+0002.411 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 3900 files added (on-disk size: 15741.9 KB)
+0002.417 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4000 files added (on-disk size: 15741.9 KB)
+0002.423 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.7 MB, 8017 files batched, 501 (4008) added so far); re-opening (prior size: 15741.9 KB)
+0002.842 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4100 files added (on-disk size: 18748.1 KB)
+0002.849 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4200 files added (on-disk size: 18748.1 KB)
+0002.855 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4300 files added (on-disk size: 18748.1 KB)
+0002.862 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4400 files added (on-disk size: 18748.1 KB)
+0002.868 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4500 files added (on-disk size: 18748.1 KB)
+0002.874 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.1 MB, 8017 files batched, 501 (4509) added so far); re-opening (prior size: 18748.1 KB)
+0003.046 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4600 files added (on-disk size: 20907.5 KB)
+0003.053 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4700 files added (on-disk size: 20907.5 KB)
+0003.059 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4800 files added (on-disk size: 20907.5 KB)
+0003.065 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 4900 files added (on-disk size: 20907.5 KB)
+0003.071 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 5000 files added (on-disk size: 20907.5 KB)
+0003.077 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7 MB, 8017 files batched, 501 (5010) added so far); re-opening (prior size: 20907.5 KB)
+0003.509 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 5100 files added (on-disk size: 23517.8 KB)
+0003.515 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip.tmp: 5200 files added (on-disk size: 23517.8 KB)
+0003.521 (0) Adding batch to zip file (UpdraftPlus_BinZip): possibly approaching split limit (5 MB, 218 (5228) files added so far); last ratio: 0.3666; re-opening (prior size: 23517.8 KB)
+0003.768 (0) Zip size is at/near split limit (24.4 MB / 25 MB) - bumping index (from: 0)
+0004.014 (0) Created plugins zip (0) - 24950.2 KB in 3.6 s (7013.9 KB/s) (checksums: sha1: bdf657edb369d7a5369b4f50d89a2dd0076c4909, sha256: 82c1aa128e5884eb5e3fd7c97df5552a52d2433f5cdaa006137d9003bdc4f469)
+0004.026 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 5300 files added (on-disk size: 0 KB)
+0004.033 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 5400 files added (on-disk size: 0 KB)
+0004.039 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 5500 files added (on-disk size: 0 KB)
+0004.045 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 5600 files added (on-disk size: 0 KB)
+0004.052 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 5700 files added (on-disk size: 0 KB)
+0004.057 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.2 MB, 8017 files batched, 501 (5729) added so far); re-opening (prior size: 0 KB)
+0004.211 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: size is now: 1.20 MB
+0004.224 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 5800 files added (on-disk size: 1273.8 KB)
+0004.230 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 5900 files added (on-disk size: 1273.8 KB)
+0004.237 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6000 files added (on-disk size: 1273.8 KB)
+0004.243 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6100 files added (on-disk size: 1273.8 KB)
+0004.249 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6200 files added (on-disk size: 1273.8 KB)
+0004.255 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (19.2 MB, 8017 files batched, 501 (6230) added so far); re-opening (prior size: 1273.8 KB)
+0004.932 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: size is now: 6.40 MB
+0004.945 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6300 files added (on-disk size: 6601.1 KB)
+0004.954 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6400 files added (on-disk size: 6601.1 KB)
+0004.961 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6500 files added (on-disk size: 6601.1 KB)
+0004.967 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6600 files added (on-disk size: 6601.1 KB)
+0004.974 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6700 files added (on-disk size: 6601.1 KB)
+0004.980 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.2 MB, 8017 files batched, 501 (6731) added so far); re-opening (prior size: 6601.1 KB)
+0005.095 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6800 files added (on-disk size: 7650.2 KB)
+0005.101 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 6900 files added (on-disk size: 7650.2 KB)
+0005.108 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7000 files added (on-disk size: 7650.2 KB)
+0005.114 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7100 files added (on-disk size: 7650.2 KB)
+0005.120 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7200 files added (on-disk size: 7650.2 KB)
+0005.126 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.2 MB, 8017 files batched, 501 (7232) added so far); re-opening (prior size: 7650.2 KB)
+0005.225 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7300 files added (on-disk size: 8621.3 KB)
+0005.232 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7400 files added (on-disk size: 8621.3 KB)
+0005.239 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7500 files added (on-disk size: 8621.3 KB)
+0005.245 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7600 files added (on-disk size: 8621.3 KB)
+0005.251 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7700 files added (on-disk size: 8621.3 KB)
+0005.257 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.8 MB, 8017 files batched, 501 (7733) added so far); re-opening (prior size: 8621.3 KB)
+0005.433 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7800 files added (on-disk size: 9681.9 KB)
+0005.440 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 7900 files added (on-disk size: 9681.9 KB)
+0005.446 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip.tmp: 8000 files added (on-disk size: 9681.9 KB)
+0005.634 (0) Created plugins zip (1) - 10333.9 KB in 1.6 s (6400.4 KB/s) (sha1: c7a72e9cbca425807bd388a0e914e18854885324, sha256: 02c3692212b97dbc0c28157bf420dc3d7220a92e769cd9600ba882a70269af35)
+0005.647 (0) Beginning creation of dump of themes (split every: 25 MB)
+0005.674 (0) Total entities for the zip file: 240 directories, 1538 files (0 skipped as non-modified), 18.2 MB
+0005.681 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0005.687 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0005.694 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0005.701 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0005.707 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0005.713 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.9 MB, 1538 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0005.919 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: size is now: 1.20 MB
+0005.933 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 600 files added (on-disk size: 1200.1 KB)
+0005.939 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 700 files added (on-disk size: 1200.1 KB)
+0005.946 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 800 files added (on-disk size: 1200.1 KB)
+0005.952 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 900 files added (on-disk size: 1200.1 KB)
+0005.958 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 1000 files added (on-disk size: 1200.1 KB)
+0005.964 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (11.4 MB, 1538 files batched, 501 (1002) added so far); re-opening (prior size: 1200.1 KB)
+0006.430 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: size is now: 5.00 MB
+0006.443 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 1100 files added (on-disk size: 5087.2 KB)
+0006.450 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 1200 files added (on-disk size: 5087.2 KB)
+0006.456 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 1300 files added (on-disk size: 5087.2 KB)
+0006.462 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 1400 files added (on-disk size: 5087.2 KB)
+0006.468 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: 1500 files added (on-disk size: 5087.2 KB)
+0006.473 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.8 MB, 1538 files batched, 501 (1503) added so far); re-opening (prior size: 5087.2 KB)
+0006.666 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip.tmp: size is now: 6.30 MB
+0006.771 (0) Created themes zip (0) - 6481.7 KB in 1.1 s (5801.2 KB/s) (sha1: a59673749dedba866b3d0397c9b17c1ea4c21ac9, sha256: 705d332cd6f498fe04ae85a58de6bd6aba8c64a7bb7a671fee990fe0cbd0bb04)
+0006.783 (0) Exclusion option setting (uploads): 
+0006.788 (0) Looking for candidates to backup in: /var/www/html/www.allsteelstructure.com/wp-content/uploads
+0006.794 (0) finding files: 2018: adding to list (1)
+0006.800 (0) finding files: custom-css-js: adding to list (2)
+0006.805 (0) finding files: backup: adding to list (3)
+0006.811 (0) finding files: fusion-styles: adding to list (4)
+0006.816 (0) finding files: fusion_slider_exports: adding to list (5)
+0006.822 (0) finding files: fusion-scripts: adding to list (6)
+0006.827 (0) finding files: revslider: adding to list (7)
+0006.833 (0) finding files: 2015: adding to list (8)
+0006.838 (0) finding files: 2019: adding to list (9)
+0006.843 (0) finding files: 2017: adding to list (10)
+0006.848 (0) finding files: fusionredux: adding to list (11)
+0006.855 (0) Beginning creation of dump of uploads (split every: 25 MB)
+0006.878 (0) Total entities for the zip file: 211 directories, 1204 files (0 skipped as non-modified), 65.7 MB
+0006.884 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.890 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0006.897 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0006.903 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0006.909 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip.tmp: 500 files added (on-disk size: 0 KB)
+0006.915 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (17.7 MB, 1204 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0007.307 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip.tmp: size is now: 17.80 MB
+0007.320 (0) Adding batch to zip file (UpdraftPlus_BinZip): possibly approaching split limit (7 MB, 13 (514) files added so far); last ratio: 1; re-opening (prior size: 18253.9 KB)
+0007.406 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip.tmp: size is now: 24.90 MB
+0007.418 (0) Zip size is at/near split limit (24.9 MB / 25 MB) - bumping index (from: 0)
+0007.649 (0) Created uploads zip (0) - 25467.9 KB in 0.6 s (45216.2 KB/s) (checksums: sha1: ae16db8ed1c796acd6536f4d0480a6e2ad79754e, sha256: b704202e18a49ddc9ce32d292e85a08cde2af109f96c77c80d56241591cf7876)
+0007.661 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip.tmp: 600 files added (on-disk size: 0 KB)
+0007.668 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip.tmp: 700 files added (on-disk size: 0 KB)
+0007.674 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25 MB, 1204 files batched, 279 (793) added so far); re-opening (prior size: 0 KB)
+0008.082 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip.tmp: size is now: 21.80 MB
+0008.094 (0) A useful amount of data was added after this amount of zip processing: 1.5 s (normalised: 1.5 s, rate: 16681.2 KB/s)
+0008.099 (0) Performance is good - but we will not increase the amount of data we batch, as we are already at the present limit (time=1.5348179340363, normalised_time=1.5346618006507, max_time=-1, data points known=0, max_bytes=26214400)
+0008.111 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip.tmp: 800 files added (on-disk size: 22318.2 KB)
+0008.117 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip.tmp: 900 files added (on-disk size: 22318.2 KB)
+0008.124 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip.tmp: 1000 files added (on-disk size: 22318.2 KB)
+0008.130 (0) Adding batch to zip file (UpdraftPlus_BinZip): possibly approaching split limit (3.3 MB, 230 (1023) files added so far); last ratio: 0.8717; re-opening (prior size: 22318.2 KB)
+0008.292 (0) Zip size is at/near split limit (25.2 MB / 25 MB) - bumping index (from: 1)
+0008.525 (0) Created uploads zip (1) - 25799.1 KB in 0.6 s (40130 KB/s) (checksums: sha1: f39a8c08fcd3d7f5f5f5ba850275bc77666ff80f, sha256: ec5bd3ee71e65d51b8831f6c42d4984b6c6fa3598d2d29618c9cf66d555d2959)
+0008.538 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip.tmp: 1100 files added (on-disk size: 0 KB)
+0008.544 (0) Zip: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip.tmp: 1200 files added (on-disk size: 0 KB)
+0008.770 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip.tmp: size is now: 12.60 MB
+0008.959 (0) Created uploads zip (2) - 12952.6 KB in 0.4 s (30197.7 KB/s) (sha1: b0e481dd9a40ce7f5226a9e26ad79b9270f3bebb, sha256: a3cbad8e606f70fab0c0ce34496cf81d310e92cb5dc79b88688bf803beb3ee89)
+0008.971 (0) Beginning backup of other directories found in the content directory (index: 0)
+0008.977 (0) Exclusion option setting (others): 
+0008.983 (0) Looking for candidates to backup in: /var/www/html/www.allsteelstructure.com/wp-content
+0008.989 (0) finding files: wflogs: adding to list (1)
+0008.994 (0) finding files: index.php: adding to list (2)
+0009.000 (0) finding files: upgrade: adding to list (3)
+0009.005 (0) finding files: updraft: skipping: this is the updraft directory
+0009.011 (0) finding files: themes: skipping: this is the themes directory
+0009.017 (0) finding files: advanced-cache.php: adding to list (4)
+0009.023 (0) finding files: uploads: skipping: this is the uploads directory
+0009.030 (0) finding files: cache: adding to list (5)
+0009.036 (0) finding files: wp-rocket-config: adding to list (6)
+0009.043 (0) finding files: plugins: skipping: this is the plugins directory
+0009.058 (0) Total entities for the zip file: 52 directories, 84 files (0 skipped as non-modified), 11.7 MB
+0009.549 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-others.zip.tmp: size is now: 4.10 MB
+0009.612 (0) Created others zip (0) - 4187.1 KB in 0.6 s (7428.6 KB/s) (sha1: 37ea634f53edfbbf0c7a994adc8737e3fef0cbd5, sha256: 7e31eb340365546359d231652517c5bfb1c8599e13574062d1bfdc46a829e7b0)
+0009.641 (0) Saving backup status to database (elements: 11)
+0009.662 (0) Beginning creation of database dump (WordPress DB)
+0009.675 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0009.724 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1211 bytes total)
+0009.735 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0009.791 (0) Table wp_options: Total expected rows (approximate): 466
+0009.872 (0) Table wp_options: Total rows added: 471 in 0.08 seconds
+0009.879 (0) Table wp_options: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_options.table.gz - 326.3 KB)
+0009.901 (0) Table wp_users: Total expected rows (approximate): 2
+0009.914 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0009.920 (0) Table wp_users: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_users.table.gz - 0.6 KB)
+0009.942 (0) Table wp_usermeta: Total expected rows (approximate): 57
+0009.952 (0) Table wp_usermeta: Total rows added: 56 in 0.00 seconds
+0009.959 (0) Table wp_usermeta: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_usermeta.table.gz - 1.8 KB)
+0009.981 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0009.990 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0009.996 (0) Table wp_commentmeta: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0010.017 (0) Table wp_comments: Total expected rows (approximate): 0
+0010.025 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0010.031 (0) Table wp_comments: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_comments.table.gz - 0.5 KB)
+0010.051 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0010.059 (0) Table wp_imagify_files: Total rows added: 0 in 0.00 seconds
+0010.065 (0) Table wp_imagify_files: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0010.085 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0010.093 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0010.099 (0) Table wp_imagify_folders: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0010.119 (0) Table wp_links: Total expected rows (approximate): 0
+0010.128 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0010.134 (0) Table wp_links: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_links.table.gz - 0.4 KB)
+0010.153 (0) Table wp_postmeta: Total expected rows (approximate): 3790
+0010.192 (0) Table wp_postmeta: Total rows added: 3286 in 0.03 seconds
+0010.198 (0) Table wp_postmeta: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_postmeta.table.gz - 49.7 KB)
+0010.236 (0) Table wp_posts: Total expected rows (approximate): 270
+0010.308 (0) Table wp_posts: Total rows added: 329 in 0.07 seconds
+0010.315 (0) Table wp_posts: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_posts.table.gz - 222.7 KB)
+0010.336 (0) Table wp_term_relationships: Total expected rows (approximate): 55
+0010.345 (0) Table wp_term_relationships: Total rows added: 55 in 0.00 seconds
+0010.351 (0) Table wp_term_relationships: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_term_relationships.table.gz - 0.5 KB)
+0010.372 (0) Table wp_term_taxonomy: Total expected rows (approximate): 29
+0010.381 (0) Table wp_term_taxonomy: Total rows added: 29 in 0.00 seconds
+0010.387 (0) Table wp_term_taxonomy: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_term_taxonomy.table.gz - 0.6 KB)
+0010.407 (0) Table wp_termmeta: Total expected rows (approximate): 10
+0010.417 (0) Table wp_termmeta: Total rows added: 10 in 0.00 seconds
+0010.423 (0) Table wp_termmeta: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_termmeta.table.gz - 0.8 KB)
+0010.443 (0) Table wp_terms: Total expected rows (approximate): 29
+0010.452 (0) Table wp_terms: Total rows added: 29 in 0.00 seconds
+0010.458 (0) Table wp_terms: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_terms.table.gz - 0.8 KB)
+0010.478 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 277
+0010.489 (0) Table wp_yoast_seo_links: Total rows added: 277 in 0.01 seconds
+0010.495 (0) Table wp_yoast_seo_links: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_yoast_seo_links.table.gz - 3.3 KB)
+0010.515 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 244
+0010.525 (0) Table wp_yoast_seo_meta: Total rows added: 247 in 0.00 seconds
+0010.531 (0) Table wp_yoast_seo_meta: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_yoast_seo_meta.table.gz - 1 KB)
+0010.551 (0) Table wp_eum_logs: Total expected rows (approximate): 7
+0010.561 (0) Table wp_eum_logs: Total rows added: 7 in 0.00 seconds
+0010.567 (0) Table wp_eum_logs: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_eum_logs.table.gz - 0.6 KB)
+0010.587 (0) Table wp_revslider_css: Total expected rows (approximate): 121
+0010.598 (0) Table wp_revslider_css: Total rows added: 121 in 0.01 seconds
+0010.604 (0) Table wp_revslider_css: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_css.table.gz - 5.3 KB)
+0010.624 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0010.634 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0010.640 (0) Table wp_revslider_layer_animations: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0010.661 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0010.669 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0010.675 (0) Table wp_revslider_navigations: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0010.695 (0) Table wp_revslider_sliders: Total expected rows (approximate): 0
+0010.703 (0) Table wp_revslider_sliders: Total rows added: 0 in 0.00 seconds
+0010.709 (0) Table wp_revslider_sliders: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_sliders.table.gz - 0.3 KB)
+0010.729 (0) Table wp_revslider_slides: Total expected rows (approximate): 0
+0010.737 (0) Table wp_revslider_slides: Total rows added: 0 in 0.00 seconds
+0010.743 (0) Table wp_revslider_slides: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_slides.table.gz - 0.3 KB)
+0010.763 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0010.772 (0) Table wp_revslider_static_slides: Total rows added: 0 in 0.00 seconds
+0010.778 (0) Table wp_revslider_static_slides: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_static_slides.table.gz - 0.3 KB)
+0010.798 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0010.806 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0010.812 (0) Table wp_wfBadLeechers: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0010.832 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0010.840 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0010.847 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0010.868 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 11
+0010.878 (0) Table wp_wfBlockedIPLog: Total rows added: 11 in 0.00 seconds
+0010.885 (0) Table wp_wfBlockedIPLog: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBlockedIPLog.table.gz - 0.5 KB)
+0010.906 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0010.914 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0010.920 (0) Table wp_wfBlocks7: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0010.941 (0) Table wp_wfConfig: Total expected rows (approximate): 254
+0010.965 (0) Table wp_wfConfig: Total rows added: 257 in 0.02 seconds
+0010.971 (0) Table wp_wfConfig: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfConfig.table.gz - 363.2 KB)
+0010.991 (0) Table wp_wfCrawlers: Total expected rows (approximate): 13
+0011.000 (0) Table wp_wfCrawlers: Total rows added: 13 in 0.00 seconds
+0011.006 (0) Table wp_wfCrawlers: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfCrawlers.table.gz - 0.6 KB)
+0011.027 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0011.036 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0011.042 (0) Table wp_wfFileChanges: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0011.063 (0) Table wp_wfFileMods: Total expected rows (approximate): 8273
+0011.190 (0) Table wp_wfFileMods: binary mysqldump finished (writes: 36) in 0.12 seconds
+0011.197 (0) Table wp_wfFileMods: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfFileMods.table.gz - 803.4 KB)
+0011.218 (0) Table wp_wfHits: Total expected rows (approximate): 1699
+0011.255 (0) Table wp_wfHits: Total rows added: 1699 in 0.03 seconds
+0011.262 (0) Table wp_wfHits: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfHits.table.gz - 33.8 KB)
+0011.283 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0011.292 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0011.299 (0) Table wp_wfHoover: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0011.320 (0) Table wp_wfIssues: Total expected rows (approximate): 0
+0011.328 (0) Table wp_wfIssues: Total rows added: 0 in 0.00 seconds
+0011.334 (0) Table wp_wfIssues: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfIssues.table.gz - 0.4 KB)
+0011.354 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 9429
+0011.441 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.08 seconds
+0011.448 (0) Table wp_wfKnownFileList: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfKnownFileList.table.gz - 93.6 KB)
+0011.468 (0) Table wp_wfLeechers: Total expected rows (approximate): 6
+0011.477 (0) Table wp_wfLeechers: Total rows added: 6 in 0.00 seconds
+0011.484 (0) Table wp_wfLeechers: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLeechers.table.gz - 0.4 KB)
+0011.504 (0) Table wp_wfLiveTrafficHuman: Total expected rows (approximate): 1
+0011.513 (0) Table wp_wfLiveTrafficHuman: Total rows added: 1 in 0.00 seconds
+0011.519 (0) Table wp_wfLiveTrafficHuman: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLiveTrafficHuman.table.gz - 0.4 KB)
+0011.706 (0) Table wp_wfLocs: Total expected rows (approximate): 1
+0011.875 (0) Table wp_wfLocs: Total rows added: 1 in 0.02 seconds
+0011.882 (0) Table wp_wfLocs: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLocs.table.gz - 0.5 KB)
+0011.903 (0) Table wp_wfLogins: Total expected rows (approximate): 126
+0011.933 (0) Table wp_wfLogins: Total rows added: 142 in 0.01 seconds
+0011.940 (0) Table wp_wfLogins: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLogins.table.gz - 3.2 KB)
+0011.961 (0) Table wp_wfNotifications: Total expected rows (approximate): 39
+0011.974 (0) Table wp_wfNotifications: Total rows added: 49 in 0.00 seconds
+0011.981 (0) Table wp_wfNotifications: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfNotifications.table.gz - 1.2 KB)
+0012.001 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0012.010 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0012.016 (0) Table wp_wfPendingIssues: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0012.035 (0) Table wp_wfReverseCache: Total expected rows (approximate): 1
+0012.044 (0) Table wp_wfReverseCache: Total rows added: 1 in 0.00 seconds
+0012.050 (0) Table wp_wfReverseCache: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0012.071 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0012.079 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0012.084 (0) Table wp_wfSNIPCache: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0012.105 (0) Table wp_wfScanners: Total expected rows (approximate): 21
+0012.114 (0) Table wp_wfScanners: Total rows added: 21 in 0.00 seconds
+0012.120 (0) Table wp_wfScanners: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfScanners.table.gz - 0.6 KB)
+0012.140 (0) Table wp_wfStatus: Total expected rows (approximate): 1333
+0012.162 (0) Table wp_wfStatus: Total rows added: 1384 in 0.02 seconds
+0012.168 (0) Table wp_wfStatus: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfStatus.table.gz - 25.1 KB)
+0012.188 (0) Table wp_wfTrafficRates: Total expected rows (approximate): 0
+0012.196 (0) Table wp_wfTrafficRates: Total rows added: 0 in 0.00 seconds
+0012.202 (0) Table wp_wfTrafficRates: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfTrafficRates.table.gz - 0.3 KB)
+0012.222 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0012.230 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0012.236 (0) Table wp_wfVulnScanners: finishing file (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0012.257 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_options.table.gz (1/47): adding to final database dump
+0012.314 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_users.table.gz (2/47): adding to final database dump
+0012.320 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_usermeta.table.gz (3/47): adding to final database dump
+0012.327 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_commentmeta.table.gz (4/47): adding to final database dump
+0012.332 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_comments.table.gz (5/47): adding to final database dump
+0012.338 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_imagify_files.table.gz (6/47): adding to final database dump
+0012.343 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_imagify_folders.table.gz (7/47): adding to final database dump
+0012.349 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_links.table.gz (8/47): adding to final database dump
+0012.355 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_postmeta.table.gz (9/47): adding to final database dump
+0012.370 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_posts.table.gz (10/47): adding to final database dump
+0012.427 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_term_relationships.table.gz (11/47): adding to final database dump
+0012.433 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_term_taxonomy.table.gz (12/47): adding to final database dump
+0012.438 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_termmeta.table.gz (13/47): adding to final database dump
+0012.444 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_terms.table.gz (14/47): adding to final database dump
+0012.450 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_yoast_seo_links.table.gz (15/47): adding to final database dump
+0012.456 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_yoast_seo_meta.table.gz (16/47): adding to final database dump
+0012.462 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_eum_logs.table.gz (17/47): adding to final database dump
+0012.467 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_css.table.gz (18/47): adding to final database dump
+0012.474 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_layer_animations.table.gz (19/47): adding to final database dump
+0012.480 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_navigations.table.gz (20/47): adding to final database dump
+0012.486 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_sliders.table.gz (21/47): adding to final database dump
+0012.492 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_slides.table.gz (22/47): adding to final database dump
+0012.498 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_revslider_static_slides.table.gz (23/47): adding to final database dump
+0012.503 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBadLeechers.table.gz (24/47): adding to final database dump
+0012.509 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBlockedCommentLog.table.gz (25/47): adding to final database dump
+0012.515 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBlockedIPLog.table.gz (26/47): adding to final database dump
+0012.521 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfBlocks7.table.gz (27/47): adding to final database dump
+0012.526 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfConfig.table.gz (28/47): adding to final database dump
+0012.546 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfCrawlers.table.gz (29/47): adding to final database dump
+0012.552 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfFileChanges.table.gz (30/47): adding to final database dump
+0012.557 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfFileMods.table.gz (31/47): adding to final database dump
+0012.620 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfHits.table.gz (32/47): adding to final database dump
+0012.632 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfHoover.table.gz (33/47): adding to final database dump
+0012.638 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfIssues.table.gz (34/47): adding to final database dump
+0012.643 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfKnownFileList.table.gz (35/47): adding to final database dump
+0012.665 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLeechers.table.gz (36/47): adding to final database dump
+0012.671 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLiveTrafficHuman.table.gz (37/47): adding to final database dump
+0012.677 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLocs.table.gz (38/47): adding to final database dump
+0012.682 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfLogins.table.gz (39/47): adding to final database dump
+0012.688 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfNotifications.table.gz (40/47): adding to final database dump
+0012.694 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfPendingIssues.table.gz (41/47): adding to final database dump
+0012.699 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfReverseCache.table.gz (42/47): adding to final database dump
+0012.705 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfSNIPCache.table.gz (43/47): adding to final database dump
+0012.710 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfScanners.table.gz (44/47): adding to final database dump
+0012.716 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfStatus.table.gz (45/47): adding to final database dump
+0012.726 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfTrafficRates.table.gz (46/47): adding to final database dump
+0012.732 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db-table-wp_wfVulnScanners.table.gz (47/47): adding to final database dump
+0012.738 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db.gz: finished writing out complete database file (1928 KB)
+0012.781 (0) Total database tables backed up: 47 (backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db.gz, size: 1987437, sha256)
+0012.817 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0012.823 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip: plugins: This file has not yet been successfully uploaded: will queue
+0012.829 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0012.834 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0012.840 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip: uploads: This file has not yet been successfully uploaded: will queue
+0012.847 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip: uploads: This file has not yet been successfully uploaded: will queue
+0012.852 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-others.zip: others: This file has not yet been successfully uploaded: will queue
+0012.857 (0) backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db.gz: db: This file has not yet been successfully uploaded: will queue
+0012.863 (0) Saving backup history. Total backup size: 109.5 MB
+0012.880 (0) Requesting upload of the files that have not yet been successfully uploaded (8)
+0012.899 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0012.905 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-279872b6cbdd0c5c8a5fb3eaaaf63dfd)
+0013.279 (0) Set region: us-west-2
+0013.284 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip (chunks: 5) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip
+0013.323 (0) S3 chunked upload: got multipart ID: QoMkHZpRLjdqI1bnin4_2J9NtOri.H9WUpNLyj.TY1wAhODbXkenSgmtLIJY9kmIxy4HU3SvMHrsufE653uQUBIX_xoI0BCYh19wJBwRhjgrjec2dZDNQUpevsx7tQaA
+0013.520 (0) S3 chunked upload: 20 % uploaded (1, "892ef6d4bac0b48b34f216aa3dc52d8b")
+0013.728 (0) S3 chunked upload: 40 % uploaded (2, "711a240c85b85f88d0bbe3eb10cf5d81")
+0013.928 (0) S3 chunked upload: 60 % uploaded (3, "c64b8a152d20c5f4b60be8a06c18b1c3")
+0014.127 (0) S3 chunked upload: 80 % uploaded (4, "6a417a3b1d6c6f69a541e44a6e814cee")
+0014.313 (0) S3 chunked upload: 100 % uploaded (5, "6e71fe39874c0e5ad703dc8573f1a076")
+0014.333 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0014.483 (0) S3 upload (plugins0): re-assembly succeeded
+0014.490 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip
+0014.502 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins.zip: skipped: user has unchecked updraft_delete_local option
+0014.508 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip (chunks: 3) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip
+0014.524 (0) S3 chunked upload: got multipart ID: kUSudv2OHh3AC0eP4fRjRCNowx_XO7Of3kHJ7dug.E0irP.NZ1bqqEXDZh5RCeB9HDlQlWQGxzzlwNxeqCkSKCrkzGS0cjDPRKqeqyGRLNKeyA_zebWnuceZTjqLG6Lm
+0014.720 (0) S3 chunked upload: 33.3 % uploaded (1, "480878b1bf5a3adf9ac3867bb1313d08")
+0014.937 (0) S3 chunked upload: 66.7 % uploaded (2, "65aa83409cb3af798fe2926b5a80a5db")
+0015.100 (0) S3 chunked upload: 100 % uploaded (3, "1cb1709b614c24b477fd760313eb235f")
+0015.119 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0015.212 (0) S3 upload (plugins1): re-assembly succeeded
+0015.218 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip
+0015.231 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-plugins2.zip: skipped: user has unchecked updraft_delete_local option
+0015.237 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip (chunks: 2) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip
+0015.250 (0) S3 chunked upload: got multipart ID: qJh7BeDor5Jh8uR3m6dl8R.GXwNzWq_QPz.xZkEXm643npR6j6YMCU1umdjdISSPk62jf58KWWX3lPqo0r0AukRbkB2_dvMJljoUKcWTjwEzOarh0KdgDcLrCpxp1SFc
+0015.434 (0) S3 chunked upload: 50 % uploaded (1, "1647ebe00e943bb5488fd94d0f842a60")
+0015.545 (0) S3 chunked upload: 100 % uploaded (2, "05c7eb240047c4e2980398e9a2366c29")
+0015.571 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0015.649 (0) S3 upload (themes0): re-assembly succeeded
+0015.656 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip
+0015.669 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-themes.zip: skipped: user has unchecked updraft_delete_local option
+0015.674 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip (chunks: 5) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip
+0015.688 (0) S3 chunked upload: got multipart ID: DT8sdQRPIzEmZjxr4b7EGv3ow8MK9Urydd1tlOsOii9Wlu.Qh0comU435UoHofCGdYJRp.FIca09o8cKStE93vmdn4C03R158HVSF8ZIVvMYphXbcNoatZFxCVmETdhX
+0015.914 (0) S3 chunked upload: 20 % uploaded (1, "033aa7cfff87fabb0531c83c25bfea6b")
+0016.140 (0) S3 chunked upload: 40 % uploaded (2, "88e2e1b9a68b631c7c3ab8bcf8f0f759")
+0016.345 (0) S3 chunked upload: 60 % uploaded (3, "ab1eee69cfe12e106acde74224a109c3")
+0016.557 (0) S3 chunked upload: 80 % uploaded (4, "004786a185c3b8692c062803b919257b")
+0016.762 (0) S3 chunked upload: 100 % uploaded (5, "39a734d1cebccd6abec4f33f0008f9b8")
+0016.782 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0016.865 (0) S3 upload (uploads0): re-assembly succeeded
+0016.872 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip
+0016.884 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads.zip: skipped: user has unchecked updraft_delete_local option
+0016.890 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip (chunks: 6) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip
+0016.903 (0) S3 chunked upload: got multipart ID: zC.o_ViNwHosVk4G131PK2Kf3Wv7sNmeXqK__Hn5.NLdpF1yBi3M0WLVI7QeRe3396ru8M_H1uKwazYW6re1yxuaCkGtaR_GiYQDNOCumP7_QfdrrHhSil37qOZS8646
+0017.108 (0) S3 chunked upload: 16.7 % uploaded (1, "44cba89e6f91acc8befe64874abd0f6d")
+0017.330 (0) S3 chunked upload: 33.3 % uploaded (2, "e91b0745b2745d059dfc3eae59f8773f")
+0017.582 (0) S3 chunked upload: 50 % uploaded (3, "47fa4a22ce7f785015bcda8519c82aa0")
+0017.781 (0) S3 chunked upload: 66.7 % uploaded (4, "c30657fa9f36716cf8d47e5642e44e20")
+0017.965 (0) S3 chunked upload: 83.3 % uploaded (5, "8a9669824c653826e7ef4b95ea4d291b")
+0018.095 (0) S3 chunked upload: 100 % uploaded (6, "3b25aca71f599eb44e35d62cff1f4152")
+0018.116 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0018.191 (0) S3 upload (uploads1): re-assembly succeeded
+0018.198 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip
+0018.211 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads2.zip: skipped: user has unchecked updraft_delete_local option
+0018.216 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip (chunks: 3) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip
+0018.229 (0) S3 chunked upload: got multipart ID: 8HKw0AqpDAMgHeu0p9jzIRkMnH8ZhJ.wBeDimkOlaZ05JDuoTRqy6q8KnNqUkMQKSSRtf53elfVZz9kd3pPZ_jMffLVN2ZQ4KkqHCbeFyCr9kRda2KDS.iVe6779VlUt
+0018.432 (0) S3 chunked upload: 33.3 % uploaded (1, "98081182b56f6f7d3d0f55a40bf8225e")
+0018.626 (0) S3 chunked upload: 66.7 % uploaded (2, "740cf14de854df92f92680d8ece5ed69")
+0018.745 (0) S3 chunked upload: 100 % uploaded (3, "d6f8f1f34f3dd77f11160537041ef205")
+0018.766 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0018.836 (0) S3 upload (uploads2): re-assembly succeeded
+0018.843 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip
+0018.856 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-uploads3.zip: skipped: user has unchecked updraft_delete_local option
+0018.861 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-others.zip (chunks: 1) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-others.zip
+0019.017 (0) S3 regular upload: success
+0019.023 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-others.zip
+0019.036 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-others.zip: skipped: user has unchecked updraft_delete_local option
+0019.042 (0) S3 upload (us-west-2): backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db.gz (chunks: 1) -> s3://www.allsteelstructure.com/backups/backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db.gz
+0019.146 (0) S3 regular upload: success
+0019.153 (0) Recording as successfully uploaded: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db.gz
+0019.166 (0) Deleting local file: backup_2019-01-06-1820_Steel_Structures_LLC_87cf2de3d513-db.gz: skipped: user has unchecked updraft_delete_local option
+0019.179 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=20, retain_db=20
+0019.187 (0) Number of backup sets in history: 9; groups (db): 1
+0019.193 (0) Examining (for databases) backup set with group_id=0, nonce=87cf2de3d513, datestamp=1546798816 (Jan 06 2019 18:20:16)
+0019.198 (0) This backup set is the backup set just made, so will not be deleted.
+0019.198 (0) Examining (for databases) backup set with group_id=0, nonce=a62148b831b5, datestamp=1546194005 (Dec 30 2018 18:20:05)
+0019.198 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.203 (0) Examining (for databases) backup set with group_id=0, nonce=ccb05a89ee94, datestamp=1545591066 (Dec 23 2018 18:51:06)
+0019.203 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.203 (0) Examining (for databases) backup set with group_id=0, nonce=2b4136344983, datestamp=1544992047 (Dec 16 2018 20:27:27)
+0019.203 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.203 (0) Examining (for databases) backup set with group_id=0, nonce=d46a08440771, datestamp=1544381920 (Dec 09 2018 18:58:40)
+0019.203 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.204 (0) Examining (for databases) backup set with group_id=0, nonce=9d563f812691, datestamp=1543793148 (Dec 02 2018 23:25:48)
+0019.204 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.204 (0) Examining (for databases) backup set with group_id=0, nonce=614d152f0772, datestamp=1543179022 (Nov 25 2018 20:50:22)
+0019.204 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.204 (0) Examining (for databases) backup set with group_id=0, nonce=61edbf3c3d1e, datestamp=1542573843 (Nov 18 2018 20:44:03)
+0019.204 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.204 (0) Examining (for databases) backup set with group_id=0, nonce=151e98b6a129, datestamp=1542564678 (Nov 18 2018 18:11:18)
+0019.204 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.204 (0) Number of backup sets in history: 9; groups (files): 1
+0019.209 (0) Examining (for files) backup set with nonce=87cf2de3d513, datestamp=1546798816 (Jan 06 2019 18:20:16)
+0019.209 (0) This backup set is the backup set just made, so will not be deleted.
+0019.215 (0) This backup set is the backup set just made, so will not be deleted.
+0019.215 (0) This backup set is the backup set just made, so will not be deleted.
+0019.215 (0) This backup set is the backup set just made, so will not be deleted.
+0019.215 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.220 (0) Examining (for files) backup set with nonce=a62148b831b5, datestamp=1546194005 (Dec 30 2018 18:20:05)
+0019.220 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.220 (0) Examining (for files) backup set with nonce=ccb05a89ee94, datestamp=1545591066 (Dec 23 2018 18:51:06)
+0019.221 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.221 (0) Examining (for files) backup set with nonce=2b4136344983, datestamp=1544992047 (Dec 16 2018 20:27:27)
+0019.221 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.221 (0) Examining (for files) backup set with nonce=d46a08440771, datestamp=1544381920 (Dec 09 2018 18:58:40)
+0019.221 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.221 (0) Examining (for files) backup set with nonce=9d563f812691, datestamp=1543793148 (Dec 02 2018 23:25:48)
+0019.221 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.221 (0) Examining (for files) backup set with nonce=614d152f0772, datestamp=1543179022 (Nov 25 2018 20:50:22)
+0019.221 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.221 (0) Examining (for files) backup set with nonce=61edbf3c3d1e, datestamp=1542573843 (Nov 18 2018 20:44:03)
+0019.221 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.221 (0) Examining (for files) backup set with nonce=151e98b6a129, datestamp=1542564678 (Nov 18 2018 18:11:18)
+0019.221 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0019.221 (0) Retain: saving new backup history (sets now: 9) and finishing retain operation
+0019.236 (0) Resume backup (87cf2de3d513, 0): finish run
+0019.253 (0) Decremented the semaphore (fd) by 1
+0019.264 (0) Semaphore (fd) unlocked
+0019.269 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0019.289 (0) Fetching RSS news feed
+0019.453 (0) Fetched RSS news feed; result is a: SimplePie
+0019.467 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: safes...
+0019.854 (0) The backup apparently succeeded and is now complete

@@ -101,7 +101,7 @@ class Avada_Upgrade_570 extends Avada_Upgrade_Abstract {
 			$rgb_color = $color->toCSS( 'rgb' );
 
 			if ( 0 === $color->alpha && isset( $options['bg_color'] ) ) {
-				$rgb_color  = Fusion_Color::new_color( Fusion_Sanitize::color( $options['bg_color'] ) )->toCSS( 'rgb' );
+				$rgb_color = Fusion_Color::new_color( Fusion_Sanitize::color( $options['bg_color'] ) )->toCSS( 'rgb' );
 			}
 
 			$options['mobile_header_bg_color']         = $rgb_color;

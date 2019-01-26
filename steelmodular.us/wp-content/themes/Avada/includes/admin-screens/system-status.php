@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<td data-export-label="Previous Version"><?php esc_attr_e( 'Previous Versions:', 'Avada' ); ?></td>
 					<td class="help">&nbsp;</td>
 					<?php
-					$previous_version = get_option( 'avada_previous_version', false );
+					$previous_version        = get_option( 'avada_previous_version', false );
 					$previous_versions_array = is_array( $previous_version ) ? $previous_version : array();
 					if ( $previous_version && is_array( $previous_version ) ) {
 						foreach ( $previous_version as $key => $value ) {
@@ -62,8 +62,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					} else {
 						if ( is_array( $previous_version ) ) {
 							$previous_versions_array = $previous_version;
-							$previous_version = array_slice( $previous_version, -3, 3, true );
-							$previous_version = implode( ' <span style="font-size:1em;line-height:inherit;" class="dashicons dashicons-arrow-right-alt"></span> ', array_map( 'esc_attr', $previous_version ) );
+							$previous_version        = array_slice( $previous_version, -3, 3, true );
+							$previous_version        = implode( ' <span style="font-size:1em;line-height:inherit;" class="dashicons dashicons-arrow-right-alt"></span> ', array_map( 'esc_attr', $previous_version ) );
 						}
 					}
 					?>
@@ -74,10 +74,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</tbody>
 		</table>
 		<?php
-		$show_400_migration = false;
+		$show_400_migration       = false;
 		$force_hide_400_migration = false;
-		$show_500_migration = false;
-		$versions_count = count( $previous_versions_array );
+		$show_500_migration       = false;
+		$versions_count           = count( $previous_versions_array );
 		if ( isset( $previous_versions_array[ $versions_count - 1 ] ) && isset( $previous_versions_array[ $versions_count - 2 ] ) ) {
 			if ( version_compare( $previous_versions_array[ $versions_count - 1 ], '4.0.0', '>=' ) && version_compare( $previous_versions_array[ $versions_count - 2 ], '4.0.0', '<=' ) ) {
 				$force_hide_400_migration = true;
@@ -129,13 +129,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<td colspan="3">
 							<p style="padding: 15px 0;">
 								<?php /* translators: URL. */ ?>
-								<?php printf( __( '<strong style="color:red;">IMPORTANT:</strong> Updating to Avada 4.0 and 5.0 requires a conversion process to ensure your content is compatible with the new version. This is an automatic process that happens upon update. In rare situations, you may need to rerun conversion if there was an issue through the automatic process. The controls below allow you to do this if needed. Please <a href="%s" target="_blank">contact our support team</a> through a ticket if you have any questions or need assistance.', 'Avada' ), 'https://theme-fusion.com/documentation/avada/getting-started/avada-theme-support/' ); // WPCS: XSS ok.?>
+								<?php printf( __( '<strong style="color:red;">IMPORTANT:</strong> Updating to Avada 4.0 and 5.0 requires a conversion process to ensure your content is compatible with the new version. This is an automatic process that happens upon update. In rare situations, you may need to rerun conversion if there was an issue through the automatic process. The controls below allow you to do this if needed. Please <a href="%s" target="_blank">contact our support team</a> through a ticket if you have any questions or need assistance.', 'Avada' ), 'https://theme-fusion.com/documentation/avada/getting-started/avada-theme-support/' );// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</p>
 						</td>
 					</tr>
 				<?php if ( $show_400_migration && false === $force_hide_400_migration ) : ?>
 					<?php /* translators: Version Number. */ ?>
-					<?php $latest_version     = ( empty( $last_version ) || ! $last_version ) ? esc_attr__( 'Previous Version', 'Avada' ) : sprintf( esc_attr__( 'Version %s', 'Avada' ), esc_attr( $last_version ) ); ?>
+					<?php $latest_version = ( empty( $last_version ) || ! $last_version ) ? esc_attr__( 'Previous Version', 'Avada' ) : sprintf( esc_attr__( 'Version %s', 'Avada' ), esc_attr( $last_version ) ); ?>
 					<?php $last_pre_4_version = ( isset( $last_pre_4_version ) ) ? $last_pre_4_version : $latest_version; ?>
 					<tr>
 						<td>
@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endif; ?>
 				<?php if ( $show_500_migration ) : ?>
 					<?php /* translators: Version Number. */ ?>
-					<?php $latest_version     = ( empty( $last_version ) || ! $last_version ) ? esc_attr__( 'Previous Version', 'Avada' ) : sprintf( esc_attr__( 'Version %s', 'Avada' ), $last_version ); ?>
+					<?php $latest_version = ( empty( $last_version ) || ! $last_version ) ? esc_attr__( 'Previous Version', 'Avada' ) : sprintf( esc_attr__( 'Version %s', 'Avada' ), $last_version ); ?>
 					<?php $last_pre_5_version = ( isset( $last_pre_5_version ) ) ? $last_pre_5_version : $latest_version; ?>
 					<tr>
 						<td>
@@ -173,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								</tr>
 								<?php
 								$option_name = Avada::get_option_name();
-								$backup = get_option( $option_name . '_500_backup', false );
+								$backup      = get_option( $option_name . '_500_backup', false );
 								if ( ! $backup && 'fusion_options' === $option_name ) {
 									$backup = get_option( 'avada_theme_options_500_backup', false );
 								}
@@ -409,7 +409,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<td data-export-label="PHP Max Input Vars"><?php esc_attr_e( 'PHP Max Input Vars:', 'Avada' ); ?></td>
 						<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'Avada' ) . '">[?]</a>'; ?></td>
 						<?php
-						$registered_navs = get_nav_menu_locations();
+						$registered_navs  = get_nav_menu_locations();
 						$menu_items_count = array(
 							'0' => '0',
 						);
@@ -429,7 +429,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						?>
 						<td>
 							<?php
-							$max_input_vars = ini_get( 'max_input_vars' );
+							$max_input_vars      = ini_get( 'max_input_vars' );
 							$required_input_vars = $required_input_vars + ( 500 + 1000 );
 							// 1000 = theme options
 							if ( $max_input_vars < $required_input_vars ) {
@@ -448,12 +448,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</td>
 						<td><?php echo extension_loaded( 'suhosin' ) ? '&#10004;' : '&ndash;'; ?></td>
 					</tr>
-					<?php if ( extension_loaded( 'suhosin' ) ) :  ?>
+					<?php if ( extension_loaded( 'suhosin' ) ) : ?>
 						<tr>
 							<td data-export-label="Suhosin Post Max Vars"><?php esc_attr_e( 'Suhosin Post Max Vars:', 'Avada' ); ?></td>
 							<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'Avada' ) . '">[?]</a>'; ?></td>
 							<?php
-							$registered_navs = get_nav_menu_locations();
+							$registered_navs  = get_nav_menu_locations();
 							$menu_items_count = array(
 								'0' => '0',
 							);
@@ -473,7 +473,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 							<td>
 								<?php
-								$max_input_vars = ini_get( 'suhosin.post.max_vars' );
+								$max_input_vars      = ini_get( 'suhosin.post.max_vars' );
 								$required_input_vars = $required_input_vars + ( 500 + 1000 );
 
 								if ( $max_input_vars < $required_input_vars ) {
@@ -489,7 +489,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<td data-export-label="Suhosin Request Max Vars"><?php esc_attr_e( 'Suhosin Request Max Vars:', 'Avada' ); ?></td>
 							<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'Avada' ) . '">[?]</a>'; ?></td>
 							<?php
-							$registered_navs = get_nav_menu_locations();
+							$registered_navs  = get_nav_menu_locations();
 							$menu_items_count = array(
 								'0' => '0',
 							);
@@ -509,7 +509,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 							<td>
 								<?php
-								$max_input_vars = ini_get( 'suhosin.request.max_vars' );
+								$max_input_vars      = ini_get( 'suhosin.request.max_vars' );
 								$required_input_vars = $required_input_vars + ( 500 + 1000 );
 
 								if ( $max_input_vars < $required_input_vars ) {
@@ -526,7 +526,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Defines the maximum length of a variable that is registered through a POST request.', 'Avada' ) . '">[?]</a>'; ?></td>
 							<td>
 							<?php
-								$suhosin_max_value_length = ini_get( 'suhosin.post.max_value_length' );
+								$suhosin_max_value_length     = ini_get( 'suhosin.post.max_value_length' );
 								$recommended_max_value_length = 2000000;
 
 							if ( $suhosin_max_value_length < $recommended_max_value_length ) {
@@ -598,7 +598,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php
 						$info = esc_attr__( 'Not Installed', 'Avada' );
 						if ( extension_loaded( 'gd' ) && function_exists( 'gd_info' ) ) {
-							$info = esc_attr__( 'Installed', 'Avada' );
+							$info    = esc_attr__( 'Installed', 'Avada' );
 							$gd_info = gd_info();
 							if ( isset( $gd_info['GD Version'] ) ) {
 								$info = $gd_info['GD Version'];

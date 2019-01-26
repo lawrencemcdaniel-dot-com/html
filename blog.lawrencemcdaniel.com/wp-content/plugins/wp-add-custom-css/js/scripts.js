@@ -6,8 +6,7 @@
         options = {
           lineNumbers: true,
           mode: "css",
-          tabSize: 2, // default 4
-          //theme: "tomorrow-night-bright"
+          tabSize: 2,
         };
     if ( $('.wpacc_editor_dark').length > 0 )
       options.theme = "tomorrow-night-bright";

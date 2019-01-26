@@ -809,9 +809,9 @@ class Avada_Demo_Import {
 	 */
 	private function import_theme_options() {
 
-		$theme_options_json                         = file_get_contents( $this->theme_options_file );
-		$theme_options                              = json_decode( $theme_options_json, true );
-		$theme_options_db_name                      = Avada::get_original_option_name();
+		$theme_options_json    = file_get_contents( $this->theme_options_file );
+		$theme_options         = json_decode( $theme_options_json, true );
+		$theme_options_db_name = Avada::get_original_option_name();
 		update_option( $theme_options_db_name, $theme_options );
 	}
 
@@ -883,12 +883,12 @@ class Avada_Demo_Import {
 			foreach ( $this->importer_files->get_layerslider() as $layer_file ) {
 				// Finally import rev slider data files.
 				$filepath = $this->importer_files->get_path( 'layersliders/' . $layer_file );
-				$import = new LS_ImportUtil( $filepath );
+				$import   = new LS_ImportUtil( $filepath );
 			}
 
 			// Get sliders.
 			$sliders = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}layerslider WHERE flag_hidden = '0' AND flag_deleted = '0' ORDER BY date_c ASC" );
-			$slides = array();
+			$slides  = array();
 			if ( ! empty( $sliders ) ) {
 				foreach ( $sliders as $key => $item ) {
 					$slides[ $item->id ] = $item->name;

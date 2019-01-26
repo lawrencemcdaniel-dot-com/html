@@ -29,7 +29,7 @@ function avada_options_section_elastic_slider( $sections ) {
 		'priority' => 20,
 		'icon'     => 'el-icon-photo-alt',
 		'fields'   => array(
-			'tfes_disabled_note' => ( '0' === Avada()->settings->get( 'dependencies_status' ) ) ? array() : array(
+			'tfes_disabled_note'   => ( '0' === Avada()->settings->get( 'dependencies_status' ) ) ? array() : array(
 				'label'       => '',
 				'description' => '<div class="fusion-redux-important-notice">' . __( '<strong>IMPORTANT NOTE:</strong> Elastic Slider is disabled in Advanced > Theme Features section. Please enable it to see the options.', 'Avada' ) . '</div>',
 				'id'          => 'tfes_disabled_note',
@@ -42,14 +42,14 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'tfes_dimensions' => array(
+			'tfes_dimensions'      => array(
 				'label'       => esc_html__( 'Elastic Slider Dimensions', 'Avada' ),
 				'description' => esc_html__( 'Controls the width and height for the elastic slider.', 'Avada' ),
 				'id'          => 'tfes_dimensions',
 				'units'       => false,
 				'default'     => array(
-					'width'   => '100%',
-					'height'  => '400px',
+					'width'  => '100%',
+					'height' => '400px',
 				),
 				'type'        => 'dimensions',
 				'required'    => array(
@@ -60,7 +60,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'tfes_animation' => array(
+			'tfes_animation'       => array(
 				'label'       => esc_html__( 'Animation Type', 'Avada' ),
 				'description' => esc_html__( 'Controls if the elastic slides animate from the sides or center.', 'Avada' ),
 				'id'          => 'tfes_animation',
@@ -78,7 +78,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'tfes_autoplay' => array(
+			'tfes_autoplay'        => array(
 				'label'       => esc_html__( 'Autoplay', 'Avada' ),
 				'description' => esc_html__( 'Turn on to autoplay the elastic slides.', 'Avada' ),
 				'id'          => 'tfes_autoplay',
@@ -92,7 +92,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'tfes_interval' => array(
+			'tfes_interval'        => array(
 				'label'       => esc_html__( 'Slideshow Interval', 'Avada' ),
 				'description' => esc_html__( 'Controls how long each elastic slide is visible. ex: 1000 = 1 second.', 'Avada' ),
 				'id'          => 'tfes_interval',
@@ -111,7 +111,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'tfes_speed' => array(
+			'tfes_speed'           => array(
 				'label'       => esc_html__( 'Sliding Speed', 'Avada' ),
 				'description' => esc_html__( 'Controls the speed of the elastic slider slideshow. ex: 1000 = 1 second.', 'Avada' ),
 				'id'          => 'tfes_speed',
@@ -130,7 +130,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'tfes_width' => array(
+			'tfes_width'           => array(
 				'label'       => esc_html__( 'Thumbnail Width', 'Avada' ),
 				'description' => esc_html__( 'Controls the width of the elastic slider thumbnail images.', 'Avada' ),
 				'id'          => 'tfes_width',
@@ -150,7 +150,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'es_title_font_size' => array(
+			'es_title_font_size'   => array(
 				'label'       => esc_html__( 'Title Font Size', 'Avada' ),
 				'description' => esc_html__( 'Controls the font size for elastic slider title.', 'Avada' ),
 				'id'          => 'es_title_font_size',
@@ -178,7 +178,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'es_title_color' => array(
+			'es_title_color'       => array(
 				'label'       => esc_html__( 'Title Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the color of the elastic slider title.', 'Avada' ),
 				'id'          => 'es_title_color',
@@ -192,7 +192,7 @@ function avada_options_section_elastic_slider( $sections ) {
 					),
 				),
 			),
-			'es_caption_color' => array(
+			'es_caption_color'     => array(
 				'label'       => esc_html__( 'Caption Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the color of the elastic slider caption.', 'Avada' ),
 				'id'          => 'es_caption_color',

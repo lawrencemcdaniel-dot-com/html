@@ -76,11 +76,11 @@ class Fusion_Widget_Recent_Works extends WP_Widget {
 				<?php while ( $portfolio->have_posts() ) : ?>
 					<?php $portfolio->the_post(); ?>
 					<?php if ( has_post_thumbnail() ) : ?>
-						<?php $url_check        = get_post_meta( get_the_ID(), 'pyre_link_icon_url', true ); ?>
-						<?php $new_permalink    = ( ! empty( $url_check ) ) ? $url_check : get_permalink(); ?>
+						<?php $url_check = get_post_meta( get_the_ID(), 'pyre_link_icon_url', true ); ?>
+						<?php $new_permalink = ( ! empty( $url_check ) ) ? $url_check : get_permalink(); ?>
 						<?php $link_icon_target = get_post_meta( get_the_ID(), 'pyre_link_icon_target', true ); ?>
-						<?php $link_target      = ( 'yes' === $link_icon_target ) ? '_blank' : '_self'; ?>
-						<?php $rel              = ( 'yes' === $link_icon_target ) ? 'noopener noreferrer' : ''; ?>
+						<?php $link_target = ( 'yes' === $link_icon_target ) ? '_blank' : '_self'; ?>
+						<?php $rel = ( 'yes' === $link_icon_target ) ? 'noopener noreferrer' : ''; ?>
 
 						<a href="<?php echo esc_url_raw( $new_permalink ); ?>" target="<?php echo esc_attr( $link_target ); ?>" rel="<?php echo esc_attr( $rel ); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail( 'recent-works-thumbnail' ); ?>

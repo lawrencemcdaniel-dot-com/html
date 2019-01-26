@@ -139,7 +139,7 @@ $this->select(
 	)
 );
 
-$menus = get_terms(
+$menus                  = get_terms(
 	'nav_menu',
 	array(
 		'hide_empty' => false,

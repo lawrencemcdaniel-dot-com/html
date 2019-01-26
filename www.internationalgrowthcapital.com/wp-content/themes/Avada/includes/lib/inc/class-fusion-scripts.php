@@ -106,6 +106,16 @@ class Fusion_Scripts {
 				true,
 			),
 
+			// Lazy Loading.
+			array(
+				'lazysizes',
+				self::$js_folder_url . '/library/lazysizes.js',
+				self::$js_folder_path . '/library/lazysizes.js',
+				array( 'jquery' ),
+				'4.1.5',
+				true,
+			),
+
 			// Bootstrap.
 			array(
 				'bootstrap-collapse',

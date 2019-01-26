@@ -87,16 +87,19 @@ class elFinderEditorZohoOffice extends elFinderEditor
                 if ($cfile) {
                     $data['content'] = $cfile;
                 }
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $this->urls[$srvsName]);
-                curl_setopt($ch, CURLOPT_TIMEOUT, self::$curlTimeout);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                $res = curl_exec($ch);
-                $error = curl_error($ch);
-                curl_close($ch);
+                $args = array(
+                    'method' => 'POST',
+                    'body' => $data,
+                    'timeout' => self::$curlTimeout,
+                    'redirection' => '5',
+                    'httpversion' => '1.0',
+                    'blocking' => true,
+                    'sslverify' => false,
+                    'headers' => array(),
+                    'cookies' => array(),
+                );
+
+                $res = wp_remote_post($this->urls[$srvsName], $args);
 
                 $fp && fclose($fp);
 
@@ -122,7 +125,7 @@ class elFinderEditorZohoOffice extends elFinderEditor
 
     public function save()
     {
-        if (isset($_POST) && ! empty($_POST['id'])) {
+        if (isset($_POST) && !empty($_POST['id'])) {
             $hash = $_POST['id'];
             if ($volume = $this->elfinder->getVolume($hash)) {
                 $content = file_get_contents($_FILES['content']['tmp_name']);
@@ -131,6 +134,7 @@ class elFinderEditorZohoOffice extends elFinderEditor
                 }
             }
         }
+
         return array('raw' => true, 'error' => '', 'header' => 'HTTP/1.1 500 Internal Server Error');
     }
 }

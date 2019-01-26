@@ -38,16 +38,16 @@ function avada_options_section_logo( $sections ) {
 				'position'    => 'start',
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'logo_alignment' => array(
+					'logo_alignment'            => array(
 						'label'       => esc_html__( 'Logo Alignment', 'Avada' ),
 						'description' => esc_html__( 'Controls the logo alignment. "Center" only works on Header 5 and Side Headers.', 'Avada' ),
 						'id'          => 'logo_alignment',
 						'default'     => 'Left',
 						'type'        => 'radio-buttonset',
 						'choices'     => array(
-							'Left'    => esc_html__( 'Left', 'Avada' ),
-							'Center'  => esc_html__( 'Center', 'Avada' ),
-							'Right'   => esc_html__( 'Right', 'Avada' ),
+							'Left'   => esc_html__( 'Left', 'Avada' ),
+							'Center' => esc_html__( 'Center', 'Avada' ),
+							'Right'  => esc_html__( 'Right', 'Avada' ),
 						),
 						'required'    => array(
 							array(
@@ -59,7 +59,7 @@ function avada_options_section_logo( $sections ) {
 								'setting'  => 'logo',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -75,21 +75,21 @@ function avada_options_section_logo( $sections ) {
 							),
 						),
 					),
-					'logo_margin' => array(
+					'logo_margin'               => array(
 						'label'       => esc_html__( 'Logo Margins', 'Avada' ),
 						'description' => esc_html__( 'Controls the top/right/bottom/left margins for the logo.', 'Avada' ),
 						'id'          => 'logo_margin',
 						'default'     => array(
-							'top'     => '31px',
-							'bottom'  => '31px',
-							'left'    => '0px',
-							'right'   => '0px',
+							'top'    => '31px',
+							'bottom' => '31px',
+							'left'   => '0px',
+							'right'  => '0px',
 						),
 						'choices'     => array(
-							'top'     => true,
-							'bottom'  => true,
-							'left'    => true,
-							'right'   => true,
+							'top'    => true,
+							'bottom' => true,
+							'left'   => true,
+							'right'  => true,
 						),
 						'type'        => 'spacing',
 						'required'    => array(
@@ -102,7 +102,7 @@ function avada_options_section_logo( $sections ) {
 								'setting'  => 'logo',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -118,7 +118,7 @@ function avada_options_section_logo( $sections ) {
 							),
 						),
 					),
-					'logo_background' => array(
+					'logo_background'           => array(
 						'label'       => esc_html__( 'Logo Background', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display a colored background for the logo.', 'Avada' ),
 						'id'          => 'logo_background',
@@ -153,7 +153,7 @@ function avada_options_section_logo( $sections ) {
 							),
 						),
 					),
-					'logo_background_color' => array(
+					'logo_background_color'     => array(
 						'label'       => esc_html__( 'Logo Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color for the logo.', 'Avada' ),
 						'id'          => 'logo_background_color',
@@ -198,21 +198,21 @@ function avada_options_section_logo( $sections ) {
 							),
 						),
 					),
-					'logo_custom_link' => array(
-						'label'           => esc_html__( 'Logo Custom Link URL', 'Avada' ),
-						'description'     => esc_html__( 'Enter a custom URL the site logo should link to. Leave empty to let logo link to the home page.', 'Avada' ),
-						'id'              => 'logo_custom_link',
-						'default'         => '',
-						'type'            => 'text',
+					'logo_custom_link'          => array(
+						'label'       => esc_html__( 'Logo Custom Link URL', 'Avada' ),
+						'description' => esc_html__( 'Enter a custom URL the site logo should link to. Leave empty to let logo link to the home page.', 'Avada' ),
+						'id'          => 'logo_custom_link',
+						'default'     => '',
+						'type'        => 'text',
 					),
-					'default_logo_info_title' => array(
+					'default_logo_info_title'   => array(
 						'label'       => esc_html__( 'Default Logo', 'Avada' ),
 						'description' => '',
 						'id'          => 'default_logo_info_title',
 						'icon'        => true,
 						'type'        => 'info',
 					),
-					'logo' => array(
+					'logo'                      => array(
 						'label'       => esc_html__( 'Default Logo', 'Avada' ),
 						'description' => esc_html__( 'Select an image file for your logo.', 'Avada' ),
 						'id'          => 'logo',
@@ -221,7 +221,7 @@ function avada_options_section_logo( $sections ) {
 						'type'        => 'media',
 						'mode'        => false,
 					),
-					'logo_retina' => array(
+					'logo_retina'               => array(
 						'label'       => esc_html__( 'Retina Default Logo', 'Avada' ),
 						'description' => esc_html__( 'Select an image file for the retina version of the logo. It should be exactly 2x the size of the main logo.', 'Avada' ),
 						'id'          => 'logo_retina',
@@ -239,7 +239,7 @@ function avada_options_section_logo( $sections ) {
 								'setting'  => 'logo',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -255,7 +255,7 @@ function avada_options_section_logo( $sections ) {
 							),
 						),
 					),
-					'sticky_logo_info_title' => array(
+					'sticky_logo_info_title'    => array(
 						'label'       => esc_html__( 'Sticky Header Logo', 'Avada' ),
 						'description' => esc_html__( 'Select an image file for your sticky header logo.', 'Avada' ),
 						'description' => '',
@@ -263,7 +263,7 @@ function avada_options_section_logo( $sections ) {
 						'icon'        => true,
 						'type'        => 'info',
 					),
-					'sticky_header_logo' => array(
+					'sticky_header_logo'        => array(
 						'label'       => esc_html__( 'Sticky Header Logo', 'Avada' ),
 						'description' => esc_html__( 'Select an image file for your sticky header logo.', 'Avada' ),
 						'id'          => 'sticky_header_logo',
@@ -290,7 +290,7 @@ function avada_options_section_logo( $sections ) {
 								'setting'  => 'sticky_header_logo',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -306,14 +306,14 @@ function avada_options_section_logo( $sections ) {
 							),
 						),
 					),
-					'mobile_logo_info_title' => array(
+					'mobile_logo_info_title'    => array(
 						'label'       => esc_html__( 'Mobile Logo', 'Avada' ),
 						'description' => '',
 						'id'          => 'mobile_logo_info_title',
 						'icon'        => true,
 						'type'        => 'info',
 					),
-					'mobile_logo' => array(
+					'mobile_logo'               => array(
 						'label'       => esc_html__( 'Mobile Logo', 'Avada' ),
 						'description' => esc_html__( 'Select an image file for your mobile logo.', 'Avada' ),
 						'id'          => 'mobile_logo',
@@ -322,7 +322,7 @@ function avada_options_section_logo( $sections ) {
 						'type'        => 'media',
 						'mode'        => false,
 					),
-					'mobile_logo_retina' => array(
+					'mobile_logo_retina'        => array(
 						'label'       => esc_html__( 'Retina Mobile Logo', 'Avada' ),
 						'description' => esc_html__( 'Select an image file for the retina version of the mobile logo. It should be exactly 2x the size of the mobile logo.', 'Avada' ),
 						'id'          => 'mobile_logo_retina',
@@ -340,7 +340,7 @@ function avada_options_section_logo( $sections ) {
 								'setting'  => 'mobile_logo',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -358,7 +358,7 @@ function avada_options_section_logo( $sections ) {
 					),
 				),
 			),
-			'favicons' => array(
+			'favicons'             => array(
 				'label'       => esc_html__( 'Favicon', 'Avada' ),
 				'description' => '',
 				'id'          => 'favicons',
@@ -366,7 +366,7 @@ function avada_options_section_logo( $sections ) {
 				'position'    => 'start',
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'favicon' => array(
+					'favicon'            => array(
 						'label'       => esc_html__( 'Favicon', 'Avada' ),
 						'description' => esc_html__( 'Favicon for your website at 16px x 16px or 32px x 32px.', 'Avada' ),
 						'id'          => 'favicon',
@@ -374,7 +374,7 @@ function avada_options_section_logo( $sections ) {
 						'type'        => 'media',
 						'mode'        => false,
 					),
-					'iphone_icon' => array(
+					'iphone_icon'        => array(
 						'label'       => esc_html__( 'Apple iPhone Icon Upload', 'Avada' ),
 						'description' => esc_html__( 'Favicon for Apple iPhone at 57px x 57px.', 'Avada' ),
 						'id'          => 'iphone_icon',
@@ -399,7 +399,7 @@ function avada_options_section_logo( $sections ) {
 								'setting'  => 'iphone_icon',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -415,7 +415,7 @@ function avada_options_section_logo( $sections ) {
 							),
 						),
 					),
-					'ipad_icon' => array(
+					'ipad_icon'          => array(
 						'label'       => esc_html__( 'Apple iPad Icon Upload', 'Avada' ),
 						'description' => esc_html__( 'Favicon for Apple iPad at 72px x 72px.', 'Avada' ),
 						'id'          => 'ipad_icon',
@@ -423,7 +423,7 @@ function avada_options_section_logo( $sections ) {
 						'type'        => 'media',
 						'mode'        => false,
 					),
-					'ipad_icon_retina' => array(
+					'ipad_icon_retina'   => array(
 						'label'       => esc_html__( 'Apple iPad Retina Icon Upload', 'Avada' ),
 						'description' => esc_html__( 'Favicon for Apple iPad Retina Version at 144px x 144px.', 'Avada' ),
 						'id'          => 'ipad_icon_retina',
@@ -440,7 +440,7 @@ function avada_options_section_logo( $sections ) {
 								'setting'  => 'ipad_icon',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(

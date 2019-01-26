@@ -35,7 +35,7 @@ function avada_options_section_colors( $sections ) {
 				'id'          => 'colors_important_note_info',
 				'type'        => 'custom',
 			),
-			'scheme_type' => array(
+			'scheme_type'                => array(
 				'label'       => esc_html__( 'Predefined Theme Skin', 'Avada' ),
 				'description' => esc_html__( 'Controls the main theme skin to be light or dark. Select a skin and all color options will change to the defined selection. Please note that individual pages have containers and Fusion Page Options that can override this setting, therefor you may not fully see the changes. If you change to light and a page is still dark, edit the page and look at each container background settings, along with Fusion Page Options.', 'Avada' ),
 				'id'          => 'scheme_type',
@@ -47,14 +47,14 @@ function avada_options_section_colors( $sections ) {
 						'image'    => Avada::$template_dir_url . '/assets/images/colors/ffffff.png',
 						'settings' => Fusion_Data::color_theme( 'light' ),
 					),
-					'Dark' => array(
+					'Dark'  => array(
 						'label'    => esc_html__( 'Dark', 'Avada' ),
 						'image'    => Avada::$template_dir_url . '/assets/images/colors/29292a.png',
 						'settings' => Fusion_Data::color_theme( 'dark' ),
 					),
 				),
 			),
-			'color_scheme' => array(
+			'color_scheme'               => array(
 				'label'       => esc_html__( 'Predefined Color Scheme', 'Avada' ),
 				'description' => esc_html__( 'Controls the main color scheme throughout the theme. Select a scheme and all the color options will change to the defined selection. Click the Save button to save your own current custom color scheme. Click the Import button to import a custom scheme. To delete or export a scheme, you must first have a custom scheme saved.', 'Avada' ),
 				'id'          => 'color_scheme',
@@ -114,12 +114,12 @@ function avada_options_section_colors( $sections ) {
 					),
 				),
 			),
-			'custom_color' => array(
+			'custom_color'               => array(
 				'description' => '',
 				'id'          => 'custom_color_scheme_options',
 				'type'        => 'custom',
 			),
-			'primary_color' => array(
+			'primary_color'              => array(
 				'label'       => esc_html__( 'Primary Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the main highlight color throughout the theme.', 'Avada' ),
 				'id'          => 'primary_color',
@@ -130,11 +130,11 @@ function avada_options_section_colors( $sections ) {
 	);
 
 	// Custom color schemes.
-	$custom_colors = get_option( 'avada_custom_color_schemes' );
+	$custom_colors   = get_option( 'avada_custom_color_schemes' );
 	$is_custom_color = ( is_array( $custom_colors ) && count( $custom_colors ) > 0 ) ? true : false;
-	$export = '';
-	$update = '';
-	$delete = '';
+	$export          = '';
+	$update          = '';
+	$delete          = '';
 
 	// Add save button.
 	$buttons =

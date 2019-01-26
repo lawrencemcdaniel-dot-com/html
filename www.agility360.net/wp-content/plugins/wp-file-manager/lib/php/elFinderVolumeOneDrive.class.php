@@ -77,9 +77,9 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
     protected $queryOptions = array();
 
     /**
-     * Current token expires
-     * 
-     * @var integer
+     * Current token expires.
+     *
+     * @var int
      **/
     private $expires;
 
@@ -139,44 +139,20 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
         }
 
         $url = self::TOKEN_URL;
+        // wp_remote
+        $args = array(
+            'method' => 'POST',
+            'body' => $fields,
+            'timeout' => self::$curlTimeout,
+            'redirection' => '5',
+            'httpversion' => '1.0',
+            'blocking' => true,
+            'sslverify' => false,
+            'headers' => array('Content-Length' => strlen($fields)),
+            'cookies' => array(),
+        );
 
-        $curl = curl_init();
-
-        $fields = http_build_query(
-                array(
-                        'client_id' => $client_id,
-                        'redirect_uri' => elFinder::getConnectorUrl(),
-                        'client_secret' => $client_secret,
-                        'code' => $code,
-                        'grant_type' => 'authorization_code',
-                )
-                );
-
-        curl_setopt_array($curl, array(
-                // General options.
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $fields,
-
-                CURLOPT_HTTPHEADER => array(
-                        'Content-Length: '.strlen($fields),
-                ),
-
-                CURLOPT_URL => $url,
-        ));
-
-        $result = curl_exec($curl);
-
-        if (false === $result) {
-            if (curl_errno($curl)) {
-                throw new \Exception('curl_setopt_array() failed: '
-                        .curl_error($curl));
-            } else {
-                throw new \Exception('curl_setopt_array(): empty response');
-            }
-        }
-        curl_close($curl);
-
+        $result = wp_remote_post($url, $args);
         $decoded = json_decode($result);
 
         if (null === $decoded) {
@@ -214,31 +190,25 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
             }
 
             $url = self::TOKEN_URL;
+            $fields = 'client_id='.urlencode($this->options['client_id'])
+                .'&client_secret='.urlencode($this->options['client_secret'])
+                .'&grant_type=refresh_token'
+                .'&refresh_token='.urlencode($token->data->refresh_token);
 
-            $curl = curl_init();
+            // wp_remote
+            $args = array(
+            'method' => 'POST',
+            'body' => $fields,
+            'timeout' => self::$curlTimeout,
+            'redirection' => '5',
+            'httpversion' => '1.0',
+            'blocking' => true,
+            'sslverify' => false,
+            'headers' => array('Content-Length' => strlen($fields)),
+            'cookies' => array(),
+        );
 
-            curl_setopt_array($curl, array(
-                        // General options.
-                        CURLOPT_RETURNTRANSFER => true,
-                        CURLOPT_POST => true, // i am sending post data
-                        CURLOPT_POSTFIELDS => 'client_id='.urlencode($this->options['client_id'])
-                        .'&client_secret='.urlencode($this->options['client_secret'])
-                        .'&grant_type=refresh_token'
-                        .'&refresh_token='.urlencode($token->data->refresh_token),
-
-                        CURLOPT_URL => $url,
-                ));
-
-            $result = curl_exec($curl);
-
-            if (!$result) {
-                if (curl_errno($curl)) {
-                    throw new \Exception('curl_setopt_array() failed: '.curl_error($curl));
-                } else {
-                    throw new \Exception('curl_setopt_array(): empty response');
-                }
-            }
-            curl_close($curl);
+            $result = wp_remote_post($url, $args);
 
             $decoded = json_decode($result);
 
@@ -541,20 +511,16 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
                 fwrite($putFp, $send);
                 fseek($putFp, 0);
                 $url = $sess->uploadUrl;
-                $curl = curl_init();
-                $options = array(
-                    CURLOPT_URL => $url,
-                    CURLOPT_PUT => true,
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_INFILE => $putFp,
-                    CURLOPT_HTTPHEADER => array(
-                        'Content-Length: '.strlen($send),
-                        'Content-Range: bytes '.$range,
+                // wp remote
+                $args = array(
+                    'headers' => array(
+                        'Content-Length' => strlen($send),
+                        'Content-Range' => $range,
                     ),
+                    'method' => 'PUT',
                 );
-                curl_setopt_array($curl, $options);
-                $sess = json_decode(curl_exec($curl));
-                curl_close($curl);
+                $resO = wp_remote_get($url, $args);
+                $sess = json_decode($resO);
                 if ($sess) {
                     if (isset($sess->error)) {
                         throw new Exception($sess->error->message);
@@ -745,7 +711,7 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
                         .'?cmd=netmount&protocol=onedrive&host=onedrive.com&user=init&pass=return&node='.$options['id'].$cdata;
 
                     try {
-                        $this->session->set('OneDriveTokens',  (object) array('token' => null));
+                        $this->session->set('OneDriveTokens', (object) array('token' => null));
 
                         $offline = '';
                         // Gets a log in URL with sufficient privileges from the OneDrive API
@@ -974,7 +940,8 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
         list($pid, $name) = $this->_od_splitPath($path);
 
         $raw = $this->_od_query($pid.'/children/'.rawurlencode($name), true);
-        return $raw? $this->_od_parseRaw($raw) : false;
+
+        return $raw ? $this->_od_parseRaw($raw) : false;
     }
 
     /**
@@ -1093,7 +1060,7 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
      *
      * @param string $path file path
      * @param string $mime file mime type
-
+     *
      * @return string|false
      *
      * @author Dmitry (dio) Levashov
@@ -1150,7 +1117,6 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
             $result = $this->imgSquareFit($tmb, $tmbSize, $tmbSize, 'center', 'middle', $this->options['tmbBgColor'], 'png');
         } else {
             if ($this->options['tmbCrop']) {
-
                 /* Resize and crop if image bigger than thumbnail */
                 if (!(($s[0] > $tmbSize && $s[1] <= $tmbSize) || ($s[0] <= $tmbSize && $s[1] > $tmbSize)) || ($s[0] > $tmbSize && $s[1] > $tmbSize)) {
                     $result = $this->imgResize($tmb, $tmbSize, $tmbSize, true, false, 'png');
@@ -1374,6 +1340,7 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
     }
 
     /***************** file stat ********************/
+
     /**
      * Return stat for given path.
      * Stat contains following fields:
@@ -1402,6 +1369,7 @@ class elFinderVolumeOneDrive extends elFinderVolumeDriver
             if ($path === $this->root) {
                 $stat['expires'] = $this->expires;
             }
+
             return $stat;
         }
 

@@ -22,16 +22,16 @@ and even choose among 5 pre available template or custom designs for your notifi
 ',APEXNBL_TD);?></p>
 
 <p><?php _e('<strong>Product Page</strong>',APEXNBL_TD);?><br/>
-<a href="https://accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/">https://accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/</a></p>
+<a href="https://accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/">Plugin Page</a></p>
 
 <p><?php _e('<strong>Plugin Documentation</strong>',APEXNBL_TD);?><br/>
-<a href="https://accesspressthemes.com/documentation/apex-notification-bar-lite/" target="_blank">https://accesspressthemes.com/documentation/apex-notification-bar-lite/</a></p>
+<a href="https://accesspressthemes.com/documentation/apex-notification-bar-lite/" target="_blank">Documentation</a></p>
 
 <p><?php _e('<strong>View Demo</strong>',APEXNBL_TD);?><br/>
-<a href="http://demo.accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/"> http://demo.accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/</a></p>
+<a href="http://demo.accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/"> Demo</a></p>
 
 <p><?php _e('<strong>Upgrade To Pro</strong>',APEXNBL_TD);?><br/>
-<a href="https://codecanyon.net/item/apex-notification-bar-responsive-notification-bar-plugin-for-wordpress/19496995?ref=AccessKeys"> https://codecanyon.net/item/apex-notification-bar-responsive-notification-bar-plugin-for-wordpress/19496995?ref=AccessKeys</a></p>
+<a href="https://1.envato.market/c/1302794/275988/4415?u=https%3A%2F%2Fcodecanyon.net%2Fitem%2Fapex-notification-bar-responsive-notification-bar-plugin-for-wordpress%2F19496995"> Upgrade To Pro</a></p>
 
 <hr />
 <h3>Themes Compatible with the Plugin :</h3>

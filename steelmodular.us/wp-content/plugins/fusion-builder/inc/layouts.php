@@ -11,18 +11,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 function fusion_builder_register_layouts() {
 
 	$labels = array(
-		'name'               => _x( 'Fusion Templates', 'Layout type general name', 'fusion-builder' ),
-		'singular_name'      => _x( 'Layout', 'Layout type singular name', 'fusion-builder' ),
-		'add_new'            => _x( 'Add New', 'Layout item', 'fusion-builder' ),
-		'add_new_item'       => esc_attr__( 'Add New Layout', 'fusion-builder' ),
-		'edit_item'          => esc_attr__( 'Edit Layout', 'fusion-builder' ),
-		'new_item'           => esc_attr__( 'New Layout', 'fusion-builder' ),
-		'all_items'          => esc_attr__( 'All Layouts', 'fusion-builder' ),
-		'view_item'          => esc_attr__( 'View Layout', 'fusion-builder' ),
-		'search_items'       => esc_attr__( 'Search Layouts', 'fusion-builder' ),
-		'not_found'          => esc_attr__( 'Nothing found', 'fusion-builder' ),
-		'not_found_in_trash' => esc_attr__( 'Nothing found in Trash', 'fusion-builder' ),
-		'parent_item_colon'  => '',
+		'name'                     => _x( 'Fusion Templates', 'Layout type general name', 'fusion-builder' ),
+		'singular_name'            => _x( 'Layout', 'Layout type singular name', 'fusion-builder' ),
+		'add_new'                  => _x( 'Add New', 'Layout item', 'fusion-builder' ),
+		'add_new_item'             => esc_html__( 'Add New Layout', 'fusion-builder' ),
+		'edit_item'                => esc_html__( 'Edit Layout', 'fusion-builder' ),
+		'new_item'                 => esc_html__( 'New Layout', 'fusion-builder' ),
+		'all_items'                => esc_html__( 'All Layouts', 'fusion-builder' ),
+		'view_item'                => esc_html__( 'View Layout', 'fusion-builder' ),
+		'search_items'             => esc_html__( 'Search Layouts', 'fusion-builder' ),
+		'not_found'                => esc_html__( 'Nothing found', 'fusion-builder' ),
+		'not_found_in_trash'       => esc_html__( 'Nothing found in Trash', 'fusion-builder' ),
+		'item_published'           => esc_html__( 'Layout published.', 'fusion-builder' ),
+		'item_published_privately' => esc_html__( 'Layout published privately.', 'fusion-builder' ),
+		'item_reverted_to_draft'   => esc_html__( 'Layout reverted to draft.', 'fusion-builder' ),
+		'item_scheduled'           => esc_html__( 'Layout scheduled.', 'fusion-builder' ),
+		'item_updated'             => esc_html__( 'Layout updated.', 'fusion-builder' ),
+		'parent_item_colon'        => '',
 	);
 
 	$args = array(
@@ -45,18 +50,23 @@ function fusion_builder_register_layouts() {
 	register_post_type( 'fusion_template', apply_filters( 'fusion_layout_template_args', $args ) );
 
 	$labels = array(
-		'name'               => _x( 'Fusion Elements', 'element type general name', 'fusion-builder' ),
-		'singular_name'      => _x( 'Element', 'Element type singular name', 'fusion-builder' ),
-		'add_new'            => _x( 'Add New', 'Element item', 'fusion-builder' ),
-		'add_new_item'       => esc_attr__( 'Add New Element', 'fusion-builder' ),
-		'edit_item'          => esc_attr__( 'Edit Element', 'fusion-builder' ),
-		'new_item'           => esc_attr__( 'New Element', 'fusion-builder' ),
-		'all_items'          => esc_attr__( 'All Elements', 'fusion-builder' ),
-		'view_item'          => esc_attr__( 'View Element', 'fusion-builder' ),
-		'search_items'       => esc_attr__( 'Search Elements', 'fusion-builder' ),
-		'not_found'          => esc_attr__( 'Nothing found', 'fusion-builder' ),
-		'not_found_in_trash' => esc_attr__( 'Nothing found in Trash', 'fusion-builder' ),
-		'parent_item_colon'  => '',
+		'name'                     => _x( 'Fusion Elements', 'element type general name', 'fusion-builder' ),
+		'singular_name'            => _x( 'Element', 'Element type singular name', 'fusion-builder' ),
+		'add_new'                  => _x( 'Add New', 'Element item', 'fusion-builder' ),
+		'add_new_item'             => esc_html__( 'Add New Element', 'fusion-builder' ),
+		'edit_item'                => esc_html__( 'Edit Element', 'fusion-builder' ),
+		'new_item'                 => esc_html__( 'New Element', 'fusion-builder' ),
+		'all_items'                => esc_html__( 'All Elements', 'fusion-builder' ),
+		'view_item'                => esc_html__( 'View Element', 'fusion-builder' ),
+		'search_items'             => esc_html__( 'Search Elements', 'fusion-builder' ),
+		'not_found'                => esc_html__( 'Nothing found', 'fusion-builder' ),
+		'not_found_in_trash'       => esc_html__( 'Nothing found in Trash', 'fusion-builder' ),
+		'item_published'           => esc_html__( 'Element published.', 'fusion-builder' ),
+		'item_published_privately' => esc_html__( 'Element published privately.', 'fusion-builder' ),
+		'item_reverted_to_draft'   => esc_html__( 'Element reverted to draft.', 'fusion-builder' ),
+		'item_scheduled'           => esc_html__( 'Element scheduled.', 'fusion-builder' ),
+		'item_updated'             => esc_html__( 'Element updated.', 'fusion-builder' ),
+		'parent_item_colon'        => '',
 	);
 
 	$args = array(
@@ -217,9 +227,9 @@ function fusion_builder_display_library_content() {
 						</div>
 
 						<div class="fusion-builder-layouts-header-info">
-							<h2><?php echo apply_filters( 'fusion_builder_import_title', esc_html__( 'Select a demo to view the pages you can import', 'fusion-builder' ) ); // WPCS: XSS ok. ?></h2>
+							<h2><?php echo apply_filters( 'fusion_builder_import_title', esc_html__( 'Select a demo to view the pages you can import', 'fusion-builder' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 							<span class="fusion-builder-layout-info">
-								<?php echo apply_filters( 'fusion_builder_import_message', esc_attr__( 'Select a demo and the pages that are available to import will display.', 'fusion-builder' ) ); // WPCS: XSS ok. ?>
+								<?php echo apply_filters( 'fusion_builder_import_message', esc_attr__( 'Select a demo and the pages that are available to import will display.', 'fusion-builder' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</span>
 						</div>
 					</div>
@@ -267,7 +277,7 @@ function fusion_builder_display_library_content() {
 							// @codingStandardsIgnoreStart PEAR.Functions.FunctionCallSignature.MultipleArguments
 							printf(
 								/* translators: The "Fusion Documentation" link. */
-								__( 'Manage your saved containers. Containers cannot be inserted from the library window. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // WPCS: XSS ok.
+								__( 'Manage your saved containers. Containers cannot be inserted from the library window. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								'https://theme-fusion.com/documentation/fusion-builder/fusion-builder-library/fusion-builder-global-elements/'
 							);
 							// @codingStandardsIgnoreEnd
@@ -306,7 +316,7 @@ function fusion_builder_display_library_content() {
 							?>
 
 							<li class="<?php echo esc_attr( $is_global ); ?> fusion-page-layout" data-layout_id="<?php echo get_the_ID(); ?>">
-								<h4 class="fusion-page-layout-title"><?php echo get_the_title(); ?>
+								<h4 class="fusion-page-layout-title"><?php the_title(); ?>
 									<?php if ( '' !== $is_global ) : ?>
 										<div class="fusion-global-tooltip-wrapper"><span class="fusion-global-tooltip"><?php esc_attr_e( 'This is a global container.', 'fusion-builder' ); ?></span></div>
 									<?php endif; ?>
@@ -349,7 +359,7 @@ function fusion_builder_display_library_content() {
 							// @codingStandardsIgnoreStart PEAR.Functions.FunctionCallSignature.MultipleArguments
 							printf(
 								/* translators: The "Fusion Documentation" link. */
-								__( 'Manage your saved columns. Columns cannot be inserted from the library window and they must always go inside a container. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // WPCS: XSS ok.
+								__( 'Manage your saved columns. Columns cannot be inserted from the library window and they must always go inside a container. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								'https://theme-fusion.com/documentation/fusion-builder/fusion-builder-library/fusion-builder-global-elements/'
 							);
 							// @codingStandardsIgnoreEnd
@@ -388,7 +398,7 @@ function fusion_builder_display_library_content() {
 							?>
 
 							<li class="<?php echo esc_attr( $is_global ); ?> fusion-page-layout" data-layout_id="<?php echo get_the_ID(); ?>">
-								<h4 class="fusion-page-layout-title"><?php echo get_the_title(); ?>
+								<h4 class="fusion-page-layout-title"><?php the_title(); ?>
 									<?php if ( '' !== $is_global ) : ?>
 										<div class="fusion-global-tooltip-wrapper"><span class="fusion-global-tooltip"><?php esc_attr_e( 'This is a global column.', 'fusion-builder' ); ?></span></div>
 									<?php endif; ?>
@@ -432,7 +442,7 @@ function fusion_builder_display_library_content() {
 							// @codingStandardsIgnoreStart PEAR.Functions.FunctionCallSignature.MultipleArguments
 							printf(
 								/* translators: The "Fusion Documentation" link. */
-								__( 'Manage your saved elements. Elements cannot be inserted from the library window and they must always go inside a column. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // WPCS: XSS ok.
+								__( 'Manage your saved elements. Elements cannot be inserted from the library window and they must always go inside a column. The globe icon indicates the element is a <a href="%s" target="_blank">global element</a>.', 'fusion-builder' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								'https://theme-fusion.com/documentation/fusion-builder/fusion-builder-library/fusion-builder-global-elements/'
 							);
 							// @codingStandardsIgnoreEnd
@@ -472,7 +482,7 @@ function fusion_builder_display_library_content() {
 							?>
 
 							<li class="<?php echo esc_attr( $is_global ); ?> fusion-page-layout" data-layout_type="<?php echo esc_attr( $element_type ); ?>" data-layout_id="<?php echo esc_attr( get_the_ID() ); ?>">
-								<h4 class="fusion-page-layout-title"><?php echo get_the_title(); ?>
+								<h4 class="fusion-page-layout-title"><?php the_title(); ?>
 									<?php if ( '' !== $is_global ) : ?>
 										<div class="fusion-global-tooltip-wrapper"><span class="fusion-global-tooltip"><?php esc_attr_e( 'This is a global element.', 'fusion-builder' ); ?></span></div>
 									<?php endif; ?>
@@ -537,7 +547,7 @@ function fusion_builder_display_library_content() {
 							<?php $query->the_post(); ?>
 							<?php global $post; ?>
 							<li class="fusion-page-layout" data-layout_id="<?php echo get_the_ID(); ?>">
-								<h4 class="fusion-page-layout-title"><?php echo get_the_title(); ?></h4>
+								<h4 class="fusion-page-layout-title"><?php the_title(); ?></h4>
 								<span class="fusion-layout-buttons">
 									<a href="javascript:void(0)" class="fusion-builder-layout-button-load-dialog">
 										<?php
@@ -614,7 +624,7 @@ function fusion_load_custom_elements() {
 					<?php $element_type_class = ( isset( $element_type ) && '' != $element_type ) ? 'fusion-element-type-' . $element_type : ''; ?>
 
 					<li class="fusion-page-layout fusion_builder_custom_<?php echo esc_attr( $cat ); ?>_load <?php echo esc_attr( $element_type_class ); ?>" data-layout_id="<?php echo get_the_ID(); ?>">
-						<h4 class="fusion_module_title"><?php echo get_the_title(); ?></h4>
+						<h4 class="fusion_module_title"><?php the_title(); ?></h4>
 					</li>
 
 				<?php endwhile; ?>
@@ -772,7 +782,7 @@ function fusion_builder_save_layout() {
 
 			if ( isset( $_POST['fusion_layout_element_type'] ) && '' !== $_POST['fusion_layout_element_type'] ) {
 				$meta['_fusion_element_type'] = sanitize_text_field( wp_unslash( $_POST['fusion_layout_element_type'] ) );
-				$layout_type = ' fusion-element-type-' . sanitize_text_field( wp_unslash( $_POST['fusion_layout_element_type'] ) );
+				$layout_type                  = ' fusion-element-type-' . sanitize_text_field( wp_unslash( $_POST['fusion_layout_element_type'] ) );
 			}
 
 			if ( 'fusion_template' === $post_type ) {
@@ -816,18 +826,18 @@ function fusion_builder_save_layout() {
 			}
 			// Post category.
 			if ( isset( $_POST['fusion_layout_new_cat'] ) && '' !== $_POST['fusion_layout_new_cat'] ) {
-				$term = wp_unslash( $_POST['fusion_layout_new_cat'] ); // WPCS: sanitization ok.
+				$term        = wp_unslash( $_POST['fusion_layout_new_cat'] ); // WPCS: sanitization ok.
 				$global_type = $global_type[ $term ];
 			}
 
 			$post_fusion_layout_content = ( isset( $_POST['fusion_layout_content'] ) ) ? wp_unslash( $_POST['fusion_layout_content'] ) : ''; // WPCS: sanitization ok.
-			$new_layout_id = fusion_builder_create_layout( $post_type, $layout_name, $post_fusion_layout_content, $meta, $taxonomy, $term );
+			$new_layout_id              = fusion_builder_create_layout( $post_type, $layout_name, $post_fusion_layout_content, $meta, $taxonomy, $term );
 			?>
 
 			<?php if ( 'fusion_element' == $post_type ) : ?>
 
 				<li class="<?php echo esc_attr( $global_data ); ?> fusion-page-layout<?php echo esc_attr( $layout_type ); ?>" data-layout_id="<?php echo esc_attr( $new_layout_id ); ?>">
-					<h4 class="fusion-page-layout-title"><?php echo get_the_title( $new_layout_id ); ?>
+					<h4 class="fusion-page-layout-title"><?php echo get_the_title( $new_layout_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php if ( 'false' !== $_POST['fusion_save_global'] ) : ?>
 							<div class="fusion-global-tooltip-wrapper"><span class="fusion-global-tooltip"><?php printf( esc_attr__( 'This is a global %s.', 'fusion-builder' ), esc_attr( $global_type ) ); ?></span></div>
 						<?php endif; ?>
@@ -841,7 +851,7 @@ function fusion_builder_save_layout() {
 			<?php elseif ( 'fusion_template' == $post_type ) : ?>
 
 				<li class="<?php echo esc_attr( $global_data ); ?> fusion-page-layout" data-layout_id="<?php echo esc_attr( $new_layout_id ); ?>">
-					<h4 class="fusion-page-layout-title"><?php echo get_the_title( $new_layout_id ); // WPCS: XSS ok. ?></h4>
+					<h4 class="fusion-page-layout-title"><?php echo get_the_title( $new_layout_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h4>
 					<span class="fusion-layout-buttons">
 						<a href="javascript:void(0)" class="fusion-builder-layout-button-load-dialog">
 							<?php
@@ -855,8 +865,8 @@ function fusion_builder_save_layout() {
 						<a href="#" class="fusion-builder-layout-button-delete"><?php esc_html_e( 'Delete', 'fusion-builder' ); ?></a>
 					</span>
 				</li>
+			<?php endif; ?>
 			<?php
-			endif;
 		}
 	}
 
@@ -873,14 +883,14 @@ function fusion_builder_update_layout() {
 
 	if ( isset( $_POST['fusion_layout_id'] ) && '' !== $_POST['fusion_layout_id'] ) {
 
-		$layout_id  = wp_unslash( $_POST['fusion_layout_id'] ); // WPCS: sanitization ok.
-		$content    = isset( $_POST['fusion_layout_content'] ) ? wp_unslash( $_POST['fusion_layout_content'] ) : ''; // WPCS: sanitization ok.
+		$layout_id = wp_unslash( $_POST['fusion_layout_id'] ); // WPCS: sanitization ok.
+		$content   = isset( $_POST['fusion_layout_content'] ) ? wp_unslash( $_POST['fusion_layout_content'] ) : ''; // WPCS: sanitization ok.
 
 		$to_replace = addslashes( ' fusion_global="' . $layout_id . '"' );
 		$content    = str_replace( $to_replace, '', $content );
 
 		// Filter nested globals.
-		$content   = apply_filters( 'content_save_pre', $content, $content, $layout_id );
+		$content = apply_filters( 'content_save_pre', $content, $content, $layout_id );
 
 		$post = array(
 			'ID'           => $layout_id,
@@ -908,17 +918,17 @@ function fusion_builder_get_image_url() {
 	$image_ids = wp_unslash( $_POST['fusion_image_ids'] ); // WPCS: sanitization ok.
 	foreach ( $image_ids as $image_id ) {
 		if ( '' !== $image_id ) {
-			$image_url = wp_get_attachment_url( $image_id, 'thumbnail' );
-			$image_html = '<div class="fusion-multi-image" data-image-id="' . $image_id . '">';
-			$image_html .= '<img src="' . $image_url . '"/>';
-			$image_html .= '<span class="fusion-multi-image-remove dashicons dashicons-no-alt"></span>';
-			$image_html .= '</div>';
+			$image_url        = wp_get_attachment_url( $image_id, 'thumbnail' );
+			$image_html       = '<div class="fusion-multi-image" data-image-id="' . $image_id . '">';
+			$image_html      .= '<img src="' . $image_url . '"/>';
+			$image_html      .= '<span class="fusion-multi-image-remove dashicons dashicons-no-alt"></span>';
+			$image_html      .= '</div>';
 			$data['images'][] = $image_html;
 		}
 	}
 	$json_data = wp_json_encode( $data );
 
-	die( $json_data ); // WPCS: XSS ok.
+	die( $json_data ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 }
 add_action( 'wp_ajax_fusion_builder_get_image_url', 'fusion_builder_get_image_url' );

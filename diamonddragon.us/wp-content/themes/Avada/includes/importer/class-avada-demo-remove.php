@@ -145,6 +145,7 @@ class Avada_Demo_Remove {
 				'fusion_template',
 				'avada_faq',
 				'avada_portfolio',
+				'avada_page_options',
 				'attachment',
 				'nav_menu_item',
 				'product',

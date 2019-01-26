@@ -58,10 +58,10 @@ if ( 'modern' === Avada()->settings->get( 'mobile_menu_design' ) ) {
 	do_action( 'avada_before_body_content' );
 
 	$boxed_side_header_right = false;
-	$page_bg_layout = 'default';
+	$page_bg_layout          = 'default';
 	if ( $c_page_id && is_numeric( $c_page_id ) ) {
 		$fpo_page_bg_layout = get_post_meta( $c_page_id, 'pyre_page_bg_layout', true );
-		$page_bg_layout = ( $fpo_page_bg_layout ) ? $fpo_page_bg_layout : $page_bg_layout;
+		$page_bg_layout     = ( $fpo_page_bg_layout ) ? $fpo_page_bg_layout : $page_bg_layout;
 	}
 
 	?>
@@ -95,7 +95,7 @@ if ( 'modern' === Avada()->settings->get( 'mobile_menu_design' ) ) {
 		$main_class = '';
 
 		if ( apply_filters( 'fusion_is_hundred_percent_template', false, $c_page_id ) ) {
-			$main_css = 'padding-left:0px;padding-right:0px;';
+			$main_css         = 'padding-left:0px;padding-right:0px;';
 			$hundredp_padding = get_post_meta( $c_page_id, 'pyre_hundredp_padding', true );
 			if ( Avada()->settings->get( 'hundredp_padding' ) && ! $hundredp_padding ) {
 				$main_css = 'padding-left:' . Avada()->settings->get( 'hundredp_padding' ) . ';padding-right:' . Avada()->settings->get( 'hundredp_padding' );

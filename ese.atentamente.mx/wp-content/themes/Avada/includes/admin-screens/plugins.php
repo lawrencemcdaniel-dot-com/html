@@ -17,13 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! function_exists( 'get_plugins' ) ) {
 	require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
-$plugins           = Avada_TGM_Plugin_Activation::$instance->plugins; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
-$installed_plugins = get_plugins();
-$wp_api_plugins    = get_site_transient( 'fusion_wordpress_org_plugins' );
+$plugins                         = Avada_TGM_Plugin_Activation::$instance->plugins; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+$installed_plugins               = get_plugins();
+$wp_api_plugins                  = get_site_transient( 'fusion_wordpress_org_plugins' );
 $required_and_recommened_plugins = avada_get_required_and_recommened_plugins();
 
 if ( ! function_exists( 'plugins_api' ) ) {
-	include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' ); // For plugins_api.
+	include_once ABSPATH . 'wp-admin/includes/plugin-install.php'; // For plugins_api.
 }
 if ( ! $wp_api_plugins ) {
 	$wp_org_plugins = array(
@@ -104,9 +104,9 @@ if ( ! $wp_api_plugins ) {
 					continue;
 				}
 
-				$class = '';
+				$class         = '';
 				$plugin_status = '';
-				$file_path = $plugin['file_path'];
+				$file_path     = $plugin['file_path'];
 				$plugin_action = $this->plugin_link( $plugin );
 
 				// We have a repo plugin.
@@ -116,7 +116,7 @@ if ( ! $wp_api_plugins ) {
 
 				if ( is_plugin_active( $file_path ) ) {
 					$plugin_status = 'active';
-					$class = 'active';
+					$class         = 'active';
 				}
 
 				if ( isset( $plugin_action['update'] ) && $plugin_action['update'] ) {
@@ -166,7 +166,7 @@ if ( ! $wp_api_plugins ) {
 								</div>
 							</h3>
 							<div class="theme-actions">
-								<?php foreach ( $plugin_action as $action ) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited?>
+								<?php foreach ( $plugin_action as $action ) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited ?>
 									<?php
 									// Sanitization is already taken care of in Avada_Admin class.
 									// No need to re-sanitize it...

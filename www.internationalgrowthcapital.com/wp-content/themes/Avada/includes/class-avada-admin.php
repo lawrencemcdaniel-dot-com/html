@@ -190,7 +190,7 @@ class Avada_Admin {
 		$sorted_dashboard = array_merge( $avada_widget_backup, $normal_dashboard );
 
 		// Save the sorted array back into the original metaboxes.
-		$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
+		$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 	}
 
 	/**
@@ -278,7 +278,7 @@ class Avada_Admin {
 				'show_author'  => 0,
 				'show_date'    => 1,
 			),
-			'news' => array(
+			'news'  => array(
 				'link'         => 'http://theme-fusion.com/blog/',
 				'url'          => 'http://theme-fusion.com/feed/',
 				'title'        => esc_attr__( 'ThemeFusion News', 'Avada' ),
@@ -322,18 +322,18 @@ class Avada_Admin {
 		if ( current_user_can( 'switch_themes' ) ) {
 
 			$registration_complete = false;
-			$token = Avada()->registration->get_token();
+			$token                 = Avada()->registration->get_token();
 			if ( '' !== $token ) {
 				$registration_complete = true;
 			}
-			$patches = $avada_patcher->get_patcher_checker()->get_cache();
+			$patches              = $avada_patcher->get_patcher_checker()->get_cache();
 			$avada_updates_styles = 'display:inline-block;background-color:#d54e21;color:#fff;font-size:9px;line-height:17px;font-weight:600;border-radius:10px;padding:0 6px;';
 
 			// Done for white label plugin.
-			$avada_parent_menu_name = __( 'Avada', 'Avada' );
+			$avada_parent_menu_name  = __( 'Avada', 'Avada' );
 			$avada_parent_menu_title = '<span class="ab-icon"></span><span class="ab-label">' . esc_html( $avada_parent_menu_name ) . '</span>';
 			if ( isset( $patches['avada'] ) && 1 <= $patches['avada'] ) {
-				$patches_label = '<span style="' . $avada_updates_styles . '">' . $patches['avada'] . '</span>';
+				$patches_label           = '<span style="' . $avada_updates_styles . '">' . $patches['avada'] . '</span>';
 				$avada_parent_menu_title = '<span class="ab-icon"></span><span class="ab-label">' . esc_html( $avada_parent_menu_name ) . ' ' . $patches_label . '</span>';
 			}
 
@@ -425,7 +425,7 @@ class Avada_Admin {
 
 		// Change Avada to Welcome.
 		if ( current_user_can( 'switch_themes' ) ) {
-			$submenu['avada'][0][0] = esc_attr__( 'Welcome', 'Avada' );
+			$submenu['avada'][0][0] = esc_attr__( 'Welcome', 'Avada' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 		}
 
 		if ( isset( $submenu['themes.php'] ) && ! empty( $submenu['themes.php'] ) ) {
@@ -441,15 +441,15 @@ class Avada_Admin {
 			}
 
 			// Reorder items in the array.
-			$submenu['themes.php'] = array_values( $submenu['themes.php'] );
+			$submenu['themes.php'] = array_values( $submenu['themes.php'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 		}
 		// Move patcher to be the last item in the Avada menu.
 		if ( isset( $submenu['avada'] ) && ! empty( $submenu['avada'] ) ) {
 			foreach ( $submenu['avada'] as $key => $value ) {
 				if ( isset( $value[2] ) && 'avada-fusion-patcher' === $value[2] ) {
-					$submenu['avada'][] = $value;
+					$submenu['avada'][] = $value; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 					unset( $submenu['avada'][ $key ] );
-					$submenu['avada'] = array_values( $submenu['avada'] );
+					$submenu['avada'] = array_values( $submenu['avada'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 				}
 			}
 		}
@@ -554,7 +554,7 @@ class Avada_Admin {
 
 						if ( ! is_wp_error( $result ) ) {
 							$response['message'] = 'plugin activated';
-							$response['error']  = false;
+							$response['error']   = false;
 						} else {
 							$response['message'] = $result->get_error_message();
 							$response['error']   = true;
@@ -626,8 +626,8 @@ class Avada_Admin {
 			$welcome_screen = $avada_menu_page_creation_method( 'Avada', 'Avada', 'switch_themes', 'avada', array( $this, 'welcome_screen' ), 'dashicons-fusiona-logo', '2.111111' );
 
 			if ( ! defined( 'ENVATO_HOSTED_SITE' ) ) {
-				$registration  = $avada_submenu_page_creation_method( 'avada', esc_attr__( 'Registration', 'Avada' ), esc_attr__( 'Registration', 'Avada' ), 'manage_options', 'avada-registration', array( $this, 'registration_tab' ) );
-				$support       = $avada_submenu_page_creation_method( 'avada', esc_attr__( 'Support', 'Avada' ), esc_attr__( 'Support', 'Avada' ), 'manage_options', 'avada-support', array( $this, 'support_tab' ) );
+				$registration = $avada_submenu_page_creation_method( 'avada', esc_attr__( 'Registration', 'Avada' ), esc_attr__( 'Registration', 'Avada' ), 'manage_options', 'avada-registration', array( $this, 'registration_tab' ) );
+				$support      = $avada_submenu_page_creation_method( 'avada', esc_attr__( 'Support', 'Avada' ), esc_attr__( 'Support', 'Avada' ), 'manage_options', 'avada-support', array( $this, 'support_tab' ) );
 			}
 
 			$faqs          = $avada_submenu_page_creation_method( 'avada', esc_attr__( 'FAQ', 'Avada' ), esc_attr__( 'FAQ', 'Avada' ), 'switch_themes', 'avada-faq', array( $this, 'faq_tab' ) );
@@ -802,7 +802,7 @@ class Avada_Admin {
 	 */
 	public function admin_styles() {
 		?>
-		<?php if ( current_user_can( 'switch_themes' ) ) : ?>
+		<?php if ( current_user_can( 'edit_others_posts' ) ) : ?>
 			<style type="text/css">
 				@media screen and (max-width: 782px) {
 					#wp-toolbar > ul > .avada-menu {
@@ -902,12 +902,19 @@ class Avada_Admin {
 				// ColorPicker Alpha Channel.
 				wp_enqueue_script( 'wp-color-picker-alpha', trailingslashit( Avada::$template_dir_url ) . 'assets/admin/js/wp-color-picker-alpha.js', array( 'wp-color-picker', 'jquery-color' ), $version );
 
-				wp_enqueue_style( 'fontawesome', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/font-awesome.min.css', array(), $version );
+				wp_enqueue_style( 'fontawesome', Fusion_Font_Awesome::get_backend_css_url(), array(), $version );
 
-				wp_enqueue_script( 'fontawesome-shim-script', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/js/fa-v4-shims.js', array(), $version );
+				if ( '1' === Avada()->settings->get( 'fontawesome_v4_compatibility' ) ) {
+					wp_enqueue_script( 'fontawesome-shim-script', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/js/fa-v4-shims.js', array(), $version );
+					wp_enqueue_style( 'fontawesome-shims', Fusion_Font_Awesome::get_backend_shims_css_url(), array(), $version );
+				}
 
+				if ( '1' === Avada()->settings->get( 'status_fontawesome_pro' ) ) {
+					wp_enqueue_script( 'fontawesome-search-script', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/js/icons-search-pro.js', array(), $version );
+				} else {
+					wp_enqueue_script( 'fontawesome-search-script', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/js/icons-search-free.js', array(), $version );
+				}
 				wp_enqueue_script( 'fuse-script', FUSION_LIBRARY_URL . '/assets/min/js/library/fuse.js', array(), $version );
-				wp_enqueue_script( 'fontawesome-search-script', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/js/icons-search.js', array(), $version );
 
 				wp_enqueue_script( 'fusion-menu-options', trailingslashit( Avada::$template_dir_url ) . 'assets/admin/js/fusion-menu-options.js', array( 'selectwoo-js' ), $version, true );
 
@@ -915,7 +922,8 @@ class Avada_Admin {
 					'fusion-menu-options',
 					'fusionMenuConfig',
 					array(
-						'fontawesomeicons' => fusion_get_icons_array(),
+						'fontawesomeicons'   => fusion_get_icons_array(),
+						'fontawesomesubsets' => Avada()->settings->get( 'status_fontawesome' ),
 					)
 				);
 			}
@@ -1047,16 +1055,16 @@ class Avada_Admin {
 			$item['version'] = Avada_TGM_Plugin_Activation::$instance->does_plugin_have_update( $item['slug'] );
 		}
 
-		$disable_class = '';
-		$data_version  = '';
+		$disable_class         = '';
+		$data_version          = '';
 		$fusion_builder_action = '';
 
 		if ( 'fusion-builder' === $item['slug'] && false !== get_option( 'avada_previous_version' ) ) {
 			$fusion_core_version = Avada_TGM_Plugin_Activation::$instance->get_installed_version( Avada_TGM_Plugin_Activation::$instance->plugins['fusion-core']['slug'] );
 
 			if ( version_compare( $fusion_core_version, '3.0', '<' ) ) {
-				$disable_class = ' disabled fusion-builder';
-				$data_version = ' data-version="' . $fusion_core_version . '"';
+				$disable_class         = ' disabled fusion-builder';
+				$data_version          = ' data-version="' . $fusion_core_version . '"';
 				$fusion_builder_action = array(
 					'install' => '<div class="fusion-builder-plugin-install-nag">' . esc_html__( 'Please update Fusion Core to latest version.', 'Avada' ) . '</div>',
 				);
@@ -1119,11 +1127,11 @@ class Avada_Admin {
 			$url = wp_nonce_url(
 				add_query_arg(
 					array(
-						'page'          => rawurlencode( Avada_TGM_Plugin_Activation::$instance->menu ),
-						'plugin'        => rawurlencode( $item['slug'] ),
-						'tgmpa-update'  => 'update-plugin',
-						'version'       => rawurlencode( $item['version'] ),
-						'return_url'    => 'fusion_plugins',
+						'page'         => rawurlencode( Avada_TGM_Plugin_Activation::$instance->menu ),
+						'plugin'       => rawurlencode( $item['slug'] ),
+						'tgmpa-update' => 'update-plugin',
+						'version'      => rawurlencode( $item['version'] ),
+						'return_url'   => 'fusion_plugins',
 					),
 					Avada_TGM_Plugin_Activation::$instance->get_tgmpa_url()
 				),
@@ -1138,7 +1146,7 @@ class Avada_Admin {
 				'update' => '<a href="' . $url . '" class="button button-primary' . $disable_class . '" title="' . sprintf( esc_attr__( 'Update %s', 'Avada' ), $item['sanitized_plugin'] ) . '">' . esc_attr__( 'Update', 'Avada' ) . '</a>',
 			);
 		} elseif ( is_plugin_active( $item['file_path'] ) ) {
-			$url = esc_url(
+			$url     = esc_url(
 				add_query_arg(
 					array(
 						'plugin'                 => rawurlencode( $item['slug'] ),
@@ -1189,7 +1197,7 @@ class Avada_Admin {
 	 */
 	public function edit_tgmpa_notice_action_links( $action_links ) {
 		$fusion_core_version = Avada_TGM_Plugin_Activation::$instance->get_installed_version( Avada_TGM_Plugin_Activation::$instance->plugins['fusion-core']['slug'] );
-		$current_screen = get_current_screen();
+		$current_screen      = get_current_screen();
 
 		if ( 'avada_page_avada-plugins' == $current_screen->id ) {
 			$link_template = '<a id="manage-plugins" class="button-primary" style="margin-top:1em;" href="#avada-install-plugins">' . esc_attr__( 'Manage Plugins Below', 'Avada' ) . '</a>';
@@ -1315,7 +1323,7 @@ class Avada_Admin {
 
 			$registration_array = array(
 				$product_id => $license_status,
-				'scopes' => array(),
+				'scopes'    => array(),
 			);
 			update_option( 'fusion_registered', $registration_array );
 
@@ -1383,7 +1391,7 @@ class Avada_Admin {
 	 * @return object
 	 */
 	public function add_instant_article_rules( $transformers ) {
-		$selectors_pass = array( 'fusion-fullwidth', 'fusion-builder-row', 'fusion-layout-column', 'fusion-column-wrapper', 'fusion-title', 'fusion-imageframe', 'imageframe-align-center', 'fusion-checklist', 'fusion-li-item', 'fusion-li-item-content' );
+		$selectors_pass   = array( 'fusion-fullwidth', 'fusion-builder-row', 'fusion-layout-column', 'fusion-column-wrapper', 'fusion-title', 'fusion-imageframe', 'imageframe-align-center', 'fusion-checklist', 'fusion-li-item', 'fusion-li-item-content' );
 		$selectors_ignore = array( 'fusion-column-inner-bg-image', 'fusion-clearfix', 'title-sep-container', 'fusion-sep-clear', 'fusion-separator' );
 
 		$avada_rules = '{ "rules" : [';
@@ -1417,15 +1425,15 @@ class Avada_Admin {
 			'partial_import'        => esc_attr__( 'Partial Import', 'Avada' ),
 			'import'                => esc_attr__( 'Import', 'Avada' ),
 			'download'              => esc_attr__( 'Download', 'Avada' ),
-			'classic'               => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br />REQUIREMENTS:<br /><br />• Memory Limit of 256 MB and max execution time (php time limit) of 300 seconds.<br /><br />• Revolution Slider and LayerSlider must be activated for sliders to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
+			'classic'               => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br />REQUIREMENTS:<br /><br />• Memory Limit of 256 MB and max execution time (php time limit) of 300 seconds.<br /><br />• Slider Revolution and LayerSlider must be activated for sliders to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
 			'caffe'                 => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Fusion Core must be activated for sliders, portfolios and FAQs to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
 			'church'                => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Fusion Core must be activated for sliders, portfolios and FAQs to import.<br /><br />• The Events Calendar Plugin must be activated for all event data to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
 			'modern_shop'           => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Fusion Core must be activated for sliders, portfolios and FAQs to import.<br /><br />• WooCommerce must be activated for all shop data to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
-			'classic_shop'          => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Revolution Slider must be activated for sliders to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported.<br /><br />• WooCommerce must be activated for all shop data to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
-			'landing_product'       => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Revolution Slider must be activated for sliders to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported.<br /><br />• WooCommerce must be activated for all shop data to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
+			'classic_shop'          => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Slider Revolution must be activated for sliders to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported.<br /><br />• WooCommerce must be activated for all shop data to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
+			'landing_product'       => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Slider Revolution must be activated for sliders to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported.<br /><br />• WooCommerce must be activated for all shop data to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
 			'forum'                 => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Fusion Core must be activated for sliders, portfolios and FAQs to import.<br /><br />• bbPress must be activated for all forum data to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
 			'technology'            => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 256 MB and max execution time (php time limit) of 300 seconds.<br /><br />• Fusion Core and LayerSlider must be activated for sliders to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
-			'creative'              => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Revolution Slider must be activated for sliders to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported. <br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
+			'creative'              => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Slider Revolution must be activated for sliders to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Core must be activated for Fusion Slider, portfolio and FAQs to be imported. <br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
 			'default'               => __( 'Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. <strong>Clicking this option will replace your current theme options and widgets.</strong> It can also take a minute to complete.<br /><br /> REQUIREMENTS:<br /><br />• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.<br /><br />• Fusion Core must be activated for sliders, portfolios and FAQs to import.<br /><br />• Contact Form 7 plugin must be activated for the form to import.<br /><br />• Fusion Builder must be activated for page content to display as intended.', 'Avada' ),
 			/* translators: The current step label. */
 			'currently_processing'  => esc_attr__( 'Currently Processing: %s', 'Avada' ),

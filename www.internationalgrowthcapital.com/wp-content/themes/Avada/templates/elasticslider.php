@@ -13,7 +13,7 @@
 if ( ! Avada()->settings->get( 'status_eslider' ) ) {
 	return;
 }
-$args               = array(
+$args                = array(
 	'post_type'        => 'themefusion_elastic',
 	'posts_per_page'   => -1,
 	'suppress_filters' => 0,
@@ -23,8 +23,8 @@ $args['tax_query'][] = array(
 	'field'    => 'slug',
 	'terms'    => $term,
 );
-$query = fusion_cached_query( $args );
-$count = 1;
+$query               = fusion_cached_query( $args );
+$count               = 1;
 ?>
 
 <?php if ( $query->have_posts() ) : ?>

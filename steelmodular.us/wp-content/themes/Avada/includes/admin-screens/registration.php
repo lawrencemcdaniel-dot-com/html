@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					if ( Avada()->registration->is_registered() ) {
 						esc_html_e( 'Thank you for choosing Avada! Your product is already registered, so you have access to the Avada demos, auto theme updates and included premium plugins.', 'Avada' );
 					} else {
-						esc_html_e( 'Thank you for choosing Avada! Your product must be registered to receive the Avada demos, auto theme updates and included premium plugins. The instructions below in toggle format must be followed exactly.', 'Avada' );
+						esc_html_e( 'Thank you for choosing Avada! Your product must be registered to receive the Avada demos, auto theme updates and included premium plugins. Please follow the instructions below to create a valid token.', 'Avada' );
 					}
 					?>
 				</p>

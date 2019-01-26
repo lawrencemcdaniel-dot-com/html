@@ -27,7 +27,7 @@ $author_custom      = get_the_author_meta( 'author_custom', $author_id );
 
 // If no description was added by user, add some default text and stats.
 if ( empty( $author_description ) ) {
-	$author_description  = esc_html__( 'This author has not yet filled in any details.', 'Avada' );
+	$author_description = esc_html__( 'This author has not yet filled in any details.', 'Avada' );
 	/* translators: %1$s: Username. %2$s: Number. */
 	$author_description .= '<br />' . sprintf( esc_html__( 'So far %1$s has created %2$s blog entries.', 'Avada' ), $author_name, count_user_posts( $author_id ) );
 }

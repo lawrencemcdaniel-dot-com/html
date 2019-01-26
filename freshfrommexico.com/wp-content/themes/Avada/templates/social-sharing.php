@@ -14,7 +14,7 @@ global $social_icons;
 
 // $post_type is inherited from the avada_render_social_sharing() function.
 $setting_name = ( 'post' == $post_type ) ? 'social_sharing_box' : $post_type . '_social_sharing_box';
-$share_box = get_post_meta( get_the_ID(), 'pyre_share_box', true );
+$share_box    = get_post_meta( get_the_ID(), 'pyre_share_box', true );
 
 if ( ( Avada()->settings->get( $setting_name ) && 'no' !== $share_box ) || ( ! Avada()->settings->get( $setting_name ) && 'yes' === $share_box ) ) {
 

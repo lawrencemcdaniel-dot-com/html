@@ -26,8 +26,8 @@ class Avada_Head {
 	 * @access  public
 	 */
 	public function __construct() {
-		/*
-		// WIP
+		/**
+		 * WIP
 		add_action( 'wp_head', array( $this, 'x_ua_meta' ), 1 );
 		add_action( 'wp_head', array( $this, 'the_meta' ) );
 		 */
@@ -37,6 +37,7 @@ class Avada_Head {
 
 		add_filter( 'document_title_separator', array( $this, 'document_title_separator' ) );
 		add_action( 'wp_head', array( $this, 'insert_favicons' ), 2 );
+		add_filter( 'theme_color_meta', array( $this, 'theme_color' ) );
 
 		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
 
@@ -44,7 +45,10 @@ class Avada_Head {
 			add_action( 'wp_head', array( $this, 'render_title' ) );
 		}
 
-		/* add_filter( 'wpseo_metadesc', array( $this, 'yoast_metadesc_helper' ) ); */
+		/**
+		 * WIP
+		add_filter( 'wpseo_metadesc', array( $this, 'yoast_metadesc_helper' ) );
+		*/
 
 	}
 
@@ -102,11 +106,11 @@ class Avada_Head {
 			}
 		} else {
 			$thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-			$image = esc_attr( $thumbnail_src[0] );
+			$image         = esc_attr( $thumbnail_src[0] );
 		}
 
 		if ( is_array( $image ) ) {
-			$image = ( isset( $image['url'] ) && '' != $image['url'] ) ? $image['url'] : '';
+			$image = ( isset( $image['url'] ) && ! empty( $image['url'] ) ) ? $image['url'] : '';
 		}
 		?>
 
@@ -230,6 +234,24 @@ class Avada_Head {
 
 		echo $viewport; // WPCS: XSS ok.
 	}
-}
 
-/* Omit closing PHP tag to avoid "Headers already sent" issues. */
+	/**
+	 * Prints the theme-color meta.
+	 *
+	 * @access public
+	 * @since 5.8
+	 * @param string $theme_color The theme-color we want to use.
+	 * @return string
+	 */
+	public function theme_color( $theme_color ) {
+
+		// Exit early if PWA is not enabled.
+		$pwa_enabled = Fusion_Settings::get_instance()->get( 'pwa_enable' );
+		if ( true === $pwa_enabled || '1' !== $pwa_enabled ) {
+			$settings    = Fusion_Settings::get_instance();
+			$theme_color = $settings->get( 'pwa_theme_color' );
+			return Fusion_Color::new_color( $theme_color )->get_new( 'alpha', 1 )->to_css( 'hex' );
+		}
+		return $theme_color;
+	}
+}

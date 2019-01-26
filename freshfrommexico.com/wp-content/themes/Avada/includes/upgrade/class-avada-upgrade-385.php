@@ -59,7 +59,7 @@ class Avada_Upgrade_385 extends Avada_Upgrade_Abstract {
 			$options['content_box_icon_bg_inner_border_color'] = $options['icon_border_color'];
 		}
 		if ( isset( $options['h2_font_size'] ) ) {
-			$options['post_titles_font_size'] = $options['h2_font_size'];
+			$options['post_titles_font_size']        = $options['h2_font_size'];
 			$options['post_titles_extras_font_size'] = $options['h2_font_size'];
 		}
 		if ( isset( $options['h2_font_lh'] ) ) {

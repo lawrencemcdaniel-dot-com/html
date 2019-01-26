@@ -62,11 +62,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 										</div>
 									</li>
 								<?php endif; ?>
-								<?php if ( has_post_thumbnail() && 'yes' != get_post_meta( $post->ID, 'pyre_show_first_featured_image', true ) ) : ?>
-									<?php $attachment_data = Avada()->images->get_attachment_data( get_post_thumbnail_id() ); ?>
-									<?php if ( is_array( $attachment_data ) ) : ?>
-										<li>
-											<?php if ( Avada()->settings->get( 'status_lightbox' ) && Avada()->settings->get( 'status_lightbox_single' ) ) : ?>
+								<?php if ( has_post_thumbnail() && 'yes' !== get_post_meta( $post->ID, 'pyre_show_first_featured_image', true ) ) : ?>
+									<li>
+										<?php if ( Avada()->settings->get( 'status_lightbox' ) && Avada()->settings->get( 'status_lightbox_single' ) ) : ?>
+											<?php $attachment_data = Avada()->images->get_attachment_data( get_post_thumbnail_id() ); ?>
+											<?php if ( is_array( $attachment_data ) ) : ?>
 												<a href="<?php echo esc_url_raw( $attachment_data['url'] ); ?>" data-rel="iLightbox[gallery<?php the_ID(); ?>]" title="<?php echo esc_attr( $attachment_data['caption_attribute'] ); ?>" data-title="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>" data-caption="<?php echo esc_attr( $attachment_data['caption_attribute'] ); ?>" aria-label="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>">
 													<span class="screen-reader-text"><?php esc_attr_e( 'View Larger Image', 'Avada' ); ?></span>
 													<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
@@ -74,25 +74,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<?php else : ?>
 												<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
 											<?php endif; ?>
-										</li>
-									<?php endif; ?>
+										<?php else : ?>
+											<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
+										<?php endif; ?>
+									</li>
+
 								<?php endif; ?>
 								<?php $i = 2; ?>
 								<?php while ( $i <= Avada()->settings->get( 'posts_slideshow_number' ) ) : ?>
 									<?php $attachment_new_id = fusion_get_featured_image_id( 'featured-image-' . $i, 'post' ); ?>
 									<?php if ( $attachment_new_id ) : ?>
-										<?php $attachment_data = Avada()->images->get_attachment_data( $attachment_new_id ); ?>
-										<?php if ( is_array( $attachment_data ) ) : ?>
-											<li>
-												<?php if ( Avada()->settings->get( 'status_lightbox' ) && Avada()->settings->get( 'status_lightbox_single' ) ) : ?>
+										<li>
+											<?php if ( Avada()->settings->get( 'status_lightbox' ) && Avada()->settings->get( 'status_lightbox_single' ) ) : ?>
+												<?php $attachment_data = Avada()->images->get_attachment_data( $attachment_new_id ); ?>
+												<?php if ( is_array( $attachment_data ) ) : ?>
 													<a href="<?php echo esc_url_raw( $attachment_data['url'] ); ?>" data-rel="iLightbox[gallery<?php the_ID(); ?>]" title="<?php echo esc_attr( $attachment_data['caption_attribute'] ); ?>" data-title="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>" data-caption="<?php echo esc_attr( $attachment_data['caption_attribute'] ); ?>" aria-label="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>">
 														<?php echo wp_get_attachment_image( $attachment_new_id, 'full' ); ?>
 													</a>
 												<?php else : ?>
 													<?php echo wp_get_attachment_image( $attachment_new_id, 'full' ); ?>
 												<?php endif; ?>
-											</li>
-										<?php endif; ?>
+											<?php else : ?>
+												<?php echo wp_get_attachment_image( $attachment_new_id, 'full' ); ?>
+											<?php endif; ?>
+										</li>
 									<?php endif; ?>
 									<?php $i++; ?>
 								<?php endwhile; ?>

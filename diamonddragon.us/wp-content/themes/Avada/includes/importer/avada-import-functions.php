@@ -34,7 +34,7 @@ function fusion_import_widget_data( $widget_data ) {
 	$json_data = json_decode( $widget_data, true );
 
 	$sidebar_data = $json_data[0];
-	$widget_data = $json_data[1];
+	$widget_data  = $json_data[1];
 
 	foreach ( $widget_data as $widget_data_title => $widget_data_value ) {
 		$widgets[ $widget_data_title ] = array();
@@ -49,8 +49,8 @@ function fusion_import_widget_data( $widget_data ) {
 	foreach ( $sidebar_data as $title => $sidebar ) {
 		$count = count( $sidebar );
 		for ( $i = 0; $i < $count; $i++ ) {
-			$widget = array();
-			$widget['type'] = trim( substr( $sidebar[ $i ], 0, strrpos( $sidebar[ $i ], '-' ) ) );
+			$widget               = array();
+			$widget['type']       = trim( substr( $sidebar[ $i ], 0, strrpos( $sidebar[ $i ], '-' ) ) );
 			$widget['type-index'] = trim( substr( $sidebar[ $i ], strrpos( $sidebar[ $i ], '-' ) + 1 ) );
 			if ( ! isset( $widgets[ $widget['type'] ][ $widget['type-index'] ] ) ) {
 				unset( $sidebar_data[ $title ][ $i ] );
@@ -78,21 +78,21 @@ function fusion_import_widget_data( $widget_data ) {
  */
 function fusion_parse_import_data( $import_array ) {
 	global $wp_registered_sidebars;
-	$sidebars_data = $import_array[0];
-	$widget_data = $import_array[1];
+	$sidebars_data    = $import_array[0];
+	$widget_data      = $import_array[1];
 	$current_sidebars = get_option( 'sidebars_widgets' );
-	$new_widgets = array();
+	$new_widgets      = array();
 
 	foreach ( $sidebars_data as $import_sidebar => $import_widgets ) {
 
 		foreach ( $import_widgets as $import_widget ) {
 			// If the sidebar exists.
 			if ( isset( $wp_registered_sidebars[ $import_sidebar ] ) ) {
-				$title = trim( substr( $import_widget, 0, strrpos( $import_widget, '-' ) ) );
-				$index = trim( substr( $import_widget, strrpos( $import_widget, '-' ) + 1 ) );
+				$title               = trim( substr( $import_widget, 0, strrpos( $import_widget, '-' ) ) );
+				$index               = trim( substr( $import_widget, strrpos( $import_widget, '-' ) + 1 ) );
 				$current_widget_data = get_option( 'widget_' . $title );
-				$new_widget_name = fusion_get_new_widget_name( $title, $index );
-				$new_index = trim( substr( $new_widget_name, strrpos( $new_widget_name, '-' ) + 1 ) );
+				$new_widget_name     = fusion_get_new_widget_name( $title, $index );
+				$new_index           = trim( substr( $new_widget_name, strrpos( $new_widget_name, '-' ) + 1 ) );
 
 				if ( ! empty( $new_widgets[ $title ] ) && is_array( $new_widgets[ $title ] ) ) {
 					while ( array_key_exists( $new_index, $new_widgets[ $title ] ) ) {
@@ -102,8 +102,8 @@ function fusion_parse_import_data( $import_array ) {
 				$current_sidebars[ $import_sidebar ][] = $title . '-' . $new_index;
 				if ( array_key_exists( $title, $new_widgets ) ) {
 					if ( 'nav_menu' == $title & ! is_numeric( $index ) ) {
-						$menu = wp_get_nav_menu_object( $index );
-						$menu_id = $menu->term_id;
+						$menu                                = wp_get_nav_menu_object( $index );
+						$menu_id                             = $menu->term_id;
 						$new_widgets[ $title ][ $new_index ] = $menu_id;
 					} else {
 						$new_widgets[ $title ][ $new_index ] = $widget_data[ $title ][ $index ];
@@ -113,18 +113,18 @@ function fusion_parse_import_data( $import_array ) {
 					$new_widgets[ $title ]['_multiwidget'] = $multiwidget;
 				} else {
 					if ( 'nav_menu' == $title & ! is_numeric( $index ) ) {
-						$menu = wp_get_nav_menu_object( $index );
-						$menu_id = $menu->term_id;
+						$menu                              = wp_get_nav_menu_object( $index );
+						$menu_id                           = $menu->term_id;
 						$current_widget_data[ $new_index ] = $menu_id;
 					} else {
 						$current_widget_data[ $new_index ] = $widget_data[ $title ][ $index ];
 					}
 					$current_multiwidget = isset( $current_widget_data['_multiwidget'] ) ? $current_widget_data['_multiwidget'] : false;
-					$new_multiwidget = isset( $widget_data[ $title ]['_multiwidget'] ) ? $widget_data[ $title ]['_multiwidget'] : false;
-					$multiwidget = ( $current_multiwidget != $new_multiwidget ) ? $current_multiwidget : 1;
+					$new_multiwidget     = isset( $widget_data[ $title ]['_multiwidget'] ) ? $widget_data[ $title ]['_multiwidget'] : false;
+					$multiwidget         = ( $current_multiwidget != $new_multiwidget ) ? $current_multiwidget : 1;
 					unset( $current_widget_data['_multiwidget'] );
 					$current_widget_data['_multiwidget'] = $multiwidget;
-					$new_widgets[ $title ] = $current_widget_data;
+					$new_widgets[ $title ]               = $current_widget_data;
 				}
 			} // End if().
 		} // End foreach().
@@ -202,7 +202,7 @@ function fusion_fs_importer_replace_url( $matches ) {
 								$parts[1] = implode( '/', $sub_parts );
 
 								// append the url to the uploads url.
-								$parts[0] = $wp_upload_dir['baseurl'];
+								$parts[0]       = $wp_upload_dir['baseurl'];
 								$meta_arr[ $k ] = implode( '/', $parts );
 							}
 						}

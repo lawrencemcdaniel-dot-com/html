@@ -112,18 +112,18 @@ class Avada_Upgrade_520 extends Avada_Upgrade_Abstract {
 	private function update_portfolio_settings() {
 		$options = get_option( $this->option_name, array() );
 
-		$portfolio_archive_layout = $options['portfolio_archive_layout'];
+		$portfolio_archive_layout            = $options['portfolio_archive_layout'];
 		$options['portfolio_archive_layout'] = 'grid';
 
 		if ( false !== strpos( $portfolio_archive_layout, 'Two' ) ) {
 			$options['portfolio_archive_columns'] = 2;
-		} else if ( false !== strpos( $portfolio_archive_layout, 'Three' ) ) {
+		} elseif ( false !== strpos( $portfolio_archive_layout, 'Three' ) ) {
 			$options['portfolio_archive_columns'] = 3;
-		} else if ( false !== strpos( $portfolio_archive_layout, 'Four' ) ) {
+		} elseif ( false !== strpos( $portfolio_archive_layout, 'Four' ) ) {
 			$options['portfolio_archive_columns'] = 4;
-		} else if ( false !== strpos( $portfolio_archive_layout, 'Five' ) ) {
+		} elseif ( false !== strpos( $portfolio_archive_layout, 'Five' ) ) {
 			$options['portfolio_archive_columns'] = 5;
-		} else if ( false !== strpos( $portfolio_archive_layout, 'Six' ) ) {
+		} elseif ( false !== strpos( $portfolio_archive_layout, 'Six' ) ) {
 			$options['portfolio_archive_columns'] = 6;
 		} else {
 			$options['portfolio_archive_columns'] = 1;
@@ -142,15 +142,15 @@ class Avada_Upgrade_520 extends Avada_Upgrade_Abstract {
 		}
 
 		$options_to_migrate = array(
-			'portfolio_archive_featured_image_size'             => 'portfolio_featured_image_size',
-			'portfolio_archive_column_spacing'                  => 'portfolio_column_spacing',
-			'portfolio_archive_items'                           => 'portfolio_items',
-			'portfolio_excerpt_length'                          => 'excerpt_length_portfolio',
-			'portfolio_archive_excerpt_length'                  => 'excerpt_length_portfolio',
-			'portfolio_archive_strip_html_excerpt'              => 'portfolio_strip_html_excerpt',
-			'portfolio_archive_title_display'                   => 'portfolio_title_display',
-			'portfolio_archive_text_alignment'                  => 'portfolio_text_alignment',
-			'portfolio_archive_layout_padding'                  => 'portfolio_layout_padding',
+			'portfolio_archive_featured_image_size' => 'portfolio_featured_image_size',
+			'portfolio_archive_column_spacing'      => 'portfolio_column_spacing',
+			'portfolio_archive_items'               => 'portfolio_items',
+			'portfolio_excerpt_length'              => 'excerpt_length_portfolio',
+			'portfolio_archive_excerpt_length'      => 'excerpt_length_portfolio',
+			'portfolio_archive_strip_html_excerpt'  => 'portfolio_strip_html_excerpt',
+			'portfolio_archive_title_display'       => 'portfolio_title_display',
+			'portfolio_archive_text_alignment'      => 'portfolio_text_alignment',
+			'portfolio_archive_layout_padding'      => 'portfolio_layout_padding',
 			'portfolio_archive_load_more_posts_button_bg_color' => 'portfolio_load_more_posts_button_bg_color',
 		);
 

@@ -21,6 +21,7 @@ global $wp_query;
 $blog_layout     = avada_get_blog_layout();
 $pagination_type = Avada()->settings->get( 'blog_pagination_type' );
 $post_class      = 'fusion-post-' . $blog_layout;
+$lazy_load       = Avada()->settings->get( 'lazy_load' );
 
 // Used for grid and timeline layouts.
 $is_there_meta_above = Avada()->settings->get( 'post_meta' ) && ( Avada()->settings->get( 'post_meta_author' ) || Avada()->settings->get( 'post_meta_date' ) || Avada()->settings->get( 'post_meta_cats' ) || Avada()->settings->get( 'post_meta_tags' ) );
@@ -36,7 +37,7 @@ if ( 'masonry' === $blog_layout ) {
 }
 
 $container_class = 'fusion-posts-container ';
-$wrapper_class = 'fusion-blog-layout-' . $blog_layout . '-wrapper ';
+$wrapper_class   = 'fusion-blog-layout-' . $blog_layout . '-wrapper ';
 
 if ( 'grid' === $blog_layout || 'masonry' === $blog_layout ) {
 	$container_class .= 'fusion-blog-layout-grid fusion-blog-layout-grid-' . Avada()->settings->get( 'blog_archive_grid_columns' ) . ' isotope ';
@@ -44,7 +45,7 @@ if ( 'grid' === $blog_layout || 'masonry' === $blog_layout ) {
 	if ( 'masonry' === $blog_layout ) {
 		$container_class .= 'fusion-blog-layout-' . $blog_layout . ' ';
 	}
-} else if ( 'timeline' !== $blog_layout ) {
+} elseif ( 'timeline' !== $blog_layout ) {
 	$container_class .= 'fusion-blog-layout-' . $blog_layout . ' ';
 }
 
@@ -59,8 +60,8 @@ if ( Avada()->settings->get( 'blog_equal_heights' ) && 'grid' === $blog_layout )
 // Set class for scrolling type.
 if ( 'Infinite Scroll' === $pagination_type ) {
 	$container_class .= 'fusion-posts-container-infinite ';
-	$wrapper_class .= 'fusion-blog-infinite ';
-} else if ( 'load_more_button' === $pagination_type ) {
+	$wrapper_class   .= 'fusion-blog-infinite ';
+} elseif ( 'load_more_button' === $pagination_type ) {
 	$container_class .= 'fusion-posts-container-infinite fusion-posts-container-load-more ';
 } else {
 	$container_class .= 'fusion-blog-pagination ';
@@ -94,10 +95,10 @@ if ( is_search() && Avada()->settings->get( 'search_results_per_page' ) ) {
 
 			<?php
 			// Initialize the time stamps for timeline month/year check.
-			$post_count = 1;
+			$post_count          = 1;
 			$prev_post_timestamp = null;
-			$prev_post_month = null;
-			$prev_post_year = null;
+			$prev_post_month     = null;
+			$prev_post_year      = null;
 			$first_timeline_loop = false;
 			?>
 
@@ -148,24 +149,24 @@ if ( is_search() && Avada()->settings->get( 'search_results_per_page' ) ) {
 			// Masonry layout, get the element orientation class.
 			$element_orientation_class = '';
 			if ( 'masonry' === $blog_layout ) {
-				$masonry_cloumns = Avada()->settings->get( 'blog_archive_grid_columns' );
-				$masonry_columns_spacing = Avada()->settings->get( 'blog_archive_grid_column_spacing' );
+				$masonry_cloumns           = Avada()->settings->get( 'blog_archive_grid_columns' );
+				$masonry_columns_spacing   = Avada()->settings->get( 'blog_archive_grid_column_spacing' );
 				$responsive_images_columns = $masonry_cloumns;
-				$masonry_attributes = array();
-				$element_base_padding = 0.8;
+				$masonry_attributes        = array();
+				$element_base_padding      = 0.8;
 
 				// Set image or placeholder and correct corresponding styling.
 				if ( has_post_thumbnail() ) {
 					$post_thumbnail_attachment = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-					$masonry_attribute_style = 'background-image:url(' . $post_thumbnail_attachment[0] . ');';
+					$masonry_attribute_style   = $lazy_load ? '' : 'background-image:url(' . $post_thumbnail_attachment[0] . ');';
 				} else {
 					$post_thumbnail_attachment = array();
-					$masonry_attribute_style = 'background-color:#f6f6f6;';
+					$masonry_attribute_style   = 'background-color:#f6f6f6;';
 				}
 
 				// Get the correct image orientation class.
 				$element_orientation_class = Avada()->images->get_element_orientation_class( get_post_thumbnail_id() );
-				$element_base_padding  = Avada()->images->get_element_base_padding( $element_orientation_class );
+				$element_base_padding      = Avada()->images->get_element_base_padding( $element_orientation_class );
 
 				$masonry_column_offset = ' - ' . ( (int) $masonry_columns_spacing / 2 ) . 'px';
 				if ( false !== strpos( $element_orientation_class, 'fusion-element-portrait' ) ) {
@@ -198,8 +199,8 @@ if ( is_search() && Avada()->settings->get( 'search_results_per_page' ) ) {
 				}
 
 				// Check if we have a landscape image, then it has to stretch over 2 cols.
-				if ( false !== strpos( $element_orientation_class, 'fusion-element-landscape' ) ) {
-					$responsive_images_columns = $masonry_cloumns / 2;
+				if ( 1 !== $masonry_cloumns && '1' !== $masonry_cloumns && false !== strpos( $element_orientation_class, 'fusion-element-landscape' ) ) {
+					$responsive_images_columns = (int) $masonry_cloumns / 2;
 				}
 
 				// Set the masonry attributes to use them in the first featured image function.
@@ -208,11 +209,16 @@ if ( is_search() && Avada()->settings->get( 'search_results_per_page' ) ) {
 					'style' => $masonry_attribute_style,
 				);
 
+				if ( $lazy_load && isset( $post_thumbnail_attachment[0] ) ) {
+					$masonry_attributes['data-bg'] = $post_thumbnail_attachment[0];
+					$masonry_attributes['class'] .= ' lazyload';
+				}
+
 				// Get the post image.
 				Avada()->images->set_grid_image_meta(
 					array(
-						'layout' => 'portfolio_full',
-						'columns' => $responsive_images_columns,
+						'layout'       => 'portfolio_full',
+						'columns'      => $responsive_images_columns,
 						'gutter_width' => $masonry_columns_spacing,
 					)
 				);
@@ -295,7 +301,7 @@ if ( is_search() && Avada()->settings->get( 'search_results_per_page' ) ) {
 						<?php if ( 'masonry' !== $blog_layout && ( $is_there_meta_above && ( $is_there_content || $is_there_meta_below ) || ( ! $is_there_meta_above && $is_there_meta_below ) ) ) : ?>
 							<?php
 							$separator_styles_array = explode( '|', Avada()->settings->get( 'grid_separator_style_type' ) );
-							$separator_styles = '';
+							$separator_styles       = '';
 
 							foreach ( $separator_styles_array as $separator_style ) {
 								$separator_styles .= ' sep-' . $separator_style;

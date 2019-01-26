@@ -62,10 +62,10 @@ if ( ! class_exists( 'Avada_Nav_Walker_Megamenu' ) ) {
 		 */
 		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 			global $_wp_nav_menu_max_depth, $wp_registered_sidebars;
-			$_wp_nav_menu_max_depth = $depth > $_wp_nav_menu_max_depth ? $depth : $_wp_nav_menu_max_depth;
+			$_wp_nav_menu_max_depth = $depth > $_wp_nav_menu_max_depth ? $depth : $_wp_nav_menu_max_depth; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 
 			ob_start();
-			$item_id = esc_attr( $item->ID );
+			$item_id      = esc_attr( $item->ID );
 			$removed_args = array(
 				'action',
 				'customlink-tab',
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Avada_Nav_Walker_Megamenu' ) ) {
 								$url1 = wp_nonce_url(
 									add_query_arg(
 										array(
-											'action' => 'move-up-menu-item',
+											'action'    => 'move-up-menu-item',
 											'menu-item' => $item_id,
 										),
 										remove_query_arg( $removed_args, admin_url( 'nav-menus.php' ) )
@@ -133,7 +133,7 @@ if ( ! class_exists( 'Avada_Nav_Walker_Megamenu' ) ) {
 								$url2 = wp_nonce_url(
 									add_query_arg(
 										array(
-											'action' => 'move-down-menu-item',
+											'action'    => 'move-down-menu-item',
 											'menu-item' => $item_id,
 										),
 										remove_query_arg( $removed_args, admin_url( 'nav-menus.php' ) )
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Avada_Nav_Walker_Megamenu' ) ) {
 						$url = wp_nonce_url(
 							add_query_arg(
 								array(
-									'action' => 'delete-menu-item',
+									'action'    => 'delete-menu-item',
 									'menu-item' => $item_id,
 								),
 								admin_url( 'nav-menus.php' )
@@ -244,7 +244,7 @@ if ( ! class_exists( 'Avada_Nav_Walker_Megamenu' ) ) {
 						$url_with_args = add_query_arg(
 							array(
 								'edit-menu-item' => $item_id,
-								'cancel' => time(),
+								'cancel'         => time(),
 							),
 							admin_url( 'nav-menus.php' )
 						);

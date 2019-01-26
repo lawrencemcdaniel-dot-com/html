@@ -140,7 +140,8 @@ class Avada_Upgrade {
 			'562' => array( '5.6.2', false ),
 			'570' => array( '5.7.0', false ),
 			'571' => array( '5.7.1', false ),
-			'572' => array( '5.7.2', false ),			
+			'572' => array( '5.7.2', false ),
+			'580' => array( '5.8.0', false ),
 		);
 
 		$upgraded = false;
@@ -366,7 +367,7 @@ class Avada_Upgrade {
 	 */
 	public function notices_action() {
 		// Set update notice dismissal, so that the notice is no longer shown.
-		if ( isset( $_GET['avada_update_notice'] ) && sanitize_key( wp_unslash( $_GET['avada_update_notice'] ) ) ) {
+		if ( isset( $_GET['avada_update_notice'] ) && sanitize_key( wp_unslash( $_GET['avada_update_notice'] ) ) ) { // WPCS: CSRF ok.
 			add_user_meta( $this->current_user->ID, 'avada_update_notice', '1', true );
 		}
 	}
@@ -379,7 +380,7 @@ class Avada_Upgrade {
 	 * @param  string $new_value The new value.
 	 */
 	private static function upgraded_options_row( $setting = '', $old_value = '', $new_value = '' ) {
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG && $old_value !== $new_value && '' != $setting ) {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG && $old_value !== $new_value && '' != $setting ) { // WPCS: loose comparison ok.
 			self::$upgraded_options[ $setting ] = array(
 				'old' => $old_value,
 				'new' => $new_value,
@@ -396,7 +397,7 @@ class Avada_Upgrade {
 	 */
 	protected static function clear_twitter_widget_transients() {
 		global $wpdb;
-		$tweet_transients = $wpdb->get_results( "SELECT option_name AS name, option_value AS value FROM $wpdb->options WHERE option_name LIKE '_transient_list_tweets_%'" );
+		$tweet_transients = $wpdb->get_results( "SELECT option_name AS name, option_value AS value FROM $wpdb->options WHERE option_name LIKE '_transient_list_tweets_%'" ); // WPCS: db call ok, cache ok.
 
 		foreach ( $tweet_transients as $tweet_transient ) {
 			delete_transient( str_replace( '_transient_', '', $tweet_transient->name ) );
@@ -418,10 +419,10 @@ class Avada_Upgrade {
 			delete_option( 'avada_previous_version' );
 			delete_option( Avada::get_option_name() );
 
-			var_dump( 'Current Version: ' . Avada::$version );
-			var_dump( 'DB Version: ' . get_option( 'avada_version', false ) );
-			var_dump( 'Previous Version: ' . get_option( 'avada_previous_version', array() ) );
-			var_dump( 'Update Notice: ' . get_user_meta( $current_user->ID, 'avada_update_notice', true ) );
+			var_dump( 'Current Version: ' . Avada::$version ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+			var_dump( 'DB Version: ' . get_option( 'avada_version', false ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+			var_dump( 'Previous Version: ' . get_option( 'avada_previous_version', array() ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+			var_dump( 'Update Notice: ' . get_user_meta( $current_user->ID, 'avada_update_notice', true ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
 		}
 	}
 }

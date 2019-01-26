@@ -27,7 +27,7 @@ class Fusion_Widget_Contact_Info extends WP_Widget {
 	public function __construct() {
 
 		$widget_ops  = array(
-			'classname' => 'contact_info',
+			'classname'   => 'contact_info',
 			'description' => __( 'Adds custom contact information.', 'Avada' ),
 		);
 		$control_ops = array(

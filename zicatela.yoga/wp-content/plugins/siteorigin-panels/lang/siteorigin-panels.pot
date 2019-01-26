@@ -1,4 +1,4 @@
-# Copyright (C) 2018 siteorigin-panels
+# Copyright (C) 2019 siteorigin-panels
 # This file is distributed under the same license as the siteorigin-panels package.
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: SiteOrigin <support@siteorigin.com>\n"
 "Last-Translator: SiteOrigin <support@siteorigin.com>\n"
-"Report-Msgid-Bugs-To: http://www.siteorigin.com\n"
+"Report-Msgid-Bugs-To: http://www.siteorigin.com/thread\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: compat/layout-block.php:89
+#: compat/layout-block.php:90
 msgid "You need to add a widget, row, or prebuilt layout before you'll see anything here. :)"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "WordPress Widgets"
 msgstr ""
 
-#: inc/admin-widget-dialog.php:185, inc/settings.php:328
+#: inc/admin-widget-dialog.php:185, inc/settings.php:339
 msgid "Recommended Widgets"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Addons"
 msgstr ""
 
-#: inc/admin.php:153, inc/admin.php:549, inc/admin.php:1134, inc/admin.php:1139, inc/settings.php:197, tpl/js-templates.php:193
+#: inc/admin.php:153, inc/admin.php:549, inc/admin.php:1134, inc/admin.php:1139, inc/settings.php:198, tpl/js-templates.php:193
 msgid "Page Builder"
 msgstr ""
 
@@ -427,7 +427,7 @@ msgstr ""
 msgid "Home Page"
 msgstr ""
 
-#: inc/admin.php:732
+#: inc/admin.php:733
 msgid "Untitled Widget"
 msgstr ""
 
@@ -481,7 +481,7 @@ msgstr ""
 msgid "Toggle editor selection menu"
 msgstr ""
 
-#: inc/admin.php:1395, inc/admin.php:1442, inc/settings.php:197, settings/tpl/settings.php:9
+#: inc/admin.php:1395, inc/admin.php:1442, inc/settings.php:198, settings/tpl/settings.php:9
 msgid "SiteOrigin Page Builder"
 msgstr ""
 
@@ -545,227 +545,243 @@ msgstr ""
 msgid "Page Builder Content"
 msgstr ""
 
-#: inc/settings.php:224
+#: inc/settings.php:225
 msgid "Page Builder Settings"
 msgstr ""
 
-#: inc/settings.php:240
+#: inc/settings.php:241
 msgid "General"
 msgstr ""
 
-#: inc/settings.php:246
+#: inc/settings.php:247
 msgid "Post Types"
 msgstr ""
 
-#: inc/settings.php:248
+#: inc/settings.php:249
 msgid "The post types on which to use Page Builder."
 msgstr ""
 
-#: inc/settings.php:253
+#: inc/settings.php:254
 msgid "Use Classic Editor for new posts"
 msgstr ""
 
-#: inc/settings.php:254
+#: inc/settings.php:255
 msgid "New posts of the above Post Types will be created using the Classic Editor."
 msgstr ""
 
-#: inc/settings.php:259
+#: inc/settings.php:260
 msgid "Live Editor Quick Link"
 msgstr ""
 
-#: inc/settings.php:260
+#: inc/settings.php:261
 msgid "Display a Live Editor button in the admin bar."
 msgstr ""
 
-#: inc/settings.php:265
+#: inc/settings.php:266
 msgid "Display Widget Count"
 msgstr ""
 
-#: inc/settings.php:266
+#: inc/settings.php:267
 msgid "Display a widget count in the admin lists of posts/pages where you're using Page Builder."
 msgstr ""
 
-#: inc/settings.php:271
+#: inc/settings.php:272
 msgid "Limit Parallax Motion"
 msgstr ""
 
-#: inc/settings.php:272
+#: inc/settings.php:273
 msgid "How many pixels of scrolling result in a single pixel of parallax motion. 0 means automatic. Lower values give more noticeable effect."
 msgstr ""
 
-#: inc/settings.php:277
+#: inc/settings.php:278
 msgid "Sidebars Emulator"
 msgstr ""
 
-#: inc/settings.php:278
+#: inc/settings.php:279
 msgid "Page Builder will create an emulated sidebar, that contains all widgets in the page."
 msgstr ""
 
-#: inc/settings.php:283
+#: inc/settings.php:284
 msgid "Upgrade Teaser"
 msgstr ""
 
-#: inc/settings.php:285
+#: inc/settings.php:286
 msgid "Display the %sSiteOrigin Premium%s upgrade teaser in the Page Builder toolbar."
 msgstr ""
 
-#: inc/settings.php:293
+#: inc/settings.php:294
 msgid "Default To Page Builder Interface"
 msgstr ""
 
-#: inc/settings.php:295
+#: inc/settings.php:296
 msgid "New Classic Editor posts/pages that you create will start with the Page Builder loaded. The %s\"Use Classic Editor for new posts\"%s setting must be enabled."
 msgstr ""
 
-#: inc/settings.php:304
+#: inc/settings.php:303
+msgid "Layout Block Default Mode"
+msgstr ""
+
+#: inc/settings.php:306, tpl/js-templates.php:141
+msgid "Edit"
+msgstr ""
+
+#: inc/settings.php:307
+msgid "Preview"
+msgstr ""
+
+#: inc/settings.php:309
+msgid "Whether to display layout blocks in edit mode or preview mode in the block editor."
+msgstr ""
+
+#: inc/settings.php:315
 msgid "Widgets"
 msgstr ""
 
-#: inc/settings.php:310
+#: inc/settings.php:321
 msgid "Widget Title HTML"
 msgstr ""
 
-#: inc/settings.php:311
+#: inc/settings.php:322
 msgid "The HTML used for widget titles. {{title}} is replaced with the widget title."
 msgstr ""
 
-#: inc/settings.php:316
+#: inc/settings.php:327
 msgid "Add Widget Class"
 msgstr ""
 
-#: inc/settings.php:317
+#: inc/settings.php:328
 msgid "Add the widget class to Page Builder widgets. Disable this if you're experiencing conflicts."
 msgstr ""
 
-#: inc/settings.php:322
+#: inc/settings.php:333
 msgid "Legacy Bundled Widgets"
 msgstr ""
 
-#: inc/settings.php:323
+#: inc/settings.php:334
 msgid "Load legacy widgets from Page Builder 1."
 msgstr ""
 
-#: inc/settings.php:329
+#: inc/settings.php:340
 msgid "Display recommend widgets in Page Builder add widget dialog."
 msgstr ""
 
-#: inc/settings.php:334
+#: inc/settings.php:345
 msgid "Instant Open Widgets"
 msgstr ""
 
-#: inc/settings.php:335
+#: inc/settings.php:346
 msgid "Open a widget form as soon as its added to a page."
 msgstr ""
 
-#: inc/settings.php:341, inc/styles-admin.php:88
+#: inc/settings.php:352, inc/styles-admin.php:88
 msgid "Layout"
 msgstr ""
 
-#: inc/settings.php:349
+#: inc/settings.php:360
 msgid "Responsive Layout"
 msgstr ""
 
-#: inc/settings.php:350
+#: inc/settings.php:361
 msgid "Collapse widgets, rows and columns on mobile devices."
 msgstr ""
 
-#: inc/settings.php:355
+#: inc/settings.php:366
 msgid "Use Tablet Layout"
 msgstr ""
 
-#: inc/settings.php:356
+#: inc/settings.php:367
 msgid "Collapses columns differently on tablet devices."
 msgstr ""
 
-#: inc/settings.php:362
+#: inc/settings.php:373
 msgid "Detect older browsers"
 msgstr ""
 
-#: inc/settings.php:363
+#: inc/settings.php:374
 msgid "Never"
 msgstr ""
 
-#: inc/settings.php:364
+#: inc/settings.php:375
 msgid "Always"
 msgstr ""
 
-#: inc/settings.php:366
+#: inc/settings.php:377
 msgid "Use Legacy Layout Engine"
 msgstr ""
 
-#: inc/settings.php:367
+#: inc/settings.php:378
 msgid "The CSS and HTML uses floats instead of flexbox for compatibility with very old browsers."
 msgstr ""
 
-#: inc/settings.php:373
+#: inc/settings.php:384
 msgid "Tablet Width"
 msgstr ""
 
-#: inc/settings.php:374
+#: inc/settings.php:385
 msgid "Device width, in pixels, to collapse into a tablet view ."
 msgstr ""
 
-#: inc/settings.php:380
+#: inc/settings.php:391
 msgid "Mobile Width"
 msgstr ""
 
-#: inc/settings.php:381
+#: inc/settings.php:392
 msgid "Device width, in pixels, to collapse into a mobile view ."
 msgstr ""
 
-#: inc/settings.php:387
+#: inc/settings.php:398
 msgid "Row/Widget Bottom Margin"
 msgstr ""
 
-#: inc/settings.php:388
+#: inc/settings.php:399
 msgid "Default margin below rows and widgets."
 msgstr ""
 
-#: inc/settings.php:393
+#: inc/settings.php:404
 msgid "Last Row With Margin"
 msgstr ""
 
-#: inc/settings.php:394
+#: inc/settings.php:405
 msgid "Allow margin in last row."
 msgstr ""
 
-#: inc/settings.php:400
+#: inc/settings.php:411
 msgid "Row Gutter"
 msgstr ""
 
-#: inc/settings.php:401
+#: inc/settings.php:412
 msgid "Default spacing between columns in each row."
 msgstr ""
 
-#: inc/settings.php:407
+#: inc/settings.php:418
 msgid "Full Width Container"
 msgstr ""
 
-#: inc/settings.php:408
+#: inc/settings.php:419
 msgid "The container used for the full width layout."
 msgstr ""
 
-#: inc/settings.php:415
+#: inc/settings.php:426
 msgid "Content"
 msgstr ""
 
-#: inc/settings.php:421
+#: inc/settings.php:432
 msgid "Copy Content"
 msgstr ""
 
-#: inc/settings.php:422
+#: inc/settings.php:433
 msgid "Copy content from Page Builder to post content."
 msgstr ""
 
-#: inc/settings.php:427
+#: inc/settings.php:438
 msgid "Copy Styles"
 msgstr ""
 
-#: inc/settings.php:428
+#: inc/settings.php:439
 msgid "Include styles into your Post Content. This keeps page layouts, even when Page Builder is deactivated."
 msgstr ""
 
-#: inc/settings.php:475, inc/styles-admin.php:269
+#: inc/settings.php:486, inc/styles-admin.php:269
 msgid "Enabled"
 msgstr ""
 
@@ -1226,6 +1242,26 @@ msgstr ""
 msgid "Save Settings"
 msgstr ""
 
+#: siteorigin-panels.php:3
+msgid "Page Builder by SiteOrigin"
+msgstr ""
+
+#: siteorigin-panels.php:4
+msgid "https://siteorigin.com/page-builder/"
+msgstr ""
+
+#: siteorigin-panels.php:5
+msgid "A drag and drop, responsive page builder that simplifies building your website."
+msgstr ""
+
+#: siteorigin-panels.php:7
+msgid "SiteOrigin"
+msgstr ""
+
+#: siteorigin-panels.php:8
+msgid "https://siteorigin.com"
+msgstr ""
+
 #: siteorigin-panels.php:325
 msgid "Read More"
 msgstr ""
@@ -1308,10 +1344,6 @@ msgstr ""
 
 #: tpl/js-templates.php:71
 msgid "Pro Tip"
-msgstr ""
-
-#: tpl/js-templates.php:141
-msgid "Edit"
 msgstr ""
 
 #: tpl/js-templates.php:142, tpl/js-templates.php:264, tpl/js-templates.php:349
@@ -1448,6 +1480,10 @@ msgstr ""
 
 #: tpl/js-templates.php:597
 msgid "No Results"
+msgstr ""
+
+#: tpl/js-templates.php:607
+msgid "Add SiteOrigin Layout Block"
 msgstr ""
 
 #: widgets/widgets.php:161

@@ -2425,24 +2425,13 @@ class elFinder
      **/
     protected function curl_get_contents(&$url, $timeout, $redirect_max, $ua, $outfp)
     {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        if ($outfp) {
-            curl_setopt($ch, CURLOPT_FILE, $outfp);
-        } else {
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-        }
-        curl_setopt($ch, CURLOPT_LOW_SPEED_LIMIT, 1);
-        curl_setopt($ch, CURLOPT_LOW_SPEED_TIME, $timeout);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_MAXREDIRS, $redirect_max);
-        curl_setopt($ch, CURLOPT_USERAGENT, $ua);
-        $result = curl_exec($ch);
-        $url = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-        curl_close($ch);
+        $result = wp_remote_post($url, array(
+            'method' => 'POST',
+            'timeout' => $timeout,
+            'redirection' => $redirect_max,
+            'sslverify' => false,
+            )
+        );
 
         return $outfp ? $outfp : $result;
     }

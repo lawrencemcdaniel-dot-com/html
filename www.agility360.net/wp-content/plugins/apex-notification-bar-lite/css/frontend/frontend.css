@@ -1610,6 +1610,9 @@ template-1 start
 .endpro_main_leftright_wrapper .edn-constant-contact-wrap .edn-form-field {
     margin-left: 0;
 }
+.edn-subscribe-form{
+    padding: 15px;
+}
 .edn-constant-contact-wrap .edn-form-field .edn-constantcontact-email,
 .edn-subscribe-form .edn-form-field .edn_subs_email_r {
     font-size: 12px;
@@ -1617,6 +1620,10 @@ template-1 start
     vertical-align: middle;
     font-family: 'Roboto', sans-serif;
     border: none;
+    height: 31px;
+    margin-right: 4px;
+}
+.edn_subs_submit_ajax{
     height: 31px;
 }
 .edn-form-field .edn_mailchimp_submit_ajax,
@@ -1681,7 +1688,7 @@ template-1 start
 .edn-front-title .show_icon {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 5px;
+    margin-right: 0px;
     margin-top: 0;
     position: static;
     left: 0;
@@ -1710,6 +1717,9 @@ template-1 start
     text-align: left;
     vertical-align: middle;
     font-family: Raleway;
+    margin: 0;
+    padding: 5px;
+
 }
 .edn-template-3 .edn-subscribe-form .edn-front-title h3,
 .edn-template-3 .edn-mailchimp-wrap .edn-front-title h3 {
@@ -4519,6 +4529,9 @@ template-7 end
 .ednpro_user-can-close a:hover {
     color: #bbb;
 }
+.ednpro_user-can-close a i {
+   font-size: 18px;
+}
 .edn-position-left .pre_template_8.ednpro_user-can-close {
     border: 2px solid #000;
 }
@@ -4716,7 +4729,7 @@ template-7 end
 .edn-custom-template.edn-notify-bar .edn-call-action-button a,
 #custom_template .edn-contact-lightbox .edn-form-field .edn-field input.edn-contact-submit {
     background: #e05d22;
-    height: 31px;
+    /*height: 31px;*/
     border: none;
     border-bottom: 0;
     border-radius: 2px;
@@ -5236,6 +5249,7 @@ SEARCHFORM LAYOUT-1 CSS
     color: #ffffff;
     padding: 0 50px 0 10px;
     height: 28px;
+    display: inline-block;
     width: 90%;
 }
 .apexnb-search-layout1 .apex-search-right-section .search-field::-webkit-input-placeholder{

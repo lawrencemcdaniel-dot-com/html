@@ -145,11 +145,11 @@ msgstr ""
 msgid "Success! You have deauthorized your Eventbrite Application Key."
 msgstr ""
 
-#: src/Tribe/Main.php:1714
+#: src/Tribe/Main.php:1724
 msgid "Remove Authorization"
 msgstr ""
 
-#: src/Tribe/Main.php:1025
+#: src/Tribe/Main.php:1035
 msgid "Unable to get authorization from the Eventbrite API: %s"
 msgstr ""
 
@@ -186,11 +186,11 @@ msgstr ""
 msgid "Eventbrite Tickets"
 msgstr ""
 
-#: src/Tribe/Main.php:794
+#: src/Tribe/Main.php:804
 msgid "Default status to use for imported events"
 msgstr "Estado por defecto para usar en los eventos importados"
 
-#: src/Tribe/Main.php:786
+#: src/Tribe/Main.php:796
 msgid "Eventbrite Import Settings"
 msgstr ""
 
@@ -222,31 +222,31 @@ msgstr ""
 msgid "How are timezones handled?"
 msgstr ""
 
-#: src/Tribe/Main.php:1662
+#: src/Tribe/Main.php:1672
 msgid "Eventbrite Tickets needs to be connected to your Eventbrite account via an App Key/Client Secret. If you haven't yet configured one, do so at %1$s. When configuring your application, make sure to set the OAuth Redirect URI set to %2$s. Once your App Key and Client Secret are configured plug them in below, \"Save\" the page, and hit the \"Get Authorization\" button that appears once the Key + Secret have saved. After you've been authorized you'll be ready to start syncing Events!"
 msgstr ""
 
-#: src/Tribe/Main.php:1254 src/Tribe/Sync/Event.php:465
+#: src/Tribe/Main.php:1264 src/Tribe/Sync/Event.php:465
 msgid "The dates you have chosen for your ticket sales are inconsistent: %s"
 msgstr ""
 
-#: src/Tribe/Main.php:1245 src/Tribe/Sync/Event.php:456
+#: src/Tribe/Main.php:1255 src/Tribe/Sync/Event.php:456
 msgid "Ticket sales start and end datetime must not be the same"
 msgstr ""
 
-#: src/Tribe/Main.php:1184 src/Tribe/Sync/Event.php:385
+#: src/Tribe/Main.php:1194 src/Tribe/Sync/Event.php:385
 msgid "Missing Fields: %s"
 msgstr ""
 
-#: src/Tribe/Main.php:1136 src/Tribe/Sync/Event.php:337
+#: src/Tribe/Main.php:1146 src/Tribe/Sync/Event.php:337
 msgid "An organizer is required"
 msgstr ""
 
-#: src/Tribe/Main.php:1098 src/Tribe/Sync/Event.php:281
+#: src/Tribe/Main.php:1108 src/Tribe/Sync/Event.php:281
 msgid "The venue is missing"
 msgstr ""
 
-#: src/Tribe/Main.php:1089 src/Tribe/Sync/Event.php:259
+#: src/Tribe/Main.php:1099 src/Tribe/Sync/Event.php:259
 msgid "An Event Title is required"
 msgstr ""
 
@@ -258,11 +258,11 @@ msgstr ""
 msgid "You must set a price for the ticket"
 msgstr "Tienes que poner un precio al ticket"
 
-#: src/Tribe/Main.php:1674
+#: src/Tribe/Main.php:1684
 msgid "When configuring your application, make sure to set the <strong>OAuth Redirect URI</strong> on Eventbrite to the value above. <strong>We recommend you copy and paste this as it must be identical to what you see above.</strong>"
 msgstr "Cuando configures la aplicación, asegúrate de introducir el valor anterior en el campo <strong>OAuth Redirect URI</strong> en Eventbrite. <strong>Te recomendamos copiar y pegar esto, ya que el valor debe ser idéntico al que se ve arriba.</strong>"
 
-#: src/Tribe/Main.php:1334
+#: src/Tribe/Main.php:1344
 msgid "Invalid URL for the event"
 msgstr "URL inválida para el evento"
 
@@ -519,31 +519,31 @@ msgstr "Importar evento desde Eventbrite"
 msgid "The content field must be empty in order to import the event description."
 msgstr "El campo contenido debe estar vacío para poder importar la descripción del evento."
 
-#: src/Tribe/Main.php:1721
+#: src/Tribe/Main.php:1731
 msgid "detailed walkthrough"
 msgstr "paso a paso detallado"
 
-#: src/Tribe/Main.php:1721
+#: src/Tribe/Main.php:1731
 msgid "See our %s."
 msgstr "Mira nuestro %s."
 
-#: src/Tribe/Main.php:1707
+#: src/Tribe/Main.php:1717
 msgid "Get Authorization"
 msgstr "Obtener autorización"
 
-#: src/Tribe/Main.php:1686
+#: src/Tribe/Main.php:1696
 msgid "Client Secret"
 msgstr "Client Secret"
 
-#: src/Tribe/Main.php:1681
+#: src/Tribe/Main.php:1691
 msgid "Application Key"
 msgstr "Clave de aplicación"
 
-#: src/Tribe/Main.php:1673
+#: src/Tribe/Main.php:1683
 msgid "Auth URL"
 msgstr "URL Auth"
 
-#: src/Tribe/Main.php:1662
+#: src/Tribe/Main.php:1672
 msgid "http://m.tri.be/vp"
 msgstr "http://m.tri.be/vp"
 
@@ -551,11 +551,11 @@ msgstr "http://m.tri.be/vp"
 msgid "Import Events"
 msgstr "Importar Eventos"
 
-#: src/Tribe/Main.php:870 src/Tribe/Main.php:1636 src/Tribe/Main.php:1657
+#: src/Tribe/Main.php:880 src/Tribe/Main.php:1646 src/Tribe/Main.php:1667
 msgid "Eventbrite"
 msgstr "Eventbrite"
 
-#: src/Tribe/Main.php:1621
+#: src/Tribe/Main.php:1631
 msgid "Import"
 msgstr "Importar"
 
@@ -567,89 +567,89 @@ msgstr "Usted no ha creado entradas para su evento. Usted no podrá publicar est
 msgid "Eventbrite status is set to DRAFT. You can update this in the 'Eventbrite Information' section further down this page."
 msgstr "El estatus de Eventbrite se encuentra en BORRADOR. Usted puede actualizar esto en la sección 'Información de Eventbrite' más abajo en esta página."
 
-#: src/Tribe/Main.php:1582
+#: src/Tribe/Main.php:1592
 msgid "Import: Eventbrite"
 msgstr "Importar: Eventbrite"
 
-#: src/Tribe/Main.php:1581
+#: src/Tribe/Main.php:1591
 msgid "Import: Eventbrite "
 msgstr "Importar: Eventbrite"
 
-#: src/Tribe/Main.php:1455
+#: src/Tribe/Main.php:1465
 msgid "We were unable to import your Eventbrite event. Please try again."
 msgstr "No se pudo importar el evento de Eventbrite. Por favor intente de nuevo."
 
-#: src/Tribe/Main.php:1358
+#: src/Tribe/Main.php:1368
 msgid "Event already imported."
 msgstr "El evento ya ha sido importado con anterioridad."
 
-#: src/Tribe/Main.php:1325 src/Tribe/Main.php:1348 src/Tribe/Main.php:1354
+#: src/Tribe/Main.php:1335 src/Tribe/Main.php:1358 src/Tribe/Main.php:1364
 msgid "We were unable to import your Eventbrite event. Please verify the event id and try again."
 msgstr "No se pudo importar el evento de Eventbrite. Por favor verifique el id del evento e intente nuevamente."
 
-#: src/Tribe/Main.php:1241 src/Tribe/Sync/Event.php:452
+#: src/Tribe/Main.php:1251 src/Tribe/Sync/Event.php:452
 msgid "Ticket sales start date cannot be after ticket sales end date"
 msgstr "La fecha de comienzo de venta de entradas no puede ser posterior a la fecha de cierre de ventas"
 
-#: src/Tribe/Main.php:1237 src/Tribe/Sync/Event.php:448
+#: src/Tribe/Main.php:1247 src/Tribe/Sync/Event.php:448
 msgid "Ticket sales end date cannot be after the event ends"
 msgstr "La fecha de finalización de venta de entradas no puede ser posterior al final del evento"
 
-#: src/Tribe/Main.php:1168 src/Tribe/Sync/Event.php:369
+#: src/Tribe/Main.php:1178 src/Tribe/Sync/Event.php:369
 msgid "Ticket Cost (must be numeric)"
 msgstr "Costo de la Entrada (debe ser un valor)"
 
-#: src/Tribe/Main.php:1147 src/Tribe/Sync/Event.php:350
+#: src/Tribe/Main.php:1157 src/Tribe/Sync/Event.php:350
 msgid "Ticket - Include Fee in Price"
 msgstr "Entrada - Incluya comisión en el precio"
 
-#: src/Tribe/Main.php:1146 src/Tribe/Sync/Event.php:349
+#: src/Tribe/Main.php:1156 src/Tribe/Sync/Event.php:349
 msgid "Ticket Quantity"
 msgstr "Cantidad de Entradas"
 
-#: src/Tribe/Main.php:1145 src/Tribe/Sync/Event.php:348
+#: src/Tribe/Main.php:1155 src/Tribe/Sync/Event.php:348
 msgid "Ticket Cost"
 msgstr "Costo de la Entrada"
 
-#: src/Tribe/Main.php:1144 src/Tribe/Sync/Event.php:347
+#: src/Tribe/Main.php:1154 src/Tribe/Sync/Event.php:347
 msgid "Ticket Type"
 msgstr "Tipo de Entrada"
 
-#: src/Tribe/Main.php:1143 src/Tribe/Sync/Event.php:346
+#: src/Tribe/Main.php:1153 src/Tribe/Sync/Event.php:346
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:342
 msgid "Date to End Ticket Sales"
 msgstr "Fecha en que termina la venta de Entradas"
 
-#: src/Tribe/Main.php:1142 src/Tribe/Sync/Event.php:345
+#: src/Tribe/Main.php:1152 src/Tribe/Sync/Event.php:345
 #: src/views/eventbrite/eventbrite-meta-box-extension.php:321
 msgid "Date to Start Ticket Sales"
 msgstr "Fecha para el comienzo de Venta de Entradas"
 
-#: src/Tribe/Main.php:1141 src/Tribe/Sync/Event.php:344
+#: src/Tribe/Main.php:1151 src/Tribe/Sync/Event.php:344
 msgid "Ticket Name"
 msgstr "Nombre de la Entrada"
 
-#: src/Tribe/Main.php:1111 src/Tribe/Sync/Event.php:297
+#: src/Tribe/Main.php:1121 src/Tribe/Sync/Event.php:297
 msgid "This Venue is missing the City"
 msgstr "Este recinto no tiene ciudad"
 
-#: src/Tribe/Main.php:1107 src/Tribe/Sync/Event.php:293
+#: src/Tribe/Main.php:1117 src/Tribe/Sync/Event.php:293
 msgid "No Address for this Venue"
 msgstr "Este recinto no tiene dirección"
 
-#: src/Tribe/Main.php:1103 src/Tribe/Sync/Event.php:289
+#: src/Tribe/Main.php:1113 src/Tribe/Sync/Event.php:289
 msgid "The Venue is missing the Title"
 msgstr "El recinto no tiene título"
 
-#: src/Tribe/Main.php:1744
+#: src/Tribe/Main.php:1754
 msgid "The request wasn't sent from this tab."
 msgstr "La solicitud no se ha enviado desde esta pestaña."
 
-#: src/Tribe/Main.php:1738
+#: src/Tribe/Main.php:1748
 msgid "The request was sent insecurely."
 msgstr "La solicitud se ha enviado de forma insegura."
 
-#: src/Tribe/Main.php:983
+#: src/Tribe/Main.php:993
 msgid "You don't have permission to do that."
 msgstr "No tienes permiso para hacer eso."
 
@@ -715,13 +715,13 @@ msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr "&#8220;"
 
-#: src/Tribe/Event.php:233 src/Tribe/Main.php:477
+#: src/Tribe/Event.php:239 src/Tribe/Main.php:477
 #: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1301
 #: src/views/eventbrite/eventbrite-events-table.php:111
 msgid "Donation"
 msgstr "Donación"
 
-#: src/Tribe/Event.php:201 src/Tribe/Event.php:237 src/Tribe/Main.php:476
+#: src/Tribe/Event.php:207 src/Tribe/Event.php:243 src/Tribe/Main.php:476
 #: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1269
 #: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:1305
 #: src/views/eventbrite/eventbrite-events-table.php:109
@@ -738,7 +738,7 @@ msgstr "Este evento necesita un organizador para sincronizarse con Eventbrite."
 msgid "This Event requires a Title to sync to Eventbrite."
 msgstr "Este evento necesita un título para sincronizarse con Eventbrite."
 
-#: src/Tribe/Main.php:1083 src/Tribe/Sync/Event.php:30
+#: src/Tribe/Main.php:1093 src/Tribe/Sync/Event.php:30
 #: src/Tribe/Sync/Main.php:87
 #: src/deprecated/Tribe__Events__Tickets__Eventbrite__API.php:774
 msgid "This Event is a revision and cannot sync to Eventbrite."

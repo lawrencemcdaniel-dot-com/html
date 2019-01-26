@@ -31,28 +31,28 @@ function avada_options_section_background( $sections ) {
 		'priority' => 11,
 		'icon'     => 'el-icon-photo',
 		'fields'   => array(
-			'page_bg_subsection' => array(
+			'page_bg_subsection'         => array(
 				'label'       => esc_html__( 'Page Background', 'Avada' ),
 				'description' => '',
 				'id'          => 'page_bg_subsection',
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'bg_image' => array(
-						'label'           => esc_html__( 'Background Image For Page', 'Avada' ),
-						'description'     => esc_html__( 'Select an image to use for a full page background.', 'Avada' ),
-						'id'              => 'bg_image',
-						'default'         => '',
-						'mod'             => '',
-						'type'            => 'media',
+					'bg_image'          => array(
+						'label'       => esc_html__( 'Background Image For Page', 'Avada' ),
+						'description' => esc_html__( 'Select an image to use for a full page background.', 'Avada' ),
+						'id'          => 'bg_image',
+						'default'     => '',
+						'mod'         => '',
+						'type'        => 'media',
 					),
-					'bg_full' => array(
-						'label'           => esc_html__( '100% Background Image', 'Avada' ),
-						'description'     => esc_html__( 'Turn on to have the page background image display at 100% in width and height according to the window size.', 'Avada' ),
-						'id'              => 'bg_full',
-						'default'         => '0',
-						'type'            => 'switch',
-						'required'        => array(
+					'bg_full'           => array(
+						'label'       => esc_html__( '100% Background Image', 'Avada' ),
+						'description' => esc_html__( 'Turn on to have the page background image display at 100% in width and height according to the window size.', 'Avada' ),
+						'id'          => 'bg_full',
+						'default'     => '0',
+						'type'        => 'switch',
+						'required'    => array(
 							array(
 								'setting'  => 'bg_image',
 								'operator' => '!=',
@@ -62,7 +62,7 @@ function avada_options_section_background( $sections ) {
 								'setting'  => 'bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -78,13 +78,13 @@ function avada_options_section_background( $sections ) {
 							),
 						),
 					),
-					'bg_repeat' => array(
-						'label'           => esc_html__( 'Background Repeat', 'Avada' ),
-						'description'     => esc_html__( 'Controls how the background image repeats.', 'Avada' ),
-						'id'              => 'bg_repeat',
-						'default'         => 'no-repeat',
-						'type'            => 'select',
-						'choices'         => array(
+					'bg_repeat'         => array(
+						'label'       => esc_html__( 'Background Repeat', 'Avada' ),
+						'description' => esc_html__( 'Controls how the background image repeats.', 'Avada' ),
+						'id'          => 'bg_repeat',
+						'default'     => 'no-repeat',
+						'type'        => 'select',
+						'choices'     => array(
 							'repeat'    => esc_html__( 'Repeat All', 'Avada' ),
 							'repeat-x'  => esc_html__( 'Repeat Horizontally', 'Avada' ),
 							'repeat-y'  => esc_html__( 'Repeat Vertically', 'Avada' ),
@@ -100,7 +100,7 @@ function avada_options_section_background( $sections ) {
 								'setting'  => 'bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -116,26 +116,26 @@ function avada_options_section_background( $sections ) {
 							),
 						),
 					),
-					'bg_color' => array(
-						'label'           => esc_html__( 'Background Color For Page', 'Avada' ),
-						'description'     => esc_html__( 'Controls the background color for the page. When the color value is set to anything below 100% opacity, the color will overlay the background image if one is uploaded.', 'Avada' ),
-						'id'              => 'bg_color',
-						'default'         => '#d7d6d6',
-						'type'            => 'color-alpha',
+					'bg_color'          => array(
+						'label'       => esc_html__( 'Background Color For Page', 'Avada' ),
+						'description' => esc_html__( 'Controls the background color for the page. When the color value is set to anything below 100% opacity, the color will overlay the background image if one is uploaded.', 'Avada' ),
+						'id'          => 'bg_color',
+						'default'     => '#d7d6d6',
+						'type'        => 'color-alpha',
 					),
 					'bg_pattern_option' => array(
-						'label'           => esc_html__( 'Background Pattern', 'Avada' ),
-						'description'     => esc_html__( 'Turn on to display a pattern in the page background.', 'Avada' ),
-						'id'              => 'bg_pattern_option',
-						'default'         => '0',
-						'type'            => 'switch',
+						'label'       => esc_html__( 'Background Pattern', 'Avada' ),
+						'description' => esc_html__( 'Turn on to display a pattern in the page background.', 'Avada' ),
+						'id'          => 'bg_pattern_option',
+						'default'     => '0',
+						'type'        => 'switch',
 					),
-					'bg_pattern' => array(
-						'label'           => esc_html__( 'Select a Background Pattern', 'Avada' ),
-						'id'              => 'bg_pattern',
-						'default'         => 'pattern1',
-						'type'            => 'radio-image',
-						'choices'         => array(
+					'bg_pattern'        => array(
+						'label'    => esc_html__( 'Select a Background Pattern', 'Avada' ),
+						'id'       => 'bg_pattern',
+						'default'  => 'pattern1',
+						'type'     => 'radio-image',
+						'choices'  => array(
 							'pattern1'  => Avada::$template_dir_url . '/assets/images/patterns/pattern1.png',
 							'pattern2'  => Avada::$template_dir_url . '/assets/images/patterns/pattern2.png',
 							'pattern3'  => Avada::$template_dir_url . '/assets/images/patterns/pattern3.png',
@@ -159,7 +159,7 @@ function avada_options_section_background( $sections ) {
 							'pattern21' => Avada::$template_dir_url . '/assets/images/patterns/pattern21.png',
 							'pattern22' => Avada::$template_dir_url . '/assets/images/patterns/pattern22.png',
 						),
-						'required'    => array(
+						'required' => array(
 							array(
 								'setting'  => 'bg_pattern_option',
 								'operator' => '==',
@@ -176,14 +176,14 @@ function avada_options_section_background( $sections ) {
 				'icon'        => true,
 				'type'        => 'sub-section',
 				'fields'      => array(
-					'content_bg_color' => array(
+					'content_bg_color'  => array(
 						'label'       => esc_html__( 'Main Content Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color of the main content area.', 'Avada' ),
 						'id'          => 'content_bg_color',
 						'default'     => '#ffffff',
 						'type'        => 'color-alpha',
 					),
-					'content_bg_image' => array(
+					'content_bg_image'  => array(
 						'label'       => esc_html__( 'Background Image For Main Content Area', 'Avada' ),
 						'description' => esc_html__( 'Select an image to use for the main content area background.', 'Avada' ),
 						'id'          => 'content_bg_image',
@@ -191,7 +191,7 @@ function avada_options_section_background( $sections ) {
 						'mod'         => '',
 						'type'        => 'media',
 					),
-					'content_bg_full' => array(
+					'content_bg_full'   => array(
 						'label'       => esc_html__( '100% Background Image', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the main content background image display at 100% in width and height according to the window size.', 'Avada' ),
 						'id'          => 'content_bg_full',
@@ -207,7 +207,7 @@ function avada_options_section_background( $sections ) {
 								'setting'  => 'content_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -245,7 +245,7 @@ function avada_options_section_background( $sections ) {
 								'setting'  => 'content_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(

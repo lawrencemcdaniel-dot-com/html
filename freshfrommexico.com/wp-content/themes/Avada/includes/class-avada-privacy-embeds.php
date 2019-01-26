@@ -229,7 +229,7 @@ class Avada_Privacy_Embeds {
 	 */
 	public function set_embed_types() {
 
-		$this->embed_types = apply_filters(
+		$this->embed_types    = apply_filters(
 			'fusion_privacy_embeds',
 			array(
 				'youtube'    => array(

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php the_post(); ?>
 		<?php $page_id = get_the_ID(); ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<?php echo fusion_render_rich_snippets_for_pages(); // WPCS: XSS ok.?>
+			<?php echo fusion_render_rich_snippets_for_pages(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php avada_featured_images_for_pages(); ?>
 			<div class="post-content">
 				<?php the_content(); ?>

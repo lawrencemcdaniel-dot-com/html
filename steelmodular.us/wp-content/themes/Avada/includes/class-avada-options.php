@@ -90,6 +90,7 @@ class Avada_Options {
 			'privacy',
 			'extra',
 			'advanced',
+			'performance',
 			'bbpress',
 			'woocommerce',
 			'events_calendar',

@@ -53,33 +53,35 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 						<td class="product-name">
 							<?php // ThemeFusion edit for Avada theme: add thumbnail to product name column. ?>
-							<span class="product-thumbnail">
-								<?php
-									$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+							<div class="fusion-product-name-wrapper">
+								<span class="product-thumbnail">
+									<?php
+										$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
+										if ( ! $product_permalink ) {
+											echo $thumbnail;
+										} else {
+											printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+										}
+									?>
+								</span>
+								<div class="product-info">
+									<?php
 									if ( ! $product_permalink ) {
-										echo $thumbnail;
+										echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;';
 									} else {
-										printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+										echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key );
 									}
-								?>
-							</span>
-							<div class="product-info">
-								<?php
-								if ( ! $product_permalink ) {
-									echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;';
-								} else {
-									echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key );
-								}
 
-								// Meta data
-								echo WC()->cart->get_item_data( $cart_item );
+									// Meta data
+									echo WC()->cart->get_item_data( $cart_item );
 
-								// Backorder notification
-								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
-									echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
-								}
-								?>
+									// Backorder notification
+									if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
+										echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
+									}
+									?>
+								</div>
 							</div>
 						</td>
 

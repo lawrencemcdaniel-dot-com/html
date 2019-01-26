@@ -23,6 +23,8 @@ function slide_anything_shortcode($atts) {
 		wp_enqueue_script('magnific-popup_js');
 		wp_register_style('magnific-popup_css', SA_PLUGIN_PATH.'magnific-popup/magnific-popup.css', array(), '1.1.0', 'all');
 		wp_enqueue_style('magnific-popup_css');
+		wp_register_script('owl_thumbs_js', SA_PLUGIN_PATH.'owl-carousel/owl.carousel2.thumbs.min.js', array('jquery'), '0.1.8', true);
+		wp_enqueue_script('owl_thumbs_js');
 	}
 
 	// EXTRACT SHORTCODE ATTRIBUTES
@@ -61,11 +63,24 @@ function slide_anything_shortcode($atts) {
 				} else {
 					$slide_data["slide".$i."_content"] = $metadata["sa_slide".$i."_content"][0];
 				}
-				$slide_data["slide".$i."_image_id"] = $metadata["sa_slide".$i."_image_id"][0];
-				$slide_data["slide".$i."_image_pos"] = $metadata["sa_slide".$i."_image_pos"][0];
-				$slide_data["slide".$i."_image_size"] = $metadata["sa_slide".$i."_image_size"][0];
-				$slide_data["slide".$i."_image_repeat"] = $metadata["sa_slide".$i."_image_repeat"][0];
-				$slide_data["slide".$i."_image_color"] = $metadata["sa_slide".$i."_image_color"][0];
+				$slide_image_data = '';
+				if (isset($metadata["sa_slide".$i."_image_data"])) {
+					$slide_image_data = $metadata["sa_slide".$i."_image_data"][0];
+				}
+				if (isset($slide_image_data) && ($slide_image_data != '')) {
+					$data_arr = explode("~", $slide_image_data);
+					$slide_data["slide".$i."_image_id"] = $data_arr[0];
+					$slide_data["slide".$i."_image_pos"] = $data_arr[1];
+					$slide_data["slide".$i."_image_size"] = $data_arr[2];
+					$slide_data["slide".$i."_image_repeat"] = $data_arr[3];
+					$slide_data["slide".$i."_image_color"] = $data_arr[4];
+				} else {
+					$slide_data["slide".$i."_image_id"] = $metadata["sa_slide".$i."_image_id"][0];
+					$slide_data["slide".$i."_image_pos"] = $metadata["sa_slide".$i."_image_pos"][0];
+					$slide_data["slide".$i."_image_size"] = $metadata["sa_slide".$i."_image_size"][0];
+					$slide_data["slide".$i."_image_repeat"] = $metadata["sa_slide".$i."_image_repeat"][0];
+					$slide_data["slide".$i."_image_color"] = $metadata["sa_slide".$i."_image_color"][0];
+				}
 				$slide_data["slide".$i."_link_url"] = $metadata["sa_slide".$i."_link_url"][0];
 				$slide_data["slide".$i."_link_target"] = $metadata["sa_slide".$i."_link_target"][0];
 				if ($slide_data["slide".$i."_link_target"] == '') {
@@ -226,6 +241,29 @@ function slide_anything_shortcode($atts) {
 			if (isset($metadata['sa_lazy_load_images'])) {
 				$slide_data['lazy_load_images'] = $metadata['sa_lazy_load_images'][0];
 			}
+			// hero slider and slider thumbnails
+			$slide_data['hero_slider'] = '0';
+			$slide_data['thumbs_active'] = '0';
+			if ($sa_pro_version) {
+				$slide_data['hero_slider'] = $metadata['sa_hero_slider'][0];
+				if ($slide_data['hero_slider'] != '1') {
+					$slide_data['hero_slider'] = '0';
+				}
+				$slide_data['thumbs_active'] = $metadata['sa_thumbs_active'][0];
+				if ($slide_data['thumbs_active'] != '1') {
+					$slide_data['thumbs_active'] = '0';
+				}
+				$slide_data['thumbs_location'] = $metadata['sa_thumbs_location'][0];
+				$slide_data['thumbs_image_size'] = $metadata['sa_thumbs_image_size'][0];
+				$slide_data['thumbs_padding'] = $metadata['sa_thumbs_padding'][0];
+				$slide_data['thumbs_width'] = $metadata['sa_thumbs_width'][0];
+				$slide_data['thumbs_height'] = $metadata['sa_thumbs_height'][0];
+				$slide_data['thumbs_opacity'] = $metadata['sa_thumbs_opacity'][0];
+				$slide_data['thumbs_border_width'] = $metadata['sa_thumbs_border_width'][0];
+				$slide_data['thumbs_border_color'] = $metadata['sa_thumbs_border_color'][0];
+				$slide_data['thumbs_resp_tablet'] = $metadata['sa_thumbs_resp_tablet'][0];
+				$slide_data['thumbs_resp_mobile'] = $metadata['sa_thumbs_resp_mobile'][0];
+			}
 
 			// REVERSE THE ORDER OF THE SLIDES IF 'Random Order' CHECKBOX IS CHECKED OR
 			// RE-ORDER SLIDES IN A RANDOM ORDER IF 'Random Order' CHECKBOX IS CHECKED
@@ -312,7 +350,11 @@ function slide_anything_shortcode($atts) {
 					$additional_classes = "autohide-arrows";
 				}
 			}
-			$output .= "<div id='".esc_attr($slide_data['css_id'])."' class='owl-carousel sa_owl_theme ".$additional_classes."' style='visibility:hidden;'>\n";
+			if ($slide_data['hero_slider'] == '1') {
+				$additional_classes .= " sa_hero_slider";
+			}
+			$output .= "<div id='".esc_attr($slide_data['css_id'])."' class='owl-carousel sa_owl_theme ".$additional_classes."' ";
+			$output .= "data-slider-id='".esc_attr($slide_data['css_id'])."' style='visibility:hidden;'>\n";
 			if ($sa_pro_version) {
 				// PRO VERSION - INITIALISE VAIRABLES FOR MAGNIFIC POPUP
 				$lightbox_function = "open_lightbox_gallery_".$slide_data['css_id'];
@@ -424,8 +466,55 @@ function slide_anything_shortcode($atts) {
 				}
 				$output .= $slide_content."</div>\n"; // .sa_hover_container
 			}
-			$output .= "</div>\n";
-			$output .= "</div>\n";
+			$output .= "</div>\n"; // .owl-carousel
+
+
+
+			// PRO VERSION - THUMBNAIL PAGINATION
+			if (($sa_pro_version) && ($slide_data['thumbs_active'] == '1')) {
+				$thumbs_loc = $slide_data['thumbs_location'];
+				$thumbs_opacity = $slide_data['thumbs_opacity'] / 100;
+				// thumbnail container - set style
+				$thumbs_style = " padding:".$slide_data['thumbs_padding']."%;";
+				if ($thumbs_loc == 'inside_left') {
+					$thumbs_style .= "left:".$slide_data['thumbs_padding']."%; width:".$slide_data['thumbs_width']."px;";
+				} elseif ($thumbs_loc == 'inside_right') {
+					$thumbs_style .= "right:".$slide_data['thumbs_padding']."%; width:".$slide_data['thumbs_width']."px;";
+				} elseif ($thumbs_loc == 'outside_bottom') {
+					$thumbs_style .= " padding-bottom:0px;";
+				}
+				$add_classes = '';
+				if ($slide_data['thumbs_resp_tablet'] == 0) { $add_classes .= ' sa_thumbs_hide_tablet'; }
+				if ($slide_data['thumbs_resp_mobile'] == 0) { $add_classes .= ' sa_thumbs_hide_mobile'; }
+				$output .= "<div id='".esc_attr($slide_data['css_id'])."_thumbs' class='sa_owl_thumbs_wrap sa_thumbs_".$thumbs_loc.$add_classes."' style='".$thumbs_style."'>";
+				$output .= "<div class='owl-thumbs' data-slider-id='".esc_attr($slide_data['css_id'])."'>";
+				for ($i = 1; $i <= $slide_data['num_slides']; $i++) {
+					// get background image for the thumb (slide image background)
+					if ($slide_data["slide".$i."_image_id"] != 0) {
+						$thumb_image_src = wp_get_attachment_image_src($slide_data["slide".$i."_image_id"], $slide_data['thumbs_image_size']);
+						$thumb_image_src = $thumb_image_src[0];
+					} else {
+						// use a placeholder image if slide has no background image
+						$thumb_image_src = SA_PLUGIN_PATH."images/image_placeholder.jpg";
+					}
+					// thumbnail - set style
+					$thumb_style =  "background-image:url(\"".$thumb_image_src."\"); ";
+					$thumb_style .= "width:".$slide_data['thumbs_width']."px; ";
+					$thumb_style .= "height:".$slide_data['thumbs_height']."px; ";
+					$thumb_style .= "background-position:".$slide_data["slide".$i."_image_pos"]."; ";
+					$thumb_style .= "background-size:".$slide_data["slide".$i."_image_size"]."; ";
+					$thumb_style .= "background-repeat:".$slide_data["slide".$i."_image_repeat"]."; ";
+					$thumb_style .= "opacity:".$thumbs_opacity."; ";
+					$thumb_style .= "border:solid ".$slide_data['thumbs_border_width']."px transparent";
+					$output .= "<div class='owl-thumb-item' style='".$thumb_style."' title='Slide ".$i."'></div>";
+				}
+				$output .= "</div>";		// .sa_owl_thumbs
+				$output .= "</div>\n";	// .sa_owl_thumbs_wrap
+			}
+
+
+
+			$output .= "</div>\n"; // .white or .black
 
 
 
@@ -464,6 +553,7 @@ function slide_anything_shortcode($atts) {
 			} else {
 				$single_item = 0;
 			}
+
 			$output .= "<script type='text/javascript'>\n";
 			if ($slide_data['sa_window_onload'] == '1') {
 				$output .= "	document.addEventListener('DOMContentLoaded', function() {\n";
@@ -545,6 +635,10 @@ function slide_anything_shortcode($atts) {
 				$output .= "			lazyLoad : true,\n";
 				$output .= "			lazyLoadEager: 1,\n";
 			}
+			if (($sa_pro_version) && ($slide_data['thumbs_active'] == '1')) {
+				$output .= "			thumbs : true,\n";
+				$output .= "			thumbsPrerendered : true,\n";
+			}
 			$output .= "			mouseDrag : ".esc_attr($slide_data['mouse_drag']).",\n";
 			$output .= "			touchDrag : ".esc_attr($slide_data['touch_drag'])."\n";
 			$output .= "		});\n";
@@ -553,51 +647,110 @@ function slide_anything_shortcode($atts) {
 			$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."').css('visibility', 'visible');\n";
 
 			// JAVASCRIPT 'WINDOW RESIZE' EVENT TO SET CSS 'min-height' OF SLIDES WITHIN THIS SLIDER
-			$slide_min_height = $slide_data['slide_min_height_perc'];
-			if (strpos($slide_min_height, 'px') !== false) {
-				$slide_min_height = 0;
+			if ($slide_data['hero_slider'] != '1') {
+				$slide_min_height = $slide_data['slide_min_height_perc'];
+				if (strpos($slide_min_height, 'px') !== false) {
+					$slide_min_height = 0;
+				}
+				if (($slide_min_height != '') && ($slide_min_height != '0')) {
+					$output .= "		sa_resize_".esc_attr($slide_data['css_id'])."();\n";	// initial call of resize function
+					$output .= "		window.addEventListener('resize', sa_resize_".esc_attr($slide_data['css_id']).");\n"; // create resize event
+											// RESIZE EVENT FUNCTION (to set slide CSS 'min-heigh')
+					$output .= "		function sa_resize_".esc_attr($slide_data['css_id'])."() {\n";
+												// get slide min height setting
+					$output .= "			var min_height = '".$slide_min_height."';\n";
+												// get window width
+					$output .= "			var win_width = jQuery(window).width();\n";
+					$output .= "			var slider_width = jQuery('#".esc_attr($slide_data['css_id'])."').width();\n";
+												// calculate slide width according to window width & number of slides
+					$output .= "			if (win_width < 480) {\n";
+					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width1']).";\n";
+					$output .= "			} else if (win_width < 768) {\n";
+					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width2']).";\n";
+					$output .= "			} else if (win_width < 980) {\n";
+					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width3']).";\n";
+					$output .= "			} else if (win_width < 1200) {\n";
+					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width4']).";\n";
+					$output .= "			} else if (win_width < 1500) {\n";
+					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width5']).";\n";
+					$output .= "			} else {\n";
+					$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width6']).";\n";
+					$output .= "			}\n";
+					$output .= "			slide_width = Math.round(slide_width);\n";
+												// calculate CSS 'min-height' using the captured 'min-height' data settings for this slider
+					$output .= "			var slide_height = '0';\n";
+					$output .= "			if (min_height == 'aspect43') {\n";
+					$output .= "				slide_height = (slide_width / 4) * 3;";
+					$output .= "				slide_height = Math.round(slide_height);\n";
+					$output .= "			} else if (min_height == 'aspect169') {\n";
+					$output .= "				slide_height = (slide_width / 16) * 9;";
+					$output .= "				slide_height = Math.round(slide_height);\n";
+					$output .= "			} else {\n";
+					$output .= "				slide_height = (slide_width / 100) * min_height;";
+					$output .= "				slide_height = Math.round(slide_height);\n";
+					$output .= "			}\n";
+												// set the slide 'min-height' css value
+					$output .= "			jQuery('#".esc_attr($slide_data['css_id'])." .owl-item .sa_hover_container').css('min-height', slide_height+'px');\n";
+					$output .= "		}\n";
+				}
 			}
-			if (($slide_min_height != '') && ($slide_min_height != '0')) {
-				$output .= "		sa_resize_".esc_attr($slide_data['css_id'])."();\n";	// initial call of resize function
-				$output .= "		window.addEventListener('resize', sa_resize_".esc_attr($slide_data['css_id']).");\n"; // create resize event
-										// RESIZE EVENT FUNCTION (to set slide CSS 'min-heigh')
-				$output .= "		function sa_resize_".esc_attr($slide_data['css_id'])."() {\n";
-											// get slide min height setting
-				$output .= "			var min_height = '".$slide_min_height."';\n";
-											// get window width
+
+
+
+			// ### PRO VERSION - JQUERY/JAVASCRIPT CODE FOR THUMBNAIL PAGINATION ###
+			if (($sa_pro_version) && ($slide_data['thumbs_active'] == '1')) {
+
+				// BORDER WIDTH IS SET - SET BORDER COLOUR TO THE ACTIVE THUMB
+				if ($slide_data['thumbs_border_width'] > 0) {
+					// 					set border colour of the active (first) thumb
+					$output .= "		jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .active').css('border-color', '".$slide_data['thumbs_border_color']."');\n";
+					$output .= "		var owl = jQuery('#".esc_attr($slide_data['css_id'])."');\n";
+					// 					owl carousel change event - set border colour of the active thumb
+					$output .= "		owl.on('changed.owl.carousel', function(event) {\n";
+					$output .= "			jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .owl-thumb-item').css('border-color', 'transparent');\n";
+					$output .= "			jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .active').css('border-color', '".$slide_data['thumbs_border_color']."');\n";
+					$output .= "		})\n";
+				}
+
+				//	RESIZE WINDOW EVENT - RESIZE THUMBS WIDTH & HEIGHT DEPENDING ON WINDOW WIDTH BREAKPOINTS
+				$output .= "		sa_resize_thumbs_".esc_attr($slide_data['css_id'])."();\n";	// initial call of resize function
+				$output .= "		window.addEventListener('resize', sa_resize_thumbs_".esc_attr($slide_data['css_id']).");\n"; // create resize event
+				$output .= "		function sa_resize_thumbs_".esc_attr($slide_data['css_id'])."() {\n";
 				$output .= "			var win_width = jQuery(window).width();\n";
-				$output .= "			var slider_width = jQuery('#".esc_attr($slide_data['css_id'])."').width();\n";
-											// calculate slide width according to window width & number of slides
-				$output .= "			if (win_width < 480) {\n";
-				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width1']).";\n";
-				$output .= "			} else if (win_width < 768) {\n";
-				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width2']).";\n";
-				$output .= "			} else if (win_width < 980) {\n";
-				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width3']).";\n";
-				$output .= "			} else if (win_width < 1200) {\n";
-				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width4']).";\n";
-				$output .= "			} else if (win_width < 1500) {\n";
-				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width5']).";\n";
+				$output .= "			var tablet_perc = parseFloat(".$slide_data['thumbs_resp_tablet']." / 100);\n";
+				$output .= "			var mobile_perc = parseFloat(".$slide_data['thumbs_resp_mobile']." / 100);\n";
+				$output .= "			var tablet_width = Math.round(".$slide_data['thumbs_width']." * tablet_perc) + 'px';\n";
+				$output .= "			var tablet_height = Math.round(".$slide_data['thumbs_height']." * tablet_perc) + 'px';\n";
+				$output .= "			var mobile_width = Math.round(".$slide_data['thumbs_width']." * mobile_perc) + 'px';\n";
+				$output .= "			var mobile_height = Math.round(".$slide_data['thumbs_height']." * mobile_perc) + 'px';\n";
+				$output .= "			if ((mobile_perc != 0) && (win_width < 768)) {\n";
+				$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .owl-thumb-item').css('width', mobile_width);\n";
+				$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .owl-thumb-item').css('height', mobile_height);\n";
+				$output .= "			} else if ((tablet_perc != 0) && (win_width < 1000)) {\n";
+				$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .owl-thumb-item').css('width', tablet_width);\n";
+				$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .owl-thumb-item').css('height', tablet_height);\n";
 				$output .= "			} else {\n";
-				$output .= "				var slide_width = slider_width / ".esc_attr($slide_data['items_width6']).";\n";
+				$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .owl-thumb-item').css('width', '".$slide_data['thumbs_width']."px');\n";
+				$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs .owl-thumbs .owl-thumb-item').css('height', '".$slide_data['thumbs_height']."px');\n";
 				$output .= "			}\n";
-				$output .= "			slide_width = Math.round(slide_width);\n";
-											// calculate CSS 'min-height' using the captured 'min-height' data settings for this slider
-				$output .= "			var slide_height = '0';\n";
-				$output .= "			if (min_height == 'aspect43') {\n";
-				$output .= "				slide_height = (slide_width / 4) * 3;";
-				$output .= "				slide_height = Math.round(slide_height);\n";
-				$output .= "			} else if (min_height == 'aspect169') {\n";
-				$output .= "				slide_height = (slide_width / 16) * 9;";
-				$output .= "				slide_height = Math.round(slide_height);\n";
-				$output .= "			} else {\n";
-				$output .= "				slide_height = (slide_width / 100) * min_height;";
-				$output .= "				slide_height = Math.round(slide_height);\n";
-				$output .= "			}\n";
-											// set the slide 'min-height' css value
-				$output .= "			jQuery('#".esc_attr($slide_data['css_id'])." .owl-item .sa_hover_container').css('min-height', slide_height+'px');\n";
+				// THUMBS POSITION 'Inside Left' or 'Inside Right' - RESIZE CONTAINER WIDTH DEPENDING ON WINDOW WIDTH BREAKPOINTS
+				if (($thumbs_loc == 'inside_left') || ($thumbs_loc == 'inside_right')) {
+					$output .= "			if ((mobile_perc != 0) && (win_width < 768)) {\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs').css('width', mobile_width);\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs').css('height', mobile_height);\n";
+					$output .= "			} else if ((tablet_perc != 0) && (win_width < 1000)) {\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs').css('width', tablet_width);\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs').css('height', tablet_height);\n";
+					$output .= "			} else {\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs').css('width', '".$slide_data['thumbs_width']."px');\n";
+					$output .= "				jQuery('#".esc_attr($slide_data['css_id'])."_thumbs').css('height', '".$slide_data['thumbs_height']."px');\n";
+					$output .= "			}\n";
+				}
 				$output .= "		}\n";
 			}
+
+
+
 			$output .= "	});\n";
 			$output .= "</script>\n";
 
@@ -708,7 +861,7 @@ function set_slide_images_to_lazy_load($slide_content) {
 
 	// 2) FOR EACH <IMG> TAG WITHIN THE SLIDE CONTENT, ADD THE 'owl-lazy' CLASS
 	$dom = new DOMDocument();
-	$dom->loadHTML($slide_content);
+	$dom->loadHTML(mb_convert_encoding($slide_content, 'HTML-ENTITIES', 'UTF-8'));
 	$imgs = $dom->getElementsByTagName('img');
 	foreach ($imgs as $img) {
 		$curr_class = $img->getAttribute('class');

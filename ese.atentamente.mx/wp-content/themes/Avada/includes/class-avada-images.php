@@ -97,7 +97,7 @@ class Avada_Images extends Fusion_Images {
 	 * @return int
 	 */
 	public function content_break_point() {
-		$side_header_width   = ( 'Top' === Avada()->settings->get( 'header_position' ) ) ? 0 : intval( Avada()->settings->get( 'side_header_width' ) );
+		$side_header_width = ( 'Top' === Avada()->settings->get( 'header_position' ) ) ? 0 : intval( Avada()->settings->get( 'side_header_width' ) );
 		return $side_header_width + intval( Avada()->settings->get( 'content_break_point' ) );
 	}
 
@@ -197,7 +197,7 @@ class Avada_Images extends Fusion_Images {
 		);
 
 		$logo_url = set_url_scheme( Avada()->settings->get( $logo_option_name, 'url' ) );
-		$logo_id = Avada()->settings->get( $logo_option_name, 'id' );
+		$logo_id  = Avada()->settings->get( $logo_option_name, 'id' );
 
 		$upload_dir_paths         = wp_upload_dir();
 		$upload_dir_paths_baseurl = set_url_scheme( $upload_dir_paths['baseurl'] );
@@ -254,22 +254,22 @@ class Avada_Images extends Fusion_Images {
 			'height'    => '',
 		);
 
-		$logo_url                     = set_url_scheme( Avada()->settings->get( $normla_logo, 'url' ) );
-		$logo_srcset_data['srcset']   = $logo_url . ' 1x';
+		$logo_url                   = set_url_scheme( Avada()->settings->get( $normla_logo, 'url' ) );
+		$logo_srcset_data['srcset'] = $logo_url . ' 1x';
 
 		// Get retina logo, if default one is not set.
 		if ( '' === $logo_url ) {
-			$logo_url                      = set_url_scheme( Avada()->settings->get( $retina_logo, 'url' ) );
-			$logo_data                     = $this->get_logo_data( $retina_logo );
-			$logo_srcset_data['style']     = '';
-			$logo_srcset_data['srcset']    = $logo_url . ' 1x';
-			$logo_srcset_data['url']       = $logo_url;
+			$logo_url                   = set_url_scheme( Avada()->settings->get( $retina_logo, 'url' ) );
+			$logo_data                  = $this->get_logo_data( $retina_logo );
+			$logo_srcset_data['style']  = '';
+			$logo_srcset_data['srcset'] = $logo_url . ' 1x';
+			$logo_srcset_data['url']    = $logo_url;
 
 			if ( '' !== $logo_data['width'] ) {
 				$logo_srcset_data['style'] = ' style="max-height:' . $logo_data['height'] . 'px;height:auto;"';
 			}
 		} else {
-			$logo_data = $this->get_logo_data( $normla_logo );
+			$logo_data                     = $this->get_logo_data( $normla_logo );
 			$logo_srcset_data['style']     = '';
 			$logo_srcset_data['url']       = $logo_url;
 			$logo_srcset_data['is_retina'] = false;

@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		// Get theme version for later.
 		$theme_version = Avada_Helper::normalize_version( $this->theme_version );
 
-		$demos = Avada_Importer_Data::get_data();
+		$demos    = Avada_Importer_Data::get_data();
 		$all_tags = array(
 			'all' => esc_attr__( 'All Demos', 'Avada' ),
 		);
@@ -74,45 +74,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		$import_stages = array(
 			array(
-				'value' => 'post',
-				'label' => esc_html__( 'Posts', 'Avada' ),
-				'data'  => 'content',
+				'value'              => 'post',
+				'label'              => esc_html__( 'Posts', 'Avada' ),
+				'data'               => 'content',
 				'feature_dependency' => 'post',
 			),
 			array(
-				'value' => 'page',
-				'label' => esc_html__( 'Pages', 'Avada' ),
-				'data'  => 'content',
+				'value'              => 'page',
+				'label'              => esc_html__( 'Pages', 'Avada' ),
+				'data'               => 'content',
 				'feature_dependency' => 'page',
 			),
 			array(
-				'value' => 'avada_portfolio',
-				'label' => esc_html__( 'Portfolios', 'Avada' ),
-				'data'  => 'content',
+				'value'              => 'avada_portfolio',
+				'label'              => esc_html__( 'Portfolios', 'Avada' ),
+				'data'               => 'content',
 				'feature_dependency' => 'avada_portfolio',
 			),
 			array(
-				'value' => 'avada_faq',
-				'label' => esc_html__( 'FAQs', 'Avada' ),
-				'data'  => 'content',
+				'value'              => 'avada_faq',
+				'label'              => esc_html__( 'FAQs', 'Avada' ),
+				'data'               => 'content',
 				'feature_dependency' => 'avada_faq',
 			),
 			array(
-				'value' => 'product',
-				'label' => esc_html__( 'Products', 'Avada' ),
-				'data'  => 'content',
+				'value'             => 'product',
+				'label'             => esc_html__( 'Products', 'Avada' ),
+				'data'              => 'content',
 				'plugin_dependency' => 'woocommerce',
 			),
 			array(
-				'value' => 'event',
-				'label' => esc_html__( 'Events', 'Avada' ),
-				'data'  => 'content',
+				'value'             => 'event',
+				'label'             => esc_html__( 'Events', 'Avada' ),
+				'data'              => 'content',
 				'plugin_dependency' => 'the-events-calendar',
 			),
 			array(
-				'value' => 'forum',
-				'label' => esc_html__( 'Forum', 'Avada' ),
-				'data'  => 'content',
+				'value'             => 'forum',
+				'label'             => esc_html__( 'Forum', 'Avada' ),
+				'data'              => 'content',
 				'plugin_dependency' => 'bbpress',
 			),
 			array(
@@ -200,7 +200,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							if ( in_array( strtolower( $demo ), $imported_data[ $import_stage['value'] ] ) ) {
 								$import_checked  = 'checked="checked" disabled';
 								$remove_disabled = 'checked="checked"';
-								$demo_imported = true;
+								$demo_imported   = true;
 							}
 						}
 						if ( ! empty( $import_stage['data'] ) ) {

@@ -109,7 +109,7 @@ class Avada_Blog {
 	}
 
 	/**
-	 * Make wordpress respect the search template on an empty search.
+	 * Make WordPress respect the search template on an empty search.
 	 *
 	 * @param  object $query The WP_Query object.
 	 * @return  object
@@ -180,7 +180,7 @@ class Avada_Blog {
 
 		if ( $test_strip_html ) {
 
-			$more = 0;
+			$more        = 0; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 			$raw_content = wp_strip_all_tags( get_the_content( '{{read_more_placeholder}}' ), '<p>' );
 
 			// Strip out all attributes.
@@ -194,7 +194,7 @@ class Avada_Blog {
 			}
 		} else {
 
-			$more = 0;
+			$more        = 0; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 			$raw_content = get_the_content( $readmore );
 			if ( $post->post_excerpt || false !== $pos ) {
 				$raw_content    = ( ! $pos ) ? rtrim( get_the_excerpt(), '[&hellip;]' ) . $readmore : $raw_content;
@@ -240,7 +240,7 @@ class Avada_Blog {
 			}
 
 			$strip_html_class = ( $test_strip_html ) ? 'strip-html' : '';
-			$content = '<div class="excerpt-container ' . $strip_html_class . '">' . do_shortcode( $content ) . '</div>';
+			$content          = '<div class="excerpt-container ' . $strip_html_class . '">' . do_shortcode( $content ) . '</div>';
 
 			return $content;
 

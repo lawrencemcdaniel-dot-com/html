@@ -3,14 +3,14 @@ Contributors: Access Keys
 Tags: notification bar, bar, responsive bar, notify bar, notify , wordpress notification bars,promo bar, top bar, bottom bar, wordpress, notifications
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
-Tested up to: 4.9
-Stable tag: 1.0.5
+Tested up to: 5.0
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Description ==
-[Homepage](https://accesspressthemes.com/) | [Product Page](https://accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/) | [Demo](http://demo.accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/) | [Documentation](https://accesspressthemes.com/documentation/apex-notification-bar-lite/)
+[Homepage](https://accesspressthemes.com/) | [Product Page](https://accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/) | [Demo](http://demo.accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/) | [Documentation](https://accesspressthemes.com/documentation/apex-notification-bar-lite/) | [Premium Version](https://1.envato.market/c/1302794/275988/4415?u=https%3A%2F%2Fcodecanyon.net%2Fitem%2Fapex-notification-bar-responsive-notification-bar-plugin-for-wordpress%2F19496995)
 
 <strong>Apex Notification Bar Lite</strong>
 Add great looking Single Notification Bar in your WordPress site with - Apex Notification Bar Lite
@@ -141,7 +141,7 @@ This plugin is highly compatible and works with any “well coded” WordPress t
 ★ Basic Support
 
 = Premium Upgrade =
-* For premium upgrade, please go [here](https://codecanyon.net/item/apex-notification-bar-responsive-notification-bar-plugin-for-wordpress/19496995?ref=AccessKeys)
+* For premium upgrade, please go [here](https://1.envato.market/c/1302794/275988/4415?u=https%3A%2F%2Fcodecanyon.net%2Fitem%2Fapex-notification-bar-responsive-notification-bar-plugin-for-wordpress%2F19496995)
 
 
 = Some Useful Links =
@@ -214,6 +214,12 @@ No, It will not affect the loading of the site in anyways.
 23.  Screenshot 23 - Controls Settings : Disable, Show/Hide, Close button
 
 == Changelog ==
+= 1.0.6 =
+* Compatibility check with latest WordPress Version.
+* Added Feature to set background color to transparent as custom design for notification bar.
+* Added Custom Options Button Font Size, Button Font weight.
+* Backend and Frontend CSS refinement work done.
+
 = 1.0.5 =
 * Added some promo content in the backend of the plugin.
 

@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-include_once wp_normalize_path( Avada::$template_dir_path . '/includes/importer/avada-import-functions.php' );
-include_once wp_normalize_path( Avada::$template_dir_path . '/includes/importer/class-avada-demo-import.php' );
-include_once wp_normalize_path( Avada::$template_dir_path . '/includes/importer/class-avada-demo-remove.php' );
+require_once wp_normalize_path( Avada::$template_dir_path . '/includes/importer/avada-import-functions.php' );
+require_once wp_normalize_path( Avada::$template_dir_path . '/includes/importer/class-avada-demo-import.php' );
+require_once wp_normalize_path( Avada::$template_dir_path . '/includes/importer/class-avada-demo-remove.php' );
 
 new Avada_Demo_Import();
 

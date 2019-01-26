@@ -454,18 +454,18 @@ final class Avada_Google_Fonts {
 	 */
 	protected function get_fonts_inline_styles() {
 
+		// If we're using local, early exit after getting the styles.
+		if ( 'local' === Avada()->settings->get( 'gfonts_load_method' ) ) {
+			return $this->get_local_fonts_css();
+		}
+
 		$transient_name = 'avada_googlefonts_contents';
-		if ( '' !== Fusion_Multilingual::get_active_language() || 'all' !== Fusion_Multilingual::get_active_language() ) {
+		if ( '' !== Fusion_Multilingual::get_active_language() && 'all' !== Fusion_Multilingual::get_active_language() ) {
 			$transient_name .= '_' . Fusion_Multilingual::get_active_language();
 		}
 
 		$contents = get_transient( $transient_name );
 		if ( false === $contents ) {
-
-			// If we're using local, early exit after getting the styles.
-			if ( 'local' === Avada()->settings->get( 'gfonts_load_method' ) ) {
-				return $this->get_local_fonts_css();
-			}
 
 			// Create the link.
 			if ( '' === $this->remote_link ) {
@@ -494,6 +494,9 @@ final class Avada_Google_Fonts {
 				set_transient( $transient_name, 'failed', DAY_IN_SECONDS );
 				return false;
 			}
+
+			// Set font display.
+			$contents = str_replace( '@font-face {', '@font-face {font-display: ' . Avada()->settings->get( 'font_face_display' ) . ';', $contents );
 
 			// Store remote HTML file in transient, expire after 24 hours.
 			set_transient( $transient_name, $contents, DAY_IN_SECONDS );

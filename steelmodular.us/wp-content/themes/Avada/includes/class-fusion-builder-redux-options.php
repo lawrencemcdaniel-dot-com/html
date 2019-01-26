@@ -114,7 +114,7 @@ class Fusion_Builder_Redux_Options {
 				'fusion_progress'                 => 'Progress Bar',
 				'fusion_recent_posts'             => 'Recent Posts',
 				'fusion_portfolio'                => 'Portfolio',
-				'rev_slider'                      => 'Revolution Slider',
+				'rev_slider'                      => 'Slider Revolution',
 				'fusion_section_separator'        => 'Section Separator',
 				'fusion_separator'                => 'Separator',
 				'fusion_sharing'                  => 'Sharing Box',

@@ -5,6 +5,7 @@
  * @summary This is the core Javascript module. Some code exists in ../core.js, the functionality there will slowly be handed over to this module.
  */
 jQuery(function($) {
+	
 	var core = {
 		/**
 		 * Indexed array of map instances
@@ -452,6 +453,10 @@ jQuery(function($) {
 		 * @return {object} The map object, or null if no such map exists
 		 */
 		getMapByID: function(id) {
+			
+			// Workaround for map ID member not set correctly
+			return MYMAP[id].map;
+			
 			for(var i = 0; i < WPGMZA.maps.length; i++) {
 				if(WPGMZA.maps[i].id == id)
 					return WPGMZA.maps[i];
@@ -745,6 +750,13 @@ jQuery(function($) {
  */
 jQuery(function($) {
 	
+	var earthRadiusMeters = 6371;
+	var piTimes360 = Math.PI / 360;
+	
+	function deg2rad(deg) {
+	  return deg * (Math.PI/180)
+	};
+	
 	/**
 	 * @class WPGMZA.Distance
 	 * @memberof WPGMZA
@@ -837,6 +849,45 @@ jQuery(function($) {
 			if(WPGMZA.settings.distance_units == WPGMZA.Distance.MILES)
 				return km * WPGMZA.Distance.MILES_PER_KILOMETER;
 			return km;
+		},
+		
+		/**
+		 * Returns the distance, in kilometers, between two LatLng's
+		 * @method between
+		 * @static
+		 * @memberof WPGMZA.Distance
+		 * @param {WPGMZA.Latlng} The first point
+		 * @param {WPGMZA.Latlng} The second point
+		 * @return {number} The distance, in kilometers
+		 */
+		between: function(a, b)
+		{
+			if(!(a instanceof WPGMZA.LatLng))
+				throw new Error("First argument must be an instance of WPGMZA.LatLng");
+			
+			if(!(b instanceof WPGMZA.LatLng))
+				throw new Error("Second argument must be an instance of WPGMZA.LatLng");
+			
+			if(a === b)
+				return 0.0;
+			
+			var lat1 = a.lat;
+			var lon1 = a.lng;
+			var lat2 = b.lat;
+			var lon2 = b.lng;
+			
+			var dLat = deg2rad(lat2-lat1);
+			var dLon = deg2rad(lon2-lon1); 
+			
+			var a = 
+				Math.sin(dLat/2) * Math.sin(dLat/2) +
+				Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+				Math.sin(dLon/2) * Math.sin(dLon/2); 
+				
+			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+			var d = earthRadiusMeters * c; // Distance in km
+			
+			return d;
 		}
 		
 	};
@@ -1340,7 +1391,7 @@ jQuery(function($) {
 		var m;
 		var regexURL = /http(s)?:\/\/[^\s]+/gm;
 		
-		if((m = message.match(/You have exceeded your (daily )?request quota for this API/)) || (m = message.match(/This API project is not authorized to use this API/)))
+		if((m = message.match(/You have exceeded your (daily )?request quota for this API/)) || (m = message.match(/This API project is not authorized to use this API/)) || (m = message.match(/^Geocoding Service: .+/)))
 		{
 			var urls = message.match(regexURL);
 			this.addErrorMessage(m[0], urls);
@@ -2190,9 +2241,6 @@ jQuery(function($) {
 	{
 		var str = element.getAttribute("data-settings");
 		var json = JSON.parse(str);
-		
-		//var id = $(element).attr("data-map-id");
-		//var json = JSON.parse(window["wpgmza_map_settings_" + id]);
 		
 		WPGMZA.assertInstanceOf(this, "MapSettings");
 		
@@ -3051,6 +3099,9 @@ jQuery(function($) {
 		if(WPGMZA.settings.wpgmza_maps_engine_dialog_done)
 			return;
 		
+		if(WPGMZA.settings.google_maps_api_key)
+			return;
+		
 		WPGMZA.mapsEngineDialog = new WPGMZA.MapsEngineDialog(element);
 		
 	});
@@ -3076,6 +3127,8 @@ jQuery(function($) {
 	WPGMZA.Marker = function(row)
 	{
 		var self = this;
+		
+		this._offset = {x: 0, y: 0};
 		
 		WPGMZA.assertInstanceOf(this, "Marker");
 		
@@ -3150,6 +3203,36 @@ jQuery(function($) {
 	WPGMZA.Marker.ANIMATION_NONE			= "0";
 	WPGMZA.Marker.ANIMATION_BOUNCE			= "1";
 	WPGMZA.Marker.ANIMATION_DROP			= "2";
+	
+	Object.defineProperty(WPGMZA.Marker.prototype, "offsetX", {
+		
+		get: function()
+		{
+			return this._offset.x;
+		},
+		
+		set: function(value)
+		{
+			this._offset.x = value;
+			this.updateOffset();
+		}
+		
+	});
+	
+	Object.defineProperty(WPGMZA.Marker.prototype, "offsetY", {
+		
+		get: function()
+		{
+			return this._offset.y;
+		},
+		
+		set: function(value)
+		{
+			this._offset.y = value;
+			this.updateOffset();
+		}
+		
+	});
 	
 	/**
 	 * Called when the marker has been added to a map
@@ -3288,6 +3371,19 @@ jQuery(function($) {
 		}
 	}
 	
+	WPGMZA.Marker.prototype.setOffset = function(x, y)
+	{
+		this._offset.x = x;
+		this._offset.y = y;
+		
+		this.updateOffset();
+	}
+	
+	WPGMZA.Marker.prototype.updateOffset = function()
+	{
+		
+	}
+	
 	/**
 	 * Returns the animation set on this marker (see WPGMZA.Marker ANIMATION_* constants).
 	 * @method
@@ -3312,6 +3408,7 @@ jQuery(function($) {
 	/**
 	 * Get the marker visibility
 	 * @method
+	 * @todo Implement
 	 * @memberof WPGMZA.Marker
 	 */
 	WPGMZA.Marker.prototype.getVisible = function()
@@ -4665,7 +4762,7 @@ jQuery(function ($) {
 	};
 
 	// Allow the Pro module to extend and create the module, only create here when Pro isn't loaded
-	if (!WPGMZA.isProVersion()) WPGMZA.integrationModules.gutenberg = WPGMZA.Integration.Gutenberg.createInstance();
+	if(!WPGMZA.isProVersion() && !(/^6/.test(WPGMZA.pro_version))) WPGMZA.integrationModules.gutenberg = WPGMZA.Integration.Gutenberg.createInstance();
 });
 
 // js/v8/compatibility/google-ui-compatibility.js
@@ -5628,12 +5725,17 @@ jQuery(function($) {
 	 * Sets the position offset of a marker
 	 * @return void
 	 */
-	WPGMZA.GoogleMarker.prototype.setOffset = function(x, y)
+	WPGMZA.GoogleMarker.prototype.updateOffset = function()
 	{
 		var self = this;
 		var icon = this.googleMarker.getIcon();
 		var img = new Image();
 		var params;
+		var x = this._offset.x;
+		var y = this._offset.y;
+		
+		if(!icon)
+			icon = WPGMZA.settings.default_marker_icon;
 		
 		if(typeof icon == "string")
 			params = {
@@ -7090,8 +7192,11 @@ jQuery(function($) {
 		this.overlay.setPosition(origin);
 	}
 	
-	WPGMZA.OLMarker.prototype.setOffset = function(x, y)
+	WPGMZA.OLMarker.prototype.updateOffset = function(x, y)
 	{
+		var x = this._offset.x;
+		var y = this._offset.y;
+		
 		this.element.style.position = "relative";
 		this.element.style.left = x + "px";
 		this.element.style.top = y + "px";

@@ -29,14 +29,14 @@ function avada_options_section_sliding_bar( $sections ) {
 		'priority' => 8,
 		'icon'     => 'el-icon-chevron-down',
 		'fields'   => array(
-			'slidingbar_widgets' => array(
+			'slidingbar_widgets'           => array(
 				'label'       => esc_html__( 'Sliding Bar on Desktops', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display the sliding bar on desktops.', 'Avada' ),
 				'id'          => 'slidingbar_widgets',
 				'default'     => '0',
 				'type'        => 'switch',
 			),
-			'mobile_slidingbar_widgets' => array(
+			'mobile_slidingbar_widgets'    => array(
 				'label'       => esc_html__( 'Sliding Bar On Mobile', 'Avada' ),
 				'description' => __( 'Turn on to display the sliding bar on mobiles. <strong>Important:</strong> Due to mobile screen sizes and overlapping issues, when this option is enabled the triangle toggle style in the top right position will be forced for square and circle desktop styles.', 'Avada' ),
 				'id'          => 'mobile_slidingbar_widgets',
@@ -50,7 +50,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_open_on_load' => array(
+			'slidingbar_open_on_load'      => array(
 				'label'       => esc_html__( 'Sliding Bar Open On Page Load', 'Avada' ),
 				'description' => esc_html__( 'Turn on to have the sliding bar open when the page loads.', 'Avada' ),
 				'id'          => 'slidingbar_open_on_load',
@@ -64,7 +64,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_position' => array(
+			'slidingbar_position'          => array(
 				'label'       => esc_html__( 'Sliding Bar Position', 'Avada' ),
 				'description' => esc_html__( 'Controls the position of the sliding bar to be in the top, right, bottom or left of the site.', 'Avada' ),
 				'id'          => 'slidingbar_position',
@@ -84,7 +84,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_width' => array(
+			'slidingbar_width'             => array(
 				'label'       => esc_html__( 'Sliding Bar Width', 'Avada' ),
 				'description' => esc_html__( 'Controls the width of the sliding bar on left/right layouts.', 'Avada' ),
 				'id'          => 'slidingbar_width',
@@ -108,7 +108,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_sticky' => array(
+			'slidingbar_sticky'            => array(
 				'label'       => esc_html__( 'Sticky Sliding Bar', 'Avada' ),
 				'description' => esc_html__( 'Turn on to enable a sticky sliding bar.', 'Avada' ),
 				'id'          => 'slidingbar_sticky',
@@ -132,7 +132,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_widgets_columns' => array(
+			'slidingbar_widgets_columns'   => array(
 				'label'       => esc_html__( 'Number of Sliding Bar Columns', 'Avada' ),
 				'description' => esc_html__( 'Controls the number of columns in the sliding bar.', 'Avada' ),
 				'id'          => 'slidingbar_widgets_columns',
@@ -151,15 +151,15 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_column_alignment' => array(
+			'slidingbar_column_alignment'  => array(
 				'label'       => esc_html__( 'Sliding Bar Column Alignment', 'Avada' ),
 				'description' => esc_html__( 'Allows your sliding bar columns to be stacked (one above the other) or floated (side by side) when using the left or right position.', 'Avada' ),
 				'id'          => 'slidingbar_column_alignment',
 				'default'     => 'stacked',
 				'type'        => 'radio-buttonset',
 				'choices'     => array(
-					'stacked'  => esc_html__( 'Stacked', 'Avada' ),
-					'floated'  => esc_html__( 'Floated', 'Avada' ),
+					'stacked' => esc_html__( 'Stacked', 'Avada' ),
+					'floated' => esc_html__( 'Floated', 'Avada' ),
 				),
 				'required'    => array(
 					array(
@@ -179,21 +179,21 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_content_padding' => array(
+			'slidingbar_content_padding'   => array(
 				'label'       => esc_html__( 'Sliding Bar Content Padding', 'Avada' ),
 				'description' => esc_html__( 'Controls the top/right/bottom/left paddings of the sliding bar area.', 'Avada' ),
 				'id'          => 'slidingbar_content_padding',
 				'default'     => array(
-					'top'     => '60px',
-					'bottom'  => '60px',
-					'left'    => '30px',
-					'right'   => '30px',
+					'top'    => '60px',
+					'bottom' => '60px',
+					'left'   => '30px',
+					'right'  => '30px',
 				),
 				'choices'     => array(
-					'top'     => true,
-					'bottom'  => true,
-					'left'    => true,
-					'right'   => true,
+					'top'    => true,
+					'bottom' => true,
+					'left'   => true,
+					'right'  => true,
 				),
 				'type'        => 'spacing',
 				'required'    => array(
@@ -204,7 +204,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_content_align' => array(
+			'slidingbar_content_align'     => array(
 				'label'       => esc_html__( 'Sliding Bar Content Alignment', 'Avada' ),
 				'description' => esc_html__( 'Controls sliding bar content alignment.', 'Avada' ),
 				'id'          => 'slidingbar_content_align',
@@ -223,7 +223,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'sliding_bar_styling_title' => array(
+			'sliding_bar_styling_title'    => array(
 				'label'       => '',
 				'description' => esc_html__( 'Sliding Bar Styling', 'Avada' ),
 				'id'          => 'sliding_bar_styling_title',
@@ -237,17 +237,17 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_toggle_style' => array(
+			'slidingbar_toggle_style'      => array(
 				'label'       => esc_html__( 'Sliding Bar Toggle Style', 'Avada' ),
 				'description' => esc_html__( 'Controls the appearance of the sliding bar toggle.', 'Avada' ),
 				'id'          => 'slidingbar_toggle_style',
 				'default'     => 'triangle',
 				'type'        => 'radio-buttonset',
 				'choices'     => array(
-					'triangle'   => esc_html__( 'Triangle', 'Avada' ),
-					'rectangle'  => esc_html__( 'Rectangle', 'Avada' ),
-					'circle'     => esc_html__( 'Circle', 'Avada' ),
-					'menu'       => esc_html__( 'Main Menu Icon', 'Avada' ),
+					'triangle'  => esc_html__( 'Triangle', 'Avada' ),
+					'rectangle' => esc_html__( 'Rectangle', 'Avada' ),
+					'circle'    => esc_html__( 'Circle', 'Avada' ),
+					'menu'      => esc_html__( 'Main Menu Icon', 'Avada' ),
 				),
 				'required'    => array(
 					array(
@@ -257,7 +257,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_bg_color' => array(
+			'slidingbar_bg_color'          => array(
 				'label'       => esc_html__( 'Sliding Bar Background Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the background color of the sliding bar.', 'Avada' ),
 				'id'          => 'slidingbar_bg_color',
@@ -271,7 +271,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_divider_color' => array(
+			'slidingbar_divider_color'     => array(
 				'label'       => esc_html__( 'Sliding Bar Item Divider Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the divider color in the sliding bar.', 'Avada' ),
 				'id'          => 'slidingbar_divider_color',
@@ -299,7 +299,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_font_size' => array(
+			'slidingbar_font_size'         => array(
 				'label'       => esc_html__( 'Sliding Bar Heading Font Size', 'Avada' ),
 				'description' => esc_html__( 'Controls the font size for the sliding bar heading text.', 'Avada' ),
 				'id'          => 'slidingbar_font_size',
@@ -317,7 +317,7 @@ function avada_options_section_sliding_bar( $sections ) {
 				),
 			),
 
-			'slidingbar_headings_color' => array(
+			'slidingbar_headings_color'    => array(
 				'label'       => esc_html__( 'Sliding Bar Headings Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the text color of the sliding bar heading font.', 'Avada' ),
 				'id'          => 'slidingbar_headings_color',
@@ -331,7 +331,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_text_color' => array(
+			'slidingbar_text_color'        => array(
 				'label'       => esc_html__( 'Sliding Bar Font Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the text color of the sliding bar font.', 'Avada' ),
 				'id'          => 'slidingbar_text_color',
@@ -345,7 +345,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_link_color' => array(
+			'slidingbar_link_color'        => array(
 				'label'       => esc_html__( 'Sliding Bar Link Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the text color of the sliding bar link font.', 'Avada' ),
 				'id'          => 'slidingbar_link_color',
@@ -359,7 +359,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_link_color_hover' => array(
+			'slidingbar_link_color_hover'  => array(
 				'label'       => esc_html__( 'Sliding Bar Link Hover Color', 'Avada' ),
 				'description' => esc_html__( 'Controls the text hover color of the sliding bar link font.', 'Avada' ),
 				'id'          => 'slidingbar_link_color_hover',
@@ -373,7 +373,7 @@ function avada_options_section_sliding_bar( $sections ) {
 					),
 				),
 			),
-			'slidingbar_border' => array(
+			'slidingbar_border'            => array(
 				'label'       => esc_html__( 'Border on Sliding Bar', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display a border line on the sliding bar which makes it stand out more.', 'Avada' ),
 				'id'          => 'slidingbar_border',

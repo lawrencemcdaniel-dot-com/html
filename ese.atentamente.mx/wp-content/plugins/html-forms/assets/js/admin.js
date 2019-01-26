@@ -865,6 +865,7 @@ function addAction(e) {
   actions.appendChild(wrap); // hide "no form actions" message
 
   actions.querySelector('#hf-form-actions-empty').style.display = 'none';
+  window.html_forms.Editor.updateFieldVariables();
 }
 
 function createDeleteActionHandler(wrap) {
@@ -1001,6 +1002,7 @@ function updatePreview() {
   var markup = editor.getValue(); // replace template tags
 
   markup = markup.replace(templateRegex, function (s, m) {
+    // if a default value was provided, use that
     if (arguments[3]) {
       return arguments[3];
     }
@@ -1062,7 +1064,8 @@ function uniq(a) {
 
 var _default = {
   init: init,
-  replaceSelection: replaceSelection
+  replaceSelection: replaceSelection,
+  updateFieldVariables: updateFieldVariables
 };
 exports.default = _default;
 

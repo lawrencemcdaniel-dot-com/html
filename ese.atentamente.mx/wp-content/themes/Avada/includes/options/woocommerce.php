@@ -373,19 +373,6 @@ function avada_options_section_woocommerce( $sections ) {
 						'id'              => 'woo_dropdown_bg_color',
 						'default'         => '#fbfaf9',
 						'type'            => 'color-alpha',
-						'class'           => 'fusion-or-gutter',
-						'required'        => array(
-							array(
-								'setting'  => 'header_position',
-								'operator' => '!=',
-								'value'    => 'Top',
-							),
-							array(
-								'setting'  => 'header_layout',
-								'operator' => '!=',
-								'value'    => 'v6',
-							),
-						),
 					),
 					'woo_dropdown_text_color' => array(
 						'label'           => esc_html__( 'WooCommerce Order Dropdown Text Color', 'Avada' ),
@@ -393,19 +380,6 @@ function avada_options_section_woocommerce( $sections ) {
 						'id'              => 'woo_dropdown_text_color',
 						'default'         => '#333333',
 						'type'            => 'color-alpha',
-						'class'           => 'fusion-or-gutter',
-						'required'        => array(
-							array(
-								'setting'  => 'header_position',
-								'operator' => '!=',
-								'value'    => 'Top',
-							),
-							array(
-								'setting'  => 'header_layout',
-								'operator' => '!=',
-								'value'    => 'v6',
-							),
-						),
 					),
 					'woo_dropdown_border_color' => array(
 						'label'           => esc_html__( 'WooCommerce Order Dropdown Border Color', 'Avada' ),
@@ -413,19 +387,6 @@ function avada_options_section_woocommerce( $sections ) {
 						'id'              => 'woo_dropdown_border_color',
 						'default'         => '#dbdbdb',
 						'type'            => 'color-alpha',
-						'class'           => 'fusion-or-gutter',
-						'required'        => array(
-							array(
-								'setting'  => 'header_position',
-								'operator' => '!=',
-								'value'    => 'Top',
-							),
-							array(
-								'setting'  => 'header_layout',
-								'operator' => '!=',
-								'value'    => 'v6',
-							),
-						),
 					),
 					'woo_cart_bg_color' => array(
 						'label'           => esc_html__( 'WooCommerce Cart Menu Background Color', 'Avada' ),

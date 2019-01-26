@@ -31,20 +31,20 @@ function avada_options_section_footer( $sections ) {
 		'icon'     => 'el-icon-arrow-down',
 		'class'    => 'hidden-section-heading',
 		'fields'   => array(
-			'footer_content_options_subsection' => array(
-				'label'       => esc_html__( 'Footer Content', 'Avada' ),
-				'id'          => 'footer_content_options_subsection',
-				'icon'        => true,
-				'type'        => 'sub-section',
-				'fields'      => array(
-					'footer_widgets' => array(
+			'footer_content_options_subsection'          => array(
+				'label'  => esc_html__( 'Footer Content', 'Avada' ),
+				'id'     => 'footer_content_options_subsection',
+				'icon'   => true,
+				'type'   => 'sub-section',
+				'fields' => array(
+					'footer_widgets'                  => array(
 						'label'       => esc_html__( 'Footer Widgets', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display footer widgets.', 'Avada' ),
 						'id'          => 'footer_widgets',
 						'default'     => '1',
 						'type'        => 'switch',
 					),
-					'footer_widgets_columns' => array(
+					'footer_widgets_columns'          => array(
 						'label'       => esc_html__( 'Number of Footer Columns', 'Avada' ),
 						'description' => esc_html__( 'Controls the number of columns in the footer.', 'Avada' ),
 						'id'          => 'footer_widgets_columns',
@@ -54,7 +54,7 @@ function avada_options_section_footer( $sections ) {
 							'max'  => '6',
 							'step' => '1',
 						),
-						'type' => 'slider',
+						'type'        => 'slider',
 						'required'    => array(
 							array(
 								'setting'  => 'footer_widgets',
@@ -63,7 +63,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_widgets_center_content' => array(
+					'footer_widgets_center_content'   => array(
 						'label'       => esc_html__( 'Center Footer Widgets Content', 'Avada' ),
 						'description' => esc_html__( 'Turn on to center the footer widget content.', 'Avada' ),
 						'id'          => 'footer_widgets_center_content',
@@ -77,23 +77,23 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_special_effects' => array(
+					'footer_special_effects'          => array(
 						'label'       => 'Footer Special Effects',
 						'description' => esc_html__( 'Select a special effect for the footer area.', 'Avada' ),
 						'id'          => 'footer_special_effects',
 						'default'     => 'none',
 						'type'        => 'radio',
 						'choices'     => array(
-							'none'                                 => esc_html__( 'None', 'Avada' ),
-							'footer_parallax_effect'               => array(
+							'none'                    => esc_html__( 'None', 'Avada' ),
+							'footer_parallax_effect'  => array(
 								esc_html__( 'Footer Parallax Effect', 'Avada' ),
 								esc_html__( 'This enables a fixed footer with parallax scrolling effect.', 'Avada' ),
 							),
-							'footer_area_bg_parallax'              => array(
+							'footer_area_bg_parallax' => array(
 								esc_html__( 'Parallax Background Image', 'Avada' ),
 								esc_html__( 'This enables a parallax effect on the background image selected in "Background Image For Footer Widget Area" field.', 'Avada' ),
 							),
-							'footer_sticky'                        => array(
+							'footer_sticky'           => array(
 								esc_html__( 'Sticky Footer', 'Avada' ),
 								esc_html__( 'This enables a sticky footer. The entire footer area will always be "below the fold". On very short pages, it makes sure that the footer sticks at the bottom, just above the fold. IMPORTANT: This will not work properly when using a Left or Right Side Header layout and the side header is larger than the viewport.', 'Avada' ),
 							),
@@ -103,7 +103,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_copyright' => array(
+					'footer_copyright'                => array(
 						'label'       => esc_html__( 'Copyright Bar', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the copyright bar.', 'Avada' ),
 						'id'          => 'footer_copyright',
@@ -124,7 +124,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_text' => array(
+					'footer_text'                     => array(
 						'label'             => esc_html__( 'Copyright Text', 'Avada' ),
 						'description'       => esc_html__( 'Enter the text that displays in the copyright bar. HTML markup can be used.', 'Avada' ),
 						'id'                => 'footer_text',
@@ -132,7 +132,7 @@ function avada_options_section_footer( $sections ) {
 						'default'           => sprintf( esc_html__( 'Copyright %1$s Avada | All Rights Reserved | Powered by %2$s | %3$s', 'Avada' ), '2012 - ' . date( 'Y' ), '<a href="http://wordpress.org">WordPress</a>', '<a href="http://theme-fusion.com">Theme Fusion</a>' ),
 						'type'              => 'textarea',
 						'sanitize_callback' => array( 'Kirki_Sanitize', 'unfiltered' ),
-						'required'    => array(
+						'required'          => array(
 							array(
 								'setting'  => 'footer_copyright',
 								'operator' => '==',
@@ -143,12 +143,12 @@ function avada_options_section_footer( $sections ) {
 				),
 			),
 			'footer_background_image_options_subsection' => array(
-				'label'       => esc_html__( 'Footer Background Image', 'Avada' ),
-				'id'          => 'footer_background_image_options_subsection',
-				'icon'        => true,
-				'type'        => 'sub-section',
-				'fields'      => array(
-					'footerw_bg_image' => array(
+				'label'  => esc_html__( 'Footer Background Image', 'Avada' ),
+				'id'     => 'footer_background_image_options_subsection',
+				'icon'   => true,
+				'type'   => 'sub-section',
+				'fields' => array(
+					'footerw_bg_image'  => array(
 						'label'       => esc_html__( 'Background Image For Footer Widget Area', 'Avada' ),
 						'description' => esc_html__( 'Select an image for the footer widget background. If left empty, the footer background color will be used.', 'Avada' ),
 						'id'          => 'footerw_bg_image',
@@ -163,7 +163,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footerw_bg_full' => array(
+					'footerw_bg_full'   => array(
 						'label'       => esc_html__( '100% Background Image', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the footer background image display at 100% in width and height according to the window size.', 'Avada' ),
 						'id'          => 'footerw_bg_full',
@@ -179,7 +179,7 @@ function avada_options_section_footer( $sections ) {
 								'setting'  => 'footerw_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -222,7 +222,7 @@ function avada_options_section_footer( $sections ) {
 								'setting'  => 'footerw_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -243,7 +243,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footerw_bg_pos' => array(
+					'footerw_bg_pos'    => array(
 						'label'       => esc_html__( 'Background Position', 'Avada' ),
 						'description' => esc_html__( 'Controls how the background image is positioned.', 'Avada' ),
 						'id'          => 'footerw_bg_pos',
@@ -270,7 +270,7 @@ function avada_options_section_footer( $sections ) {
 								'setting'  => 'footerw_bg_image',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -293,13 +293,13 @@ function avada_options_section_footer( $sections ) {
 					),
 				),
 			),
-			'footer_styling_options_subsection' => array(
-				'label'       => esc_html__( 'Footer Styling', 'Avada' ),
-				'id'          => 'footer_styling_options_subsection',
-				'icon'        => true,
-				'type'        => 'sub-section',
-				'fields'      => array(
-					'footer_100_width' => array(
+			'footer_styling_options_subsection'          => array(
+				'label'  => esc_html__( 'Footer Styling', 'Avada' ),
+				'id'     => 'footer_styling_options_subsection',
+				'icon'   => true,
+				'type'   => 'sub-section',
+				'fields' => array(
+					'footer_100_width'           => array(
 						'label'       => esc_html__( '100% Footer Width', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the footer area display at 100% width according to the window size. Turn off to follow site width.', 'Avada' ),
 						'id'          => 'footer_100_width',
@@ -319,22 +319,22 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_area_padding' => array(
+					'footer_area_padding'        => array(
 						'label'       => esc_html__( 'Footer Padding', 'Avada' ),
 						'description' => esc_html__( 'Controls the top/right/bottom/left padding for the footer.', 'Avada' ),
 						'id'          => 'footer_area_padding',
 						'choices'     => array(
-							'top'     => true,
-							'bottom'  => true,
-							'left'    => true,
-							'right'   => true,
-							'units'   => array( 'px', '%' ),
+							'top'    => true,
+							'bottom' => true,
+							'left'   => true,
+							'right'  => true,
+							'units'  => array( 'px', '%' ),
 						),
 						'default'     => array(
-							'top'     => '43px',
-							'bottom'  => '40px',
-							'left'    => '0px',
-							'right'   => '0px',
+							'top'    => '43px',
+							'bottom' => '40px',
+							'left'   => '0px',
+							'right'  => '0px',
 						),
 						'type'        => 'spacing',
 						'class'       => 'fusion-or-gutter',
@@ -351,7 +351,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_bg_color' => array(
+					'footer_bg_color'            => array(
 						'label'       => esc_html__( 'Footer Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color of the footer.', 'Avada' ),
 						'id'          => 'footer_bg_color',
@@ -365,7 +365,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_border_size' => array(
+					'footer_border_size'         => array(
 						'label'       => esc_html__( 'Footer Border Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the size of the top footer border.', 'Avada' ),
 						'id'          => 'footer_border_size',
@@ -384,7 +384,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_border_color' => array(
+					'footer_border_color'        => array(
 						'label'       => esc_html__( 'Footer Border Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the border colors of the footer.', 'Avada' ),
 						'id'          => 'footer_border_color',
@@ -403,7 +403,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_divider_line' => array(
+					'footer_divider_line'        => array(
 						'label'       => esc_html__( 'Footer Widgets Area Vertical Divider Line', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the footer widget area display vertical divider line between columns.', 'Avada' ),
 						'id'          => 'footer_divider_line',
@@ -418,7 +418,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_divider_line_size' => array(
+					'footer_divider_line_size'   => array(
 						'label'       => esc_html__( 'Footer Widgets Area Vertical Divider Line Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the size of the vertical divider line between footer widget area columns.', 'Avada' ),
 						'id'          => 'footer_divider_line_size',
@@ -442,19 +442,19 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_divider_line_style' => array(
+					'footer_divider_line_style'  => array(
 						'label'       => esc_html__( 'Footer Widgets Area Vertical Divider Line Style', 'Avada' ),
 						'description' => esc_html__( 'Controls the style of the vertical divider line between footer widget area columns.', 'Avada' ),
 						'id'          => 'footer_divider_line_style',
 						'default'     => 'solid',
 						'choices'     => array(
-							'none'      => esc_html__( 'None', 'fusion-builder' ),
-							'solid'     => esc_html__( 'Solid', 'fusion-builder' ),
-							'dashed'    => esc_html__( 'Dashed', 'fusion-builder' ),
-							'dotted'    => esc_html__( 'Dotted', 'fusion-builder' ),
-							'double'    => esc_html__( 'Double', 'fusion-builder' ),
-							'groove'    => esc_html__( 'Groove', 'fusion-builder' ),
-							'ridge'     => esc_html__( 'Ridge', 'fusion-builder' ),
+							'none'   => esc_html__( 'None', 'fusion-builder' ),
+							'solid'  => esc_html__( 'Solid', 'fusion-builder' ),
+							'dashed' => esc_html__( 'Dashed', 'fusion-builder' ),
+							'dotted' => esc_html__( 'Dotted', 'fusion-builder' ),
+							'double' => esc_html__( 'Double', 'fusion-builder' ),
+							'groove' => esc_html__( 'Groove', 'fusion-builder' ),
+							'ridge'  => esc_html__( 'Ridge', 'fusion-builder' ),
 						),
 						'type'        => 'select',
 						'required'    => array(
@@ -470,7 +470,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_divider_color' => array(
+					'footer_divider_color'       => array(
 						'label'       => esc_html__( 'Footer Widget Divider Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the divider color in the footer widgets and also the vertical divider lines between widget areas.', 'Avada' ),
 						'id'          => 'footer_divider_color',
@@ -484,7 +484,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_widgets_padding' => array(
+					'footer_widgets_padding'     => array(
 						'label'       => esc_html__( 'Footer Widgets Area Padding', 'Avada' ),
 						'description' => esc_html__( 'Controls the right/left padding for the footer widget areas.', 'Avada' ),
 						'id'          => 'footer_widgets_padding',
@@ -502,17 +502,17 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'copyright_padding' => array(
+					'copyright_padding'          => array(
 						'label'       => esc_html__( 'Copyright Padding', 'Avada' ),
 						'description' => esc_html__( 'Controls the top/bottom padding for the copyright area.', 'Avada' ),
 						'id'          => 'copyright_padding',
 						'default'     => array(
-							'top'     => '18px',
-							'bottom'  => '16px',
+							'top'    => '18px',
+							'bottom' => '16px',
 						),
 						'choices'     => array(
-							'top'     => true,
-							'bottom'  => true,
+							'top'    => true,
+							'bottom' => true,
 						),
 						'type'        => 'spacing',
 						'required'    => array(
@@ -523,7 +523,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'copyright_bg_color' => array(
+					'copyright_bg_color'         => array(
 						'label'       => esc_html__( 'Copyright Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color of the footer copyright area.', 'Avada' ),
 						'id'          => 'copyright_bg_color',
@@ -537,7 +537,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'copyright_border_size' => array(
+					'copyright_border_size'      => array(
 						'label'       => esc_html__( 'Copyright Border Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the size of the top copyright border.', 'Avada' ),
 						'id'          => 'copyright_border_size',
@@ -556,7 +556,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'copyright_border_color' => array(
+					'copyright_border_color'     => array(
 						'label'       => esc_html__( 'Copyright Border Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the border colors for the footer copyright area.', 'Avada' ),
 						'id'          => 'copyright_border_color',
@@ -575,11 +575,11 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_typography_info' => array(
-						'label'           => esc_html__( 'Footer Typography', 'Avada' ),
-						'description'     => '',
-						'id'              => 'footer_typography_info',
-						'type'            => 'info',
+					'footer_typography_info'     => array(
+						'label'       => esc_html__( 'Footer Typography', 'Avada' ),
+						'description' => '',
+						'id'          => 'footer_typography_info',
+						'type'        => 'info',
 					),
 					'footer_headings_typography' => array(
 						'id'          => 'footer_headings_typography',
@@ -616,7 +616,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_text_color' => array(
+					'footer_text_color'          => array(
 						'label'       => esc_html__( 'Footer Font Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text color of the footer font.', 'Avada' ),
 						'id'          => 'footer_text_color',
@@ -636,7 +636,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_link_color' => array(
+					'footer_link_color'          => array(
 						'label'       => esc_html__( 'Footer Link Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text color of the footer link font.', 'Avada' ),
 						'id'          => 'footer_link_color',
@@ -656,7 +656,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'footer_link_color_hover' => array(
+					'footer_link_color_hover'    => array(
 						'label'       => esc_html__( 'Footer Link Hover Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text hover color of the footer link font.', 'Avada' ),
 						'id'          => 'footer_link_color_hover',
@@ -676,7 +676,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'copyright_text_color' => array(
+					'copyright_text_color'       => array(
 						'label'       => esc_html__( 'Copyright Text Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text color of the footer copyright area.', 'Avada' ),
 						'id'          => 'copyright_text_color',
@@ -690,7 +690,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'copyright_link_color' => array(
+					'copyright_link_color'       => array(
 						'label'       => esc_html__( 'Copyright Link Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the link color of the footer copyright area.', 'Avada' ),
 						'id'          => 'copyright_link_color',
@@ -718,7 +718,7 @@ function avada_options_section_footer( $sections ) {
 							),
 						),
 					),
-					'copyright_font_size' => array(
+					'copyright_font_size'        => array(
 						'label'       => esc_html__( 'Copyright Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the font size for the copyright text.', 'Avada' ),
 						'id'          => 'copyright_font_size',

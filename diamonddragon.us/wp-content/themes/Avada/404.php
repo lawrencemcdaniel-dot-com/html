@@ -38,11 +38,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$checklist_divider_color = Avada()->settings->get( 'checklist_divider_color' );
 
 						// Calculated derived values.
-						$circle_yes_font_size = $font_size * 0.88;
-						$line_height = $font_size * 1.7;
-						$icon_margin = $font_size * 0.7;
-						$icon_margin_position = ( is_rtl() ) ? 'left' : 'right';
-						$content_margin = $line_height + $icon_margin;
+						$circle_yes_font_size    = $font_size * 0.88;
+						$line_height             = $font_size * 1.7;
+						$icon_margin             = $font_size * 0.7;
+						$icon_margin_position    = ( is_rtl() ) ? 'left' : 'right';
+						$content_margin          = $line_height + $icon_margin;
 						$content_margin_position = ( is_rtl() ) ? 'right' : 'left';
 
 						// Set markup depending on icon circle being used or not.

@@ -374,7 +374,7 @@ jQuery(function() {
 	jQuery('#sa_slide_margin_lr').change(function() {
 		var slide_margin_lr = document.getElementById('sa_slide_margin_lr').value;
 		if (jQuery.isNumeric(slide_margin_lr)) {
-			if ((slide_margin_lr >= 0) && (slide_margin_lr <= 30)) {
+			if ((slide_margin_lr >= 0) && (slide_margin_lr <= 20)) {
 				// valid number
 			} else {
 				document.getElementById('sa_slide_margin_lr').value = '0'; // number out of range
@@ -383,7 +383,226 @@ jQuery(function() {
 			document.getElementById('sa_slide_margin_lr').value = '0'; // not a valid number
 		}
 	});
+
+	// ##### CHANGE EVENT FOR ANY OF THE ITEMS DISPLAYED DROPDOWNS #####
+	jQuery("select[name='sa_items_width1']").change(function() { items_displayed_changed(); });
+	jQuery("select[name='sa_items_width2']").change(function() { items_displayed_changed(); });
+	jQuery("select[name='sa_items_width3']").change(function() { items_displayed_changed(); });
+	jQuery("select[name='sa_items_width4']").change(function() { items_displayed_changed(); });
+	jQuery("select[name='sa_items_width5']").change(function() { items_displayed_changed(); });
+	jQuery("select[name='sa_items_width6']").change(function() { items_displayed_changed(); });
+
+	// ##### CHANGE EVENT FOR 'Hero Slider' CHECKBOX #####
+	jQuery('#sa_hero_slider').click(function() {
+		if (document.getElementById('sa_hero_slider').checked) {
+			document.getElementById('sa_hero_slider_note').style.display = 'block';
+		} else {
+			document.getElementById('sa_hero_slider_note').style.display = 'none';
+		}
+	});
+
+	// ##### CHANGE EVENT FOR 'Use Thumbnail Pagination' CHECKBOX #####
+	jQuery('#sa_thumbs_active').click(function() {
+		if (document.getElementById('sa_thumbs_active').checked) {
+			document.getElementById('sa_thumbs_settings').style.display = 'block';
+			jQuery('#sa_pagination').prop('checked', false); // uncheck 'Show Pagination' checkbox
+		} else {
+			document.getElementById('sa_thumbs_settings').style.display = 'none';
+		}
+	});
+
+	// ##### JQUERY-UI SPINNER - THUMBS CONTAINER PADDING #####
+	jQuery("#sa_thumbs_padding").spinner({
+		step: 0.1,
+		min: 0,
+		max: 10,
+		numberFormat: "n"
+	});
+	// ##### CHANGE EVENT HANDLER FOR THUMBS CONTAINER PADDING #####
+	jQuery('#sa_thumbs_padding').change(function() {
+		var thumbs_padding = document.getElementById('sa_thumbs_padding').value;
+		if (jQuery.isNumeric(thumbs_padding)) {
+			if ((thumbs_padding >= 0) && (thumbs_padding <= 10)) {
+				// valid number
+			} else {
+				document.getElementById('sa_thumbs_padding').value = '3'; // number out of range
+			}
+		} else {
+			document.getElementById('sa_thumbs_padding').value = '3'; // not a valid number
+		}
+	});
+
+	// ##### JQUERY-UI SPINNER - THUMBS WIDTH #####
+	jQuery("#sa_thumbs_width").spinner({
+		step: 1,
+		min: 10,
+		max: 300,
+		numberFormat: "n"
+	});
+	// ##### CHANGE EVENT HANDLER - THUMBS WIDTH #####
+	jQuery('#sa_thumbs_width').change(function() {
+		var thumbs_width = document.getElementById('sa_thumbs_width').value;
+		if (jQuery.isNumeric(thumbs_width)) {
+			if ((thumbs_width >= 10) && (thumbs_width <= 300)) {
+				// valid number
+			} else {
+				document.getElementById('sa_thumbs_width').value = '150'; // number out of range
+			}
+		} else {
+			document.getElementById('sa_thumbs_width').value = '150'; // not a valid number
+		}
+	});
+
+	// ##### JQUERY-UI SPINNER - THUMBS HEIGHT #####
+	jQuery("#sa_thumbs_height").spinner({
+		step: 1,
+		min: 10,
+		max: 300,
+		numberFormat: "n"
+	});
+	// ##### CHANGE EVENT HANDLER - THUMBS HEIGHT #####
+	jQuery('#sa_thumbs_height').change(function() {
+		var thumbs_height = document.getElementById('sa_thumbs_height').value;
+		if (jQuery.isNumeric(thumbs_height)) {
+			if ((thumbs_height >= 10) && (thumbs_height <= 300)) {
+				// valid number
+			} else {
+				document.getElementById('sa_thumbs_height').value = '85'; // number out of range
+			}
+		} else {
+			document.getElementById('sa_thumbs_height').value = '85'; // not a valid number
+		}
+	});
+
+	// ##### JQUERY-UI SPINNER - THUMBS OPACITY #####
+	jQuery("#sa_thumbs_opacity").spinner({
+		step: 1,
+		min: 0,
+		max: 100,
+		numberFormat: "n"
+	});
+	// ##### CHANGE EVENT HANDLER - THUMBS OPACITY #####
+	jQuery('#sa_thumbs_opacity').change(function() {
+		var thumbs_opacity = document.getElementById('sa_thumbs_opacity').value;
+		if (jQuery.isNumeric(thumbs_opacity)) {
+			if ((thumbs_opacity >= 0) && (thumbs_opacity <= 100)) {
+				// valid number
+			} else {
+				document.getElementById('sa_thumbs_opacity').value = '50'; // number out of range
+			}
+		} else {
+			document.getElementById('sa_thumbs_opacity').value = '50'; // not a valid number
+		}
+	});
+
+	// ##### JQUERY-UI SPINNER - THUMBS BORDER WIDTH #####
+	jQuery("#sa_thumbs_border_width").spinner({
+		step: 1,
+		min: 0,
+		max: 10,
+		numberFormat: "n"
+	});
+	// ##### CHANGE EVENT HANDLER - THUMBS BORDER WIDTH #####
+	jQuery('#sa_thumbs_border_width').change(function() {
+		var thumbs_border_width = document.getElementById('sa_thumbs_border_width').value;
+		if (jQuery.isNumeric(thumbs_border_width)) {
+			if ((thumbs_border_width >= 0) && (thumbs_border_width <= 10)) {
+				// valid number
+			} else {
+				document.getElementById('sa_thumbs_border_width').value = '0'; // number out of range
+			}
+		} else {
+			document.getElementById('sa_thumbs_border_width').value = '0'; // not a valid number
+		}
+	});
+
+	// ##### SPECTRUM COLOR PICKER - THUMBS BORDER COLOR #####
+	if (document.getElementById('sa_thumbs_border_color')) {
+		var thumbs_border_color = document.getElementById('sa_thumbs_border_color').value;
+		jQuery("#sa_thumbs_border_color").spectrum({
+			showPaletteOnly: true,
+			togglePaletteOnly: true,
+			togglePaletteMoreText: 'more',
+			togglePaletteLessText: 'less',
+			showInput: true,
+			allowEmpty:true,
+			preferredFormat: "rgb",
+			showAlpha: true,
+			color: thumbs_border_color,
+			palette: [
+				["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
+				["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
+				["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
+				["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
+				["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"],
+				["#c00","#e69138","#f1c232","#6aa84f","#45818e","#3d85c6","#674ea7","#a64d79"],
+				["#900","#b45f06","#bf9000","#38761d","#134f5c","#0b5394","#351c75","#741b47"],
+				["#600","#783f04","#7f6000","#274e13","#0c343d","#073763","#20124d","#4c1130"]
+			]
+		});
+	}
+
+	// ##### JQUERY-UI SPINNER - TABLET THUMBS SIZE (PERCENTAGE) #####
+	jQuery("#sa_thumbs_resp_tablet").spinner({
+		step: 1,
+		min: 0,
+		max: 100,
+		numberFormat: "n"
+	});
+	// ##### CHANGE EVENT HANDLER - TABLET THUMBS SIZE (PERCENTAGE) #####
+	jQuery('#sa_thumbs_resp_tablet').change(function() {
+		var thumbs_resp_tablet = document.getElementById('sa_thumbs_resp_tablet').value;
+		if (jQuery.isNumeric(thumbs_resp_tablet)) {
+			if ((thumbs_resp_tablet >= 0) && (thumbs_resp_tablet <= 100)) {
+				// valid number
+			} else {
+				document.getElementById('sa_thumbs_resp_tablet').value = '75'; // number out of range
+			}
+		} else {
+			document.getElementById('sa_thumbs_resp_tablet').value = '75'; // not a valid number
+		}
+	});
+
+	// ##### JQUERY-UI SPINNER - MOBILE THUMBS SIZE (PERCENTAGE) #####
+	jQuery("#sa_thumbs_resp_mobile").spinner({
+		step: 1,
+		min: 0,
+		max: 100,
+		numberFormat: "n"
+	});
+	// ##### CHANGE EVENT HANDLER - MOBILE THUMBS SIZE (PERCENTAGE) #####
+	jQuery('#sa_thumbs_resp_mobile').change(function() {
+		var thumbs_resp_mobile = document.getElementById('sa_thumbs_resp_mobile').value;
+		if (jQuery.isNumeric(thumbs_resp_mobile)) {
+			if ((thumbs_resp_mobile >= 0) && (thumbs_resp_mobile <= 100)) {
+				// valid number
+			} else {
+				document.getElementById('sa_thumbs_resp_mobile').value = '50'; // number out of range
+			}
+		} else {
+			document.getElementById('sa_thumbs_resp_mobile').value = '50'; // not a valid number
+		}
+	});
 })
+
+
+
+// ##### ONE OF THE ITEMS DISPLAYED DROPDOWNS HAVE CHANGED #####
+function items_displayed_changed() {
+	var width1 = jQuery("select[name='sa_items_width1']").val();
+	var width2 = jQuery("select[name='sa_items_width2']").val();
+	var width3 = jQuery("select[name='sa_items_width3']").val();
+	var width4 = jQuery("select[name='sa_items_width4']").val();
+	var width5 = jQuery("select[name='sa_items_width5']").val();
+	var width6 = jQuery("select[name='sa_items_width6']").val();
+	if ((width1 == '1') && (width2 == '1') && (width3 == '1') && (width4 == '1') && (width5 == '1') && (width6 == '1')) {
+		jQuery(".sa_items_all_one").css("display","block");
+	} else {
+		jQuery(".sa_items_all_one").css("display","none");
+		jQuery('#sa_hero_slider').prop('checked', false); // uncheck 'Hero Slider' checkbox
+		document.getElementById('sa_hero_slider_note').style.display = 'none';
+	}
+}
 
 
 

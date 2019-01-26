@@ -199,7 +199,7 @@ if ( ! function_exists( 'avada_get_portfolio_classes' ) ) {
 
 		// For text layouts add the class for boxed/unboxed.
 		if ( strpos( $page_template, 'text' ) ) {
-			$classes .= ' fusion-portfolio-' . fusion_get_option( 'portfolio_text_layout', 'portfolio_text_layout', $post_id ) . ' ';
+			$classes      .= ' fusion-portfolio-' . fusion_get_option( 'portfolio_text_layout', 'portfolio_text_layout', $post_id ) . ' ';
 			$page_template = str_replace( '-text', '', $page_template );
 		}
 
@@ -403,7 +403,7 @@ if ( ! function_exists( 'avada_add_login_box_to_nav' ) ) {
 				if ( $woo_account_page_link ) {
 					$active_classes = ( is_account_page() ) ? ' current-menu-item current_page_item' : '';
 
-					$items .= '<li role="menuitem" class="menu-item fusion-dropdown-menu menu-item-has-children fusion-custom-menu-item fusion-menu-login-box' . $active_classes . '">';
+					$items .= '<li class="menu-item fusion-dropdown-menu menu-item-has-children fusion-custom-menu-item fusion-menu-login-box' . $active_classes . '">';
 
 					// If chosen in Theme Options, display the caret icon, as the my account item alyways has a dropdown.
 					$caret_icon = '';
@@ -451,7 +451,7 @@ if ( ! function_exists( 'avada_add_login_box_to_nav' ) ) {
 							foreach ( $account_endpoints as $endpoint => $label ) {
 								$active_classes = ( is_wc_endpoint_url( $endpoint ) ) ? ' current-menu-item current_page_item' : '';
 
-								$items .= '<li class="menu-item fusion-dropdown-submenu' . $active_classes . '" role="menuitem">';
+								$items .= '<li class="menu-item fusion-dropdown-submenu' . $active_classes . '">';
 								$items .= '<a href="' . esc_url( wc_get_account_endpoint_url( $endpoint ) ) . '">' . esc_html( $label ) . '</a>';
 								$items .= '</li>';
 							}
@@ -526,7 +526,7 @@ if ( ! function_exists( 'avada_nav_woo_cart' ) ) {
 				$main_cart_class .= ' current-menu-item current_page_item';
 			}
 
-			$items = '<li role="menuitem" class="fusion-custom-menu-item fusion-menu-cart' . $main_cart_class . '">';
+			$items = '<li class="fusion-custom-menu-item fusion-menu-cart' . $main_cart_class . '">';
 			if ( $cart_contents_count ) {
 				$checkout_link = wc_get_checkout_url();
 
@@ -772,7 +772,7 @@ function avada_wp_get_http( $url = false, $file_path = false, $args = array() ) 
 		include_once wp_normalize_path( ABSPATH . WPINC . '/http.php' );
 	}
 
-	$args = wp_parse_args(
+	$args     = wp_parse_args(
 		$args,
 		array(
 			'timeout'    => 30,
@@ -849,7 +849,7 @@ function avada_ajax_avada_slider_preview() {
 		}
 	} elseif ( 'rev' === $slider_type ) {
 		$slider             = ( isset( $_POST['data'] ) ) ? sanitize_text_field( wp_unslash( $_POST['data']['revslider'] ) ) : get_post_meta( $post->ID, 'pyre_revslider', true ); // WPCS: CSRF ok.
-		$slider_type_string = 'Revolution Slider';
+		$slider_type_string = 'Slider Revolution';
 		if ( class_exists( 'RevSlider' ) ) {
 			$slider_object = new RevSlider();
 			if ( $slider_object->isAliasExistsInDB( $slider ) ) {
@@ -959,8 +959,8 @@ if ( ! function_exists( 'avada_gravity_form_merge_tags' ) ) {
  * Add revslider styles.
  */
 function avada_revslider_styles() {
-	global $wpdb, $revSliderVersion; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCase
-	$plugin_version = $revSliderVersion; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCase
+	global $wpdb, $revSliderVersion; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
+	$plugin_version = $revSliderVersion; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
 
 	$table_name = $wpdb->prefix . 'revslider_css';
 	if ( shortcode_exists( 'rev_slider' ) && get_option( 'avada_revslider_version' ) !== $plugin_version ) {
@@ -1589,7 +1589,7 @@ if ( ! function_exists( 'avada_get_available_sliders_array' ) ) {
 			array_unshift( $sliders['fusion_sliders'], $fusion_sliders );
 		}
 
-		// Revolution Sliders.
+		// Slider Revolution Sliders.
 		$revsliders[0] = esc_attr__( 'Select a slider', 'Avada' );
 
 		if ( function_exists( 'rev_slider_shortcode' ) ) {

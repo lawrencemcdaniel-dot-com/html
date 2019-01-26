@@ -69,24 +69,27 @@ function avada_set_builder_classes( $default_elements, $class ) {
 	if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$elements[] = '#tribe-events-bar .tribe-bar-filters .tribe-bar-filters-inner .tribe-bar-submit input[type=submit]';
 		$elements[] = '#tribe-events .tribe-events-button';
+		$elements[] = '#tribe-events-footer ~ a.tribe-events-ical.tribe-events-button';
 		$elements[] = '#tribe_events_filter_control #tribe_events_filters_toggle';
 		$elements[] = '#tribe_events_filter_control #tribe_events_filters_reset';
 		$elements[] = '#tribe-events .tribe-events-tickets .add-to-cart .tribe-button';
+		$elements[] = '.page-tribe-attendee-registration button';
+		$elements[] = '#tribe-events .tribe-events-list .tribe-events-event-cost form .tribe-button';
 	}
 	$element_map['.fusion-button-default'] = $elements;
 
 	// Default styling, not default size.
-	$non_default_size_elements = array(
+	$non_default_size_elements                  = array(
 		'.button-default',
 		'.fusion-button-default',
 		'.button.default',
 		'input.button-default',
 	);
-	$default_size_elements = array_diff( $elements, $non_default_size_elements );
+	$default_size_elements                      = array_diff( $elements, $non_default_size_elements );
 	$element_map['.fusion-button-default-size'] = $default_size_elements;
 
 	// Special styling for quantity buttons.
-	$elements = array(
+	$elements                               = array(
 		'.quantity .minus',
 		'.quantity .plus',
 		'.quantity .qty',
@@ -119,7 +122,7 @@ function avada_change_builder_default_args( $defaults, $element, $args ) {
 
 	// If its a custom color scheme selected, then set options based on that.
 	if ( 'fusion_button' == $element && false !== strpos( $defaults['color'], 'scheme-' ) && class_exists( 'Avada' ) ) {
-		$scheme_id = str_replace( 'scheme-', '', $defaults['color'] );
+		$scheme_id    = str_replace( 'scheme-', '', $defaults['color'] );
 		$custom_color = ( class_exists( 'Avada' ) && method_exists( 'Avada_Settings', 'get_custom_color' ) ) ? Avada()->settings->get_custom_color( $scheme_id ) : '';
 		// If the scheme exists and has options, use them.  Otherwise set the color scheme to default as fallback.
 		if ( ! empty( $custom_color ) ) {
@@ -307,10 +310,10 @@ function fusion_builder_tagline_box_style( $styles, $defaults, $count ) {
 		$scheme_id    = str_replace( 'scheme-', '', $defaults['buttoncolor'] );
 		$custom_color = ( class_exists( 'Avada' ) && method_exists( 'Avada_Settings', 'get_custom_color' ) ) ? Avada()->settings->get_custom_color( $scheme_id ) : '';
 		// If the scheme exists and has options then create style block.
-		$accent_color       = ( isset( $custom_color['button_accent_color'] ) ) ? strtolower( $custom_color['button_accent_color'] ) : '#ffffff';
-		$accent_hover_color = ( isset( $custom_color['button_accent_hover_color'] ) ) ? strtolower( $custom_color['button_accent_hover_color'] ) : '#ffffff';
-		$bevel_color        = ( isset( $custom_color['button_bevel_color'] ) ) ? strtolower( $custom_color['button_bevel_color'] ) : '#54770F';
-		$gradient_colors    = strtolower( $custom_color['button_gradient_top_color'] ) . '|' . strtolower( $custom_color['button_gradient_bottom_color'] );
+		$accent_color          = ( isset( $custom_color['button_accent_color'] ) ) ? strtolower( $custom_color['button_accent_color'] ) : '#ffffff';
+		$accent_hover_color    = ( isset( $custom_color['button_accent_hover_color'] ) ) ? strtolower( $custom_color['button_accent_hover_color'] ) : '#ffffff';
+		$bevel_color           = ( isset( $custom_color['button_bevel_color'] ) ) ? strtolower( $custom_color['button_bevel_color'] ) : '#54770F';
+		$gradient_colors       = strtolower( $custom_color['button_gradient_top_color'] ) . '|' . strtolower( $custom_color['button_gradient_bottom_color'] );
 		$gradient_hover_colors = strtolower( $custom_color['button_gradient_top_color_hover'] ) . '|' . strtolower( $custom_color['button_gradient_bottom_color_hover'] );
 
 		$button_3d_styles = '';
@@ -391,18 +394,18 @@ function avada_add_fb_styling( $css ) {
 	}
 
 	if ( class_exists( 'FusionBuilder' ) ) {
-		$dynamic_css = Fusion_Dynamic_CSS::get_instance();
+		$dynamic_css         = Fusion_Dynamic_CSS::get_instance();
 		$dynamic_css_helpers = $dynamic_css->get_helpers();
 
-		$css['global']['.tribe-mini-calendar-event .list-date .list-dayname']['background-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'dates_box_color' ) );
+		$css['global']['.widget .tribe-mini-calendar-event .list-date .list-dayname']['background-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'dates_box_color' ) );
 
 		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-widget-content']['background-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
-		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li']['border-right-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
+		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li']['border-right-color']    = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
 		if ( is_rtl() ) {
 			$css['global']['.rtl .fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li']['border-left-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
 		}
 
-		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-clean .fusion-tabs-nav ul']['border'] = '1px solid ' . Fusion_Sanitize::color( $fusion_settings->get( 'tabs_border_color' ) );
+		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-clean .fusion-tabs-nav ul']['border']                = '1px solid ' . Fusion_Sanitize::color( $fusion_settings->get( 'tabs_border_color' ) );
 		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-clean .fusion-tabs-nav ul li']['border-right-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_border_color' ) );
 		if ( is_rtl() ) {
 			$css['global']['.rtl .fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-clean .fusion-tabs-nav ul li']['border-left-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_border_color' ) );
@@ -415,9 +418,9 @@ function avada_add_fb_styling( $css ) {
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_inactive_color' ) );
 
-		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li a:hover']['background'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
+		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li a:hover']['background']       = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
 		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li a:hover']['border-top-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
-		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li.active a']['background'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
+		$css['global']['.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-nav ul li.active a']['background']      = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_bg_color' ) );
 
 		$elements = array(
 			'.fusion-content-widget-area .fusion-tabs-widget .fusion-tabs-classic',
@@ -426,18 +429,18 @@ function avada_add_fb_styling( $css ) {
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'tabs_border_color' ) );
 
 		$css['global']['#wrapper .fusion-date-and-formats .fusion-format-box, .tribe-mini-calendar-event .list-date .list-dayname']['background-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'dates_box_color' ) );
-		$css['global']['.fusion-menu-item-button .menu-text']['border-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'button_accent_color' ) );
+		$css['global']['.fusion-menu-item-button .menu-text']['border-color']       = Fusion_Sanitize::color( $fusion_settings->get( 'button_accent_color' ) );
 		$css['global']['.fusion-menu-item-button:hover .menu-text']['border-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'button_accent_hover_color' ) );
 
 		if ( 'yes' == $fusion_settings->get( 'button_span' ) ) {
 			if ( class_exists( 'WooCommerce' ) ) {
-				$css['global']['.woocommerce #customer_login .col-1 .login .form-row']['float'] = 'none';
+				$css['global']['.woocommerce #customer_login .col-1 .login .form-row']['float']        = 'none';
 				$css['global']['.woocommerce #customer_login .col-1 .login .form-row']['margin-right'] = '0';
-				$css['global']['.woocommerce #customer_login .col-1 .login .button']['margin'] = '0';
-				$css['global']['.woocommerce #customer_login .login .inline']['float'] = 'left';
-				$css['global']['.woocommerce #customer_login .login .inline']['margin-left'] = '0';
-				$css['global']['.woocommerce #customer_login .login .lost_password']['float'] = 'right';
-				$css['global']['.woocommerce #customer_login .login .lost_password']['margin-top'] = '10px';
+				$css['global']['.woocommerce #customer_login .col-1 .login .button']['margin']         = '0';
+				$css['global']['.woocommerce #customer_login .login .inline']['float']                 = 'left';
+				$css['global']['.woocommerce #customer_login .login .inline']['margin-left']           = '0';
+				$css['global']['.woocommerce #customer_login .login .lost_password']['float']          = 'right';
+				$css['global']['.woocommerce #customer_login .login .lost_password']['margin-top']     = '10px';
 			}
 		}
 		$css['global']['.fusion-secondary-menu .fusion-menu-cart-item img']['border-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'sep_color' ) );
@@ -446,7 +449,7 @@ function avada_add_fb_styling( $css ) {
 				'.product .product-border',
 			);
 			$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'title_border_color' ) );
-			$css['global']['.product-images .crossfade-images']['background'] = Fusion_Sanitize::color( $fusion_settings->get( 'title_border_color' ) );
+			$css['global']['.product-images .crossfade-images']['background']            = Fusion_Sanitize::color( $fusion_settings->get( 'title_border_color' ) );
 			$elements = array(
 				'.fusion-menu-cart-item img',
 				'.quantity',
@@ -480,8 +483,8 @@ function avada_add_fb_styling( $css ) {
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'carousel_hover_color' ) );
 
 		// Can remove as once fallback, as added to FB.
-		$css['global']['.fusion-sharing-box .fusion-social-networks a']['font-size']                   = Fusion_Sanitize::size( $fusion_settings->get( 'sharing_social_links_font_size' ) );
-		$css['global']['.fusion-sharing-box .fusion-social-networks.boxed-icons a']['padding']         = Fusion_Sanitize::size( $fusion_settings->get( 'sharing_social_links_boxed_padding' ) );
+		$css['global']['.fusion-sharing-box .fusion-social-networks a']['font-size']           = Fusion_Sanitize::size( $fusion_settings->get( 'sharing_social_links_font_size' ) );
+		$css['global']['.fusion-sharing-box .fusion-social-networks.boxed-icons a']['padding'] = Fusion_Sanitize::size( $fusion_settings->get( 'sharing_social_links_boxed_padding' ) );
 
 		$elements = array( '.review blockquote q', '.post-content blockquote', '.checkout .payment_methods .payment_box' );
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'testimonial_bg_color' ) );
@@ -667,6 +670,10 @@ function avada_add_fb_styling( $css ) {
 			$elements[] = '.fusion-content-widget-area .tribe-events-list-widget ol li';
 			$elements[] = '.fusion-content-widget-area .tribe-events-venue-widget li';
 			$elements[] = '.quantity .minus, .quantity .tribe-ticket-quantity';
+			$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__registration__event';
+			$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__registration__event .tribe-block__tickets__registration__tickets';
+			$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__registration__event .tribe-block__tickets__registration__tickets__header';
+			$elements[] = '.page-tribe-attendee-registration .tribe-block__tickets__item__attendee__fields .tribe-ticket';
 		}
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['border-color'] = Fusion_Sanitize::color( $fusion_settings->get( 'sep_color' ) );
 

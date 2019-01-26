@@ -39,16 +39,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php $thumbnail = $product->get_image(); ?>
 						<tr>
 							<td class="product-name">
-								<span class="product-thumbnail">
-									<?php if ( ! $product->is_visible() ) : ?>
-										<?php echo $thumbnail; ?>
-									<?php else : ?>
-										<?php echo '<a href="' . $product->get_permalink() . '">' . $thumbnail . '</a>'; ?>
-									<?php endif; ?>
-								</span>
-								<div class="product-info">
-									<?php echo esc_html( $item['name'] ); ?>
-									<?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', $item['qty'] ) . '</strong>' ); ?>
+								<div class="fusion-product-name-wrapper">
+									<span class="product-thumbnail">
+										<?php if ( ! $product->is_visible() ) : ?>
+											<?php echo $thumbnail; ?>
+										<?php else : ?>
+											<?php echo '<a href="' . $product->get_permalink() . '">' . $thumbnail . '</a>'; ?>
+										<?php endif; ?>
+									</span>
+									<div class="product-info">
+										<?php echo esc_html( $item['name'] ); ?>
+										<?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', $item['qty'] ) . '</strong>' ); ?>
+									</div>
 								</div>
 							</td>
 							<td class="product-total"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td>

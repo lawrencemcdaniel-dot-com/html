@@ -15,9 +15,9 @@ global $wpdb;
 // Get slider.
 $ls_table_name = $wpdb->prefix . 'layerslider';
 
-if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $ls_table_name ) ) === $ls_table_name ) {
-	$ls_slider     = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}layerslider WHERE id = %d ORDER BY date_c DESC LIMIT 1", (int) $id ), ARRAY_A );
-	$ls_slider     = json_decode( $ls_slider['data'], true );
+if ( strtolower( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $ls_table_name ) ) ) === strtolower( $ls_table_name ) ) {
+	$ls_slider = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}layerslider WHERE id = %d ORDER BY date_c DESC LIMIT 1", (int) $id ), ARRAY_A );
+	$ls_slider = json_decode( $ls_slider['data'], true );
 	?>
 	<style type="text/css">
 		#layerslider-container{max-width:<?php echo esc_attr( $ls_slider['properties']['width'] ); ?>;}

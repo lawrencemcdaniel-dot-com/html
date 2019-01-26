@@ -63,13 +63,13 @@ class Avada_Remote_Installer {
 			$url           = $this->api_url . '?avada_action=request_download&item_name=' . rawurlencode( $download ) . '&token=' . $token . '&ver=' . $avada_version;
 			$url          .= ( $is_envato_hosted ) ? '&envato-hosted=true' : '';
 
-			$response      = wp_remote_get(
+			$response = wp_remote_get(
 				$url,
 				array(
 					'user-agent' => 'avada-user-agent',
 				)
 			);
-			$body          = wp_remote_retrieve_body( $response );
+			$body     = wp_remote_retrieve_body( $response );
 
 			// Check for errors.
 			$error_responses = array(

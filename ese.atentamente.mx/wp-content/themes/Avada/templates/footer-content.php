@@ -29,7 +29,7 @@ $display_footer = get_post_meta( $c_page_id, 'pyre_display_footer', true );
 				 */
 				$footer_widget_columns = Avada()->settings->get( 'footer_widgets_columns' );
 				$footer_widget_columns = ( ! $footer_widget_columns ) ? 1 : $footer_widget_columns;
-				$column_width = ( '5' == Avada()->settings->get( 'footer_widgets_columns' ) ) ? 2 : 12 / $footer_widget_columns;
+				$column_width          = ( '5' == Avada()->settings->get( 'footer_widgets_columns' ) ) ? 2 : 12 / $footer_widget_columns;
 				?>
 
 				<?php

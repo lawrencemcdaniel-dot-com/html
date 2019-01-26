@@ -253,7 +253,7 @@ class Avada_Template {
 
 		$sidebar_1 = $this->sidebar_context( 1 );
 		$sidebar_2 = $this->sidebar_context( 2 );
-		$c_page_id  = Avada()->fusion_library->get_page_id();
+		$c_page_id = Avada()->fusion_library->get_page_id();
 
 		$classes[] = 'fusion-body';
 
@@ -441,7 +441,7 @@ class Avada_Template {
 
 		$footer_fx_class  = 'avada-footer-fx-';
 		$footer_fx_class .= str_replace( array( 'footer_area_', 'footer_', '_' ), array( '', '', '-' ), Avada()->settings->get( 'footer_special_effects' ) );
-		$classes[] = $footer_fx_class;
+		$classes[]        = $footer_fx_class;
 
 		$classes[] = 'fusion-search-form-' . esc_attr( Avada()->settings->get( 'search_form_design' ) );
 
@@ -519,11 +519,11 @@ class Avada_Template {
 	 * @param string     $content_align The content alignment.
 	 */
 	public function title_template( $content = '', $size = '2', $content_align = '' ) {
-		$margin_top     = Avada()->settings->get( 'title_margin', 'top' );
-		$margin_bottom  = Avada()->settings->get( 'title_margin', 'bottom' );
-		$sep_color      = Avada()->settings->get( 'title_border_color' );
-		$style_type     = Avada()->settings->get( 'title_style_type' );
-		$size_array     = array(
+		$margin_top    = Avada()->settings->get( 'title_margin', 'top' );
+		$margin_bottom = Avada()->settings->get( 'title_margin', 'bottom' );
+		$sep_color     = Avada()->settings->get( 'title_border_color' );
+		$style_type    = Avada()->settings->get( 'title_style_type' );
+		$size_array    = array(
 			'1' => 'one',
 			'2' => 'two',
 			'3' => 'three',
@@ -539,9 +539,9 @@ class Avada_Template {
 			}
 		}
 
-		$classes        = '';
-		$styles         = '';
-		$sep_styles     = '';
+		$classes    = '';
+		$styles     = '';
+		$sep_styles = '';
 
 		$classes_array = explode( ' ', $style_type );
 		foreach ( $classes_array as $class ) {

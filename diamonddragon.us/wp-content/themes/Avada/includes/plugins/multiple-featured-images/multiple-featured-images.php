@@ -93,12 +93,12 @@ if ( ! class_exists( 'Avada_Featured_Image' ) ) {
 				true
 			);
 
-			$output = '';
+			$output            = '';
 			$preview_image_css = ' style="display:none;"';
 			$remove_image_css  = ' style="display:none;"';
 
 			if ( $image_id ) {
-				$preview_image = wp_get_attachment_image(
+				$preview_image    = wp_get_attachment_image(
 					$image_id,
 					array( 266, 266 ),
 					false,
@@ -108,22 +108,22 @@ if ( ! class_exists( 'Avada_Featured_Image' ) ) {
 				);
 				$remove_image_css = '';
 			} else {
-				$preview_image = '<img class="fusion-preview-image" src="" style="display:none;">';
+				$preview_image     = '<img class="fusion-preview-image" src="" style="display:none;">';
 				$preview_image_css = '';
 			}
 
 			$preview_image = '<span class="fusion-set-featured-image"' . $preview_image_css . '>' . $this->args['label_set'] . '</span>' . $preview_image;
 
-			$set_image_link = '<p class="hide-if-no-js">';
-				$set_image_link .= '<a aria-label="' . $this->args['label_set'] . '" href="#" id="' . $this->args['id'] . '" class="fusion_upload_button">';
+			$set_image_link          = '<p class="hide-if-no-js">';
+				$set_image_link     .= '<a aria-label="' . $this->args['label_set'] . '" href="#" id="' . $this->args['id'] . '" class="fusion_upload_button">';
 					$set_image_link .= $preview_image;
-				$set_image_link .= '</a>';
-				$set_image_link .= '<input class="upload_field" id="' . $this->args['post_meta_key'] . '" name="' . $this->args['post_meta_key'] . '" value="' . $image_id . '" type="hidden">';
-			$set_image_link .= '</p>';
+				$set_image_link     .= '</a>';
+				$set_image_link     .= '<input class="upload_field" id="' . $this->args['post_meta_key'] . '" name="' . $this->args['post_meta_key'] . '" value="' . $image_id . '" type="hidden">';
+			$set_image_link         .= '</p>';
 
-			$remove_image_link = '<p class="hide-if-no-js fusion-remove-featured-image"' . $remove_image_css . '>';
+			$remove_image_link      = '<p class="hide-if-no-js fusion-remove-featured-image"' . $remove_image_css . '>';
 				$remove_image_link .= '<a aria-label="' . $this->args['label_remove'] . '" href="#" id="' . $this->args['id'] . '" class="fusion-remove-image">' . $this->args['label_remove'] . '</a>';
-			$remove_image_link .= '</p>';
+			$remove_image_link     .= '</p>';
 
 			$nonce_field = wp_nonce_field( $this->args['nonce_action'], $this->args['nonce_name'], true, false );
 

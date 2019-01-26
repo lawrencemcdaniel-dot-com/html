@@ -273,6 +273,14 @@ class Avada {
 	public $privacy_embeds;
 
 	/**
+	 * Avada_PWA
+	 *
+	 * @access public
+	 * @var object Avada_PWA
+	 */
+	public $pwa;
+
+	/**
 	 * Access the single instance of this class.
 	 *
 	 * @return Avada
@@ -351,6 +359,7 @@ class Avada {
 		$this->fusion_library = Fusion::get_instance();
 		$this->sermon_manager = new Avada_Sermon_Manager();
 		$this->privacy_embeds = new Avada_Privacy_Embeds();
+		$this->pwa            = new Avada_PWA();
 
 		// Set the Fusion Library Image Class variable to the Avada one, to avoid duplication.
 		global $fusion_library;

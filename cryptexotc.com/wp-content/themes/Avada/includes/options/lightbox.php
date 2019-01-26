@@ -29,14 +29,14 @@ function avada_options_section_lightbox( $sections ) {
 		'priority' => 21,
 		'icon'     => 'el-icon-info-circle',
 		'fields'   => array(
-			'status_lightbox' => array(
+			'status_lightbox'           => array(
 				'label'       => esc_html__( 'Lightbox', 'Avada' ),
 				'description' => esc_html__( 'Turn on to enable the lightbox throughout the theme.', 'Avada' ),
 				'id'          => 'status_lightbox',
 				'default'     => '1',
 				'type'        => 'switch',
 			),
-			'status_lightbox_single' => array(
+			'status_lightbox_single'    => array(
 				'label'       => esc_html__( 'Lightbox For Featured Images On Single Post Pages', 'Avada' ),
 				'description' => esc_html__( 'Turn on to enable the lightbox on single blog and portfolio posts for the main featured images.', 'Avada' ),
 				'id'          => 'status_lightbox_single',
@@ -50,7 +50,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_behavior' => array(
+			'lightbox_behavior'         => array(
 				'label'       => esc_html__( 'Lightbox Behavior', 'Avada' ),
 				'description' => esc_html__( 'Controls what the lightbox displays for single blog and portfolio posts.', 'Avada' ),
 				'id'          => 'lightbox_behavior',
@@ -68,7 +68,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_skin' => array(
+			'lightbox_skin'             => array(
 				'label'       => esc_html__( 'Lightbox Skin', 'Avada' ),
 				'description' => esc_html__( 'Controls the lightbox skin design.', 'Avada' ),
 				'id'          => 'lightbox_skin',
@@ -91,7 +91,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_path' => array(
+			'lightbox_path'             => array(
 				'label'       => esc_html__( 'Thumbnails Position', 'Avada' ),
 				'description' => esc_html__( 'Controls the position of the lightbox thumbnails.', 'Avada' ),
 				'id'          => 'lightbox_path',
@@ -109,7 +109,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_animation_speed' => array(
+			'lightbox_animation_speed'  => array(
 				'label'       => esc_html__( 'Animation Speed', 'Avada' ),
 				'description' => esc_html__( 'Controls the animation speed of the lightbox.', 'Avada' ),
 				'id'          => 'lightbox_animation_speed',
@@ -128,7 +128,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_arrows' => array(
+			'lightbox_arrows'           => array(
 				'label'       => esc_html__( 'Arrows', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display arrows in the lightbox', 'Avada' ),
 				'id'          => 'lightbox_arrows',
@@ -147,7 +147,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_gallery' => array(
+			'lightbox_gallery'          => array(
 				'label'       => esc_html__( 'Gallery Start/Stop Button', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display the gallery start and stop button.', 'Avada' ),
 				'id'          => 'lightbox_gallery',
@@ -161,7 +161,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_autoplay' => array(
+			'lightbox_autoplay'         => array(
 				'label'       => esc_html__( 'Autoplay the Lightbox Gallery', 'Avada' ),
 				'description' => esc_html__( 'Turn on to autoplay the lightbox gallery.', 'Avada' ),
 				'id'          => 'lightbox_autoplay',
@@ -175,7 +175,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_slideshow_speed' => array(
+			'lightbox_slideshow_speed'  => array(
 				'label'       => esc_html__( 'Slideshow Speed', 'Avada' ),
 				'description' => esc_html__( 'Controls the slideshow speed if autoplay is turned on. ex: 1000 = 1 second.', 'Avada' ),
 				'id'          => 'lightbox_slideshow_speed',
@@ -194,7 +194,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_opacity' => array(
+			'lightbox_opacity'          => array(
 				'label'       => esc_html__( 'Background Opacity', 'Avada' ),
 				'description' => esc_html__( 'Controls the opacity level for the background behind the lightbox.', 'Avada' ),
 				'id'          => 'lightbox_opacity',
@@ -213,7 +213,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_title' => array(
+			'lightbox_title'            => array(
 				'label'       => esc_html__( 'Title', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display the image title in the lightbox.', 'Avada' ),
 				'id'          => 'lightbox_title',
@@ -227,7 +227,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_desc' => array(
+			'lightbox_desc'             => array(
 				'label'       => esc_html__( 'Caption', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display the image caption in the lightbox.', 'Avada' ),
 				'id'          => 'lightbox_desc',
@@ -241,7 +241,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_social' => array(
+			'lightbox_social'           => array(
 				'label'       => esc_html__( 'Social Sharing', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display social sharing buttons on lightbox.', 'Avada' ),
 				'id'          => 'lightbox_social',
@@ -255,7 +255,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_deeplinking' => array(
+			'lightbox_deeplinking'      => array(
 				'label'       => esc_html__( 'Deeplinking', 'Avada' ),
 				'description' => esc_html__( 'Turn on to deeplink images in the lightbox.', 'Avada' ),
 				'id'          => 'lightbox_deeplinking',
@@ -269,7 +269,7 @@ function avada_options_section_lightbox( $sections ) {
 					),
 				),
 			),
-			'lightbox_post_images' => array(
+			'lightbox_post_images'      => array(
 				'label'       => esc_html__( 'Show Post Images in Lightbox', 'Avada' ),
 				'description' => esc_html__( 'Turn on to display post images in the lightbox that are inside the post content area.', 'Avada' ),
 				'id'          => 'lightbox_post_images',
@@ -289,8 +289,8 @@ function avada_options_section_lightbox( $sections ) {
 				'id'          => 'lightbox_video_dimensions',
 				'units'       => false,
 				'default'     => array(
-					'width'   => '1280px',
-					'height'  => '720px',
+					'width'  => '1280px',
+					'height' => '720px',
 				),
 				'type'        => 'dimensions',
 				'required'    => array(

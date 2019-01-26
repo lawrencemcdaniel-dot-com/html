@@ -125,9 +125,9 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					$slider_settings['slider_indicator_color'] = '#ffffff';
 				}
 
-				$orderby = ( isset( $slider_settings['orderby'] ) ) ? $slider_settings['orderby'] : 'date';
-				$order   = ( isset( $slider_settings['order'] ) ) ? $slider_settings['order'] : 'DESC';
-				$args = array(
+				$orderby             = ( isset( $slider_settings['orderby'] ) ) ? $slider_settings['orderby'] : 'date';
+				$order               = ( isset( $slider_settings['order'] ) ) ? $slider_settings['order'] : 'DESC';
+				$args                = array(
 					'post_type'        => 'slide',
 					'posts_per_page'   => -1,
 					'suppress_filters' => 0,
@@ -142,7 +142,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				$query = FusionCore_Plugin::fusion_core_cached_query( $args );
 				if ( $query->have_posts() ) : ?>
-					<div <?php echo FusionBuilder::attributes( 'fusion-slider-wrapper' ); // WPCS: XSS ok. ?>>
+					<div <?php echo FusionBuilder::attributes( 'fusion-slider-wrapper' ); // phpcs:ignore WordPress.Security ?>>
 						<style type="text/css" scoped="scoped">
 						.fusion-slider-<?php echo esc_attr( $term_details->term_id ); ?> .flex-direction-nav a {
 							<?php
@@ -172,7 +172,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 						<?php endif; ?>
 						</style>
 						<div class="fusion-slider-loading"><?php esc_html_e( 'Loading...', 'fusion-core' ); ?></div>
-						<div <?php echo FusionBuilder::attributes( 'fusion-slider-container' ); // WPCS: XSS ok. ?>>
+						<div <?php echo FusionBuilder::attributes( 'fusion-slider-container' ); // phpcs:ignore WordPress.Security ?>>
 							<ul class="slides">
 								<?php
 								while ( $query->have_posts() ) :
@@ -310,8 +310,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 										$caption_font_size = 'font-size:' . $metadata['pyre_caption_font_size'][0] . 'px;line-height:' . $line_height . 'px;';
 									}
 
-									$heading_styles = $heading_color . $heading_font_size;
-									$caption_styles = $caption_color . $caption_font_size;
+									$heading_styles                 = $heading_color . $heading_font_size;
+									$caption_styles                 = $caption_color . $caption_font_size;
 									$heading_title_sc_wrapper_class = '';
 									$caption_title_sc_wrapper_class = '';
 
@@ -383,7 +383,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 										<div class="background <?php echo esc_attr( $background_class ); ?>" style="<?php echo esc_attr( $background_image ); ?>max-width:<?php echo esc_attr( $slider_settings['slider_width'] ); ?>;height:<?php echo esc_attr( $slider_settings['slider_height'] ); ?>;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo esc_url_raw( $image_url[0] ); ?>', sizingMethod='scale');-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php echo esc_url_raw( $image_url[0] ); ?>', sizingMethod='scale')';" data-imgwidth="<?php echo esc_attr( $img_width ); ?>">
 											<?php if ( isset( $metadata['pyre_type'][0] ) ) : ?>
 												<?php if ( 'self-hosted-video' === $metadata['pyre_type'][0] && ( $metadata['pyre_webm'][0] || $metadata['pyre_mp4'][0] || $metadata['pyre_ogg'][0] ) ) : ?>
-													<video width="1800" height="700" <?php echo $video_attributes; // WPCS: XSS ok. ?> preload="auto">
+													<video width="1800" height="700" <?php echo $video_attributes; // phpcs:ignore WordPress.Security ?> preload="auto">
 														<?php if ( array_key_exists( 'pyre_mp4', $metadata ) && $metadata['pyre_mp4'][0] ) : ?>
 															<source src="<?php echo esc_url_raw( $metadata['pyre_mp4'][0] ); ?>" type="video/mp4">
 														<?php endif; ?>
@@ -399,13 +399,13 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 											<?php if ( isset( $metadata['pyre_type'][0] ) && isset( $metadata['pyre_youtube_id'][0] ) && 'youtube' === $metadata['pyre_type'][0] && $metadata['pyre_youtube_id'][0] ) : ?>
 												<div style="position: absolute; top: 0; left: 0; <?php echo esc_attr( $video_zindex ); ?> width: 100%; height: 100%" data-youtube-video-id="<?php echo esc_attr( $metadata['pyre_youtube_id'][0] ); ?>" data-video-aspect-ratio="<?php echo esc_attr( $aspect_ratio ); ?>">
 													<div id="video-<?php echo esc_attr( $metadata['pyre_youtube_id'][0] ); ?>-inner">
-														<iframe height="100%" width="100%" src="https://www.youtube.com/embed/<?php echo $metadata['pyre_youtube_id'][0]; // WPCS: XSS ok. ?>?wmode=transparent&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;enablejsapi=1&amp;rel=0&amp;vq=hd720&amp;<?php echo $youtube_attributes; // WPCS: XSS ok. ?>" data-fusion-no-placeholder></iframe>
+														<iframe height="100%" width="100%" src="https://www.youtube.com/embed/<?php echo esc_attr( $metadata['pyre_youtube_id'][0] ); ?>?wmode=transparent&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;enablejsapi=1&amp;rel=0&amp;vq=hd720&amp;<?php echo esc_attr( $youtube_attributes ); ?>" data-fusion-no-placeholder></iframe>
 													</div>
 												</div>
 											<?php endif; ?>
 											<?php if ( isset( $metadata['pyre_type'][0] ) && isset( $metadata['pyre_vimeo_id'][0] ) && 'vimeo' === $metadata['pyre_type'][0] && $metadata['pyre_vimeo_id'][0] ) : ?>
 												<div style="position: absolute; top: 0; left: 0; <?php echo esc_attr( $video_zindex ); ?> width: 100%; height: 100%" data-mute="<?php echo esc_attr( $data_mute ); ?>" data-vimeo-video-id="<?php echo esc_attr( $metadata['pyre_vimeo_id'][0] ); ?>" data-video-aspect-ratio="<?php echo esc_attr( $aspect_ratio ); ?>">
-													<iframe src="https://player.vimeo.com/video/<?php echo $metadata['pyre_vimeo_id'][0]; // WPCS: XSS ok. ?>?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;badge=0&amp;title=0<?php echo $vimeo_attributes; // WPCS: XSS ok. ?>" height="100%" width="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen data-fusion-no-placeholder></iframe>
+													<iframe src="https://player.vimeo.com/video/<?php echo esc_attr( $metadata['pyre_vimeo_id'][0] ); ?>?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;badge=0&amp;title=0<?php echo $vimeo_attributes; // phpcs:ignore WordPress.Security ?>" height="100%" width="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen data-fusion-no-placeholder></iframe>
 												</div>
 											<?php endif; ?>
 										</div>
@@ -453,7 +453,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				}
 
 				$attr['class'] .= ' ' . self::$parent_args['class'];
-				$attr['id'] = 'fusion-slider-sc-' . self::$parent_args['name'];
+				$attr['id']     = 'fusion-slider-sc-' . self::$parent_args['name'];
 
 				$attr['style'] = 'height:' . self::$slider_settings['slider_height'] . '; max-width:' . self::$slider_settings['slider_width'] . ';';
 
@@ -494,10 +494,10 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 			}
 		}
-	} // End if().
+	}
 
 	new FusionSC_FusionSlider();
-} // End if().
+}
 
 /**
  * Map shortcode to Fusion Builder

@@ -111,7 +111,7 @@ class Avada_Importer_Data {
 			$demos = json_decode( $demos, true );
 
 			// Get the demo details from the remote server.
-			$args = array(
+			$args         = array(
 				'user-agent' => 'avada-user-agent',
 			);
 			$remote_demos = wp_remote_retrieve_body( wp_remote_get( self::$remote_server, $args ) );
@@ -248,7 +248,7 @@ class Avada_Importer_Data {
 		$demo = str_replace( '_', '-', $demo );
 
 		// Replace URLs.
-		$xml_content = str_replace(
+		$xml_content  = str_replace(
 			array(
 				'http://avada.theme-fusion.com/' . $demo,
 				'https://avada.theme-fusion.com/' . $demo,
@@ -295,17 +295,17 @@ class Avada_Importer_Data {
 			$site_id        = substr( $json_content, $start_position, $end_position - $start_position - 1 );
 
 			// Use site id to create upload url.
-			$uploads_url    = array(
+			$uploads_url = array(
 				str_replace( '/', '\\/', 'http://avada.theme-fusion.com/' . $demo . '/wp-content/uploads/sites/' . $site_id ),
 				str_replace( '/', '\\/', 'https://avada.theme-fusion.com/' . $demo . '/wp-content/uploads/sites/' . $site_id ),
 			);
 
 			// Find new uploads url.
-			$uploads_dir    = wp_upload_dir();
-			$target_url     = $uploads_dir['baseurl'];
+			$uploads_dir = wp_upload_dir();
+			$target_url  = $uploads_dir['baseurl'];
 
 			// Replace live url with target.
-			$json_content   = str_replace( $uploads_url, $target_url, $json_content );
+			$json_content = str_replace( $uploads_url, $target_url, $json_content );
 		}
 
 		// Write files.

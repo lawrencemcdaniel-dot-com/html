@@ -3,6 +3,7 @@
  * @summary This is the core Javascript module. Some code exists in ../core.js, the functionality there will slowly be handed over to this module.
  */
 jQuery(function($) {
+	
 	var core = {
 		/**
 		 * Indexed array of map instances
@@ -450,6 +451,10 @@ jQuery(function($) {
 		 * @return {object} The map object, or null if no such map exists
 		 */
 		getMapByID: function(id) {
+			
+			// Workaround for map ID member not set correctly
+			return MYMAP[id].map;
+			
 			for(var i = 0; i < WPGMZA.maps.length; i++) {
 				if(WPGMZA.maps[i].id == id)
 					return WPGMZA.maps[i];

@@ -780,17 +780,17 @@ var MONTHLY = 'monthly';
 var YEARLY = 'yearly';
 var SINGLE = 'single';
 
-var DAILY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'events-gutenberg');
-var WEEKLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Week', 'events-gutenberg');
-var MONTHLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Month', 'events-gutenberg');
-var YEARLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Year', 'events-gutenberg');
+var DAILY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'tribe-events-calendar-pro');
+var WEEKLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Week', 'tribe-events-calendar-pro');
+var MONTHLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Month', 'tribe-events-calendar-pro');
+var YEARLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Year', 'tribe-events-calendar-pro');
 
-var DAILY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Days', 'events-gutenberg');
-var WEEKLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Weeks', 'events-gutenberg');
-var MONTHLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Months', 'events-gutenberg');
-var YEARLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Years', 'events-gutenberg');
+var DAILY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Days', 'tribe-events-calendar-pro');
+var WEEKLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Weeks', 'tribe-events-calendar-pro');
+var MONTHLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Months', 'tribe-events-calendar-pro');
+var YEARLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Years', 'tribe-events-calendar-pro');
 
-var SINGLE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Single Recurrence', 'events-gutenberg');
+var SINGLE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Single Recurrence', 'tribe-events-calendar-pro');
 
 var RECURRENCE_TYPES = [DAILY, WEEKLY, MONTHLY, YEARLY, SINGLE];
 
@@ -802,9 +802,9 @@ var ON = 'on';
 var AFTER = 'after';
 var NEVER = 'never';
 
-var ON_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('On', 'events-gutenberg');
-var AFTER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('After', 'events-gutenberg');
-var NEVER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Never', 'events-gutenberg');
+var ON_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('On', 'tribe-events-calendar-pro');
+var AFTER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('After', 'tribe-events-calendar-pro');
+var NEVER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Never', 'tribe-events-calendar-pro');
 
 var DATE = 'date';
 var COUNT = 'count';
@@ -821,21 +821,21 @@ var THURSDAY = 'thursday';
 var FRIDAY = 'friday';
 var SATURDAY = 'saturday';
 
-var SUNDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sunday', 'events-gutenberg');
-var MONDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Monday', 'events-gutenberg');
-var TUESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Tuesday', 'events-gutenberg');
-var WEDNESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Wednesday', 'events-gutenberg');
-var THURSDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Thursday', 'events-gutenberg');
-var FRIDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Friday', 'events-gutenberg');
-var SATURDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Saturday', 'events-gutenberg');
+var SUNDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sunday', 'tribe-events-calendar-pro');
+var MONDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Monday', 'tribe-events-calendar-pro');
+var TUESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Tuesday', 'tribe-events-calendar-pro');
+var WEDNESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Wednesday', 'tribe-events-calendar-pro');
+var THURSDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Thursday', 'tribe-events-calendar-pro');
+var FRIDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Friday', 'tribe-events-calendar-pro');
+var SATURDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Saturday', 'tribe-events-calendar-pro');
 
-var SUNDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'events-gutenberg');
-var MONDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('M', 'events-gutenberg');
-var TUESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'events-gutenberg');
-var WEDNESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('W', 'events-gutenberg');
-var THURSDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'events-gutenberg');
-var FRIDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('F', 'events-gutenberg');
-var SATURDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'events-gutenberg');
+var SUNDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'tribe-events-calendar-pro');
+var MONDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('M', 'tribe-events-calendar-pro');
+var TUESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'tribe-events-calendar-pro');
+var WEDNESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('W', 'tribe-events-calendar-pro');
+var THURSDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'tribe-events-calendar-pro');
+var FRIDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('F', 'tribe-events-calendar-pro');
+var SATURDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'tribe-events-calendar-pro');
 
 var SUNDAY_CHECKED = 'sundayChecked';
 var MONDAY_CHECKED = 'mondayChecked';
@@ -871,7 +871,7 @@ var DAYS_OF_THE_MONTH = Array(31).fill().map(function (_, index) {
 });
 
 var DAY = 'day';
-var DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'events-gutenberg');
+var DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'tribe-events-calendar-pro');
 
 //
 // ─── WEEKS OF THE MONTH ─────────────────────────────────────────────────────────
@@ -884,12 +884,12 @@ var FOURTH = 'fourth';
 var FIFTH = 'fifth';
 var LAST = 'last';
 
-var FIRST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('First', 'events-gutenberg');
-var SECOND_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Second', 'events-gutenberg');
-var THIRD_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Third', 'events-gutenberg');
-var FOURTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fourth', 'events-gutenberg');
-var FIFTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fifth', 'events-gutenberg');
-var LAST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Last', 'events-gutenberg');
+var FIRST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('First', 'tribe-events-calendar-pro');
+var SECOND_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Second', 'tribe-events-calendar-pro');
+var THIRD_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Third', 'tribe-events-calendar-pro');
+var FOURTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fourth', 'tribe-events-calendar-pro');
+var FIFTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fifth', 'tribe-events-calendar-pro');
+var LAST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Last', 'tribe-events-calendar-pro');
 
 var WEEKS_OF_THE_MONTH = [FIRST, SECOND, THIRD, FOURTH, FIFTH, LAST];
 var WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH = {
@@ -917,31 +917,31 @@ var OCTOBER = 'october';
 var NOVEMBER = 'november';
 var DECEMBER = 'december';
 
-var JANUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('January', 'events-gutenberg');
-var FEBRUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('February', 'events-gutenberg');
-var MARCH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('March', 'events-gutenberg');
-var APRIL_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('April', 'events-gutenberg');
-var MAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'events-gutenberg');
-var JUNE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('June', 'events-gutenberg');
-var JULY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('July', 'events-gutenberg');
-var AUGUST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('August', 'events-gutenberg');
-var SEPTEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('September', 'events-gutenberg');
-var OCTOBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('October', 'events-gutenberg');
-var NOVEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('November', 'events-gutenberg');
-var DECEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('December', 'events-gutenberg');
+var JANUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('January', 'tribe-events-calendar-pro');
+var FEBRUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('February', 'tribe-events-calendar-pro');
+var MARCH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('March', 'tribe-events-calendar-pro');
+var APRIL_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('April', 'tribe-events-calendar-pro');
+var MAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'tribe-events-calendar-pro');
+var JUNE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('June', 'tribe-events-calendar-pro');
+var JULY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('July', 'tribe-events-calendar-pro');
+var AUGUST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('August', 'tribe-events-calendar-pro');
+var SEPTEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('September', 'tribe-events-calendar-pro');
+var OCTOBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('October', 'tribe-events-calendar-pro');
+var NOVEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('November', 'tribe-events-calendar-pro');
+var DECEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('December', 'tribe-events-calendar-pro');
 
-var JANUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jan', 'events-gutenberg');
-var FEBRUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Feb', 'events-gutenberg');
-var MARCH_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Mar', 'events-gutenberg');
-var APRIL_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Apr', 'events-gutenberg');
-var MAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'events-gutenberg');
-var JUNE_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jun', 'events-gutenberg');
-var JULY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jul', 'events-gutenberg');
-var AUGUST_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Aug', 'events-gutenberg');
-var SEPTEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sep', 'events-gutenberg');
-var OCTOBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Oct', 'events-gutenberg');
-var NOVEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Nov', 'events-gutenberg');
-var DECEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Dec', 'events-gutenberg');
+var JANUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jan', 'tribe-events-calendar-pro');
+var FEBRUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Feb', 'tribe-events-calendar-pro');
+var MARCH_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Mar', 'tribe-events-calendar-pro');
+var APRIL_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Apr', 'tribe-events-calendar-pro');
+var MAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'tribe-events-calendar-pro');
+var JUNE_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jun', 'tribe-events-calendar-pro');
+var JULY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jul', 'tribe-events-calendar-pro');
+var AUGUST_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Aug', 'tribe-events-calendar-pro');
+var SEPTEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sep', 'tribe-events-calendar-pro');
+var OCTOBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Oct', 'tribe-events-calendar-pro');
+var NOVEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Nov', 'tribe-events-calendar-pro');
+var DECEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Dec', 'tribe-events-calendar-pro');
 
 var MONTHS_OF_THE_YEAR_MAPPING_TO_STATE = (_MONTHS_OF_THE_YEAR_M = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, JANUARY, 1), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, FEBRUARY, 2), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, MARCH, 3), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, APRIL, 4), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, MAY, 5), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, JUNE, 6), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, JULY, 7), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, AUGUST, 8), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, SEPTEMBER, 9), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, OCTOBER, 10), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, NOVEMBER, 11), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, DECEMBER, 12), _MONTHS_OF_THE_YEAR_M);
 
@@ -959,13 +959,13 @@ var FIFTH_DAY = 'fifth_day';
 var SIXTH_DAY = 'sixth_day';
 var SEVENTH_DAY = 'seventh_day';
 
-var NEXT_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Next day', 'events-gutenberg');
-var SECOND_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('2nd day', 'events-gutenberg');
-var THIRD_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('3rd day', 'events-gutenberg');
-var FOURTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('4th day', 'events-gutenberg');
-var FIFTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('5th day', 'events-gutenberg');
-var SIXTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('6th day', 'events-gutenberg');
-var SEVENTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('7th day', 'events-gutenberg');
+var NEXT_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Next day', 'tribe-events-calendar-pro');
+var SECOND_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('2nd day', 'tribe-events-calendar-pro');
+var THIRD_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('3rd day', 'tribe-events-calendar-pro');
+var FOURTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('4th day', 'tribe-events-calendar-pro');
+var FIFTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('5th day', 'tribe-events-calendar-pro');
+var SIXTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('6th day', 'tribe-events-calendar-pro');
+var SEVENTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('7th day', 'tribe-events-calendar-pro');
 
 /***/ }),
 /* 6 */
@@ -4613,7 +4613,7 @@ var constants = __webpack_require__(5);
  */
 
 
-var EXCEPTION_OCCURRENCE_OPTIONS = [{ label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Daily', 'events-gutenberg'), value: constants["DAILY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Weekly', 'events-gutenberg'), value: constants["WEEKLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Monthly', 'events-gutenberg'), value: constants["MONTHLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Yearly', 'events-gutenberg'), value: constants["YEARLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Single Exception', 'events-gutenberg'), value: constants["SINGLE"] }];
+var EXCEPTION_OCCURRENCE_OPTIONS = [{ label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Daily', 'tribe-events-calendar-pro'), value: constants["DAILY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Weekly', 'tribe-events-calendar-pro'), value: constants["WEEKLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Monthly', 'tribe-events-calendar-pro'), value: constants["MONTHLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Yearly', 'tribe-events-calendar-pro'), value: constants["YEARLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Single Exception', 'tribe-events-calendar-pro'), value: constants["SINGLE"] }];
 // EXTERNAL MODULE: ./src/modules/data/blocks/recurring/options.js
 var options = __webpack_require__(55);
 
@@ -5108,7 +5108,7 @@ module.exports = root;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return stdChannel; });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var _buffers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(49);
-/* harmony import */ var _scheduler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(75);
+/* harmony import */ var _scheduler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(76);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -6684,15 +6684,15 @@ var template_Settings = function Settings(_ref) {
 		before,
 		wp.element.createElement(
 			external_var_wp_components_root_wp_components_["PanelBody"],
-			{ title: Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('%1$s Settings', 'events-gutenberg'), name) },
+			{ title: Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('%1$s Settings', 'tribe-events-calendar-pro'), name) },
 			!!settingsLink && wp.element.createElement(
 				'span',
 				null,
-				Object(external_var_wp_i18n_root_wp_i18n_["__"])('Adjust this block’s options under Events → Settings → ', 'events-gutenberg'),
+				Object(external_var_wp_i18n_root_wp_i18n_["__"])('Adjust this block’s options under Events → Settings → ', 'tribe-events-calendar-pro'),
 				wp.element.createElement(
 					'a',
 					{ href: settingsLink, target: '_blank', rel: 'noreferrer noopener' },
-					Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Fields', 'events-gutenberg')
+					Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Fields', 'tribe-events-calendar-pro')
 				)
 			)
 		),
@@ -6892,7 +6892,7 @@ var template_FieldTemplate = function FieldTemplate(_ref) {
 	}
 
 	if (isPristine) {
-		var placeholderMessage = Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('Add %1$s', 'events-gutenberg'), capitalize_default()(label));
+		var placeholderMessage = Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('Add %1$s', 'tribe-events-calendar-pro'), capitalize_default()(label));
 		return wp.element.createElement(
 			external_tribe_common_elements_["Placeholder"],
 			null,
@@ -7410,15 +7410,15 @@ var template_CheckboxSettings = function CheckboxSettings(props) {
 	var After = function After() {
 		return wp.element.createElement(
 			external_var_wp_components_root_wp_components_["PanelBody"],
-			{ title: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Custom Dividers', 'events-gutenberg') },
+			{ title: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Custom Dividers', 'tribe-events-calendar-pro') },
 			wp.element.createElement(external_var_wp_components_root_wp_components_["TextControl"], {
-				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List divider', 'events-gutenberg'),
+				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List divider', 'tribe-events-calendar-pro'),
 				value: listDividerValue,
 				onChange: listDividerOnChange,
 				className: 'tribe-editor__additional-fields__divider-settings'
 			}),
 			wp.element.createElement(external_var_wp_components_root_wp_components_["TextControl"], {
-				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List ender', 'events-gutenberg'),
+				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List ender', 'tribe-events-calendar-pro'),
 				value: listEnderValue,
 				onChange: listEnderOnChange,
 				className: 'tribe-editor__additional-fields__divider-settings'
@@ -7680,7 +7680,7 @@ var utils_fieldToBlock = function fieldToBlock(field) {
 	var block = {
 		id: 'field-' + Object(external_tribe_common_utils_string_["toBlockName"])(name),
 		title: label,
-		description: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Field', 'events-gutenberg'),
+		description: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Field', 'tribe-events-calendar-pro'),
 		icon: schema.icon,
 		category: 'tribe-events-pro-additional-fields',
 		keywords: ['event', 'events-gutenberg', 'tribe'],
@@ -8517,7 +8517,7 @@ module.exports = getTag;
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSymbol = __webpack_require__(72);
+var isSymbol = __webpack_require__(73);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -8576,7 +8576,7 @@ module.exports = __webpack_require__(57) ? function (object, key, value) {
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
@@ -8669,13 +8669,19 @@ module.exports = includes;
 /* 71 */
 /***/ (function(module, exports) {
 
+module.exports = wp.data;
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
 module.exports = function (it) {
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGetTag = __webpack_require__(46),
@@ -8710,7 +8716,7 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var assignValue = __webpack_require__(178),
@@ -8756,7 +8762,7 @@ module.exports = copyObject;
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
@@ -8768,7 +8774,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8837,12 +8843,6 @@ function flush() {
     exec(task);
   }
 }
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports) {
-
-module.exports = wp.data;
 
 /***/ }),
 /* 77 */
@@ -10782,7 +10782,7 @@ module.exports = baseGet;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArray = __webpack_require__(29),
-    isSymbol = __webpack_require__(72);
+    isSymbol = __webpack_require__(73);
 
 /** Used to match property names within property paths. */
 var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
@@ -10983,7 +10983,7 @@ module.exports = function (it, tag, stat) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function (it, S) {
@@ -11057,7 +11057,7 @@ module.exports = Object.create || function create(O, Properties) {
 /* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 var document = __webpack_require__(52).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
@@ -11103,7 +11103,7 @@ g = (function() {
 
 try {
 	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1, eval)("this");
+	g = g || new Function("return this")();
 } catch (e) {
 	// This works if the window reference is available
 	if (typeof window === "object") g = window;
@@ -11787,7 +11787,7 @@ module.exports = getHolder;
 /* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     keys = __webpack_require__(40);
 
 /**
@@ -12744,7 +12744,7 @@ var arrayMap = __webpack_require__(93),
     baseClone = __webpack_require__(124),
     baseUnset = __webpack_require__(368),
     castPath = __webpack_require__(91),
-    copyObject = __webpack_require__(73),
+    copyObject = __webpack_require__(74),
     customOmitClone = __webpack_require__(371),
     flatRest = __webpack_require__(199),
     getAllKeysIn = __webpack_require__(187);
@@ -13123,7 +13123,7 @@ module.exports = !__webpack_require__(57) && !__webpack_require__(77)(function (
 /***/ (function(module, exports, __webpack_require__) {
 
 var has = __webpack_require__(60);
-var toIObject = __webpack_require__(74);
+var toIObject = __webpack_require__(75);
 var arrayIndexOf = __webpack_require__(231)(false);
 var IE_PROTO = __webpack_require__(109)('IE_PROTO');
 
@@ -13390,7 +13390,7 @@ module.exports = !$assign || __webpack_require__(77)(function () {
 
 // false -> Array#indexOf
 // true  -> Array#includes
-var toIObject = __webpack_require__(74);
+var toIObject = __webpack_require__(75);
 var toLength = __webpack_require__(153);
 var toAbsoluteIndex = __webpack_require__(232);
 module.exports = function (IS_INCLUDES) {
@@ -15826,7 +15826,7 @@ module.exports = toFinite;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(45),
-    isSymbol = __webpack_require__(72);
+    isSymbol = __webpack_require__(73);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -16675,7 +16675,7 @@ module.exports = mapCacheSet;
 /* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     keysIn = __webpack_require__(182);
 
 /**
@@ -16805,7 +16805,7 @@ module.exports = cloneBuffer;
 /* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     getSymbols = __webpack_require__(128);
 
 /**
@@ -16858,7 +16858,7 @@ module.exports = arrayFilter;
 /* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     getSymbolsIn = __webpack_require__(184);
 
 /**
@@ -18074,7 +18074,7 @@ module.exports = memoize;
 var Symbol = __webpack_require__(61),
     arrayMap = __webpack_require__(93),
     isArray = __webpack_require__(29),
-    isSymbol = __webpack_require__(72);
+    isSymbol = __webpack_require__(73);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -18480,7 +18480,7 @@ module.exports = overRest;
 var arrayMap = __webpack_require__(93),
     copyArray = __webpack_require__(82),
     isArray = __webpack_require__(29),
-    isSymbol = __webpack_require__(72),
+    isSymbol = __webpack_require__(73),
     stringToPath = __webpack_require__(198),
     toKey = __webpack_require__(63),
     toString = __webpack_require__(92);
@@ -20373,7 +20373,7 @@ var utils = __webpack_require__(2);
 var internal_channel = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/scheduler.js
-var scheduler = __webpack_require__(75);
+var scheduler = __webpack_require__(76);
 
 // EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/io.js
 var io = __webpack_require__(15);
@@ -21301,7 +21301,7 @@ var sagaHelpers = __webpack_require__(56);
 
 
 // EXTERNAL MODULE: external {"var":"wp.data","root":["wp","data"]}
-var external_var_wp_data_root_wp_data_ = __webpack_require__(76);
+var external_var_wp_data_root_wp_data_ = __webpack_require__(71);
 
 // EXTERNAL MODULE: ./node_modules/whatwg-fetch/fetch.js
 var whatwg_fetch_fetch = __webpack_require__(562);
@@ -21358,7 +21358,7 @@ var _marked = /*#__PURE__*/regenerator_default.a.mark(fetchStatus),
 var NOTICE_EDITING_SERIES = 'NOTICE_EDITING_SERIES';
 var NOTICE_PROGRESS_ON_SERIES_CREATION_COUNT = 'NOTICE_PROGRESS_ON_SERIES_CREATION_COUNT';
 var NOTICE_PROGRESS_ON_SERIES_CREATION = 'NOTICE_PROGRESS_ON_SERIES_CREATION';
-var NOTICES = (_NOTICES = {}, defineProperty_default()(_NOTICES, NOTICE_EDITING_SERIES, Object(external_var_wp_i18n_root_wp_i18n_["__"])('You are currently editing all events in a recurring series.', 'events-gutenberg')), defineProperty_default()(_NOTICES, NOTICE_PROGRESS_ON_SERIES_CREATION_COUNT, Object(external_var_wp_i18n_root_wp_i18n_["_n"])('%d instance', '%d instances', 1, 'events-gutenberg')), defineProperty_default()(_NOTICES, NOTICE_PROGRESS_ON_SERIES_CREATION, Object(external_var_wp_i18n_root_wp_i18n_["__"])('of this event have been created through %s.', 'events-gutenberg')), _NOTICES);
+var NOTICES = (_NOTICES = {}, defineProperty_default()(_NOTICES, NOTICE_EDITING_SERIES, Object(external_var_wp_i18n_root_wp_i18n_["__"])('You are currently editing all events in a recurring series.', 'tribe-events-calendar-pro')), defineProperty_default()(_NOTICES, NOTICE_PROGRESS_ON_SERIES_CREATION_COUNT, Object(external_var_wp_i18n_root_wp_i18n_["_n"])('%d instance', '%d instances', 1, 'tribe-events-calendar-pro')), defineProperty_default()(_NOTICES, NOTICE_PROGRESS_ON_SERIES_CREATION, Object(external_var_wp_i18n_root_wp_i18n_["__"])('of this event have been created through %s.', 'tribe-events-calendar-pro')), _NOTICES);
 
 /**
  * Fetches current series queue status
@@ -21433,7 +21433,7 @@ function fetchStatus() {
  * @export
  */
 function pollUntilSeriesCompleted() {
-	var response, isCompleted, payload, items_created, last_created_at, date;
+	var response, isCompleted, payload, items_created, last_created_at, done, percentage, date;
 	return regenerator_default.a.wrap(function pollUntilSeriesCompleted$(_context2) {
 		while (1) {
 			switch (_context2.prev = _context2.next) {
@@ -21452,7 +21452,7 @@ function pollUntilSeriesCompleted() {
 					isCompleted = response === false || response.done; // If false, no edits being done
 
 					if (!isCompleted) {
-						_context2.next = 13;
+						_context2.next = 18;
 						break;
 					}
 
@@ -21461,47 +21461,56 @@ function pollUntilSeriesCompleted() {
 					return Object(es_effects["e" /* put */])(actions_setSeriesQueueStatus(payload));
 
 				case 11:
-					_context2.next = 19;
-					break;
-
-				case 13:
-					_context2.next = 15;
-					return Object(es_effects["e" /* put */])(actions_setSeriesQueueStatus(response));
-
-				case 15:
-					items_created = response.items_created, last_created_at = response.last_created_at;
-					date = external_tribe_common_utils_["moment"].toDate(external_tribe_common_utils_["moment"].toMoment(last_created_at));
+					items_created = response.items_created, last_created_at = response.last_created_at, done = response.done, percentage = response.percentage;
 
 					// Show progress notice
 
-					_context2.next = 19;
-					return Object(es_effects["b" /* call */])([Object(external_var_wp_data_root_wp_data_["dispatch"])('core/notices'), 'createSuccessNotice'], Object(external_var_wp_i18n_root_wp_i18n_["sprintf"])(NOTICES[NOTICE_PROGRESS_ON_SERIES_CREATION_COUNT], items_created) + ' ' + Object(external_var_wp_i18n_root_wp_i18n_["sprintf"])(NOTICES[NOTICE_PROGRESS_ON_SERIES_CREATION], date), { id: NOTICE_PROGRESS_ON_SERIES_CREATION, isDismissible: true });
-
-				case 19:
-					_context2.next = 21;
-					return Object(es_effects["g" /* select */])(selectors_isCompleted);
-
-				case 21:
-					if (!_context2.sent) {
-						_context2.next = 25;
+					if (!(done && 100 === percentage)) {
+						_context2.next = 16;
 						break;
 					}
 
+					date = external_tribe_common_utils_["moment"].toDate(external_tribe_common_utils_["moment"].toMoment(last_created_at));
+					_context2.next = 16;
+					return Object(es_effects["b" /* call */])([Object(external_var_wp_data_root_wp_data_["dispatch"])('core/notices'), 'createSuccessNotice'], Object(external_var_wp_i18n_root_wp_i18n_["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["_n"])('%d instance', '%d instances', items_created, 'events-gutenberg'), items_created) + ' ' + Object(external_var_wp_i18n_root_wp_i18n_["sprintf"])(NOTICES[NOTICE_PROGRESS_ON_SERIES_CREATION], date), { id: NOTICE_PROGRESS_ON_SERIES_CREATION, isDismissible: true });
+
+				case 16:
+					_context2.next = 22;
+					break;
+
+				case 18:
+					_context2.next = 20;
+					return Object(es_effects["e" /* put */])(actions_setSeriesQueueStatus(response));
+
+				case 20:
+					_context2.next = 22;
+					return Object(es_effects["b" /* call */])([Object(external_var_wp_data_root_wp_data_["dispatch"])('core/notices'), 'createSuccessNotice'], Object(external_var_wp_i18n_root_wp_i18n_["__"])('Recurring event instances are still being created...', 'events-gutenberg'), { id: NOTICE_PROGRESS_ON_SERIES_CREATION, isDismissible: true });
+
+				case 22:
 					_context2.next = 24;
-					return Object(es_effects["e" /* put */])(external_tribe_events_data_["blocks"].datetime.actions.allowEdits());
+					return Object(es_effects["g" /* select */])(selectors_isCompleted);
 
 				case 24:
-					return _context2.abrupt('break', 29);
+					if (!_context2.sent) {
+						_context2.next = 28;
+						break;
+					}
 
-				case 25:
 					_context2.next = 27;
-					return Object(es_effects["b" /* call */])(utils["j" /* delay */], 1000);
+					return Object(es_effects["e" /* put */])(external_tribe_events_data_["blocks"].datetime.actions.allowEdits());
 
 				case 27:
+					return _context2.abrupt('break', 32);
+
+				case 28:
+					_context2.next = 30;
+					return Object(es_effects["b" /* call */])(utils["j" /* delay */], 1000);
+
+				case 30:
 					_context2.next = 2;
 					break;
 
-				case 29:
+				case 32:
 				case 'end':
 					return _context2.stop();
 			}

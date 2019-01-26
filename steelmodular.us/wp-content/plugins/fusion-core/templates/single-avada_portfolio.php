@@ -17,9 +17,9 @@ if ( ! class_exists( 'Avada' ) ) {
 <?php get_header(); ?>
 <div id="content" <?php Avada()->layout->add_class( 'content_class' ); ?> <?php Avada()->layout->add_style( 'content_style' ); ?>>
 	<?php
-	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 	FusionCore_Plugin::fusion_core_cached_query( $query_string . '&paged=' . $paged );
-	$nav_categories  = ( isset( $_GET['portfolioCats'] ) ) ? wp_unslash( $_GET['portfolioCats'] ) : ''; // WPCS: sanitization ok.
+	$nav_categories = ( isset( $_GET['portfolioCats'] ) ) ? wp_unslash( $_GET['portfolioCats'] ) : ''; // phpcs:ignore WordPress.Security
 	?>
 
 	<?php $post_pagination = get_post_meta( $post->ID, 'pyre_post_pagination', true ); ?>
@@ -100,23 +100,24 @@ if ( ! class_exists( 'Avada' ) ) {
 								<?php if ( get_post_meta( $post->ID, 'pyre_video', true ) ) : ?>
 									<li>
 										<div class="full-video">
-											<?php echo get_post_meta( $post->ID, 'pyre_video', true ); // WPCS: XSS ok. ?>
+											<?php echo get_post_meta( $post->ID, 'pyre_video', true ); // phpcs:ignore WordPress.Security ?>
 										</div>
 									</li>
 								<?php endif; ?>
 								<?php if ( has_post_thumbnail() && ( ! fusion_get_mismatch_option( 'portfolio_disable_first_featured_image', 'show_first_featured_image', $post->ID ) || 'no' === fusion_get_mismatch_option( 'portfolio_disable_first_featured_image', 'show_first_featured_image', $post->ID ) ) ) : ?>
-									<?php $attachment_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ); ?>
-									<?php $full_image       = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ); ?>
-									<?php $attachment_data  = wp_get_attachment_metadata( get_post_thumbnail_id() ); ?>
-									<?php $alt_tag = esc_attr( get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) ); ?>
 									<li>
 										<?php if ( Avada()->settings->get( 'status_lightbox' ) && Avada()->settings->get( 'status_lightbox_single' ) ) : ?>
-											<a href="<?php echo esc_url_raw( $full_image[0] ); ?>" data-rel="iLightbox[gallery<?php the_ID(); ?>]" title="<?php echo esc_attr( get_post_field( 'post_excerpt', get_post_thumbnail_id() ) ); ?>" data-title="<?php echo esc_attr( get_post_field( 'post_title', get_post_thumbnail_id() ) ); ?>" data-caption="<?php echo esc_attr( get_post_field( 'post_excerpt', get_post_thumbnail_id() ) ); ?>">
-												<span class="screen-reader-text"><?php esc_html_e( 'View Larger Image', 'fusion-core' ); ?></span>
-												<img src="<?php echo esc_url_raw( $attachment_image[0] ); ?>" alt="<?php echo esc_attr( $alt_tag ); ?>" role="presentation" />
-											</a>
+											<?php $attachment_data = Avada()->images->get_attachment_data( get_post_thumbnail_id() ); ?>
+											<?php if ( is_array( $attachment_data ) ) : ?>
+												<a href="<?php echo esc_url( $attachment_data['url'] ); ?>" data-rel="iLightbox[gallery<?php the_ID(); ?>]" title="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>" data-title="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>" data-caption="<?php echo esc_attr( $attachment_data['caption_attribute'] ); ?>">
+													<span class="screen-reader-text"><?php esc_html_e( 'View Larger Image', 'fusion-core' ); ?></span>
+													<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
+												</a>
+											<?php else : ?>
+												<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
+											<?php endif; ?>
 										<?php else : ?>
-											<img src="<?php echo esc_url_raw( $attachment_image[0] ); ?>" alt="<?php echo esc_attr( $alt_tag ); ?>" role="presentation" />
+											<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
 										<?php endif; ?>
 									</li>
 								<?php endif; ?>
@@ -124,17 +125,19 @@ if ( ! class_exists( 'Avada' ) ) {
 								<?php while ( $i <= Avada()->settings->get( 'posts_slideshow_number' ) ) : ?>
 									<?php $attachment_new_id = fusion_get_featured_image_id( 'featured-image-' . $i, 'avada_portfolio' ); ?>
 									<?php if ( $attachment_new_id ) : ?>
-										<?php $attachment_image = wp_get_attachment_image_src( $attachment_new_id, 'full' ); ?>
-										<?php $full_image       = wp_get_attachment_image_src( $attachment_new_id, 'full' ); ?>
-										<?php $attachment_data  = wp_get_attachment_metadata( $attachment_new_id ); ?>
-										<?php $alt_tag = esc_attr( get_post_meta( $attachment_new_id, '_wp_attachment_image_alt', true ) ); ?>
 										<li>
 											<?php if ( Avada()->settings->get( 'status_lightbox' ) && Avada()->settings->get( 'status_lightbox_single' ) ) : ?>
-												<a href="<?php echo esc_url_raw( $full_image[0] ); ?>" data-rel="iLightbox[gallery<?php the_ID(); ?>]" title="<?php echo esc_attr( get_post_field( 'post_excerpt', $attachment_new_id ) ); ?>" data-title="<?php echo esc_attr( get_post_field( 'post_title', $attachment_new_id ) ); ?>" data-caption="<?php echo esc_attr( get_post_field( 'post_excerpt', $attachment_new_id ) ); ?>">
-													<img src="<?php echo esc_url_raw( $attachment_image[0] ); ?>" alt="<?php echo esc_attr( $alt_tag ); ?>" role="presentation" />
-												</a>
+												<?php $attachment_data = Avada()->images->get_attachment_data( $attachment_new_id ); ?>
+												<?php if ( is_array( $attachment_data ) ) : ?>
+													<a href="<?php echo esc_url( $attachment_data['url'] ); ?>" data-rel="iLightbox[gallery<?php the_ID(); ?>]" title="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>" data-title="<?php echo esc_attr( $attachment_data['title_attribute'] ); ?>" data-caption="<?php echo esc_attr( $attachment_data['caption_attribute'] ); ?>">
+														<span class="screen-reader-text"><?php esc_html_e( 'View Larger Image', 'fusion-core' ); ?></span>
+														<?php echo wp_get_attachment_image( $attachment_new_id, 'full' ); ?>
+													</a>
+												<?php else : ?>
+													<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
+												<?php endif; ?>
 											<?php else : ?>
-												<img src="<?php echo esc_url_raw( $attachment_image[0] ); ?>" alt="<?php echo esc_attr( $alt_tag ); ?>" role="presentation" />
+												<?php echo wp_get_attachment_image( $attachment_new_id, 'full' ); ?>
 											<?php endif; ?>
 										</li>
 									<?php endif; ?>
@@ -154,10 +157,10 @@ if ( ! class_exists( 'Avada' ) ) {
 			$project_details          = ( in_array( fusion_get_option( 'portfolio_project_details', 'project_details', $post->ID ), array( 'yes', '1', 1 ), true ) ) ? true : false;
 			?>
 			<div class="project-content">
-				<?php echo fusion_render_rich_snippets_for_pages(); // WPCS: XSS ok. ?>
+				<?php echo fusion_render_rich_snippets_for_pages(); // phpcs:ignore WordPress.Security ?>
 				<div class="project-description post-content<?php echo ( $project_details ) ? ' fusion-project-description-details' : ''; ?>" style="<?php echo esc_attr( $project_desc_width_style ); ?>">
 					<?php if ( ! post_password_required( $post->ID ) ) : ?>
-						<?php echo apply_filters( 'fusion_portfolio_post_project_description_label', '<h3 style="' . $project_desc_title_style . '">' . esc_html__( 'Project Description', 'fusion-core' ) . '</h3>', esc_attr__( 'Project Description', 'fusion-core' ), $project_desc_title_style, 'h3' ); // WPCS: XSS ok. ?>
+						<?php echo apply_filters( 'fusion_portfolio_post_project_description_label', '<h3 style="' . $project_desc_title_style . '">' . esc_html__( 'Project Description', 'fusion-core' ) . '</h3>', esc_attr__( 'Project Description', 'fusion-core' ), $project_desc_title_style, 'h3' ); // phpcs:ignore WordPress.Security ?>
 					<?php endif; ?>
 					<?php the_content(); ?>
 					<?php
@@ -172,16 +175,16 @@ if ( ! class_exists( 'Avada' ) ) {
 						<?php do_action( 'fusion_before_portfolio_side_content' ); ?>
 						<?php
 						$project_details_title = esc_html__( 'Project Details', 'fusion-core' );
-						$project_details_tag = 'h3';
-						echo apply_filters( 'fusion_portfolio_post_project_details_label', '<' . $project_details_tag . '>' . $project_details_title . '</' . $project_details_tag . '>', $project_details_title, $project_details_tag ); // WPCS: XSS ok.
+						$project_details_tag   = 'h3';
+						echo apply_filters( 'fusion_portfolio_post_project_details_label', '<' . $project_details_tag . '>' . $project_details_title . '</' . $project_details_tag . '>', $project_details_title, $project_details_tag ); // phpcs:ignore WordPress.Security
 						?>
 
 						<?php if ( get_the_term_list( $post->ID, 'portfolio_skills', '', '<br />', '' ) ) : ?>
 							<div class="project-info-box">
 								<?php
 								$project_skills_title = esc_html__( 'Skills Needed:', 'fusion-core' );
-								$project_skills_tag = 'h4';
-								echo apply_filters( 'fusion_portfolio_post_skills_label', '<' . $project_skills_tag . '>' . $project_skills_title . '</' . $project_skills_tag . '>', $project_skills_title, $project_skills_tag ); // WPCS: XSS ok.
+								$project_skills_tag   = 'h4';
+								echo apply_filters( 'fusion_portfolio_post_skills_label', '<' . $project_skills_tag . '>' . $project_skills_title . '</' . $project_skills_tag . '>', $project_skills_title, $project_skills_tag ); // phpcs:ignore WordPress.Security
 								?>
 								<div class="project-terms">
 									<?php echo get_the_term_list( $post->ID, 'portfolio_skills', '', '<br />', '' ); ?>
@@ -193,8 +196,8 @@ if ( ! class_exists( 'Avada' ) ) {
 							<div class="project-info-box">
 								<?php
 								$project_categories_title = esc_html__( 'Categories:', 'fusion-core' );
-								$project_categories_tag = 'h4';
-								echo apply_filters( 'fusion_portfolio_post_categories_label', '<' . $project_categories_tag . '>' . $project_categories_title . '</' . $project_categories_tag . '>', $project_categories_title, $project_categories_tag ); // WPCS: XSS ok.
+								$project_categories_tag   = 'h4';
+								echo apply_filters( 'fusion_portfolio_post_categories_label', '<' . $project_categories_tag . '>' . $project_categories_title . '</' . $project_categories_tag . '>', $project_categories_title, $project_categories_tag ); // phpcs:ignore WordPress.Security
 								?>
 								<div class="project-terms">
 									<?php echo get_the_term_list( $post->ID, 'portfolio_category', '', '<br />', '' ); ?>
@@ -206,8 +209,8 @@ if ( ! class_exists( 'Avada' ) ) {
 							<div class="project-info-box">
 								<?php
 								$project_tags_title = esc_html__( 'Tags:', 'fusion-core' );
-								$project_tags_tag = 'h4';
-								echo apply_filters( 'fusion_portfolio_post_tags_label', '<' . $project_tags_tag . '>' . $project_tags_title . '</' . $project_tags_tag . '>', $project_tags_title, $project_tags_tag ); // WPCS: XSS ok.
+								$project_tags_tag   = 'h4';
+								echo apply_filters( 'fusion_portfolio_post_tags_label', '<' . $project_tags_tag . '>' . $project_tags_title . '</' . $project_tags_tag . '>', $project_tags_title, $project_tags_tag ); // phpcs:ignore WordPress.Security
 								?>
 								<div class="project-terms">
 									<?php echo get_the_term_list( $post->ID, 'portfolio_tags', '', '<br />', '' ); ?>
@@ -216,7 +219,7 @@ if ( ! class_exists( 'Avada' ) ) {
 						<?php endif; ?>
 
 						<?php
-						$project_url = get_post_meta( $post->ID, 'pyre_project_url', true );
+						$project_url      = get_post_meta( $post->ID, 'pyre_project_url', true );
 						$project_url_text = get_post_meta( $post->ID, 'pyre_project_url_text', true );
 						?>
 
@@ -225,15 +228,15 @@ if ( ! class_exists( 'Avada' ) ) {
 							<div class="project-info-box">
 								<?php
 								$project_project_url_title = esc_html__( 'Project URL:', 'fusion-core' );
-								$project_project_url_tag = 'h4';
-								echo apply_filters( 'fusion_portfolio_post_project_url_label', '<' . $project_project_url_tag . '>' . $project_project_url_title . '</' . $project_project_url_tag . '>', $project_project_url_title, $project_project_url_tag );  // WPCS: XSS ok.
+								$project_project_url_tag   = 'h4';
+								echo apply_filters( 'fusion_portfolio_post_project_url_label', '<' . $project_project_url_tag . '>' . $project_project_url_title . '</' . $project_project_url_tag . '>', $project_project_url_title, $project_project_url_tag ); // phpcs:ignore WordPress.Security
 								?>
-								<span><a href="<?php echo esc_url_raw( $project_url ); ?>"<?php echo $link_target; // WPCS: XSS ok. ?>><?php echo $project_url_text; // WPCS: XSS ok. ?></a></span>
+								<span><a href="<?php echo esc_url_raw( $project_url ); ?>"<?php echo $link_target; // phpcs:ignore WordPress.Security ?>><?php echo $project_url_text; ?></a></span>
 							</div>
 						<?php endif; ?>
 
 						<?php
-						$copy_url = get_post_meta( $post->ID, 'pyre_copy_url', true );
+						$copy_url      = get_post_meta( $post->ID, 'pyre_copy_url', true );
 						$copy_url_text = get_post_meta( $post->ID, 'pyre_copy_url_text', true );
 						?>
 
@@ -242,10 +245,10 @@ if ( ! class_exists( 'Avada' ) ) {
 							<div class="project-info-box">
 								<?php
 								$project_copyright_title = esc_html__( 'Copyright:', 'fusion-core' );
-								$project_copyright_tag = 'h4';
-								echo apply_filters( 'fusion_portfolio_post_copyright_label', '<' . $project_copyright_tag . '>' . $project_copyright_title . '</' . $project_copyright_tag . '>', $project_copyright_title, $project_copyright_tag ); // WPCS: XSS ok.
+								$project_copyright_tag   = 'h4';
+								echo apply_filters( 'fusion_portfolio_post_copyright_label', '<' . $project_copyright_tag . '>' . $project_copyright_title . '</' . $project_copyright_tag . '>', $project_copyright_title, $project_copyright_tag ); // phpcs:ignore WordPress.Security
 								?>
-								<span><a href="<?php echo esc_url_raw( $copy_url ); ?>"<?php echo $link_target; // WPCS: XSS ok. ?>><?php echo $copy_url_text; // WPCS: XSS ok. ?></a></span>
+								<span><a href="<?php echo esc_url_raw( $copy_url ); ?>"<?php echo $link_target; // phpcs:ignore WordPress.Security ?>><?php echo $copy_url_text; ?></a></span>
 							</div>
 						<?php endif; ?>
 
@@ -253,8 +256,8 @@ if ( ! class_exists( 'Avada' ) ) {
 							<div class="project-info-box<?php echo ( Avada()->settings->get( 'disable_date_rich_snippet_pages' ) && Avada()->settings->get( 'disable_rich_snippet_author' ) ) ? ' vcard' : ''; ?>">
 								<?php
 								$project_author_title = esc_html__( 'By:', 'fusion-core' );
-								$project_author_tag = 'h4';
-								echo apply_filters( 'fusion_portfolio_post_author_label', '<' . $project_author_tag . '>' . $project_author_title . '</' . $project_author_tag . '>', $project_author_title, $project_author_tag ); // WPCS: XSS ok.
+								$project_author_tag   = 'h4';
+								echo apply_filters( 'fusion_portfolio_post_author_label', '<' . $project_author_tag . '>' . $project_author_title . '</' . $project_author_tag . '>', $project_author_title, $project_author_tag ); // phpcs:ignore WordPress.Security
 								?>
 								<span<?php echo ( Avada()->settings->get( 'disable_date_rich_snippet_pages' ) && Avada()->settings->get( 'disable_rich_snippet_author' ) ) ? ' class="fn"' : ''; ?>><?php the_author_posts_link(); ?></span>
 							</div>
@@ -268,7 +271,7 @@ if ( ! class_exists( 'Avada' ) ) {
 			<?php if ( ! post_password_required( $post->ID ) ) : ?>
 				<?php do_action( 'fusion_before_additional_portfolio_content' ); ?>
 				<?php avada_render_social_sharing( 'portfolio' ); ?>
-				<?php echo avada_render_related_posts( 'avada_portfolio' ); // WPCS: XSS ok. Render Related Posts. ?>
+				<?php echo avada_render_related_posts( 'avada_portfolio' ); // phpcs:ignore WordPress.Security ?>
 
 				<?php if ( Avada()->settings->get( 'portfolio_comments' ) ) : ?>
 					<?php wp_reset_postdata(); ?>

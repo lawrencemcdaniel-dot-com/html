@@ -3799,6 +3799,7 @@ tr:hover .fusion-builder-table-delete-row {
   background-repeat: no-repeat;
 }
 .quicktags-toolbar input[id*="fusion_shortcodes_text_mode"] {
+  display: none;
   background-image: url("../images/icons/fb_logo.svg");
   background-position: center center;
   width: 26px;
@@ -3817,6 +3818,13 @@ tr:hover .fusion-builder-table-delete-row {
   -webkit-background-size: 20px 20px;
           background-size: 20px 20px;
   background-repeat: no-repeat;
+}
+#wp-content-editor-container .quicktags-toolbar input[id*="fusion_shortcodes_text_mode"],
+#fusion_builder_layout .quicktags-toolbar input[id*="fusion_shortcodes_text_mode"],
+.fusion-builder-modal-settings-container .quicktags-toolbar input[id*="fusion_shortcodes_text_mode"],
+#wp-excerpt-wrap .quicktags-toolbar input[id*="fusion_shortcodes_text_mode"],
+.block-library-classic__toolbar .quicktags-toolbar input[id*="fusion_shortcodes_text_mode"] {
+  display: inline;
 }
 [aria-label="Fusion Builder Element Generator"] i {
   -webkit-background-size: 20px 20px;

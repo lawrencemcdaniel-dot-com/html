@@ -711,9 +711,9 @@
             }
    
        
-            $(this).closest('.edn-notify-bar').hide('slow');
-            $(this).closest('.edn-notify-bar').find('.edn-cntrol-wrap').hide('slow');
-            $(this).closest('.edn-notify-bar').find('.edn-container').hide('slow');
+            $(this).closest('.edn-notify-bar').hide();
+            $(this).closest('.edn-notify-bar').find('.edn-cntrol-wrap').hide();
+            $(this).closest('.edn-notify-bar').find('.edn-container').hide();
             $('body').css('padding-top','0px');
             $('.masthead').css('margin-top',0);
             $('body').removeClass('has-ednbar');

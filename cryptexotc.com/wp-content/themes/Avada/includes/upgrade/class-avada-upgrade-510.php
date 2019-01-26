@@ -56,7 +56,7 @@ class Avada_Upgrade_510 extends Avada_Upgrade_Abstract {
 	 */
 	protected function migration_process() {
 
-		$available_languages = Fusion_Multilingual::get_available_languages();
+		$available_languages       = Fusion_Multilingual::get_available_languages();
 		self::$available_languages = ( ! empty( $available_languages ) ) ? $available_languages : array( '' );
 
 		$this->copy_options();
@@ -78,7 +78,7 @@ class Avada_Upgrade_510 extends Avada_Upgrade_Abstract {
 	 * @access protected
 	 */
 	protected function copy_options() {
-		$available_langs = self::$available_languages;
+		$available_langs  = self::$available_languages;
 		$default_language = Fusion_Multilingual::get_default_language();
 
 		$options = get_option( $this->option_name, array() );
@@ -158,10 +158,10 @@ class Avada_Upgrade_510 extends Avada_Upgrade_Abstract {
 				'post_type' => 'nav_menu_item',
 			)
 		);
-		$posts = $the_query->posts;
-		$url = get_home_url();
-		$url = str_replace( 'http://', '', $url );
-		$url = str_replace( 'https://', '', $url );
+		$posts     = $the_query->posts;
+		$url       = get_home_url();
+		$url       = str_replace( 'http://', '', $url );
+		$url       = str_replace( 'https://', '', $url );
 		foreach ( $posts as $post ) {
 			if ( property_exists( $post, 'guid' ) ) {
 				if ( false !== strpos( $post->guid, 'fusion_home_url' ) ) {
@@ -262,7 +262,7 @@ class Avada_Upgrade_510 extends Avada_Upgrade_Abstract {
 	protected function migrate_css_caching_methods() {
 
 		$avada_options = get_option( self::$new_option_name, array() );
-		$method = 'off';
+		$method        = 'off';
 		if ( isset( $avada_options['dynamic_css_db_caching'] ) && '1' === $avada_options['dynamic_css_db_caching'] ) {
 			$method = 'db';
 		}
@@ -285,10 +285,10 @@ class Avada_Upgrade_510 extends Avada_Upgrade_Abstract {
 	 */
 	protected function rename_suboptions() {
 
-		$renamed_options = array(
+		$renamed_options  = array(
 			'dev_mode' => 'js_compiler',
 		);
-		$available_langs = self::$available_languages;
+		$available_langs  = self::$available_languages;
 		$default_language = Fusion_Multilingual::get_default_language();
 		foreach ( $available_langs as $language ) {
 
@@ -420,7 +420,7 @@ class Avada_Upgrade_510 extends Avada_Upgrade_Abstract {
 			$avada_options = get_option( $option_name, array() );
 
 			if ( isset( $avada_options['nav_height'] ) && isset( $avada_options['nav_highlight_border'] ) && '0' !== $avada_options['nav_highlight_border'] ) {
-				$combined_value = intval( $avada_options['nav_height'] ) + intval( $avada_options['nav_highlight_border'] );
+				$combined_value              = intval( $avada_options['nav_height'] ) + intval( $avada_options['nav_highlight_border'] );
 				$avada_options['nav_height'] = $combined_value;
 				update_option( $option_name, $avada_options );
 			}

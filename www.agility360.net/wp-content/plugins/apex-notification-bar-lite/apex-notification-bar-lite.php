@@ -3,7 +3,7 @@
   Plugin Name: Apex Notification Bar Lite
   Plugin URI:  https://accesspressthemes.com/wordpress-plugins/apex-notification-bar-lite/
   Description: An advanced notification bar plugin used to create attractive single notification bar with specific position for your site.
-  Version:     1.0.5
+  Version:     1.0.6
   Author:      AccessPress Themes
   Author URI:  http://accesspressthemes.com
   License:     GPL2
@@ -21,7 +21,7 @@ defined('APEXNBL_CSS_DIR') or define('APEXNBL_CSS_DIR', plugin_dir_url(__FILE__)
 defined('APEXNBL_CLASS_DIR') or define('APEXNBL_CLASS_DIR', dirname(__FILE__) . '/class');
 defined('APEXNBL_CLASS_DIR_PAGINATION') or define('APEXNBL_CLASS_DIR_PAGINATION', plugin_dir_url(__FILE__) . 'inc/backend/main_setup/');
 defined('APEXNBL_PLUGIN_FILE') or define('APEXNBL_PLUGIN_FILE', __FILE__);
-defined('APEXNBL_VERSION') or define('APEXNBL_VERSION', '1.0.5');
+defined('APEXNBL_VERSION') or define('APEXNBL_VERSION', '1.0.6');
 defined('APEXNBL_TITLE') or define('APEXNBL_TITLE', 'APEX NOTIFICATION BAR LITE');
 defined('APEXNBL_TD') or define('APEXNBL_TD', 'apexnb-lite');
 defined('APEXNBL_BXSLIDER_VERSION') or define('APEXNBL_BXSLIDER_VERSION', '4.1.2');
@@ -222,6 +222,7 @@ if (!class_exists('APEXNBL_Class')) {
                 wp_enqueue_script('apexnb-notification-bar-pro-webfont', APEXNBL_JS_DIR . '/backend/webfont.js');
                 wp_enqueue_style('apexnb-custom-select-css', APEXNBL_CSS_DIR . '/backend/jquery.selectbox.css', array(), APEXNBL_VERSION);
                 wp_enqueue_script('apexnb-custom-select-js', APEXNBL_JS_DIR . '/backend/jquery.selectbox-0.2.min.js', array('jquery'), APEXNBL_VERSION);
+                wp_enqueue_script('apexnb-colorpicker-alphajs', APEXNBL_JS_DIR . '/backend/wp-color-picker-alpha.js', array('jquery'), APEXNBL_VERSION);
                 wp_enqueue_script('apexnb-admin-script', APEXNBL_JS_DIR . '/backend/backend.js', array('jquery', 'jquery-ui-tabs', 'jquery-ui-sortable', 'wp-color-picker', 'jquery-ui-core'), APEXNBL_VERSION);
                 wp_localize_script('apexnb-admin-script', 'edn_pro_script_variable', $edn_pro_script_variable); //localization of php variable in edn-pro-admin-js
             }

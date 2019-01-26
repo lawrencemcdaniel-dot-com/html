@@ -64,6 +64,9 @@ class Avada_Scripts {
 			add_action( 'wp', array( $this, 'wp_action' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 			add_action( 'script_loader_tag', array( $this, 'add_async' ), 10, 2 );
+
+			// This is added with a priority of 999 because it has to run after wp-core adds its own styles.
+			add_action( 'wp_enqueue_scripts', array( $this, 'block_styles' ), 999 );
 		}
 
 		if ( class_exists( 'WooCommerce' ) ) {
@@ -80,7 +83,6 @@ class Avada_Scripts {
 		$this->combine_media_query_files();
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_media_query_styles' ), 900 );
 		add_filter( 'fusion_dynamic_css_final', array( $this, 'compile_media_query_styles' ), 999 );
-
 	}
 
 	/**
@@ -112,8 +114,8 @@ class Avada_Scripts {
 		$page_id = Avada()->fusion_library->get_page_id();
 
 		$js_folder_suffix = '/assets/min/js';
-		$js_folder_url = Avada::$template_dir_url . $js_folder_suffix;
-		$js_folder_path = Avada::$template_dir_path . $js_folder_suffix;
+		$js_folder_url    = Avada::$template_dir_url . $js_folder_suffix;
+		$js_folder_path   = Avada::$template_dir_path . $js_folder_suffix;
 
 		$privacy_options = Avada()->privacy_embeds->get_options();
 
@@ -435,6 +437,17 @@ class Avada_Scripts {
 			);
 		}
 
+		if ( is_page_template( 'contact.php' ) && Avada()->settings->get( 'recaptcha_public' ) && Avada()->settings->get( 'recaptcha_private' ) && ! function_exists( 'recaptcha_get_html' ) ) {
+			$scripts[] = array(
+				'avada-contact',
+				$js_folder_url . '/general/avada-contact.js',
+				$js_folder_path . '/general/avada-contact.js',
+				array( 'jquery' ),
+				self::$version,
+				true,
+			);
+		}
+
 		if ( ! class_exists( 'FusionBuilder' ) ) {
 			$scripts[] = array(
 				'fusion-carousel',
@@ -503,7 +516,7 @@ class Avada_Scripts {
 		$avada_rev_styles = get_post_meta( Avada()->fusion_library->get_page_id(), 'pyre_avada_rev_styles', true );
 		$layout           = ( 'boxed' === $page_bg_layout || 'wide' === $page_bg_layout ) ? $page_bg_layout : Avada()->settings->get( 'layout' );
 		$avada_rev_styles = ( 'no' === $avada_rev_styles || ( Avada()->settings->get( 'avada_rev_styles' ) && 'yes' !== $avada_rev_styles ) ) ? 1 : 0;
-		$privacy_options = Avada()->privacy_embeds->get_options();
+		$privacy_options  = Avada()->privacy_embeds->get_options();
 
 		$side_header_breakpoint = Avada()->settings->get( 'side_header_break_point' );
 		if ( ! $side_header_breakpoint ) {
@@ -699,6 +712,14 @@ class Avada_Scripts {
 					'button'   => $privacy_options['privacy_bar_button_save'],
 				),
 			),
+			array(
+				'avada-contact',
+				'avadaContactVars',
+				array(
+					'badge_position'   => 'hide' === Avada()->settings->get( 'recaptcha_badge_position' ) ? 'inline' : Avada()->settings->get( 'recaptcha_badge_position' ),
+					'recaptcha_public' => Avada()->settings->get( 'recaptcha_public' ),
+				),
+			),
 		);
 
 		foreach ( $scripts as $script ) {
@@ -736,15 +757,6 @@ class Avada_Scripts {
 
 		wp_enqueue_style( 'avada-stylesheet', Avada::$template_dir_url . '/assets/css/style.min.css', array(), self::$version );
 
-		if ( Avada()->settings->get( 'status_fontawesome' ) ) {
-			if ( 'off' === Avada()->settings->get( 'css_cache_method' ) ) {
-				wp_enqueue_style( 'fontawesome', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/font-awesome.min.css', array(), self::$version );
-			}
-
-			wp_enqueue_style( 'avada-IE-fontawesome', FUSION_LIBRARY_URL . '/assets/fonts/fontawesome/font-awesome.min.css', array(), self::$version );
-			wp_style_add_data( 'avada-IE-fontawesome', 'conditional', 'lte IE 9' );
-		}
-
 		wp_enqueue_style( 'avada-IE', Avada::$template_dir_url . '/assets/css/ie.min.css', array(), self::$version );
 		wp_style_add_data( 'avada-IE', 'conditional', 'IE' );
 
@@ -762,7 +774,11 @@ class Avada_Scripts {
 			$options = get_option( Avada::get_option_name() );
 			if ( $options['recaptcha_public'] && $options['recaptcha_private'] && ! function_exists( 'recaptcha_get_html' ) ) {
 				if ( version_compare( PHP_VERSION, '5.3' ) >= 0 && ! class_exists( 'ReCaptcha' ) ) {
-					wp_enqueue_script( 'recaptcha-api', 'https://www.google.com/recaptcha/api.js?hl=' . get_locale() );
+					if ( 'v2' === Avada()->settings->get( 'recaptcha_version' ) ) {
+						wp_enqueue_script( 'recaptcha-api', 'https://www.google.com/recaptcha/api.js?hl=' . get_locale() );
+					} else {
+						wp_enqueue_script( 'recaptcha-api', 'https://www.google.com/recaptcha/api.js?render=explicit&hl=' . get_locale() . '&onload=fusionOnloadCallback', array(), self::$version );
+					}
 				}
 			}
 		}
@@ -777,19 +793,9 @@ class Avada_Scripts {
 	 * @return string The compiled styles with any additional CSS appended.
 	 */
 	public function combine_stylesheets( $original_styles ) {
-		$wp_filesystem = Fusion_Helper::init_filesystem();
 		$styles = '';
 
 		if ( 'off' !== Avada()->settings->get( 'css_cache_method' ) ) {
-			if ( Avada()->settings->get( 'status_fontawesome' ) ) {
-				// Stylesheet ID: fusion-font-awesome.
-				$font_awesome_css = @file_get_contents( FUSION_LIBRARY_PATH . '/assets/fonts/fontawesome/font-awesome.min.css' );
-
-				$font_url = FUSION_LIBRARY_URL . '/assets/fonts/fontawesome';
-				$font_url = str_replace( array( 'http://', 'https://' ), '//', $font_url );
-				$styles .= str_replace( 'url(./webfonts', 'url(' . $font_url . '/webfonts', $font_awesome_css );
-
-			}
 			if ( is_rtl() ) {
 				// Stylesheet ID: avada-rtl.
 				$styles .= @file_get_contents( Avada::$template_dir_path . '/assets/css/rtl.min.css' );
@@ -844,14 +850,14 @@ class Avada_Scripts {
 				$query_array = array( $context );
 				foreach ( $when as $sub_what => $sub_when ) {
 					// Make sure pixels are integers.
-					$sub_when = ( false !== strpos( $sub_when, 'px' ) && false === strpos( $sub_when, 'dppx' ) ) ? absint( $sub_when ) . 'px' : $sub_when;
+					$sub_when      = ( false !== strpos( $sub_when, 'px' ) && false === strpos( $sub_when, 'dppx' ) ) ? absint( $sub_when ) . 'px' : $sub_when;
 					$query_array[] = "({$sub_what}: $sub_when)";
 				}
 				$master_query_array[] = implode( ' and ', $query_array );
 				continue;
 			}
 			// Make sure pixels are integers.
-			$when = ( false !== strpos( $when, 'px' ) && false === strpos( $when, 'dppx' ) ) ? absint( $when ) . 'px' : $when;
+			$when          = ( false !== strpos( $when, 'px' ) && false === strpos( $when, 'dppx' ) ) ? absint( $when ) . 'px' : $when;
 			$query_array[] = "({$what}: $when)";
 		}
 
@@ -967,7 +973,7 @@ class Avada_Scripts {
 		$template_dir_path = get_template_directory();
 		foreach ( self::$media_query_assets as $asset ) {
 			// The file-path.
-			$path    = wp_normalize_path( str_replace( $template_dir_url, $template_dir_path, $asset[1] ) );
+			$path = wp_normalize_path( str_replace( $template_dir_url, $template_dir_path, $asset[1] ) );
 			// Add the contents of the file to $styles.
 			$styles .= '@media ' . $asset[4] . '{';
 			$styles .= file_get_contents( $path );
@@ -1534,6 +1540,18 @@ class Avada_Scripts {
 		</style>
 		<?php
 
+	}
+
+	/**
+	 * Add or remove block-styles.
+	 *
+	 * @access public
+	 * @since 5.8
+	 */
+	public function block_styles() {
+		if ( function_exists( 'has_blocks' ) && ! has_blocks() ) {
+			wp_dequeue_style( 'wp-block-library' );
+		}
 	}
 }
 

@@ -162,7 +162,7 @@ class Sidebar_Generator {
 		$id       = self::name_to_class( $name );
 
 		if ( isset( $sidebars[ $id ] ) ) {
-			die( "alert('" . esc_html__( 'Widget Section already exists, please use a different name.', 'Avada' ) . "')" );
+			die( "alert('" . esc_html__( 'Widget Area already exists, please use a different name.', 'Avada' ) . "')" );
 		}
 
 		$sidebars[ $id ] = $name;
@@ -229,12 +229,12 @@ class Sidebar_Generator {
 
 		if ( is_array( $sidebars ) && ! empty( $sidebars ) ) {
 			$sidebars = array_change_key_case( $sidebars, CASE_LOWER );
-			$counter = count( $sidebars );
+			$counter  = count( $sidebars );
 		}
-		$no_widget_text = esc_html__( 'No Widget Sections defined.', 'Avada' );
+		$no_widget_text = esc_html__( 'No Widget area defined.', 'Avada' );
 
 		if ( ! isset( $sidebars[ $id ] ) ) {
-			die( 'alert("' . esc_html__( 'Sidebar does not exist.', 'Avada' ) . '")' );
+			die( 'alert("' . esc_html__( 'Widget area does not exist.', 'Avada' ) . '")' );
 		}
 		$row_number = ( isset( $_POST['row_number'] ) ) ? sanitize_text_field( wp_unslash( $_POST['row_number'] ) ) : '0';
 		unset( $sidebars[ $id ] );
@@ -268,7 +268,7 @@ class Sidebar_Generator {
 
 		<script>
 		function remove_sidebar_link( name, num ) {
-			answer = confirm( '<?php esc_attr_e( 'Are you sure you want to remove', 'Avada' ); ?> ' + name + '?\n<?php esc_attr_e( 'This will remove any widgets you have assigned to this widget section.', 'Avada' ); ?>' );
+			answer = confirm( '<?php esc_attr_e( 'Are you sure you want to remove', 'Avada' ); ?> ' + name + '?\n<?php esc_attr_e( 'This will remove any widgets you have assigned to this widget area.', 'Avada' ); ?>' );
 			if ( answer ) {
 				remove_sidebar( name, num );
 			} else {
@@ -276,7 +276,7 @@ class Sidebar_Generator {
 			}
 		}
 		function add_sidebar_link() {
-			var sidebar_name = prompt( '<?php esc_html_e( 'Widget Section Name:', 'Avada' ); ?>', '' );
+			var sidebar_name = prompt( '<?php esc_html_e( 'Widget Area Name:', 'Avada' ); ?>', '' );
 			if ( sidebar_name === null || sidebar_name == '' ) {
 				return;
 			}
@@ -287,12 +287,12 @@ class Sidebar_Generator {
 
 		<div class="postbox" style="max-width:1719px;">
 			<h2 class="hndle ui-sortable-handle" style="padding: 15px 12px; margin: 0;">
-				<span><?php esc_attr_e( 'Widget Sections', 'Avada' ); ?></span>
+				<span><?php esc_attr_e( 'Widget Areas', 'Avada' ); ?></span>
 			</h2>
 			<div class="inside" style="margin-bottom: 0;">
 				<table class="widefat page" id="sbg_table">
 					<tr>
-						<th><?php esc_attr_e( 'Widget Section Name', 'Avada' ); ?></th>
+						<th><?php esc_attr_e( 'Widget Area Name', 'Avada' ); ?></th>
 						<th><?php esc_attr_e( 'CSS Class', 'Avada' ); ?></th>
 						<th><?php esc_attr_e( 'Remove', 'Avada' ); ?></th>
 					</tr>
@@ -304,17 +304,17 @@ class Sidebar_Generator {
 							<tr class="<?php echo esc_attr( $alt ); ?>">
 								<td><?php echo esc_html( $sidebar ); ?></td>
 								<td><?php echo 'fusion-' . strtolower( self::name_to_class( $sidebar ) ); // WPCS: XSS ok. ?></td>
-								<td><a href="javascript:void(0);" onclick="return remove_sidebar_link('<?php echo self::name_to_class( $sidebar ); // WPCS: XSS ok. ?>',<?php echo $cnt + 1; // WPCS: XSS ok. ?>);" title="<?php esc_attr_e( 'Remove this Widget Section', 'Avada' ); ?>"><?php esc_html_e( 'remove', 'Avada' ); ?></a></td>
+								<td><a href="javascript:void(0);" onclick="return remove_sidebar_link('<?php echo self::name_to_class( $sidebar ); // WPCS: XSS ok. ?>',<?php echo $cnt + 1; // WPCS: XSS ok. ?>);" title="<?php esc_attr_e( 'Remove This Widget Area', 'Avada' ); ?>"><?php esc_html_e( 'remove', 'Avada' ); ?></a></td>
 							</tr>
 							<?php $cnt++; ?>
 						<?php endforeach; ?>
 					<?php else : ?>
 						<tr id="no-widget-sections">
-							<td colspan="3"><?php esc_html_e( 'No Widget Sections defined.', 'Avada' ); ?></td>
+							<td colspan="3"><?php esc_html_e( 'No Widget Areas defined.', 'Avada' ); ?></td>
 						</tr>
 					<?php endif; ?>
 				</table>
-				<p class="add_sidebar"><a href="javascript:void(0);" onclick="return add_sidebar_link()" title="<?php esc_attr_e( 'Add New Widget Section', 'Avada' ); ?>" class="button button-primary"><?php esc_html_e( 'Add New Widget Section', 'Avada' ); ?></a></p>
+				<p class="add_sidebar"><a href="javascript:void(0);" onclick="return add_sidebar_link()" title="<?php esc_attr_e( 'Add New Widget Area', 'Avada' ); ?>" class="button button-primary"><?php esc_html_e( 'Add New Widget Area', 'Avada' ); ?></a></p>
 			</div>
 		</div>
 		<?php
@@ -570,10 +570,10 @@ class Sidebar_Generator {
 		}
 		wp_reset_query();
 		global $wp_query;
-		$post = $wp_query->get_queried_object();
-		$selected_sidebar = get_post_meta( $post->ID, 'sbg_selected_sidebar', true );
+		$post                         = $wp_query->get_queried_object();
+		$selected_sidebar             = get_post_meta( $post->ID, 'sbg_selected_sidebar', true );
 		$selected_sidebar_replacement = get_post_meta( $post->ID, 'sbg_selected_sidebar_replacement', true );
-		$did_sidebar = false;
+		$did_sidebar                  = false;
 
 		// This page uses a generated sidebar.
 		if ( ! $name && '' != $selected_sidebar && '0' != $selected_sidebar ) {
@@ -628,10 +628,10 @@ class Sidebar_Generator {
 
 		wp_reset_query();
 		global $wp_query;
-		$post = $wp_query->get_queried_object();
-		$selected_sidebar = get_post_meta( $post->ID, 'sbg_selected_sidebar_2', true );
+		$post                         = $wp_query->get_queried_object();
+		$selected_sidebar             = get_post_meta( $post->ID, 'sbg_selected_sidebar_2', true );
 		$selected_sidebar_replacement = get_post_meta( $post->ID, 'sbg_selected_sidebar_2_replacement', true );
-		$did_sidebar = false;
+		$did_sidebar                  = false;
 
 		// This page uses a generated sidebar.
 		if ( ! $name && '' != $selected_sidebar && '0' != $selected_sidebar ) {

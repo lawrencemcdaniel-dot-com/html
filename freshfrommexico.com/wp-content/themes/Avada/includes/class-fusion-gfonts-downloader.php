@@ -1,6 +1,6 @@
 <?php
 /**
- * Downloads Foofle-Fonts locally and generates the @font-face CSS for them.
+ * Downloads Google-Fonts locally and generates the @font-face CSS for them.
  * The main reasons for this is the GDPR & performance.
  *
  * @package Avada
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Downloads Foofle-Fonts locally and generates the @font-face CSS for them.
+ * Downloads Google-Fonts locally and generates the @font-face CSS for them.
  *
  * @since 5.5.2
  */
@@ -64,8 +64,8 @@ class Fusion_GFonts_Downloader {
 	 */
 	public function __construct( $family ) {
 		$this->family      = $family;
-		$this->folder_path = $this->get_root_path() . '/' . sanitize_key( $this->family );
-		$this->folder_url  = $this->get_root_url() . '/' . sanitize_key( $this->family );
+		$this->folder_path = Fusion_Downloader::get_root_path( 'fusion-gfonts' ) . '/' . sanitize_key( $this->family );
+		$this->folder_url  = Fusion_Downloader::get_root_url( 'fusion-gfonts' ) . '/' . sanitize_key( $this->family );
 		$this->font        = $this->get_font_family();
 	}
 
@@ -112,6 +112,9 @@ class Fusion_GFonts_Downloader {
 		// Get the font-style.
 		$font_style = ( false !== strpos( $variant, 'italic' ) ) ? 'italic' : 'normal';
 		$font_face .= "font-style:{$font_style};";
+
+		// Set font display.
+		$font_face .= 'font-display: ' . Avada()->settings->get( 'font_face_display' ) . ';';
 
 		// Get the font-weight.
 		$font_weight = '400';
@@ -237,7 +240,7 @@ class Fusion_GFonts_Downloader {
 		$files       = array();
 		$remote_urls = $this->get_font_files_urls_remote();
 		foreach ( $remote_urls as $key => $url ) {
-			$files[ $key ] = $this->get_filename_from_url( $url );
+			$files[ $key ] = Fusion_Downloader::get_filename_from_url( $url );
 		}
 		return $files;
 	}
@@ -289,42 +292,6 @@ class Fusion_GFonts_Downloader {
 	}
 
 	/**
-	 * Returns the $wp_filesystem global.
-	 *
-	 * @access private
-	 * @since 5.5.2
-	 * @return WP_Filesystem
-	 */
-	private function filesystem() {
-		return Fusion_Helper::init_filesystem();
-	}
-
-	/**
-	 * Downloads a font-file and saves it locally.
-	 *
-	 * @access private
-	 * @since 5.5.2
-	 * @param string $url The URL of the file we want to get.
-	 * @return bool
-	 */
-	private function download_font_file( $url ) {
-		$contents = $this->get_remote_url_contents( $url );
-		$path     = $this->folder_path . '/' . $this->get_filename_from_url( $url );
-
-		// If the folder doesn't exist, create it.
-		if ( ! file_exists( $this->folder_path ) ) {
-			$this->filesystem()->mkdir( $this->folder_path, FS_CHMOD_DIR );
-		}
-		// If the file exists no reason to do anything.
-		if ( file_exists( $path ) ) {
-			return true;
-		}
-
-		// Write file.
-		return $this->filesystem()->put_contents( $path, $contents, FS_CHMOD_FILE );
-	}
-
-	/**
 	 * Get a font-family from the array of google-fonts.
 	 *
 	 * @access public
@@ -352,23 +319,6 @@ class Fusion_GFonts_Downloader {
 	}
 
 	/**
-	 * Gets the filename by breaking-down the URL parts.
-	 *
-	 * @access private
-	 * @since 5.5.2
-	 * @param string $url The URL.
-	 * @return string     The filename.
-	 */
-	private function get_filename_from_url( $url ) {
-		$url_parts   = explode( '/', $url );
-		$parts_count = count( $url_parts );
-		if ( 1 < $parts_count ) {
-			return $url_parts[ count( $url_parts ) - 1 ];
-		}
-		return $url;
-	}
-
-	/**
 	 * Get the font defined in the google-fonts API.
 	 *
 	 * @access private
@@ -378,56 +328,6 @@ class Fusion_GFonts_Downloader {
 	private function get_fonts() {
 		$path = wp_normalize_path( FUSION_LIBRARY_PATH . '/inc/redux/custom-fields/typography/googlefonts-array.php' );
 		return include $path;
-	}
-
-	/**
-	 * Gets the root fonts folder path.
-	 * Other paths are built based on this.
-	 *
-	 * @since 1.5
-	 * @access public
-	 * @return string
-	 */
-	public function get_root_path() {
-		// Get the upload directory for this site.
-		$upload_dir = wp_upload_dir();
-		$path       = untrailingslashit( wp_normalize_path( $upload_dir['basedir'] ) ) . '/fusion-gfonts';
-
-		// If the folder doesn't exist, create it.
-		if ( ! file_exists( $path ) ) {
-			$this->filesystem()->mkdir( $path, FS_CHMOD_DIR );
-		}
-
-		// Return the path.
-		return apply_filters( 'fusion_gfonts_root_path', $path );
-	}
-
-	/**
-	 * Gets the root folder url.
-	 * Other urls are built based on this.
-	 *
-	 * @since 1.5
-	 * @access public
-	 * @return string
-	 */
-	public function get_root_url() {
-
-		// Get the upload directory for this site.
-		$upload_dir = wp_upload_dir();
-
-		// The URL.
-		$url = trailingslashit( $upload_dir['baseurl'] );
-		// Take care of domain mapping.
-		// When using domain mapping we have to make sure that the URL to the file
-		// does not include the original domain but instead the mapped domain.
-		if ( defined( 'DOMAIN_MAPPING' ) && DOMAIN_MAPPING ) {
-			if ( function_exists( 'domain_mapping_siteurl' ) && function_exists( 'get_original_url' ) ) {
-				$mapped_domain   = domain_mapping_siteurl( false );
-				$original_domain = get_original_url( 'siteurl' );
-				$url             = str_replace( $original_domain, $mapped_domain, $url );
-			}
-		}
-		return apply_filters( 'fusion_gfonts_root_url', untrailingslashit( esc_url_raw( $url ) ) . '/fusion-gfonts' );
 	}
 
 	/**
@@ -445,34 +345,10 @@ class Fusion_GFonts_Downloader {
 			}
 			foreach ( $this->font['files'] as $variant => $file ) {
 				if ( in_array( $variant, $variants ) ) {
-					$this->download_font_file( $file );
+					$file = new Fusion_Downloader( $file, 'fusion-gfonts/' . sanitize_key( $this->family ) );
+					$file->download_file();
 				}
 			}
 		}
-	}
-
-	/**
-	 * Gets the remote URL contents.
-	 *
-	 * @access private
-	 * @since 5.5.2
-	 * @param string $url The URL we want to get.
-	 * @return string     The contents of the remote URL.
-	 */
-	public function get_remote_url_contents( $url ) {
-		$transient_name = 'fusion_gfonts' . md5( $url );
-		$html           = get_transient( $transient_name );
-		if ( false === $html ) {
-			$response = wp_remote_get( $url );
-			if ( is_wp_error( $response ) ) {
-				return array();
-			}
-			$html = wp_remote_retrieve_body( $response );
-			if ( is_wp_error( $html ) ) {
-				return;
-			}
-			set_transient( $transient_name, $html, 24 * HOUR_IN_SECONDS );
-		}
-		return $html;
 	}
 }

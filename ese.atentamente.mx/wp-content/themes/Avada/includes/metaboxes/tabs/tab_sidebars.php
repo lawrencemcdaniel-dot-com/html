@@ -14,21 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Direct script access denied.' );
 }
 
-$post_type = get_post_type(); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+$post_type          = get_post_type(); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
 $sidebar_post_types = array(
-	'page' => array(
+	'page'            => array(
 		'global'    => 'pages_global_sidebar',
 		'sidebar'   => 'pages_sidebar',
 		'sidebar_2' => 'pages_sidebar_2',
 		'position'  => 'default_sidebar_pos',
 	),
-	'post' => array(
+	'post'            => array(
 		'global'    => 'posts_global_sidebar',
 		'sidebar'   => 'posts_sidebar',
 		'sidebar_2' => 'posts_sidebar_2',
 		'position'  => 'blog_sidebar_position',
 	),
-	'avada_faq' => array(
+	'avada_faq'       => array(
 		'global'    => 'posts_global_sidebar',
 		'sidebar'   => 'posts_sidebar',
 		'sidebar_2' => 'posts_sidebar_2',
@@ -40,38 +40,38 @@ $sidebar_post_types = array(
 		'sidebar_2' => 'portfolio_sidebar_2',
 		'position'  => 'portfolio_sidebar_position',
 	),
-	'product' => array(
+	'product'         => array(
 		'global'    => 'woo_global_sidebar',
 		'sidebar'   => 'woo_sidebar',
 		'sidebar_2' => 'woo_sidebar_2',
 		'position'  => 'woo_sidebar_position',
 	),
-	'tribe_events' => array(
+	'tribe_events'    => array(
 		'global'    => 'ec_global_sidebar',
 		'sidebar'   => 'ec_sidebar',
 		'sidebar_2' => 'ec_sidebar_2',
 		'position'  => 'ec_sidebar_pos',
 	),
-	'forum' => array(
+	'forum'           => array(
 		'global'    => 'bbpress_global_sidebar',
 		'sidebar'   => 'ppbress_sidebar',
 		'sidebar_2' => 'ppbress_sidebar_2',
 		'position'  => 'bbpress_sidebar_position',
 	),
-	'topic' => array(
+	'topic'           => array(
 		'global'    => 'bbpress_global_sidebar',
 		'sidebar'   => 'ppbress_sidebar',
 		'sidebar_2' => 'ppbress_sidebar_2',
 		'position'  => 'bbpress_sidebar_position',
 	),
-	'reply' => array(
+	'reply'           => array(
 		'global'    => 'bbpress_global_sidebar',
 		'sidebar'   => 'ppbress_sidebar',
 		'sidebar_2' => 'ppbress_sidebar_2',
 		'position'  => 'bbpress_sidebar_position',
 	),
 );
-$post_type_options = '';
+$post_type_options  = '';
 if ( isset( $sidebar_post_types[ $post_type ] ) ) {
 	$post_type_options = $sidebar_post_types[ $post_type ];
 }

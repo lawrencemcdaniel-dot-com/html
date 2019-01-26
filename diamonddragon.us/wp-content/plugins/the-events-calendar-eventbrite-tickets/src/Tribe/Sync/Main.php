@@ -58,7 +58,7 @@ class Tribe__Events__Tickets__Eventbrite__Sync__Main {
 		}
 
 		$is_migrating    = isset( $data['is_migrating'] ) && tribe_is_truthy( $data['is_migrating'] );
-		$eventbrite_id   = get_post_meta( $event->ID, '_EventBriteID', true );
+		$eventbrite_id   = tribe_eb_get_id( $event->ID );
 		$image_sync_mode = 1;
 
 		if ( isset( $data['EventBriteUsePostThumb'] ) ) {

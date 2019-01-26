@@ -42,8 +42,8 @@ function avada_custom_fonts_font_faces( $css = '' ) {
 					continue;
 				}
 
-				$firstfile = true;
-				$font_face .= '@font-face{';
+				$firstfile      = true;
+				$font_face     .= '@font-face{';
 					$font_face .= 'font-family:';
 					// If font-name has a space, then it must be wrapped in double-quotes.
 				if ( false !== strpos( $label, ' ' ) ) {
@@ -56,33 +56,34 @@ function avada_custom_fonts_font_faces( $css = '' ) {
 				// Add .eot file.
 				if ( isset( $custom_fonts['eot'] ) && isset( $custom_fonts['eot'][ $key ] ) && $custom_fonts['eot'][ $key ]['url'] ) {
 					$font_face .= 'url("' . str_replace( array( 'http://', 'https://' ), '//', $custom_fonts['eot'][ $key ]['url'] ) . '?#iefix") format("embedded-opentype")';
-					$firstfile = false;
+					$firstfile  = false;
 				}
 				// Add .woff file.
 				if ( isset( $custom_fonts['woff'] ) && isset( $custom_fonts['woff'][ $key ] ) && $custom_fonts['woff'][ $key ]['url'] ) {
 					$font_face .= ( $firstfile ) ? '' : ',';
 					$font_face .= 'url("' . str_replace( array( 'http://', 'https://' ), '//', $custom_fonts['woff'][ $key ]['url'] ) . '") format("woff")';
-					$firstfile = false;
+					$firstfile  = false;
 				}
 				// Add .woff2 file.
 				if ( isset( $custom_fonts['woff2'] ) && isset( $custom_fonts['woff2'][ $key ]['url'] ) && $custom_fonts['woff2'][ $key ]['url'] ) {
 					$font_face .= ( $firstfile ) ? '' : ',';
 					$font_face .= 'url("' . str_replace( array( 'http://', 'https://' ), '//', $custom_fonts['woff2'][ $key ]['url'] ) . '") format("woff2")';
-					$firstfile = false;
+					$firstfile  = false;
 				}
 				// Add .ttf file.
 				if ( isset( $custom_fonts['ttf'] ) && isset( $custom_fonts['ttf'][ $key ] ) && $custom_fonts['ttf'][ $key ]['url'] ) {
 					$font_face .= ( $firstfile ) ? '' : ',';
 					$font_face .= 'url("' . str_replace( array( 'http://', 'https://' ), '//', $custom_fonts['ttf'][ $key ]['url'] ) . '") format("truetype")';
-					$firstfile = false;
+					$firstfile  = false;
 				}
 				// Add .svg file.
 				if ( isset( $custom_fonts['svg'] ) && isset( $custom_fonts['svg'][ $key ] ) && $custom_fonts['svg'][ $key ]['url'] ) {
 					$font_face .= ( $firstfile ) ? '' : ',';
 					$font_face .= 'url("' . str_replace( array( 'http://', 'https://' ), '//', $custom_fonts['svg'][ $key ]['url'] ) . '") format("svg")';
-					$firstfile = false;
+					$firstfile  = false;
 				}
 				$font_face .= ';font-weight: normal;font-style: normal;';
+				$font_face .= 'font-display: ' . Avada()->settings->get( 'font_face_display' ) . ';';
 				$font_face .= '}';
 			} // End foreach().
 		} // End if().
@@ -148,7 +149,7 @@ function avada_get_body_typography_elements() {
 		'.sidebar .widget_layered_nav li',
 		'.sidebar .widget_product_categories li',
 		'.fusion-main-menu .fusion-custom-menu-item-contents',
-
+		'.fusion-body .tribe-block__tickets__registration__tickets__header',
 	);
 	// CSS classes that inherit body font.
 	$typography_elements['family'] = array(
@@ -382,6 +383,7 @@ function avada_get_h4_typography_elements() {
 		'.fusion-widget-area h4',
 		'#tribe-events-content .tribe-events-tooltip .entry-title',
 		'#tribe-events-content .tribe-events-tooltip .tribe-event-title',
+		'.tribe-block__tickets__registration__tickets__header',
 	);
 	// CSS classes that inherit h4 color.
 	$typography_elements['color'] = array(
@@ -418,6 +420,7 @@ function avada_get_h4_typography_elements() {
 		'.fusion-title h4',
 		'#tribe-events-content .tribe-events-tooltip .entry-title',
 		'#tribe-events-content .tribe-events-tooltip .tribe-event-title',
+		'.tribe-block__tickets__registration__tickets__header',
 	);
 
 	$typography_elements['line-height'] = array(

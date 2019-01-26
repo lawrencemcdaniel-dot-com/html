@@ -3,8 +3,8 @@ Contributors: FARAZFRANK
 Donate link: https://www.wpfrank.com/
 Tags: slider, best slider plugin, image slide show, responsive slider, wordpress image slider plugin
 Requires at least: 3.8
-Tested up to: 5.0.2
-Stable tag: 3.2.15
+Tested up to: 5.0.3
+Stable tag: 3.2.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -126,6 +126,9 @@ Please use WordPress [support forum](http://wordpress.org/support/plugin/ultimat
 
 == Changelog ==
 For more information, see [WP Frank](https://wpfrank.com/)
+
+= V 3.2.16 =
+* Fixed issue when jQuery is loaded in footer
 
 = V 3.2.15 =
 * SEO Improvement

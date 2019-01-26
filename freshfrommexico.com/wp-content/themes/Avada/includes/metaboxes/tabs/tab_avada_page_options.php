@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php endif; ?>
 
-			<?php $post = $saved_post ? $saved_post : $post; ?>
+			<?php $post = $saved_post ? $saved_post : $post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride ?>
 			<?php wp_reset_postdata(); ?>
 			?>
 		</select>

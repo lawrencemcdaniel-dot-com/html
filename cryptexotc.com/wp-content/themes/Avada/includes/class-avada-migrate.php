@@ -66,7 +66,7 @@ class Avada_Migrate extends Avada_Upgrade {
 	 * @access  public
 	 * @var  string
 	 */
-	public $active_language     = '';
+	public $active_language = '';
 
 	/**
 	 * The default language/
@@ -74,7 +74,7 @@ class Avada_Migrate extends Avada_Upgrade {
 	 * @access  public
 	 * @var  string
 	 */
-	public $default_language    = '';
+	public $default_language = '';
 
 	/**
 	 * An array of our options.
@@ -143,16 +143,16 @@ class Avada_Migrate extends Avada_Upgrade {
 
 		// If English is used then make this first in array order.  Also set starting language so that it is migrated first.
 		if ( in_array( 'en', $this->available_languages ) ) {
-			$en_array = array( 'en' );
-			$en_key   = array_search( 'en', $this->available_languages );
+			$en_array                  = array( 'en' );
+			$en_key                    = array_search( 'en', $this->available_languages );
 			$available_languages_no_en = $this->available_languages;
 			unset( $available_languages_no_en[ $en_key ] );
 			$this->available_languages = array_merge( $en_array, $available_languages_no_en );
 			$this->starting_language   = 'en';
 		} else {
 			// If not English then make default language first in array order.  Also set it to be starting language for migration.
-			$default_array = array( $this->default_language );
-			$default_key   = array_search( $this->default_language, $this->available_languages );
+			$default_array                  = array( $this->default_language );
+			$default_key                    = array_search( $this->default_language, $this->available_languages );
 			$available_languages_no_default = $this->available_languages;
 			unset( $available_languages_no_default[ $default_key ] );
 			$this->available_languages = array_merge( $default_array, $available_languages_no_default );
@@ -555,8 +555,8 @@ class Avada_Migrate extends Avada_Upgrade {
 	 * @param  array $data The setting data.
 	 */
 	public static function generate_debug_log( $data = array() ) {
-		$debug_log = '';
-		$debug_content = '';
+		$debug_log       = '';
+		$debug_content   = '';
 		$debug_file_path = WP_CONTENT_DIR . '/avada-migration-debug.log';
 		if ( defined( 'AVADA_MIGRATION_DEBUG_LOG' ) && AVADA_MIGRATION_DEBUG_LOG ) {
 			if ( ! empty( $data ) ) {

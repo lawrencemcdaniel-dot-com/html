@@ -169,7 +169,7 @@
 .shop_table .product-name {
   width: 35%;
 }
-.shop_table .product-thumbnail {
+.fusion-body .shop_table .product-thumbnail {
   float: none;
 }
 form.checkout .shop_table tfoot th {
@@ -199,6 +199,9 @@ form.checkout .shop_table tfoot td {
 }
 .shop_table_responsive.woocommerce-cart-form__contents .product-name {
   width: 100%;
+}
+.shop_table_responsive.woocommerce-cart-form__contents .fusion-product-name-wrapper {
+  display: block;
 }
 .shop_table_responsive.woocommerce-cart-form__contents .product-thumbnail {
   display: inline-block;

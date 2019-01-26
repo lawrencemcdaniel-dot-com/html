@@ -264,7 +264,7 @@ class Fusion_Widget_Social_Links extends WP_Widget {
 
 			<div class="fusion-social-networks-wrapper">
 				<?php $icon_color_count = 0; ?>
-				<?php $box_color_count  = 0; ?>
+				<?php $box_color_count = 0; ?>
 
 				<?php foreach ( $social_networks_ordered as $name => $value ) : ?>
 					<?php
@@ -348,7 +348,7 @@ class Fusion_Widget_Social_Links extends WP_Widget {
 						<?php if ( 'mail' === $value ) : ?>
 							<?php $value['network_link'] = 'mailto:' . antispambot( $value['network_link'] ); ?>
 						<?php endif; ?>
-						<a class="fusion-social-network-icon fusion-tooltip" target="<?php echo esc_attr( $instance['linktarget'] ); ?>" href="<?php echo esc_url_raw( $value['network_link'] ); ?>" rel="<?php esc_attr( $nofollow ); ?>" <?php echo $tooltip_params; // WPCS: XSS ok.?> title="" style="<?php echo esc_attr( $style . $box_style ); ?>"><img src="<?php echo esc_url_raw( $value['network_icon'] ); ?>" height="<?php echo esc_attr( $value['network_icon_height'] ); ?>" width="<?php echo esc_attr( $value['network_icon_width'] ); ?>" alt="<?php echo esc_attr( $value['network_name'] ); ?>" /></a>
+						<a class="fusion-social-network-icon fusion-tooltip" target="<?php echo esc_attr( $instance['linktarget'] ); ?>" href="<?php echo esc_url_raw( $value['network_link'] ); ?>" rel="<?php esc_attr( $nofollow ); ?>" <?php echo $tooltip_params; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> title="" style="<?php echo esc_attr( $style . $box_style ); ?>"><img src="<?php echo esc_url_raw( $value['network_icon'] ); ?>" height="<?php echo esc_attr( $value['network_icon_height'] ); ?>" width="<?php echo esc_attr( $value['network_icon_width'] ); ?>" alt="<?php echo esc_attr( $value['network_name'] ); ?>" /></a>
 					<?php endif; ?>
 
 					<?php $icon_color_count++; ?>

@@ -583,7 +583,6 @@ if ( ! class_exists( 'Avada_Nav_Walker' ) ) {
 				}
 
 				$atts['class'] = implode( ' ', $atts['class'] );
-				$atts['role']  = 'menuitem';
 
 				$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
 

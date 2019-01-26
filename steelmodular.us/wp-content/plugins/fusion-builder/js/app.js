@@ -1600,7 +1600,7 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 
 						textNodes = textNodes.trim().split( '@|@' );
 						_.each( textNodes, function( textNodes ) {
-							if ( '' !== textNodes.trim() ) {
+							if ( '' !== textNodes.trim() && '<br />' !== textNodes.trim() ) {
 								insertionFlag = '@=%~@';
 								if ( '@' === textNodes.slice( -1 ) ) {
 									insertionFlag = '#=%~#';
@@ -1703,10 +1703,50 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 
 			},
 
+			convertGalleryElement: function( content ) {
+				var regExp      = window.wp.shortcode.regexp( 'fusion_gallery' );
+					innerRegExp = this.regExpShortcode( 'fusion_gallery' );
+					matches     = content.match( regExp ),
+					newContent  = content,
+					fetchIds    = [];
+
+				_.each( matches, function( shortcode ) {
+					var shortcodeElement    = shortcode.match( innerRegExp ),
+						shortcodeAttributes = '' !== shortcodeElement[3] ? window.wp.shortcode.attrs( shortcodeElement[3] ) : '',
+						children     = '',
+						newShortcode = '',
+						ids;
+
+						// Check for the old format shortcode
+						if ( 'undefined' !== typeof shortcodeAttributes.named.image_ids ) {
+							ids = shortcodeAttributes.named.image_ids.split( ',' );
+
+							// Add new children shortcodes
+							_.each( ids, function( id ) {
+								children += '[fusion_gallery_image image="" image_id="' + id + '" /]';
+								fetchIds.push( id );
+							} );
+
+							// Add children shortcodes, remove image_ids attribute.
+							newShortcode = shortcode.replace( '/]', ']' + children + '[/fusion_gallery]' ).replace( 'image_ids="' + shortcodeAttributes.named.image_ids + '" ', '' );
+
+							// Replace the old shortcode with the new one
+							newContent = newContent.replace( shortcode, newShortcode );
+						}
+				} );
+
+				// Fetch attachment data
+				wp.media.query( { post__in: fetchIds, posts_per_page: fetchIds.length } ).more();
+
+				return newContent;
+			},
+
 			createBuilderLayout: function( content ) {
 				if ( jQuery( 'body' ).hasClass( 'fusion-builder-library-edit' ) ) {
 					content = FusionPageBuilderApp.validateLibraryContent( content );
 				}
+
+				content = this.convertGalleryElement( content );
 
 				this.shortcodesToBuilder( content );
 
@@ -3384,7 +3424,7 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 		FusionIconPickHandler.live( 'click', function( e ) {
 
 			var fontName,
-				subset = 'fa',
+				subset = 'fas',
 				$i     = jQuery( this ).find( 'i' );
 
 			e.preventDefault();
@@ -3395,8 +3435,8 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 				subset = 'fab';
 			} else if ( $i.hasClass( 'far' ) ) {
 				subset = 'far';
-			} else if ( $i.hasClass( 'fas' ) ) {
-				subset = 'fas';
+			} else if ( $i.hasClass( 'fal' ) ) {
+				subset = 'fal';
 			}
 
 			if ( $( this ).hasClass( 'selected-element' ) ) {
@@ -3464,11 +3504,23 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 
 		( function initIconPicker() {
 			var icons = fusionBuilderConfig.fontawesomeicons,
-				output  = '<div class="fusion-icons-rendered" style="height:0px; overflow:hidden;">';
+				output  = '<div class="fusion-icons-rendered" style="height:0px; overflow:hidden;">',
+				iconSubsets = {
+					fab: 'Brands',
+					far: 'Regular',
+					fas: 'Solid',
+					fal: 'Light'
+				};
 
-			_.each( icons, function( icon, key ) {
-				output += '<span class="icon_preview icon-' + icon[0] + '"><i class="' + icon[0] + ' ' + icon[1] + '" data-name="' + icon[0].substr( 3 ) + '"></i></span>';
-			} );
+				_.each( icons, function( icon, key ) {
+
+					_.each( icon[1], function( iconSubset ) {
+						if ( -1 !== fusionBuilderConfig.fontawesomesubsets.indexOf( iconSubset ) ) {
+							output += '<span class="icon_preview icon-' + icon[0] + '" title="' + key + ' - ' + iconSubsets[ iconSubset ] + '"><i class="' + icon[0] + ' ' + iconSubset + '" data-name="' + icon[0].substr( 3 ) + '"></i></span>';
+						}
+					} );
+
+				} );
 			output += '</div>';
 
 			$( 'body' ).append( output );

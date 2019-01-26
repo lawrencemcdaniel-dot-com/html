@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( $title_tag && Avada()->settings->get( 'disable_rich_snippet_title' ) ) : ?>
 		<span class="entry-title rich-snippet-hidden">
-			<?php echo get_the_title(); ?>
+			<?php the_title(); ?>
 		</span>
 	<?php endif; ?>
 

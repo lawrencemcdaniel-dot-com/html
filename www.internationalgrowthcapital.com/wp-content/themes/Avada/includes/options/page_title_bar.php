@@ -32,13 +32,13 @@ function avada_options_section_page_title_bar( $sections ) {
 		'icon'     => 'el-icon-adjust-alt',
 		'class'    => 'hidden-section-heading',
 		'fields'   => array(
-			'heading_page_title_bar_info_1' => array(
-				'label'       => esc_html__( 'Page Title Bar', 'Avada' ),
-				'id'          => 'heading_page_title_bar_info_1',
-				'icon'        => true,
-				'type'        => 'sub-section',
-				'fields'      => array(
-					'page_title_bar' => array(
+			'heading_page_title_bar_info_1'  => array(
+				'label'  => esc_html__( 'Page Title Bar', 'Avada' ),
+				'id'     => 'heading_page_title_bar_info_1',
+				'icon'   => true,
+				'type'   => 'sub-section',
+				'fields' => array(
+					'page_title_bar'                 => array(
 						'label'       => esc_html__( 'Page Title Bar', 'Avada' ),
 						'description' => esc_html__( 'Controls how the page title bar displays.', 'Avada' ),
 						'id'          => 'page_title_bar',
@@ -50,7 +50,7 @@ function avada_options_section_page_title_bar( $sections ) {
 						),
 						'type'        => 'select',
 					),
-					'page_title_bar_text' => array(
+					'page_title_bar_text'            => array(
 						'label'       => esc_html__( 'Page Title Bar Text', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the page title bar text.', 'Avada' ),
 						'id'          => 'page_title_bar_text',
@@ -64,14 +64,14 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_bar_styling_title' => array(
+					'page_title_bar_styling_title'   => array(
 						'label'       => esc_html__( 'Page Title Bar Styling', 'Avada' ),
 						'description' => '',
 						'id'          => 'page_title_bar_styling_title',
 						'icon'        => true,
 						'type'        => 'info',
 					),
-					'page_title_100_width' => array(
+					'page_title_100_width'           => array(
 						'label'       => esc_html__( '100% Page Title Width', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the page title area display at 100% width according to the window size. Turn off to follow site width.', 'Avada' ),
 						'id'          => 'page_title_100_width',
@@ -85,7 +85,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_height' => array(
+					'page_title_height'              => array(
 						'label'       => esc_html__( 'Page Title Bar Height', 'Avada' ),
 						'description' => esc_html__( 'Controls the height of the page title bar on desktop.', 'Avada' ),
 						'id'          => 'page_title_height',
@@ -99,7 +99,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_mobile_height' => array(
+					'page_title_mobile_height'       => array(
 						'label'       => esc_html__( 'Page Title Bar Mobile Height', 'Avada' ),
 						'description' => esc_html__( 'Controls the height of the page title bar on mobile.', 'Avada' ),
 						'id'          => 'page_title_mobile_height',
@@ -113,7 +113,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_bg_color' => array(
+					'page_title_bg_color'            => array(
 						'label'       => esc_html__( 'Page Title Bar Background Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the background color of the page title bar.', 'Avada' ),
 						'id'          => 'page_title_bg_color',
@@ -132,7 +132,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_border_color' => array(
+					'page_title_border_color'        => array(
 						'label'       => esc_html__( 'Page Title Bar Borders Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the border colors of the page title bar.', 'Avada' ),
 						'id'          => 'page_title_border_color',
@@ -151,7 +151,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_font_size' => array(
+					'page_title_font_size'           => array(
 						'label'       => esc_html__( 'Page Title Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the font size for the page title heading.', 'Avada' ),
 						'id'          => 'page_title_font_size',
@@ -173,7 +173,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_line_height' => array(
+					'page_title_line_height'         => array(
 						'label'       => esc_html__( 'Page Title Line Height', 'Avada' ),
 						'description' => esc_html__( 'Controls the line height for the page title heading.', 'Avada' ),
 						'id'          => 'page_title_line_height',
@@ -195,7 +195,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_color' => array(
+					'page_title_color'               => array(
 						'label'       => esc_html__( 'Page Title Font Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text color of the page title fonts.', 'Avada' ),
 						'id'          => 'page_title_color',
@@ -236,7 +236,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_subheader_color' => array(
+					'page_title_subheader_color'     => array(
 						'label'       => esc_html__( 'Page Title Subheader Font Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text color of the page title subheader.', 'Avada' ),
 						'id'          => 'page_title_subheader_color',
@@ -255,16 +255,16 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_alignment' => array(
+					'page_title_alignment'           => array(
 						'label'       => esc_html__( 'Page Title Bar Text Alignment', 'Avada' ),
 						'description' => esc_html__( 'Choose the title and subhead text alignment. Breadcrumbs / search field will be on opposite side for left / right alignment and below the title for center alignment.', 'Avada' ),
 						'id'          => 'page_title_alignment',
 						'default'     => 'left',
 						'type'        => 'radio-buttonset',
 						'choices'     => array(
-							'left'    => esc_html__( 'Left', 'Avada' ),
-							'center'  => esc_html__( 'Center', 'Avada' ),
-							'right'   => esc_html__( 'Right', 'Avada' ),
+							'left'   => esc_html__( 'Left', 'Avada' ),
+							'center' => esc_html__( 'Center', 'Avada' ),
+							'right'  => esc_html__( 'Right', 'Avada' ),
 						),
 						'required'    => array(
 							array(
@@ -274,14 +274,14 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_bar_bg_image_title' => array(
+					'page_title_bar_bg_image_title'  => array(
 						'label'       => esc_html__( 'Page Title Bar Background Image', 'Avada' ),
 						'description' => '',
 						'id'          => 'page_title_bar_bg_image_title',
 						'icon'        => true,
 						'type'        => 'info',
 					),
-					'page_title_bg' => array(
+					'page_title_bg'                  => array(
 						'label'       => esc_html__( 'Page Title Bar Background Image', 'Avada' ),
 						'description' => esc_html__( 'Select an image for the page title bar background. If left empty, the page title bar background color will be used.', 'Avada' ),
 						'id'          => 'page_title_bg',
@@ -301,7 +301,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_bg_retina' => array(
+					'page_title_bg_retina'           => array(
 						'label'       => esc_html__( 'Retina Page Title Bar Background Image', 'Avada' ),
 						'description' => esc_html__( 'Select an image for the retina version of the page title bar background. It should be exactly 2x the size of the page title bar background.', 'Avada' ),
 						'id'          => 'page_title_bg_retina',
@@ -318,7 +318,7 @@ function avada_options_section_page_title_bar( $sections ) {
 								'setting'  => 'page_title_bg',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -344,7 +344,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_bg_full' => array(
+					'page_title_bg_full'             => array(
 						'label'       => esc_html__( '100% Background Image', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the page title bar background image display at 100% in width and height according to the window size.', 'Avada' ),
 						'id'          => 'page_title_bg_full',
@@ -360,7 +360,7 @@ function avada_options_section_page_title_bar( $sections ) {
 								'setting'  => 'page_title_bg',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -386,7 +386,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_bg_parallax' => array(
+					'page_title_bg_parallax'         => array(
 						'label'       => esc_html__( 'Parallax Background Image', 'Avada' ),
 						'description' => esc_html__( 'Turn on to use a parallax scrolling effect on the background image.', 'Avada' ),
 						'id'          => 'page_title_bg_parallax',
@@ -407,7 +407,7 @@ function avada_options_section_page_title_bar( $sections ) {
 								'setting'  => 'page_title_bg',
 								'operator' => '!=',
 								'value'    => array(
-									'url'  => '',
+									'url' => '',
 								),
 							),
 							array(
@@ -428,7 +428,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_fading' => array(
+					'page_title_fading'              => array(
 						'label'       => esc_html__( 'Fading Animation', 'Avada' ),
 						'description' => esc_html__( 'Turn on to have the page title text fade on scroll.', 'Avada' ),
 						'id'          => 'page_title_fading',
@@ -450,12 +450,12 @@ function avada_options_section_page_title_bar( $sections ) {
 				),
 			),
 			'breadcrumb_options_header_info' => array(
-				'label'       => esc_html__( 'Breadcrumbs', 'Avada' ),
-				'id'          => 'breadcrumb_options_header_info',
-				'icon'        => true,
-				'type'        => 'sub-section',
-				'fields'      => array(
-					'breadcrumb_important_note_info' => ( '0' === Avada()->settings->get( 'dependencies_status' ) ) ? array() : array(
+				'label'  => esc_html__( 'Breadcrumbs', 'Avada' ),
+				'id'     => 'breadcrumb_options_header_info',
+				'icon'   => true,
+				'type'   => 'sub-section',
+				'fields' => array(
+					'breadcrumb_important_note_info'    => ( '0' === Avada()->settings->get( 'dependencies_status' ) ) ? array() : array(
 						'label'       => '',
 						'description' => '<div class="fusion-redux-important-notice">' . __( '<strong>IMPORTANT NOTE:</strong>  The page title bar is set to "Hide". However, there are breadcrumb options below that are still visible due to having a fusion page option dependency. Click the link in the option description to learn more. ', 'Avada' ) . '</div>',
 						'id'          => 'breadcrumb_important_note_info',
@@ -468,7 +468,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'page_title_bar_bs' => array(
+					'page_title_bar_bs'                 => array(
 						'label'       => esc_html__( 'Breadcrumbs Content Display', 'Avada' ),
 						'description' => esc_html__( 'Controls what displays in the breadcrumbs area. ', 'Avada' ),
 						'id'          => 'page_title_bar_bs',
@@ -488,7 +488,7 @@ function avada_options_section_page_title_bar( $sections ) {
 						),
 					),
 
-					'breadcrumb_mobile' => array(
+					'breadcrumb_mobile'                 => array(
 						'label'       => esc_html__( 'Breadcrumbs on Mobile Devices', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display breadcrumbs on mobile devices.', 'Avada' ),
 						'id'          => 'breadcrumb_mobile',
@@ -502,7 +502,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'breacrumb_prefix' => array(
+					'breacrumb_prefix'                  => array(
 						'label'       => esc_html__( 'Breadcrumbs Prefix', 'Avada' ),
 						'description' => esc_html__( 'Controls the text before the breadcrumb menu.', 'Avada' ),
 						'id'          => 'breacrumb_prefix',
@@ -516,7 +516,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'breadcrumb_separator' => array(
+					'breadcrumb_separator'              => array(
 						'label'       => esc_html__( 'Breadcrumbs Separator', 'Avada' ),
 						'description' => esc_html__( 'Controls the type of separator between each breadcrumb.', 'Avada' ),
 						'id'          => 'breadcrumb_separator',
@@ -530,7 +530,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'breadcrumbs_font_size' => array(
+					'breadcrumbs_font_size'             => array(
 						'label'       => esc_html__( 'Breadcrumbs Font Size', 'Avada' ),
 						'description' => esc_html__( 'Controls the font size for the breadcrumbs text.', 'Avada' ),
 						'id'          => 'breadcrumbs_font_size',
@@ -547,7 +547,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'breadcrumbs_text_color' => array(
+					'breadcrumbs_text_color'            => array(
 						'label'       => esc_html__( 'Breadcrumbs Text Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text color of the breadcrumbs font.', 'Avada' ),
 						'id'          => 'breadcrumbs_text_color',
@@ -561,7 +561,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'breadcrumbs_text_hover_color' => array(
+					'breadcrumbs_text_hover_color'      => array(
 						'label'       => esc_html__( 'Breadcrumbs Text Hover Color', 'Avada' ),
 						'description' => esc_html__( 'Controls the text hover color of the breadcrumbs font.', 'Avada' ),
 						'id'          => 'breadcrumbs_text_hover_color',
@@ -575,7 +575,7 @@ function avada_options_section_page_title_bar( $sections ) {
 							),
 						),
 					),
-					'breadcrumb_show_categories' => array(
+					'breadcrumb_show_categories'        => array(
 						'label'       => esc_html__( 'Post Categories on Breadcrumbs', 'Avada' ),
 						'description' => esc_html__( 'Turn on to display the post categories in the breadcrumbs path.', 'Avada' ),
 						'id'          => 'breadcrumb_show_categories',

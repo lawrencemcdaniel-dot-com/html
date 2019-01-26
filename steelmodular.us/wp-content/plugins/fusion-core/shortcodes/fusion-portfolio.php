@@ -104,7 +104,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				global $fusion_settings, $fusion_library;
 
 				if ( ! isset( $args['portfolio_layout_padding'] ) ) {
-					$padding_values = array();
+					$padding_values           = array();
 					$padding_values['top']    = ( isset( $args['padding_top'] ) && '' !== $args['padding_top'] ) ? $args['padding_top'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_layout_padding', 'top' ) );
 					$padding_values['right']  = ( isset( $args['padding_right'] ) && '' !== $args['padding_right'] ) ? $args['padding_right'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_layout_padding', 'right' ) );
 					$padding_values['bottom'] = ( isset( $args['padding_bottom'] ) && '' !== $args['padding_bottom'] ) ? $args['padding_bottom'] : Fusion_Sanitize::size( $fusion_settings->get( 'portfolio_layout_padding', 'bottom' ) );
@@ -117,51 +117,51 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					'fusion_portfolio_default_parameter',
 					FusionBuilder::set_shortcode_defaults(
 						array(
-							'animation_direction'            => 'left',
-							'animation_offset'               => $fusion_settings->get( 'animation_offset' ),
-							'animation_speed'                => '',
-							'animation_type'                 => '',
-							'autoplay'                       => 'no',
-							'carousel_layout'                => 'title_on_rollover',
-							'cat_slug'                       => '',
-							'class'                          => '',
-							'column_spacing'                 => $fusion_settings->get( 'portfolio_column_spacing' ),
-							'columns'                        => $fusion_settings->get( 'portfolio_columns' ),
-							'content_length'                 => 'excerpt',
-							'grid_box_color'                 => $fusion_settings->get( 'timeline_bg_color' ),
-							'grid_element_color'             => $fusion_settings->get( 'timeline_color' ),
-							'grid_separator_color'           => $fusion_settings->get( 'grid_separator_color' ),
-							'grid_separator_style_type'      => $fusion_settings->get( 'grid_separator_style_type' ),
-							'equal_heights'                  => 'no',
-							'excerpt_length'                 => $fusion_settings->get( 'portfolio_excerpt_length' ),
-							'excerpt_words'                  => '',  // Deprecated.
-							'exclude_cats'                   => '',
-							'exclude_tags'                   => '',
-							'filters'                        => 'yes',
-							'hide_on_mobile'                 => fusion_builder_default_visibility( 'string' ),
-							'hide_url_params'                => 'off',
-							'id'                             => '',
-							'layout'                         => 'carousel',
-							'mouse_scroll'                   => 'no',
-							'number_posts'                   => $fusion_settings->get( 'portfolio_items' ),
-							'offset'                         => '',
-							'one_column_text_position'       => 'below',
-							'order'                          => 'DESC',
-							'orderby'                        => 'date',
-							'pagination_type'                => 'none',
-							'picture_size'                   => $fusion_settings->get( 'portfolio_featured_image_size' ),
-							'portfolio_layout_padding'       => '',
-							'portfolio_text_alignment'       => 'left',
-							'portfolio_title_display'        => 'all',
-							'pull_by'                        => '',
-							'scroll_items'                   => '',
-							'show_nav'                       => 'yes',
-							'strip_html'                     => 'yes',
-							'tag_slug'                       => '',
-							'text_layout'                    => 'unboxed',
-							'portfolio_masonry_grid_ratio'   => $fusion_settings->get( 'masonry_grid_ratio' ),
+							'animation_direction'          => 'left',
+							'animation_offset'             => $fusion_settings->get( 'animation_offset' ),
+							'animation_speed'              => '',
+							'animation_type'               => '',
+							'autoplay'                     => 'no',
+							'carousel_layout'              => 'title_on_rollover',
+							'cat_slug'                     => '',
+							'class'                        => '',
+							'column_spacing'               => $fusion_settings->get( 'portfolio_column_spacing' ),
+							'columns'                      => $fusion_settings->get( 'portfolio_columns' ),
+							'content_length'               => 'excerpt',
+							'grid_box_color'               => $fusion_settings->get( 'timeline_bg_color' ),
+							'grid_element_color'           => $fusion_settings->get( 'timeline_color' ),
+							'grid_separator_color'         => $fusion_settings->get( 'grid_separator_color' ),
+							'grid_separator_style_type'    => $fusion_settings->get( 'grid_separator_style_type' ),
+							'equal_heights'                => 'no',
+							'excerpt_length'               => $fusion_settings->get( 'portfolio_excerpt_length' ),
+							'excerpt_words'                => '',  // Deprecated.
+							'exclude_cats'                 => '',
+							'exclude_tags'                 => '',
+							'filters'                      => 'yes',
+							'hide_on_mobile'               => fusion_builder_default_visibility( 'string' ),
+							'hide_url_params'              => 'off',
+							'id'                           => '',
+							'layout'                       => 'carousel',
+							'mouse_scroll'                 => 'no',
+							'number_posts'                 => $fusion_settings->get( 'portfolio_items' ),
+							'offset'                       => '',
+							'one_column_text_position'     => 'below',
+							'order'                        => 'DESC',
+							'orderby'                      => 'date',
+							'pagination_type'              => 'none',
+							'picture_size'                 => $fusion_settings->get( 'portfolio_featured_image_size' ),
+							'portfolio_layout_padding'     => '',
+							'portfolio_text_alignment'     => 'left',
+							'portfolio_title_display'      => 'all',
+							'pull_by'                      => '',
+							'scroll_items'                 => '',
+							'show_nav'                     => 'yes',
+							'strip_html'                   => 'yes',
+							'tag_slug'                     => '',
+							'text_layout'                  => 'unboxed',
+							'portfolio_masonry_grid_ratio' => $fusion_settings->get( 'masonry_grid_ratio' ),
 							'portfolio_masonry_width_double' => $fusion_settings->get( 'masonry_width_double' ),
-							'boxed_text'                     => '', // Deprecated.
+							'boxed_text'                   => '', // Deprecated.
 						),
 						$args,
 						'fusion_portfolio'
@@ -325,7 +325,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				if ( ! empty( $cats_to_exclude ) ) {
 
 					// Exclude the correct cats from tax_query.
-					$args['tax_query'] = array(
+					$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery
 						array(
 							'taxonomy' => 'portfolio_category',
 							'field'    => 'slug',
@@ -337,7 +337,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					// Include the correct cats in tax_query.
 					if ( ! empty( $cat_slugs ) ) {
 						$args['tax_query']['relation'] = 'AND';
-						$args['tax_query'][] = array(
+						$args['tax_query'][]           = array(
 							'taxonomy' => 'portfolio_category',
 							'field'    => 'slug',
 							'terms'    => $cat_slugs,
@@ -347,7 +347,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				} else {
 					// Include the cats from $cat_slugs in tax_query.
 					if ( ! empty( $cat_slugs ) ) {
-						$args['tax_query'] = array(
+						$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery
 							array(
 								'taxonomy' => 'portfolio_category',
 								'field'    => 'slug',
@@ -361,7 +361,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				if ( ! empty( $tags_to_exclude ) ) {
 
 					// Exclude the correct cats from tax_query.
-					$args['tax_query'] = array(
+					$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery
 						array(
 							'taxonomy' => 'portfolio_tags',
 							'field'    => 'slug',
@@ -373,7 +373,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					// Include the correct cats in tax_query.
 					if ( ! empty( $tag_slugs ) ) {
 						$args['tax_query']['relation'] = 'AND';
-						$args['tax_query'][] = array(
+						$args['tax_query'][]           = array(
 							'taxonomy' => 'portfolio_tags',
 							'field'    => 'slug',
 							'terms'    => $tag_slugs,
@@ -383,7 +383,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				} else {
 					// Include the tags from $cat_slugs in tax_query.
 					if ( ! empty( $tag_slugs ) ) {
-						$args['tax_query'] = array(
+						$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery
 							array(
 								'taxonomy' => 'portfolio_tags',
 								'field'    => 'slug',
@@ -414,6 +414,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				// Set a gallery id for the lightbox triggers on rollovers.
 				$gallery_id = '-rw-' . $this->portfolio_counter;
+
+				$lazy_load = $fusion_settings->get( 'lazy_load' );
 
 				// Loop through returned posts.
 				// Setup the inner HTML for each elements.
@@ -451,11 +453,11 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 								// Get the post title.
 								$fusion_portfolio_carousel_title = '<h4 ' . FusionBuilder::attributes( 'fusion-carousel-title' ) . '><a href="' . get_permalink( get_the_ID() ) . '" target="_self">' . get_the_title() . '</a></h4>';
-								$title_terms .= apply_filters( 'fusion_portfolio_carousel_title', $fusion_portfolio_carousel_title );
+								$title_terms                    .= apply_filters( 'fusion_portfolio_carousel_title', $fusion_portfolio_carousel_title );
 
 								// Get the terms.
 								$carousel_terms = get_the_term_list( get_the_ID(), 'portfolio_category', '<div class="fusion-carousel-meta">', ', ', '</div>' );
-								$title_terms .= apply_filters( 'fusion_portfolio_carousel_terms', $carousel_terms );
+								$title_terms   .= apply_filters( 'fusion_portfolio_carousel_terms', $carousel_terms );
 							}
 
 							// Render the video set in page options if no featured image is present.
@@ -466,25 +468,26 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									// For all other layouts get the calculated max-width from the image size.
 								} else {
 									$featured_image_size_dimensions = avada_get_image_size_dimensions( $this->image_size );
-									$video_max_width = $featured_image_size_dimensions['width'];
+									$video_max_width                = $featured_image_size_dimensions['width'];
 								}
 
-								$video = fusion_get_page_option( 'video', get_the_ID() );
+								$video        = fusion_get_page_option( 'video', get_the_ID() );
 								$video_markup = '<div class="fusion-image-wrapper fusion-video" style="max-width:' . $video_max_width . ';">' . $video . '</div>';
-								$image = apply_filters( 'fusion_portfolio_item_video', $video_markup, $video, $video_max_width );
+								$image        = apply_filters( 'fusion_portfolio_item_video', $video_markup, $video, $video_max_width );
 
 							} elseif ( $fusion_settings->get( 'featured_image_placeholder' ) || has_post_thumbnail() ) {
 								// Get the post image.
 								if ( 'full' === $this->image_size && class_exists( 'Avada' ) && property_exists( Avada(), 'images' ) ) {
 									Avada()->images->set_grid_image_meta(
 										array(
-											'layout' => 'portfolio_full',
-											'columns' => $columns,
+											'layout'       => 'portfolio_full',
+											'columns'      => $columns,
 											'gutter_width' => $column_spacing,
 										)
 									);
 								}
 								$image = fusion_render_first_featured_image_markup( get_the_ID(), $this->image_size, get_permalink( get_the_ID() ), true, false, false, 'default', $show_title, '', $gallery_id );
+
 								if ( class_exists( 'Avada' ) && property_exists( Avada(), 'images' ) ) {
 									Avada()->images->set_grid_image_meta( array() );
 								}
@@ -533,34 +536,34 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									// For all other layouts get the calculated max-width from the image size.
 								} else {
 									$featured_image_size_dimensions = avada_get_image_size_dimensions( $this->image_size );
-									$video_max_width = $featured_image_size_dimensions['width'];
+									$video_max_width                = $featured_image_size_dimensions['width'];
 								}
 
-								$video = fusion_get_page_option( 'video', get_the_ID() );
+								$video        = fusion_get_page_option( 'video', get_the_ID() );
 								$video_markup = '<div class="fusion-image-wrapper fusion-video" style="max-width:' . $video_max_width . ';">' . $video . '</div>';
-								$image = apply_filters( 'fusion_portfolio_item_video', $video_markup, $video, $video_max_width );
+								$image        = apply_filters( 'fusion_portfolio_item_video', $video_markup, $video, $video_max_width );
 
 							} elseif ( $fusion_settings->get( 'featured_image_placeholder' ) || has_post_thumbnail() ) {
 
 								$responsive_images_columns = $columns;
-								$masonry_attributes = array();
-								$element_base_padding = 0.8;
+								$masonry_attributes        = array();
+								$element_base_padding      = 0.8;
 
 								// Masonry layout.
 								if ( 'masonry' === $layout ) {
 									// Set image or placeholder and correct corresponding styling.
 									if ( has_post_thumbnail() ) {
 										$post_thumbnail_attachment = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-										$masonry_attribute_style = 'background-image:url(' . $post_thumbnail_attachment[0] . ');';
+										$masonry_attribute_style   = $lazy_load ? '' : 'background-image:url(' . $post_thumbnail_attachment[0] . ');';
 									} else {
 										$post_thumbnail_attachment = array();
-										$masonry_attribute_style = 'background-color:#f6f6f6;';
+										$masonry_attribute_style   = 'background-color:#f6f6f6;';
 									}
 
 									// Get the correct image orientation class.
 									if ( class_exists( 'Avada' ) && property_exists( Avada(), 'images' ) ) {
 										$element_orientation_class = Avada()->images->get_element_orientation_class( get_post_thumbnail_id(), $post_thumbnail_attachment, $defaults['portfolio_masonry_grid_ratio'], $defaults['portfolio_masonry_width_double'] );
-										$element_base_padding  = Avada()->images->get_element_base_padding( $element_orientation_class );
+										$element_base_padding      = Avada()->images->get_element_base_padding( $element_orientation_class );
 									}
 									$post_classes .= ' ' . $element_orientation_class;
 
@@ -574,7 +577,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									if ( 'no_text' !== $text_layout && 'boxed' === $text_layout &&
 										class_exists( 'Fusion_Sanitize' ) && class_exists( 'Fusion_Color' ) &&
 										'transparent' !== Fusion_Sanitize::color( self::$args['grid_element_color'] ) &&
-										'0' != Fusion_Color::new_color( self::$args['grid_element_color'] )->alpha
+										0 !== Fusion_Color::new_color( self::$args['grid_element_color'] )->alpha
 									) {
 										$masonry_column_offset = ' - ' . ( (int) $column_spacing / 2 ) . 'px';
 										if ( false !== strpos( $element_orientation_class, 'fusion-element-portrait' ) ) {
@@ -591,8 +594,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									$masonry_attribute_style .= 'padding-top:calc((100% + ' . $masonry_column_spacing . ') * ' . $element_base_padding . $masonry_column_offset . ');';
 
 									// Check if we have a landscape image, then it has to stretch over 2 cols.
-									if ( false !== strpos( $element_orientation_class, 'fusion-element-landscape' ) ) {
-										$responsive_images_columns = $columns / 2;
+									if ( '1' !== $columns && 1 !== $columns && false !== strpos( $element_orientation_class, 'fusion-element-landscape' ) ) {
+										$responsive_images_columns = (int) $columns / 2;
 									}
 
 									// Set the masonry attributes to use them in the first featured image function.
@@ -600,14 +603,19 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 										'class' => 'fusion-masonry-element-container',
 										'style' => $masonry_attribute_style,
 									);
-								} // End if().
+
+									if ( $lazy_load && isset( $post_thumbnail_attachment[0] ) ) {
+										$masonry_attributes['data-bg'] = $post_thumbnail_attachment[0];
+										$masonry_attributes['class']  .= ' lazyload';
+									}
+								}
 
 								// Get the post image.
 								if ( 'full' === $this->image_size && class_exists( 'Avada' ) && property_exists( Avada(), 'images' ) ) {
 									Avada()->images->set_grid_image_meta(
 										array(
-											'layout' => 'portfolio_full',
-											'columns' => $responsive_images_columns,
+											'layout'       => 'portfolio_full',
+											'columns'      => $responsive_images_columns,
 											'gutter_width' => $column_spacing,
 										)
 									);
@@ -616,7 +624,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 								if ( class_exists( 'Avada' ) && property_exists( Avada(), 'images' ) ) {
 									Avada()->images->set_grid_image_meta( array() );
 								}
-							} // End if().
+							}
 
 							// Additional content for layouts using text.
 							if ( 'carousel' !== self::$args['layout'] && 'no_text' !== self::$args['text_layout'] ) {
@@ -668,7 +676,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 									// Wrap buttons.
 									$button_span_class = ( 'yes' === $fusion_settings->get( 'button_span' ) ) ? ' fusion-portfolio-buttons-full' : '';
-									$buttons = '<div ' . FusionBuilder::attributes( 'fusion-portfolio-buttons' . $button_span_class ) . '>' . $learn_more_button . $view_project_button . '</div>';
+									$buttons           = '<div ' . FusionBuilder::attributes( 'fusion-portfolio-buttons' . $button_span_class ) . '>' . $learn_more_button . $view_project_button . '</div>';
 
 								}
 
@@ -684,7 +692,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 							} else {
 								// Get the rich snippets for grid layout without excerpts.
 								$rich_snippets = avada_render_rich_snippets_for_pages();
-							} // End if().
+							}
 
 							// Post separator for one column grid layouts.
 							if ( ( '1' === $columns || 1 === $columns ) && 'boxed' !== self::$args['text_layout'] && 'grid' === self::$args['layout'] ) {
@@ -692,9 +700,9 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 							}
 
 							$portfolio_posts .= '<article id="portfolio-' . $this->portfolio_counter . '-post-' . $this->post_id . '" class="fusion-portfolio-post ' . $post_classes . '"><div ' . FusionBuilder::attributes( 'portfolio-fusion-portfolio-content-wrapper' ) . '>' . $rich_snippets . $image . $post_content . '</div>' . apply_filters( 'fusion_portfolio_grid_post_separator', $post_separator ) . '</article>';
-						} // End if().
-					} // End if().
-				} // End while().
+						}
+					}
+				}
 
 				wp_reset_postdata();
 
@@ -730,7 +738,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 						// Check if the "All" filter should be displayed.
 						$first_filter = true;
 						if ( 'yes-without-all' !== $filters ) {
-							$filter = '<li role="menuitem" ' . FusionBuilder::attributes( 'fusion-filter fusion-filter-all fusion-active' ) . '><a ' . FusionBuilder::attributes(
+							$filter       = '<li role="menuitem" ' . FusionBuilder::attributes( 'fusion-filter fusion-filter-all fusion-active' ) . '><a ' . FusionBuilder::attributes(
 								'portfolio-shortcode-filter-link',
 								array(
 									'data-filter' => '*',
@@ -780,7 +788,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 										) . '>' . $portfolio_tag->name . '</a></li>';
 									}
 								}
-							} // End foreach().
+							}
 						} else {
 							// Loop through categories.
 							foreach ( $portfolio_categories as $portfolio_category ) {
@@ -822,15 +830,15 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 										) . '>' . $portfolio_category->name . '</a></li>';
 									}
 								}
-							} // End foreach().
-						} // End if().
+							}
+						}
 
 						// Wrap filters.
-						$filter_wrapper = '<div role="menubar">';
+						$filter_wrapper  = '<div role="menubar">';
 						$filter_wrapper .= '<ul ' . FusionBuilder::attributes( 'fusion-filters' ) . ' role="menu" aria-label="filters">' . $filter . '</ul>';
 						$filter_wrapper .= '</div>';
 
-					} // End if().
+					}
 
 					// For column spacing set needed css.
 					if ( $column_spacing ) {
@@ -839,7 +847,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 					// Pagination.
 					self::$args['data-pages'] = $portfolio_query->max_num_pages;
-					$pagination = '';
+					$pagination               = '';
 
 					if ( 'none' !== $pagination_type && 1 < esc_attr( $portfolio_query->max_num_pages ) ) {
 
@@ -863,7 +871,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					// Put it all together.
 					$html = $styling . '<div ' . FusionBuilder::attributes( 'portfolio-shortcode' ) . '>' . $filter_wrapper . $styles . '<div ' . FusionBuilder::attributes( 'portfolio-shortcode-portfolio-wrapper' ) . '>' . $portfolio_posts . '</div>' . $pagination . '</div>';
 
-				} // End if().
+				}
 
 				$this->portfolio_counter++;
 
@@ -978,7 +986,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				$attr['data-pages'] = self::$args['data-pages'];
 
 				if ( self::$args['column_spacing'] ) {
-					$margin = ( -1 ) * self::$args['column_spacing'] / 2;
+					$margin        = ( -1 ) * self::$args['column_spacing'] / 2;
 					$attr['style'] = 'margin:' . $margin . 'px;';
 				}
 
@@ -1015,7 +1023,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 						$attr['style'] .= 'left:0px;';
 						$attr['style'] .= 'right:0px;';
 					}
-					$color = Fusion_Color::new_color( self::$args['grid_box_color'] );
+					$color     = Fusion_Color::new_color( self::$args['grid_box_color'] );
 					$color_css = $color->to_css( 'rgba' );
 					if ( 0 === $color->alpha ) {
 						$color_css = $color->to_css( 'rgb' );
@@ -1026,8 +1034,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					$attr['style'] .= 'margin:0;';
 
 				} elseif ( 'grid' === self::$args['layout'] && 'boxed' === self::$args['text_layout'] ) {
-					$color = Fusion_Color::new_color( self::$args['grid_box_color'] );
-					$color_css = $color->to_css( 'rgba' );
+					$color          = Fusion_Color::new_color( self::$args['grid_box_color'] );
+					$color_css      = $color->to_css( 'rgba' );
 					$attr['style'] .= 'background-color:' . $color_css . ';';
 				}
 
@@ -1043,7 +1051,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 			 * @return array
 			 */
 			public function portfolio_content_wrapper_attr() {
-				$attr = array(
+				$attr          = array(
 					'class' => 'fusion-portfolio-content-wrapper',
 				);
 				$attr['style'] = '';
@@ -1058,8 +1066,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				}
 
 				if ( 'grid' === self::$args['layout'] && 'boxed' === self::$args['text_layout'] ) {
-					$color = Fusion_Color::new_color( self::$args['grid_box_color'] );
-					$color_css = $color->to_css( 'rgba' );
+					$color          = Fusion_Color::new_color( self::$args['grid_box_color'] );
+					$color_css      = $color->to_css( 'rgba' );
 					$attr['style'] .= 'background-color:' . $color_css . ';';
 				}
 
@@ -1081,7 +1089,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				if ( 'title_below_image' === self::$args['carousel_layout'] ) {
 					$attr['data-metacontent'] = 'yes';
-					$attr['class'] .= ' fusion-carousel-title-below-image';
+					$attr['class']           .= ' fusion-carousel-title-below-image';
 				}
 
 				if ( 'fixed' === self::$args['picture_size'] ) {
@@ -1138,7 +1146,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				);
 
 				$separator_styles_array = explode( '|', self::$args['grid_separator_style_type'] );
-				$separator_styles = '';
+				$separator_styles       = '';
 
 				foreach ( $separator_styles_array as $separator_style ) {
 					$separator_styles .= ' sep-' . $separator_style;
@@ -1219,7 +1227,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 						$excerpt = 'yes';
 					}
 
-					echo fusion_get_post_content( '', $excerpt, self::$args['excerpt_length'], self::$args['strip_html'] ); // WPCS: XSS ok.
+					echo fusion_get_post_content( '', $excerpt, self::$args['excerpt_length'], self::$args['strip_html'] ); // phpcs:ignore WordPress.Security
 				}
 			}
 
@@ -1256,7 +1264,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'full'    => esc_attr__( 'Auto', 'fusion-core' ),
 								),
 							),
-							'portfolio_columns' => array(
+							'portfolio_columns'            => array(
 								'label'       => esc_attr__( 'Number of Columns', 'fusion-core' ),
 								'description' => __( 'Set the number of columns per row. With Carousel layout this specifies the maximum amount of columns. <strong>IMPORTANT:</strong> Masonry layout does not work with 1 column.', 'fusion-core' ),
 								'id'          => 'portfolio_columns',
@@ -1268,7 +1276,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'step' => 1,
 								),
 							),
-							'portfolio_column_spacing' => array(
+							'portfolio_column_spacing'     => array(
 								'label'       => esc_attr__( 'Column Spacing', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls the column spacing for portfolio items.', 'fusion-core' ),
 								'id'          => 'portfolio_column_spacing',
@@ -1280,7 +1288,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'step' => '1',
 								),
 							),
-							'portfolio_items' => array(
+							'portfolio_items'              => array(
 								'label'       => esc_attr__( 'Number of Portfolio Items Per Page', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls the number of posts that display per page for portfolio elements. Set to -1 to display all. Set to 0 to use the number of posts from Settings > Reading.', 'fusion-core' ),
 								'id'          => 'portfolio_items',
@@ -1292,7 +1300,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'step' => '1',
 								),
 							),
-							'portfolio_text_layout' => array(
+							'portfolio_text_layout'        => array(
 								'label'       => esc_attr__( 'Portfolio Text Layout', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls if the portfolio text content is displayed boxed or unboxed or is completely disabled for portfolio elements.', 'fusion-core' ),
 								'id'          => 'portfolio_text_layout',
@@ -1304,7 +1312,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'unboxed' => esc_attr__( 'Unboxed', 'fusion-core' ),
 								),
 							),
-							'portfolio_content_length' => array(
+							'portfolio_content_length'     => array(
 								'label'       => esc_attr__( 'Portfolio Text Display', 'fusion-core' ),
 								'description' => esc_attr__( 'Choose how to display the post excerpt for portfolio elements.', 'fusion-core' ),
 								'id'          => 'portfolio_content_length',
@@ -1316,7 +1324,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									'full_content' => esc_attr__( 'Full Content', 'fusion-core' ),
 								),
 							),
-							'portfolio_excerpt_length' => array(
+							'portfolio_excerpt_length'     => array(
 								'label'       => esc_attr__( 'Excerpt Length', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls the number of words in the excerpts for portfolio elements.', 'fusion-core' ),
 								'id'          => 'portfolio_excerpt_length',
@@ -1342,47 +1350,47 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 								'default'     => '1',
 								'type'        => 'switch',
 							),
-							'portfolio_title_display' => array(
+							'portfolio_title_display'      => array(
 								'label'       => esc_attr__( 'Portfolio Title Display', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls what displays with the portfolio post title for portfolio elements.', 'fusion-core' ),
 								'id'          => 'portfolio_title_display',
 								'default'     => 'all',
 								'type'        => 'select',
 								'choices'     => array(
-									'all'     => esc_attr__( 'Title and Categories', 'fusion-core' ),
-									'title'   => esc_attr__( 'Only Title', 'fusion-core' ),
-									'cats'    => esc_attr__( 'Only Categories', 'fusion-core' ),
-									'none'    => esc_attr__( 'None', 'fusion-core' ),
+									'all'   => esc_attr__( 'Title and Categories', 'fusion-core' ),
+									'title' => esc_attr__( 'Only Title', 'fusion-core' ),
+									'cats'  => esc_attr__( 'Only Categories', 'fusion-core' ),
+									'none'  => esc_attr__( 'None', 'fusion-core' ),
 								),
 							),
-							'portfolio_text_alignment' => array(
+							'portfolio_text_alignment'     => array(
 								'label'       => esc_attr__( 'Portfolio Text Alignment', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls the alignment of the portfolio title, categories and excerpt text when using the Portfolio Text layouts in portfolio elements.', 'fusion-core' ),
 								'id'          => 'portfolio_text_alignment',
 								'default'     => 'left',
 								'type'        => 'radio-buttonset',
 								'choices'     => array(
-									'left'     => esc_attr__( 'Left', 'fusion-core' ),
-									'center'   => esc_attr__( 'Center', 'fusion-core' ),
-									'right'    => esc_attr__( 'Right', 'fusion-core' ),
+									'left'   => esc_attr__( 'Left', 'fusion-core' ),
+									'center' => esc_attr__( 'Center', 'fusion-core' ),
+									'right'  => esc_attr__( 'Right', 'fusion-core' ),
 								),
 							),
-							'portfolio_layout_padding' => array(
+							'portfolio_layout_padding'     => array(
 								'label'       => esc_attr__( 'Portfolio Text Layout Padding', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls the padding for the portfolio text layout when using boxed mode in portfolio elements.', 'fusion-core' ),
 								'id'          => 'portfolio_layout_padding',
 								'choices'     => array(
-									'top'     => true,
-									'bottom'  => true,
-									'left'    => true,
-									'right'   => true,
-									'units'   => array( 'px', '%' ),
+									'top'    => true,
+									'bottom' => true,
+									'left'   => true,
+									'right'  => true,
+									'units'  => array( 'px', '%' ),
 								),
 								'default'     => array(
-									'top'     => '25px',
-									'bottom'  => '25px',
-									'left'    => '25px',
-									'right'   => '25px',
+									'top'    => '25px',
+									'bottom' => '25px',
+									'left'   => '25px',
+									'right'  => '25px',
 								),
 								'type'        => 'spacing',
 								'required'    => array(
@@ -1393,7 +1401,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 									),
 								),
 							),
-							'portfolio_pagination_type' => array(
+							'portfolio_pagination_type'    => array(
 								'label'       => esc_attr__( 'Pagination Type', 'fusion-core' ),
 								'description' => esc_attr__( 'Controls the pagination type for portfolio elements.', 'fusion-core' ),
 								'id'          => 'portfolio_pagination_type',
@@ -1430,7 +1438,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 
 				$css['global']['.fusion-portfolio.fusion-portfolio-boxed .fusion-portfolio-content-wrapper']['border-color'] = $fusion_library->sanitize->color( $fusion_settings->get( 'timeline_color' ) );
 
-				$css['global']['.fusion-filters .fusion-filter.fusion-active a']['color'] = $fusion_library->sanitize->color( $fusion_settings->get( 'primary_color' ) );
+				$css['global']['.fusion-filters .fusion-filter.fusion-active a']['color']        = $fusion_library->sanitize->color( $fusion_settings->get( 'primary_color' ) );
 				$css['global']['.fusion-filters .fusion-filter.fusion-active a']['border-color'] = $fusion_library->sanitize->color( $fusion_settings->get( 'primary_color' ) );
 
 				$css[ $content_media_query ]['.fusion-filters']['border-bottom'] = '0';
@@ -1441,10 +1449,10 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				return $css;
 			}
 		}
-	} // End if().
+	}
 
 	new FusionSC_Portfolio();
-} // End if().
+}
 
 /**
  * Sets the necessary scripts.
@@ -1835,7 +1843,7 @@ function fusion_element_portfolio() {
 						'padding_bottom' => '',
 						'padding_left'   => '',
 					),
-					'dependency'  => array(
+					'dependency'       => array(
 						array(
 							'element'  => 'text_layout',
 							'value'    => 'unboxed',
