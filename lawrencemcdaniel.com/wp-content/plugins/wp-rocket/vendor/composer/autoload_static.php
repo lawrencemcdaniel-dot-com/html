@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc3576ad419a77a5630f7cbf440705470
+class ComposerStaticInit23640ec513c5014b7ccb62736b6b2e46
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
@@ -202,7 +202,6 @@ class ComposerStaticInitc3576ad419a77a5630f7cbf440705470
         'MatthiasMullie\\PathConverter\\Converter' => __DIR__ . '/..' . '/matthiasmullie/path-converter/src/Converter.php',
         'MatthiasMullie\\PathConverter\\ConverterInterface' => __DIR__ . '/..' . '/matthiasmullie/path-converter/src/ConverterInterface.php',
         'MatthiasMullie\\PathConverter\\NoConverter' => __DIR__ . '/..' . '/matthiasmullie/path-converter/src/NoConverter.php',
-        'Minify_CSS_UriRewriter' => __DIR__ . '/../..' . '/inc/vendors/classes/class-minify-css-urirewriter.php',
         'Minify_HTML' => __DIR__ . '/../..' . '/inc/vendors/classes/class-minify-html.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',
@@ -324,6 +323,7 @@ class ComposerStaticInitc3576ad419a77a5630f7cbf440705470
         'WP_Rocket\\Busting\\Busting_Factory' => __DIR__ . '/../..' . '/inc/classes/busting/class-busting-factory.php',
         'WP_Rocket\\Busting\\Facebook_Pickles' => __DIR__ . '/../..' . '/inc/classes/busting/class-facebook-pickles.php',
         'WP_Rocket\\Busting\\Facebook_SDK' => __DIR__ . '/../..' . '/inc/classes/busting/class-facebook-sdk.php',
+        'WP_Rocket\\Busting\\File_Busting' => __DIR__ . '/../..' . '/inc/classes/busting/trait-file-busting.php',
         'WP_Rocket\\Busting\\Google_Analytics' => __DIR__ . '/../..' . '/inc/classes/busting/class-google-analytics.php',
         'WP_Rocket\\Busting\\Google_Tag_Manager' => __DIR__ . '/../..' . '/inc/classes/busting/class-google-tag-manager.php',
         'WP_Rocket\\Event_Management\\Event_Manager' => __DIR__ . '/../..' . '/inc/classes/event-management/class-event-manager.php',
@@ -378,9 +378,9 @@ class ComposerStaticInitc3576ad419a77a5630f7cbf440705470
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc3576ad419a77a5630f7cbf440705470::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc3576ad419a77a5630f7cbf440705470::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc3576ad419a77a5630f7cbf440705470::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit23640ec513c5014b7ccb62736b6b2e46::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit23640ec513c5014b7ccb62736b6b2e46::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit23640ec513c5014b7ccb62736b6b2e46::$classMap;
 
         }, null, ClassLoader::class);
     }

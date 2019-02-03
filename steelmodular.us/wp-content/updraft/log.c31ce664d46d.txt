@@ -1,0 +1,562 @@
+0000.000 (0) Opened log file at time: Wed, 30 Jan 2019 22:53:08 +0000 on https://steelmodular.us
+0000.008 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.5 WP: 5.0.3 PHP: 7.0.33 (apache2handler, Linux ip-172-31-16-30 4.14.88-72.76.amzn1.x86_64 #1 SMP Mon Jan 7 19:47:07 UTC 2019 x86_64) MySQL: 5.6.35-log WPLANG: en_US Server: Apache/2.4.37 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.33 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 66.6M | 2M) multisite: N openssl: OpenSSL 1.0.2k-fips  26 Jan 2017 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.014 (0) Free space on disk containing Updraft's temporary directory: 84387.8 MB
+0000.023 (0) Tasks: Backup files: 1 (schedule: weekly) Backup DB: 1 (schedule: weekly)
+0000.040 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.064 (0) Set semaphore last lock (fd) time to 2019-01-30 22:53:09
+0000.070 (0) Semaphore lock (fd) complete
+0000.092 (0) Backup run: resumption=0, nonce=c31ce664d46d, file_nonce=c31ce664d46d begun at=1548888788 (1s ago), job type=backup
+0000.104 (0) Scheduling a resumption (1) after 300 seconds (1548889089) in case this run gets aborted
+0000.122 (0) Checking if we have a zip executable available
+0000.128 (0) Testing: /usr/bin/zip
+0000.138 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.144 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.150 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.156 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.162 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.172 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.178 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.187 (0) Working binary zip found: /usr/bin/zip
+0000.199 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.205 (0) Creation of backups of directories: beginning
+0000.223 (0) Beginning creation of dump of plugins (split every: 25 MB)
+0000.331 (0) Total entities for the zip file: 1446 directories, 7999 files (0 skipped as non-modified), 103.5 MB
+0000.339 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.346 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.353 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.359 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.366 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.372 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.6 MB, 7999 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.918 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: size is now: 4.30 MB
+0000.931 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 600 files added (on-disk size: 4410.8 KB)
+0000.938 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 700 files added (on-disk size: 4410.8 KB)
+0000.945 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 800 files added (on-disk size: 4410.8 KB)
+0000.952 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 900 files added (on-disk size: 4410.8 KB)
+0000.958 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1000 files added (on-disk size: 4410.8 KB)
+0000.964 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 7999 files batched, 501 (1002) added so far); re-opening (prior size: 4410.8 KB)
+0001.103 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: size is now: 5.70 MB
+0001.126 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1100 files added (on-disk size: 5813.4 KB)
+0001.133 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1200 files added (on-disk size: 5813.4 KB)
+0001.139 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1300 files added (on-disk size: 5813.4 KB)
+0001.146 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1400 files added (on-disk size: 5813.4 KB)
+0001.152 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1500 files added (on-disk size: 5813.4 KB)
+0001.158 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 7999 files batched, 501 (1503) added so far); re-opening (prior size: 5813.4 KB)
+0001.319 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: size is now: 7.00 MB
+0001.333 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1600 files added (on-disk size: 7181.9 KB)
+0001.340 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1700 files added (on-disk size: 7181.9 KB)
+0001.347 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1800 files added (on-disk size: 7181.9 KB)
+0001.353 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 1900 files added (on-disk size: 7181.9 KB)
+0001.360 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2000 files added (on-disk size: 7181.9 KB)
+0001.366 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6 MB, 7999 files batched, 501 (2004) added so far); re-opening (prior size: 7181.9 KB)
+0001.624 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: size is now: 9.40 MB
+0001.638 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2100 files added (on-disk size: 9632.7 KB)
+0001.644 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2200 files added (on-disk size: 9632.7 KB)
+0001.651 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2300 files added (on-disk size: 9632.7 KB)
+0001.659 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2400 files added (on-disk size: 9632.7 KB)
+0001.665 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2500 files added (on-disk size: 9632.7 KB)
+0001.671 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.7 MB, 7999 files batched, 501 (2505) added so far); re-opening (prior size: 9632.7 KB)
+0001.740 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2600 files added (on-disk size: 10009.3 KB)
+0001.746 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2700 files added (on-disk size: 10009.3 KB)
+0001.753 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2800 files added (on-disk size: 10009.3 KB)
+0001.760 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 2900 files added (on-disk size: 10009.3 KB)
+0001.767 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3000 files added (on-disk size: 10009.3 KB)
+0001.772 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.1 MB, 7999 files batched, 501 (3006) added so far); re-opening (prior size: 10009.3 KB)
+0001.823 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: size is now: 13.00 MB
+0001.837 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3100 files added (on-disk size: 13313.2 KB)
+0001.844 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3200 files added (on-disk size: 13313.2 KB)
+0001.851 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3300 files added (on-disk size: 13313.2 KB)
+0001.857 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3400 files added (on-disk size: 13313.2 KB)
+0001.864 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3500 files added (on-disk size: 13313.2 KB)
+0001.870 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.8 MB, 7999 files batched, 501 (3507) added so far); re-opening (prior size: 13313.2 KB)
+0002.136 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3600 files added (on-disk size: 15861.7 KB)
+0002.146 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3700 files added (on-disk size: 15861.7 KB)
+0002.154 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3800 files added (on-disk size: 15861.7 KB)
+0002.161 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 3900 files added (on-disk size: 15861.7 KB)
+0002.169 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4000 files added (on-disk size: 15861.7 KB)
+0002.175 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (10.6 MB, 7999 files batched, 501 (4008) added so far); re-opening (prior size: 15861.7 KB)
+0002.598 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4100 files added (on-disk size: 18866.3 KB)
+0002.605 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4200 files added (on-disk size: 18866.3 KB)
+0002.612 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4300 files added (on-disk size: 18866.3 KB)
+0002.618 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4400 files added (on-disk size: 18866.3 KB)
+0002.625 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4500 files added (on-disk size: 18866.3 KB)
+0002.630 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.5 MB, 7999 files batched, 501 (4509) added so far); re-opening (prior size: 18866.3 KB)
+0002.804 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4600 files added (on-disk size: 21084.6 KB)
+0002.811 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4700 files added (on-disk size: 21084.6 KB)
+0002.818 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4800 files added (on-disk size: 21084.6 KB)
+0002.825 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 4900 files added (on-disk size: 21084.6 KB)
+0002.831 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 5000 files added (on-disk size: 21084.6 KB)
+0002.837 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.8 MB, 7999 files batched, 501 (5010) added so far); re-opening (prior size: 21084.6 KB)
+0003.207 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 5100 files added (on-disk size: 24117.1 KB)
+0003.214 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip.tmp: 5200 files added (on-disk size: 24117.1 KB)
+0003.221 (0) Adding batch to zip file (UpdraftPlus_BinZip): possibly approaching split limit (3.9 MB, 278 (5288) files added so far); last ratio: 0.3384; re-opening (prior size: 24117.1 KB)
+0003.396 (0) Zip size is at/near split limit (24.7 MB / 25 MB) - bumping index (from: 0)
+0003.627 (0) Created plugins zip (0) - 25338.9 KB in 3.2 s (7988.3 KB/s) (checksums: sha1: 44dd8ea0c1a06d8e68e9cc263554e09235f9e9f0, sha256: 0921e5576417a8bafb2b0db9db21379a5c8204d6de1ebe96446ec01c06bfb03d)
+0003.639 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 5300 files added (on-disk size: 0 KB)
+0003.646 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 5400 files added (on-disk size: 0 KB)
+0003.653 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 5500 files added (on-disk size: 0 KB)
+0003.659 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 5600 files added (on-disk size: 0 KB)
+0003.666 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 5700 files added (on-disk size: 0 KB)
+0003.674 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.3 MB, 7999 files batched, 501 (5789) added so far); re-opening (prior size: 0 KB)
+0003.908 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: size is now: 2.20 MB
+0003.921 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 5800 files added (on-disk size: 2248.8 KB)
+0003.929 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 5900 files added (on-disk size: 2248.8 KB)
+0003.936 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6000 files added (on-disk size: 2248.8 KB)
+0003.943 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6100 files added (on-disk size: 2248.8 KB)
+0003.950 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6200 files added (on-disk size: 2248.8 KB)
+0003.957 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (16.1 MB, 7999 files batched, 501 (6290) added so far); re-opening (prior size: 2248.8 KB)
+0004.522 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: size is now: 6.60 MB
+0004.536 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6300 files added (on-disk size: 6707.7 KB)
+0004.543 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6400 files added (on-disk size: 6707.7 KB)
+0004.550 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6500 files added (on-disk size: 6707.7 KB)
+0004.557 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6600 files added (on-disk size: 6707.7 KB)
+0004.563 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6700 files added (on-disk size: 6707.7 KB)
+0004.570 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 7999 files batched, 501 (6791) added so far); re-opening (prior size: 6707.7 KB)
+0004.673 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6800 files added (on-disk size: 7570.7 KB)
+0004.680 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 6900 files added (on-disk size: 7570.7 KB)
+0004.687 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7000 files added (on-disk size: 7570.7 KB)
+0004.693 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7100 files added (on-disk size: 7570.7 KB)
+0004.700 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7200 files added (on-disk size: 7570.7 KB)
+0004.706 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.4 MB, 7999 files batched, 501 (7292) added so far); re-opening (prior size: 7570.7 KB)
+0004.801 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7300 files added (on-disk size: 8575 KB)
+0004.808 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7400 files added (on-disk size: 8575 KB)
+0004.815 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7500 files added (on-disk size: 8575 KB)
+0004.822 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7600 files added (on-disk size: 8575 KB)
+0004.829 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7700 files added (on-disk size: 8575 KB)
+0004.835 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.9 MB, 7999 files batched, 501 (7793) added so far); re-opening (prior size: 8575 KB)
+0005.016 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7800 files added (on-disk size: 9664.6 KB)
+0005.023 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip.tmp: 7900 files added (on-disk size: 9664.6 KB)
+0005.200 (0) Created plugins zip (1) - 10194.1 KB in 1.6 s (6501.4 KB/s) (sha1: 6f0776580ebbef40e99f7837f92520b76e6bd543, sha256: 8b10d79bb91586b418856aee21b15d1371f6c5c58754e13a0bcbcba4c2d344a7)
+0005.213 (0) Beginning creation of dump of themes (split every: 25 MB)
+0005.245 (0) Total entities for the zip file: 240 directories, 1548 files (0 skipped as non-modified), 18.7 MB
+0005.252 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0005.264 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0005.271 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0005.279 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0005.286 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0005.292 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.9 MB, 1548 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0005.357 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: size is now: 1.20 MB
+0005.370 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 600 files added (on-disk size: 1203.4 KB)
+0005.378 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 700 files added (on-disk size: 1203.4 KB)
+0005.385 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 800 files added (on-disk size: 1203.4 KB)
+0005.392 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 900 files added (on-disk size: 1203.4 KB)
+0005.399 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 1000 files added (on-disk size: 1203.4 KB)
+0005.405 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (11.5 MB, 1548 files batched, 501 (1002) added so far); re-opening (prior size: 1203.4 KB)
+0005.809 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: size is now: 5.00 MB
+0005.824 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 1100 files added (on-disk size: 5163.2 KB)
+0005.831 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 1200 files added (on-disk size: 5163.2 KB)
+0005.838 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 1300 files added (on-disk size: 5163.2 KB)
+0005.844 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 1400 files added (on-disk size: 5163.2 KB)
+0005.851 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: 1500 files added (on-disk size: 5163.2 KB)
+0005.857 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5 MB, 1548 files batched, 501 (1503) added so far); re-opening (prior size: 5163.2 KB)
+0006.001 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip.tmp: size is now: 6.40 MB
+0006.134 (0) Created themes zip (0) - 6633.9 KB in 0.9 s (7260.8 KB/s) (sha1: 297d1b0250c6904ea89293d2e8edd5c0787f1d0a, sha256: fcebef8457257cd950a6c7b4aa489e527f8c8221f92c155a55cfc97a9b45598c)
+0006.147 (0) Exclusion option setting (uploads): 
+0006.153 (0) Looking for candidates to backup in: /var/www/html/steelmodular.us/wp-content/uploads
+0006.159 (0) finding files: fusion-builder-avada-pages: adding to list (1)
+0006.165 (0) finding files: 2018: adding to list (2)
+0006.171 (0) finding files: custom-css-js: adding to list (3)
+0006.176 (0) finding files: backup: adding to list (4)
+0006.182 (0) finding files: fusion-styles: adding to list (5)
+0006.188 (0) finding files: fusion_slider_exports: adding to list (6)
+0006.194 (0) finding files: fusion-scripts: adding to list (7)
+0006.199 (0) finding files: revslider: adding to list (8)
+0006.205 (0) finding files: 2015: adding to list (9)
+0006.211 (0) finding files: 2019: adding to list (10)
+0006.217 (0) finding files: 2017: adding to list (11)
+0006.223 (0) finding files: fusionredux: adding to list (12)
+0006.229 (0) Beginning creation of dump of uploads (split every: 25 MB)
+0006.255 (0) Total entities for the zip file: 221 directories, 1173 files (0 skipped as non-modified), 73.2 MB
+0006.260 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.269 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0006.276 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0006.282 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0006.289 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25.8 MB, 1173 files batched, 471 (471) added so far); re-opening (prior size: 0 KB)
+0006.473 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip.tmp: size is now: 17.90 MB
+0006.488 (0) A useful amount of data was added after this amount of zip processing: 0.4 s (normalised: 0.4 s, rate: 60785.7 KB/s)
+0006.494 (0) Performance is good - but we will not increase the amount of data we batch, as we are already at the present limit (time=0.43396997451782, normalised_time=0.42115197734361, max_time=-1, data points known=0, max_bytes=26214400)
+0006.507 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip.tmp: 500 files added (on-disk size: 18320.5 KB)
+0006.513 (0) Adding batch to zip file (UpdraftPlus_BinZip): possibly approaching split limit (9.3 MB, 38 (509) files added so far); last ratio: 0.6945; re-opening (prior size: 18320.5 KB)
+0006.570 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip.tmp: size is now: 27.20 MB
+0006.583 (0) Zip size is at/near split limit (27.2 MB / 25 MB) - bumping index (from: 0)
+0006.833 (0) Created uploads zip (0) - 27873.9 KB in 0.4 s (78954.6 KB/s) (checksums: sha1: c237e42988ed9c576fe3c80782ce05cd8ddd1b77, sha256: bdb870de08f6c17f41da32e6bfa8bf82ba3a2f2e801d7376cb47dfad5aa08b0f)
+0006.846 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip.tmp: 600 files added (on-disk size: 0 KB)
+0006.853 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip.tmp: 700 files added (on-disk size: 0 KB)
+0006.860 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip.tmp: 800 files added (on-disk size: 0 KB)
+0006.866 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip.tmp: 900 files added (on-disk size: 0 KB)
+0006.873 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25.1 MB, 1173 files batched, 475 (984) added so far); re-opening (prior size: 0 KB)
+0007.049 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip.tmp: size is now: 22.60 MB
+0007.065 (0) A useful amount of data was added after this amount of zip processing: 1 s (normalised: 1 s, rate: 25388.2 KB/s)
+0007.071 (0) Performance is good - but we will not increase the amount of data we batch, as we are already at the present limit (time=1.0111560821533, normalised_time=1.00834273576, max_time=-1, data points known=0, max_bytes=26214400)
+0007.083 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip.tmp: 1000 files added (on-disk size: 23115.6 KB)
+0007.089 (0) Adding batch to zip file (UpdraftPlus_BinZip): possibly approaching split limit (3.3 MB, 20 (1004) files added so far); last ratio: 0.9004; re-opening (prior size: 23115.6 KB)
+0007.137 (0) Zip size is at/near split limit (25.9 MB / 25 MB) - bumping index (from: 1)
+0007.387 (0) Created uploads zip (1) - 26535.1 KB in 0.3 s (87485.6 KB/s) (checksums: sha1: 71136ecf110d6f60d75bdc5ca7317bba75238d6c, sha256: cd35ec4307cc89bb15bbc512b8b3a93c28320d17d7af86a5d18ec0ca768f8560)
+0007.401 (0) Zip: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads3.zip.tmp: 1100 files added (on-disk size: 0 KB)
+0007.445 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads3.zip.tmp: size is now: 9.70 MB
+0007.572 (0) Created uploads zip (2) - 9937.7 KB in 0.2 s (55579.2 KB/s) (sha1: 222ae2cb8c5a64e9eb38de86258cb7cb444132a7, sha256: 679c1741be3fb15559b989fd67dbc5c75bcd44cb257c55578e73c77a5369bb03)
+0007.585 (0) Beginning backup of other directories found in the content directory (index: 0)
+0007.591 (0) Exclusion option setting (others): 
+0007.596 (0) Looking for candidates to backup in: /var/www/html/steelmodular.us/wp-content
+0007.602 (0) finding files: wflogs: adding to list (1)
+0007.608 (0) finding files: index.php: adding to list (2)
+0007.614 (0) finding files: upgrade: adding to list (3)
+0007.620 (0) finding files: updraft: skipping: this is the updraft directory
+0007.625 (0) finding files: themes: skipping: this is the themes directory
+0007.631 (0) finding files: advanced-cache.php: adding to list (4)
+0007.637 (0) finding files: uploads: skipping: this is the uploads directory
+0007.642 (0) finding files: cache: adding to list (5)
+0007.648 (0) finding files: wp-rocket-config: adding to list (6)
+0007.654 (0) finding files: plugins: skipping: this is the plugins directory
+0007.669 (0) Total entities for the zip file: 65 directories, 63 files (0 skipped as non-modified), 9.9 MB
+0008.108 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-others.zip.tmp: size is now: 3.50 MB
+0008.163 (0) Created others zip (0) - 3598.2 KB in 0.5 s (7150.6 KB/s) (sha1: 21adf9bcc982926a4aeb399b7c839d6383bee37a, sha256: 0253231265aa81570411935936372352d6d750c72f42d915d089021beccd3944)
+0008.190 (0) Saving backup status to database (elements: 11)
+0008.213 (0) Beginning creation of database dump (WordPress DB)
+0008.225 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0008.267 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1211 bytes total)
+0008.278 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0008.301 (0) Table wp_options: Total expected rows (approximate): 493
+0008.392 (0) Table wp_options: Total rows added: 500 in 0.09 seconds
+0008.401 (0) Table wp_options: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_options.table.gz - 361.2 KB)
+0008.426 (0) Table wp_users: Total expected rows (approximate): 2
+0008.436 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0008.442 (0) Table wp_users: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_users.table.gz - 0.6 KB)
+0008.463 (0) Table wp_usermeta: Total expected rows (approximate): 58
+0008.473 (0) Table wp_usermeta: Total rows added: 58 in 0.00 seconds
+0008.479 (0) Table wp_usermeta: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_usermeta.table.gz - 2.5 KB)
+0008.500 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0008.508 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0008.515 (0) Table wp_commentmeta: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0008.535 (0) Table wp_comments: Total expected rows (approximate): 0
+0008.544 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0008.551 (0) Table wp_comments: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_comments.table.gz - 0.5 KB)
+0008.572 (0) Table wp_links: Total expected rows (approximate): 0
+0008.580 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0008.587 (0) Table wp_links: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_links.table.gz - 0.4 KB)
+0008.607 (0) Table wp_postmeta: Total expected rows (approximate): 3753
+0008.647 (0) Table wp_postmeta: Total rows added: 3248 in 0.03 seconds
+0008.654 (0) Table wp_postmeta: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_postmeta.table.gz - 46.5 KB)
+0008.675 (0) Table wp_posts: Total expected rows (approximate): 297
+0008.762 (0) Table wp_posts: Total rows added: 332 in 0.08 seconds
+0008.769 (0) Table wp_posts: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_posts.table.gz - 228.5 KB)
+0008.789 (0) Table wp_term_relationships: Total expected rows (approximate): 55
+0008.799 (0) Table wp_term_relationships: Total rows added: 55 in 0.00 seconds
+0008.805 (0) Table wp_term_relationships: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_term_relationships.table.gz - 0.5 KB)
+0008.826 (0) Table wp_term_taxonomy: Total expected rows (approximate): 29
+0008.836 (0) Table wp_term_taxonomy: Total rows added: 29 in 0.00 seconds
+0008.842 (0) Table wp_term_taxonomy: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_term_taxonomy.table.gz - 0.6 KB)
+0008.863 (0) Table wp_termmeta: Total expected rows (approximate): 10
+0008.873 (0) Table wp_termmeta: Total rows added: 10 in 0.00 seconds
+0008.879 (0) Table wp_termmeta: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_termmeta.table.gz - 0.8 KB)
+0008.900 (0) Table wp_terms: Total expected rows (approximate): 29
+0008.910 (0) Table wp_terms: Total rows added: 29 in 0.00 seconds
+0008.916 (0) Table wp_terms: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_terms.table.gz - 0.8 KB)
+0008.938 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 277
+0008.949 (0) Table wp_yoast_seo_links: Total rows added: 277 in 0.01 seconds
+0008.955 (0) Table wp_yoast_seo_links: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_yoast_seo_links.table.gz - 3.3 KB)
+0008.977 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 244
+0008.987 (0) Table wp_yoast_seo_meta: Total rows added: 263 in 0.00 seconds
+0008.993 (0) Table wp_yoast_seo_meta: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_yoast_seo_meta.table.gz - 1 KB)
+0009.014 (0) Table wp_eum_logs: Total expected rows (approximate): 16
+0009.023 (0) Table wp_eum_logs: Total rows added: 19 in 0.00 seconds
+0009.030 (0) Table wp_eum_logs: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_eum_logs.table.gz - 0.8 KB)
+0009.051 (0) Table wp_imagify_files: Total expected rows (approximate): 0
+0009.064 (0) Table wp_imagify_files: Total rows added: 0 in 0.01 seconds
+0009.071 (0) Table wp_imagify_files: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_imagify_files.table.gz - 0.5 KB)
+0009.092 (0) Table wp_imagify_folders: Total expected rows (approximate): 0
+0009.100 (0) Table wp_imagify_folders: Total rows added: 0 in 0.00 seconds
+0009.106 (0) Table wp_imagify_folders: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_imagify_folders.table.gz - 0.4 KB)
+0009.127 (0) Table wp_revslider_css: Total expected rows (approximate): 121
+0009.139 (0) Table wp_revslider_css: Total rows added: 121 in 0.01 seconds
+0009.145 (0) Table wp_revslider_css: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_css.table.gz - 5.3 KB)
+0009.166 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0009.175 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0009.181 (0) Table wp_revslider_layer_animations: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_layer_animations.table.gz - 0.3 KB)
+0009.202 (0) Table wp_revslider_navigations: Total expected rows (approximate): 0
+0009.211 (0) Table wp_revslider_navigations: Total rows added: 0 in 0.00 seconds
+0009.216 (0) Table wp_revslider_navigations: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_navigations.table.gz - 0.3 KB)
+0009.237 (0) Table wp_revslider_sliders: Total expected rows (approximate): 0
+0009.245 (0) Table wp_revslider_sliders: Total rows added: 0 in 0.00 seconds
+0009.251 (0) Table wp_revslider_sliders: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_sliders.table.gz - 0.3 KB)
+0009.272 (0) Table wp_revslider_slides: Total expected rows (approximate): 0
+0009.281 (0) Table wp_revslider_slides: Total rows added: 0 in 0.00 seconds
+0009.288 (0) Table wp_revslider_slides: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_slides.table.gz - 0.3 KB)
+0009.309 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0009.318 (0) Table wp_revslider_static_slides: Total rows added: 0 in 0.00 seconds
+0009.324 (0) Table wp_revslider_static_slides: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_static_slides.table.gz - 0.3 KB)
+0009.345 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0009.353 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0009.359 (0) Table wp_wfBadLeechers: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0009.381 (0) Table wp_wfBlockedCommentLog: Total expected rows (approximate): 0
+0009.389 (0) Table wp_wfBlockedCommentLog: Total rows added: 0 in 0.00 seconds
+0009.396 (0) Table wp_wfBlockedCommentLog: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBlockedCommentLog.table.gz - 0.3 KB)
+0009.416 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 12
+0009.425 (0) Table wp_wfBlockedIPLog: Total rows added: 9 in 0.00 seconds
+0009.431 (0) Table wp_wfBlockedIPLog: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBlockedIPLog.table.gz - 0.5 KB)
+0009.452 (0) Table wp_wfBlocks7: Total expected rows (approximate): 0
+0009.461 (0) Table wp_wfBlocks7: Total rows added: 0 in 0.00 seconds
+0009.467 (0) Table wp_wfBlocks7: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBlocks7.table.gz - 0.4 KB)
+0009.487 (0) Table wp_wfConfig: Total expected rows (approximate): 253
+0009.514 (0) Table wp_wfConfig: Total rows added: 256 in 0.02 seconds
+0009.521 (0) Table wp_wfConfig: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfConfig.table.gz - 363.8 KB)
+0009.541 (0) Table wp_wfCrawlers: Total expected rows (approximate): 33
+0009.551 (0) Table wp_wfCrawlers: Total rows added: 42 in 0.00 seconds
+0009.557 (0) Table wp_wfCrawlers: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfCrawlers.table.gz - 0.9 KB)
+0009.578 (0) Table wp_wfFileChanges: Total expected rows (approximate): 0
+0009.587 (0) Table wp_wfFileChanges: Total rows added: 0 in 0.00 seconds
+0009.593 (0) Table wp_wfFileChanges: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfFileChanges.table.gz - 0.3 KB)
+0009.614 (0) Table wp_wfFileMods: Total expected rows (approximate): 9141
+0009.761 (0) Table wp_wfFileMods: binary mysqldump finished (writes: 36) in 0.14 seconds
+0009.768 (0) Table wp_wfFileMods: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfFileMods.table.gz - 804.9 KB)
+0009.789 (0) Table wp_wfHits: Total expected rows (approximate): 1812
+0009.827 (0) Table wp_wfHits: Total rows added: 1820 in 0.03 seconds
+0009.834 (0) Table wp_wfHits: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfHits.table.gz - 27.4 KB)
+0009.854 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0009.863 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0009.869 (0) Table wp_wfHoover: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0009.889 (0) Table wp_wfIssues: Total expected rows (approximate): 0
+0009.898 (0) Table wp_wfIssues: Total rows added: 0 in 0.00 seconds
+0009.904 (0) Table wp_wfIssues: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfIssues.table.gz - 0.4 KB)
+0009.925 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 9009
+0010.001 (0) Table wp_wfKnownFileList: binary mysqldump finished (writes: 28) in 0.07 seconds
+0010.008 (0) Table wp_wfKnownFileList: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfKnownFileList.table.gz - 93.8 KB)
+0010.030 (0) Table wp_wfLeechers: Total expected rows (approximate): 6
+0010.039 (0) Table wp_wfLeechers: Total rows added: 6 in 0.00 seconds
+0010.046 (0) Table wp_wfLeechers: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLeechers.table.gz - 0.4 KB)
+0010.066 (0) Table wp_wfLiveTrafficHuman: Total expected rows (approximate): 3
+0010.076 (0) Table wp_wfLiveTrafficHuman: Total rows added: 3 in 0.00 seconds
+0010.083 (0) Table wp_wfLiveTrafficHuman: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLiveTrafficHuman.table.gz - 0.5 KB)
+0010.103 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0010.113 (0) Table wp_wfLocs: Total rows added: 2 in 0.00 seconds
+0010.119 (0) Table wp_wfLocs: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLocs.table.gz - 0.5 KB)
+0010.138 (0) Table wp_wfLogins: Total expected rows (approximate): 124
+0010.150 (0) Table wp_wfLogins: Total rows added: 162 in 0.01 seconds
+0010.157 (0) Table wp_wfLogins: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLogins.table.gz - 3.6 KB)
+0010.177 (0) Table wp_wfNotifications: Total expected rows (approximate): 39
+0010.187 (0) Table wp_wfNotifications: Total rows added: 60 in 0.00 seconds
+0010.193 (0) Table wp_wfNotifications: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfNotifications.table.gz - 1.3 KB)
+0010.214 (0) Table wp_wfPendingIssues: Total expected rows (approximate): 0
+0010.222 (0) Table wp_wfPendingIssues: Total rows added: 0 in 0.00 seconds
+0010.229 (0) Table wp_wfPendingIssues: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfPendingIssues.table.gz - 0.4 KB)
+0010.250 (0) Table wp_wfReverseCache: Total expected rows (approximate): 5
+0010.259 (0) Table wp_wfReverseCache: Total rows added: 6 in 0.00 seconds
+0010.265 (0) Table wp_wfReverseCache: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfReverseCache.table.gz - 0.5 KB)
+0010.286 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0010.294 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0010.300 (0) Table wp_wfSNIPCache: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0010.321 (0) Table wp_wfScanners: Total expected rows (approximate): 21
+0010.330 (0) Table wp_wfScanners: Total rows added: 21 in 0.00 seconds
+0010.337 (0) Table wp_wfScanners: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfScanners.table.gz - 0.6 KB)
+0010.357 (0) Table wp_wfStatus: Total expected rows (approximate): 1327
+0010.380 (0) Table wp_wfStatus: Total rows added: 1393 in 0.02 seconds
+0010.387 (0) Table wp_wfStatus: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfStatus.table.gz - 24.9 KB)
+0010.423 (0) Table wp_wfTrafficRates: Total expected rows (approximate): 0
+0010.437 (0) Table wp_wfTrafficRates: Total rows added: 0 in 0.00 seconds
+0010.444 (0) Table wp_wfTrafficRates: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfTrafficRates.table.gz - 0.3 KB)
+0010.472 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0010.481 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0010.487 (0) Table wp_wfVulnScanners: finishing file (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0010.508 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_options.table.gz (1/47): adding to final database dump
+0010.576 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_users.table.gz (2/47): adding to final database dump
+0010.582 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_usermeta.table.gz (3/47): adding to final database dump
+0010.587 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_commentmeta.table.gz (4/47): adding to final database dump
+0010.593 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_comments.table.gz (5/47): adding to final database dump
+0010.599 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_links.table.gz (6/47): adding to final database dump
+0010.605 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_postmeta.table.gz (7/47): adding to final database dump
+0010.619 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_posts.table.gz (8/47): adding to final database dump
+0010.674 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_term_relationships.table.gz (9/47): adding to final database dump
+0010.680 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_term_taxonomy.table.gz (10/47): adding to final database dump
+0010.685 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_termmeta.table.gz (11/47): adding to final database dump
+0010.691 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_terms.table.gz (12/47): adding to final database dump
+0010.697 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_yoast_seo_links.table.gz (13/47): adding to final database dump
+0010.703 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_yoast_seo_meta.table.gz (14/47): adding to final database dump
+0010.709 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_eum_logs.table.gz (15/47): adding to final database dump
+0010.715 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_imagify_files.table.gz (16/47): adding to final database dump
+0010.721 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_imagify_folders.table.gz (17/47): adding to final database dump
+0010.727 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_css.table.gz (18/47): adding to final database dump
+0010.733 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_layer_animations.table.gz (19/47): adding to final database dump
+0010.739 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_navigations.table.gz (20/47): adding to final database dump
+0010.744 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_sliders.table.gz (21/47): adding to final database dump
+0010.750 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_slides.table.gz (22/47): adding to final database dump
+0010.755 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_revslider_static_slides.table.gz (23/47): adding to final database dump
+0010.761 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBadLeechers.table.gz (24/47): adding to final database dump
+0010.766 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBlockedCommentLog.table.gz (25/47): adding to final database dump
+0010.772 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBlockedIPLog.table.gz (26/47): adding to final database dump
+0010.778 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfBlocks7.table.gz (27/47): adding to final database dump
+0010.783 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfConfig.table.gz (28/47): adding to final database dump
+0010.803 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfCrawlers.table.gz (29/47): adding to final database dump
+0010.808 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfFileChanges.table.gz (30/47): adding to final database dump
+0010.814 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfFileMods.table.gz (31/47): adding to final database dump
+0010.877 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfHits.table.gz (32/47): adding to final database dump
+0010.889 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfHoover.table.gz (33/47): adding to final database dump
+0010.895 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfIssues.table.gz (34/47): adding to final database dump
+0010.900 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfKnownFileList.table.gz (35/47): adding to final database dump
+0010.921 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLeechers.table.gz (36/47): adding to final database dump
+0010.926 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLiveTrafficHuman.table.gz (37/47): adding to final database dump
+0010.932 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLocs.table.gz (38/47): adding to final database dump
+0010.938 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfLogins.table.gz (39/47): adding to final database dump
+0010.944 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfNotifications.table.gz (40/47): adding to final database dump
+0010.950 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfPendingIssues.table.gz (41/47): adding to final database dump
+0010.956 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfReverseCache.table.gz (42/47): adding to final database dump
+0010.962 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfSNIPCache.table.gz (43/47): adding to final database dump
+0010.967 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfScanners.table.gz (44/47): adding to final database dump
+0010.973 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfStatus.table.gz (45/47): adding to final database dump
+0010.982 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfTrafficRates.table.gz (46/47): adding to final database dump
+0010.988 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db-table-wp_wfVulnScanners.table.gz (47/47): adding to final database dump
+0010.993 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db.gz: finished writing out complete database file (1952 KB)
+0011.036 (0) Total database tables backed up: 47 (backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db.gz, size: 2024456, sha256)
+0011.085 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0011.090 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip: plugins: This file has not yet been successfully uploaded: will queue
+0011.096 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0011.102 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0011.107 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip: uploads: This file has not yet been successfully uploaded: will queue
+0011.113 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads3.zip: uploads: This file has not yet been successfully uploaded: will queue
+0011.119 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-others.zip: others: This file has not yet been successfully uploaded: will queue
+0011.124 (0) backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db.gz: db: This file has not yet been successfully uploaded: will queue
+0011.130 (0) Saving backup history. Total backup size: 109.5 MB
+0011.151 (0) Requesting upload of the files that have not yet been successfully uploaded (8)
+0011.170 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0011.175 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-279872b6cbdd0c5c8a5fb3eaaaf63dfd)
+0011.528 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip (chunks: 5) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip
+0011.622 (0) S3 chunked upload: got multipart ID: t8fSMIWgWpJfaTjDWdPTCfBA8F3GJEijvpOUQ1MLfgAVqEna0oWuOINcglWL_Cl4..n21gJvOY8gXT_L6yiI0Hjv58aGNnKPRYYOMBTROqwfhIiaOlKdG6o2jFzCYyt6
+0012.661 (0) S3 chunked upload: 20 % uploaded (1, "97e849a29ad6631dbc3d8a7d2a58dfd9")
+0013.081 (0) S3 chunked upload: 40 % uploaded (2, "51d87af87e9f656051d406be27948c1a")
+0013.577 (0) S3 chunked upload: 60 % uploaded (3, "d94329e75dd2252d16610e72f2c9b3d7")
+0013.975 (0) S3 chunked upload: 80 % uploaded (4, "f0c6ce87fbd6feb312bf32d72a2bc730")
+0014.412 (0) S3 chunked upload: 100 % uploaded (5, "65edc22dace0b0e67e1f4e126c2fda80")
+0014.434 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0014.631 (0) S3 upload (plugins0): re-assembly succeeded
+0014.639 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip
+0014.654 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins.zip: skipped: user has unchecked updraft_delete_local option
+0014.660 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip (chunks: 2) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip
+0014.747 (0) S3 chunked upload: got multipart ID: D6CTNplw5itGFwbT5IBHtnH2W27HgDsDuf_66RS6AKJ9Oa6yVRT04ycJytHP.3PO162bnMJ14fP2oJU_qHBtnH6gq.MwutLIO3EH00f8JkBCsU5lly3fC3O1lkbVeVqd
+0015.243 (0) S3 chunked upload: 50 % uploaded (1, "26175210ee35b35ffbed94f959c0d40e")
+0015.665 (0) S3 chunked upload: 100 % uploaded (2, "8788daf9d4995459985f75b98f7079f1")
+0015.692 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0015.843 (0) S3 upload (plugins1): re-assembly succeeded
+0015.851 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip
+0015.865 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-plugins2.zip: skipped: user has unchecked updraft_delete_local option
+0015.871 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip (chunks: 2) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip
+0015.962 (0) S3 chunked upload: got multipart ID: ysTbEgQtLEVbkb6x2FJS9dshB2_hkuzQv5CIokdEDEhP4Jx9ZiKf7r9pY_EQ.K_g_JJpdl3nakqLHndZ2Q.NHCkewZuBpow83QYWWLM7XMx_DnBZHbwJPjl.WIAbWZKJ
+0016.365 (0) S3 chunked upload: 50 % uploaded (1, "51c38eb9b4fe7a29ec2b6a0aec781c31")
+0016.613 (0) S3 chunked upload: 100 % uploaded (2, "4e3c6c6ff3e81f1952b23d860775a8ae")
+0016.664 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0016.859 (0) S3 upload (themes0): re-assembly succeeded
+0016.867 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip
+0016.881 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-themes.zip: skipped: user has unchecked updraft_delete_local option
+0016.892 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip (chunks: 6) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip
+0016.981 (0) S3 chunked upload: got multipart ID: aMPQWTCQ64xPFr6snTYBWVSt06zmRUE.pNCLC_9r5VN3w1T2nB7b7FfPocRuzR8U35IYA4Anznp6udnFMVqOOFbbhaWzFTu80u4mLNdxh8VQ7F2ZTYy0qgrXH1owTpOr
+0017.370 (0) S3 chunked upload: 16.7 % uploaded (1, "6964241aea688bba1dc104f666bcedc0")
+0017.920 (0) S3 chunked upload: 33.3 % uploaded (2, "7fed0bf58d4755678df07c67f7986650")
+0018.361 (0) S3 chunked upload: 50 % uploaded (3, "2f12adf61032a1a763c13c209edb084e")
+0018.843 (0) S3 chunked upload: 66.7 % uploaded (4, "af3b76cef8add4a8e2af70641a98af5f")
+0019.291 (0) S3 chunked upload: 83.3 % uploaded (5, "77744294a74973487cfd9de5fdadb562")
+0019.608 (0) S3 chunked upload: 100 % uploaded (6, "605f55f66d22b47b4aa03d0a57547950")
+0019.629 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0019.824 (0) S3 upload (uploads0): re-assembly succeeded
+0019.837 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip
+0019.852 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads.zip: skipped: user has unchecked updraft_delete_local option
+0019.859 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip (chunks: 6) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip
+0019.948 (0) S3 chunked upload: got multipart ID: IJkEsdoGAzHyzIToGwVgjx103O0h5rUp38aTzu6ik4AtdTZ4xaE3jo1WK8rD_2sPos2Kh3.cHc3Z5e9mGmQEonr_0U7VAUSU5LsvX7jM6X1Cd172D4WLyEEo8eL1gnH.
+0020.394 (0) S3 chunked upload: 16.7 % uploaded (1, "dd4ab72692f7a27eb49d81bfe391c834")
+0020.831 (0) S3 chunked upload: 33.3 % uploaded (2, "bf0c7ef6d95e211ac64ac5e2d2b99466")
+0021.429 (0) S3 chunked upload: 50 % uploaded (3, "2107d76e65e66f8d283329270fce4142")
+0021.951 (0) S3 chunked upload: 66.7 % uploaded (4, "520754f3f6cbfeba2f833a58cad10920")
+0022.516 (0) S3 chunked upload: 83.3 % uploaded (5, "ba1c6d326acb6a5462e1ef8c9de62bea")
+0022.776 (0) S3 chunked upload: 100 % uploaded (6, "d4984f5612e8e1e9503d9bee38d21db1")
+0022.797 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0022.990 (0) S3 upload (uploads1): re-assembly succeeded
+0022.997 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip
+0023.011 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads2.zip: skipped: user has unchecked updraft_delete_local option
+0023.016 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads3.zip (chunks: 2) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads3.zip
+0023.129 (0) S3 chunked upload: got multipart ID: wyPHabpScnqarOp9nVJqE0up190duHebJTSbzeRRjARWzzZELSnFBuaj6ttRmc7Uug9722_kFIrqSGGSODqi7TeZ0SRnk1RwAQgakHByAHjF5YyVbdc.3SdQxjm0hUwe
+0023.637 (0) S3 chunked upload: 50 % uploaded (1, "0a443841e36bd958d697400ff989af44")
+0024.163 (0) S3 chunked upload: 100 % uploaded (2, "a6301027e8d563d5640ab3939cc06582")
+0024.184 (0) S3 upload: all chunks uploaded; will now instruct S3 to re-assemble
+0024.341 (0) S3 upload (uploads2): re-assembly succeeded
+0024.347 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads3.zip
+0024.360 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-uploads3.zip: skipped: user has unchecked updraft_delete_local option
+0024.366 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-others.zip (chunks: 1) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-others.zip
+0024.757 (0) S3 regular upload: success
+0024.765 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-others.zip
+0024.778 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-others.zip: skipped: user has unchecked updraft_delete_local option
+0024.784 (0) S3 upload (): backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db.gz (chunks: 1) -> s3://steelmodular.us/backups/backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db.gz
+0025.080 (0) S3 regular upload: success
+0025.089 (0) Recording as successfully uploaded: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db.gz
+0025.105 (0) Deleting local file: backup_2019-01-30-2253_Steel_Modular_Inc_c31ce664d46d-db.gz: skipped: user has unchecked updraft_delete_local option
+0025.119 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=20, retain_db=20
+0025.128 (0) Number of backup sets in history: 15; groups (db): 1
+0025.133 (0) Examining (for databases) backup set with group_id=0, nonce=c31ce664d46d, datestamp=1548888788 (Jan 30 2019 22:53:08)
+0025.139 (0) This backup set is the backup set just made, so will not be deleted.
+0025.139 (0) Examining (for databases) backup set with group_id=0, nonce=d9376a8112b3, datestamp=1548613015 (Jan 27 2019 18:16:55)
+0025.139 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.144 (0) Examining (for databases) backup set with group_id=0, nonce=ce7e2c1f8129, datestamp=1548008277 (Jan 20 2019 18:17:57)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=8944a4820661, datestamp=1547414456 (Jan 13 2019 21:20:56)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=32a050d5438f, datestamp=1547126786 (Jan 10 2019 13:26:26)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=87cf2de3d513, datestamp=1546798816 (Jan 06 2019 18:20:16)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=a62148b831b5, datestamp=1546194005 (Dec 30 2018 18:20:05)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=8aacc4a19257, datestamp=1546016280 (Dec 28 2018 16:58:00)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=ccb05a89ee94, datestamp=1545591066 (Dec 23 2018 18:51:06)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=2b4136344983, datestamp=1544992047 (Dec 16 2018 20:27:27)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=d46a08440771, datestamp=1544381920 (Dec 09 2018 18:58:40)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=9d563f812691, datestamp=1543793148 (Dec 02 2018 23:25:48)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=614d152f0772, datestamp=1543179022 (Nov 25 2018 20:50:22)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=61edbf3c3d1e, datestamp=1542573843 (Nov 18 2018 20:44:03)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Examining (for databases) backup set with group_id=0, nonce=151e98b6a129, datestamp=1542564678 (Nov 18 2018 18:11:18)
+0025.145 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.145 (0) Number of backup sets in history: 15; groups (files): 1
+0025.151 (0) Examining (for files) backup set with nonce=c31ce664d46d, datestamp=1548888788 (Jan 30 2019 22:53:08)
+0025.151 (0) This backup set is the backup set just made, so will not be deleted.
+0025.156 (0) This backup set is the backup set just made, so will not be deleted.
+0025.156 (0) This backup set is the backup set just made, so will not be deleted.
+0025.157 (0) This backup set is the backup set just made, so will not be deleted.
+0025.157 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=d9376a8112b3, datestamp=1548613015 (Jan 27 2019 18:16:55)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=ce7e2c1f8129, datestamp=1548008277 (Jan 20 2019 18:17:57)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=8944a4820661, datestamp=1547414456 (Jan 13 2019 21:20:56)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=32a050d5438f, datestamp=1547126786 (Jan 10 2019 13:26:26)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=87cf2de3d513, datestamp=1546798816 (Jan 06 2019 18:20:16)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=a62148b831b5, datestamp=1546194005 (Dec 30 2018 18:20:05)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=8aacc4a19257, datestamp=1546016280 (Dec 28 2018 16:58:00)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=ccb05a89ee94, datestamp=1545591066 (Dec 23 2018 18:51:06)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=2b4136344983, datestamp=1544992047 (Dec 16 2018 20:27:27)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=d46a08440771, datestamp=1544381920 (Dec 09 2018 18:58:40)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=9d563f812691, datestamp=1543793148 (Dec 02 2018 23:25:48)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.163 (0) Examining (for files) backup set with nonce=614d152f0772, datestamp=1543179022 (Nov 25 2018 20:50:22)
+0025.163 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.164 (0) Examining (for files) backup set with nonce=61edbf3c3d1e, datestamp=1542573843 (Nov 18 2018 20:44:03)
+0025.164 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.164 (0) Examining (for files) backup set with nonce=151e98b6a129, datestamp=1542564678 (Nov 18 2018 18:11:18)
+0025.164 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0025.164 (0) Retain: saving new backup history (sets now: 15) and finishing retain operation
+0025.180 (0) Resume backup (c31ce664d46d, 0): finish run
+0025.197 (0) Decremented the semaphore (fd) by 1
+0025.208 (0) Semaphore (fd) unlocked
+0025.213 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0025.234 (0) Fetching RSS news feed
+0025.374 (0) Fetched RSS news feed; result is a: SimplePie
+0025.382 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: safes...
+0025.988 (0) The backup apparently succeeded and is now complete

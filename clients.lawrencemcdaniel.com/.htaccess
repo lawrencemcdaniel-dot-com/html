@@ -1,30 +1,26 @@
-# BEGIN WP Rocket v3.2.3.1
+# BEGIN WP Rocket v3.2.4
 # Use UTF-8 encoding for anything served text/plain or text/html
 AddDefaultCharset UTF-8
 # Force UTF-8 for a number of file formats
 <IfModule mod_mime.c>
 AddCharset UTF-8 .atom .css .js .json .rss .vtt .xml
 </IfModule>
-
 # FileETag None is not enough for every server.
 <IfModule mod_headers.c>
 Header unset ETag
 </IfModule>
-
 # Since we’re sending far-future expires, we don’t need ETags for static content.
 # developer.yahoo.com/performance/rules.html#etags
 FileETag None
-
 <IfModule mod_alias.c>
 <FilesMatch "\.(html|htm|rtf|rtx|txt|xsd|xsl|xml)$">
 <IfModule mod_headers.c>
-Header set X-Powered-By "WP Rocket/3.2.3.1"
+Header set X-Powered-By "WP Rocket/3.2.4"
 Header unset Pragma
 Header append Cache-Control "public"
 Header unset Last-Modified
 </IfModule>
 </FilesMatch>
-
 <FilesMatch "\.(css|htc|js|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|json|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$">
 <IfModule mod_headers.c>
 Header unset Pragma
@@ -32,7 +28,6 @@ Header append Cache-Control "public"
 </IfModule>
 </FilesMatch>
 </IfModule>
-
 # Expires headers (for better cache control)
 <IfModule mod_expires.c>
 	ExpiresActive on
@@ -87,7 +82,6 @@ SetEnvIfNoCase Request_URI \
 \.(?:gif|jpe?g|png|rar|zip|exe|flv|mov|wma|mp3|avi|swf|mp?g|mp4|webm|webp|pdf)$ no-gzip dont-vary
 </IfModule>
 </IfModule>
-
 # Compress all output labeled with one of the following MIME-types
 <IfModule mod_filter.c>
 AddOutputFilterByType DEFLATE application/atom+xml \
@@ -111,9 +105,7 @@ AddOutputFilterByType DEFLATE application/atom+xml \
 Header append Vary: Accept-Encoding
 </IfModule>
 </IfModule>
-
 # END WP Rocket
-
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -123,7 +115,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
 # END WordPress
 # Wordfence WAF
 <IfModule mod_php7.c>

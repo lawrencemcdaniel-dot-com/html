@@ -439,7 +439,7 @@ class Fusion_Images {
 		if ( ! empty( $fusion_col_type['type'] ) ) {
 
 			// Do some advanced column size calcs respecting margins for better column width estimation.
-			if ( isset( $fusion_col_type['spacings'] ) ) {
+			if ( ! empty( $fusion_col_type['spacings'] ) ) {
 				$width = $this->calc_width_respecting_spacing( $width, $fusion_col_type['spacings'] );
 			}
 

@@ -77,14 +77,14 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 					'fusion_privacy_default_parameter',
 					FusionBuilder::set_shortcode_defaults(
 						array(
-							'animation_direction'   => 'left',
-							'animation_offset'      => $fusion_settings->get( 'animation_offset' ),
-							'animation_speed'       => '',
-							'animation_type'        => '',
-							'class'                 => '',
-							'form_field_layout'     => 'stacked',
-							'hide_on_mobile'        => fusion_builder_default_visibility( 'string' ),
-							'id'                    => '',
+							'animation_direction' => 'left',
+							'animation_offset'    => $fusion_settings->get( 'animation_offset' ),
+							'animation_speed'     => '',
+							'animation_type'      => '',
+							'class'               => '',
+							'form_field_layout'   => 'stacked',
+							'hide_on_mobile'      => fusion_builder_default_visibility( 'string' ),
+							'id'                  => '',
 						),
 						$args,
 						'fusion_privacy'
@@ -116,7 +116,7 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 			 * @return string
 			 */
 			public function privacy_embed_form() {
-				$html = '';
+				$html  = '';
 				$html .= $this->get_alert();
 
 				$embeds   = Avada()->privacy_embeds->get_embed_types();
@@ -239,22 +239,22 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 			 */
 			public function save_consents() {
 
-				if ( isset( $_POST ) && isset( $_POST['privacyformid'] ) ) {  // WPCS: CSRF ok.
+				if ( isset( $_POST ) && isset( $_POST['privacyformid'] ) ) { // phpcs:ignore WordPress.Security
 
 					$query_args = array(
 						'success' => 1,
-						'id'      => (int) $_POST['privacyformid'], // WPCS: CSRF ok.
+						'id'      => (int) $_POST['privacyformid'], // phpcs:ignore WordPress.Security
 					);
 
-					if ( isset( $_POST['consents'] ) ) {
-						Avada()->privacy_embeds->save_cookie( array_map( 'esc_attr', wp_unslash( $_POST['consents'] ) ) ); // WPCS: CSRF ok, sanitization ok.
+					if ( isset( $_POST['consents'] ) ) { // phpcs:ignore WordPress.Security
+						Avada()->privacy_embeds->save_cookie( array_map( 'esc_attr', wp_unslash( $_POST['consents'] ) ) ); // phpcs:ignore WordPress.Security
 					} else {
 						Avada()->privacy_embeds->clear_cookie();
 						$query_args['success'] = 2;
 					}
 
-					if ( isset( $_POST['_wp_http_referer'] ) ) {
-						$redirection_link = wp_unslash( $_POST['_wp_http_referer'] ); // WPCS: CSRF ok, sanitization ok.
+					if ( isset( $_POST['_wp_http_referer'] ) ) { // phpcs:ignore WordPress.Security
+						$redirection_link = wp_unslash( $_POST['_wp_http_referer'] ); // phpcs:ignore WordPress.Security
 						$redirection_link = add_query_arg( $query_args, $redirection_link );
 						wp_safe_redirect( $redirection_link );
 					}
@@ -270,8 +270,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 			public function get_alert() {
 				$alert = '';
 
-				if ( isset( $_GET ) && isset( $_GET['success'] ) && isset( $_GET['id'] ) && $this->privacy_counter === (int) $_GET['id'] ) {
-					if ( 1 === (int) $_GET['success'] ) {
+				if ( isset( $_GET ) && isset( $_GET['success'] ) && isset( $_GET['id'] ) && $this->privacy_counter === (int) $_GET['id'] ) { // phpcs:ignore WordPress.Security, 
+					if ( 1 === (int) $_GET['success'] ) { // phpcs:ignore WordPress.Security
 						if ( shortcode_exists( 'fusion_alert' ) ) {
 							$alert = do_shortcode( '[fusion_alert type="success"]' . esc_html__( 'Your embed preferences have been updated.', 'fusion-core' ) . '[/fusion_alert]' );
 						} else {
@@ -289,10 +289,10 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 				return $alert;
 			}
 		}
-	} // End if().
+	}
 
 	new FusionSC_Privacy();
-} // End if().
+}
 
 /**
  * Map shortcode to Fusion Builder.
